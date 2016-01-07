@@ -1,0 +1,20 @@
+{
+  "name": "conf",
+  "version": "0.2.0",
+  "description": "The official ASCE conference site style guide.",
+  "main": "index.html",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asce-web/conf.git"
+  },
+  "author": "ASCE Web Team <webteam@asce.org> (https://github.com/asce-web/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/asce-web/conf/issues"
+  },
+  "homepage": "http://conf.style.asce.org/"
+}

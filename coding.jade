@@ -29,8 +29,10 @@ html
           dt Version History
           dd
             time(datetime="2016-01-19 14:34") Jan 19, 2016 #[span.tod  2:34 PM]
-          dd(itemprop="dateModified")
+          dd
             time(datetime="2016-01-20 16:11") Jan 20, 2016 #[span.tod  4:11 PM]
+          dd(itemprop="dateModified")
+            time(datetime="2016-01-22 17:48") Jan 22, 2016 #[span.tod  5:48 PM]
         p.
           #[strong General Principles.] As
           #[a(href="http://nicolasgallagher.com/") Nicolas Gallagher]
@@ -48,7 +50,7 @@ html
           This is not #[em the] rulebook for all projects.
           However, you may extend this guide to other projects if you wish.
       section
-        h1 Section 1. Textual Structure
+        h1 Textual Structure
         section
           h1 Whitespace
           ul
@@ -65,7 +67,12 @@ html
               while inline-level HTML elements are written in-line with text.
             li Line breaks may also be used within long passages of text content.
             li In CSS, 99% of the time, each rule is written on its own line.
-            li Exception: line breaks may be omitted when multiple, parallel code structures can fit on one line.
+          section
+            h1 Exceptions
+            ul
+              li Line breaks may be omitted when multiple, parallel code structures can fit on one line.
+              li Line breaks may be introduced to improve readability and produce more useful diffs.
+              li Use spaces to horizontally align text in such cases.
         section
           h1 Indentation
           ul
@@ -79,7 +86,7 @@ html
           ul
             li Keep lines of all code between 75&ndash;90 characters long to maximize readability.
         section
-          h1 Section 1 Examples
+          h1 Examples
           figure: pre.
             &lt;p&gt;Block-level elements get their own line.&lt;/p&gt;
             &lt;div&gt;
@@ -94,10 +101,10 @@ html
               Text content does *not* count as a block element.
             &lt;/p&gt;
             &lt;p&gt;Inline elements &lt;del&gt;may&lt;/del&gt;
-              &lt;ins&gt;should&lt;/ins&gt; be written in-line with text.&lt;/p&gt;
+              &lt;ins&gt;should&lt;/ins&gt; be written &lt;em&gt;in-line&lt;/em&gt; with text.&lt;/p&gt;
             &lt;ul&gt;
               &lt;li&gt;&lt;p&gt;Here is an exception to the line-break rule:&lt;/p&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;p&gt;Line breaks may be omitted for only-child block-level elements that take up one line.&lt;/p&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;p&gt;Line breaks may be omitted for only-child elements that take up one line.&lt;/p&gt;&lt;/li&gt;
               &lt;li&gt;&lt;p&gt;*Do not do this* if you must use
                 a line break!&lt;/p&gt;&lt;/li&gt;
               &lt;li&gt;
@@ -106,19 +113,29 @@ html
               &lt;/li&gt;
             &lt;/ul&gt;
             &lt;style&gt;
-              .line {
+              .selector {
                 /* CSS rules usually get their own line. */
                 margin: 0 0 1rem;
                 line-height: 1.25;
               }
-              /* You may omit line breaks when you have parallel structures. */
+              /* Line breaks may be omitted for parallel structures. */
               .column-1 { width: 100%; margin-left:  0%; }
               .column-2 { width:  50%; margin-left: 50%; }
               .column-3 { width:  33%; margin-left: 67%; }
               .column-4 { width:  25%; margin-left: 75%; }
+              .selector {
+                /*
+                 * Line breaks may be introduced to improve readability,
+                 * code editing, and more useful diffs.
+                 */
+                background-image: linear-gradient(#fff, #ccc),
+                                  linear-gradient(#f3c, #4ec);
+                box-shadow: 1px 1px 1px     #000,
+                            2px 2px 1px 1px #ccc inset;
+              }
             &lt;/style&gt;
       section
-        h1 Section 2. Code Formatting
+        h1 Code Formatting
         section
           h1 Casing
           ul
@@ -128,6 +145,7 @@ html
             li Casing of CSS/Less classnames/mixins are #[a(href="naming-convention") discussed below].
             li Less variables always use under_score_lower_case, never hyphens.
             li Use lower-case-hyphens for filenames and folders only.
+            li Lower case and shorthand hex color values (#[code #cf9], not #[code #CCFF99]).
             li
               | In scripting (JS, PHP):
               ul
@@ -136,14 +154,14 @@ html
                 li variables use under_score_lower_case
                 li constants use UNDER_SCORE_UPPER_CASE
         section
-          h1 Spaces and Punctuation
+          h1 Punctuation and Spaces
           ul
             li Always put spaces immediately inside block and inline comment delimiters.
+            li Always put spaces immediatlely inside CSS and JS braces #[strong if they are on the same line].
             li Always omit spaces immediately inside HTML start or end tags.
-            li Always include a slash, but not a space, for an HTML self-closing tag.
             li Always omit spaces immediately inside HTML attribute values.
-            li Always put spaces immediatlely inside CSS and JS braces #[strong #[em only if] they are on the same line].
-            li Always omit spaces immediatlely inside parentheses #[strong #[em even when] they are on the same line].
+            li Always omit spaces immediatlely inside parentheses any time.
+            li Always include a slash, but not a space, for an HTML self-closing tag.
             li.
               In JS, put spaces before open parentheses and after control keywords, but not after names of functions
               (#[code if (...) { ... }], #[code function talk(...) { ... }]).
@@ -151,9 +169,8 @@ html
             li.
               Always put spaces following colons (#[code :]) in CSS rules, and
               following semicolons (#[code ;]) when multiple CSS rules share a line and in inline styles.
-            li.
-              Always use double-quotes for HTML attribute values&mdash;even
-              one-word values, empty values, and for boolean attributes.
+            li Always use double-quotes for HTML attribute values&mdash;even one-word values and empty values
+            li Always use the empty string for HTML boolean attributes (#[code checked=""]).
             li Always use single-quotes for all strings in CSS and JS, and for strings within HTML attribute values.
             li
               | In CSS and JS, use the #[a(href="https://en.wikipedia.org/wiki/Indent_style#Variant:_1TBS") 1TBS] brace style:
@@ -172,9 +189,18 @@ html
           ul
             li Close all HTML tags, even if not required
             li.
+              Insert the #[code caption], #[code thead], and #[code tfoot] elements (in that order)
+              #[em before] the main tabular content in an HTML #[code table] element.
+            li.
+              When adding a link to one element, wrap the #[code &lt;a&gt;] tag around
+              the #[em outside] of the element to be linked.
+            li.
+              Use the #[code hr] element as little as possible. Instead, end one #[code section]
+              and start another, using CSS to create a border if need be.
+            li.
               Omit the #[code type] attribute from the
-              #[code link], #[code style], and #[code script] elements,
-              but only if the value is default (#[code type=&quot;text/css&quot;] or #[code type=&quot;text/javascript&quot;])
+              #[code &lt;link&gt;], #[code &lt;style&gt;], and #[code &lt;script&gt;] tags,
+              but only if the value is default (#[code type="text/css"] or #[code type="text/javascript"])
             li
               | Attributes shall have the following precedence and thus shall be written in the following order:
               ol
@@ -183,10 +209,10 @@ html
                 li any attributes starting with #[code data-]
                 li.
                   any other #[a(href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes") global attributes]
-                  not on this list (such as #[code style], #[code title], #[code lang], etc.)
+                  not on this list (#[code style], #[code title], #[code lang], etc.)
                 li.
                   any element-specific attributes
-                  (such as #[code href], #[code src], #[code rel], #[code alt], etc.)
+                  (#[code href], #[code src], #[code rel], #[code alt], etc.)
                 li
                   | microdata attributes in the following order:
                   ol
@@ -195,32 +221,42 @@ html
                     li: code itemtype
                     li #[code itemid] or #[code itemref]
               | Microdata attributes, though global, are listed last to improve readability.
+            li.
+              #[strong Recommendation:]
+              Every #[code dfn] element should have a unique #[code id], so that there is only
+              one defining instance of a term per page. Furthermore, it can be used as
+              a hyperlink anchor (#[i fragment identifier]).
+            li Use unitless CSS values of 0 (#[code margin: 0;], not #[code margin: 0px;]).
         section
-          h1 Section 2 Examples
+          h1 Examples
           figure: pre.
-            &lt;ol style=&quot;font-family: 'Helvetica';&quot;&gt;
+            &lt;ol style="font-family: 'Helvetica';"&gt;
               &lt;li&gt;this is *good*: there is no space immediately inside tags&lt;/li&gt;
               &lt;li&gt; this is *bad*: there is space immediately inside tags &lt;/li&gt;
             &lt;/ol&gt;
             &lt;br/&gt;
-            &lt;img alt=&quot; this is *bad*: immediate space inside quotes and before slash&quot; /&gt;
-            &lt;input itemprop=&quot;name&quot;/&gt;
-            &lt;input checked=&quot;&quot;/&gt;
+
+            &lt;img alt=" this is *bad*: space immediately inside quotes and before slash" /&gt;
+            &lt;input itemprop="name"/&gt;
+            &lt;input checked=""/&gt;
             &lt;!--this is a bad comment!--&gt;
             &lt;!-- this is a good comment! --&gt;
+
+            &lt;code&gt;&lt;a&gt;this is incorrect&lt;/a&gt;&lt;/code&gt;
+            &lt;a&gt;&lt;code&gt;this is correct&lt;/code&gt;&lt;/a&gt;
+            &lt;code&gt;&lt;a&gt;only do this if&lt;/a&gt; there is more content not to be linked&lt;/code&gt;
             &lt;a data-name="index-1" href="//google.com" itemprop="url" itemscope="" itemtype="//schema.org/URL"&gt;click here&lt;/a&gt;
             &lt;img class="my-img" id="img1" data-type="jpeg" src="//google.com/logo.jpg"/&gt;
-            &lt;pre&gt;
-              Jade syntax:
-              div.my-div#the-only-div(data-length="87" lang="en") this line contains 87 characters
-            &lt;/pre&gt;
+
             &lt;style&gt;
               .column-5 {width:20%;margin-left:80%;} /*this is bad!*/
               .column-5 { width: 20%; margin-left: 80%; } /* this is good! */
             &lt;/style&gt;
             &lt;script&gt;
-              function TestSubject(name, adopted) { //this is a bad commment!
-                Person.call(this, name, adopted) // this is a good comment!
+              //this is a bad commment!
+              // this is a good comment!
+              function TestSubject(name, adopted) {
+                Person.call(this, name, adopted)
                 if (typeof adopted == 'boolean') {
                   this.is_adopted = adopted
                 } else this.is_adopted = false
@@ -229,3 +265,77 @@ html
                 console.log(testSubject.name)
               })(new TestSubject('Chell', function () { return true }))
             &lt;/script&gt;
+      section
+        h1 Naming
+      section
+        h1 Commenting
+        section
+          h1 Formatting
+          p Comment formatting is best shown by example:
+          figure: pre.
+            // Where available, always use
+            // inline syntax for block comments
+            // (of course as well as inline),
+            // with each line beginning with
+            // two slashes and a space.
+
+            //- In the Jade language, comments
+            //- hidden from the output are as shown here.
+
+            /*
+             * If inline syntax is unavailable, use this format.
+             * Notice the opening and closing delimiters are on their own line,
+             * and lines of text begin with asterisks horizontally aligned
+             * with the delimiters. (#[a(href="https://en.wikipedia.org/wiki/Javadoc#Structure_of_a_Javadoc_comment") JavaDoc commenting] adds a second asterisk
+             * in the opening delimiter.)
+             */
+
+            /* Use this format for a single line if there&rsquo;s no inline syntax. */
+        section
+          h1 Usage
+          p.
+            This section describes the style we will be using to place comments in our codebase.
+            It pertains mostly to CSS code, but it may be used for JavaScript as well. There is not
+            much use for comments in HTML (which, as a markup language, is self-descriptive).
+          p.
+            In general, well-commented code has one main function: to provide communication
+            among developers. This means to other people on your team, but also to yourself in the future.
+            Use comments to thoroughly document your code,
+            but from a high level&mdash;there is no need to describe every little line or detail.
+            If you write good code, it should speak for itself.
+          p: small
+            strong Aside: 
+            a(href="http://stackoverflow.com/questions/4947213/does-anyone-know-of-a-css-documentation-tool") some tools
+            |  attempt to automatically generate documentation from a rigorous syntax in comments.
+            |  This is worth looking into.
+          p.
+            There are three levels of commenting: those that deliniate the architecture of a file,
+            those that describe individual code structures, and small developer notes.
+          section
+            h1 Architectural
+            p.
+              Use comments to create a table of contents and headers in your source code.
+              This is useful for big files that need to be split up into sections.
+              If the file is too big, however, it may be scoped too broadly, and should be
+              broken down into multiple smaller files (#[dfn#partial partials]).
+              It&rsquo;s good practice to include the filenames at the top of each partial so that
+              they outline the files when concatenated.
+          section
+            h1 Structural
+            p.
+              Each code structure (pattern, object, component, class, function, etc.)
+              deserves its own comment explaining
+              what it is, how it works, when/why it should be used, and its benefits and limitations.
+              In this comment it&rsquo;s good practice to also include meta-data such as author and
+              date created/modified.
+          section
+            h1 Developmental
+            p.
+              These are small, one-line comments explaining why some particular thing was done.
+              Use these comments sparingly, for cases in which the code is not obvious;
+              too many of these comments can be overwhelming.
+              For example, use these when you use #[code !important] in CSS,
+              or when you use #[dfn#magic-number magic numbers]&mdash;numbers that just so happen
+              to work in their given situation (#[q what does this 18px come from?]).
+      section
+        h1 Code Organization &amp; File Structure

@@ -57,6 +57,7 @@ html
             li Use whitespace consistently and to improve code readability.
             li Always use spaces, never tabs.
             li Never leave trailing whitespace at the end of a line.
+            li Use spaces to horizontally align repeated text.
         section
           h1 Line Breaks
           ul
@@ -72,7 +73,6 @@ html
             ul
               li Line breaks may be omitted when multiple, parallel code structures can fit on one line.
               li Line breaks may be introduced to improve readability and produce more useful diffs.
-              li Use spaces to horizontally align text in such cases.
         section
           h1 Indentation
           ul
@@ -113,6 +113,9 @@ html
               &lt;/li&gt;
             &lt;/ul&gt;
             &lt;style&gt;
+              /* CSS selectors usually get their own line. */
+              .class1 &gt; .child,
+              .class2 + .child,
               .selector {
                 /* CSS rules usually get their own line. */
                 margin: 0 0 1rem;
@@ -127,11 +130,15 @@ html
                 /*
                  * Line breaks may be introduced to improve readability,
                  * code editing, and more useful diffs.
+                 * Prepend spaces to align repeated text.
                  */
                 background-image: linear-gradient(#fff, #ccc),
                                   linear-gradient(#f3c, #4ec);
                 box-shadow: 1px 1px 1px     #000,
                             2px 2px 1px 1px #ccc inset;
+                -webkit-transform: translate(100px) rotate(20deg);
+                   -moz-transform: translate(100px) rotate(20deg);
+                        transform: translate(100px) rotate(20deg);
               }
             &lt;/style&gt;
       section
@@ -307,7 +314,7 @@ html
             strong Aside: 
             a(href="http://stackoverflow.com/questions/4947213/does-anyone-know-of-a-css-documentation-tool") some tools
             |  attempt to automatically generate documentation from a rigorous syntax in comments.
-            |  This is worth looking into.
+            |  These are worth looking into.
           p.
             There are three levels of commenting: those that deliniate the architecture of a file,
             those that describe individual code structures, and small developer notes.
@@ -317,7 +324,7 @@ html
               Use comments to create a table of contents and headers in your source code.
               This is useful for big files that need to be split up into sections.
               If the file is too big, however, it may be scoped too broadly, and should be
-              broken down into multiple smaller files (#[dfn#partial partials]).
+              broken down into multiple smaller files (#[i partials]).
               It&rsquo;s good practice to include the filenames at the top of each partial so that
               they outline the files when concatenated.
           section
@@ -339,3 +346,132 @@ html
               to work in their given situation (#[q what does this 18px come from?]).
       section
         h1 Code Organization &amp; File Structure
+        section
+          h1 CSS Stylesheet Anatomy
+          p.
+            Every main stylesheet should have the following components, in the order listed,
+            at the top of the stylesheet.
+          ol
+            li repository metadata
+            li any direct CSS imports (#[code @import url('*.css')])
+            li filename
+            li any #[code (reference)] or #[code (inline)] less imports
+            li table of contents
+          p.
+            Furthermore, any stylesheet may have any number of top-level or low-level headings.
+          section
+            h1 Repository Metadata
+            p.
+              Include a comment block of information about the repository in the
+              repository&rsquo;s main file. This data includes the repo name, latest
+              stable version number, licence, URL of the remote repository, the project&rsquo;s
+              home page, and author&rsquo;s home page.
+            figure: pre.
+              /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+                  conf
+                  Version: 0.1.0
+                  Licence: MIT
+                  Repo   : https://github.com/asce-web/conf.git
+                  Home   : http://conf.style.asce.org/
+                  Author : http://www.asce.org/
+              \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+          section
+            h1 Direct CSS Imports
+            p.
+              These are pure-CSS statements of the form #[code @import url('normalize.css');].
+              When a less stylesheet compiles, these get moved to the top (above comments and everything else),
+              and remain verbatim.
+            p.
+              Though these imports make coding CSS easier, they are not recommended; instead,
+              use #[code &lt;link rel="stylesheet" href="normalize.css"/&gt;] at the top of each
+              document that uses your css file.
+          section
+            h1 Filename
+            p Put the filename in a comment block after any CSS imports.
+            figure: pre.
+              /*================================*\
+                  conf.less
+              \*================================*/
+          section
+            h1 Less Imports
+            p.
+              You can use #[a(href="http://lesscss.org/features/#import-directives-feature") Less imports],
+              reference or inline, to import partials into a main stylesheet.
+              These go after the filename comment block, because any imported code should be
+              injected afterward.
+          section
+            h1 Table of Contents
+            p.
+              A table of contents really helps ...
+            p.
+              There are two types of table-of-contents. The first type is used in the main stylesheet
+              to describe each imported partial. The second may be used within a partial stylesheet
+              to delineate its sections and subsections.
+            figure: pre.
+              /*
+               * # CONTENTS
+               *
+               * normalize.css.................imported from Nicolas Gallagher
+               * dev.css.......................development mode: fixes for imported stylesheets
+               *
+               * ## BASE
+               * sections......................secioning content and section-related elements
+               * grouping......................grouping content
+               * text..........................text-level and inline elements
+               *
+               * ## OBJECTS
+               * Box...........................[description]
+               * Textbox.......................[description]
+               *
+               * ## COMPONENTS
+               * ### TYPOGRAPHIC
+               * Document......................[description]
+               * Lede..........................[description]
+               * Caption.......................[description]
+               * Pullquote.....................[description]
+               *
+               * ### UI (USER INTERACTION)
+               * Alert.........................[description]
+               * Label.........................[description]
+               *
+               * ## OVERRIDES
+               * atoms.css.....................project-specific one-liners
+               * shame.css.....................hacks and styles I haven’t figured out where to put yet
+               */
+            p.
+              Within partials, keep sections at the top level
+              and sub-sections to one level deeper. Known as the #[i Inception rule],
+              keep sections to 2 levels deep; 3 levels is too much. If you need this kind of
+              complexity, it&rsquo;s better to split up the stylesheet into smaller files.
+            figure: pre.
+              //Table Of Contents
+              //# HORIZONTAL GRID
+              //  ## Widths
+              //  ## Lines and units
+              //  ## Automated box widths
+              //# VERTICAL GRID
+              //  ## Font size and line height
+              //  ## Padding, margin, border
+          section
+            h1 Top-Level Headings
+            p.
+              Use comment blocks to begin and end top-level sections with headings.
+              Top-level headings are ALL CAPS and preceded with a single hash.
+            figure: pre.
+              /*++++++++++++++++++++++++++++++++*\
+                  # HORIZONTAL GRID
+              \*++++++++++++++++++++++++++++++++*/
+              ... code goes here ...
+              //++++ end # HORIZONTAL GRID ++++//
+          section
+            h1 Low-Level Headings
+            p.
+              Also use comment blocks to begin and end low-level sections
+              (within top-level sections).
+              Low-level headings are Title case and follow two hashes.
+            figure: pre.
+              /*--------------------------------*\
+                  ## Widths
+              \*--------------------------------*/
+              ... code goes here ...
+              //---- end ## Widths ----//

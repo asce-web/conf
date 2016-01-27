@@ -323,10 +323,9 @@ html
             p.
               Use comments to create a table of contents and headers in your source code.
               This is useful for big files that need to be split up into sections.
-              If the file is too big, however, it may be scoped too broadly, and should be
-              broken down into multiple smaller files (#[i partials]).
               It&rsquo;s good practice to include the filenames at the top of each partial so that
               they outline the files when concatenated.
+              See #[a(href="#css-stylesheet-anatomy") CSS Stylesheet Anatomy] below.
           section
             h1 Structural
             p.
@@ -335,41 +334,63 @@ html
               what it is, how it works, when/why it should be used, and its benefits and limitations.
               In this comment it&rsquo;s good practice to also include meta-data such as author and
               date created/modified.
+            figure: pre.
+              // The Pullquote component is used when authors want to use a block quotation to highlight
+              // extracted inline text, for example, from an article.
+              // Use this Component on the `blockquote` Element if the original source is less than 40 words
+              // and does not have paragraph breaks.
+              // It should not contain `p` Elements: Pullquotes should be short and sweet.
+              //
+              // ^subcomponents
+              // : `.c-Pullquote__Src` - credit to the source if applicable
+              // ^example
+              // : &lt;blockquote class="c-Pullquote" cite="//example.com/portal2/quotes"&gt;
+              // :   Look at you, soaring through the air like an eagle&hellip; piloting a blimp.
+              // :   &lt;cite class="c-Pullquote__Src"&gt;GLaDOS&lt;/cite&gt;
+              // : &lt;/blockquote&gt;
+              // ^author
+              // : Chris Harvey
+              // ^updated
+              // : 2015-05-22
+              .c-Pullquote {
+                ...
+              }
+              .c-Pullquote__Src {
+                ...
+              }
           section
             h1 Developmental
             p.
               These are small, one-line comments explaining why some particular thing was done.
-              Use these comments sparingly, for cases in which the code is not obvious;
+              These comments are very likely to be mixed in with the code itself.
+              Use them sparingly, for cases in which the code is not obvious;
               too many of these comments can be overwhelming.
-              For example, use these when you use #[code !important] in CSS,
+              For example, use them when you use #[code !important] in CSS,
               or when you use #[dfn#magic-number magic numbers]&mdash;numbers that just so happen
-              to work in their given situation (#[q what does this 18px come from?]).
+              to work in their given situation (like, #[q what does this 18px come from?]).
       section
         h1 Code Organization &amp; File Structure
-        section
+        section#css-stylesheet-anatomy
           h1 CSS Stylesheet Anatomy
           p.
             Every main stylesheet should have the following components, in the order listed,
             at the top of the stylesheet.
           ol
             li repository metadata
-            li any direct CSS imports (#[code @import url('*.css')])
+            li any direct CSS imports
             li filename
             li any #[code (reference)] or #[code (inline)] less imports
             li table of contents
-          p.
-            Furthermore, any stylesheet may have any number of top-level or low-level headings.
+            li Furthermore, any stylesheet may have any number of section or subsection headings.
           section
             h1 Repository Metadata
             p.
               Include a comment block of information about the repository in the
-              repository&rsquo;s main file. This data includes the repo name, latest
-              stable version number, licence, URL of the remote repository, the project&rsquo;s
-              home page, and author&rsquo;s home page.
+              repository&rsquo;s main file. #[small #[i: code conf] is the example name of the repository.]
             figure: pre.
               /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
                   conf
-                  Version: 0.1.0
+                  Version: 0.2.0
                   Licence: MIT
                   Repo   : https://github.com/asce-web/conf.git
                   Home   : http://conf.style.asce.org/
@@ -377,36 +398,52 @@ html
               \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
           section
             h1 Direct CSS Imports
+            p These are pure-CSS statements of the following form.
+            figure: pre @import url('normalize.css');
             p.
-              These are pure-CSS statements of the form #[code @import url('normalize.css');].
-              When a less stylesheet compiles, these get moved to the top (above comments and everything else),
-              and remain verbatim.
+              In a Less file, upon compilation, these lines get moved to the top of the output file
+              and remain verbatim, which means no parsing is done (unlike Less imports mentioned below).
+            p
+              strong Remember:
+              |  If you&rsquo;re writing a pure CSS file, put these statments above the metadata block.
             p.
               Though these imports make coding CSS easier, they are not recommended; instead,
               use #[code &lt;link rel="stylesheet" href="normalize.css"/&gt;] at the top of each
-              document that uses your css file.
+              document that uses the would-be-importing stylesheet.
           section
             h1 Filename
-            p Put the filename in a comment block after any CSS imports.
-            figure: pre.
-              /*================================*\
-                  conf.less
-              \*================================*/
+            p.
+              Put the filename in a comment block after the meta block and any CSS imports.
+              The filename for the main stylesheet has a slightly different style than that for the partials.
+            figure
+              figcaption main stylesheet filename:
+              pre.
+                /*================================*\
+                    conf.less
+                \*================================*/
+            figure
+              figcaption partial stylesheet filename (prepended by repo name for clarity):
+              pre.
+                /*################################*\
+                    conf  |  base.less
+                \*################################*/
           section
             h1 Less Imports
             p.
               You can use #[a(href="http://lesscss.org/features/#import-directives-feature") Less imports],
               reference or inline, to import partials into a main stylesheet.
-              These go after the filename comment block, because any imported code should be
-              injected afterward.
+              These go after the filename comment block, because any code injected inline
+              should be done so underneath.
           section
             h1 Table of Contents
-            p.
-              A table of contents really helps ...
             p.
               There are two types of table-of-contents. The first type is used in the main stylesheet
               to describe each imported partial. The second may be used within a partial stylesheet
               to delineate its sections and subsections.
+            p.
+              A table of contents really helps keep your codebase organized and proides a catalog
+              of all the pieces of a project or file. While upkeep maintenance takes some time,
+              this can be seen as an investment for a lot of time and confusion saved later on.
             figure: pre.
               /*
                * # CONTENTS
@@ -415,33 +452,32 @@ html
                * dev.css.......................development mode: fixes for imported stylesheets
                *
                * ## BASE
-               * sections......................secioning content and section-related elements
-               * grouping......................grouping content
-               * text..........................text-level and inline elements
+               * sections.css..................secioning content and section-related elements
+               * grouping.css..................grouping content
+               * text.css......................text-level and inline elements
                *
                * ## OBJECTS
-               * Box...........................[description]
-               * Textbox.......................[description]
+               * Box.css.......................[description]
+               * Textbox.css...................[description]
                *
                * ## COMPONENTS
                * ### TYPOGRAPHIC
-               * Document......................[description]
-               * Lede..........................[description]
-               * Caption.......................[description]
-               * Pullquote.....................[description]
-               *
+               * Document.css..................[description]
+               * Lede.css......................[description]
+               * Caption.css...................[description]
+               * Pullquote.css.................[description]
                * ### UI (USER INTERACTION)
-               * Alert.........................[description]
-               * Label.........................[description]
+               * Alert.css.....................[description]
+               * Label.css.....................[description]
                *
                * ## OVERRIDES
                * atoms.css.....................project-specific one-liners
-               * shame.css.....................hacks and styles I haven’t figured out where to put yet
+               * shame.css.....................hacks and styles without a proper home
                */
             p.
-              Within partials, keep sections at the top level
-              and sub-sections to one level deeper. Known as the #[i Inception rule],
-              keep sections to 2 levels deep; 3 levels is too much. If you need this kind of
+              Within partials or sub-files, keep sections and subsections only two levels deep.
+              Keep in mind the #[i Inception rule]&mdash;#[strong three levels is too much].
+              If you need that kind of
               complexity, it&rsquo;s better to split up the stylesheet into smaller files.
             figure: pre.
               //Table Of Contents
@@ -453,25 +489,20 @@ html
               //  ## Font size and line height
               //  ## Padding, margin, border
           section
-            h1 Top-Level Headings
+            h1 Section and Subsection Headings
             p.
-              Use comment blocks to begin and end top-level sections with headings.
-              Top-level headings are ALL CAPS and preceded with a single hash.
+              Use comment blocks to begin and end sections and subsections with headings.
+              Section headings are ALL CAPS and preceded by a single hash, while
+              subsection headings are Title case and follow two hashes.
+              Only subsections are indented.
             figure: pre.
               /*++++++++++++++++++++++++++++++++*\
                   # HORIZONTAL GRID
               \*++++++++++++++++++++++++++++++++*/
               ... code goes here ...
+                /*--------------------------------*\
+                    ## Lines and units
+                \*--------------------------------*/
+                ... code goes here ...
+                //---- end ## Lines and units ----//
               //++++ end # HORIZONTAL GRID ++++//
-          section
-            h1 Low-Level Headings
-            p.
-              Also use comment blocks to begin and end low-level sections
-              (within top-level sections).
-              Low-level headings are Title case and follow two hashes.
-            figure: pre.
-              /*--------------------------------*\
-                  ## Widths
-              \*--------------------------------*/
-              ... code goes here ...
-              //---- end ## Widths ----//

@@ -5,6 +5,13 @@
   "main": "index.html",
   "private": true,
   "scripts": {
+    "jade": "jade",
+    "jade:all": "jade coding.jade",
+    "lessc": "lessc",
+    "lessc:conf": "lessc styles/conf.less styles/conf.css",
+    "lessc:all": "npm run lessc:conf",
+    "minify": "cleancss styles/conf.css -o styles/conf.min.css",
+    "build": "npm run jade:all  ;  npm run lessc:all  ;  npm run minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +23,14 @@
   "bugs": {
     "url": "https://github.com/asce-web/conf/issues"
   },
-  "homepage": "http://conf.style.asce.org/"
+  "homepage": "http://conf.style.asce.org/",
+  "devDependencies": {
+    "clean-css": "^3.4.9",
+    "harp": "^0.20.1",
+    "jade": "^1.11.0",
+    "less": "^2.6.0"
+  },
+  "dependencies": {
+    "xmeter": "^3.5.0"
+  }
 }

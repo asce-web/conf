@@ -1,0 +1,86 @@
+doctype html
+html.no-js
+  head
+    meta(charset="utf-8")
+    title Sample ASCE Conference Landing Page
+    link(rel="stylesheet", href="./styles/chewie-v2.css")
+  body
+    header(style="background-color: #48afd6")
+      a(href="landing.html")
+        div: img.c-ConfShield(src="img/conf-logo.png")
+        div
+          h1.c-ConfName ASCE Convention
+          p.c-ConfSlogan The Flagship Event for ASCE
+      div: a.c-LandingLink--home(href="2016/") 2016 Convention
+      nav
+        ul.o-ListBare.c-LandingLinkList
+          li: a.c-LandingLink(href="") About
+          li: a.c-LandingLink(href="") Sponsor
+          li: a.c-LandingLink(href="") Exhibit
+          li: a.c-LandingLink(href="") Contact
+    main
+      section#current
+        div.c-Hero
+          h2.c-ConfNameCurrent ASCE 2016
+          p.c-ConfLocation Portland, OR | Sep 28&ndash;Oct 1
+          p.c-ConfTagline Mainstremaing green infrastructure.
+          p.c-HeroButtonContainer
+            a.c-Button.c-Button--hero(href="2016/") Get Details
+        div.c-ElevatorPitch
+          ul.o-ListBare.c-ElevatorButtonContainer
+            li: a.c-Button(href="") Registor Today
+            li: a.c-Button(href="") Become A Sponsor
+            li: a.c-Button(href="") Submit Papers
+          p.c-ElevatorPitch.
+            Elevator pitch. One paragraph. Sentence case.
+            Join civil engineering professionals from around the world at
+            this ASCE flagship event. Network with peers, earn PDHs, and
+            expand your knowledge base.
+      div
+        section#past
+          hgroup
+            h2 ASCE Convention 2015
+            h3 New York, NY
+          //- ul
+          //-   li lorum ipsum
+          //-   li dolor sit amet
+          //-   li consectetur adipiscing elit
+          p.
+            Learn about the impacts of water sustainability and
+            the importance of interdisciplinary design approaches.
+        section#future
+          hgroup
+            h2 ASCE Convention 2017
+            h3 TBD
+          //- ul
+          //-   li curabitur vel
+          //-   li augue vel est venenatis
+          //-   li mauris blandit
+          p.
+            Plan ahead to attend, sponsor, or exhibit at the
+            annual convention for civil engineering professionals.
+    footer(style="background-color: #48afd6; margin-bottom:-1.25rem; color: #fff;")
+      p(style="text-align:center; color:red;") #[strong Warning:] footer layout is incomplete.
+      h1 ASCE Convention 2016
+      section
+        p For questions or more information about sponsoring please contact:
+        ul.o-ListBare
+          li: a(href="mailto:asce@asce.org") Sean Scully (703.295.6154)
+          li: a(href="mailto:asce@asce.org") Drew Caracciolo (703.295.6087)
+      section
+        h1 Contact Us
+        ul.o-ListBare
+          li: a(href="tel:(800)548-2723") (800) 548-2723
+          li: a(href="https://twitter.com/hashtag/asce2016") #asce2016
+      section
+        h1 Connect With ASCE
+        ul.o-ListBare.o-ListInline
+          li: a(href="") LinkedIn
+          li: a(href="") Facebook
+          li: a(href="") Twitter
+          li: a(href="") YouTube
+          li: a(href="") Google+
+    footer.copyright(style="text-align: center;")
+      a(href="http://www.asce.org"): span.asce-logo
+      //- img(src="../img/asce-logo-footer.png")
+      span &copy; 1996&ndash;2015, American Society of Civil Engineers

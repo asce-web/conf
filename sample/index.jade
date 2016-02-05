@@ -1,7 +1,7 @@
 doctype html
 html.no-js
   head
-    title Sample ASCE Conference Site
+    title Landing Page | Sample ASCE Conference Site
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel="stylesheet" href="styles/conf.css")
@@ -20,28 +20,38 @@ html.no-js
           li: a.c-LandingLink(href="") Exhibit
           li: a.c-LandingLink(href="") Contact
     main
-      section#current
+      section#current(itemscope="" itemtype="http://schema.org/Event")
         div.c-Hero
-          h2.c-ConfNameCurrent ASCE 2016
-          p.c-ConfLocation Portland, OR | Sep 28&ndash;Oct 1
+          h2.c-ConfNameCurrent(itemprop="name") ASCE 2016
+          meta(itemprop="eventStatus" content="EventScheduled")
+          p.c-ConfLocation(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+            span(itemprop="addressLocality") Portland, 
+            span(itemprop="addressRegion"): abbr(title="Oregon") OR
+          p.c-ConfDates
+            time(datetime="2016-09-28" itemprop="startDate") Sep 28
+            | &ndash;
+            time(datetime="2016-10-01" itemprop="endDate") Oct 1
           p.c-ConfTagline Mainstremaing green infrastructure.
           p.c-HeroButtonContainer
             a.c-Button.c-Button--hero(href="2016/") Get Details
-        div.c-ElevatorPitch
-          ul.o-ListBare.c-ElevatorButtonContainer
-            li: a.c-Button(href="") Registor Today
-            li: a.c-Button(href="") Become A Sponsor
-            li: a.c-Button(href="") Submit Papers
-          p.c-ElevatorPitch.
-            Elevator pitch. One paragraph. Sentence case.
-            Join civil engineering professionals from around the world at
-            this ASCE flagship event. Network with peers, earn PDHs, and
-            expand your knowledge base.
+        ul.o-ListBare.c-ElevatorButtonContainer
+          li: a.c-Button(href="") Registor Today
+          li: a.c-Button(href="") Become A Sponsor
+          li: a.c-Button(href="") Submit Papers
+        p.c-ElevatorPitch(itemprop="description").
+          Elevator pitch. One paragraph. Sentence case.
+          Join civil engineering professionals from around the world at
+          this ASCE flagship event. Network with peers, earn PDHs, and
+          expand your knowledge base.
       div
-        section#past
-          hgroup
-            h2 ASCE Convention 2015
-            h3 New York, NY
+        section#past(itemscope="" itemtype="http://schema.org/Event")
+          h2(itemprop="name") ASCE Convention 2015
+            span(itemprop="addressLocality") Portland, 
+            span(itemprop="addressRegion"): abbr(title="Oregon") OR
+          meta(itemprop="eventStatus" content="EventScheduled")
+          p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+            span(itemprop="addressLocality") New York, 
+            span(itemprop="addressRegion"): abbr(title="New York") NY
           //- ul
           //-   li lorum ipsum
           //-   li dolor sit amet
@@ -49,10 +59,9 @@ html.no-js
           p.
             Learn about the impacts of water sustainability and
             the importance of interdisciplinary design approaches.
-        section#future
-          hgroup
-            h2 ASCE Convention 2017
-            h3 TBD
+        section#future(itemscope="" itemtype="http://schema.org/Event")
+          h2(itemprop="name") ASCE Convention 2017
+          p(itemprop="location") TBD
           //- ul
           //-   li curabitur vel
           //-   li augue vel est venenatis

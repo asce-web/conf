@@ -105,6 +105,7 @@ html
                   the p gets its own line and is indented.&lt;/p&gt;
               &lt;/li&gt;
             &lt;/ul&gt;
+
             &lt;style&gt;
               /* CSS selectors usually get their own line. */
               .class1 &gt; .child,
@@ -140,19 +141,19 @@ html
           h3 Casing
           ul
             li.
-              In HTML and CSS, always use lowercase for names of tags, attributes, propertys, and values.
+              In HTML and CSS, always use lowercase for names of tags, attributes, properties, and values.
               Only use capital letters inside strings (in an attribute value or property value) or in text content.
-            li Casing of CSS/Less classnames/mixins are #[a(href="naming-convention") discussed below].
+            li Casing of CSS/Less classnames/mixins are #[a(href="") discussed elsewhere].
             li Less variables always use under_score_lower_case, never hyphens.
             li Use lower-case-hyphens for filenames and folders only.
             li Lower case and shorthand hex color values (#[code #cf9], not #[code #CCFF99]).
             li
               | In scripting (JS, PHP):
               ul
-                li class names use PascalCase
-                li function/method names use camelCase
-                li variables use under_score_lower_case
-                li constants use UNDER_SCORE_UPPER_CASE
+                li class names use #[code PascalCase]
+                li function/method names use #[code camelCase]
+                li variables use #[code under_score_lower_case]
+                li constants use #[code UNDER_SCORE_UPPER_CASE]
         section
           h3 Punctuation and Spaces
           ul
@@ -188,9 +189,16 @@ html
           h3 Vocabulary Conventions
           ul
             li Close all HTML tags, even if not required
-            li.
-              Insert the #[code caption], #[code thead], and #[code tfoot] elements (in that order)
-              #[em before] the main tabular content in an HTML #[code table] element.
+            li HTML #[code table] elements:
+              ul
+                li.
+                  insert the #[code caption], #[code thead], and #[code tfoot] elements (in that order)
+                  #[em before] the #[code tbody] element(s)
+                li.
+                  always nest #[code tr] elements inside either #[code thead], #[code tfoot], or
+                  #[code tbody] elements; never directly inside #[code table]
+                li.
+                  always nest #[code th] and #[code td] elements directly inside #[code tr] elements
             li.
               When adding a link to one element, wrap the #[code &lt;a&gt;] tag around
               the #[em outside] of the element to be linked.
@@ -210,9 +218,11 @@ html
                 li.
                   any other #[a(href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes") global attributes]
                   not on this list (#[code style], #[code title], #[code lang], etc.)
+                  in any order
                 li.
                   any element-specific attributes
                   (#[code href], #[code src], #[code rel], #[code alt], etc.)
+                  in any order
                 li
                   | microdata attributes in the following order:
                   ol
@@ -220,30 +230,32 @@ html
                     li: code itemscope
                     li: code itemtype
                     li #[code itemid] or #[code itemref]
-              | Microdata attributes, though global, are listed last to improve readability.
+                  small Microdata attributes, though global, are listed last to improve readability.
             li.
               #[strong Recommendation:]
               Every #[code dfn] element should have a unique #[code id], so that there is only
               one defining instance of a term per page. Furthermore, it can be used as
               a hyperlink anchor (#[i fragment identifier]).
             li Use unitless CSS values of 0 (#[code margin: 0;], not #[code margin: 0px;]).
+            li Always use unitless line height (#[code line-height: 1.25;]).
         section
           h3 Examples
           figure: pre.
-            &lt;ol style="font-family: 'Helvetica';"&gt;
+            &lt;ol style="font-family: 'Helvetica'; margin-bottom: 0;"&gt;
               &lt;li&gt;this is *good*: there is no space immediately inside tags&lt;/li&gt;
               &lt;li&gt; this is *bad*: there is space immediately inside tags &lt;/li&gt;
             &lt;/ol&gt;
             &lt;br/&gt;
 
             &lt;img alt=" this is *bad*: space immediately inside quotes and before slash" /&gt;
+            &lt;input value="this is *good*: no space immediately inside quotes or before slash"/&gt;
             &lt;input itemprop="name"/&gt;
             &lt;input checked=""/&gt;
             &lt;!--this is a bad comment!--&gt;
             &lt;!-- this is a good comment! --&gt;
 
-            &lt;code&gt;&lt;a&gt;this is incorrect&lt;/a&gt;&lt;/code&gt;
-            &lt;a&gt;&lt;code&gt;this is correct&lt;/code&gt;&lt;/a&gt;
+            &lt;code&gt;&lt;a&gt;this is *incorrect*&lt;/a&gt;&lt;/code&gt;
+            &lt;a&gt;&lt;code&gt;this is *correct*&lt;/code&gt;&lt;/a&gt;
             &lt;code&gt;&lt;a&gt;only do this if&lt;/a&gt; there is more content not to be linked&lt;/code&gt;
             &lt;a data-name="index-1" href="//google.com" itemprop="url" itemscope="" itemtype="//schema.org/URL"&gt;click here&lt;/a&gt;
             &lt;img class="my-img" id="img1" data-type="jpeg" src="//google.com/logo.jpg"/&gt;

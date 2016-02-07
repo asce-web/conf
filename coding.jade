@@ -5,6 +5,16 @@ html
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel="stylesheet" href="styles/styleguide.css")
+    style.
+      table.demo {
+        margin-left:  1rem;
+        margin-right: 1rem;
+      }
+      table.demo th,
+      table.demo td {
+        padding: 2px;
+        border: 1px solid #888;
+      }
   body
     main(itemscope="" itemtype="https://schema.org/Article")
       header
@@ -55,11 +65,6 @@ html
           ul
             li Blank lines are permitted, but only if they do not contain any spaces.
             li Use blank lines #[em only] to separate code structures and improve readability.
-            li.
-              In HTML, 99% of the time, each block-level element is written on its own line,
-              while inline-level HTML elements are written in-line with text.
-            li Line breaks may also be used within long passages of text content.
-            li In CSS, 99% of the time, each rule is written on its own line.
           section
             h4 Exceptions
             ul
@@ -69,18 +74,14 @@ html
           h3 Indentation
           ul
             li Use exactly two (2) spaces for each indent level.
-            li.
-              Each nested HTML element is indented one level and on its own line,
-              except inline-level elements, which can be written inline with text.
-            li Each nested CSS property should be indented one level and on its own line (excpetions permitted).
         section
           h3 Line Length
           ul
             li Keep lines of all code between 75&ndash;90 characters long to maximize readability.
         section
-          h3 Examples
+          h3 HTML Specifics &amp; Example
           figure: pre.
-            &lt;p&gt;Block-level elements get their own line.&lt;/p&gt;
+            &lt;p&gt;99% of the time, block-level elements get their own line.&lt;/p&gt;
             &lt;div&gt;
               &lt;p&gt;Use line breaks and indentation within elements to separate blocks.&lt;/p&gt;
               &lt;p&gt;Line length is kept around 75–90 chars.&lt;/p&gt;
@@ -100,17 +101,18 @@ html
               &lt;li&gt;&lt;p&gt;*Do not do this* if you must use
                 a line break!&lt;/p&gt;&lt;/li&gt;
               &lt;li&gt;
-                &lt;p&gt;This is a better option:
+                &lt;p&gt;With line breaks, this is a better option:
                   the p gets its own line and is indented.&lt;/p&gt;
               &lt;/li&gt;
             &lt;/ul&gt;
-
-            &lt;style&gt;
+        section
+          h3 CSS Specifics &amp; Examples
+          figure: pre.
               /* CSS selectors usually get their own line. */
               .class1 &gt; .child,
               .class2 + .child,
               .selector {
-                /* CSS rules usually get their own line. */
+                /* 99% of the time, CSS rules get their own line, and are indented. */
                 margin: 0 0 1rem;
                 line-height: 1.25;
               }
@@ -133,19 +135,106 @@ html
                    -moz-transform: translate(100px) rotate(20deg);
                         transform: translate(100px) rotate(20deg);
               }
-            &lt;/style&gt;
       section
         h2 Code Formatting
         section
-          h3 Casing
+          h3 HTML Specifics
           ul
             li.
-              In HTML and CSS, always use lowercase for names of tags, attributes, properties, and values.
-              Only use capital letters inside strings (in an attribute value or property value) or in text content.
-            li Casing of CSS/Less classnames/mixins are #[a(href="") discussed elsewhere].
-            li Less variables always use under_score_lower_case, never hyphens.
-            li Use lower-case-hyphens for filenames and folders only.
-            li Lower case and shorthand hex color values (#[code #cf9], not #[code #CCFF99]).
+              Always use lowercase for names of tags and attributes.
+              Only use capital letters inside attribute values and in text content.
+            li Omit spaces immediately inside tags and inside attribute values.
+            li Always include a slash, but not a space, for a self-closing tag.
+            li Always use double-quotes for attribute values&mdash;even one-word values and empty values.
+            li Always use single-quotes for strings within attribute values.
+            li Close all tags, even if not required.
+            li Always use the empty string for #[a boolean attributes].
+          table.demo
+            thead: tr
+              th(scope="col") Correct
+              th(scope="col") Incorrect
+            tbody
+              tr
+                td: code.
+                  &lt;th scope="col"&gt;…&lt;/th&gt;
+                  #[br]
+                  &lt;img alt="The wolf replied, 'The better to see you with, my dear!'"/&gt;
+                td: code &lt;TH SCOPE="col"&gt;…&lt;/TH&gt;
+              tr
+                td: code &lt;li&gt;no space immediately inside tags&lt;/li&gt;
+                td: code &lt;li&gt; space immediately inside tags &lt;/li&gt;
+              tr
+                td: code &lt;hr/&gt;
+                td: code &lt;hr /&gt;
+              tr
+                td: code &lt;input value="no space immediately inside quotes"/&gt;
+                td: code &lt;input value=" space immediately inside quotes "/&gt;
+              tr
+                td: code &lt;img itemprop="logo"/&gt;
+                td: code &lt;img itemprop=logo/&gt;
+              tr
+                td: code &lt;img alt="The wolf replied, 'The better to see you with, my dear!'"/&gt;
+                td: code &lt;img alt="The wolf replied, "The better to see you with, my dear!""/&gt;
+              tr
+                td: code &lt;br/&gt;
+                td: code &lt;br&gt;
+              tr
+                td: pre.
+                  &lt;li&gt;a list item&lt;/li&gt;
+                  &lt;li&gt;another list item&lt;/li&gt;
+                td: pre.
+                  &lt;li&gt;a list item
+                  &lt;li&gt;another list item
+              tr
+                td: code &lt;input checked=""/&gt;
+                td: code &lt;input checked/&gt;
+        section
+          h3 CSS/Less Specifics
+          ul
+            li.
+              Always use lowercase for tag selectors, and for property names and values.
+              Only use capital letters inside strings and for some class selectors.#[sup &lowast;]
+            li #[sup &lowast;]Casing for classnames/mixins are #[a discussed elsewhere].
+            li Always use #[code under_score_lower_case], never hyphens, for Less variables.
+            li Lower case and shorthand hex color values.
+            li Always put spaces immediatlely inside braces #[strong if they are on the same line].
+            li.
+              Always put spaces following colons (#[code :]) in CSS rules, and
+              following semicolons (#[code ;]) when multiple CSS rules share a line and in inline styles.
+            li.
+              Omit spaces between comma-separated property values
+              (to avoid confusion between these and space-separated property values).
+            li Always use single-quotes for all strings in CSS.
+            li Always use a semicolon (#[code ;]) to finish a CSS rule, even the last one, even in inline styles.
+            li Use the #[a(href="https://en.wikipedia.org/wiki/Indent_style#Variant:_1TBS") 1TBS] brace style:
+              figure: pre.
+                .selector {
+                  margin: 0 0 1rem;
+                  line-height: 1.25;
+                }
+          table.demo
+            thead: tr
+              th(scope="col") Correct
+              th(scope="col") Incorrect
+            tbody
+              tr
+                td: code body { font-family: 'Helvetica',sans-serif; }
+                td: code BODY { Font-Family: 'Helvetica', Sans-Serif; }
+              tr
+                td: code @h1_font_size: 2rem;
+                td: code @h1-font-size: 2rem;
+              tr
+                td: code color: #cf9;
+                td: code color: #CCFF99;
+              tr
+                td: code .column-5 { width: 20%; margin-left: 80%; }
+                td: code .column-5 {width:20%;margin-left:80%}
+              tr
+                td: code .class::before { content: 'text'; }
+                td: code .class::before { content: "text"; }
+        section
+          h3 JS Specifics
+          ul
             li
               | In scripting (JS, PHP):
               ul
@@ -153,129 +242,114 @@ html
                 li function/method names use #[code camelCase]
                 li variables use #[code under_score_lower_case]
                 li constants use #[code UNDER_SCORE_UPPER_CASE]
-        section
-          h3 Punctuation and Spaces
-          ul
-            li Always put spaces immediately inside block and inline comment delimiters.
-            li Always put spaces immediatlely inside CSS and JS braces #[strong if they are on the same line].
-            li Always omit spaces immediately inside HTML start or end tags.
-            li Always omit spaces immediately inside HTML attribute values.
-            li Always omit spaces immediatlely inside parentheses any time.
-            li Always include a slash, but not a space, for an HTML self-closing tag.
+            li Always put spaces immediatlely inside braces #[strong if they are on the same line].
+            li Always put spaces before open parentheses and after control keywords, but never after names of functions.
+            li Always use single-quotes for all strings in JS.
             li.
-              In JS, put spaces before open parentheses and after control keywords, but not after names of functions
-              (#[code if (...) { ... }], #[code function talk(...) { ... }]).
-            li Always use a semicolon (#[code ;]) to finish a CSS rule, even the last one, even in inline styles.
-            li.
-              Always put spaces following colons (#[code :]) in CSS rules, and
-              following semicolons (#[code ;]) when multiple CSS rules share a line and in inline styles.
-            li Always use double-quotes for HTML attribute values&mdash;even one-word values and empty values
-            li Always use the empty string for HTML boolean attributes (#[code checked=""]).
-            li Always use single-quotes for all strings in CSS and JS, and for strings within HTML attribute values.
-            li
-              | In CSS and JS, use the #[a(href="https://en.wikipedia.org/wiki/Indent_style#Variant:_1TBS") 1TBS] brace style:
-              ul
-                li opening brace, following a space, remains on the same line as its control statement
-                li internal lines are indented one level
-                li closing brace remains on the same indentation level as the control statement, on its own line
-            li
-              | Use #[a(href="https://docs.npmjs.com/misc/coding-style") npm&rsquo;s coding style] for JS:
-              ul
-                li hardly ever any semicolons (see above link for exceptions)
-                li comma-first arrays and objects
-                li The rules in this style guide take precedence over npm&rsquo;s style.
-        section
-          h3 Vocabulary Conventions
-          ul
-            li Close all HTML tags, even if not required
-            li HTML #[code table] elements:
-              ul
-                li.
-                  insert the #[code caption], #[code thead], and #[code tfoot] elements (in that order)
-                  #[em before] the #[code tbody] element(s)
-                li.
-                  always nest #[code tr] elements inside either #[code thead], #[code tfoot], or
-                  #[code tbody] elements; never directly inside #[code table]
-                li.
-                  always nest #[code th] and #[code td] elements directly inside #[code tr] elements
-            li.
-              When adding a link to one element, wrap the #[code &lt;a&gt;] tag around
-              the #[em outside] of the element to be linked.
-            li.
-              Use the #[code hr] element as little as possible. Instead, end one #[code section]
-              and start another, using CSS to create a border if need be.
-            li.
-              Omit the #[code type] attribute from the
-              #[code &lt;link&gt;], #[code &lt;style&gt;], and #[code &lt;script&gt;] tags,
-              but only if the value is default (#[code type="text/css"] or #[code type="text/javascript"])
-            li
-              | Attributes shall have the following precedence and thus shall be written in the following order:
-              ol
-                li: code class
-                li: code id
-                li any attributes starting with #[code data-]
-                li.
-                  any other #[a(href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes") global attributes]
-                  not on this list (#[code style], #[code title], #[code lang], etc.)
-                  in any order
-                li.
-                  any element-specific attributes
-                  (#[code href], #[code src], #[code rel], #[code alt], etc.)
-                  in any order
-                li
-                  | microdata attributes in the following order:
-                  ol
-                    li: code itemprop
-                    li: code itemscope
-                    li: code itemtype
-                    li #[code itemid] or #[code itemref]
-                  small Microdata attributes, though global, are listed last to improve readability.
-            li.
-              #[strong Recommendation:]
-              Every #[code dfn] element should have a unique #[code id], so that there is only
-              one defining instance of a term per page. Furthermore, it can be used as
-              a hyperlink anchor (#[i fragment identifier]).
-            li Use unitless CSS values of 0 (#[code margin: 0;], not #[code margin: 0px;]).
-            li Always use unitless line height (#[code line-height: 1.25;]).
-        section
-          h3 Examples
+              Use the #[a(href="https://en.wikipedia.org/wiki/Indent_style#Variant:_1TBS") 1TBS] brace style
+              and #[a(href="https://docs.npmjs.com/misc/coding-style") npm&rsquo;s coding style].
           figure: pre.
-            &lt;ol style="font-family: 'Helvetica'; margin-bottom: 0;"&gt;
-              &lt;li&gt;this is *good*: there is no space immediately inside tags&lt;/li&gt;
-              &lt;li&gt; this is *bad*: there is space immediately inside tags &lt;/li&gt;
-            &lt;/ol&gt;
-            &lt;br/&gt;
-
-            &lt;img alt=" this is *bad*: space immediately inside quotes and before slash" /&gt;
-            &lt;input value="this is *good*: no space immediately inside quotes or before slash"/&gt;
-            &lt;input itemprop="name"/&gt;
-            &lt;input checked=""/&gt;
-            &lt;!--this is a bad comment!--&gt;
-            &lt;!-- this is a good comment! --&gt;
-
-            &lt;code&gt;&lt;a&gt;this is *incorrect*&lt;/a&gt;&lt;/code&gt;
-            &lt;a&gt;&lt;code&gt;this is *correct*&lt;/code&gt;&lt;/a&gt;
-            &lt;code&gt;&lt;a&gt;only do this if&lt;/a&gt; there is more content not to be linked&lt;/code&gt;
-            &lt;a data-name="index-1" href="//google.com" itemprop="url" itemscope="" itemtype="//schema.org/URL"&gt;click here&lt;/a&gt;
-            &lt;img class="my-img" id="img1" data-type="jpeg" src="//google.com/logo.jpg"/&gt;
-
-            &lt;style&gt;
-              .column-5 {width:20%;margin-left:80%;} /*this is bad!*/
-              .column-5 { width: 20%; margin-left: 80%; } /* this is good! */
-            &lt;/style&gt;
-            &lt;script&gt;
-              //this is a bad commment!
-              // this is a good comment!
-              function TestSubject(name, adopted) {
-                Person.call(this, name, adopted)
-                if (typeof adopted == 'boolean') {
-                  this.is_adopted = adopted
-                } else this.is_adopted = false
-              }
-              ;(function sayMyName(testSubject) {
-                console.log(testSubject.name)
-              })(new TestSubject('Chell', function () { return true }))
-            &lt;/script&gt;
+            var foo = 1
+              , bar = 2
+              , qux = 3
+            var obj = {
+              one: 1
+            , two: 2
+            , th3: 3
+            }
+            var arr = [
+              'one', 'two', 'th3'
+            , 'foR', 'fiv', 'six'
+            , 'sev', 'ate', 'nyn'
+            ]
+            function TestSubject(name, adopted) {
+              Person.call(this, name, adopted)
+              if (typeof adopted == 'boolean') {
+                this.is_adopted = adopted
+              } else { this.is_adopted = false }
+            }
+            ;(function sayMyName(testSubject) {
+              console.log(testSubject.name)
+            })(new TestSubject('Chell', function () { return true }))
+      section(style="background-color: rgba(255,170,85,0.5); color: red;")
+        p(style="font-weight:bold;font-size:3rem;text-align:center;") DRAFT
+        h2 Optimization and Accessibility
+        ul
+          li Always provide the #[code html[lang]] attribute.
+          li.
+            Omit the #[code [type]] attribute from the
+            #[code &lt;link&gt;], #[code &lt;style&gt;], and #[code &lt;script&gt;] tags,
+            but only if the value is default (#[code type="text/css"] or #[code type="text/javascript"])
+          li Never use any of the following elements or attributes:
+            ul
+              li: code font
+              li: code [align]
+              li: code [border]
+          li
+            | Attributes shall have the following precedence and thus shall be written in the following order:
+            ol
+              li: code class
+              li: code id
+              li any attributes starting with #[code data-]
+              li.
+                any other #[a(href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes") global attributes]
+                not on this list (#[code style], #[code title], #[code lang], etc.)
+                in any order
+              li.
+                all element-specific attributes
+                (#[code href], #[code src], #[code rel], #[code alt], etc.)
+                in any order
+              li
+                | microdata attributes in the following order:
+                ol
+                  li: code itemprop
+                  li: code itemscope
+                  li: code itemtype
+                  li #[code itemid] or #[code itemref]
+                small Microdata attributes, though global, are listed last to improve readability.
+            | Examples:
+            figure: pre.
+              &lt;a data-name="index-1" href="//google.com/" itemprop="url" itemscope="" itemtype="//schema.org/URL"&gt;click here&lt;/a&gt;
+              &lt;img class="my-img" id="img1" data-type="jpeg" src="//google.com/logo.jpg" alt="the Google logo"/&gt;
+          li.
+            Use the #[code hr] element as little as possible. Instead, end one #[code section]
+            and start another, using CSS to create a border if need be.
+          li For #[code table] elements:
+            ul
+              li.
+                insert the #[code caption], #[code thead], and #[code tfoot] elements (in that order)
+                #[em before] the #[code tbody] element(s)
+              li.
+                always nest #[code tr] elements inside either #[code thead], #[code tfoot], or
+                #[code tbody] elements; never directly inside #[code table]
+              li.
+                always nest #[code th] and #[code td] elements directly inside #[code tr] elements
+          li
+            | When adding a link to one element, wrap the #[code &lt;a&gt;] tag around
+            |  the #[em outside] of the element to be linked.
+            figure: pre.
+              &lt;a&gt;&lt;code&gt;this is correct&lt;/code&gt;&lt;/a&gt;
+              &lt;code&gt;&lt;a&gt;only do this if&lt;/a&gt; there is more content not to be linked&lt;/code&gt;
+              &lt;code&gt;&lt;a&gt;this is incorrect&lt;/a&gt;&lt;/code&gt;
+          li Always provide text for the #[code img[alt]] attribute.
+          li.
+            Give every #[code dfn] element a unique #[code [id]], so that there is only
+            one defining instance of a term per page. Furthermore, it can be used as
+            a hyperlink anchor (#[i fragment identifier]).
+        ul
+          li Use unitless CSS values of 0.
+          li Always use unitless line height.
+        table.demo
+          thead: tr
+            th(scope="col") Correct
+            th(scope="col") Incorrect
+          tbody
+            tr
+              td: code margin: 0;
+              td: code margin: 0px;
+            tr
+              td: code line-height: 1.25;
+              td: code line-height: 1.25em; line-height: 20px;
       section
         h2 Naming
       section
@@ -302,6 +376,15 @@ html
              */
 
             /* Use this format for a single line if there&rsquo;s no inline syntax. */
+
+            &lt;!-- this is a good comment! --&gt;
+            &lt;!--this is a bad comment!--&gt;
+
+            // this is a good comment!
+            //this is a bad commment!
+
+            /* this is a good comment! */
+            /*this is a bad comment!*/
         section
           h3 Usage
           p.

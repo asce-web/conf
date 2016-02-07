@@ -103,6 +103,19 @@ html
           figure.bare Aenean consectetur #[code figure] suscipit urna, non vehicula lacus blandit et.
             figcaption Integer at lacus et diam tristique #[code figure figcaption] suscipit.
         figure
+          pre.
+            Pellentesque #[code pre] habitant() {
+              morbi.tristique = senectus;
+              et (netus = malesuada; fames &lt; ac; turpis.egestas++) {
+                Nunc.sit += [amet, scelerisque][et];
+                Cras = {
+                  lectus: cursus
+                , sed: dui
+                , quis: convallis(id () { justo Quisque.elit; })
+                };
+              }
+            }
+        figure
           p.
             A horizontal rule #[code hr] is shown below. I&rsquo;m honestly not sure when
             you would ever use this instead of a CSS border.
@@ -133,8 +146,8 @@ html
                     li Another nested list item
         figure
           figcaption.
-            Dictionary List (#[code dl]) &mdash; Used for key-value pairs,
-            such as a list of dates (or times) and descriptions.
+            Dictionary List #[code dl] &mdash; Used for key-value pairs,
+            such as a list of dates/times and descriptions.
           dl
             dt date
             dd description
@@ -144,7 +157,6 @@ html
             dd description
       section.doc-ss
         h2 Tables
-        p An unclassed, unstyled table is shown below.
         figure
           table
             caption Use #[code caption] for the title or heading of the table.
@@ -212,39 +224,54 @@ html
         section.doc-ss
           h3 Stress
           figure
-            p
-              span(style="display: inline-block; margin-right: 1rem;"): em             emphasized text #[code em]
-              span(style="display: inline-block; margin-right: 1rem;"): strong         important text #[code strong]
-              span(style="display: inline-block; margin-right: 1rem;"): i              alternate voice/mood (scare quotes, mentions, foreign expressions) #[code i]
-              span(style="display: inline-block; margin-right: 1rem;"): b              keyword or technical term #[code b]
-              span(style="display: inline-block; margin-right: 1rem;"): small          side comment #[code small]
-              span(style="display: inline-block; margin-right: 1rem;"): s              text explicitly shown to be no longer relevant #[code s]
-              span(style="display: inline-block; margin-right: 1rem;"): sup            superscript #[code sup]
-              span(style="display: inline-block; margin-right: 1rem;"): sub            subscript #[code sub]
-              span(style="display: inline-block; margin-right: 1rem;"): abbr(title="") abbreviation #[code abbr(title="")]
-              span(style="display: inline-block; margin-right: 1rem;"): time           a specific date or time #[code time]
+            ul
+              li: em             emphasized text #[code em]
+              li: strong         important text #[code strong]
+              li: i              alternate voice/mood (scare quotes, mentioning words, foreign expressions) #[code i]
+              li: mark           relevant in some context #[code mark]
+              li: u              unarticulated annotation #[code u]
+              li: small          side comment #[code small]
+              li: s              text explicitly shown to be no longer relevant #[code s]
+              li: ins            content shown to be inserted into a document #[code ins]
+              li: del            content shown to be deleted from a document #[code del]
+              li: b              keyword or technical term #[code b]
+              li: q              quoted material #[code q]
+              li: cite           reference to a work, some part of a work, or the creator of a work #[code cite]
+              li: sup            superscript #[code sup]
+              li: sub            subscript #[code sub]
+              li: abbr(title="") abbreviation #[code abbr[title]]
+              li: time           a specific date or time #[code time[datetime]]
+              li: code           a fragment of code #[code code]
           figure
+            figcaption: p The following paragraphs contain live examples of usage of the elements above.
             p.
-              This section demonstrates #[em commonly used] inline elements
+              This figure demonstrates #[em commonly used] inline elements
               in text. Notice #[q commonly used] is emphasized: it&rsquo;s important
               to note that #[strong not all text-level elements are listed here].
-              Some might argue that #[code em] and #[code strong] are #[i semantic elements]
+            p.
+              Some have the opinion that #[code em] and #[code strong] are #[i semantic elements]
               while #[code i] and #[code b] are #[i formatting elements]
               (which should be #[b deprecated] in HTML5), however
+              others might argue that
               given the flexibility of these, they can be used for other undefined phrasing content,
               such as scare quotes and mentions (for the former), and keywords
               and technical terms (for the latter).
               #[small However, #[s it&rsquo;s okay to use them interchangeably] one should remember not to use #[code i] and #[code b] for the meanings associated with #[code em] and #[code strong], respectively.]
             p.
-              Use a #[sup superscript] or a #[sub subscript] for when the presence
-              of said elements is semantically required, not just when it looks good there.
-              #[abbr(title="exampli gratia") E.g.], don&rsquo;t use superscripts
+              Use the #[code sup] and #[code sub] elements for when their presence
+              is semantically required, not just when it looks good there.
+              #[i(lang="la"): abbr(title="exampli gratia") E.g.], don&rsquo;t use superscripts
               for the abbreviation of ordinals. There are two reasons for this:
               1st,
               #[q superscripted ordinals are tiny and hard to read]
               #[cite (Matthew Butterick, #[time 2014])],
               but 2nd, and more importantly,
               the semantics would remain the same even if the superscript were removed.
+              Use super/subscripts only when changing them to normal text would
+              drastically affect their meaning. For example,
+              in math: #[u f(x) = a#[sub 1]x#[sup 2] + a#[sub 2]x + a#[sub 3]],
+              in chemical formulae: #[u dihydgogen oxide, or H#[sub 2]O, is commonly known as water], and
+              in French abbreviations: #[u #[abbr(title="Mademoiselle") M#[sup lle]] Juliette].
     nav
       h1 Subsitemap
       ol

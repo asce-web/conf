@@ -9,6 +9,124 @@ html
   body
     main
       h1 ASCE Conferences Styleguide &mdash; Pattern Library &mdash; Objects
+      section.sg-sect
+        h2 The Block Object
+        figure.sg-fig
+          div.
+            A simple block object. Use this class to display an element as a
+            #[span.o-Block block element,]
+            with an inherited line-height to maintain vertical rhythm.
+          pre.sg-code.sg-code-block.
+            ... to display an element as a &lt;span class="#[u o-Block]"&gt;block element,&lt;/span&gt; with ...
+      section.sg-sect
+        h2 The Inline Object
+        figure.sg-fig
+          div.
+            A simple inline object. Use this class to display an element as an
+            #[p.o-Inline inline element,]
+            with zero line-height to maintain vertical rhythm.
+          pre.sg-code.sg-code-block.
+            ... to display an element as an &lt;p class="#[u o-Inline]"&gt;inline element,&lt;/p&gt; with ...
+      section.sg-sect
+        h2 The Bare List
+        p.
+          Use the Bare List object to remove the usual styles accompanied by
+          un/ordered lists (#[code.sg-code ul] and #[code.sg-code ol] elements).
+          The result is a list of items, each on its own line.
+        figure.sg-fig
+          ul.o-ListBare
+            li Burns &amp; McDonnell Engineering
+            li DIS-TRAN Steel, LLC
+            li EDM International
+            li Electrical Consultants, Inc.
+            li Fabrimet Inc.
+            li Falcon Steel Company
+          pre.sg-code.sg-code-block.
+            &lt;ul class="#[u o-ListBare]"&gt;
+              &lt;li&gt;Burns &amp; McDonnell Engineering&lt;/li&gt;
+              &lt;li&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
+              ...
+            &lt;/ul&gt;
+      section.sg-sect
+        h2 The Flex Grid
+        p.
+          A Flex Grid is simply a list of items arranged like blocks in a grid.
+          It has the structure of a list in that all items share the same container
+          (unlike tables where items are in different rows), while at the same time
+          appearing like a table with rows and columns.
+          The Flex Grid can be flexible and responsive, adjusting the number of
+          columns based on screen size.
+        p.
+          The container must have the #[code.sg-code .o-GridFlex] class and
+          each item must have the #[code.sg-code .o-GridFlex__Item] class.
+          To remove normal list styles (bullets, etc),
+          add class #[code.sg-code .o-ListBare] to the container.
+        figure.sg-fig
+          ul.o-ListBare.o-GridFlex
+            li.o-GridFlex__Item Burns &amp; McDonnell Engineering
+            li.o-GridFlex__Item DIS-TRAN Steel, LLC
+            li.o-GridFlex__Item EDM International
+            li.o-GridFlex__Item Electrical Consultants, Inc.
+            li.o-GridFlex__Item Fabrimet Inc.
+            li.o-GridFlex__Item Falcon Steel Company
+            li.o-GridFlex__Item Sabre-FWT
+            li.o-GridFlex__Item HDR
+            li.o-GridFlex__Item Mitas Energy
+            li.o-GridFlex__Item Power Consulting Associates, LLC
+            li.o-GridFlex__Item Power Line Systems, Inc.
+            li.o-GridFlex__Item Quanta Services
+            li.o-GridFlex__Item ReliaPOLE Inspection Services
+            li.o-GridFlex__Item Sabre-FWT
+            li.o-GridFlex__Item SAE Towers
+            li.o-GridFlex__Item TAPP Steel Poles
+            li.o-GridFlex__Item Trinity Meyer Utility Structures
+            li.o-GridFlex__Item TRC Engineers
+            li.o-GridFlex__Item Underground Devices
+            li.o-GridFlex__Item Valmont Newmark
+          pre.sg-code.sg-code-block.
+            &lt;ul class="o-ListBare #[u o-GridFlex]"&gt;
+              &lt;li class="#[u o-GridFlex__Item]"&gt;Burns &amp; McDonnell Engineering&lt;/li&gt;
+              &lt;li class="#[u o-GridFlex__Item]"&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
+              ...
+            &lt;/ul&gt;
+      section.sg-sect
+        h2 The Float Grid
+        p.
+          The Float Grid works just like the Flex Grid above, except that the Float Grid
+          is supported by legacy browsers such as #[b Internet Explorer 9] and below.
+        p.
+          The container must have the #[code.sg-code .o-GridFloat] class and
+          each item must have the #[code.sg-code .o-GridFloat__Item] class.
+          To remove normal list styles (bullets, etc),
+          add class #[code.sg-code .o-ListBare] to the container.
+        figure.sg-fig
+          ul.o-ListBare.o-GridFloat
+            li.o-GridFloat__Item Burns &amp; McDonnell Engineering
+            li.o-GridFloat__Item DIS-TRAN Steel, LLC
+            li.o-GridFloat__Item EDM International
+            li.o-GridFloat__Item Electrical Consultants, Inc.
+            li.o-GridFloat__Item Fabrimet Inc.
+            li.o-GridFloat__Item Falcon Steel Company
+            li.o-GridFloat__Item Sabre-FWT
+            li.o-GridFloat__Item HDR
+            li.o-GridFloat__Item Mitas Energy
+            li.o-GridFloat__Item Power Consulting Associates, LLC
+            li.o-GridFloat__Item Power Line Systems, Inc.
+            li.o-GridFloat__Item Quanta Services
+            li.o-GridFloat__Item ReliaPOLE Inspection Services
+            li.o-GridFloat__Item Sabre-FWT
+            li.o-GridFloat__Item SAE Towers
+            li.o-GridFloat__Item TAPP Steel Poles
+            li.o-GridFloat__Item Trinity Meyer Utility Structures
+            li.o-GridFloat__Item TRC Engineers
+            li.o-GridFloat__Item Underground Devices
+            li.o-GridFloat__Item Valmont Newmark
+          pre.sg-code.sg-code-block.
+            &lt;ul class="o-ListBare #[u o-GridFloat]"&gt;
+              &lt;li class="#[u o-GridFloat__Item]"&gt;Burns &amp; McDonnell Engineering&lt;/li&gt;
+              &lt;li class="#[u o-GridFloat__Item]"&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
+              ...
+            &lt;/ul&gt;
     nav
       h1 Subsitemap
       ol

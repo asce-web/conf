@@ -36,6 +36,12 @@
  * base...........................bare, unclassed elements
  *
  * ## OBJECTS
+ * Block..........................a simple block object
+ * Inline.........................a simple inline object
+ * ListBare.......................plain, unstyled, blocky list
+ * GridFlex.......................grid of items
+ * GridFloat......................grid of items; legacy support
+ *
  * object.........................temporary file containing ALL objects : will be broken up later
  * SpeakerProfile.................a three-column layout containing speaker session info, headshot, and speaker brief info
  * ListGrid.......................a list of blocks arranged in a table-like, flexible grid
@@ -88,6 +94,11 @@
 
 @import url('_base.less');
 
+@import url('_obj.Block.less');
+@import url('_obj.Inline.less');
+@import url('_obj.ListBare.less');
+@import url('_obj.GridFlex.less');
+@import url('_obj.GridFloat.less');
 //
 // @import url('__tools.sprite.less');
 // @import url('__tools.logos.less');

@@ -33,8 +33,9 @@ html
           dd: time(datetime="2016-01-19 14:34") Jan 19, 2016 #[span.tod  2:34 PM]
           dd: time(datetime="2016-01-20 16:11") Jan 20, 2016 #[span.tod  4:11 PM]
           dd: time(datetime="2016-01-22 17:48") Jan 22, 2016 #[span.tod  5:48 PM]
+          dd: time(datetime="2016-02-07 14:47") Feb 07, 2016 #[span.tod  2:47 PM]
           dd
-            time(datetime="2016-02-07 11:10" itemprop="dateModified") Feb 07, 2016 #[span.tod 11:10 AM]
+            time(datetime="2016-02-08 09:22" itemprop="dateModified") Feb 08, 2016 #[span.tod  9:22 AM]
       p.
         #[strong General Principles.] As
         #[a(href="http://nicolasgallagher.com/") Nicolas Gallagher]
@@ -235,8 +236,7 @@ html
         section
           h3 JS Specifics
           ul
-            li
-              | In scripting (JS, PHP):
+            li In scripting (JS, PHP):
               ul
                 li class names use #[code PascalCase]
                 li function/method names use #[code camelCase]
@@ -248,6 +248,7 @@ html
             li.
               Use the #[a(href="https://en.wikipedia.org/wiki/Indent_style#Variant:_1TBS") 1TBS] brace style
               and #[a(href="https://docs.npmjs.com/misc/coding-style") npm&rsquo;s coding style].
+              (The rules in this styleguide override npm&rsquo;s style.)
           figure: pre.
             var foo = 1
               , bar = 2
@@ -313,7 +314,7 @@ html
               &lt;img class="my-img" id="img1" data-type="jpeg" src="//google.com/logo.jpg" alt="the Google logo"/&gt;
           li.
             Use the #[code hr] element as little as possible. Instead, end one #[code section]
-            and start another, using CSS to create a border if need be.
+            and start another, using a CSS border if need be.
           li For #[code table] elements:
             ul
               li.
@@ -350,8 +351,6 @@ html
             tr
               td: code line-height: 1.25;
               td: code line-height: 1.25em; line-height: 20px;
-      section
-        h2 Naming
       section
         h2 Commenting
         section
@@ -598,6 +597,9 @@ html
                 //---- end ## Lines and units ----//
               ... code goes here ...
               //++++ end # HORIZONTAL GRID ++++//
+        section#js-class-files(style="background-color: rgba(255,170,85,0.5); color: red;")
+          p(style="font-weight:bold;font-size:3rem;text-align:center;") DRAFT
+          h3 JS Class Files
     nav
       h1 Sitemap
       ol

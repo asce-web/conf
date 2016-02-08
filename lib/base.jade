@@ -9,12 +9,12 @@ html
   body
     main
       h1 ASCE Conferences Styleguide &mdash; Pattern Library &mdash; Base Typography
-      section.doc-ss
+      section.sg-sect
         h2 Headings and Paragraphs
-        figure
-          h1 Heading 1 #[code h1]
+        figure.sg-fig
+          h1 Heading 1 #[code.sg-code h1]
           p.
-            Paragraph #[code p]
+            Paragraph #[code.sg-code p]
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Aliquam sagittis suscipit nunc, a cursus libero euismod at.
             Nulla placerat neque massa, quis interdum leo efficitur vel.
@@ -22,9 +22,9 @@ html
             Mauris eget mauris ut mauris auctor mattis id vel justo.
             Nulla dictum arcu nec suscipit mollis.
             Maecenas a iaculis nisl, ut pretium est. Nulla facilisi.
-          h2 Heading 2 #[code h2]
+          h2 Heading 2 #[code.sg-code h2]
           p.
-            Paragraph #[code p]
+            Paragraph #[code.sg-code p]
             Suspendisse ut auctor enim.
             Aliquam viverra enim vitae ante aliquet venenatis.
             Sed vel nibh sit amet sapien fermentum mattis nec non arcu.
@@ -38,9 +38,9 @@ html
             Vivamus pulvinar ligula eget mi tincidunt, eget faucibus justo laoreet.
             In sapien lacus, egestas faucibus laoreet eu, tempor sit amet lorem.
             Sed luctus congue tortor a scelerisque.
-          h3 Heading 3 #[code h3]
+          h3 Heading 3 #[code.sg-code h3]
           p.
-            Paragraph #[code p]
+            Paragraph #[code.sg-code p]
             Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
             Nunc sit amet scelerisque lectus. Cras cursus sed dui quis convallis.
             Quisque id justo elit.
@@ -51,9 +51,9 @@ html
             Suspendisse sit amet fermentum sapien.
             Aliquam luctus laoreet iaculis.
             Proin lacinia orci vitae tellus pellentesque porttitor.
-          h4 Heading 4 #[code h4]
+          h4 Heading 4 #[code.sg-code h4]
           p.
-            Paragraph #[code p]
+            Paragraph #[code.sg-code p]
             Aenean consectetur suscipit urna, non vehicula lacus blandit et.
             Integer at lacus et diam tristique suscipit.
             Ut cursus massa sit amet nisl convallis, elementum accumsan sapien mattis.
@@ -67,9 +67,9 @@ html
             In quis lectus in lectus interdum laoreet eu quis quam.
             Fusce auctor posuere purus, quis semper libero dignissim euismod.
             Curabitur commodo mauris a sapien vulputate, eget pharetra urna facilisis.
-          h5 Heading 5 #[code h5]
+          h5 Heading 5 #[code.sg-code h5]
           p.
-            Paragraph #[code p]
+            Paragraph #[code.sg-code p]
             Donec finibus ut lectus finibus pellentesque.
             Nulla euismod feugiat nulla nec posuere.
             Sed ac est id sem sagittis rhoncus eu ac neque.
@@ -78,9 +78,9 @@ html
             Mauris nec ipsum id orci porttitor auctor sed sit amet sem.
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Etiam tellus leo, venenatis sit amet ipsum non, sagittis feugiat ante.
-          h6 Heading 6 #[code h6]
+          h6 Heading 6 #[code.sg-code h6]
           p.
-            Paragraph #[code p]
+            Paragraph #[code.sg-code p]
             Donec vel dolor ut felis dapibus ultricies vitae a nibh.
             Ut semper odio est, sed lacinia ligula gravida ut.
             Vestibulum facilisis viverra pulvinar.
@@ -89,22 +89,22 @@ html
             Donec ut quam massa.
             Vestibulum sapien justo, commodo a eros in, rhoncus interdum nisl.
             Etiam a porta lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        figure
-          h1 Lorem Ipsum #[code h1]
-          h2 Lorem Ipsum #[code h2]
-          h3 Lorem Ipsum #[code h3]
-          h4 Lorem Ipsum #[code h4]
-          h5 Lorem Ipsum #[code h5]
-          h6 Lorem Ipsum #[code h6]
-        figure
-          blockquote Donec #[code blockquote] vel dolor ut felis dapibus ultricies vitae a nibh.
-            footer: cite Finibus Pellentesque #[code blockquote footer]
-        figure
-          figure.bare Aenean consectetur #[code figure] suscipit urna, non vehicula lacus blandit et.
-            figcaption Integer at lacus et diam tristique #[code figure figcaption] suscipit.
-        figure
+        figure.sg-fig
+          h1 Lorem Ipsum #[code.sg-code h1]
+          h2 Lorem Ipsum #[code.sg-code h2]
+          h3 Lorem Ipsum #[code.sg-code h3]
+          h4 Lorem Ipsum #[code.sg-code h4]
+          h5 Lorem Ipsum #[code.sg-code h5]
+          h6 Lorem Ipsum #[code.sg-code h6]
+        figure.sg-fig
+          blockquote Donec #[code.sg-code blockquote] vel dolor ut felis dapibus ultricies vitae a nibh.
+            footer: cite Finibus Pellentesque #[code.sg-code blockquote footer]
+        figure.sg-fig
+          figure Aenean consectetur #[code.sg-code figure] suscipit urna, non vehicula lacus blandit et.
+            figcaption Integer at lacus et diam tristique #[code.sg-code figure figcaption] suscipit.
+        figure.sg-fig
           pre.
-            Pellentesque #[code pre] habitant() {
+            Pellentesque #[code.sg-code pre] habitant() {
               morbi.tristique = senectus;
               et (netus = malesuada; fames &lt; ac; turpis.egestas++) {
                 Nunc.sit += [amet, scelerisque][et];
@@ -115,15 +115,14 @@ html
                 };
               }
             }
-        figure
-          p.
-            A horizontal rule #[code hr] is shown below. I&rsquo;m honestly not sure when
-            you would ever use this instead of a CSS border.
-          figure: hr
-      section.doc-ss
+        //- p.
+        //-   A horizontal rule #[code.sg-code hr] is shown below. I&rsquo;m honestly not sure when
+        //-   you would ever use this instead of a CSS border.
+        //- figure.sg-fig: hr
+      section.sg-sect
         h2 Lists
-        figure
-          figcaption Ordered List #[code ol]
+        figure.sg-fig
+          figcaption Ordered List #[code.sg-code ol]
           ol
             li Speaker details
             li Program is now over
@@ -133,8 +132,8 @@ html
                   ol
                     li Another nested list item
                     li Another nested list item
-        figure
-          figcaption Unrdered List #[code ul]
+        figure.sg-fig
+          figcaption Unrdered List #[code.sg-code ul]
           ul
             li Speaker details
             li Program is now over
@@ -144,9 +143,9 @@ html
                   ul
                     li Another nested list item
                     li Another nested list item
-        figure
+        figure.sg-fig
           figcaption.
-            Dictionary List #[code dl] &mdash; Used for key-value pairs,
+            Dictionary List #[code.sg-code dl] &mdash; Used for key-value pairs,
             such as a list of dates/times and descriptions.
           dl
             dt date
@@ -155,11 +154,11 @@ html
             dd description
             dt date
             dd description
-      section.doc-ss
+      section.sg-sect
         h2 Tables
-        figure
+        figure.sg-fig
           table
-            caption Use #[code caption] for the title or heading of the table.
+            caption Use #[code.sg-code caption] for the title or heading of the table.
             thead
               tr
                 th Header Row 1 Heading 1
@@ -199,15 +198,15 @@ html
                 td Body Row 5 Cell 1
                 td Body Row 5 Cell 2
                 td Body Row 5 Cell 3
-      section.doc-ss
+      section.sg-sect
         h2 Text-Level Elements
-        section.doc-ss
+        section.sg-sect
           h3 Links
           p.
-            Some of the #[code a] elements below have #[code href]
-            attributes, and some do not. Be sure to use #[code a[href]]
+            Some of the #[code.sg-code a] elements below have #[code.sg-code href]
+            attributes, and some do not. Be sure to use #[code.sg-code a[href]]
             for clickable hyperlinks.
-          figure
+          figure.sg-fig
             p.
               Lorem ipsum #[a(href="") dolor] sit amet, consectetur adipisicing elit, sed do
               eiusmod tempor incididunt #[a(href="") ut labore et dolore] magna aliqua. Ut
@@ -221,44 +220,43 @@ html
               nisi ut aliquip ex ea commodo consequat. #[a Lorem ipsum dolor sit]
               amet, consectetur adipisicing elit, sed do eiusmod tempor
               incididunt #[a ut labore et dolore magna aliqua].
-        section.doc-ss
+        section.sg-sect
           h3 Stress
-          figure
-            ul
-              li: em             emphasized text #[code em]
-              li: strong         important text #[code strong]
-              li: i              alternate voice/mood (scare quotes, mentioning words, foreign expressions) #[code i]
-              li: mark           relevant in some context #[code mark]
-              li: u              unarticulated annotation #[code u]
-              li: small          side comment #[code small]
-              li: s              text explicitly shown to be no longer relevant #[code s]
-              li: ins            content shown to be inserted into a document #[code ins]
-              li: del            content shown to be deleted from a document #[code del]
-              li: b              keyword or technical term #[code b]
-              li: q              quoted material #[code q]
-              li: cite           reference to a work, some part of a work, or the creator of a work #[code cite]
-              li: sup            superscript #[code sup]
-              li: sub            subscript #[code sub]
-              li: abbr(title="") abbreviation #[code abbr[title]]
-              li: time           a specific date or time #[code time[datetime]]
-              li: code           a fragment of code #[code code]
-          figure
+          figure.sg-fig: ul
+            li: em     emphasized text #[code.sg-code em]
+            li: strong important text #[code.sg-code strong]
+            li: i      alternate voice/mood (scare quotes, mentioning words, foreign expressions) #[code.sg-code i]
+            li: mark   relevant in some context #[code.sg-code mark]
+            li: u      unarticulated annotation #[code.sg-code u]
+            li: small  side comment #[code.sg-code small]
+            li: s      text explicitly shown to be no longer relevant #[code.sg-code s]
+            li: ins    content shown to be inserted into a document #[code.sg-code ins]
+            li: del    content shown to be deleted from a document #[code.sg-code del]
+            li: b      keyword or technical term #[code.sg-code b]
+            li: q      quoted material #[code.sg-code q]
+            li: cite   reference to a work, some part of a work, or the creator of a work #[code.sg-code cite]
+            li: sup    superscript #[code.sg-code sup]
+            li: sub    subscript #[code.sg-code sub]
+            li: abbr   abbreviation or acronym #[code.sg-code abbr[title]]
+            li: time   a specific date or time #[code.sg-code time[datetime]]
+            li: code   a fragment of code #[code.sg-code code]
+          figure.sg-fig
             figcaption: p The following paragraphs contain live examples of usage of the elements above.
             p.
               This figure demonstrates #[em commonly used] inline elements
               in text. Notice #[q commonly used] is emphasized: it&rsquo;s important
               to note that #[strong not all text-level elements are listed here].
             p.
-              Some have the opinion that #[code em] and #[code strong] are #[i semantic elements]
-              while #[code i] and #[code b] are #[i formatting elements]
+              Some have the opinion that #[code.sg-code em] and #[code.sg-code strong] are #[i semantic elements]
+              while #[code.sg-code i] and #[code.sg-code b] are #[i formatting elements]
               (which should be #[b deprecated] in HTML5), however
               others might argue that
               given the flexibility of these, they can be used for other undefined phrasing content,
               such as scare quotes and mentions (for the former), and keywords
               and technical terms (for the latter).
-              #[small However, #[s it&rsquo;s okay to use them interchangeably] one should remember not to use #[code i] and #[code b] for the meanings associated with #[code em] and #[code strong], respectively.]
+              #[small However, #[s it&rsquo;s okay to use them interchangeably] one should remember not to use #[code.sg-code i] and #[code.sg-code b] for the meanings associated with #[code.sg-code em] and #[code.sg-code strong], respectively.]
             p.
-              Use the #[code sup] and #[code sub] elements for when their presence
+              Use the #[code.sg-code sup] and #[code.sg-code sub] elements for when their presence
               is semantically required, not just when it looks good there.
               #[i(lang="la"): abbr(title="exampli gratia") E.g.], don&rsquo;t use superscripts
               for the abbreviation of ordinals. There are two reasons for this:
@@ -269,7 +267,7 @@ html
               the semantics would remain the same even if the superscript were removed.
               Use super/subscripts only when changing them to normal text would
               drastically affect their meaning. For example,
-              in math: #[u f(x) = a#[sub 1]x#[sup 2] + a#[sub 2]x + a#[sub 3]],
+              in math: #[u f(x) = a#[sub 0]x#[sup 2] + a#[sub 1]x + a#[sub 2]],
               in chemical formulae: #[u dihydgogen oxide, or H#[sub 2]O, is commonly known as water], and
               in French abbreviations: #[u #[abbr(title="Mademoiselle") M#[sup lle]] Juliette].
     nav

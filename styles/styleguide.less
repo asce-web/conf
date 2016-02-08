@@ -21,11 +21,40 @@
  */
 
 
-// temporrary styles
-pre { font-size: 0.75rem; }
-
-pre, code { color: green; }
-
-dt { font-weight: 700; }
-
-figure { margin-left: 1rem; margin-right: 1rem; }
+// all pre-formatted code is slightly smaller
+pre {
+  font-size: 0.75rem;
+}
+// A section of demos in a styleguide document.
+.sg-sect {
+  margin-left: 1em;
+  background-color: rgba(0,32,64,0.05);
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+// a figure containing ALL demos.
+.sg-fig {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 0.5em;
+  border: 1px solid #e5eaef;
+  border-radius: 8px;
+  position: relative; // for containing other relative things
+  background: #f5faff;
+}
+// a dictionary list containing document metadata
+.sg-docmeta dt {
+  font-weight: 700;
+}
+// any code, block or inline
+.sg-code {
+  padding: 1px 2px;
+  border-radius: 3px;
+  font-size: 0.75em;
+  line-height: 0;
+  background-color: #408000;
+  color: #f0f8f4;
+}

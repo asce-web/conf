@@ -30,6 +30,100 @@ html
             &lt;div class="#[u a-fl-l]"&gt;floating left&lt;/div&gt;
             &lt;div class="#[u a-fl-r]"&gt;floating right&lt;/div&gt;
             &lt;div&gt;Lorem ipsum dolor ...&lt;/div&gt;
+      section.sg-sect
+        h2 Widths
+        p.
+          Use these classes to set the width of block (or inline-block) elements.
+          These can be very useful for items in a grid object.
+        p.
+          Percentage widths are fluid, best for responding to screen size.
+          Pixel widths are absolute, best for when you know the exact width.
+          Em widths are adjustable, based on the font size of the element
+          (e.g. if the element&rsquo;s font size is 16px, then 1em is 16px
+          and 5em is 80px).
+        figure.o-GridFlex.sg-fig
+          section.o-GridFlex__Item.a-w-1o3
+            h3 Percentage Widths
+            pre.
+              .a-w-1o1   == 100%#[br]
+              .a-w-1o2   ==  50%
+              .a-w-2o2   == 100%#[br]
+              .a-w-1o3   ==  33%
+              .a-w-2o3   ==  67%
+              .a-w-3o3   == 100%#[br]
+              .a-w-1o4   ==  25%
+              .a-w-2o4   ==  50%
+              .a-w-3o4   ==  75%
+              .a-w-4o4   == 100%#[br]
+              .a-w-1o5   ==  20%
+              .a-w-2o5   ==  40%
+              .a-w-3o5   ==  60%
+              .a-w-4o5   ==  80%
+              .a-w-5o5   == 100%#[br]
+              .a-w-1o6   ==  17%
+              .a-w-2o6   ==  33%
+              .a-w-3o6   ==  50%
+              .a-w-4o6   ==  67%
+              .a-w-5o6   ==  83%
+              .a-w-6o6   == 100%#[br]
+              .a-w-1o10  ==  10%
+              .a-w-2o10  ==  20%
+              .a-w-3o10  ==  30%
+              .a-w-4o10  ==  40%
+              .a-w-5o10  ==  50%
+              .a-w-6o10  ==  60%
+              .a-w-7o10  ==  70%
+              .a-w-8o10  ==  80%
+              .a-w-9o10  ==  90%
+              .a-w-10o10 == 100%
+            footer: p 31 classes, 16 unique classes
+          section.o-GridFlex__Item.a-w-1o3
+            h3 Pixel Widths
+            pre.
+              .a-w-96px   ==   96px
+              .a-w-192px  ==  192px
+              .a-w-288px  ==  288px
+              .a-w-384px  ==  384px
+              .a-w-480px  ==  480px
+              .a-w-576px  ==  576px
+              .a-w-672px  ==  672px
+              .a-w-768px  ==  768px
+              .a-w-864px  ==  864px
+              .a-w-960px  ==  960px
+              .a-w-1056px == 1056px
+              .a-w-1152px == 1152px
+              .a-w-1248px == 1248px
+              .a-w-1344px == 1344px
+              .a-w-1440px == 1440px
+            footer: p 15 unique classes
+          section.o-GridFlex__Item.a-w-1o3
+            h3 Em Widths
+            pre.
+              .a-w-5em  ==  5em
+              .a-w-10em == 10em
+              .a-w-15em == 15em
+              .a-w-20em == 20em
+              .a-w-25em == 25em
+              .a-w-30em == 30em
+              .a-w-35em == 35em
+              .a-w-40em == 40em
+              .a-w-45em == 45em
+              .a-w-50em == 50em
+              .a-w-55em == 55em
+              .a-w-60em == 60em
+              .a-w-65em == 65em
+              .a-w-70em == 70em
+              .a-w-75em == 75em
+              .a-w-80em == 80em
+              .a-w-85em == 85em
+              .a-w-90em == 90em
+            footer: p 18 unique classes
+          pre.o-GridFlex__Item.sg-code.sg-code-block.
+            &lt;div class="o-GridFlex"&gt;
+              &lt;section class="o-GridFlex__Item #[u a-w-1o3]"&gt;...&lt;/section&gt;
+              &lt;section class="o-GridFlex__Item #[u a-w-1o3]"&gt;...&lt;/section&gt;
+              &lt;section class="o-GridFlex__Item #[u a-w-1o3]"&gt;...&lt;/section&gt;
+            &lt;/div&gt;
     nav
       h1 Subsitemap
       ol

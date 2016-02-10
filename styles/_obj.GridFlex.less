@@ -1,0 +1,29 @@
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+
+/*################################*\
+    conf  |  _obj.GridFlex.less
+\*################################*/
+
+
+// The GridFlex object is simply a list of items arranged like blocks in a grid.
+// It has the structure of a <ul> element with the appearance of a <table> element,
+// but it is flexible and responsive.
+// NOTE: add class .o-ListBare to the markup to remove list style markers etc.
+//
+// ^subcomponents
+// : `__Item` - any item inside the grid
+// ^author
+// : Chris Harvey
+// ^updated
+// : 2016-01-29
+.o-GridFlex {
+  #XMETER .flexbox();
+  #XMETER .flex-direction(row);
+  #XMETER .flex-wrap(wrap);
+  #XMETER .flex-justify-content(flex-start);
+}
+
+.o-GridFlex__Item {
+  display: block;
+  width: 100%;
+}

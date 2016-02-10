@@ -1,0 +1,221 @@
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+
+/*################################*\
+    conf  |  _base.less
+\*################################*/
+
+
+/**
+ * # CONTENTS
+ *
+ * GENERIC........................far-reaching page-wide selectors
+ * SECTIONS.......................sections, articles, headers, footers, headings
+ * GROUPING.......................paragraphs, lists, tables
+ * TEXT...........................phrasing (inline) content and links
+ * FORMS..........................form elements
+ * EMBEDDED.......................images, videos
+ * INTERACTIVE....................user-interactive HTML elements
+ */
+
+
+@random_gray_color: #f4f4f5;
+
+
+//++++++++++++++++++++++++++++++++//
+//    # GENERIC
+//++++++++++++++++++++++++++++++++//
+//++++ end # GENERIC ++++//
+//++++++++++++++++++++++++++++++++//
+//    # SECTIONS
+//++++++++++++++++++++++++++++++++//
+body {
+  font-family: 'Open Sans','Helvetica Neue','Arial',sans-serif;
+  color: @color_asce_body_txt;
+}
+//++++ end # SECTIONS ++++//
+
+
+//++++++++++++++++++++++++++++++++//
+//    # GROUPING
+//++++++++++++++++++++++++++++++++//
+  //--------------------------------//
+  //    # Paragraphs
+  //--------------------------------//
+
+  //---- end # Paragraphs ----//
+
+  //--------------------------------//
+  //    # Lists
+  //--------------------------------//
+  ul {
+    list-style-type: circle;
+    li & {
+      list-style-type: disc;
+    }
+  }
+  //---- end # Lists ----//
+
+  //--------------------------------//
+  //    # Tables
+  //--------------------------------//
+  table {
+    width: 100%;
+    #XMETER .font-size-block(0.75);
+  }
+  thead,
+  tfoot {
+    background-color: @color_asce_table_bground;
+    font-weight: 600;
+    #XMETER .font-size-block(0.875);
+  }
+  th,
+  td {
+    padding: (0.5 * @conf_vru) 0.5rem;
+    border: 0 solid @color_asce_table_border;
+    border-width: 0 0 1px;
+  }
+  // TODO move these to component files
+  .c-TableStripe {
+    tr:nth-child(even) {
+      background-color: @color_asce_table_bground;
+    }
+  }
+  .c-TableBorder {
+    th,
+    td {
+      border-width: 1px;
+    }
+  }
+  //---- end # Tables ----//
+//++++ end # GROUPING ++++//
+
+
+//++++++++++++++++++++++++++++++++//
+//    # TEXT
+//++++++++++++++++++++++++++++++++//
+  //--------------------------------//
+  //    # Links
+  //--------------------------------//
+  a {
+    color: @color_asce_link;
+    &:hover,
+    &:focus {
+      color: @color_asce_link_hover;
+    }
+  }
+  // TODO move this to a component file
+  // ^example
+  // : <a class="c-Button" href="register.html">register today!</a>
+  .c-Button {
+    font-family: @font_ui;
+  }
+  // TODO move this to a component file
+  // A Label component adds a small inline-level tag to a span or block of text.
+  // This can be used to indicate a type of file linked, for example, a PDF or
+  // DOC. It could also be used to indicate an email link.
+  // Use the `<small>` element if necessary.
+  //
+  // ^examples
+  // : <a href="document.pdf">click here <small class="c-Label">PDF</small></a>
+  // : <a href="mailto:me@example.com">email me
+  // :   <small class="c-Label"><span class="octicon octicon-mail"></span></small></a>
+  // ^author
+  // : Chris Harvey
+  // ^updated
+  // : 2015-12-09
+  .c-Label {
+    display: inline;
+    margin-left: 0.5rem;
+    padding: 4px 6px; // FIXME why these numbers?
+    font-weight: 200;
+    font-size: 0.75em;
+    line-height: 0;
+    white-space: nowrap;
+    background-color: @color_asce_label_bg;
+    color: @color_asce_label_txt;
+  }
+  //---- end # Links ----//
+
+  //--------------------------------//
+  //    # Stress
+  //--------------------------------//
+
+  //---- end # Stress ----//
+
+  //--------------------------------//
+  //    # Doc
+  //--------------------------------//
+
+  //---- end # Doc ----//
+
+  //--------------------------------//
+  //    # Data
+  //--------------------------------//
+
+  //---- end # Data ----//
+
+//++++ end # TEXT ++++//
+
+
+//++++++++++++++++++++++++++++++++//
+//    # FORMS
+//++++++++++++++++++++++++++++++++//
+// TODO REDO ALL OF THIS SHIT
+form {
+  display: inline-block;
+  width: 100%;
+  background-color: @random_gray_color;
+  padding: 20px 20px 0;
+  margin-bottom: 20px;
+}
+input[type="text"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="range"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+textarea,
+select {
+  border-radius: 1px;
+  border: 1px solid #b3b8bc;  // okay random color
+  box-shadow: inset 0px 1px 2px #e8eaeb;  // okay random color
+  outline: none;
+  padding: 8px;
+  background: #fff;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 38px;
+  &:focus {
+    border-color: #97d5e9; // okay random color CAN WE PLEASE USE VARIABLES
+  }
+}
+label {
+  display: block;
+  font-weight: 300;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+button {
+  font-family: @font_ui;
+}
+//++++ end # FORMS ++++//
+
+
+//++++++++++++++++++++++++++++++++//
+//    # EMBEDDED
+//++++++++++++++++++++++++++++++++//
+//++++ end # EMBEDDED ++++//
+
+
+//++++++++++++++++++++++++++++++++//
+//    # INTERACTIVE
+//++++++++++++++++++++++++++++++++//
+//++++ end # INTERACTIVE ++++//

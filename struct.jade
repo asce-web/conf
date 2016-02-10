@@ -4,12 +4,13 @@ html(lang="en")
     title File Structure | ASCE Conferences Styleguide
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" href="node_modules/xmeter/xmeter.css")
     link(rel="stylesheet" href="styles/styleguide.css")
   body
     main(itemscope="" itemtype="https://schema.org/Article")
       header
         h1(itemprop="name headline") ASCE Conference Styleguide &mdash; File Structure
-        dl
+        dl.sg-docmeta
           dt Authors
           dd(itemprop="author") Dae Clarke
           dt Description
@@ -20,8 +21,8 @@ html(lang="en")
           dd(itemprop="keywords") codebase
           dd(itemprop="keywords") file structure
           dt Version History
-          dd(itemprop="dateModified")
-            time(datetime="2016-02-? 14:34") Feb ?, 2016 #[span.tod  2:34 PM]
+          dd
+            time(datetime="2016-02-? 14:34" itemprop="dateModified") Feb ?, 2016 #[span.tod  2:34 PM]
     nav
       h1 Sitemap
       ol

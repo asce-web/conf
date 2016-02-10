@@ -1,0 +1,77 @@
+
+/*################################*\
+    conf  |  __settings.less
+\*################################*/
+
+
+//++++++++++++++++++++++++++++++++//
+//    # TYPOGRAPHY
+//++++++++++++++++++++++++++++++++//
+@conf_1rem: 16px;
+// @conf_font_size: @conf_1rem; // not needed... yet
+@conf_line_height: 1.5;
+@conf_vru_px: (@conf_line_height * @conf_1rem); // fallback for @conf_vru
+@conf_vru:    (@conf_line_height *  1rem);
+
+
+//++++++++++++++++++++++++++++++++//
+//    # ASCE COMPANY COLORS
+//++++++++++++++++++++++++++++++++//
+@color_asce_primary: #0c5fa8;
+@color_asce_body_bg: #fff;
+@color_asce_body_txt: #333;
+@color_asce_header_txt: #fff;
+
+// ASCE table colors
+@color_asce_table_border:  #e8e8e8;
+@color_asce_table_bground: #f4f4f4;
+
+// ASCE button colors
+@color_asce_btn_bg: @color_asce_primary;
+@color_asce_btn_txt: #fff;
+@color_asce_btn_sw: #cdcdcd;
+
+// ASCE label colors --- see Label.less
+@color_asce_label_bg: @color_asce_primary;
+@color_asce_label_txt: @color_asce_header_txt;
+
+// ASCE inline hyperlink colors
+@color_asce_link: @color_asce_primary;
+@color_asce_link_hover: #19a1cf;
+//++++ end # ASCE COMPANY COLORS ++++ //
+
+//++++++++++++++++++++++++++++++++//
+//    # SPONSOR COLORS
+//++++++++++++++++++++++++++++++++//
+@color_platinum:  #cde1ec;
+@color_gold:      #f8cd79;
+@color_corporate: #9ed8f9;
+@color_silver:    #dbddde;
+@color_bronze:    #d9c5ac;
+@color_copper:    #d6a985; // CH chose this; may be changed at any time <charvey@asce.org>
+@color_coop_bg:   #e8eaeb; // bgcolor for coop orgs
+//++++ end # SPONSOR COLORS ++++ //
+
+
+//++++++++++++++++++++++++++++++++//
+//    # COMPONENT COLORS
+//++++++++++++++++++++++++++++++++//
+//++++ end # COMPONENT COLORS ++++ //
+
+
+
+
+// -------------------- DRAFT BELOW ------------------------
+
+// flag colors
+@color_flag: #ed1c24; // default
+@color_note_bg: #fef0c1;
+@color_note_br: #fdcd2f;
+
+
+// other colors
+@color_livechat: #62b840; // okay random
+
+// UI fonts
+@font_ui: 'futura-pt', 'Open Sans', 'Arial', sans-serif;
+@highdpi: ~'(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx)';

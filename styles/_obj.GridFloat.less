@@ -1,0 +1,28 @@
+
+/*################################*\
+    conf  |  _obj.GridFlex.less
+\*################################*/
+
+
+// The GridFloat object is a fallback class for browsers who don’t support Flexbox.
+// NOTE: add class .o-ListBare to the markup to remove list style markers etc.
+//
+// ^subcomponents
+// : `__Item` - any item inside the grid
+// ^author
+// : Chris Harvey
+// ^updated
+// : 2016-02-08
+.o-GridFloat {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.o-GridFloat__Item {
+  display: inline-block;
+  float: left;
+  width: 100%;
+}

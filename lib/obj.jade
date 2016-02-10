@@ -72,12 +72,15 @@ html
         p.
           The Flex Grid can be flexible and responsive, adjusting the number of
           columns based on screen size.
+          By default, each item has full width.
           #[mark Remember to set the widths of each item in order to achieve a grid-like appearance.]
         p.
           The container must have the #[code.sg-code .o-GridFlex] class and
           each item must have the #[code.sg-code .o-GridFlex__Item] class.
           To remove normal list styles (padding, bullets, etc.),
           add class #[code.sg-code .o-ListBare] to the container.
+          If the items are normally inline elements, remember to add class
+          #[code.sg-code .o-Block] to each one.
         figure.sg-fig
           ul.o-ListBare.o-GridFlex
             li.o-GridFlex__Item Burns &amp; McDonnell Engineering

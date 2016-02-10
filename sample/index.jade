@@ -7,85 +7,76 @@ html.no-js(lang="en")
     link(rel="stylesheet" href="../node_modules/xmeter/xmeter.css")
     link(rel="stylesheet" href="../styles/conf.css")
   body
-    header(style="background-color: #48afd6")
-      a(href="landing.html")
-        h1.c-ConfName ASCE Convention
-        p.c-ConfSlogan The Flagship Event for ASCE
-      nav
-        a.c-LandingLink--home(href="") 2016 Convention
-        ul.o-ListBare.c-LandingLinkList
-          li: a.c-LandingLink(href="") About
-          li: a.c-LandingLink(href="") Sponsor
-          li: a.c-LandingLink(href="") Exhibit
-          li: a.c-LandingLink(href="") Contact
+    header.o-GridFlex(style="background-color: #48afd6; color: #fff;")
+      a.o-GridFlex__Item.o-Block.a-w-7o10(href="landing.html")
+        h1 ASCE Convention
+        p Slogan. The Flagship Event for ASCE
+      div.o-GridFlex__Item.a-w-3o10: a(href="") 2016 Convention
+      nav.o-GridFlex__Item: ul.o-ListBare.o-GridFlex
+        li.o-GridFlex__Item.a-w-1o4: a(href="") About
+        li.o-GridFlex__Item.a-w-1o4: a(href="") Sponsor
+        li.o-GridFlex__Item.a-w-1o4: a(href="") Exhibit
+        li.o-GridFlex__Item.a-w-1o4: a(href="") Contact
     main
-      section#current(itemscope="" itemtype="http://schema.org/Event")
-        div.c-Hero
-          h2.c-ConfNameCurrent(itemprop="name") ASCE 2016
-          p.c-ConfLocation(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-            span(itemprop="addressLocality") Portland, 
-            span(itemprop="addressRegion"): abbr(title="Oregon") OR
-          p.c-ConfDates
-            time(datetime="2016-09-28" itemprop="startDate") Sep 28
-            | &ndash;
-            time(datetime="2016-10-01" itemprop="endDate") Oct 1
-          p.c-ConfTagline Mainstremaing green infrastructure.
-          p.c-HeroButtonContainer
-            a.c-Button.c-Button--hero(href="2016/") Get Details
-        ul.o-ListBare.c-ElevatorButtonContainer
-          li: a.c-Button(href="") Registor Today
-          li: a.c-Button(href="") Become A Sponsor
-          li: a.c-Button(href="") Submit Papers
-        p.c-ElevatorPitch(itemprop="description").
+      section#current(style="text-align: center;" itemscope="" itemtype="http://schema.org/Event")
+        div(style="background-image: none;")
+          h2(itemprop="name") ASCE 2016
+          p.o-GridFlex
+            span.o-GridFlex__Item.o-Block.a-w-1o2(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+              span(itemprop="addressLocality") Portland, 
+              span(itemprop="addressRegion"): abbr(title="Oregon") OR
+            span.o-GridFlex__Item.o-Block.a-w-1o2
+              time(datetime="2016-09-28" itemprop="startDate") Sep 28
+              | &ndash;
+              time(datetime="2016-10-01" itemprop="endDate") Oct 1
+          p Tagline. Mainstremaing green infrastructure.
+          div: a(href="") Get Details
+        ul.o-ListBare.o-GridFlex
+          li.o-GridFlex__Item: a(href="") Registor Today
+          li.o-GridFlex__Item: a(href="") Become A Sponsor
+          li.o-GridFlex__Item: a(href="") Submit Papers
+        p(itemprop="description").
           Elevator pitch. One paragraph. Sentence case.
           Join civil engineering professionals from around the world at
           this ASCE flagship event. Network with peers, earn PDHs, and
           expand your knowledge base.
-      div
-        section#past(itemscope="" itemtype="http://schema.org/Event")
-          h2(itemprop="name") ASCE Convention 2015
-          p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-            span(itemprop="addressLocality") New York, 
-            span(itemprop="addressRegion"): abbr(title="New York") NY
-          //- ul
-          //-   li lorum ipsum
-          //-   li dolor sit amet
-          //-   li consectetur adipiscing elit
-          p.
+      div.o-GridFlex
+        section.o-GridFlex__Item.o-GridFlex#past(itemscope="" itemtype="http://schema.org/Event")
+          div.o-GridFlex__Item.a-w-1o2
+            h2(itemprop="name") ASCE Convention 2015
+            p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+              span(itemprop="addressLocality") New York, 
+              span(itemprop="addressRegion"): abbr(title="New York") NY
+          p.o-GridFlex__Item.a-w-1o2.
             Learn about the impacts of water sustainability and
             the importance of interdisciplinary design approaches.
-        section#future(itemscope="" itemtype="http://schema.org/Event")
-          h2(itemprop="name") ASCE Convention 2017
-          p(data-itemprop="location") TBD
-          //- ul
-          //-   li curabitur vel
-          //-   li augue vel est venenatis
-          //-   li mauris blandit
-          p.
+        section.o-GridFlex__Item.o-GridFlex#future(itemscope="" itemtype="http://schema.org/Event")
+          div.o-GridFlex__Item.a-w-1o2
+            h2(itemprop="name") ASCE Convention 2017
+            p(data-itemprop="location") TBD
+          p.o-GridFlex__Item.a-w-1o2.
             Plan ahead to attend, sponsor, or exhibit at the
             annual convention for civil engineering professionals.
-    footer(style="background-color: #48afd6; margin-bottom:-1.25rem; color: #fff;")
-      p(style="text-align:center; color:red;") #[strong Warning:] footer layout is incomplete.
-      h1 ASCE Convention 2016
-      section
-        p For questions or more information about sponsoring please contact:
-        ul.o-ListBare
-          li: a(href="mailto:asce@asce.org") Sean Scully (703.295.6154)
-          li: a(href="mailto:asce@asce.org") Drew Caracciolo (703.295.6087)
-      section
+    footer.o-GridFlex(style="background-color: #48afd6; color: #fff;" itemscope="" itemtype="http://schema.org/NGO")
+      section.o-GridFlex__Item
         h1 Contact Us
-        ul.o-ListBare
-          li: a(href="tel:(800)548-2723") (800) 548-2723
-          li: a(href="https://twitter.com/hashtag/asce2016") #asce2016
-      section
+        address: ul.o-ListBare
+          li: a(href="tel:8005482723" itemprop="telephone") (800) 548-2723
+          li: a(href="tel:17032956300" itemprop="telephone") +1 (703) 295-6300
+      section.o-GridFlex__Item
         h1 Connect With ASCE
-        ul.o-ListBare.o-ListInline
-          li: a(href="") LinkedIn
-          li: a(href="") Facebook
-          li: a(href="") Twitter
-          li: a(href="") YouTube
-          li: a(href="") Google+
-    footer.copyright(style="text-align: center;")
-      a(href="http://www.asce.org" title="ASCE.org")
-      //- img(src="../img/asce-logo-footer.png")
-      span &copy; 1996&ndash;2015, American Society of Civil Engineers
+        ul.o-ListBare
+          li.o-Inline: a(href="") LinkedIn
+          li.o-Inline: a(href="") Facebook
+          li.o-Inline: a(href="") Twitter
+          li.o-Inline: a(href="") YouTube
+          li.o-Inline: a(href="") Google+
+      section.o-GridFlex__Item(style="text-align: center; background-color: #0c5fa8;"): p
+        a(title="ASCE.org" style="background-image: none;" href="http://www.asce.org" itemprop="url")
+        span
+          | &copy; 
+          time 1996
+          | &ndash;
+          time 2015
+          | , 
+          span(itemprop="name") American Society of Civil Engineers

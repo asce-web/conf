@@ -132,6 +132,21 @@ html
               &lt;section class="o-GridFlex__Item #[u a-w-1o3]"&gt;...&lt;/section&gt;
               &lt;section class="o-GridFlex__Item #[u a-w-1o3]"&gt;...&lt;/section&gt;
             &lt;/div&gt;
+        p.
+          You may add a breakpoint suffix, for using these classes only in certain
+          media breakpoints. For example, to set the width of an element to 50%,
+          but only for the medium screen breakpoint (larger than 45em), use class
+          #[code.sg-code .a-w-1o2-sM].
+          The suffix #[code.sg-code -sM] stands for medium screen.
+          The following table displays breakpoint suffixes and their meanings.
+        pre.
+          ‹no suffix› == all media queries (screen, print, etc.)
+          -s          == all screen sizes
+          -sK         ==    small screens and up (greater than 30em/ 480px)
+          -sM         ==   medium screens and up (greater than 45em/ 720px)
+          -sG         ==    large screens and up (greater than 60em/ 960px)
+          -sT         ==  x-large screens and up (greater than 75em/1200px)
+          -sP         == xx-large screens and up (greater than 90em/1440px)
     nav
       h1 Subsitemap
       ol

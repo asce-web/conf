@@ -10,7 +10,17 @@ html
   body
     main
       h1 ASCE Conferences Styleguide &mdash; Pattern Library &mdash; Objects
-      section.sg-sect
+      header
+        nav#table-contents
+          h2 Table of Contents
+          ol
+            li: a(href="#table-contents") Table of Contents
+            li: a(href="#o-Block") The Block Object
+            li: a(href="#o-Inline") The Inline Object
+            li: a(href="#o-ListBare") The Bare List
+            li: a(href="#o-GridFlex") The Flex Grid
+            li: a(href="#o-GridFloat") The Float Grid
+      section.sg-sect#o-Block
         h2 The Block Object
         figure.sg-fig
           div.
@@ -19,7 +29,7 @@ html
             with an inherited line-height to maintain vertical rhythm.
           pre.sg-code.sg-code-block.
             ... to display an element as a &lt;span class="#[u o-Block]"&gt;block element,&lt;/span&gt; with ...
-      section.sg-sect
+      section.sg-sect#o-Inline
         h2 The Inline Object
         p.
           A simple inline object. Use this class to display an element as an
@@ -42,7 +52,7 @@ html
               &lt;li class="#[u o-Inline]"&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
               ...
             &lt;/ul&gt;
-      section.sg-sect
+      section.sg-sect#o-ListBare
         h2 The Bare List
         p.
           Use the Bare List object to remove the usual padding and list item markers accompanied by
@@ -62,7 +72,7 @@ html
               &lt;li&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
               ...
             &lt;/ul&gt;
-      section.sg-sect
+      section.sg-sect#o-GridFlex
         h2 The Flex Grid
         p.
           A Flex Grid is simply a list of items arranged like blocks in a grid.
@@ -109,7 +119,7 @@ html
               &lt;li class="#[u o-GridFlex__Item]"&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
               ...
             &lt;/ul&gt;
-      section.sg-sect
+      section.sg-sect#o-GridFloat
         h2 The Float Grid
         p.
           The Float Grid works just like the Flex Grid object above, except that this object

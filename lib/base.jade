@@ -10,8 +10,25 @@ html
   body
     main
       h1 ASCE Conferences Styleguide &mdash; Pattern Library &mdash; Base Typography
-      section.sg-sect
-        h2 Headings and Paragraphs
+      header
+        nav#table-contents
+          h2 Table of Contents
+          ol
+            li: a(href="#table-contents") Table of Contents
+            li: a(href="#headings-paragraphs") Headings &amp; Paragraphs
+            li: a(href="#lists") Lists
+            li: a(href="#tables") Tables
+            li
+              a(href="#text-level-elements") Text-Level Elements
+              ol
+                li: a(href="#links") Links
+                li: a(href="#stress") Stress
+                //- li: a(href="#documentation") Documentation
+                //- li: a(href="#data") Data
+            //- li: a(href="#embedded-elements") Embedded Elements
+            //- li: a(href="#interactive-elements") Interactive Elements
+      section.sg-sect#headings-paragraphs
+        h2 Headings &amp; Paragraphs
         figure.sg-fig
           h1 Heading 1 #[code.sg-code h1]
           p.
@@ -120,7 +137,7 @@ html
         //-   A horizontal rule #[code.sg-code hr] is shown below. I&rsquo;m honestly not sure when
         //-   you would ever use this instead of a CSS border.
         //- figure.sg-fig: hr
-      section.sg-sect
+      section.sg-sect#lists
         h2 Lists
         figure.sg-fig
           figcaption Ordered List #[code.sg-code ol]
@@ -155,9 +172,7 @@ html
             dd description
             dt date
             dd description
-            dt date
-            dd description
-      section.sg-sect
+      section.sg-sect#tables
         h2 Tables
         figure.sg-fig
           table
@@ -197,9 +212,9 @@ html
                 td Body Row 5 Cell 1
                 td Body Row 5 Cell 2
                 td Body Row 5 Cell 3
-      section.sg-sect
+      section.sg-sect#text-level-elements
         h2 Text-Level Elements
-        section.sg-sect
+        section.sg-sect#links
           h3 Links
           p Hyperlinks to other documents.
           p.
@@ -220,7 +235,7 @@ html
               nisi ut aliquip ex ea commodo consequat. #[a Lorem ipsum dolor sit]
               amet, consectetur adipisicing elit, sed do eiusmod tempor
               incididunt #[a ut labore et dolore magna aliqua].
-        section.sg-sect
+        section.sg-sect#stress
           h3 Stress
           p Elements for marking up outstanding phrases.
           figure.sg-fig: ul

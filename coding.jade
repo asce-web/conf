@@ -33,11 +33,13 @@ html
           dd: time(datetime="2016-02-07 14:47") Feb 07, 2016 #[span.tod  2:47 PM]
           dd: time(datetime="2016-02-08 09:22") Feb 08, 2016 #[span.tod  9:22 AM]
           dd
-            time(datetime="2016-02-15 18:33" itemprop="dateModified dateCreated") Feb 15, 2016 #[span.tod  6:33 PM]
-        nav
+            time(datetime="2016-02-15 18:33" itemprop="dateCreated") Feb 15, 2016 #[span.tod  6:33 PM]
+          dd
+            time(datetime="2016-02-15 14:31" itemprop="dateModified") Feb 16, 2016 #[span.tod  2:31 PM]
+        nav#table-contents
           h2 Table of Contents
           ol
-            li: a(href="#table-of-contents") Table of Contents
+            li: a(href="#table-contents") Table of Contents
             li
               a(href="#textual-structure") Textual Structure
               ol
@@ -77,7 +79,7 @@ html
                     li: a(href="#direct-css-imports") Direct CSS Imports
                     li: a(href="#filename") Filename
                     li: a(href="#less-imports") Less Imports
-                    li: a(href="#table-of-contents-1") Table of Contents
+                    li: a(href="#table-contents-1") Table of Contents
                     li: a(href="#section-and-subsection-headings") Section and Subsection Headings
                 //- li: a(href="#js-class-files") JS Class Files
       p.
@@ -334,20 +336,25 @@ html
                 #[code.sg-code tbody] elements; never directly inside #[code.sg-code table]
               li.
                 always nest #[code.sg-code th] and #[code.sg-code td] elements directly inside #[code.sg-code tr] elements
+              li: ins.
+                only use #[code.sg-code th] elements when there is a single row and single column of headers
+                (the single row must be in exactly one of the
+                #[code.sg-code thead], #[code.sg-code tfoot], or #[code.sg-code tbody] elements)
+              li: ins(datetime="2016-02-15 14:31").
+                always provide the #[code.sg-code th[scope]] attribute
           li
             | When adding a link to one element, wrap the #[code.sg-code &lt;a&gt;] tag around
             |  the #[em outside] of the element to be linked.
             figure: pre.sg-code.sg-code-block.
               &lt;a&gt;&lt;code&gt;this is correct&lt;/code&gt;&lt;/a&gt;
-              &lt;code&gt;&lt;a&gt;this is incorrect&lt;/a&gt; unless there is more content not to be linked&lt;/code&gt;
+              &lt;code&gt;&lt;a&gt;this is incorrect&lt;/a&gt;, unless there is more content not to be linked&lt;/code&gt;
               &lt;a href="//MyCompany.com" itemprop="url"&gt;&lt;span itemprop="name"&gt;My Company&lt;/span&gt;&lt;/a&gt;
           li.
-            Give every #[code.sg-code dfn] element a unique #[code.sg-code [id]], so that there is only
-            one defining instance of a term per page. Furthermore, it can be used as
-            a hyperlink anchor (#[i fragment identifier]).
+            Use exactly one #[code.sg-code dfn] element per vocabulary term per page, and
+            always provide the #[code.sg-code dfn[id]] attribute.
           li.
-            Only use one #[code.sg-code abbr] element on a page to mark up a given abbreviation
-            or acronym. Furthermore, give it a unique #[code.sg-code [id]].
+            Use exactly one #[code.sg-code abbr] element per abbreviation/acronym per page, and
+            always provide the #[code.sg-code abbr[id]] #[ins(datetime="2016-02-15 14:31") and #[code.sg-code abbr[title]]] attributes.
       section#optimization
         h2 Optimization
         ul
@@ -575,7 +582,7 @@ html
               reference or inline, to import partials into a main stylesheet.
               These go after the filename comment block, because any code injected inline
               should be done so underneath.
-          section#table-of-contents-1
+          section#table-contents-1
             h4 Table of Contents
             p.
               There are two types of table-of-contents. The first type is used in the main stylesheet

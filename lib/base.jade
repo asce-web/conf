@@ -98,11 +98,11 @@ html
           h5 Lorem Ipsum #[code.sg-code h5]
           h6 Lorem Ipsum #[code.sg-code h6]
         figure.sg-fig
-          blockquote Donec #[code.sg-code blockquote] vel dolor ut felis dapibus ultricies vitae a nibh.
-            footer: cite Finibus Pellentesque #[code.sg-code blockquote footer]
-        figure.sg-fig
           figure Aenean consectetur #[code.sg-code figure] suscipit urna, non vehicula lacus blandit et.
             figcaption Integer at lacus et diam tristique #[code.sg-code figure figcaption] suscipit.
+        figure.sg-fig
+          blockquote Donec #[code.sg-code blockquote] vel dolor ut felis dapibus ultricies vitae a nibh.
+            footer: cite Finibus Pellentesque #[code.sg-code blockquote footer &gt; cite]
         figure.sg-fig
           pre.
             Pellentesque #[code.sg-code pre] habitant() {
@@ -125,8 +125,8 @@ html
         figure.sg-fig
           figcaption Ordered List #[code.sg-code ol]
           ol
-            li Speaker details
-            li Program is now over
+            li Speaker details #[code.sg-code li]
+            li Program is now over #[code.sg-code li]
               ol
                 li Nested list item
                 li Nested list item
@@ -136,8 +136,8 @@ html
         figure.sg-fig
           figcaption Unrdered List #[code.sg-code ul]
           ul
-            li Speaker details
-            li Program is now over
+            li Speaker details #[code.sg-code li]
+            li Program is now over #[code.sg-code li]
               ul
                 li Nested list item
                 li Nested list item
@@ -149,6 +149,8 @@ html
             Dictionary List #[code.sg-code dl] &mdash; Used for key-value pairs,
             such as a list of dates/times and descriptions.
           dl
+            dt date #[code.sg-code dt]
+            dd description #[code.sg-code dd]
             dt date
             dd description
             dt date
@@ -199,6 +201,7 @@ html
         h2 Text-Level Elements
         section.sg-sect
           h3 Links
+          p Hyperlinks to other documents.
           p.
             Some of the #[code.sg-code a] elements below have #[code.sg-code href]
             attributes, and some do not. Be sure to use #[code.sg-code a[href]]
@@ -219,6 +222,7 @@ html
               incididunt #[a ut labore et dolore magna aliqua].
         section.sg-sect
           h3 Stress
+          p Elements for marking up outstanding phrases.
           figure.sg-fig: ul
             li: em     emphasized text #[code.sg-code em]
             li: strong important text #[code.sg-code strong]
@@ -227,6 +231,10 @@ html
             li: u      unarticulated annotation #[code.sg-code u]
             li: small  side comment #[code.sg-code small]
             li: s      text explicitly shown to be no longer relevant #[code.sg-code s]
+        section.sg-sect#documentation
+          h3 Documentation
+          p Elements for special aspects of documentation.
+          figure.sg-fig: ul
             li: ins    content shown to be inserted into a document #[code.sg-code ins]
             li: del    content shown to be deleted from a document #[code.sg-code del]
             li: b      keyword or technical term #[code.sg-code b]
@@ -234,9 +242,14 @@ html
             li: cite   reference to a work, some part of a work, or the creator of a work #[code.sg-code cite]
             li: sup    superscript #[code.sg-code sup]
             li: sub    subscript #[code.sg-code sub]
+        section.sg-sect#data
+          h3 Data
+          p Elements for marking up machine-readable data.
+          figure.sg-fig: ul
             li: abbr   abbreviation or acronym #[code.sg-code abbr[title]]
             li: time   a specific date or time #[code.sg-code time[datetime]]
             li: code   a fragment of code #[code.sg-code code]
+        footer
           figure.sg-fig
             figcaption: p The following paragraphs contain live examples of usage of the elements above.
             p.

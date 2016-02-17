@@ -7,6 +7,7 @@ html
     link(rel="stylesheet" href="../node_modules/xmeter/xmeter.min.css")
     link(rel="stylesheet" href="../styles/styleguide.css")
     link(rel="stylesheet" href="../styles/conf.css")
+    link(rel="stylesheet" href="../node_modules/bangs/bangs.min.css")
   body
     main
       header
@@ -23,10 +24,10 @@ html
               ol
                 li: a(href="#links") Links
                 li: a(href="#stress") Stress
-                //- li: a(href="#documentation") Documentation
-                //- li: a(href="#data") Data
-            //- li: a(href="#embedded-elements") Embedded Elements
-            //- li: a(href="#interactive-elements") Interactive Elements
+                li: a(href="#documentation") Documentation
+                li: a(href="#data") Data
+            li: a(href="#embedded-elements") Embedded Elements
+            li: a(href="#interactive-elements") Interactive Elements
       section.sg-sect#headings-paragraphs
         h2 Headings &amp; Paragraphs
         figure.sg-fig
@@ -133,17 +134,18 @@ html
                 };
               }
             }
-        //- p.
-        //-   A horizontal rule #[code.sg-code hr] is shown below. I&rsquo;m honestly not sure when
-        //-   you would ever use this instead of a CSS border.
-        //- figure.sg-fig: hr
+        //- figure.sg-fig
+          figcaption.
+            A horizontal rule #[code.sg-code hr] is shown below. I&rsquo;m honestly not sure when
+            you would ever use this instead of a CSS border.
+          hr
       section.sg-sect#lists
         h2 Lists
         figure.sg-fig
           figcaption Ordered List #[code.sg-code ol]
           ol
-            li Speaker details #[code.sg-code li]
-            li Program is now over #[code.sg-code li]
+            li List item #[code.sg-code li]
+            li List item #[code.sg-code li]
               ol
                 li Nested list item
                 li Nested list item
@@ -153,8 +155,8 @@ html
         figure.sg-fig
           figcaption Unrdered List #[code.sg-code ul]
           ul
-            li Speaker details #[code.sg-code li]
-            li Program is now over #[code.sg-code li]
+            li List item #[code.sg-code li]
+            li List item #[code.sg-code li]
               ul
                 li Nested list item
                 li Nested list item
@@ -162,66 +164,63 @@ html
                     li Another nested list item
                     li Another nested list item
         figure.sg-fig
-          figcaption.
-            Dictionary List #[code.sg-code dl] &mdash; Used for key-value pairs,
-            such as a list of dates/times and descriptions.
+          figcaption Dictionary List #[code.sg-code dl]
+            ins &mdash; Used for key-value pairs, such as a list of dates/times and descriptions.
           dl
-            dt date #[code.sg-code dt]
-            dd description #[code.sg-code dd]
-            dt date
-            dd description
-            dt date
-            dd description
+            dt key #[code.sg-code dt]
+            dd value #[code.sg-code dd]
+            dt
+              ul
+                li 1st key
+                li 2nd key
+            dd value
+            dt key
+            dd
+              ul
+                li 1st value
+                li 2nd value
       section.sg-sect#tables
         h2 Tables
         figure.sg-fig
           table
-            caption Use #[code.sg-code caption] for the title or heading of the table.
+            caption #[code table] #[code caption]
+              ins.
+                &mdash; for the title and/or summary of the table
             thead
               tr
-                th(scope="col") Header Row 1 Heading 1
-                th(scope="col") Header Row 1 Heading 2
-                th(scope="col") Header Row 1 Heading 3
+                th(scope="col") #[code thead]er #[code tr]ow 1 #[code th]eading 1
+                th(scope="col") #[code thead]er #[code tr]ow 1 #[code th]eading 2
+                th(scope="col") #[code thead]er #[code tr]ow 1 #[code th]eading 3
             tfoot
               tr
-                td Footer Row 1 Cell 1
-                td Footer Row 1 Cell 2
-                td Footer Row 1 Cell 3
+                td #[code tfoot]er #[code tr]ow 1 #[code td]ata 1
+                td #[code tfoot]er #[code tr]ow 1 #[code td]ata 2
+                td #[code tfoot]er #[code tr]ow 1 #[code td]ata 3
               tr
-                td Footer Row 2 Cell 1
-                td Footer Row 2 Cell 2
-                td Footer Row 2 Cell 3
+                td #[code tfoot]er #[code tr]ow 2 #[code td]ata 1
+                td #[code tfoot]er #[code tr]ow 2 #[code td]ata 2
+                td #[code tfoot]er #[code tr]ow 2 #[code td]ata 3
             tbody
               tr
-                td Body Row 1 Cell 1
-                td Body Row 1 Cell 2
-                td Body Row 1 Cell 3
+                td #[code tbody] #[code tr]ow 1 #[code td]ata 1
+                td #[code tbody] #[code tr]ow 1 #[code td]ata 2
+                td #[code tbody] #[code tr]ow 1 #[code td]ata 3
               tr
-                td Body Row 2 Cell 1
-                td Body Row 2 Cell 2
-                td Body Row 2 Cell 3
+                td #[code tbody] #[code tr]ow 2 #[code td]ata 1
+                td #[code tbody] #[code tr]ow 2 #[code td]ata 2
+                td #[code tbody] #[code tr]ow 2 #[code td]ata 3
               tr
-                td Body Row 3 Cell 1
-                td Body Row 3 Cell 2
-                td Body Row 3 Cell 3
-              tr
-                td Body Row 4 Cell 1
-                td Body Row 4 Cell 2
-                td Body Row 4 Cell 3
-              tr
-                td Body Row 5 Cell 1
-                td Body Row 5 Cell 2
-                td Body Row 5 Cell 3
+                td #[code tbody] #[code tr]ow 3 #[code td]ata 1
+                td #[code tbody] #[code tr]ow 3 #[code td]ata 2
+                td #[code tbody] #[code tr]ow 3 #[code td]ata 3
       section.sg-sect#text-level-elements
         h2 Text-Level Elements
         section.sg-sect#links
           h3 Links
-          p Hyperlinks to other documents.
-          p.
-            Some of the #[code.sg-code a] elements below have #[code.sg-code href]
-            attributes, and some do not. Be sure to use #[code.sg-code a[href]]
-            for clickable hyperlinks.
-          figure.sg-fig
+          figure.sg-fig: ul
+            li: a a
+            li: a(href) a[href]
+          ins.-d-bk: figure.sg-fig
             p.
               Lorem ipsum #[a(href="") dolor] sit amet, consectetur adipisicing elit, sed do
               eiusmod tempor incididunt #[a(href="") ut labore et dolore] magna aliqua. Ut
@@ -237,7 +236,7 @@ html
               incididunt #[a ut labore et dolore magna aliqua].
         section.sg-sect#stress
           h3 Stress
-          p Elements for marking up outstanding phrases.
+          ins.-d-bk: p Elements for marking up outstanding phrases.
           figure.sg-fig: ul
             li: em     emphasized text #[code.sg-code em]
             li: strong important text #[code.sg-code strong]
@@ -248,23 +247,29 @@ html
             li: s      text explicitly shown to be no longer relevant #[code.sg-code s]
         section.sg-sect#documentation
           h3 Documentation
-          p Elements for special aspects of documentation.
+          ins.-d-bk: p Elements for special aspects of documentation.
           figure.sg-fig: ul
             li: ins    content shown to be inserted into a document #[code.sg-code ins]
             li: del    content shown to be deleted from a document #[code.sg-code del]
+            li: del: dfn    definining instance of a term  #[code.sg-code dfn]
             li: b      keyword or technical term #[code.sg-code b]
+            li: del: var    variable  #[code.sg-code var]
             li: q      quoted material #[code.sg-code q]
             li: cite   reference to a work, some part of a work, or the creator of a work #[code.sg-code cite]
             li: sup    superscript #[code.sg-code sup]
             li: sub    subscript #[code.sg-code sub]
         section.sg-sect#data
           h3 Data
-          p Elements for marking up machine-readable data.
+          ins.-d-bk: p Elements for marking up machine-readable data.
           figure.sg-fig: ul
-            li: abbr   abbreviation or acronym #[code.sg-code abbr[title]]
+            li: abbr(title) abbreviation or acronym #[code.sg-code abbr[title]]
             li: time   a specific date or time #[code.sg-code time[datetime]]
-            li: code   a fragment of code #[code.sg-code code]
-        footer
+            li: del: data   generic machine-readable data #[code.sg-code data]
+            li: del: code   a fragment of code #[code.sg-code code]
+            li: del: kbd         user input #[code kbd]
+            li: del: kbd: kbd    a button or key on a physical device #[code kbd &gt; kbd]
+            li: del: samp        sample computer output #[code samp]
+        ins.-d-bk: footer
           figure.sg-fig
             figcaption: p The following paragraphs contain live examples of usage of the elements above.
             p.
@@ -295,6 +300,10 @@ html
               in math: #[u f(x) = a#[sub 0]x#[sup 2] + a#[sub 1]x + a#[sub 2]],
               in chemical formulae: #[u dihydgogen oxide, or H#[sub 2]O, is commonly known as water], and
               in French abbreviations: #[u #[abbr(title="Mademoiselle") M#[sup lle]] Juliette].
+      section.sg-sect#embedded-elements
+        h2 Embedded Elements
+      section.sg-sect#interactive-elements
+        h2 Interactive Elements
     nav
       h1 Subsitemap
       ol

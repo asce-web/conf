@@ -28,7 +28,7 @@ html
         p.
           Use floats to float content to the left or to the right in surrounding prose.
           Please do not use these classes to create entire page layouts.
-        figure.sg-fig
+        figure.sg-c-Fig
           div.-fl-l: u floating left
           div.-fl-r: u floating right
           div.
@@ -39,7 +39,7 @@ html
             Mauris eget mauris ut mauris auctor mattis id vel justo.
             Nulla dictum arcu nec suscipit mollis.
             Maecenas a iaculis nisl, ut pretium est. Nulla facilisi.
-          pre.sg-code.sg-code-block.
+          pre.sg-c-Code.sg-c-Code--block.
             &lt;div class="#[u -fl-l]"&gt;floating left&lt;/div&gt;
             &lt;div class="#[u -fl-r]"&gt;floating right&lt;/div&gt;
             &lt;div&gt;Lorem ipsum dolor ...&lt;/div&gt;
@@ -54,7 +54,7 @@ html
           Em widths are adjustable, based on the font size of the element
           (e.g. if the element&rsquo;s font size is 16px, then 1em is 16px
           and 5em is 80px).
-        figure.o-GridFlex.sg-fig
+        figure.o-GridFlex.sg-c-Fig
           section.o-GridFlex__Item.-w-1o3
             h3 Percentage Widths
             pre.
@@ -139,7 +139,7 @@ html
               .-w-85em    85em
               .-w-90em    90em
             //- footer: p 18 unique classes
-          pre.o-GridFlex__Item.sg-code.sg-code-block.
+          pre.o-GridFlex__Item.sg-c-Code.sg-c-Code--block.
             &lt;div class="o-GridFlex"&gt;
               &lt;section class="o-GridFlex__Item  #[u -w-1o3]"&gt;...&lt;/section&gt;
               &lt;section class="o-GridFlex__Item  #[u -w-1o3]"&gt;...&lt;/section&gt;
@@ -149,8 +149,8 @@ html
           You may add a breakpoint suffix, for using these classes only in certain
           media breakpoints. For example, to set the width of an element to 50%,
           but only for the medium screen breakpoint (larger than 45em), use class
-          #[code.sg-code .-w-1o2-sM].
-          The suffix #[code.sg-code -sM] stands for medium screen.
+          #[code.sg-c-Code .-w-1o2-sM].
+          The suffix #[code.sg-c-Code -sM] stands for medium screen.
           The following table displays breakpoint suffixes and their meanings.
         pre.
           ‹no suffix›    all media queries (screen, print, etc.)

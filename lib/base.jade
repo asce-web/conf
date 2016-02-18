@@ -1,326 +1,100 @@
-doctype html
-html(lang="en")
-  head
-    title Base Typography | Pattern Library | ASCE Conferences Styleguide
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel="stylesheet" href="../node_modules/xmeter/xmeter.min.css")
-    link(rel="stylesheet" href="../node_modules/bangs/bangs.min.css")
-    link(rel="stylesheet" href="../styles/conf.css")
-    link(rel="stylesheet" href="../styles/styleguide.css")
-  body
-    main
-      header
-        h1 ASCE Conferences Styleguide &mdash; Pattern Library &mdash; Base Typography
-        nav#table-contents
-          h2 Table of Contents
-          ol
-            li: a(href="#table-contents") Table of Contents
-            li: a(href="#headings-paragraphs") Headings &amp; Paragraphs
-            li: a(href="#lists") Lists
-            li: a(href="#tables") Tables
-            li
-              a(href="#text-level-elements") Text-Level Elements
-              ol
-                li: a(href="#links") Links
-                li: a(href="#stress") Stress
-                li: a(href="#documentation") Documentation
-                li: a(href="#data") Data
-            li: a(href="#embedded-elements") Embedded Elements
-            li: a(href="#interactive-elements") Interactive Elements
-      section.sg-sect#headings-paragraphs
-        h2 Headings &amp; Paragraphs
-        figure.sg-c-Fig
-          h1 Heading 1 #[code.sg-c-Code h1]
-          p.
-            Paragraph #[code.sg-c-Code p]
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Aliquam sagittis suscipit nunc, a cursus libero euismod at.
-            Nulla placerat neque massa, quis interdum leo efficitur vel.
-            Donec feugiat varius arcu non volutpat.
-            Mauris eget mauris ut mauris auctor mattis id vel justo.
-            Nulla dictum arcu nec suscipit mollis.
-            Maecenas a iaculis nisl, ut pretium est. Nulla facilisi.
-          h2 Heading 2 #[code.sg-c-Code h2]
-          p.
-            Paragraph #[code.sg-c-Code p]
-            Suspendisse ut auctor enim.
-            Aliquam viverra enim vitae ante aliquet venenatis.
-            Sed vel nibh sit amet sapien fermentum mattis nec non arcu.
-            Praesent dapibus velit quis lectus tempus, ut ullamcorper nibh facilisis.
-            Aenean tincidunt ante risus, semper malesuada libero consectetur id.
-            Praesent vel ligula ut enim porttitor porta. Aenean eu ullamcorper mi.
-            Integer blandit est quam, eget mattis urna scelerisque quis.
-            Maecenas sapien sapien, ornare nec lobortis eget, tincidunt sed ligula.
-            Maecenas risus nibh, volutpat sed euismod non, semper eget neque.
-            Integer varius egestas risus, volutpat sagittis turpis convallis eget.
-            Vivamus pulvinar ligula eget mi tincidunt, eget faucibus justo laoreet.
-            In sapien lacus, egestas faucibus laoreet eu, tempor sit amet lorem.
-            Sed luctus congue tortor a scelerisque.
-          h3 Heading 3 #[code.sg-c-Code h3]
-          p.
-            Paragraph #[code.sg-c-Code p]
-            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-            Nunc sit amet scelerisque lectus. Cras cursus sed dui quis convallis.
-            Quisque id justo elit.
-            Fusce ut quam non sem efficitur accumsan sed id neque.
-            Mauris finibus dignissim gravida.
-            In dignissim mauris ac odio molestie volutpat.
-            Nulla tellus justo, finibus sed volutpat sed, tristique ac lacus.
-            Suspendisse sit amet fermentum sapien.
-            Aliquam luctus laoreet iaculis.
-            Proin lacinia orci vitae tellus pellentesque porttitor.
-          h4 Heading 4 #[code.sg-c-Code h4]
-          p.
-            Paragraph #[code.sg-c-Code p]
-            Aenean consectetur suscipit urna, non vehicula lacus blandit et.
-            Integer at lacus et diam tristique suscipit.
-            Ut cursus massa sit amet nisl convallis, elementum accumsan sapien mattis.
-            Vestibulum vitae magna ac tellus accumsan pharetra vulputate vitae erat.
-            Vestibulum est dui, elementum non sagittis ac, sagittis accumsan justo.
-            Donec at vestibulum diam. Nam et volutpat dolor, at pulvinar nisi.
-            Curabitur aliquam maximus nulla eu venenatis.
-            Nam aliquam lorem non felis dignissim dictum.
-            Pellentesque sagittis vehicula nisl non luctus.
-            Pellentesque eget ligula hendrerit, blandit enim consequat, dictum sem.
-            In quis lectus in lectus interdum laoreet eu quis quam.
-            Fusce auctor posuere purus, quis semper libero dignissim euismod.
-            Curabitur commodo mauris a sapien vulputate, eget pharetra urna facilisis.
-          h5 Heading 5 #[code.sg-c-Code h5]
-          p.
-            Paragraph #[code.sg-c-Code p]
-            Donec finibus ut lectus finibus pellentesque.
-            Nulla euismod feugiat nulla nec posuere.
-            Sed ac est id sem sagittis rhoncus eu ac neque.
-            Aliquam eu metus sagittis, porta turpis id, scelerisque magna.
-            Nulla venenatis elementum est, semper viverra felis tristique sit amet.
-            Mauris nec ipsum id orci porttitor auctor sed sit amet sem.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Etiam tellus leo, venenatis sit amet ipsum non, sagittis feugiat ante.
-          h6 Heading 6 #[code.sg-c-Code h6]
-          p.
-            Paragraph #[code.sg-c-Code p]
-            Donec vel dolor ut felis dapibus ultricies vitae a nibh.
-            Ut semper odio est, sed lacinia ligula gravida ut.
-            Vestibulum facilisis viverra pulvinar.
-            Suspendisse maximus nisl sit amet augue vulputate, vel porta nunc molestie.
-            Aliquam mauris diam, pharetra vel consectetur quis, rhoncus in risus.
-            Donec ut quam massa.
-            Vestibulum sapien justo, commodo a eros in, rhoncus interdum nisl.
-            Etiam a porta lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        figure.sg-c-Fig
-          h1 Lorem Ipsum #[code.sg-c-Code h1]
-          h2 Lorem Ipsum #[code.sg-c-Code h2]
-          h3 Lorem Ipsum #[code.sg-c-Code h3]
-          h4 Lorem Ipsum #[code.sg-c-Code h4]
-          h5 Lorem Ipsum #[code.sg-c-Code h5]
-          h6 Lorem Ipsum #[code.sg-c-Code h6]
-        figure.sg-c-Fig
-          figure Aenean consectetur #[code.sg-c-Code figure] suscipit urna, non vehicula lacus blandit et.
-            figcaption Integer at lacus et diam tristique #[code.sg-c-Code figure figcaption] suscipit.
-        figure.sg-c-Fig
-          blockquote Donec #[code.sg-c-Code blockquote] vel dolor ut felis dapibus ultricies vitae a nibh.
-            footer: cite Finibus Pellentesque #[code.sg-c-Code blockquote footer &gt; cite]
-        figure.sg-c-Fig
-          pre.
-            Pellentesque #[code.sg-c-Code pre] habitant() {
-              morbi.tristique = senectus;
-              et (netus = malesuada; fames &lt; ac; turpis.egestas++) {
-                Nunc.sit += [amet, scelerisque][et];
-                Cras = {
-                  lectus: cursus
-                , sed: dui
-                , quis: convallis(id () { justo Quisque.elit; })
-                };
-              }
-            }
-        //- figure.sg-c-Fig
-          figcaption.
-            A horizontal rule #[code.sg-c-Code hr] is shown below. I&rsquo;m honestly not sure when
-            you would ever use this instead of a CSS border.
-          hr
-      section.sg-sect#lists
-        h2 Lists
-        figure.sg-c-Fig
-          figcaption Ordered List #[code.sg-c-Code ol]
-          ol
-            li List item #[code.sg-c-Code li]
-            li List item #[code.sg-c-Code li]
-              ol
-                li Nested list item
-                li Nested list item
-                  ol
-                    li Another nested list item
-                    li Another nested list item
-        figure.sg-c-Fig
-          figcaption Unrdered List #[code.sg-c-Code ul]
-          ul
-            li List item #[code.sg-c-Code li]
-            li List item #[code.sg-c-Code li]
-              ul
-                li Nested list item
-                li Nested list item
-                  ul
-                    li Another nested list item
-                    li Another nested list item
-        figure.sg-c-Fig
-          figcaption Dictionary List #[code.sg-c-Code dl]
-            ins &mdash; Used for key-value pairs, such as a list of dates/times and descriptions.
-          dl
-            dt key #[code.sg-c-Code dt]
-            dd value #[code.sg-c-Code dd]
-            dt
-              ul
-                li 1st key
-                li 2nd key
-            dd value
-            dt key
-            dd
-              ul
-                li 1st value
-                li 2nd value
-      section.sg-sect#tables
-        h2 Tables
-        figure.sg-c-Fig
-          table
-            caption #[code table] #[code caption]
-              ins.
-                &mdash; for the title and/or summary of the table
-            thead
-              tr
-                th(scope="col") #[code thead]er #[code tr]ow 1 #[code th]eading 1
-                th(scope="col") #[code thead]er #[code tr]ow 1 #[code th]eading 2
-                th(scope="col") #[code thead]er #[code tr]ow 1 #[code th]eading 3
-            tfoot
-              tr
-                td #[code tfoot]er #[code tr]ow 1 #[code td]ata 1
-                td #[code tfoot]er #[code tr]ow 1 #[code td]ata 2
-                td #[code tfoot]er #[code tr]ow 1 #[code td]ata 3
-              tr
-                td #[code tfoot]er #[code tr]ow 2 #[code td]ata 1
-                td #[code tfoot]er #[code tr]ow 2 #[code td]ata 2
-                td #[code tfoot]er #[code tr]ow 2 #[code td]ata 3
-            tbody
-              tr
-                td #[code tbody] #[code tr]ow 1 #[code td]ata 1
-                td #[code tbody] #[code tr]ow 1 #[code td]ata 2
-                td #[code tbody] #[code tr]ow 1 #[code td]ata 3
-              tr
-                td #[code tbody] #[code tr]ow 2 #[code td]ata 1
-                td #[code tbody] #[code tr]ow 2 #[code td]ata 2
-                td #[code tbody] #[code tr]ow 2 #[code td]ata 3
-              tr
-                td #[code tbody] #[code tr]ow 3 #[code td]ata 1
-                td #[code tbody] #[code tr]ow 3 #[code td]ata 2
-                td #[code tbody] #[code tr]ow 3 #[code td]ata 3
-      section.sg-sect#text-level-elements
-        h2 Text-Level Elements
-        section.sg-sect#links
-          h3 Links
-          figure.sg-c-Fig: ul
-            li: a a
-            li: a(href) a[href]
-          ins.-d-bk: figure.sg-c-Fig
-            p.
-              Lorem ipsum #[a(href="") dolor] sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt #[a(href="") ut labore et dolore] magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. #[a(href="") Lorem ipsum dolor sit]
-              amet, consectetur adipisicing elit, sed do eiusmod tempor
-              incididunt #[a(href="") ut labore et dolore magna aliqua].
-              Lorem ipsum #[a dolor] sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt #[a ut labore et dolore] magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. #[a Lorem ipsum dolor sit]
-              amet, consectetur adipisicing elit, sed do eiusmod tempor
-              incididunt #[a ut labore et dolore magna aliqua].
-        section.sg-sect#stress
-          h3 Stress
-          ins.-d-bk: p Elements for marking up outstanding phrases.
-          figure.sg-c-Fig: ul
-            li: em     emphasized text #[code.sg-c-Code em]
-            li: strong important text #[code.sg-c-Code strong]
-            li: i      alternate voice/mood (scare quotes, mentioning words, foreign expressions) #[code.sg-c-Code i]
-            li: mark   relevant in some context #[code.sg-c-Code mark]
-            li: u      unarticulated annotation #[code.sg-c-Code u]
-            li: small  side comment #[code.sg-c-Code small]
-            li: s      text explicitly shown to be no longer relevant #[code.sg-c-Code s]
-        section.sg-sect#documentation
-          h3 Documentation
-          ins.-d-bk: p Elements for special aspects of documentation.
-          figure.sg-c-Fig: ul
-            li: ins    content shown to be inserted into a document #[code.sg-c-Code ins]
-            li: del    content shown to be deleted from a document #[code.sg-c-Code del]
-            li: del: dfn    definining instance of a term  #[code.sg-c-Code dfn]
-            li: b      keyword or technical term #[code.sg-c-Code b]
-            li: del: var    variable  #[code.sg-c-Code var]
-            li: q      quoted material #[code.sg-c-Code q]
-            li: cite   reference to a work, some part of a work, or the creator of a work #[code.sg-c-Code cite]
-            li: sup    superscript #[code.sg-c-Code sup]
-            li: sub    subscript #[code.sg-c-Code sub]
-        section.sg-sect#data
-          h3 Data
-          ins.-d-bk: p Elements for marking up machine-readable data.
-          figure.sg-c-Fig: ul
-            li: abbr(title) abbreviation or acronym #[code.sg-c-Code abbr[title]]
-            li: time   a specific date or time #[code.sg-c-Code time]
-            li: del: data   generic machine-readable data #[code.sg-c-Code data]
-            li: del: code   a fragment of code #[code.sg-c-Code code]
-            li: del: kbd         user input #[code kbd]
-            li: del: kbd: kbd    a button or key on a physical device #[code kbd &gt; kbd]
-            li: del: samp        sample computer output #[code samp]
-        ins.-d-bk: footer
-          figure.sg-c-Fig
-            figcaption: p The following paragraphs contain live examples of usage of the elements above.
-            p.
-              This figure demonstrates #[em commonly used] inline elements
-              in text. Notice #[q commonly used] is emphasized: it&rsquo;s important
-              to note that #[strong not all text-level elements are listed here].
-            p.
-              Some have the opinion that #[code.sg-c-Code em] and #[code.sg-c-Code strong] are #[i semantic elements]
-              while #[code.sg-c-Code i] and #[code.sg-c-Code b] are #[i formatting elements]
-              (which should be #[b deprecated] in HTML5), however
-              others might argue that
-              given the flexibility of these, they can be used for other undefined phrasing content,
-              such as scare quotes and mentions (for the former), and keywords
-              and technical terms (for the latter).
-              #[small However, #[s it&rsquo;s okay to use them interchangeably] one should remember not to use #[code.sg-c-Code i] and #[code.sg-c-Code b] for the meanings associated with #[code.sg-c-Code em] and #[code.sg-c-Code strong], respectively.]
-            p.
-              Use the #[code.sg-c-Code sup] and #[code.sg-c-Code sub] elements for when their presence
-              is semantically required, not just when it looks good there.
-              #[i(lang="la"): abbr(title="exampli gratia") E.g.], don&rsquo;t use superscripts
-              for the abbreviation of ordinals. There are two reasons for this:
-              1st,
-              #[q superscripted ordinals are tiny and hard to read]
-              #[cite (Matthew Butterick, #[time 2014])],
-              but 2nd, and more importantly,
-              the semantics would remain the same even if the superscript were removed.
-              Use super/subscripts only when changing them to normal text would
-              drastically affect their meaning. For example,
-              in math: #[u f(x) = a#[sub 0]x#[sup 2] + a#[sub 1]x + a#[sub 2]],
-              in chemical formulae: #[u dihydgogen oxide, or H#[sub 2]O, is commonly known as water], and
-              in French abbreviations: #[u #[abbr(title="Mademoiselle") M#[sup lle]] Juliette].
-      section.sg-sect#embedded-elements
-        h2 Embedded Elements
-      section.sg-sect#interactive-elements
-        h2 Interactive Elements
-    nav
-      h1 Subsitemap
-      ol
-        li: a(href="index.html") Pattern Library
-        li: a(href="base.html" rel="this") Base
-        li: a(href="obj.html") Objects
-        li: a(href="comp-typo.html") Typographical Components
-        li: a(href="comp-ui.html") UI Components
-        li: a(href="helpers.html") Helpers
-        li: a(href="atoms.html") Atoms
-    nav
-      h1 Sitemap
-      ol
-        li: a(href="../index.html") Home
-        li: a(href="../coding.html") Coding Style
-        li: a(href="../writing.html") Writing Style
-        li: a(href="../visual.html") Visual Style
-        li: a(href="index.html") Pattern Library
-        li: a(href="../struct.html") File Structure
-        li: a(href="../sample/index.html") Sample Site
+extends ../node_modules/xmeter/base-tpl.jade
+
+block append vars
+  - project_names = ['ASCE Conferences Styleguide', 'Pattern Library']
+  - classnames.code = 'sg-c-Code'
+  - classnames.figure = 'sg-c-Fig'
+
+block style
+  link(rel="stylesheet" href="../node_modules/xmeter/xmeter.min.css")
+  link(rel="stylesheet" href="../node_modules/bangs/bangs.min.css")
+  link(rel="stylesheet" href="../styles/conf.css")
+  link(rel="stylesheet" href="../styles/styleguide.css")
+
+block append body
+  nav
+    h1 Subsitemap
+    ol
+      li: a(href="index.html") Pattern Library
+      li: a(href="base.html" rel="this") Base
+      li: a(href="obj.html") Objects
+      li: a(href="comp-typo.html") Typographical Components
+      li: a(href="comp-ui.html") UI Components
+      li: a(href="helpers.html") Helpers
+      li: a(href="atoms.html") Atoms
+  nav
+    h1 Sitemap
+    ol
+      li: a(href="../index.html") Home
+      li: a(href="../coding.html") Coding Style
+      li: a(href="../writing.html") Writing Style
+      li: a(href="../visual.html") Visual Style
+      li: a(href="index.html") Pattern Library
+      li: a(href="../struct.html") File Structure
+      li: a(href="../sample/index.html") Sample Site
+
+block append lists
+  p.
+    Dictionary lists are used for key-value pairs, such as a list of
+    dates/times and descriptions.
+
+block append tables
+  p.
+    Use the table #[code.sg-c-Code caption] element
+    for the title and/or summary of the table.
+
+block append text-level-elements
+  footer: figure.sg-c-Fig
+    figcaption: p The following paragraphs contain live examples of usage of the elements above.
+    p.
+      This figure demonstrates #[em commonly used] inline elements
+      in text. Notice #[q commonly used] is emphasized: it&rsquo;s important
+      to note that #[strong not all text-level elements are listed here].
+    p.
+      Some have the opinion that #[code.sg-c-Code em] and #[code.sg-c-Code strong] are #[i semantic elements]
+      while #[code.sg-c-Code i] and #[code.sg-c-Code b] are #[i formatting elements]
+      (which should be #[b deprecated] in HTML5), however
+      others might argue that
+      given the flexibility of these, they can be used for other undefined phrasing content,
+      such as scare quotes and mentions (for the former), and keywords
+      and technical terms (for the latter).
+      #[small However, #[s it&rsquo;s okay to use them interchangeably] one should remember not to use #[code.sg-c-Code i] and #[code.sg-c-Code b] for the meanings associated with #[code.sg-c-Code em] and #[code.sg-c-Code strong], respectively.]
+    p.
+      Use the #[code.sg-c-Code sup] and #[code.sg-c-Code sub] elements for when their presence
+      is semantically required, not just when it looks good there.
+      #[i(lang="la"): abbr(title="exampli gratia") E.g.], don&rsquo;t use superscripts
+      for the abbreviation of ordinals. There are two reasons for this:
+      1st,
+      #[q superscripted ordinals are tiny and hard to read]
+      #[cite (Matthew Butterick, #[time 2014])],
+      but 2nd, and more importantly,
+      the semantics would remain the same even if the superscript were removed.
+      Use super/subscripts only when changing them to normal text would
+      drastically affect their meaning. For example,
+      in math: #[u f(x) = a#[sub 0]x#[sup 2] + a#[sub 1]x + a#[sub 2]],
+      in chemical formulae: #[u dihydgogen oxide, or H#[sub 2]O, is commonly known as water], and
+      in French abbreviations: #[u #[abbr(title="Mademoiselle") M#[sup lle]] Juliette].
+
+block append links
+  figure.sg-c-Fig: p.
+    Lorem ipsum #[a(href="") dolor] sit amet, consectetur adipisicing elit, sed do
+    eiusmod tempor incididunt #[a(href="") ut labore et dolore] magna aliqua. Ut
+    enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. #[a(href="") Lorem ipsum dolor sit]
+    amet, consectetur adipisicing elit, sed do eiusmod tempor
+    incididunt #[a(href="") ut labore et dolore magna aliqua].
+    Lorem ipsum #[a dolor] sit amet, consectetur adipisicing elit, sed do
+    eiusmod tempor incididunt #[a ut labore et dolore] magna aliqua. Ut
+    enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. #[a Lorem ipsum dolor sit]
+    amet, consectetur adipisicing elit, sed do eiusmod tempor
+    incididunt #[a ut labore et dolore magna aliqua].
+
+block prepend stress
+  p Elements for marking up outstanding phrases.
+
+block prepend documentation
+  p Elements for special aspects of documentation.
+
+block prepend data
+  p Elements for marking up machine-readable data.

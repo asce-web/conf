@@ -16,7 +16,7 @@ html(lang="en")
     main(itemscope="" itemtype="http://schema.org/TechArticle")
       header
         h1(itemprop="name headline") ASCE Conference Styleguide &mdash; Coding Style
-        dl.sg-docmeta
+        dl._docmeta
           dt Authors
           dd(itemprop="author") Chris Harvey
           dt Description
@@ -127,7 +127,7 @@ html(lang="en")
             li Keep lines of all code between 75&ndash;90 characters long to maximize readability.
         section#html-specifics-example
           h3 HTML Specifics &amp; Example
-          figure: pre.sg-code.sg-code-block.
+          figure: pre.sg-c-Code.sg-c-Code--block.
             &lt;p&gt;99% of the time, block-level elements get their own line.&lt;/p&gt;
             &lt;div&gt;
               &lt;p&gt;Use line breaks and indentation within elements to separate blocks.&lt;/p&gt;
@@ -154,7 +154,7 @@ html(lang="en")
             &lt;/ul&gt;
         section#css-specifics-example
           h3 CSS Specifics &amp; Example
-          figure: pre.sg-code.sg-code-block.
+          figure: pre.sg-c-Code.sg-c-Code--block.
               /* CSS selectors usually get their own line. */
               .class1 &gt; .child,
               .class2 + .child,
@@ -202,41 +202,41 @@ html(lang="en")
               th(scope="col") Incorrect
             tbody
               tr
-                td: code.sg-code.
+                td: code.sg-c-Code.
                   &lt;th scope="col"&gt;…&lt;/th&gt;
                   #[br]
                   &lt;img alt="The wolf replied, 'The better to see you with, my dear!'"/&gt;
-                td: code.sg-code &lt;TH SCOPE="col"&gt;…&lt;/TH&gt;
+                td: code.sg-c-Code &lt;TH SCOPE="col"&gt;…&lt;/TH&gt;
               tr
-                td: code.sg-code &lt;li&gt;no space immediately inside tags&lt;/li&gt;
-                td: code.sg-code &lt;li&gt; space immediately inside tags &lt;/li&gt;
+                td: code.sg-c-Code &lt;li&gt;no space immediately inside tags&lt;/li&gt;
+                td: code.sg-c-Code &lt;li&gt; space immediately inside tags &lt;/li&gt;
               tr
-                td: code.sg-code &lt;hr/&gt;
-                td: code.sg-code &lt;hr /&gt;
+                td: code.sg-c-Code &lt;hr/&gt;
+                td: code.sg-c-Code &lt;hr /&gt;
               tr
-                td: code.sg-code &lt;input value="no space immediately inside quotes"/&gt;
-                td: code.sg-code &lt;input value=" space immediately inside quotes "/&gt;
+                td: code.sg-c-Code &lt;input value="no space immediately inside quotes"/&gt;
+                td: code.sg-c-Code &lt;input value=" space immediately inside quotes "/&gt;
               tr
-                td: code.sg-code &lt;img itemprop="logo"/&gt;
-                td: code.sg-code &lt;img itemprop=logo/&gt;
+                td: code.sg-c-Code &lt;img itemprop="logo"/&gt;
+                td: code.sg-c-Code &lt;img itemprop=logo/&gt;
               tr
-                td: code.sg-code &lt;img alt="The wolf replied, 'The better to see you with, my dear!'"/&gt;
-                td: code.sg-code &lt;img alt="The wolf replied, "The better to see you with, my dear!""/&gt;
+                td: code.sg-c-Code &lt;img alt="The wolf replied, 'The better to see you with, my dear!'"/&gt;
+                td: code.sg-c-Code &lt;img alt="The wolf replied, "The better to see you with, my dear!""/&gt;
               tr
-                td: code.sg-code &lt;br/&gt;
-                td: code.sg-code &lt;br&gt;
+                td: code.sg-c-Code &lt;br/&gt;
+                td: code.sg-c-Code &lt;br&gt;
               tr
-                td: code.sg-code.
+                td: code.sg-c-Code.
                   &lt;li&gt;a list item&lt;/li&gt;
                   #[br]
                   &lt;li&gt;another list item&lt;/li&gt;
-                td: code.sg-code.
+                td: code.sg-c-Code.
                   &lt;li&gt;a list item
                   #[br]
                   &lt;li&gt;another list item
               tr
-                td: code.sg-code &lt;input checked=""/&gt;
-                td: code.sg-code &lt;input checked/&gt;
+                td: code.sg-c-Code &lt;input checked=""/&gt;
+                td: code.sg-c-Code &lt;input checked/&gt;
         section#css-less-specifics
           h3 CSS/Less Specifics
           ul
@@ -244,7 +244,7 @@ html(lang="en")
               Always use lowercase for tag selectors, and for property names and values.
               Only use capital letters inside strings and for some class selectors.#[sup &lowast;]
             li #[sup &lowast;]Casing for classnames/mixins are #[a discussed elsewhere].
-            li Always use #[code.sg-code under_score_lower_case], never hyphens, for Less variables.
+            li Always use #[code.sg-c-Code under_score_lower_case], never hyphens, for Less variables.
             li Lower case and shorthand hex color values.
             li Always put spaces immediatlely inside braces #[strong if they are on the same line].
             li.
@@ -256,7 +256,7 @@ html(lang="en")
             li Always use single-quotes for all strings in CSS.
             li Always use a semicolon to finish a CSS rule, even the last one, even in inline styles.
             li Use the #[a(href="https://en.wikipedia.org/wiki/Indent_style#Variant:_1TBS") 1TBS] brace style:
-              figure: pre.sg-code.sg-code-block.
+              figure: pre.sg-c-Code.sg-c-Code--block.
                 .selector {
                   margin: 0 0 1rem;
                   line-height: 1.25;
@@ -267,29 +267,29 @@ html(lang="en")
               th(scope="col") Incorrect
             tbody
               tr
-                td: code.sg-code body { font-family: 'Helvetica',sans-serif; }
-                td: code.sg-code BODY { Font-Family: 'Helvetica', Sans-Serif; }
+                td: code.sg-c-Code body { font-family: 'Helvetica',sans-serif; }
+                td: code.sg-c-Code BODY { Font-Family: 'Helvetica', Sans-Serif; }
               tr
-                td: code.sg-code @h1_font_size: 2rem;
-                td: code.sg-code @h1-font-size: 2rem;
+                td: code.sg-c-Code @h1_font_size: 2rem;
+                td: code.sg-c-Code @h1-font-size: 2rem;
               tr
-                td: code.sg-code color: #cf9;
-                td: code.sg-code color: #CCFF99;
+                td: code.sg-c-Code color: #cf9;
+                td: code.sg-c-Code color: #CCFF99;
               tr
-                td: code.sg-code .column-5 { width: 20%; margin-left: 80%; }
-                td: code.sg-code .column-5 {width:20%;margin-left:80%}
+                td: code.sg-c-Code .column-5 { width: 20%; margin-left: 80%; }
+                td: code.sg-c-Code .column-5 {width:20%;margin-left:80%}
               tr
-                td: code.sg-code .class::before { content: 'text'; }
-                td: code.sg-code .class::before { content: "text"; }
+                td: code.sg-c-Code .class::before { content: 'text'; }
+                td: code.sg-c-Code .class::before { content: "text"; }
         section#js-specifics
           h3 JS Specifics
           ul
             li In scripting (JS, PHP):
               ul
-                li class names use #[code.sg-code PascalCase]
-                li function/method names use #[code.sg-code camelCase]
-                li variable names use #[code.sg-code under_score_lower_case]
-                li constant names use #[code.sg-code UNDER_SCORE_UPPER_CASE]
+                li class names use #[code.sg-c-Code PascalCase]
+                li function/method names use #[code.sg-c-Code camelCase]
+                li variable names use #[code.sg-c-Code under_score_lower_case]
+                li constant names use #[code.sg-c-Code UNDER_SCORE_UPPER_CASE]
             li Always put spaces immediatlely inside braces #[strong if they are on the same line].
             li Always put spaces before open parentheses and after control keywords, but never after names of functions.
             li Always use single-quotes for all strings in JS.
@@ -297,7 +297,7 @@ html(lang="en")
               Use the #[a(href="https://en.wikipedia.org/wiki/Indent_style#Variant:_1TBS") 1TBS] brace style
               and #[a(href="https://docs.npmjs.com/misc/coding-style") npm&rsquo;s coding style].
               (In case of conflict, this styleguide overrides npm&rsquo;s style.)
-          figure: pre.sg-code.sg-code-block.
+          figure: pre.sg-c-Code.sg-c-Code--block.
             var foo = 1
               , bar = 2
               , qux = 3
@@ -323,75 +323,75 @@ html(lang="en")
       section#accesibility
         h2 Accessibility
         ul
-          li Always provide the #[code.sg-code html[lang]] attribute.
-          li Always provide text for the #[code.sg-code img[alt]] attribute.
-          li Provide text for the #[code.sg-code a[title]] attribute if the link has non-textual content.
-          li For #[code.sg-code table] elements:
+          li Always provide the #[code.sg-c-Code html[lang]] attribute.
+          li Always provide text for the #[code.sg-c-Code img[alt]] attribute.
+          li Provide text for the #[code.sg-c-Code a[title]] attribute if the link has non-textual content.
+          li For #[code.sg-c-Code table] elements:
             ul
               li.
-                insert the #[code.sg-code caption], #[code.sg-code thead], and #[code.sg-code tfoot] elements (in that order)
-                #[em before] the #[code.sg-code tbody] element(s)
+                insert the #[code.sg-c-Code caption], #[code.sg-c-Code thead], and #[code.sg-c-Code tfoot] elements (in that order)
+                #[em before] the #[code.sg-c-Code tbody] element(s)
               li.
-                always nest #[code.sg-code tr] elements inside either #[code.sg-code thead], #[code.sg-code tfoot], or
-                #[code.sg-code tbody] elements; never directly inside #[code.sg-code table]
+                always nest #[code.sg-c-Code tr] elements inside either #[code.sg-c-Code thead], #[code.sg-c-Code tfoot], or
+                #[code.sg-c-Code tbody] elements; never directly inside #[code.sg-c-Code table]
               li.
-                always nest #[code.sg-code th] and #[code.sg-code td] elements directly inside #[code.sg-code tr] elements
+                always nest #[code.sg-c-Code th] and #[code.sg-c-Code td] elements directly inside #[code.sg-c-Code tr] elements
               li: ins.
-                only use #[code.sg-code th] elements when there is a single row and single column of headers
+                only use #[code.sg-c-Code th] elements when there is a single row and single column of headers
                 (the single row must be in exactly one of the
-                #[code.sg-code thead], #[code.sg-code tfoot], or #[code.sg-code tbody] elements)
+                #[code.sg-c-Code thead], #[code.sg-c-Code tfoot], or #[code.sg-c-Code tbody] elements)
               li: ins(datetime="2016-02-15 14:31").
-                always provide the #[code.sg-code th[scope]] attribute
+                always provide the #[code.sg-c-Code th[scope]] attribute
           li
-            | When adding a link to one element, wrap the #[code.sg-code &lt;a&gt;] tag around
+            | When adding a link to one element, wrap the #[code.sg-c-Code &lt;a&gt;] tag around
             |  the #[em outside] of the element to be linked.
-            figure: pre.sg-code.sg-code-block.
+            figure: pre.sg-c-Code.sg-c-Code--block.
               &lt;a&gt;&lt;code&gt;this is correct&lt;/code&gt;&lt;/a&gt;
               &lt;code&gt;&lt;a&gt;this is incorrect&lt;/a&gt;, unless there is more content not to be linked&lt;/code&gt;
               &lt;a href="//MyCompany.com" itemprop="url"&gt;&lt;span itemprop="name"&gt;My Company&lt;/span&gt;&lt;/a&gt;
           li.
-            Use exactly one #[code.sg-code dfn] element per vocabulary term per page, and
-            always provide the #[code.sg-code dfn[id]] attribute.
+            Use exactly one #[code.sg-c-Code dfn] element per vocabulary term per page, and
+            always provide the #[code.sg-c-Code dfn[id]] attribute.
           li.
-            Use exactly one #[code.sg-code abbr] element per abbreviation/acronym per page, and
-            always provide the #[code.sg-code abbr[id]] #[ins(datetime="2016-02-15 14:31") and #[code.sg-code abbr[title]]] attributes.
+            Use exactly one #[code.sg-c-Code abbr] element per abbreviation/acronym per page, and
+            always provide the #[code.sg-c-Code abbr[id]] #[ins(datetime="2016-02-15 14:31") and #[code.sg-c-Code abbr[title]]] attributes.
       section#optimization
         h2 Optimization
         ul
           li Never use any of the following elements or attributes. Use CSS to achieve the desired effect.
             ul
-              li: code.sg-code font
-              li: code.sg-code hr
-              li: code.sg-code [align]
-              li: code.sg-code [border]
+              li: code.sg-c-Code font
+              li: code.sg-c-Code hr
+              li: code.sg-c-Code [align]
+              li: code.sg-c-Code [border]
           li.
-            Omit the #[code.sg-code [type]] attribute from the
-            #[code.sg-code &lt;link&gt;], #[code.sg-code &lt;style&gt;], and #[code.sg-code &lt;script&gt;] tags,
-            but only if the value is default (#[code.sg-code type="text/css"] or #[code.sg-code type="text/javascript"])
+            Omit the #[code.sg-c-Code [type]] attribute from the
+            #[code.sg-c-Code &lt;link&gt;], #[code.sg-c-Code &lt;style&gt;], and #[code.sg-c-Code &lt;script&gt;] tags,
+            but only if the value is default (#[code.sg-c-Code type="text/css"] or #[code.sg-c-Code type="text/javascript"])
           li Attributes shall have the following precedence and thus shall be written in the following order:
             ol
-              li: code.sg-code class
-              li: code.sg-code id
-              li any attributes starting with #[code.sg-code data-]
+              li: code.sg-c-Code class
+              li: code.sg-c-Code id
+              li any attributes starting with #[code.sg-c-Code data-]
               li.
                 any other #[a(href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes") global attributes]
-                not on this list (#[code.sg-code style], #[code.sg-code title], #[code.sg-code lang], etc.)
+                not on this list (#[code.sg-c-Code style], #[code.sg-c-Code title], #[code.sg-c-Code lang], etc.)
                 in any order
               li.
                 all element-specific attributes
-                (#[code.sg-code href], #[code.sg-code src], #[code.sg-code rel], #[code.sg-code alt], etc.)
+                (#[code.sg-c-Code href], #[code.sg-c-Code src], #[code.sg-c-Code rel], #[code.sg-c-Code alt], etc.)
                 in any order
               li
                 | microdata attributes in the following order:
                 ol
-                  li: code.sg-code itemprop
-                  li: code.sg-code itemscope
-                  li: code.sg-code itemtype
-                  li: code.sg-code itemid
-                  li: code.sg-code itemref
+                  li: code.sg-c-Code itemprop
+                  li: code.sg-c-Code itemscope
+                  li: code.sg-c-Code itemtype
+                  li: code.sg-c-Code itemid
+                  li: code.sg-c-Code itemref
                 small Microdata attributes, though global, are listed last to improve readability.
             | Examples:
-            figure: pre.sg-code.sg-code-block.
+            figure: pre.sg-c-Code.sg-c-Code--block.
               &lt;a data-name="index-1" href="//google.com/" itemprop="url" itemscope="" itemtype="//schema.org/URL"&gt;click here&lt;/a&gt;
               &lt;img class="my-img" id="img1" data-type="jpeg" src="//google.com/logo.jpg" alt="the Google logo"/&gt;
         ul
@@ -403,17 +403,17 @@ html(lang="en")
             th(scope="col") Incorrect
           tbody
             tr
-              td: code.sg-code margin: 0;
-              td: code.sg-code margin: 0px;
+              td: code.sg-c-Code margin: 0;
+              td: code.sg-c-Code margin: 0px;
             tr
-              td: code.sg-code line-height: 1.25;
-              td: code.sg-code line-height: 1.25em; line-height: 20px;
+              td: code.sg-c-Code line-height: 1.25;
+              td: code.sg-c-Code line-height: 1.25em; line-height: 20px;
       section#commenting
         h2 Commenting
         section#formatting
           h3 Formatting
           p Comment formatting is best shown by example:
-          figure: pre.sg-code.sg-code-block.
+          figure: pre.sg-c-Code.sg-c-Code--block.
             // Where available, always use
             // inline syntax for block comments
             // (of course as well as inline),
@@ -477,7 +477,7 @@ html(lang="en")
               what it is, how it works, when/why it should be used, and its benefits and limitations.
               In this comment it&rsquo;s good practice to also include meta-data such as author and
               date created/modified.
-            figure: pre.sg-code.sg-code-block.
+            figure: pre.sg-c-Code.sg-c-Code--block.
               // The Pullquote component is used when authors want to use a block quotation to highlight
               // extracted inline text, for example, from an article.
               // Use this Component on the `blockquote` Element if the original source is less than 40 words
@@ -508,7 +508,7 @@ html(lang="en")
               These comments are very likely to be mixed in with the code itself.
               Use them sparingly, for cases in which the code is not obvious;
               too many of these comments can be overwhelming.
-              For example, use them when you use #[code.sg-code !important] in CSS,
+              For example, use them when you use #[code.sg-c-Code !important] in CSS,
               or when you use #[dfn#magic-number magic numbers]&mdash;numbers that just so happen
               to work in their given situation (like, #[q what does this 18px come from?]).
       section#file-anatomy
@@ -522,15 +522,15 @@ html(lang="en")
             li repository metadata
             li any direct CSS imports
             li filename
-            li any #[code.sg-code (reference)] or #[code.sg-code (inline)] Less imports
+            li any #[code.sg-c-Code (reference)] or #[code.sg-c-Code (inline)] Less imports
             li table of contents
             li Furthermore, any stylesheet may have any number of section or subsection headings.
           section#repository-metadata
             h4 Repository Metadata
             p.
               Include a comment block of information about the repository in the
-              repository&rsquo;s main file. #[small #[i: code.sg-code conf] is the example name of the repository.]
-            figure: pre.sg-code.sg-code-block.
+              repository&rsquo;s main file. #[small #[i: code.sg-c-Code conf] is the example name of the repository.]
+            figure: pre.sg-c-Code.sg-c-Code--block.
               /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
                   conf
                   Version: 0.2.0
@@ -542,7 +542,7 @@ html(lang="en")
           section#direct-css-imports
             h4 Direct CSS Imports
             p These are pure-CSS statements of the following form.
-            figure: pre.sg-code.sg-code-block @import url('normalize.css');
+            figure: pre.sg-c-Code.sg-c-Code--block @import url('normalize.css');
             p.
               In a Less file, upon compilation, these lines get moved to the top of the output file
               and remain verbatim, which means no parsing is done (unlike Less imports mentioned below).
@@ -551,7 +551,7 @@ html(lang="en")
               |  If you&rsquo;re writing a pure CSS file, put these statments above the metadata block.
             p.
               Though these imports make coding CSS easier, they are not recommended; instead,
-              use #[code.sg-code &lt;link rel="stylesheet" href="normalize.css"/&gt;] at the top of each
+              use #[code.sg-c-Code &lt;link rel="stylesheet" href="normalize.css"/&gt;] at the top of each
               document that links the would-be-importing stylesheet.
           section#filename
             h4 Filename
@@ -565,13 +565,13 @@ html(lang="en")
               necessary to include in the output use inline comment syntax.
             figure
               figcaption main stylesheet filename:
-              pre.sg-code.sg-code-block.
+              pre.sg-c-Code.sg-c-Code--block.
                 /*================================*\
                     conf.less
                 \*================================*/
             figure
               figcaption partial stylesheet filename (prepended by repo name for clarity):
-              pre.sg-code.sg-code-block.
+              pre.sg-c-Code.sg-c-Code--block.
                 /*################################*\
                     conf  |  base.less
                 \*################################*/
@@ -592,7 +592,7 @@ html(lang="en")
               A table of contents really helps keep your codebase organized and proides a catalog
               of all the pieces of a project or file. While upkeep maintenance takes some time,
               this can be seen as an investment for a lot of time and confusion saved later on.
-            figure: pre.sg-code.sg-code-block.
+            figure: pre.sg-c-Code.sg-c-Code--block.
               /*
                * # TABLE OF CONTENTS
                *
@@ -627,7 +627,7 @@ html(lang="en")
               Keep in mind the #[i Inception rule]&mdash;#[strong three levels is too deep].
               If you need that kind of
               complexity, it&rsquo;s better to split up the stylesheet into smaller files.
-            figure: pre.sg-code.sg-code-block.
+            figure: pre.sg-c-Code.sg-c-Code--block.
               //Table Of Contents
               //# HORIZONTAL GRID
               //  ## Widths
@@ -642,7 +642,7 @@ html(lang="en")
               Use inline comments to begin and end sections and subsections with headings.
               The #[abbr(title="pound signs") hashes (#[code #])] make find(-and-replace) much easier.
               Only subsections and their code are indented.
-            figure: pre.sg-code.sg-code-block.
+            figure: pre.sg-c-Code.sg-c-Code--block.
               //++++++++++++++++++++++++++++++++//
               //    # HORIZONTAL GRID
               //++++++++++++++++++++++++++++++++//

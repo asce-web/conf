@@ -1,0 +1,106 @@
+doctype html
+html.no-js(lang="en")
+  head
+    title Interior Page | Sample ASCE Conference Site
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" href="../node_modules/xmeter/xmeter.min.css")
+    link(rel="stylesheet" href="../node_modules/bangs/bangs.min.css")
+    link(rel="stylesheet" href="../styles/conf.css")
+  body(itemscope="" itemtype="http://schema.org/Event")
+    header(style="background-color: #48afd6")
+      a(href="landing.html")
+        h1.c-ConfName ASCE Convention
+        p.c-ConfSlogan The Flagship Event for ASCE
+      nav
+        a.c-LandingLink--home(href="") 2016 Convention
+        ul.o-ListBare.c-LandingLinkList
+          li: a.c-LandingLink(href="") About
+          li: a.c-LandingLink(href="") Sponsor
+          li: a.c-LandingLink(href="") Exhibit
+          li: a.c-LandingLink(href="") Contact
+    nav
+      u.c-NavBar.c-NavBar--primary
+        li: a(href="") Home
+        li: a(href="") Register
+        li: a(href="") Program
+        li: a(href="") Location
+        li: a(href="") For Speakers
+    main
+      h1 Location
+      div.php-content-editable
+        h2 Hotel Information
+        p.
+          The reservation deadline for the hotel is
+          #[date.c-Date(datetime="2016-01-14") Thursday, January 14, 2016] however rooms are
+          selling out, so make sure you read this very long paragraph which probably
+          no one will read because studies show that users of the web merely skim through
+          the page to find the information most relavent to them in the fastest
+          way possible.
+        p(itemscope="" itemtype="http://schema.org/Place")
+          span(itemprop="name") Sheraton Phoenix Downtown Hotel
+          br
+          span(itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
+            span(itemprop="streetAddress") 340 North 3rd Street
+            br
+            span(itemprop="addressLocality") Phoenix, 
+            span(itemprop="addressRegion"): abbr(title="Arizona") AZ 
+            span(itemprop="postalCode") 85004
+          a(href="" itemprop="url") https://sheraton.com/phoenix/
+        h2 Transportation
+        h3 Airport
+        p(itemscope="" itemtype="http://schema.org/Place")
+          span(itemprop="name") Phoenix Sky Harbor International Airport (PHX)
+          br
+          a(href="" itemprop="url") https://sheraton.com/phoenix/
+          a(href="" itemprop="telephone") 602-273-3300
+        p.
+          PHX is located #[del approximately]#[ins about] 6 miles from the Sheraton Phoenix Downtown Hotel
+          and Phoenix Convention Center and no one will actually read this paragraph
+          because they will probably just Google map it themselves.
+        h3 Shuttle
+        p.
+          SuperShuttle Servidce costs approximately (again with the long words)
+          $26 for a round-trip ride from the airport to the hotel then back to the airport,
+          which is overly redundant for a web page.
+        h3 Taxi Service
+        p About $25 one-way from airport to hotel. See, that wasn&rsquo;t so bad, was it?
+      section.c-Callout
+        h1.c-CalloutHn Questions?
+        p: a(href="") (800) 548-2723
+        p: a(href="") +1 (703) 295-6300
+        p: a(href="") registrations@asce.org
+      section.c-Callout
+        h1.c-CalloutHn Important Dates
+        dl
+          dt Oct 12 2015
+          dd Optional Final Papers Due
+          dt Dec 17 2015
+          dd Early-Bird Registration Closes
+          dt Jan 12 2016
+          dd Advance Registration Closes
+    footer(style="background-color: #48afd6; margin-bottom:-1.25rem; color: #fff;")
+      p(style="text-align:center; color:red;") #[strong Warning:] footer layout is incomplete.
+      h1 ASCE Convention 2016
+      section
+        p For questions or more information about sponsoring please contact:
+        ul.o-ListBare
+          li: a(href="mailto:asce@asce.org") Sean Scully (703.295.6154)
+          li: a(href="mailto:asce@asce.org") Drew Caracciolo (703.295.6087)
+      section
+        h1 Contact Us
+        ul.o-ListBare
+          li: a(href="tel:(800)548-2723") (800) 548-2723
+          li: a(href="https://twitter.com/hashtag/asce2016") #asce2016
+      section
+        h1 Connect With ASCE
+        ul.o-ListBare.o-ListInline
+          li: a(href="") LinkedIn
+          li: a(href="") Facebook
+          li: a(href="") Twitter
+          li: a(href="") YouTube
+          li: a(href="") Google+
+    footer.copyright(style="text-align: center;")
+      a(href="http://www.asce.org"): span.asce-logo
+      //- img(src="../img/asce-logo-footer.png")
+      span &copy; 1996&ndash;2015, American Society of Civil Engineers

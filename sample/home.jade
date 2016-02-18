@@ -1,0 +1,101 @@
+doctype html
+html.no-js(lang="en")
+  head
+    title Home Page | Sample ASCE Conference Site
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" href="../node_modules/xmeter/xmeter.min.css")
+    link(rel="stylesheet" href="../node_modules/bangs/bangs.min.css")
+    link(rel="stylesheet" href="../styles/conf.css")
+  body(itemscope="" itemtype="http://schema.org/Event")
+    header(style="background-color: #48afd6")
+      a(href="landing.html")
+        h1.c-ConfName(itemprop="name") ASCE Convention
+        p.c-ConfSlogan(itemprop="description") The Flagship Event for ASCE
+      nav
+        a.c-LandingLink--home(href="") 2016 Convention
+        ul.o-ListBare.c-LandingLinkList
+          li: a.c-LandingLink(href="") About
+          li: a.c-LandingLink(href="") Sponsor
+          li: a.c-LandingLink(href="") Exhibit
+          li: a.c-LandingLink(href="") Contact
+    nav
+      u.c-NavBar.c-NavBar--primary
+        li: a(href="") Home
+        li: a(href="") Register
+        li: a(href="") Program
+        li: a(href="") Location
+        li: a(href="") For Speakers
+    main
+      div.c-Hero
+        h1.c-ConfNameCurrent ASCE 2016
+        p.c-ConfTagline Mainstremaing green infrastructure.
+        p.c-ConfLocation(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+          span(itemprop="addressLocality") Portland, 
+          span(itemprop="addressRegion"): abbr(title="Oregon") OR
+        p.c-ConfDates
+          time(datetime="2016-09-28" itemprop="startDate") Sep 28
+          | &ndash;
+          time(datetime="2016-10-01" itemprop="endDate") Oct 1
+        ul.o-ListBare.c-ElevatorButtonContainer
+          li: a.c-Button(href="") Registor Today
+          li: a.c-Button(href="") Become A Sponsor
+          li: a.c-Button(href="") Submit Papers
+      p.
+        Elevator pitch. One paragraph. Sentence case.
+        Join civil engineering professionals from around the world at
+        this ASCE flagship event. Network with peers, earn PDHs, and
+        expand your knowledge base.
+      p.
+        More prose goes here.
+        The Geo-Institute and Structural Engineering Institute of the
+        American Society of Civil Engineers are coming together to create this
+        first-of-its-kind event. By combining &hellip;
+      ul
+        li 3&frac12; days of premier educational and networking events
+        li 15 tracks and 6 plenary sessions focusing on ...
+        li Prestigious awards and keynote lecture presentations
+        li Lively programs for studdnts and young professionals
+      section.c-Callout
+        h1.c-CalloutHn Important Dates
+        dl
+          dt Oct 12 2015
+          dd Optional Final Papers Due
+          dt Dec 17 2015
+          dd Early-Bird Registration Closes
+          dt Jan 12 2016
+          dd Advance Registration Closes
+      section.c-Callout
+        h1.c-CalloutHn Keynote Speakers
+        div.c-Person
+          img
+          p Donald Trump, Ph.D.
+          p Author, #[cite The Art of the Deal]
+        p Nov 16
+        p Opening Plenary
+        p: a(href="") Speaker Details
+    footer(style="background-color: #48afd6; margin-bottom:-1.25rem; color: #fff;")
+      p(style="text-align:center; color:red;") #[strong Warning:] footer layout is incomplete.
+      h1 ASCE Convention 2016
+      section
+        p For questions or more information about sponsoring please contact:
+        ul.o-ListBare
+          li: a(href="mailto:asce@asce.org") Sean Scully (703.295.6154)
+          li: a(href="mailto:asce@asce.org") Drew Caracciolo (703.295.6087)
+      section
+        h1 Contact Us
+        ul.o-ListBare
+          li: a(href="tel:(800)548-2723") (800) 548-2723
+          li: a(href="https://twitter.com/hashtag/asce2016") #asce2016
+      section
+        h1 Connect With ASCE
+        ul.o-ListBare.o-ListInline
+          li: a(href="") LinkedIn
+          li: a(href="") Facebook
+          li: a(href="") Twitter
+          li: a(href="") YouTube
+          li: a(href="") Google+
+    footer.copyright(style="text-align: center;")
+      a(href="http://www.asce.org"): span.asce-logo
+      //- img(src="../img/asce-logo-footer.png")
+      span &copy; 1996&ndash;2015, American Society of Civil Engineers

@@ -4,9 +4,6 @@
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
-@import (css) url('../node_modules/xmeter/xmeter.css');
-
-
 /*================================*\
     styleguide.less
 \*================================*/
@@ -21,9 +18,47 @@
  */
 
 
-// temporrary styles
-pre { font-size: 0.75rem; }
-
-dt { font-weight: 700; }
-
-code { color: green; }
+body {
+  margin: 0 1rem 1.5rem;
+}
+// A section of demos in a styleguide document.
+.sg-sect {
+  margin-left: 1em;
+  background-color: rgba(0,32,64,0.05);
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+// a figure containing ALL demos.
+.sg-fig {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 0.5em;
+  border: 1px solid #e5eaef;
+  border-radius: 8px;
+  position: relative; // for containing other relative things
+  background: #f5faff;
+}
+// a dictionary list containing document metadata
+.sg-docmeta dt {
+  font-weight: 700;
+}
+// any code, block or inline
+.sg-code {
+  padding: 1px 2px;
+  border-radius: 3px;
+  font-size: 0.75em;
+  line-height: 0;
+  background-color: #f8f4f0;
+  color: #800020;
+}
+// block code (extends .sg-code)
+.sg-code-block {
+  font-size: 0.75rem;
+  line-height: 2;
+  padding: 0.75rem 1rem;
+  border: 1px solid lighten(desaturate(#800020, 75%), 25%);
+  border-radius: 4px
+}

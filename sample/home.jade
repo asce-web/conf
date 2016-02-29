@@ -7,25 +7,36 @@ html.no-js(lang="en")
     link(rel="stylesheet" href="../node_modules/xmeter/xmeter.min.css")
     link(rel="stylesheet" href="../node_modules/bangs/bangs.min.css")
     link(rel="stylesheet" href="../styles/conf.css")
+    style.
+      @media screen and (max-width: 44.999em) {
+        .drawer {
+          position: fixed;
+          right: 0;
+          top: 0;
+          height: 100%;
+        }
+      }
   body(itemscope="" itemtype="http://schema.org/Event")
-    header(style="background-color: #48afd6")
-      a(href="landing.html")
-        h1.c-ConfName(itemprop="name") ASCE Convention
-        p.c-ConfSlogan(itemprop="description") The Flagship Event for ASCE
-      nav
-        a.c-LandingLink--home(href="") 2016 Convention
-        ul.o-ListBare.c-LandingLinkList
-          li: a.c-LandingLink(href="") About
-          li: a.c-LandingLink(href="") Sponsor
-          li: a.c-LandingLink(href="") Exhibit
-          li: a.c-LandingLink(href="") Contact
+    header.o-GridFlex.-xj-sb(style="background-color: #48afd6; color: #fff;")
+      a.o-GridFlex__Item.o-Block.-w-a(href="")
+        h1(itemprop="name") ASCE Convention
+        p(itemprop="description") Slogan. The Flagship Event for ASCE
+      div.o-GridFlex__Item.-w-a.-d-n-sM: button menu
+      nav.drawer.o-GridFlex__Item.o-GridFlex.-xc-xs.-w-10em.-w-a-sM(style="background-color: #79bb6d;")
+        h2.o-GridFlex__Item.-d-n-sM(style="background-color: #128d47;") Menu
+        ul.o-GridFlex__Item.o-ListBare.o-GridFlex.-w-a-sM
+          li.o-GridFlex__Item.-w-a-sM: a(href="") About
+          li.o-GridFlex__Item.-w-a-sM: a(href="") Sponsor
+          li.o-GridFlex__Item.-w-a-sM: a(href="") Exhibit
+          li.o-GridFlex__Item.-w-a-sM: a(href="") Contact
+        div.o-GridFlex__Item.-w-a-sM(style="background-color: #128d47;"): a(href="") 2016 Convention
     nav
-      u.c-NavBar.c-NavBar--primary
-        li: a(href="") Home
-        li: a(href="") Register
-        li: a(href="") Program
-        li: a(href="") Location
-        li: a(href="") For Speakers
+      ul.o-ListBare.o-GridFlex
+        li.o-GridFlex__Item.-w-a: a(href="") Home
+        li.o-GridFlex__Item.-w-a: a(href="") Register
+        li.o-GridFlex__Item.-w-a: a(href="") Program
+        li.o-GridFlex__Item.-w-a: a(href="") Location
+        li.o-GridFlex__Item.-w-a: a(href="") For Speakers
     main
       div.c-Hero
         h1.c-ConfNameCurrent ASCE 2016

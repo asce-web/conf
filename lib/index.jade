@@ -1,116 +1,100 @@
-doctype html
-html(lang="en")
-  head
-    title Pattern Library | ASCE Conferences Styleguide
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel="stylesheet" href="../node_modules/xmeter/xmeter.min.css")
-    link(rel="stylesheet" href="../styles/styleguide.css")
-  body
-    main
-      h1 ASCE Conferences Styleguide &mdash; Pattern Library
-      p.
-        This pattern library contains demos of components
-        that live on conference website pages. These components are shown out of context,
-        free from distraction, so you can quickly choose the best one to fit your
-        design needs. Each demo also has accompanying example code to show its proper use.
-      p.
-        #[strong Note:] On these pages, component demos and example code will be
-        placed in #[code &lt;figure&gt;] elements to separate them from the surrounding documentation.
-      nav
-        h2 Table of Contents
-        section
-          h3: a(href="base.html") Base Typography
-          p Bare, unstyled HTML elements. No classes.
+extends lib.tpl.jade
+
+block vars
+  - var is_index_page = true
+
+block append main
+  p.
+    This pattern library contains demos of components
+    that live on conference website pages. These components are shown out of context,
+    free from distraction, so you can quickly choose the best one to fit your
+    design needs. Each demo also has accompanying example code to show its proper use.
+  p.
+    #[strong Note:] On these pages, component demos and example code will be
+    placed in #[code.sg-c-Code &lt;figure&gt;] elements to separate them from the surrounding documentation.
+  nav
+    h2 Table of Contents
+    section
+      h3: a(href="base.html") Base Typography
+      p Bare, unstyled HTML elements. No classes.
+      ol
+        li Headings &amp; Paragraphs
+        li Lists
+        li Tables
+        li Text-Level Elements
           ol
-            li Headings &amp; Paragraphs
-            li Lists
-            li Tables
-            li Text-Level Elements
+            li Links
+            li Stress
+            li Documentation
+            li Data
+        li Embedded Elements
+        li Interactive Elements
+    section
+      h3: a(href="obj.html") Objects
+      p Patterns of structure that can be reused many times for many different purposes.
+      ol
+        li The Block Object
+        li The Inline Object
+        li The Bare List
+        li The Flex Grid
+        li The Float Grid
+    section
+      h3 Components
+      p Patterns of look-and-feel that are each only used for one purpose.
+      ol
+        li: section
+          h4: a(href="comp-typo.html") Typographical Components
+          p Static, textual content. No user interaction or functionality.
+          ol
+            li Headings
+            li Paragraphs
               ol
+                li Hero Lede
+                li Person Name, Title
+                li Date Block
+                li Session Column
+            li Inline Text
+              ol
+                li Date Text
                 li Links
-                li Stress
-                li Documentation
-                li Data
-            li Embedded Elements
-            li Interactive Elements
-        section
-          h3: a(href="obj.html") Objects
-          p Patterns of structure that can be reused many times for many different purposes.
-          ol
-            li The Block Object
-            li The Inline Object
-            li The Bare List
-            li The Flex Grid
-            li The Float Grid
-        section
-          h3 Components
-          p Patterns of look-and-feel that are each only used for one purpose.
-          ol
-            li: section
-              h4: a(href="comp-typo.html") Typographical Components
-              p Static, textual content. No user interaction or functionality.
+                  ol
+                    li Link Arrow
+                    li Link to PDF
+                    li Link to Email
+                    li Link in Banner, Header, Footer, etc.
+            li Callouts
               ol
-                li Headings
-                li Paragraphs
-                  ol
-                    li Hero Lede
-                    li Person Name, Title
-                    li Date Block
-                    li Session Column
-                li Inline Text
-                  ol
-                    li Date Text
-                    li Links
-                      ol
-                        li Link Arrow
-                        li Link to PDF
-                        li Link to Email
-                        li Link in Banner, Header, Footer, etc.
-                li Callouts
-                  ol
-                    li Generic Callout
-                    li Register Callout
-                    li Dates Callout
-                    li Sponsors Callout
-                li Summary Banner
-            li: section
-              h4: a(href="comp-ui.html") UI (user-interactive) Components
-              p Dynamic, user-interactive, visually identifiable, functional, and even pretty.
-              ol
-                li Year Badge
-                li Year Ribbon
-                li Conference Logo
-                li Speaker Photo
-                li Navigation Bars
-                  ol
-                    li Generic Navigation Bar
-                    li Main Navigation Bar
-                    li Side Navigation Bar
-                    li Utility Navigation Bar
-                    li Secondary Navigation Bar
-                    li Year Tab Bar
-                li Speaker Profile
-                li Speaker Details
-                li Buttons
-                li Flags
-        section
-          h3: a(href="helpers.html") Helpers
-          p Somewhat explicit classes used for enhancing default styles.
-        section
-          h3: a(href="atoms.html") Atoms
-          p Very specific classes used for creating anomalies or fixing broken styles.
+                li Generic Callout
+                li Register Callout
+                li Dates Callout
+                li Sponsors Callout
+            li Summary Banner
+        li: section
+          h4: a(href="comp-ui.html") UI (user-interactive) Components
+          p Dynamic, user-interactive, visually identifiable, functional, and even pretty.
           ol
-            li Floats
-            li Widths
-    footer
-      nav
-        h1 Sitemap
-        ol
-          li: a(href="../index.html") Home
-          li: a(href="../coding.html") Coding Style
-          li: a(href="../writing.html") Writing Style
-          li: a(href="../visual.html") Visual Style
-          li: a(href="index.html" rel="this") Pattern Library
-          li: a(href="../struct.html") File Structure
-          li: a(href="../sample/index.html") Sample Site
+            li Year Badge
+            li Year Ribbon
+            li Conference Logo
+            li Speaker Photo
+            li Navigation Bars
+              ol
+                li Generic Navigation Bar
+                li Main Navigation Bar
+                li Side Navigation Bar
+                li Utility Navigation Bar
+                li Secondary Navigation Bar
+                li Year Tab Bar
+            li Speaker Profile
+            li Speaker Details
+            li Buttons
+            li Flags
+    section
+      h3: a(href="helpers.html") Helpers
+      p Somewhat explicit classes used for enhancing default styles.
+    section
+      h3: a(href="atoms.html") Atoms
+      p Very specific classes used for creating anomalies or fixing broken styles.
+      ol
+        li Floats
+        li Widths

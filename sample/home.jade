@@ -5,59 +5,59 @@ block append vars
   - var is_home_page = true
 
 block append front-matter
-    nav
-      ul.o-ListBare.o-GridFlex.-mb-0(style="background-color: #79bb6d;")
-        li.o-GridFlex__Item.-w-a: a(href="") Home
-        li.o-GridFlex__Item.-w-a: a(href="") Register
-        li.o-GridFlex__Item.-w-a: a(href="") Program
-        li.o-GridFlex__Item.-w-a: a(href="") Location
-        li.o-GridFlex__Item.-w-a: a(href="") For Speakers
+  nav
+    ul.o-ListBare.o-GridFlex.-mb-0(style="background-color: #79bb6d;")
+      li.o-GridFlex__Item.-w-a: a(href="") Home
+      li.o-GridFlex__Item.-w-a: a(href="") Register
+      li.o-GridFlex__Item.-w-a: a(href="") Program
+      li.o-GridFlex__Item.-w-a: a(href="") Location
+      li.o-GridFlex__Item.-w-a: a(href="") For Speakers
 
 block main
-    section(itemscope="" itemtype="http://schema.org/Event")
-      div(style="background-color: #074d1c; text-align: center;")
-        h1.-d-n(itemprop="name") ASCE 2016
-        p(itemprop="description") Slogan. Mainstremaing green infrastructure.
-        p.o-GridFlex
-          span.o-GridFlex__Item.o-Block.-w-1o2(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-            span(itemprop="addressLocality") Portland, 
-            span(itemprop="addressRegion"): abbr(title="Oregon") OR
-          span.o-GridFlex__Item.o-Block.-w-1o2
-            time(datetime="2016-09-28" itemprop="startDate") Sep 28
-            | &ndash;
-            time(datetime="2016-10-01" itemprop="endDate") Oct 1
-        ul.o-ListBare.o-GridFlex.-xj-c
-          li.o-GridFlex__Item.-w-a-sM: a(href="") Registor Today
-          li.o-GridFlex__Item.-w-a-sM: a(href="") Become A Sponsor
-          li.o-GridFlex__Item.-w-a-sM: a(href="") Submit Papers
-      section.this-is-editable
-        p: strong(style="color: red;") Editable section.
-        p.
-          More prose about this specific year goes here.
-          The Geo-Institute and Structural Engineering Institute of the
-          American Society of Civil Engineers are coming together to create this
-          first-of-its-kind event. By combining &hellip;
-        ul
-          li 3&frac12; days of premier educational and networking events
-          li 15 tracks and 6 plenary sessions focusing on ...
-          li Prestigious awards and keynote lecture presentations
-          li Lively programs for studdnts and young professionals
-      div.o-GridFlex
-        section.o-GridFlex__Item.-w-1o2-sM
-          h1 Important Dates
-          dl
-            dt Oct 12 2015
-            dd Optional Final Papers Due
-            dt Dec 17 2015
-            dd Early-Bird Registration Closes
-            dt Jan 12 2016
-            dd Advance Registration Closes
-        section.o-GridFlex__Item.-w-1o2-sM
-          h1 Keynote Speakers
-          div
-            img
-            p Donald Trump, Ph.D.
-            p Author, #[cite The Art of the Deal]
-          p Nov 16
-          p Opening Plenary
-          p: a(href="") Speaker Details
+  section(itemscope="" itemtype="http://schema.org/Event")
+    div(style="background-color: #074d1c; text-align: center;")
+      h1.-d-n(itemprop="name") #{conf_name} Home
+      p(itemprop="description") Slogan. Mainstremaing green infrastructure.
+      p.o-GridFlex
+        span.o-GridFlex__Item.o-Block.-w-1o2(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+          span(itemprop="addressLocality") Portland, 
+          span(itemprop="addressRegion"): abbr(title="Oregon") OR
+        span.o-GridFlex__Item.o-Block.-w-1o2
+          time(datetime="2016-09-28" itemprop="startDate") Sep 28
+          | &ndash;
+          time(datetime="2016-10-01" itemprop="endDate") Oct 1
+      ul.o-ListBare.o-GridFlex.-xj-c
+        li.o-GridFlex__Item.-w-a-sM: a(href="") Registor Today
+        li.o-GridFlex__Item.-w-a-sM: a(href="") Become A Sponsor
+        li.o-GridFlex__Item.-w-a-sM: a(href="") Submit Papers
+    section.this-is-editable
+      p: strong(style="color: red;") Editable section.
+      p.
+        More prose about this specific year goes here.
+        The Geo-Institute and Structural Engineering Institute of the
+        American Society of Civil Engineers are coming together to create this
+        first-of-its-kind event. By combining &hellip;
+      ul
+        li 3&frac12; days of premier educational and networking events
+        li 15 tracks and 6 plenary sessions focusing on ...
+        li Prestigious awards and keynote lecture presentations
+        li Lively programs for studdnts and young professionals
+    div.o-GridFlex
+      section.o-GridFlex__Item.-w-1o2-sM
+        h1 Important Dates
+        dl
+          dt Oct 12 2015
+          dd Optional Final Papers Due
+          dt Dec 17 2015
+          dd Early-Bird Registration Closes
+          dt Jan 12 2016
+          dd Advance Registration Closes
+      section.o-GridFlex__Item.-w-1o2-sM
+        h1 Keynote Speakers
+        div
+          img
+          p Donald Trump, Ph.D.
+          p Author, #[cite The Art of the Deal]
+        p Nov 16
+        p Opening Plenary
+        p: a(href="") Speaker Details

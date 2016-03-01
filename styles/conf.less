@@ -27,8 +27,6 @@
  * conf-colors....................conference-specific, year-specific color schemes
  *
  * ## TOOLS
- * sprite.........................mixin for creating sprite background
- * logos..........................logo sizes
  *
  * base...........................bare, unclassed elements
  *
@@ -41,51 +39,15 @@
  *
  * ## ATOMS
  *
- * object.........................temporary file containing ALL objects : will be broken up later
- * SpeakerProfile.................a three-column layout containing speaker session info, headshot, and speaker brief info
- * ListGrid.......................a list of blocks arranged in a table-like, flexible grid
- * ColDouble......................sets two columns of text or list items
  *
  * ## COMPONENTS
  *
  * ### Typographical Components
- * headings.......................temporary sheet for all headings ; break up later
- * TableHeader....................title of table. should go in <caption> or preceding <h1>
- * Callout........................section in the sidebar with a heading and body
- * Hero...........................section on home page with image, heading, and lede
- * Person.........................person name and title
- * DateBlock......................a block containing a date and a description of an event
- * Date...........................inline span of text indicating any date
  *
  * ### User-Interactive Components
- * YearBadge......................shield with year at top of all pages
- * YearRibbon.....................alternate to YearBadge
- * ConfLogo.......................image of conference logo shield in header/footer
- * SpeakerPhoto...................photo of keynote speaker(s)
- * NavBar.........................any generic navigation bar element
-
- * Icon...........................small icons
- * Button.........................buttons
- * Flag...........................label of some sort
  *
- *
- *
- * ## UNSORTED
- * SiteFooter.....................
- * SummaryBanner..................
- * LinkBlock
- * LinkArrow
- * SponsorHn......................heading of Sponsors section
- * SponsorBlock...................a block of sponsor logos
- * AsceLogo.......................logo at site footer
- *
- *
- *
- * ## TRUMPS
- * helpers........................context-agnostic helper classes
- * utils..........................atoms (exactly one style and marked `!important`)
- * shame..........................temporary hacks and fixes
- * ektron-fixes...................fixes specifically for ektron server custom styles
+ * ## SHAME
+ * _shame.less....................
  */
 
 @import url('__settings.less');
@@ -99,214 +61,12 @@
 @import url('_obj.GridFlex.less');
 @import url('_obj.GridFloat.less');
 
-//
-// @import url('__tools.sprite.less');
-// @import url('__tools.logos.less');
-//
-//
-// @import url('_objects.less'); // temp
-// @import url('_comp.SpeakerProfile.less');
-// @import url('_obj.ListGrid.less');
-// @import url('_obj.ColDouble.less');
-//
-// @import url('_comp.typo.headings.less'); // temp
-// @import url('_comp.typo.TableHeader.less');
-// @import url('_comp.typo.Callout.less');
-// @import url('_comp.Hero.less');
-// @import url('_comp.Person.less');
-// @import url('_comp.DateBlock.less');
-// @import url('_comp.typo.Date.less');
-//
-//
-// @import url('_comp.ui.YearBadge.less');
-// @import url('_comp.ui.YearRibbon.less');
-// @import url('_comp.ui.ConfLogo.less');
-// @import url('_comp.ui.SpeakerPhoto.less');
-// @import url('_comp.ui.NavBar.less');
-//
-//
-//
-// @import url('_comp.Icon.less');
-// @import url('_comp.Button.less');
-// @import url('_comp.ui.Flag.less');
-//
-// // NOTE the Header, Footer, and Summary Banner are too big to be components.
-// // We may just use small components inside to create the look-and-feel of each.
-// .header,
-// .footer,
-// .summary-banner,
-// .c-SummaryBanner {
-//   color: @color_asce_header_txt;
-//   background-color: @color_site_primary;
-//   #pipelinesconference & {
-//     background-color: @color_pl_primary;
-//   }
-//   #icsiconference & {
-//     background-color: @color_icsi_primary;
-//   }
-//   #lidconference & {
-//     background-color: @color_lid_primary;
-//   }
-//   a {
-//     &[href], // a[href] matches both a:link and a:visited
-//     &:hover {
-//     color: inherit;
-//     }
-//   }
-// }
-// @import url('_comp.SiteFooter.less');
-// @import url('_comp.SummaryBanner.less');
-//
-//
-// @import url('_comp.LinkBlock.less');
-// @import url('_comp.LinkArrow.less');
-//
-// @import url('_comp.SponsorHn.less');
-// @import url('_comp.SponsorBlock.less');
-//
-// @import url('_comp.AsceLogo.less');
-//
-//
-//
-//
-//
-// @import url('_trumps.helpers.less');
-// @import url('_trumps.utils.less');
-// @import url('_trumps.shame.less');
-// @import url('_trumps.ektron-fixes.less');
 
 
-
-// body {
-//   margin-left: auto;
-//   margin-right: auto;
-//   @media screen and (min-width: 45em) {
-//     width: 45em;
-//   }
-// }
-//
-// a[href]:hover {
-//   color: #f0f;
-// }
-//
-//
-// .o-ListBare {
-//   padding-left:0;
-//   list-style-type:none;
-// }
-// .o-ListInline {
-//   li {
-//     display: inline;
-//     line-height: 0;
-//   }
-// }
-//
-//
-// .o-Block {
-//   display: block;
-//   line-height: inherit;
-// }
-// .o-Inline {
-//   display: inline;
-//   line-height: 0;
-// }
-// .o-FlexContainer {
-//   display: flex;
-//   flex-wrap: wrap;
-// }
-// .o-SecondaryButtonsContainer {
-//
-// }
-//
-//
-// .u-w10 { width: 10%; }
-// .u-w20 { width: 20%; }
-// .u-w30 { width: 30%; }
-// .u-w40 { width: 40%; }
-// .u-w50 { width: 50%; }
-// .u-w60 { width: 60%; }
-// .u-w70 { width: 70%; }
-// .u-w80 { width: 80%; }
-// .u-w90 { width: 90%; }
-// .u-w100 { width: 100%; }
-// .u-w25 { width: 25%; }
-// .u-w75 { width: 75%; }
-// .u-o-1 { order: 1; }
-// .u-o-2 { order: 2; }
-// .u-o-3 { order: 3; }
-//
-// header {
-//   display:flex;
-//   flex-wrap: wrap;
-//   & > a {
-//     display:flex;
-//     width: 80%;
-//     line-height:inherit;
-//     @media screen and (min-width: 45em) {
-//       width: 40%;
-//     }
-//     & > div:first-child {
-//       width: 20%;
-//     }
-//     & > div:last-child {
-//       width: 80%;
-//     }
-//   }
-//   & > div {
-//     // landing link home
-//     width: 20%;
-//     @media screen and (min-width: 45em) {
-//       order: 1;
-//     }
-//     & > a {
-//       display: block;
-//       margin-top: 50px;
-//       line-height: inherit;
-//     }
-//   }
-//   & > nav {
-//     width: 100%;
-//     @media screen and (min-width: 45em) {
-//       width: 40%;
-//       margin-top: 50px;
-//     }
-//     & > ul {
-//       display:flex;
-//       & > li {
-//         width: 25%;
-//         &:not(:last-child) {
-//           // padding-right:1em;
-//         }
-//       }
-//     }
-//   }
-// }
-// main {
-//   > div {
-//     @media screen and (min-width: 45em) {
-//       display: flex;
-//     }
-//   }
-// }
-// #past,
-// #future {
-//   display: flex;
-//   h2,
-//   ul {
-//     width: 50%;
-//   }
-// }
-//
-//
-//
-// // -------- SECTIONS -------- //
-// .c-Hero {
-//   text-align: center;
-//   background-image: url(../img/fpo-hero.jpg);
-// }
-// .c-ConfTitles {
-//   // width:
-// }
+.c-Hero {
+  text-align: center;
+  background-image: url(../img/fpo-hero.jpg);
+}
 // // -------- HEADINGS -------- //
 // // Name of entire conference
 // .c-ConfName {}

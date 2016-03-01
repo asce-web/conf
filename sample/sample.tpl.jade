@@ -47,17 +47,17 @@ html(lang="en")
       footer.o-GridFlex(style="background-color: #48afd6; color: #fff;" itemscope="" itemtype="http://schema.org/NGO")
         section.o-GridFlex__Item.-w-1o2-sM
           h1 Contact Us
-          address: ul.o-ListBare
+          address(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint"): ul.o-ListBare
             li: a(href="tel:8005482723" itemprop="telephone") (800) 548-2723
             li: a(href="tel:17032956300" itemprop="telephone") +1 (703) 295-6300
         section.o-GridFlex__Item.-w-1o2-sM
           h1 Connect With ASCE
           ul.o-ListBare
-            li.o-Inline: a(href="") LinkedIn
-            li.o-Inline: a(href="") Facebook
-            li.o-Inline: a(href="") Twitter
-            li.o-Inline: a(href="") YouTube
-            li.o-Inline: a(href="") Google+
+            li.o-Inline: a(href="" itemprop="sameAs") LinkedIn
+            li.o-Inline: a(href="" itemprop="sameAs") Facebook
+            li.o-Inline: a(href="" itemprop="sameAs") Twitter
+            li.o-Inline: a(href="" itemprop="sameAs") YouTube
+            li.o-Inline: a(href="" itemprop="sameAs") Google+
         section.o-GridFlex__Item(style="text-align: center; background-color: #0c5fa8;"): p
           a(title="ASCE.org" style="background-image: none; color: #fff;" href="http://www.asce.org" itemprop="url").
             &copy; #[time 1996]&ndash;#[time 2016], #[span(itemprop="name") American Society of Civil Engineers]

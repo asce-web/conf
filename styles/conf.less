@@ -63,6 +63,71 @@
 
 
 
+// -------- SECTION COMPONENTS -------- //
+// Masthead header banner across entire site.
+//
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-01
+.c-Mast {
+  background-color: @color_site_primary;
+  color: #fff;
+}
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+
+// Linked block containing
+// conference name and tagline
+//
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-01
+.c-Mast__Title {
+  background-image: none; // this is the conference logo (or institute shield)
+  margin-left: 4rem; // change this if necessary
+}
+
+// Conference menu (both mobile and desktop)
+//
+// ^Subcomponents:
+// __Hn - the heading for the menu
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-01
+.c-Mast__Drawer {
+  width: 10em; // width for s and sK screen sizes only. change if needed.
+  @media screen and (max-width: 44.999em) {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: @color_site_secondary;
+  }
+}
+.c-Mast__Drawer__Hn {
+  background-color: @color_site_accent;
+}
+
+// Copyright footline.
+//
+// ^Subcomponents:
+// __Link - entire thing with ASCE logo background image
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-01
+.c-Copyright {
+  text-align: center;
+  background-color: #0c5fa8;
+  color: #fff;
+}
+.c-Copyright__Link {
+  background-image: none; // this is the ASCE logo
+}
+
+
 .c-Hero {
   text-align: center;
   background-image: url(../img/fpo-hero.jpg);

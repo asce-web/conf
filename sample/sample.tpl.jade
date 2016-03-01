@@ -1,0 +1,63 @@
+doctype html
+html(lang="en")
+  head
+    block vars
+      - var title = ''
+      - var conf_name = 'ASCE 2016'
+    title #{title} | Sample ASCE Conference Site
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" href="../node_modules/xmeter/xmeter.min.css")
+    link(rel="stylesheet" href="../node_modules/bangs/bangs.min.css")
+    link(rel="stylesheet" href="../styles/conf.css")
+    block style
+      style.
+        @media screen and (max-width: 44.999em) {
+          .drawer {
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100%;
+          }
+        }
+        section.this-is-editable { background-color: rgba(255, 219, 64, 0.64); }
+  body
+    mixin action-buttons()
+      ul.o-ListBare.o-GridFlex.-xj-c.-ta-c
+        li.o-GridFlex__Item.-w-a-sM: a(href="") Registor Today
+        li.o-GridFlex__Item.-w-a-sM: a(href="") Become A Sponsor
+        li.o-GridFlex__Item.-w-a-sM: a(href="") Submit Papers
+    block front-matter
+      header.o-GridFlex.-xj-sb(style="background-color: #48afd6; color: #fff;")
+        a.o-GridFlex__Item.o-Block.-w-a.-ml-4(href="")
+          h1 ASCE Convention
+          p Tagline. The Flagship Event for ASCE
+        div.o-GridFlex__Item.-w-a.-d-n-sM: button menu
+        nav.drawer.o-GridFlex__Item.o-GridFlex.-xc-xs.-w-10em.-w-a-sM(style="background-color: #79bb6d;")
+          h2.o-GridFlex__Item.-d-n-sM(style="background-color: #128d47;") Menu
+          ul.o-GridFlex__Item.o-ListBare.o-GridFlex.-w-a-sM
+            li.o-GridFlex__Item.-w-a-sM: a(href="") About
+            li.o-GridFlex__Item.-w-a-sM: a(href="") Sponsor
+            li.o-GridFlex__Item.-w-a-sM: a(href="") Exhibit
+            li.o-GridFlex__Item.-w-a-sM: a(href="") Contact
+          div.o-GridFlex__Item.-w-a-sM(style="background-color: #128d47;"): a(href="") 2016 Convention
+    main
+      block main
+    block end-matter
+      footer.o-GridFlex(style="background-color: #48afd6; color: #fff;" itemscope="" itemtype="http://schema.org/NGO")
+        section.o-GridFlex__Item.-w-1o2-sM
+          h1 Contact Us
+          address: ul.o-ListBare
+            li: a(href="tel:8005482723" itemprop="telephone") (800) 548-2723
+            li: a(href="tel:17032956300" itemprop="telephone") +1 (703) 295-6300
+        section.o-GridFlex__Item.-w-1o2-sM
+          h1 Connect With ASCE
+          ul.o-ListBare
+            li.o-Inline: a(href="") LinkedIn
+            li.o-Inline: a(href="") Facebook
+            li.o-Inline: a(href="") Twitter
+            li.o-Inline: a(href="") YouTube
+            li.o-Inline: a(href="") Google+
+        section.o-GridFlex__Item(style="text-align: center; background-color: #0c5fa8;"): p
+          a(title="ASCE.org" style="background-image: none; color: #fff;" href="http://www.asce.org" itemprop="url").
+            &copy; #[time 1996]&ndash;#[time 2016], #[span(itemprop="name") American Society of Civil Engineers]

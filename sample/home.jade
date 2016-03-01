@@ -7,47 +7,54 @@ html.no-js(lang="en")
     link(rel="stylesheet" href="../node_modules/xmeter/xmeter.min.css")
     link(rel="stylesheet" href="../node_modules/bangs/bangs.min.css")
     link(rel="stylesheet" href="../styles/conf.css")
-  body(itemscope="" itemtype="http://schema.org/Event")
-    header(style="background-color: #48afd6")
-      a(href="landing.html")
-        h1.c-ConfName(itemprop="name") ASCE Convention
-        p.c-ConfSlogan(itemprop="description") The Flagship Event for ASCE
-      nav
-        a.c-LandingLink--home(href="") 2016 Convention
-        ul.o-ListBare.c-LandingLinkList
-          li: a.c-LandingLink(href="") About
-          li: a.c-LandingLink(href="") Sponsor
-          li: a.c-LandingLink(href="") Exhibit
-          li: a.c-LandingLink(href="") Contact
+    style.
+      @media screen and (max-width: 44.999em) {
+        .drawer {
+          position: fixed;
+          right: 0;
+          top: 0;
+          height: 100%;
+        }
+      }
+  body
+    header.o-GridFlex.-xj-sb(style="background-color: #48afd6; color: #fff;")
+      a.o-GridFlex__Item.o-Block.-w-a.-ml-4(href="")
+        h1 ASCE Convention
+        p Slogan. The Flagship Event for ASCE
+      div.o-GridFlex__Item.-w-a.-d-n-sM: button menu
+      nav.drawer.o-GridFlex__Item.o-GridFlex.-xc-xs.-w-10em.-w-a-sM(style="background-color: #79bb6d;")
+        h2.o-GridFlex__Item.-d-n-sM(style="background-color: #128d47;") Menu
+        ul.o-GridFlex__Item.o-ListBare.o-GridFlex.-w-a-sM
+          li.o-GridFlex__Item.-w-a-sM: a(href="") About
+          li.o-GridFlex__Item.-w-a-sM: a(href="") Sponsor
+          li.o-GridFlex__Item.-w-a-sM: a(href="") Exhibit
+          li.o-GridFlex__Item.-w-a-sM: a(href="") Contact
+        div.o-GridFlex__Item.-w-a-sM(style="background-color: #128d47;"): a(href="") 2016 Convention
     nav
-      u.c-NavBar.c-NavBar--primary
-        li: a(href="") Home
-        li: a(href="") Register
-        li: a(href="") Program
-        li: a(href="") Location
-        li: a(href="") For Speakers
-    main
-      div.c-Hero
-        h1.c-ConfNameCurrent ASCE 2016
-        p.c-ConfTagline Mainstremaing green infrastructure.
-        p.c-ConfLocation(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-          span(itemprop="addressLocality") Portland, 
-          span(itemprop="addressRegion"): abbr(title="Oregon") OR
-        p.c-ConfDates
-          time(datetime="2016-09-28" itemprop="startDate") Sep 28
-          | &ndash;
-          time(datetime="2016-10-01" itemprop="endDate") Oct 1
-        ul.o-ListBare.c-ElevatorButtonContainer
-          li: a.c-Button(href="") Registor Today
-          li: a.c-Button(href="") Become A Sponsor
-          li: a.c-Button(href="") Submit Papers
+      ul.o-ListBare.o-GridFlex.-mb-0(style="background-color: #79bb6d;")
+        li.o-GridFlex__Item.-w-a: a(href="") Home
+        li.o-GridFlex__Item.-w-a: a(href="") Register
+        li.o-GridFlex__Item.-w-a: a(href="") Program
+        li.o-GridFlex__Item.-w-a: a(href="") Location
+        li.o-GridFlex__Item.-w-a: a(href="") For Speakers
+    main(itemscope="" itemtype="http://schema.org/Event")
+      div(style="background-color: #074d1c; text-align: center;")
+        h1.-d-n(itemprop="name") ASCE 2016
+        h2(itemprop="description") Tagline. Mainstremaing green infrastructure.
+        p.o-GridFlex
+          span.o-GridFlex__Item.o-Block.-w-1o2(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+            span(itemprop="addressLocality") Portland, 
+            span(itemprop="addressRegion"): abbr(title="Oregon") OR
+          span.o-GridFlex__Item.o-Block.-w-1o2
+            time(datetime="2016-09-28" itemprop="startDate") Sep 28
+            | &ndash;
+            time(datetime="2016-10-01" itemprop="endDate") Oct 1
+        ul.o-ListBare.o-GridFlex.-xj-c
+          li.o-GridFlex__Item.-w-a-sM: a(href="") Registor Today
+          li.o-GridFlex__Item.-w-a-sM: a(href="") Become A Sponsor
+          li.o-GridFlex__Item.-w-a-sM: a(href="") Submit Papers
       p.
-        Elevator pitch. One paragraph. Sentence case.
-        Join civil engineering professionals from around the world at
-        this ASCE flagship event. Network with peers, earn PDHs, and
-        expand your knowledge base.
-      p.
-        More prose goes here.
+        More prose about this specific year goes here.
         The Geo-Institute and Structural Engineering Institute of the
         American Society of Civil Engineers are coming together to create this
         first-of-its-kind event. By combining &hellip;
@@ -57,7 +64,7 @@ html.no-js(lang="en")
         li Prestigious awards and keynote lecture presentations
         li Lively programs for studdnts and young professionals
       section.c-Callout
-        h1.c-CalloutHn Important Dates
+        h1.c-Callout__Hn Important Dates
         dl
           dt Oct 12 2015
           dd Optional Final Papers Due
@@ -66,7 +73,7 @@ html.no-js(lang="en")
           dt Jan 12 2016
           dd Advance Registration Closes
       section.c-Callout
-        h1.c-CalloutHn Keynote Speakers
+        h1.c-Callout__Hn Keynote Speakers
         div.c-Person
           img
           p Donald Trump, Ph.D.
@@ -74,28 +81,20 @@ html.no-js(lang="en")
         p Nov 16
         p Opening Plenary
         p: a(href="") Speaker Details
-    footer(style="background-color: #48afd6; margin-bottom:-1.25rem; color: #fff;")
-      p(style="text-align:center; color:red;") #[strong Warning:] footer layout is incomplete.
-      h1 ASCE Convention 2016
-      section
-        p For questions or more information about sponsoring please contact:
-        ul.o-ListBare
-          li: a(href="mailto:asce@asce.org") Sean Scully (703.295.6154)
-          li: a(href="mailto:asce@asce.org") Drew Caracciolo (703.295.6087)
-      section
+    footer.o-GridFlex(style="background-color: #48afd6; color: #fff;" itemscope="" itemtype="http://schema.org/NGO")
+      section.o-GridFlex__Item.-w-1o2-sM
         h1 Contact Us
-        ul.o-ListBare
-          li: a(href="tel:(800)548-2723") (800) 548-2723
-          li: a(href="https://twitter.com/hashtag/asce2016") #asce2016
-      section
+        address: ul.o-ListBare
+          li: a(href="tel:8005482723" itemprop="telephone") (800) 548-2723
+          li: a(href="tel:17032956300" itemprop="telephone") +1 (703) 295-6300
+      section.o-GridFlex__Item.-w-1o2-sM
         h1 Connect With ASCE
-        ul.o-ListBare.o-ListInline
-          li: a(href="") LinkedIn
-          li: a(href="") Facebook
-          li: a(href="") Twitter
-          li: a(href="") YouTube
-          li: a(href="") Google+
-    footer.copyright(style="text-align: center;")
-      a(href="http://www.asce.org"): span.asce-logo
-      //- img(src="../img/asce-logo-footer.png")
-      span &copy; 1996&ndash;2015, American Society of Civil Engineers
+        ul.o-ListBare
+          li.o-Inline: a(href="") LinkedIn
+          li.o-Inline: a(href="") Facebook
+          li.o-Inline: a(href="") Twitter
+          li.o-Inline: a(href="") YouTube
+          li.o-Inline: a(href="") Google+
+      section.o-GridFlex__Item(style="text-align: center; background-color: #0c5fa8;"): p
+        a(title="ASCE.org" style="background-image: none; color: #fff;" href="http://www.asce.org" itemprop="url").
+          &copy; #[time 1996]&ndash;#[time 2016], #[span(itemprop="name") American Society of Civil Engineers]

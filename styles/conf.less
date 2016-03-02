@@ -187,6 +187,7 @@
 // 2016-03-02
 .c-NavSubmenu {
   position: absolute; // inside the .c-NavMenu
+  width: 20%; // FIXME
   background-color: #fff;
   @media screen and (max-width: 44.999em) {
     left:  1rem;
@@ -230,10 +231,11 @@
 }
 
 .c-Hero {
-  margin-left:  -1rem; margin-right: -1rem; // undoes BodyChild padding
+  margin-left: -@body_padding; margin-right: -@body_padding;
   text-align: center;
   background-color: #074d1c;
   background-image: none; // TODO add image
+  color: @color_asce_header_txt;
 }
 
 

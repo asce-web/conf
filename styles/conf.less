@@ -66,6 +66,9 @@
 // -------- SECTION COMPONENTS -------- //
 // Masthead header banner across entire site.
 //
+// ^Subcomponents:
+// __Title - title containing conference name and tagline
+// __Menu  - conference-wide menu
 // ^author
 // Chris Harvey
 // ^updated
@@ -88,28 +91,95 @@
   margin-left: 4rem; // change this if necessary
 }
 
-// Conference menu (both mobile and desktop)
+// Conference-wide menu (both mobile and desktop)
 //
 // ^Subcomponents:
-// __Hn - the heading for the menu
+// __Hn   - the heading for the menu
+// __Item - each item in the list
+// __Link - each link in the menu
 // ^author
 // Chris Harvey
 // ^updated
 // 2016-03-01
-.c-Mast__Drawer {
+.c-Mast__Menu {
   width: 10em; // width for s and sK screen sizes only. change if needed.
   @media screen and (max-width: 44.999em) {
     position: fixed;
     right: 0;
     top: 0;
+    z-index: 10;
     height: 100%;
     background-color: @color_site_secondary;
   }
 }
-.c-Mast__Drawer__Hn {
+.c-Mast__Menu__Hn {
   @media screen and (max-width: 44.999em) {
     background-color: @color_site_accent;
   }
+}
+.c-Mast__Menu__Item {}
+.c-Mast__Menu__Link {}
+
+// Top-level navigation for current year site.
+//
+// ^Subcomponents:
+// __Item - each item in the list
+// __Link - each link in the menu
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-01
+.c-NavMenu {
+  position: relative; // for the NavSubmenu positioning
+  margin-bottom: 0;
+  background-color: @color_site_secondary;
+}
+.c-NavMenu__Item {
+}
+.c-NavMenu__Link {
+  border: 1px outset transparent;
+  .c-NavMenu__Item:hover & {
+    border-color: @color_site_accent;
+    background-color: #fff;
+  }
+}
+
+// Secondary-level navigation components for current year site.
+//
+// ^Subcomponents:
+// __Item - each item in the list
+// __Link - each link in the menu
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-02
+.c-NavSubmenu {
+  position: absolute; // inside the .c-NavMenu
+  margin-bottom: 0;
+  background-color: #fff;
+  @media screen and (max-width: 44.999em) {
+    left:  1rem;
+    right: 1rem;
+    &:not(.c-NavSubmenu--active) {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 45em) {
+    border: 1px outset @color_site_accent;
+    .c-NavMenu__Item:not(:hover) & {
+      display: none;
+    }
+  }
+}
+.c-NavSubmenu__Item {
+  @media screen and (max-width: 44.999em) {
+    text-decoration: underline;
+    &:not(:last-child) {
+      padding-right: 1em;
+    }
+  }
+}
+.c-NavSubmenu__Link {
 }
 
 // Copyright footline.
@@ -128,7 +198,6 @@
 .c-Copyright__Link {
   background-image: none; // this is the ASCE logo
 }
-
 
 .c-Hero {
   text-align: center;

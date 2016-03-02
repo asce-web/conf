@@ -2,15 +2,7 @@ extends sample.tpl.jade
 
 block append vars
   - var title = 'Interior Page'
-
-block append front-matter
-  nav
-    ul.o-ListBare.o-GridFlex.-mb-0(style="background-color: #79bb6d;")
-      li.o-GridFlex__Item.-w-a: a(href="") Home
-      li.o-GridFlex__Item.-w-a: a(href="") Register
-      li.o-GridFlex__Item.-w-a: a(href="") Program
-      li.o-GridFlex__Item.-w-a: a(href="") Location
-      li.o-GridFlex__Item.-w-a: a(href="") For Speakers
+  - var page_type = 'interior'
 
 block main
   section

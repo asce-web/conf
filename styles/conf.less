@@ -72,7 +72,7 @@
 // 2016-03-01
 .c-Mast {
   background-color: @color_site_primary;
-  color: #fff;
+  color: @color_asce_header_txt;
 }
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
 
@@ -107,7 +107,9 @@
   }
 }
 .c-Mast__Drawer__Hn {
-  background-color: @color_site_accent;
+  @media screen and (max-width: 44.999em) {
+    background-color: @color_site_accent;
+  }
 }
 
 // Copyright footline.
@@ -120,8 +122,8 @@
 // 2016-03-01
 .c-Copyright {
   text-align: center;
-  background-color: #0c5fa8;
-  color: #fff;
+  background-color: @color_asce_primary;
+  color: @color_asce_header_txt;
 }
 .c-Copyright__Link {
   background-image: none; // this is the ASCE logo

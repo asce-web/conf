@@ -2,20 +2,11 @@ extends sample.tpl.jade
 
 block append vars
   - var title = 'Home Page'
-  - var is_home_page = true
-
-block append front-matter
-  nav
-    ul.o-ListBare.o-GridFlex.-mb-0(style="background-color: #79bb6d;")
-      li.o-GridFlex__Item.-w-a: a(href="") Home
-      li.o-GridFlex__Item.-w-a: a(href="") Register
-      li.o-GridFlex__Item.-w-a: a(href="") Program
-      li.o-GridFlex__Item.-w-a: a(href="") Location
-      li.o-GridFlex__Item.-w-a: a(href="") For Speakers
+  - var page_type = 'home'
 
 block main
   section(itemscope="" itemtype="http://schema.org/Event")
-    div(style="background-color: #074d1c; text-align: center;")
+    div.c-Hero
       h1.-d-n(itemprop="name") #{conf_name} Home
       p(itemprop="description") Slogan. Mainstremaing green infrastructure.
       p.o-GridFlex
@@ -52,7 +43,7 @@ block main
       section.o-GridFlex__Item.-w-1o2-sM
         h1 Keynote Speakers
         div
-          img
+          img(src="/" alt="")
           p Donald Trump, Ph.D.
           p Author, #[cite The Art of the Deal]
         p Nov 16

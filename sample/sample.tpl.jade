@@ -12,14 +12,6 @@ html(lang="en")
     link(rel="stylesheet" href="../styles/conf.css")
     block style
       style.
-        @media screen and (max-width: 44.999em) {
-          .drawer {
-            position: fixed;
-            right: 0;
-            top: 0;
-            height: 100%;
-          }
-        }
         section.this-is-editable { background-color: rgba(255, 219, 64, 0.64); }
   body
     mixin action-buttons()
@@ -28,23 +20,52 @@ html(lang="en")
         li.o-GridFlex__Item.-w-a-sM: a(href="") Become A Sponsor
         li.o-GridFlex__Item.-w-a-sM: a(href="") Submit Papers
     block front-matter
-      header.o-GridFlex.-xj-sb(style="background-color: #48afd6; color: #fff;")
-        a.o-GridFlex__Item.o-Block.-w-a.-ml-4(href="")
+      header.o-GridFlex.c-Mast.-xj-sb.o-BodyChild
+        a.o-GridFlex__Item.o-Block.c-Mast__Title.-w-a(href="")
           h1 ASCE Convention
           p Tagline. The Flagship Event for ASCE
         div.o-GridFlex__Item.-w-a.-d-n-sM: button menu
-        nav.drawer.o-GridFlex__Item.o-GridFlex.-xc-xs.-w-10em.-w-a-sM(style="background-color: #79bb6d;")
-          h2.o-GridFlex__Item.-d-n-sM(style="background-color: #128d47;") Menu
-          ul.o-GridFlex__Item.o-ListBare.o-GridFlex.-w-a-sM
-            li.o-GridFlex__Item.-w-a-sM: a(href="") About
-            li.o-GridFlex__Item.-w-a-sM: a(href="") Sponsor
-            li.o-GridFlex__Item.-w-a-sM: a(href="") Exhibit
-            li.o-GridFlex__Item.-w-a-sM: a(href="") Contact
-          div.o-GridFlex__Item.-w-a-sM(style="background-color: #128d47;"): a(href="") 2016 Convention
-    main
+        nav.o-GridFlex__Item.o-GridFlex.c-Mast__Nav.-xc-xs.-w-10em.-w-a-sM
+          h2.o-GridFlex__Item.c-Mast__Nav__Hn.-d-n-sM Menu
+          ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-Mast__Nav__Menu.-w-a-sM
+            li.o-GridFlex__Item.c-Mast__Nav__Menu__Item.-w-a-sM: a.o-Block.c-Mast__Nav__Menu__Link(href="") About
+            li.o-GridFlex__Item.c-Mast__Nav__Menu__Item.-w-a-sM: a.o-Block.c-Mast__Nav__Menu__Link(href="") Sponsor
+            li.o-GridFlex__Item.c-Mast__Nav__Menu__Item.-w-a-sM: a.o-Block.c-Mast__Nav__Menu__Link(href="") Exhibit
+            li.o-GridFlex__Item.c-Mast__Nav__Menu__Item.-w-a-sM: a.o-Block.c-Mast__Nav__Menu__Link(href="") Contact
+          div.o-GridFlex__Item.c-Mast__Nav__Hn.-w-a-sM: a.o-Block(href="") 2016 Convention
+      unless page_type === 'landing'
+        nav
+          ul.o-ListBare.o-GridFlex.c-NavMenu.-mb-0.o-BodyChild
+            li.o-GridFlex__Item.c-NavMenu__Item.-w-a
+              a.o-Block.c-NavMenu__Link(href="") Home
+            li.o-GridFlex__Item.c-NavMenu__Item.-w-a
+              a.o-Block.c-NavMenu__Link(href="") Register
+              ul.o-ListBare.c-NavSubmenu(class=(title==='Register' ? 'c-NavSubmenu--active' : ''))
+                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Why Attend
+                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Register Submenu Item 2
+                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Register Submenu Item 3
+            li.o-GridFlex__Item.c-NavMenu__Item.-w-a
+              a.o-Block.c-NavMenu__Link(href="") Program
+              ul.o-ListBare.c-NavSubmenu(class=(title==='Program' ? 'c-NavSubmenu--active' : ''))
+                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Events
+                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Program Submenu Item 2
+                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Program Submenu Item 3
+            li.o-GridFlex__Item.c-NavMenu__Item.-w-a
+              a.o-Block.c-NavMenu__Link(href="") Location
+              ul.o-ListBare.c-NavSubmenu(class=(title==='Interior Page' ? 'c-NavSubmenu--active' : ''))
+                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") International Travel
+                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Location Submenu Item 2
+                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Location Submenu Item 3
+            li.o-GridFlex__Item.c-NavMenu__Item.-w-a
+              a.o-Block.c-NavMenu__Link(href="") Call for Submissions
+              ul.o-ListBare.c-NavSubmenu(class=(title==='Call for Submissions' ? 'c-NavSubmenu--active' : ''))
+                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") CfS Submenu Item 1
+                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") CfS Submenu Item 2
+                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") CfS Submenu Item 3
+    main.o-BodyChild
       block main
     block end-matter
-      footer.o-GridFlex(style="background-color: #48afd6; color: #fff;" itemscope="" itemtype="http://schema.org/NGO")
+      footer.o-GridFlex.c-Mast.o-BodyChild(itemscope="" itemtype="http://schema.org/NGO")
         section.o-GridFlex__Item.-w-1o2-sM
           h1 Contact Us
           address(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint"): ul.o-ListBare
@@ -52,12 +73,12 @@ html(lang="en")
             li: a(href="tel:17032956300" itemprop="telephone") +1 (703) 295-6300
         section.o-GridFlex__Item.-w-1o2-sM
           h1 Connect With ASCE
-          ul.o-ListBare
-            li.o-Inline: a(href="" itemprop="sameAs") LinkedIn
-            li.o-Inline: a(href="" itemprop="sameAs") Facebook
-            li.o-Inline: a(href="" itemprop="sameAs") Twitter
-            li.o-Inline: a(href="" itemprop="sameAs") YouTube
-            li.o-Inline: a(href="" itemprop="sameAs") Google+
-        section.o-GridFlex__Item(style="text-align: center; background-color: #0c5fa8;"): p
-          a(title="ASCE.org" style="background-image: none; color: #fff;" href="http://www.asce.org" itemprop="url").
+          ul.o-ListBare.o-GridFlex
+            li.o-GridFlex__Item.-w-a: a(href="" itemprop="sameAs") LinkedIn
+            li.o-GridFlex__Item.-w-a: a(href="" itemprop="sameAs") Facebook
+            li.o-GridFlex__Item.-w-a: a(href="" itemprop="sameAs") Twitter
+            li.o-GridFlex__Item.-w-a: a(href="" itemprop="sameAs") YouTube
+            li.o-GridFlex__Item.-w-a: a(href="" itemprop="sameAs") Google+
+        div.o-GridFlex__Item.c-Copyright
+          a.o-Block.c-Copyright__Link(href="http://www.asce.org" itemprop="url").
             &copy; #[time 1996]&ndash;#[time 2016], #[span(itemprop="name") American Society of Civil Engineers]

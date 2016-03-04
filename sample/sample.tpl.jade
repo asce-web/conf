@@ -23,8 +23,9 @@ html(lang="en")
     mixin time-place()
       p.o-GridFlex.o-ListStacked
         span.o-GridFlex__Item.o-Block.o-ListStacked__Item(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-          span(itemprop="addressLocality") Portland, 
-          abbr(itemprop="addressRegion" title="Oregon") OR
+          span(itemprop="name")
+            span(itemprop="addressLocality") Portland, 
+            abbr(itemprop="addressRegion" title="Oregon") OR
         span.o-GridFlex__Item.o-Block.o-ListStacked__Item
           time(datetime="2016-09-28" itemprop="startDate") Sep 28
           | &ndash;
@@ -88,9 +89,13 @@ html(lang="en")
       footer.o-GridFlex.o-BodyChild.c-Mast(itemscope="" itemtype="http://schema.org/NGO")
         section.o-GridFlex__Item.-w-1o2-sM
           h1 Contact Us
-          address(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint"): ul.o-ListBare
-            li: a(href="tel:8005482723" itemprop="telephone") (800) 548-2723
-            li: a(href="tel:17032956300" itemprop="telephone") +1 (703) 295-6300
+          address(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
+            ul.o-ListBare
+              li: a(href="tel:+1-800-548-2723") (800) 548-2723
+              li
+                meta(content="customer support" itemprop="contactType")
+                meta(content="+1-703-295-6300" itemprop="telephone")
+                a(href="tel:+1-703-295-6300") +1 (703) 295-6300
         section.o-GridFlex__Item.-w-1o2-sM
           h1 Connect With ASCE
           ul.o-ListBare.o-GridFlex.c-SocialList

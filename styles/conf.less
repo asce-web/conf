@@ -103,16 +103,18 @@
   margin-left: 4rem; // TODO change this to fit the width of the logo
 }
 
-// Conference-wide navigation (both mobile and desktop)
+// Conference-wide navigation menu (both mobile and desktop)
+// NOTE this is not a “universal menu;” this is simply
+// a menu whose name happens to be “Universal.”
 //
 // ^Subcomponents:
-// __Hn   - the heading for the navigation
-// __Menu - the actual list of navigation items
+// __Item - each item in the list
+// __Link - each link inside an __Item in the menu
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-03-01
-.c-Mast__Nav {
+// 2016-03-04
+.c-MenuUniversal {
   @media screen and (max-width: 44.999em) {
     position: fixed;
     right: 0;
@@ -122,33 +124,9 @@
     background-color: @color_site_secondary;
   }
 }
-.c-Mast__Nav__Hn,
-.c-Mast__Nav__Menu {
-  @media screen and (max-width: 44.999em) {
-    padding-left:  0.5rem;
-    padding-right: 0.5rem;
-  }
+.c-MenuUniversal__Item {
 }
-.c-Mast__Nav__Hn {
-  @media screen and (max-width: 44.999em) {
-    background-color: @color_site_accent;
-  }
-}
-
-// Conference-wide menu (both mobile and desktop)
-//
-// ^Subcomponents:
-// __Item - each item in the list
-// __Link - each link in the menu
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-01
-.c-Mast__Nav__Menu {
-}
-.c-Mast__Nav__Menu__Item {
-}
-.c-Mast__Nav__Menu__Link {
+.c-MenuUniversal__Link {
 }
 
 // Top-level navigation for current year site.

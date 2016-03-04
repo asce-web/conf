@@ -16,9 +16,28 @@ html(lang="en")
   body
     mixin action-buttons()
       ul.o-ListBare.o-GridFlex.-xj-c.-ta-c
-        li.o-GridFlex__Item.-w-a-sM: a(href="") Registor Today
-        li.o-GridFlex__Item.-w-a-sM: a(href="") Become A Sponsor
+        li.o-GridFlex__Item.-w-a-sM.-pr-2: a(href="") Registor Today
+        li.o-GridFlex__Item.-w-a-sM.-pr-2: a(href="") Become A Sponsor
         li.o-GridFlex__Item.-w-a-sM: a(href="") Submit Papers
+    mixin time-place()
+      p.o-GridFlex.-xj-c
+        span.o-GridFlex__Item.o-Block.-w-a.-pr-2.-ta-r(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+          span(itemprop="addressLocality") Portland, 
+          abbr(itemprop="addressRegion" title="Oregon") OR
+        span.o-GridFlex__Item.o-Block.-w-a.-ta-l
+          time(datetime="2016-09-28" itemprop="startDate") Sep 28
+          | &ndash;
+          time(datetime="2016-10-01" itemprop="endDate") Oct 1
+    mixin important-date-block()
+      mixin row(year, month, day, datetime, description)
+        dt.o-GridFlex__Item.c-DateBlock__Date.-ta-r: time.o-Block(datetime=datetime)
+          span.o-Block= month + ' ' + day
+          span.o-Block= year
+        dd.o-GridFlex__Item.c-DateBlock__Desc= description
+      dl.o-GridFlex.c-DateBlock
+        +row('2015','Oct','12', '2015-10-12','Optional Final Papers Due')
+        +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes')
+        +row('2016','Jan','12', '2016-01-12','Advance Registration Closes')
     block front-matter
       header.o-GridFlex.c-Mast.-xj-sb.o-BodyChild
         a.o-GridFlex__Item.o-Block.c-Mast__Title.-w-a(href="")

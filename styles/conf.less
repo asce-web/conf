@@ -133,21 +133,21 @@
 //
 // ^Subcomponents:
 // __Item - each item in the list
-// __Link - each link in the menu
+// __Link - each link inside an __Item in the menu
 // ^author
 // Chris Harvey
 // ^updated
 // 2016-03-01
-.c-NavMenu {
+.c-MenuStandard {
   position: relative; // for the NavSubmenu positioning
   background-color: @color_site_secondary;
 }
-.c-NavMenu__Item {
+.c-MenuStandard__Item {
 }
-.c-NavMenu__Link {
+.c-MenuStandard__Link {
   border: 1px outset transparent;
   @media screen and (min-width: 45em) {
-    .c-NavMenu__Item:hover & {
+    .c-MenuStandard__Item:hover & {
       border-color: @color_site_accent;
       background-color: #fff;
     }
@@ -158,36 +158,36 @@
 //
 // ^Subcomponents:
 // __Item - each item in the list
-// __Link - each link in the menu
+// __Link - each link inside an __Item in the menu
 // ^author
 // Chris Harvey
 // ^updated
 // 2016-03-02
-.c-NavSubmenu {
-  position: absolute; // inside the .c-NavMenu
+.c-MenuSub {
+  position: absolute; // inside the .c-MenuStandard
   background-color: #fff;
   @media screen and (max-width: 44.999em) {
     left:  1rem;
     right: 1rem;
-    &:not(.c-NavSubmenu--active) {
+    &:not(.c-MenuSub--active) {
       display: none;
     }
   }
   @media screen and (min-width: 45em) {
     border: 1px outset @color_site_accent;
-    .c-NavMenu__Item:not(:hover) & {
+    .c-MenuStandard__Item:not(:hover) & {
       display: none;
     }
   }
 }
-.c-NavSubmenu__Item {
+.c-MenuSub__Item {
   @media screen and (max-width: 44.999em) {
     display: inline-block;
     text-decoration: underline;
     padding-right: 1em;
   }
 }
-.c-NavSubmenu__Link {
+.c-MenuSub__Link {
 }
 
 // Copyright footline.

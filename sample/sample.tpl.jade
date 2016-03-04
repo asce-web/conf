@@ -37,33 +37,34 @@ html(lang="en")
             a.o-Block.-d-n.-d-bk-sM(href="") 2016 Convention
       unless page_type === 'landing'
         nav
-          ul.o-ListBare.o-GridFlex.c-NavMenu.-mb-0.o-BodyChild
-            li.o-GridFlex__Item.c-NavMenu__Item.-w-a
-              a.o-Block.c-NavMenu__Link(href="") Home
-            li.o-GridFlex__Item.c-NavMenu__Item.-w-a
-              a.o-Block.c-NavMenu__Link(href="") Register
-              ul.o-ListBare.c-NavSubmenu(class=(title==='Register' ? 'c-NavSubmenu--active' : ''))
-                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Why Attend
-                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Register Submenu Item 2
-                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Register Submenu Item 3
-            li.o-GridFlex__Item.c-NavMenu__Item.-w-a
-              a.o-Block.c-NavMenu__Link(href="") Program
-              ul.o-ListBare.c-NavSubmenu(class=(title==='Program' ? 'c-NavSubmenu--active' : ''))
-                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Events
-                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Program Submenu Item 2
-                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Program Submenu Item 3
-            li.o-GridFlex__Item.c-NavMenu__Item.-w-a
-              a.o-Block.c-NavMenu__Link(href="") Hotel &amp; Travel
-              ul.o-ListBare.c-NavSubmenu(class=(title==='Interior Page' ? 'c-NavSubmenu--active' : ''))
-                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") International Travel
-                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Location Submenu Item 2
-                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Location Submenu Item 3
-            li.o-GridFlex__Item.c-NavMenu__Item.-w-a
-              a.o-Block.c-NavMenu__Link(href="") Speakers
-              ul.o-ListBare.c-NavSubmenu(class=(title==='Speakers' ? 'c-NavSubmenu--active' : ''))
-                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Call for Submissions
-                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Our Lineup
-                li.c-NavSubmenu__Item: a.o-Block.c-NavSubmenu__Link(href="") Become a Speaker
+          h2.-d-n Standard Menu
+          ul.o-ListBare.o-GridFlex.c-MenuStandard.-mb-0.o-BodyChild
+            li.o-GridFlex__Item.c-MenuStandard__Item.-w-a
+              a.o-Block.c-MenuStandard__Link(href="") Home
+            li.o-GridFlex__Item.c-MenuStandard__Item.-w-a
+              a.o-Block.c-MenuStandard__Link(href="") Register
+              ul.o-ListBare.c-MenuSub(class=(title==='Register' ? 'c-NavSubmenu--active' : ''))
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 2
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 3
+            li.o-GridFlex__Item.c-MenuStandard__Item.-w-a
+              a.o-Block.c-MenuStandard__Link(href="") Program
+              ul.o-ListBare.c-MenuSub(class=(title==='Program' ? 'c-NavSubmenu--active' : ''))
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Events
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Program Submenu Item 2
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Program Submenu Item 3
+            li.o-GridFlex__Item.c-MenuStandard__Item.-w-a
+              a.o-Block.c-MenuStandard__Link(href="") Hotel &amp; Travel
+              ul.o-ListBare.c-MenuSub(class=(title==='Interior Page' ? 'c-NavSubmenu--active' : ''))
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") International Travel
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Location Submenu Item 2
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Location Submenu Item 3
+            li.o-GridFlex__Item.c-MenuStandard__Item.-w-a
+              a.o-Block.c-MenuStandard__Link(href="") Speakers
+              ul.o-ListBare.c-MenuSub(class=(title==='Speakers' ? 'c-NavSubmenu--active' : ''))
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Call for Submissions
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Our Lineup
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Become a Speaker
     main.o-BodyChild
       block main
     block end-matter

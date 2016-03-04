@@ -7,6 +7,8 @@
 // Sets up a horizontal padding for all top-level elements,
 // which are any elements directly nested inside <body>.
 //
+// ^subcomponents
+// __Inv - effectively undoes the padding of the BodyChild
 // ^variables
 // @p-body_padding - the horizontal padding of the element
 // ^author
@@ -15,6 +17,10 @@
 // 2016-03-01
 @p-body_padding: 1rem;
 .o-BodyChild {
-  padding-left:  @body_padding;
-  padding-right: @body_padding;
+  padding-left:  @p-body_padding;
+  padding-right: @p-body_padding;
+}
+.o-BodyChild__Inv {
+  margin-left:  -@p-body_padding;
+  margin-right: -@p-body_padding;
 }

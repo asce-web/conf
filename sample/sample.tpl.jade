@@ -35,7 +35,7 @@ html(lang="en")
           span.o-Block= month + ' ' + day
           span.o-Block= year
         dd.o-GridFlex__Item= description
-      dl.o-GridFlex.o-DateBlock
+      dl.o-GridFlex.c-DateBlock
         +row('2015','Oct','12', '2015-10-12','Optional Final Papers Due')
         +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes')
         +row('2016','Jan','12', '2016-01-12','Advance Registration Closes')
@@ -85,7 +85,7 @@ html(lang="en")
     main.o-BodyChild
       block main
     block end-matter
-      footer.o-GridFlex.c-Mast.o-BodyChild(itemscope="" itemtype="http://schema.org/NGO")
+      footer.o-GridFlex.o-BodyChild.c-Mast(itemscope="" itemtype="http://schema.org/NGO")
         section.o-GridFlex__Item.-w-1o2-sM
           h1 Contact Us
           address(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint"): ul.o-ListBare
@@ -99,6 +99,6 @@ html(lang="en")
             li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") Twitter
             li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") YouTube
             li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") Google+
-        div.o-GridFlex__Item.c-Copyright
+        div.o-GridFlex__Item.o-BodyChild__Inv.c-Copyright
           a.o-Block.c-Copyright__Link(href="http://www.asce.org" itemprop="url").
             &copy; #[time 1996]&ndash;#[time 2016], #[span(itemprop="name") American Society of Civil Engineers]

@@ -6,10 +6,11 @@ block append vars
 
 block main
   section.c-Hero.o-BodyChild__Inv(itemscope="" itemtype="http://schema.org/Event")
-    h1(itemprop="name")= conf_name
-    +time-place()
-    p(itemprop="description") Slogan. Mainstremaing green infrastructure.
-    p: a(href="") Get Details
+    a.o-Block(href="" itemprop="url")
+      h1(itemprop="name")= conf_name
+      +time-place()
+      p(itemprop="description") Slogan. Mainstremaing green infrastructure.
+      p: span Get Details
   +action-buttons()
   p.
     Elevator pitch. One paragraph. Sentence case.

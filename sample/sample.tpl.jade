@@ -13,72 +13,70 @@ html(lang="en")
     block style
       style.
         section.this-is-editable { background-color: rgba(255, 219, 64, 0.64); }
+        /*[itemtype="http://schema.org/Event"] { background-color: #eef; }*/
   body
     mixin action-buttons()
-      ul.o-ListBare.o-GridFlex.-xj-c.-ta-c
-        li.o-GridFlex__Item.-w-a-sM.-pr-2: a(href="") Registor Today
-        li.o-GridFlex__Item.-w-a-sM.-pr-2: a(href="") Become A Sponsor
-        li.o-GridFlex__Item.-w-a-sM: a(href="") Submit Papers
+      ul.o-ListBare.o-GridFlex.o-ListStacked
+        li.o-GridFlex__Item.o-ListStacked__Item: a(href="") Registor Today
+        li.o-GridFlex__Item.o-ListStacked__Item: a(href="") Become A Sponsor
+        li.o-GridFlex__Item.o-ListStacked__Item: a(href="") Submit Papers
     mixin time-place()
-      p.o-GridFlex.-xj-c
-        span.o-GridFlex__Item.o-Block.-w-a.-pr-2.-ta-r(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+      p.o-GridFlex.o-ListStacked
+        span.o-GridFlex__Item.o-Block.o-ListStacked__Item(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
           span(itemprop="addressLocality") Portland, 
           abbr(itemprop="addressRegion" title="Oregon") OR
-        span.o-GridFlex__Item.o-Block.-w-a.-ta-l
+        span.o-GridFlex__Item.o-Block.o-ListStacked__Item
           time(datetime="2016-09-28" itemprop="startDate") Sep 28
           | &ndash;
           time(datetime="2016-10-01" itemprop="endDate") Oct 1
     mixin important-date-block()
       mixin row(year, month, day, datetime, description)
-        dt.o-GridFlex__Item.c-DateBlock__Date.-ta-r: time.o-Block(datetime=datetime)
+        dt.o-GridFlex__Item: time.o-Block(datetime=datetime)
           span.o-Block= month + ' ' + day
           span.o-Block= year
-        dd.o-GridFlex__Item.c-DateBlock__Desc= description
-      dl.o-GridFlex.c-DateBlock
+        dd.o-GridFlex__Item= description
+      dl.o-GridFlex.o-DateBlock
         +row('2015','Oct','12', '2015-10-12','Optional Final Papers Due')
         +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes')
         +row('2016','Jan','12', '2016-01-12','Advance Registration Closes')
     block front-matter
-      header.o-GridFlex.c-Mast.-xj-sb.o-BodyChild
-        a.o-GridFlex__Item.o-Block.c-Mast__Title.-w-a(href="")
+      header.o-GridFlex.o-BodyChild.c-Mast
+        a.o-GridFlex__Item.o-Block.c-Mast__Title(href="")
           h1 ASCE Convention
           p Tagline. The Flagship Event for ASCE
-        div.o-GridFlex__Item.o-GridFlex.-w-a
-          nav.o-GridFlex__Item.-w-a
-            h2.-d-n Univerasal Menu
-            ul.o-ListBare.o-GridFlex.c-MenuUniversal.-w-10em.-xc-xs.-w-a-sM.-mb-0
-              li.o-GridFlex__Item.c-MenuUniversal__Item.-w-a-sM: a.o-Block.c-MenuUniversal__Link(href="") About
-              li.o-GridFlex__Item.c-MenuUniversal__Item.-w-a-sM: a.o-Block.c-MenuUniversal__Link(href="") Sponsor
-              li.o-GridFlex__Item.c-MenuUniversal__Item.-w-a-sM: a.o-Block.c-MenuUniversal__Link(href="") Exhibit
-              li.o-GridFlex__Item.c-MenuUniversal__Item.-w-a-sM: a.o-Block.c-MenuUniversal__Link(href="") Contact
-          div.o-GridFlex__Item.-w-a
-            button.o-Block.-d-n-sM menu
-            a.o-Block.-d-n.-d-bk-sM(href="") 2016 Convention
+        nav.o-GridFlex__Item.o-GridFlex.c-Mast__Nav
+          ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
+            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") About
+            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Sponsor
+            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Exhibit
+            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Contact
+          div.o-GridFlex__Item.c-Mast__Nav__ButtonContainer
+            button.o-Block.c-Mast__Nav__ButtonContainer__MenuButton menu
+            a.o-Block.c-Mast__Nav__ButtonContainer__CurrentButton(href="") 2016 Convention
       unless page_type === 'landing'
         nav
-          h2.-d-n Standard Menu
-          ul.o-ListBare.o-GridFlex.c-MenuStandard.-mb-0.o-BodyChild
-            li.o-GridFlex__Item.c-MenuStandard__Item.-w-a
+          ul.o-ListBare.o-GridFlex.o-BodyChild.c-MenuStandard
+            li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="") Home
-            li.o-GridFlex__Item.c-MenuStandard__Item.-w-a
+            li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="") Register
               ul.o-ListBare.c-MenuSub(class=(title==='Register' ? 'c-MenuSub--active' : ''))
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 2
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 3
-            li.o-GridFlex__Item.c-MenuStandard__Item.-w-a
+            li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="") Program
               ul.o-ListBare.c-MenuSub(class=(title==='Program' ? 'c-MenuSub--active' : ''))
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Events
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Program Submenu Item 2
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Program Submenu Item 3
-            li.o-GridFlex__Item.c-MenuStandard__Item.-w-a
+            li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="") Hotel &amp; Travel
               ul.o-ListBare.c-MenuSub(class=(title==='Interior Page' ? 'c-MenuSub--active' : ''))
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") International Travel
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Location Submenu Item 2
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Location Submenu Item 3
-            li.o-GridFlex__Item.c-MenuStandard__Item.-w-a
+            li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="") Speakers
               ul.o-ListBare.c-MenuSub(class=(title==='Speakers' ? 'c-MenuSub--active' : ''))
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Call for Submissions
@@ -95,12 +93,12 @@ html(lang="en")
             li: a(href="tel:17032956300" itemprop="telephone") +1 (703) 295-6300
         section.o-GridFlex__Item.-w-1o2-sM
           h1 Connect With ASCE
-          ul.o-ListBare.o-GridFlex
-            li.o-GridFlex__Item.-w-a: a(href="" itemprop="sameAs") LinkedIn
-            li.o-GridFlex__Item.-w-a: a(href="" itemprop="sameAs") Facebook
-            li.o-GridFlex__Item.-w-a: a(href="" itemprop="sameAs") Twitter
-            li.o-GridFlex__Item.-w-a: a(href="" itemprop="sameAs") YouTube
-            li.o-GridFlex__Item.-w-a: a(href="" itemprop="sameAs") Google+
+          ul.o-ListBare.o-GridFlex.c-SocialList
+            li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") LinkedIn
+            li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") Facebook
+            li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") Twitter
+            li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") YouTube
+            li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") Google+
         div.o-GridFlex__Item.c-Copyright
           a.o-Block.c-Copyright__Link(href="http://www.asce.org" itemprop="url").
             &copy; #[time 1996]&ndash;#[time 2016], #[span(itemprop="name") American Society of Civil Engineers]

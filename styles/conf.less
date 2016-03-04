@@ -1,3 +1,4 @@
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
     conf
@@ -27,6 +28,7 @@
  * conf-colors....................conference-specific, year-specific color schemes
  *
  * ## TOOLS
+ * pairs..........................generates list object with pairs of children
  *
  * base...........................bare, unclassed elements
  *
@@ -55,6 +57,26 @@
 @import url('__settings.less');
 @import url('__settings.conf-colors.less');
 
+// A mixin generator for creating
+// an object whose children come in pairs, each taking up one row.
+// Define an absolute width for the odd children, and the even children’s widths
+// will take up the rest of the row. Could be useful for a `dl`-like structure.
+// Call this mixin generator inside the parent class.
+//
+// ^arguments
+// @oddwidth - the width of the odd children
+// ^author
+// : Chris Harvey
+// ^updated
+// : 2016-03-04
+.list-pairs(@oddwidth) {
+  & > * {
+    &:nth-child(odd)  { width: @oddwidth; }
+    &:nth-child(even) { width: calc(~'100% - ' @oddwidth); }
+  }
+}
+
+
 @import url('_base.less');
 
 @import url('_obj.Block.less');
@@ -63,11 +85,35 @@
 @import url('_obj.GridFlex.less');
 @import url('_obj.GridFloat.less');
 
-// Sets up all top-level components with a horizontal padding
+// Sets up all top-level elements with a horizontal padding
 @body_padding: 1rem;
 .o-BodyChild {
   padding-left:  @body_padding;
   padding-right: @body_padding;
+}
+
+// A row of items that stacks on a small screen.
+//
+// ^Subcomponents:
+// __Item - an item in the list. stacks vertically on small screens.
+// ^Variables:
+// @p-spacer - the spacing between list items when unstacked.
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-04
+@p-spacer: 2rem;
+.o-ListStacked {
+  #XMETER .flex-justify-content(center);
+  text-align: center;
+}
+.o-ListStacked__Item {
+  @media screen and (min-width: 45em) {
+    width: auto;
+    &:not(:last-child) {
+      padding-right: @p-spacer;
+    }
+  }
 }
 
 
@@ -84,29 +130,56 @@
 // Masthead header banner across entire site.
 //
 // ^Subcomponents:
-// __Title - title containing conference name and tagline
-// __Nav   - conference-wide navigation
+// __Title         - title containing conference name and tagline
+// __Nav           - navigation containing menu and buttons
 // ^author
 // Chris Harvey
 // ^updated
 // 2016-03-01
 .c-Mast {
+  #XMETER .flex-justify-content(space-between);
   background-color: @color_site_primary;
   color: @color_asce_header_txt;
 }
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
-
-// Linked block containing
-// conference name and tagline
+.c-Mast__Title,
+.c-Mast__Nav {
+  width: auto;
+}
+.c-Mast__Title {
+  margin-left: 4rem; // TODO change this to fit the width of the logo
+  background-image: none; // this is the conference logo (or institute shield)
+}
+// Navigation menu in masthead.
+// Contains a Universal Menu (see `.c-MenuUniversal`),
+// and a container containing two buttons, which
+// alternate based on screen size.
 //
+// ^Subcomponents:
+// __ButtonContainer__MenuButton    - button for toggling mobile menu
+// __ButtonContainer__CurrentButton - button linking to current year site
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-03-01
-.c-Mast__Title {
-  background-image: none; // this is the conference logo (or institute shield)
-  margin-left: 4rem; // TODO change this to fit the width of the logo
+// 2016-03-04
+.c-Mast__Nav {
 }
+.c-Mast__Nav__ButtonContainer {
+  width: auto;
+}
+.c-Mast__Nav__ButtonContainer__MenuButton,
+.c-Mast__Nav__ButtonContainer__CurrentButton {
+}
+.c-Mast__Nav__ButtonContainer__MenuButton {
+  @media screen and (min-width: 45em) {
+    display: none;
+  }
+}
+.c-Mast__Nav__ButtonContainer__CurrentButton {
+  @media screen and (max-width: 44.999em) {
+    display: none;
+  }
+}
+
 
 // Conference-wide navigation menu (both mobile and desktop)
 // NOTE this is not a “universal menu;” this is simply
@@ -120,6 +193,9 @@
 // ^updated
 // 2016-03-04
 .c-MenuUniversal {
+  #XMETER .flex-align-content(flex-start);
+  width: 10em;
+  margin-bottom: 0;
   @media screen and (max-width: 44.999em) {
     position: fixed;
     right: 0;
@@ -128,8 +204,14 @@
     height: 100%;
     background-color: @color_site_secondary;
   }
+  @media screen and (min-width: 45em) {
+    width: auto;
+  }
 }
 .c-MenuUniversal__Item {
+  @media screen and (min-width: 45em) {
+    width: auto;
+  }
   margin: @boxpadding;
 }
 .c-MenuUniversal__Link {
@@ -154,9 +236,11 @@
 // 2016-03-01
 .c-MenuStandard {
   position: relative; // for the NavSubmenu positioning
+  margin-bottom: 0;
   background-color: @color_site_secondary;
 }
 .c-MenuStandard__Item {
+  width: auto;
   margin: @boxpadding_K;
 }
 .c-MenuStandard__Link {
@@ -207,6 +291,23 @@
 .c-MenuSub__Link {
 }
 
+// List of social media icons
+//
+// ^Subcomponents:
+// __Item - each item in the list
+// __Link - each link inside an __Item in the menu
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-02
+.c-SocialList {
+}
+.c-SocialList__Item {
+  width: auto;
+}
+.c-SocialList__Link {
+}
+
 // Copyright footline.
 //
 // ^Subcomponents:
@@ -238,27 +339,43 @@
 
 .c-Callout {
   padding: @boxpadding_G;
+  @media screen and (min-width: 45em) {
+    width: 50%;
+  }
 }
 
 // A block containing rows of important dates.
+// The first column is the date,
+// the second column is the description.
 //
-// ^Subcomponents:
-// __Date - the column with the date
-// __Desc - the column with the description
 // ^author
 // Chris Harvey
 // ^updated
 // 2016-03-04
 .c-DateBlock {
+  .list-pairs(5em);
+  & > *:nth-child(odd) {
+    padding-right: 1rem;
+    text-align: right;
+  }
 }
-@date_w: 90px;
-.c-DateBlock__Date {
-  width: @date_w;
-  padding-right: 1rem;
+
+// A block containing a (keynote) speaker.
+// The first column is the headshot photo,
+// the second column is the description.
+//
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-04
+.c-Speaker {
+  .list-pairs(25%);
+  & > *:nth-child(even) {
+    padding-left: 1rem;
+  }
 }
-.c-DateBlock__Desc {
-  width: calc(~'100% - ' @date_w);
-}
+
+
 
 
 

@@ -1,0 +1,42 @@
+
+/*################################*\
+    conf  |  _comp.MenuSub.less
+\*################################*/
+
+
+// Secondary-level navigation components for current year site.
+//
+// ^Subcomponents:
+// __Item - each item in the list
+// __Link - each link inside an __Item in the menu
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-02
+.c-MenuSub {
+  position: absolute; // inside the .c-MenuStandard
+  @media screen and (max-width: 44.999em) {
+    left:  1rem;
+    right: 1rem;
+    top: (2 * @conf_vru);
+    &:not(.c-MenuSub--active) {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 45em) {
+    background-color: #fff;
+    border: 1px outset @color_site_accent;
+    .c-MenuStandard__Item:not(:hover) & {
+      display: none;
+    }
+  }
+}
+.c-MenuSub__Item {
+  @media screen and (max-width: 44.999em) {
+    display: inline-block;
+    text-decoration: underline;
+    padding-right: 1em;
+  }
+}
+.c-MenuSub__Link {
+}

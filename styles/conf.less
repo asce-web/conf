@@ -28,9 +28,9 @@
  * conf-colors....................conference-specific, year-specific color schemes
  *
  * ## TOOLS
- * pairs..........................generates list object with pairs of children
+ * list-pairs.....................generates list object with pairs of children
  *
- * base...........................bare, unclassed elements
+ * ## BASE........................bare, unclassed elements
  *
  * ## OBJECTS
  * Block..........................a simple block object
@@ -39,43 +39,34 @@
  * GridFlex.......................grid of items
  * GridFloat......................grid of items; legacy support
  * BodyChild......................an element directly inside <body>
+ * ListStacked....................row of stackable items
+ *
+ * ## COMPONENTS
+ * ### Block Section-y Components
+ * Mast...........................masthead for the site
+ * MenuUniversal..................universal main navigation
+ * MenuStandard...................top-level navigation for a conference
+ * MenuSub........................secondary-level navigation for a conference
+ * SocialList.....................list of social media icons
+ * Copyright......................site footline w/ copyright
+ * Hero...........................prominence on page
+ * Callout........................repeatable aside block
+ * DateBlock......................list of important dates
+ * Speaker........................(keynote) speaker profile
+ * ### Typographical Components
+ * ### User-Interactive Components
  *
  * ## ATOMS
  * atom...........................all uncategorized atoms
  *
- *
- * ## COMPONENTS
- *
- * ### Typographical Components
- *
- * ### User-Interactive Components
- *
  * ## SHAME
- * _shame.less....................
+ * shame.less.....................hacks
  */
 
 @import url('__settings.less');
 @import url('__settings.conf-colors.less');
 
-// A mixin generator for creating
-// an object whose children come in pairs, each taking up one row.
-// Define an absolute width for the odd children, and the even children’s widths
-// will take up the rest of the row. Could be useful for a `dl`-like structure.
-// Call this mixin generator inside the parent class.
-//
-// ^arguments
-// @oddwidth - the width of the odd children
-// ^author
-// : Chris Harvey
-// ^updated
-// : 2016-03-04
-.list-pairs(@oddwidth) {
-  & > * {
-    &:nth-child(odd)  { width: @oddwidth; }
-    &:nth-child(even) { width: calc(~'100% - ' @oddwidth); }
-  }
-}
-
+@import url('__tool.module.list-pairs.less');
 
 @import url('_base.less');
 
@@ -84,300 +75,23 @@
 @import url('_obj.ListBare.less');
 @import url('_obj.GridFlex.less');
 @import url('_obj.GridFloat.less');
+@import url('_obj.BodyChild.less');
+@import url('_obj.ListStacked.less');
 
-// Sets up all top-level elements with a horizontal padding
-@body_padding: 1rem;
-.o-BodyChild {
-  padding-left:  @body_padding;
-  padding-right: @body_padding;
-}
-
-// A row of items that stacks on a small screen.
-//
-// ^Subcomponents:
-// __Item - an item in the list. stacks vertically on small screens.
-// ^Variables:
-// @p-spacer - the spacing between list items when unstacked.
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-04
-@p-spacer: 2rem;
-.o-ListStacked {
-  #XMETER .flex-justify-content(center);
-  text-align: center;
-}
-.o-ListStacked__Item {
-  @media screen and (min-width: 45em) {
-    width: auto;
-    &:not(:last-child) {
-      padding-right: @p-spacer;
-    }
-  }
-}
-
-
+@import url('_comp.Mast.less');
+@import url('_comp.MenuUniversal.less');
+@import url('_comp.MenuStandard.less');
+@import url('_comp.MenuSub.less');
+@import url('_comp.SocialList.less');
+@import url('_comp.Copyright.less');
+@import url('_comp.Hero.less');
+@import url('_comp.Callout.less');
+@import url('_comp.DateBlock.less');
+@import url('_comp.Speaker.less');
 
 @import url('_atom.less');
 
-
-@boxpadding:   (0.125 * @conf_vru) 0.25rem;
-@boxpadding_K: (0.250 * @conf_vru) 0.50rem;
-@boxpadding_M: (0.500 * @conf_vru) 1.00rem;
-@boxpadding_G: (1.000 * @conf_vru) 2.00rem;
-@boxpadding_T: (2.000 * @conf_vru) 4.00rem;
-// -------- SECTION COMPONENTS -------- //
-// Masthead header banner across entire site.
-//
-// ^Subcomponents:
-// __Title         - title containing conference name and tagline
-// __Nav           - navigation containing menu and buttons
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-01
-.c-Mast {
-  #XMETER .flex-justify-content(space-between);
-  background-color: @color_site_primary;
-  color: @color_asce_header_txt;
-}
-.c-Mast__Title,
-.c-Mast__Nav {
-  width: auto;
-}
-.c-Mast__Title {
-  margin-left: 4rem; // TODO change this to fit the width of the logo
-  background-image: none; // this is the conference logo (or institute shield)
-}
-// Navigation menu in masthead.
-// Contains a Universal Menu (see `.c-MenuUniversal`),
-// and a container containing two buttons, which
-// alternate based on screen size.
-//
-// ^Subcomponents:
-// __ButtonContainer__MenuButton    - button for toggling mobile menu
-// __ButtonContainer__CurrentButton - button linking to current year site
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-04
-.c-Mast__Nav {
-}
-.c-Mast__Nav__ButtonContainer {
-  width: auto;
-}
-.c-Mast__Nav__ButtonContainer__MenuButton,
-.c-Mast__Nav__ButtonContainer__CurrentButton {
-}
-.c-Mast__Nav__ButtonContainer__MenuButton {
-  @media screen and (min-width: 45em) {
-    display: none;
-  }
-}
-.c-Mast__Nav__ButtonContainer__CurrentButton {
-  @media screen and (max-width: 44.999em) {
-    display: none;
-  }
-}
-
-
-// Conference-wide navigation menu (both mobile and desktop)
-// NOTE this is not a “universal menu;” this is simply
-// a menu whose name happens to be “Universal.”
-//
-// ^Subcomponents:
-// __Item - each item in the list
-// __Link - each link inside an __Item in the menu
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-04
-.c-MenuUniversal {
-  #XMETER .flex-align-content(flex-start);
-  width: 10em;
-  margin-bottom: 0;
-  @media screen and (max-width: 44.999em) {
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 10;
-    height: 100%;
-    background-color: @color_site_secondary;
-  }
-  @media screen and (min-width: 45em) {
-    width: auto;
-  }
-}
-.c-MenuUniversal__Item {
-  @media screen and (min-width: 45em) {
-    width: auto;
-  }
-  margin: @boxpadding;
-}
-.c-MenuUniversal__Link {
-  padding: @boxpadding;
-  border: 1px solid transparent;
-  border-radius: (0.25 * @conf_vru);
-  @media screen and (min-width: 45em) {
-    &:hover {
-      border-color: currentColor;
-    }
-  }
-}
-
-// Top-level navigation for current year site.
-//
-// ^Subcomponents:
-// __Item - each item in the list
-// __Link - each link inside an __Item in the menu
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-01
-.c-MenuStandard {
-  position: relative; // for the NavSubmenu positioning
-  margin-bottom: 0;
-  background-color: @color_site_secondary;
-}
-.c-MenuStandard__Item {
-  width: auto;
-  margin: @boxpadding_K;
-}
-.c-MenuStandard__Link {
-  padding: @boxpadding;
-  border: 1px outset transparent;
-  @media screen and (min-width: 45em) {
-    .c-MenuStandard__Item:hover & {
-      border-color: @color_site_accent;
-      background-color: #fff;
-    }
-  }
-}
-
-// Secondary-level navigation components for current year site.
-//
-// ^Subcomponents:
-// __Item - each item in the list
-// __Link - each link inside an __Item in the menu
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-02
-.c-MenuSub {
-  position: absolute; // inside the .c-MenuStandard
-  @media screen and (max-width: 44.999em) {
-    left:  1rem;
-    right: 1rem;
-    top: (2 * @conf_vru);
-    &:not(.c-MenuSub--active) {
-      display: none;
-    }
-  }
-  @media screen and (min-width: 45em) {
-    background-color: #fff;
-    border: 1px outset @color_site_accent;
-    .c-MenuStandard__Item:not(:hover) & {
-      display: none;
-    }
-  }
-}
-.c-MenuSub__Item {
-  @media screen and (max-width: 44.999em) {
-    display: inline-block;
-    text-decoration: underline;
-    padding-right: 1em;
-  }
-}
-.c-MenuSub__Link {
-}
-
-// List of social media icons
-//
-// ^Subcomponents:
-// __Item - each item in the list
-// __Link - each link inside an __Item in the menu
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-02
-.c-SocialList {
-}
-.c-SocialList__Item {
-  width: auto;
-}
-.c-SocialList__Link {
-}
-
-// Copyright footline.
-//
-// ^Subcomponents:
-// __Link - entire thing with ASCE logo background image
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-01
-.c-Copyright {
-  margin-left: -@body_padding; margin-right: -@body_padding;
-  width: calc(~'100% + ' (2 * @body_padding)); // because can’t use width: auto
-  text-align: center;
-  background-color: @color_asce_primary;
-  color: @color_asce_header_txt;
-}
-.c-Copyright__Link {
-  margin: @conf_vru 1rem;
-  background-image: none; // this is the ASCE logo
-}
-
-.c-Hero {
-  margin-left: -@body_padding; margin-right: -@body_padding;
-  padding: @boxpadding_T;
-  text-align: center;
-  background-color: #074d1c;
-  background-image: none; // TODO add image
-  color: @color_asce_header_txt;
-}
-
-.c-Callout {
-  padding: @boxpadding_G;
-  @media screen and (min-width: 45em) {
-    width: 50%;
-  }
-}
-
-// A block containing rows of important dates.
-// The first column is the date,
-// the second column is the description.
-//
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-04
-.c-DateBlock {
-  .list-pairs(5em);
-  & > *:nth-child(odd) {
-    padding-right: 1rem;
-    text-align: right;
-  }
-}
-
-// A block containing a (keynote) speaker.
-// The first column is the headshot photo,
-// the second column is the description.
-//
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-04
-.c-Speaker {
-  .list-pairs(25%);
-  & > *:nth-child(even) {
-    padding-left: 1rem;
-  }
-}
-
-
-
-
+// @import url('_shame.less');
 
 // // -------- HEADINGS -------- //
 // // Name of entire conference

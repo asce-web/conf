@@ -1,0 +1,20 @@
+
+/*################################*\
+    conf  |  _comp.DateBlock.less
+\*################################*/
+
+
+// A block containing a (keynote) speaker.
+// The first column is the headshot photo,
+// the second column is the description.
+//
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-04
+.c-Speaker {
+  .list-pairs(25%);
+  & > *:nth-child(odd) {
+    padding-right: 1rem;
+  }
+}

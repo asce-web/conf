@@ -1,0 +1,49 @@
+
+/*################################*\
+    conf  |  _comp.MenuUniversal.less
+\*################################*/
+
+
+// Conference-wide navigation menu (both mobile and desktop)
+// NOTE this is not a “universal menu;” this is simply
+// a menu whose name happens to be “Universal.”
+//
+// ^subcomponents
+// __Item - each item in the list
+// __Link - each link inside an __Item in the menu
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-04
+.c-MenuUniversal {
+  #XMETER .flex-align-content(flex-start);
+  width: 10em;
+  margin-bottom: 0;
+  @media screen and (max-width: 44.999em) {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    height: 100%;
+    background-color: @color_site_secondary;
+  }
+  @media screen and (min-width: 45em) {
+    width: auto;
+  }
+}
+.c-MenuUniversal__Item {
+  margin: @boxpadding;
+  @media screen and (min-width: 45em) {
+    width: auto;
+  }
+}
+.c-MenuUniversal__Link {
+  padding: @boxpadding;
+  border: 1px solid transparent;
+  border-radius: (0.25 * @conf_vru);
+  @media screen and (min-width: 45em) {
+    &:hover {
+      border-color: currentColor;
+    }
+  }
+}

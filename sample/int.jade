@@ -24,7 +24,7 @@ block main
           span(itemprop="streetAddress") 340 North 3rd Street
           br
           span(itemprop="addressLocality") Phoenix, 
-          span(itemprop="addressRegion"): abbr(title="Arizona") AZ 
+          abbr(itemprop="addressRegion" title="Arizona") AZ 
           span(itemprop="postalCode") 85004
         br
         a(href="" itemprop="url") https://sheraton.com/phoenix/
@@ -48,18 +48,13 @@ block main
       h3 Taxi Service
       p About $25 one-way from airport to hotel. See, that wasn&rsquo;t so bad, was it?
     div.o-GridFlex
-      section.o-GridFlex__Item.-w-1o2-sM
+      section.o-GridFlex__Item.c-Callout
         h1 Questions?
         ul.o-ListBare
           li: a(href="") (800) 548-2723
           li: a(href="") +1 (703) 295-6300
           li: a(href="") registrations@asce.org
-      section.o-GridFlex__Item.-w-1o2-sM
+        p: ins This callout isn&rsquo;t necessary with the same information in the footer.
+      section.o-GridFlex__Item.c-Callout
         h1 Important Dates
-        dl
-          dt Oct 12 2015
-          dd Optional Final Papers Due
-          dt Dec 17 2015
-          dd Early-Bird Registration Closes
-          dt Jan 12 2016
-          dd Advance Registration Closes
+        +important-date-block()

@@ -6,17 +6,10 @@ block append vars
 
 block main
   section(itemscope="" itemtype="http://schema.org/Event")
-    div.c-Hero
+    div.o-BodyChild__Inv.c-Hero
       h1.-d-n(itemprop="name") #{conf_name} Home
       p(itemprop="description") Slogan. Mainstremaing green infrastructure.
-      p.o-GridFlex
-        span.o-GridFlex__Item.o-Block.-w-1o2(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-          span(itemprop="addressLocality") Portland, 
-          span(itemprop="addressRegion"): abbr(title="Oregon") OR
-        span.o-GridFlex__Item.o-Block.-w-1o2
-          time(datetime="2016-09-28" itemprop="startDate") Sep 28
-          | &ndash;
-          time(datetime="2016-10-01" itemprop="endDate") Oct 1
+      +time-place()
     +action-buttons()
     section.this-is-editable
       p: strong(style="color: red;") Editable section.
@@ -31,21 +24,17 @@ block main
         li Prestigious awards and keynote lecture presentations
         li Lively programs for studdnts and young professionals
     div.o-GridFlex
-      section.o-GridFlex__Item.-w-1o2-sM
+      section.o-GridFlex__Item.c-Callout
         h1 Important Dates
-        dl
-          dt Oct 12 2015
-          dd Optional Final Papers Due
-          dt Dec 17 2015
-          dd Early-Bird Registration Closes
-          dt Jan 12 2016
-          dd Advance Registration Closes
-      section.o-GridFlex__Item.-w-1o2-sM
+        +important-date-block()
+      section.o-GridFlex__Item.c-Callout
         h1 Keynote Speakers
-        div
-          img(src="/" alt="")
-          p Donald Trump, Ph.D.
-          p Author, #[cite The Art of the Deal]
-        p Nov 16
-        p Opening Plenary
+        div.o-GridFlex.c-Speaker
+          div.o-GridFlex__Item: img(src="/" alt="")
+          p.o-GridFlex__Item
+            span.o-Block Donald Trump, Ph.D.
+            span.o-Block Author, #[cite The Art of the Deal]
+        p
+          span Opening Plenary, 
+          time(datetime="2015-11-16") Monday Nov 16
         p: a(href="") Speaker Details

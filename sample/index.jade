@@ -5,16 +5,9 @@ block append vars
   - var page_type = 'landing'
 
 block main
-  section.c-Hero(itemscope="" itemtype="http://schema.org/Event")
-    h2(itemprop="name")= conf_name
-    p.o-GridFlex
-      span.o-GridFlex__Item.o-Block.-w-1o2(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-        span(itemprop="addressLocality") Portland, 
-        span(itemprop="addressRegion"): abbr(title="Oregon") OR
-      span.o-GridFlex__Item.o-Block.-w-1o2
-        time(datetime="2016-09-28" itemprop="startDate") Sep 28
-        | &ndash;
-        time(datetime="2016-10-01" itemprop="endDate") Oct 1
+  section.c-Hero.o-BodyChild__Inv(itemscope="" itemtype="http://schema.org/Event")
+    h1(itemprop="name")= conf_name
+    +time-place()
     p(itemprop="description") Slogan. Mainstremaing green infrastructure.
     p: a(href="") Get Details
   +action-buttons()
@@ -26,16 +19,16 @@ block main
   div.o-GridFlex
     section.o-GridFlex__Item.o-GridFlex.-w-1o2-sM(itemscope="" itemtype="http://schema.org/Event")
       div.o-GridFlex__Item.-w-1o2-sK
-        h2(itemprop="name") ASCE Convention 2015
+        h1(itemprop="name") ASCE Convention 2015
         p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
           span(itemprop="addressLocality") New York, 
-          span(itemprop="addressRegion"): abbr(title="New York") NY
+          abbr(itemprop="addressRegion" title="New York") NY
       p.o-GridFlex__Item.-w-1o2-sK.
         Learn about the impacts of water sustainability and
         the importance of interdisciplinary design approaches.
     section.o-GridFlex__Item.o-GridFlex.-w-1o2-sM(itemscope="" itemtype="http://schema.org/Event")
       div.o-GridFlex__Item.-w-1o2-sK
-        h2(itemprop="name") ASCE Convention 2017
+        h1(itemprop="name") ASCE Convention 2017
         p(data-itemprop="location") TBD
       p.o-GridFlex__Item.-w-1o2-sK.
         Plan ahead to attend, sponsor, or exhibit at the

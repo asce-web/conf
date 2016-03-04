@@ -1,0 +1,30 @@
+@import (reference) url('../node_modules/xmeter/src/__tool.module.clearfix.less');
+
+/*################################*\
+    conf  |  _obj.ListStacked.less
+\*################################*/
+
+
+// A row of items that stacks vertically on a small screen.
+//
+// ^subcomponents
+// __Item - an item in the list
+// ^variables
+// @p-spacer - the spacing between list items when unstacked
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-04
+@p-spacer: 2rem;
+.o-ListStacked {
+  #XMETER .flex-justify-content(center);
+  text-align: center;
+}
+.o-ListStacked__Item {
+  @media screen and (min-width: 45em) {
+    width: auto;
+    &:not(:last-child) {
+      padding-right: @p-spacer;
+    }
+  }
+}

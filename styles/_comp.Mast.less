@@ -1,0 +1,64 @@
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+
+/*################################*\
+    conf  |  _comp.Mast.less
+\*################################*/
+
+
+// Masthead header banner across entire site.
+//
+// ^subcomponents
+// __Title         - title containing conference name and tagline
+// __Nav           - navigation containing menu and buttons
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-01
+.c-Mast {
+  #XMETER .flex-justify-content(space-between);
+  background-color: @color_site_primary;
+  color: @color_asce_header_txt;
+}
+
+.c-Mast__Title,
+.c-Mast__Nav {
+  width: auto;
+}
+.c-Mast__Title {
+  margin-left: 4rem; // TODO change this to fit the width of the logo
+  background-image: none; // this is the conference logo (or institute shield)
+}
+
+// Navigation menu in masthead.
+// Contains a Universal Menu (see `.c-MenuUniversal`),
+// and a container containing two buttons, which
+// alternate based on screen size.
+//
+// ^subcomponents
+// __ButtonContainer - a simple container holding buttons
+// ^sub-subcomponents
+// __ButtonContainer__MenuButton    - button for toggling mobile menu
+// __ButtonContainer__CurrentButton - button linking to current year site
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-04
+.c-Mast__Nav {
+}
+.c-Mast__Nav__ButtonContainer {
+  width: auto;
+}
+
+.c-Mast__Nav__ButtonContainer__MenuButton,
+.c-Mast__Nav__ButtonContainer__CurrentButton {
+}
+.c-Mast__Nav__ButtonContainer__MenuButton {
+  @media screen and (min-width: 45em) {
+    display: none;
+  }
+}
+.c-Mast__Nav__ButtonContainer__CurrentButton {
+  @media screen and (max-width: 44.999em) {
+    display: none;
+  }
+}

@@ -27,8 +27,9 @@
  * conf-colors....................conference-specific, year-specific color schemes
  *
  * ## TOOLS
+ * list-pairs.....................generates list object with pairs of children
  *
- * base...........................bare, unclassed elements
+ * ## BASE........................bare, unclassed elements
  *
  * ## OBJECTS
  * Block..........................a simple block object
@@ -37,23 +38,34 @@
  * GridFlex.......................grid of items
  * GridFloat......................grid of items; legacy support
  * BodyChild......................an element directly inside <body>
+ * ListStacked....................row of stackable items
+ *
+ * ## COMPONENTS
+ * ### Block Section-y Components
+ * Mast...........................masthead for the site
+ * MenuUniversal..................universal main navigation
+ * MenuStandard...................top-level navigation for a conference
+ * MenuSub........................secondary-level navigation for a conference
+ * SocialList.....................list of social media icons
+ * Copyright......................site footline w/ copyright
+ * Hero...........................prominence on page
+ * Callout........................repeatable aside block
+ * DateBlock......................list of important dates
+ * Speaker........................(keynote) speaker profile
+ * ### Typographical Components
+ * ### User-Interactive Components
  *
  * ## ATOMS
  * atom...........................all uncategorized atoms
  *
- *
- * ## COMPONENTS
- *
- * ### Typographical Components
- *
- * ### User-Interactive Components
- *
  * ## SHAME
- * _shame.less....................
+ * shame.less.....................hacks
  */
 
 @import url('__settings.less');
 @import url('__settings.conf-colors.less');
+
+@import url('__tool.module.list-pairs.less');
 
 @import url('_base.less');
 
@@ -62,185 +74,23 @@
 @import url('_obj.ListBare.less');
 @import url('_obj.GridFlex.less');
 @import url('_obj.GridFloat.less');
+@import url('_obj.BodyChild.less');
+@import url('_obj.ListStacked.less');
 
-// Sets up all top-level components with a horizontal padding
-@body_padding: 1rem;
-.o-BodyChild {
-  padding-left:  @body_padding;
-  padding-right: @body_padding;
-}
-
-
+@import url('_comp.Mast.less');
+@import url('_comp.MenuUniversal.less');
+@import url('_comp.MenuStandard.less');
+@import url('_comp.MenuSub.less');
+@import url('_comp.SocialList.less');
+@import url('_comp.Copyright.less');
+@import url('_comp.Hero.less');
+@import url('_comp.Callout.less');
+@import url('_comp.DateBlock.less');
+@import url('_comp.Speaker.less');
 
 @import url('_atom.less');
 
-
-// -------- SECTION COMPONENTS -------- //
-// Masthead header banner across entire site.
-//
-// ^Subcomponents:
-// __Title - title containing conference name and tagline
-// __Nav   - conference-wide navigation
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-01
-.c-Mast {
-  background-color: @color_site_primary;
-  color: @color_asce_header_txt;
-}
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
-
-// Linked block containing
-// conference name and tagline
-//
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-01
-.c-Mast__Title {
-  background-image: none; // this is the conference logo (or institute shield)
-  margin-left: 4rem; // TODO change this to fit the width of the logo
-}
-
-// Conference-wide navigation (both mobile and desktop)
-//
-// ^Subcomponents:
-// __Hn   - the heading for the navigation
-// __Menu - the actual list of navigation items
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-01
-.c-Mast__Nav {
-  @media screen and (max-width: 44.999em) {
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 10;
-    height: 100%;
-    background-color: @color_site_secondary;
-  }
-}
-.c-Mast__Nav__Hn,
-.c-Mast__Nav__Menu {
-  @media screen and (max-width: 44.999em) {
-    padding-left:  0.5rem;
-    padding-right: 0.5rem;
-  }
-}
-.c-Mast__Nav__Hn {
-  @media screen and (max-width: 44.999em) {
-    background-color: @color_site_accent;
-  }
-}
-
-// Conference-wide menu (both mobile and desktop)
-//
-// ^Subcomponents:
-// __Item - each item in the list
-// __Link - each link in the menu
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-01
-.c-Mast__Nav__Menu {
-}
-.c-Mast__Nav__Menu__Item {
-}
-.c-Mast__Nav__Menu__Link {
-}
-
-// Top-level navigation for current year site.
-//
-// ^Subcomponents:
-// __Item - each item in the list
-// __Link - each link in the menu
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-01
-.c-NavMenu {
-  position: relative; // for the NavSubmenu positioning
-  background-color: @color_site_secondary;
-}
-.c-NavMenu__Item {
-}
-.c-NavMenu__Link {
-  border: 1px outset transparent;
-  @media screen and (min-width: 45em) {
-    .c-NavMenu__Item:hover & {
-      border-color: @color_site_accent;
-      background-color: #fff;
-    }
-  }
-}
-
-// Secondary-level navigation components for current year site.
-//
-// ^Subcomponents:
-// __Item - each item in the list
-// __Link - each link in the menu
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-02
-.c-NavSubmenu {
-  position: absolute; // inside the .c-NavMenu
-  background-color: #fff;
-  @media screen and (max-width: 44.999em) {
-    left:  1rem;
-    right: 1rem;
-    &:not(.c-NavSubmenu--active) {
-      display: none;
-    }
-  }
-  @media screen and (min-width: 45em) {
-    border: 1px outset @color_site_accent;
-    .c-NavMenu__Item:not(:hover) & {
-      display: none;
-    }
-  }
-}
-.c-NavSubmenu__Item {
-  @media screen and (max-width: 44.999em) {
-    display: inline-block;
-    text-decoration: underline;
-    padding-right: 1em;
-  }
-}
-.c-NavSubmenu__Link {
-}
-
-// Copyright footline.
-//
-// ^Subcomponents:
-// __Link - entire thing with ASCE logo background image
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-03-01
-.c-Copyright {
-  margin-left: -@body_padding; margin-right: -@body_padding;
-  width: calc(~'100% + ' (2 * @body_padding)); // because can’t use width: auto
-  text-align: center;
-  background-color: @color_asce_primary;
-  color: @color_asce_header_txt;
-}
-.c-Copyright__Link {
-  background-image: none; // this is the ASCE logo
-}
-
-.c-Hero {
-  margin-left: -@body_padding; margin-right: -@body_padding;
-  text-align: center;
-  background-color: #074d1c;
-  background-image: none; // TODO add image
-  color: @color_asce_header_txt;
-}
-
-
-
+// @import url('_shame.less');
 
 // // -------- HEADINGS -------- //
 // // Name of entire conference

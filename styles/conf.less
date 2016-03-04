@@ -75,6 +75,9 @@
 @import url('_atom.less');
 
 
+@boxpadding_sml: (0.125 * @conf_vru) 0.25rem;
+@boxpadding_med: (0.250 * @conf_vru) 0.50rem;
+@boxpadding_lrg: (0.500 * @conf_vru) 1.00rem;
 // -------- SECTION COMPONENTS -------- //
 // Masthead header banner across entire site.
 //
@@ -125,8 +128,17 @@
   }
 }
 .c-MenuUniversal__Item {
+  margin: @boxpadding_sml;
 }
 .c-MenuUniversal__Link {
+  padding: @boxpadding_sml;
+  border: 1px solid transparent;
+  border-radius: (0.25 * @conf_vru);
+  @media screen and (min-width: 45em) {
+    &:hover {
+      border-color: currentColor;
+    }
+  }
 }
 
 // Top-level navigation for current year site.
@@ -143,8 +155,10 @@
   background-color: @color_site_secondary;
 }
 .c-MenuStandard__Item {
+  margin: @boxpadding_med;
 }
 .c-MenuStandard__Link {
+  padding: @boxpadding_sml;
   border: 1px outset transparent;
   @media screen and (min-width: 45em) {
     .c-MenuStandard__Item:hover & {
@@ -165,15 +179,16 @@
 // 2016-03-02
 .c-MenuSub {
   position: absolute; // inside the .c-MenuStandard
-  background-color: #fff;
   @media screen and (max-width: 44.999em) {
     left:  1rem;
     right: 1rem;
+    top: (2 * @conf_vru);
     &:not(.c-MenuSub--active) {
       display: none;
     }
   }
   @media screen and (min-width: 45em) {
+    background-color: #fff;
     border: 1px outset @color_site_accent;
     .c-MenuStandard__Item:not(:hover) & {
       display: none;
@@ -206,6 +221,7 @@
   color: @color_asce_header_txt;
 }
 .c-Copyright__Link {
+  margin: @conf_vru 1rem;
   background-image: none; // this is the ASCE logo
 }
 

@@ -21,6 +21,7 @@
   padding-right: @p-body_padding;
 }
 .o-BodyChild__Inv {
+  width: calc(~'100% + ' (2 * @p-body_padding)); // because can’t use `width: auto` for `GridFlex__Item` objects
   margin-left:  -@p-body_padding;
   margin-right: -@p-body_padding;
 }

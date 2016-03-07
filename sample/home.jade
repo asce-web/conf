@@ -1,14 +1,13 @@
 extends sample.tpl.jade
 
 block append vars
-  - var title = 'Home Page'
   - var page_type = 'home'
 
 block main
   section(itemscope="" itemtype="http://schema.org/Event")
     div.o-BodyChild__Inv.c-Hero
       h1.-d-n(itemprop="name") #{conf_name} Home
-      p(itemprop="description") Slogan. Mainstremaing green infrastructure.
+      p(itemprop="description")= theme
       +time-place()
     +action-buttons()
     section.this-is-editable

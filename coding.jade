@@ -34,8 +34,10 @@ html(lang="en")
           dd: time(datetime="2016-02-08 09:22") Feb 08, 2016 #[span.tod  9:22 AM]
           dd
             time(datetime="2016-02-15 18:33" itemprop="dateCreated") Feb 15, 2016 #[span.tod  6:33 PM]
+          dd: time(datetime="2016-02-15 14:31") Feb 16, 2016 #[span.tod  2:31 PM]
+          dd: time(datetime="2016-03-07 17:18") Mar  7, 2016 #[span.tod  5:18 PM]
           dd
-            time(datetime="2016-02-15 14:31" itemprop="dateModified") Feb 16, 2016 #[span.tod  2:31 PM]
+            time(datetime="2016-03-08 15:33" itemprop="dateModified") Mar  8, 2016 #[span.tod  3:33 PM]
         nav#table-contents
           h2 Table of Contents
           ol
@@ -45,10 +47,9 @@ html(lang="en")
               ol
                 li: a(href="#whitespace") Whitespace
                 li
-                  a(href="#line-breaks") Line Breaks
+                  a(href="#line-breaks-line-length") Line Breaks &amp; Line Length
                   ol: li: a(href="#exceptions") Exceptions
                 li: a(href="#indentation") Indentation
-                li: a(href="#line-length") Line Length
                 li: a(href="#html-specifics-example") HTML Specifics &amp; Example
                 li: a(href="#css-specifics-example") CSS Specifics &amp; Example
             li
@@ -107,11 +108,16 @@ html(lang="en")
             li Always use spaces, never tabs.
             li Never leave trailing whitespace at the end of a line.
             li Use spaces to horizontally align repeated text.
-        section#line-breaks
-          h3 Line Breaks
+        section#line-breaks-line-length
+          h3 Line Breaks #[ins(datetime="2016-03-08 15:33") &amp; Line Length]
           ul
             li Blank lines are permitted, but only if they do not contain any spaces.
             li Use blank lines #[em only] to separate code structures and improve readability.
+            li: ins(datetime="2016-03-08 15:33") Keep lines of all code between 75&ndash;90 characters long to maximize readability.
+            li: ins(datetime="2016-03-08 15:33").
+              When writing long passages of prose (in HTML, etc.), use
+              hard line breaks to wrap text. This will help diff tools and
+              reduce merge conflicts.
           section#exceptions
             h4 Exceptions
             ul
@@ -121,7 +127,7 @@ html(lang="en")
           h3 Indentation
           ul
             li Use exactly two (2) spaces for each indent level.
-        section#line-length
+        del(datetime="2016-03-08 15:33"): section#line-length
           h3 Line Length
           ul
             li Keep lines of all code between 75&ndash;90 characters long to maximize readability.

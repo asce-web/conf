@@ -7,7 +7,9 @@ block append vars
 
 block main
   section
-    h1 #[span.-d-n= conf_name + ' — ']Hotel &amp; Travel
+    header.o-BodyChild__Inv.c-Hero(style="padding: 4rem 0 2rem; text-align: left;")
+      h1(style="padding-top: 1rem; margin-top: 2rem; padding-bottom: 1rem; margin-bottom: 0.5rem; padding-left: 1rem; background-color: rgba(0,0,0,0.25);").
+        #[span.-d-n= conference_name + ' — ']Hotel &amp; Travel
     section.this-is-editable
       p: strong(style="color: red;") Editable section.
       h2 Hotel Information

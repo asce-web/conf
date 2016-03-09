@@ -2,10 +2,28 @@ doctype html
 html(lang="en")
   head
     block vars
-      - var title = ''
-      - var conf_name = 'ASCE 2016'
-    title #{title} | Sample ASCE Conference Site
+      - var site_title = 'ASCE Convention'
+      - var tagline = 'The Flagship Event for ASCE'
+      - var conference_name = 'ASCE 2016'
+      - var theme = 'Mainstremaing green infrastructure.'
+      - var keywords = ['ASCE', 'civil engineering', 'convention']
+      -
+        var tag_title = {
+          landing:  function (str) { return site_title }
+        , brand:    function (str) { return str + ' | ' + site_title }
+        , home:     function (str) { return conference_name }
+        , interior: function (str) { return str + ' | ' + conference_name }
+        }
+        var tag_meta_description = {
+          landing:  function (str) { return tagline }
+        , brand:    function (str) { return str }
+        , home:     function (str) { return theme }
+        , interior: function (str) { return str }
+        }
+    title= page_type ? tag_title[page_type](page_name) : ''
     meta(charset="utf-8")
+    meta(name="description" content=(page_type ? tag_meta_description[page_type](page_description) : ''))
+    meta(name="keywords" content=keywords)
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel="stylesheet" href="../node_modules/xmeter/xmeter.min.css")
     link(rel="stylesheet" href="../node_modules/bangs/bangs.min.css")
@@ -39,11 +57,11 @@ html(lang="en")
         +row('2015','Oct','12', '2015-10-12','Optional Final Papers Due')
         +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes')
         +row('2016','Jan','12', '2016-01-12','Advance Registration Closes')
-    block front-matter
-      header.o-GridFlex.o-BodyChild.c-Mast
+    header
+      div.o-BodyChild.o-GridFlex.c-Mast
         a.o-GridFlex__Item.o-Block.c-Mast__Title(href="")
-          h1 ASCE Convention
-          p Tagline. The Flagship Event for ASCE
+          h1= site_title
+          p= tagline
         nav.o-GridFlex__Item.o-GridFlex.c-Mast__Nav
           ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
             li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") About
@@ -55,54 +73,53 @@ html(lang="en")
             a.o-Block.c-Mast__Nav__ButtonContainer__CurrentButton(href="") 2016 Convention
       unless page_type === 'landing'
         nav
-          ul.o-ListBare.o-GridFlex.o-BodyChild.c-MenuStandard
+          ul.o-BodyChild.o-ListBare.o-GridFlex.c-MenuStandard
             li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="") Home
             li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="") Register
-              ul.o-ListBare.c-MenuSub(class=(title==='Register' ? 'c-MenuSub--active' : ''))
+              ul.o-ListBare.c-MenuSub(class=(page_name==='Register' ? 'c-MenuSub--active' : ''))
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 2
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 3
             li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="") Program
-              ul.o-ListBare.c-MenuSub(class=(title==='Program' ? 'c-MenuSub--active' : ''))
+              ul.o-ListBare.c-MenuSub(class=(page_name==='Program' ? 'c-MenuSub--active' : ''))
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Events
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Program Submenu Item 2
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Program Submenu Item 3
             li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="") Hotel &amp; Travel
-              ul.o-ListBare.c-MenuSub(class=(title==='Interior Page' ? 'c-MenuSub--active' : ''))
+              ul.o-ListBare.c-MenuSub(class=(page_name==='Hotel & Travel' ? 'c-MenuSub--active' : ''))
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") International Travel
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Location Submenu Item 2
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Location Submenu Item 3
             li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="") Speakers
-              ul.o-ListBare.c-MenuSub(class=(title==='Speakers' ? 'c-MenuSub--active' : ''))
+              ul.o-ListBare.c-MenuSub(class=(page_name==='Speakers' ? 'c-MenuSub--active' : ''))
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Call for Submissions
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Our Lineup
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Become a Speaker
     main.o-BodyChild
       block main
-    block end-matter
-      footer.o-GridFlex.o-BodyChild.c-Mast(itemscope="" itemtype="http://schema.org/NGO")
-        section.o-GridFlex__Item.-w-1o2-sM
-          h1 Contact Us
-          address(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
-            ul.o-ListBare
-              li: a(href="tel:+1-800-548-2723") (800) 548-2723
-              li
-                meta(content="customer support" itemprop="contactType")
-                meta(content="+1-703-295-6300" itemprop="telephone")
-                a(href="tel:+1-703-295-6300") +1 (703) 295-6300
-        section.o-GridFlex__Item.-w-1o2-sM
-          h1 Connect With ASCE
-          ul.o-ListBare.o-GridFlex.c-SocialList
-            li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") LinkedIn
-            li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") Facebook
-            li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") Twitter
-            li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") YouTube
-            li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") Google+
-        div.o-GridFlex__Item.o-BodyChild__Inv.c-Copyright
-          a.o-Block.c-Copyright__Link(href="http://www.asce.org" itemprop="url").
-            &copy; #[time 1996]&ndash;#[time 2016], #[span(itemprop="name") American Society of Civil Engineers]
+    footer.o-GridFlex.o-BodyChild.c-Mast(itemscope="" itemtype="http://schema.org/NGO")
+      section.o-GridFlex__Item.-w-1o2-sM
+        h1 Contact Us
+        address(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
+          ul.o-ListBare
+            li: a(href="tel:+1-800-548-2723") (800) 548-2723
+            li
+              meta(content="customer support" itemprop="contactType")
+              meta(content="+1-703-295-6300" itemprop="telephone")
+              a(href="tel:+1-703-295-6300") +1 (703) 295-6300
+      section.o-GridFlex__Item.-w-1o2-sM
+        h1 Connect With ASCE
+        ul.o-ListBare.o-GridFlex.c-SocialList
+          li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") LinkedIn
+          li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") Facebook
+          li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") Twitter
+          li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") YouTube
+          li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") Google+
+      div.o-GridFlex__Item.o-BodyChild__Inv.c-Copyright
+        a.o-Block.c-Copyright__Link(href="http://www.asce.org" itemprop="url").
+          &copy; #[time 1996]&ndash;#[time 2016], #[span(itemprop="name") American Society of Civil Engineers]

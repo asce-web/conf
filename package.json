@@ -6,10 +6,14 @@
   "private": true,
   "scripts": {
     "jade": "jade",
-    "jade:all": "jade coding.jade",
+    "jade:sg": "jade {index,coding,writing,visual,struct}.jade",
+    "jade:lib": "jade lib/{lib.tpl,index,base,obj,comp-typo,comp-ui,helpers,atoms}.jade",
+    "jade:sample": "jade sample/{sample.tpl,index,home,int}.jade",
+    "jade:all": "npm run jade:sg  ;  npm run jade:lib  ;  npm run jade:sample",
     "lessc": "lessc",
     "lessc:conf": "lessc styles/conf.less styles/conf.css",
-    "lessc:all": "npm run lessc:conf",
+    "lessc:sg": "lessc styles/styleguide.less styles/styleguide.css",
+    "lessc:all": "npm run lessc:conf  ;  npm run lessc:sg",
     "minify": "cleancss styles/conf.css -o styles/conf.min.css",
     "build": "npm run jade:all  ;  npm run lessc:all  ;  npm run minify",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -30,7 +34,7 @@
     "harp": "^0.20.1",
     "jade": "^1.11.0",
     "less": "^2.6.0",
-    "xmeter": "^3.6.0"
+    "xmeter": "^4.0.0"
   },
   "dependencies": {}
 }

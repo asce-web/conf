@@ -342,7 +342,7 @@ html(lang="en")
                 #[code.sg-c-Code tbody] elements; never directly inside #[code.sg-c-Code table]
               li.
                 always nest #[code.sg-c-Code th] and #[code.sg-c-Code td] elements directly inside #[code.sg-c-Code tr] elements
-              li: ins.
+              li: ins(datetime="2016-02-15 14:31").
                 only use #[code.sg-c-Code th] elements when there is a single row and single column of headers
                 (the single row must be in exactly one of the
                 #[code.sg-c-Code thead], #[code.sg-c-Code tfoot], or #[code.sg-c-Code tbody] elements)
@@ -352,9 +352,24 @@ html(lang="en")
             | When adding a link to one element, wrap the #[code.sg-c-Code &lt;a&gt;] tag around
             |  the #[em outside] of the element to be linked.
             figure: pre.sg-c-Code.sg-c-Code--block.
-              &lt;a&gt;&lt;code&gt;this is correct&lt;/code&gt;&lt;/a&gt;
-              &lt;code&gt;&lt;a&gt;this is incorrect&lt;/a&gt;, unless there is more content not to be linked&lt;/code&gt;
-              &lt;a href="//MyCompany.com" itemprop="url"&gt;&lt;span itemprop="name"&gt;My Company&lt;/span&gt;&lt;/a&gt;
+              &lt;a&gt;&lt;code&gt;this is correct because the entire element is linked&lt;/code&gt;&lt;/a&gt;
+              &lt;a href="//widgetsgalore.com" itemprop="url"&gt;&lt;span itemprop="name"&gt;Widgets Galore, Inc.&lt;/span&gt;&lt;/a&gt;
+            ins(datetime="2016-03-07 17:18")
+              | There are a few exceptions:
+              ul
+                li when inside the element there is more content not to be linked
+                li when the link is marked up with microdata and needs to be nested inside the correct item
+              figure: pre.sg-c-Code.sg-c-Code--block.
+                &lt;code&gt;&lt;a&gt;only do this if there is&lt;/a&gt; more, non-linked content inside the element&lt;/code&gt;
+                &lt;section itemscope="" itemtype="http://schema.org/Organization"&gt;
+                  &lt;a href="//widgetsgalore.com" itemprop="url"&gt;
+                    &lt;!-- Wrap the `a` tag around all the content inside the `section` tag,
+                      instead of around the `section` tag itself. --&gt;
+                    &lt;h1 itemprop="name"&gt;Widgets Galore, Inc.&lt;/h1&gt;
+                    &lt;img src="//widgetsgalore.com/logo" itemprop="image"/&gt;
+                    &lt;p itemprop="description"&gt;Our company provides &hellip; &lt;/p&gt;
+                  &lt;/a&gt;
+                &lt;/section&gt;
           li.
             Use exactly one #[code.sg-c-Code dfn] element per vocabulary term per page, and
             always provide the #[code.sg-c-Code dfn[id]] attribute.

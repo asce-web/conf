@@ -13,6 +13,7 @@
 // (except the sample conference site).
 
 //Table Of Contents
+//# DEV...........................development styles. fixes for imported css.
 //# BASE
 //# COMPONENTS
 //  Fig............................a figure containing all demos
@@ -20,6 +21,22 @@
 //  Code--block....................block code (extends Code)
 //# HACKS
 //  _docmeta.......................a dictionary list containing document metadata
+
+
+//++++++++++++++++++++++++++++++++//
+//    # DEV
+//++++++++++++++++++++++++++++++++//
+// Fixes issue for blocks within transparent-inline elements.
+// Overrides xmeter.
+a, s, ins, del {
+  figure > &, figcaption > &, blockquote > &,
+  li > &, dt > &, dd > &,
+  caption > &, th > &, td > & {
+    display: inherit;
+    line-height: inherit;
+  }
+}
+//++++ end # DEV ++++ //
 
 
 //++++++++++++++++++++++++++++++++//

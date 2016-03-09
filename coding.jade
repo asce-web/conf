@@ -5,6 +5,7 @@ html(lang="en")
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel="stylesheet" href="node_modules/xmeter/xmeter.min.css")
+    link(rel="stylesheet" href="node_modules/bangs/bangs.min.css")
     link(rel="stylesheet" href="styles/styleguide.css")
     style.
       table.demo th,
@@ -36,8 +37,9 @@ html(lang="en")
             time(datetime="2016-02-15 18:33" itemprop="dateCreated") Feb 15, 2016 #[span.tod  6:33 PM]
           dd: time(datetime="2016-02-15 14:31") Feb 16, 2016 #[span.tod  2:31 PM]
           dd: time(datetime="2016-03-07 17:18") Mar  7, 2016 #[span.tod  5:18 PM]
+          dd: time(datetime="2016-03-08 15:33" itemprop="dateModified") Mar  8, 2016 #[span.tod  3:33 PM]
           dd
-            time(datetime="2016-03-08 15:33" itemprop="dateModified") Mar  8, 2016 #[span.tod  3:33 PM]
+            time(datetime="2016-03-09 15:25" itemprop="dateModified") Mar  9, 2016 #[span.tod  3:25 PM]
         nav#table-contents
           h2 Table of Contents
           ol
@@ -349,27 +351,39 @@ html(lang="en")
               li: ins(datetime="2016-02-15 14:31").
                 always provide the #[code.sg-c-Code th[scope]] attribute
           li
-            | When adding a link to one element, wrap the #[code.sg-c-Code &lt;a&gt;] tag around
-            |  the #[em outside] of the element to be linked.
+            del(datetime="2016-03-09 15:25").
+              When adding a link to one element, wrap the #[code.sg-c-Code &lt;a&gt;] tag around
+              the #[em outside] of the element to be linked.
+            ins(datetime="2016-03-09 15:25").
+              When adding a link to one element, nest the #[code.sg-c-Code &lt;a&gt;] tag immediately
+              #[em inside] the element to be linked.
             figure: pre.sg-c-Code.sg-c-Code--block.
-              &lt;a&gt;&lt;code&gt;this is correct because the entire element is linked&lt;/code&gt;&lt;/a&gt;
-              &lt;a href="//widgetsgalore.com" itemprop="url"&gt;&lt;span itemprop="name"&gt;Widgets Galore, Inc.&lt;/span&gt;&lt;/a&gt;
-            ins(datetime="2016-03-07 17:18")
+              &lt;!-- &lt;a&gt;&lt;code&gt;#[strong this is incorrect]&lt;/code&gt;&lt;/a&gt; --&gt;
+              &lt;code&gt;&lt;a&gt;this is correct&lt;/a&gt;&lt;/code&gt;
+              &lt;code&gt;&lt;a&gt;#[del(datetime="2016-03-09 15:25") only] do this #[ins(datetime="2016-03-09 15:25") especially] if there is&lt;/a&gt; more, non-linked content inside the element&lt;/code&gt;
+              &lt;section itemscope="" itemtype="http://schema.org/Organization"&gt;
+                &lt;a href="//widgetsgalore.com" itemprop="url"&gt;
+                  &lt;!-- Wrap the `a` tag around all the content inside the `section` tag,
+                    instead of around the `section` tag itself
+                    #[ins(datetime="2016-03-09 15:25") or within each child of the `section` tag]. --&gt;
+                  &lt;h1 itemprop="name"&gt;Widgets Galore, Inc.&lt;/h1&gt;
+                  &lt;img src="//widgetsgalore.com/logo" itemprop="image"/&gt;
+                  &lt;p itemprop="description"&gt;Our company provides &hellip; &lt;/p&gt;
+                &lt;/a&gt;
+              &lt;/section&gt;
+            ins.-d-i.-lh-i(datetime="2016-03-07 17:18"): del.-d-i.-lh-i
               | There are a few exceptions:
               ul
                 li when inside the element there is more content not to be linked
                 li when the link is marked up with microdata and needs to be nested inside the correct item
               figure: pre.sg-c-Code.sg-c-Code--block.
-                &lt;code&gt;&lt;a&gt;only do this if there is&lt;/a&gt; more, non-linked content inside the element&lt;/code&gt;
-                &lt;section itemscope="" itemtype="http://schema.org/Organization"&gt;
-                  &lt;a href="//widgetsgalore.com" itemprop="url"&gt;
-                    &lt;!-- Wrap the `a` tag around all the content inside the `section` tag,
-                      instead of around the `section` tag itself. --&gt;
-                    &lt;h1 itemprop="name"&gt;Widgets Galore, Inc.&lt;/h1&gt;
-                    &lt;img src="//widgetsgalore.com/logo" itemprop="image"/&gt;
-                    &lt;p itemprop="description"&gt;Our company provides &hellip; &lt;/p&gt;
-                  &lt;/a&gt;
-                &lt;/section&gt;
+                &lt;a href="//widgetsgalore.com" itemprop="url"&gt;&lt;span itemprop="name"&gt;Widgets Galore, Inc.&lt;/span&gt;&lt;/a&gt;
+            ins.-d-i.-lh-i(datetime="2016-03-09 15:25")
+              | There is one exception:
+              ul
+                li when an element is marked up with microdata and needs to be nested inside the link
+              figure: pre.sg-c-Code.sg-c-Code--block.
+                &lt;a href="//widgetsgalore.com" itemprop="url"&gt;&lt;span itemprop="name"&gt;Widgets Galore, Inc.&lt;/span&gt;&lt;/a&gt;
           li.
             Use exactly one #[code.sg-c-Code dfn] element per vocabulary term per page, and
             always provide the #[code.sg-c-Code dfn[id]] attribute.

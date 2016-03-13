@@ -1,37 +1,9 @@
-doctype html
-html(lang="en")
-  head
-    title File Structure | ASCE Conferences Styleguide
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel="stylesheet" href="node_modules/xmeter/xmeter.min.css")
-    link(rel="stylesheet" href="node_modules/bangs/bangs.min.css")
-    link(rel="stylesheet" href="styles/styleguide.css")
-  body
-    main(itemscope="" itemtype="http://schema.org/Article")
-      header
-        h1(itemprop="name headline") ASCE Conference Styleguide &mdash; File Structure
-        dl._docmeta
-          dt Authors
-          dd(itemprop="author") Dae Clarke
-          dt Description
-          dd(itemprop="description").
-            Standard on Drupal file structure of the #[b confmultisite] repository.
-          dt Keywords
-          dd(itemprop="keywords") style guide
-          dd(itemprop="keywords") codebase
-          dd(itemprop="keywords") file structure
-          dt Version History
-          dd
-            time(datetime="2016-02-? 14:34" itemprop="dateModified") Feb ?, 2016 #[span.tod  2:34 PM]
-    footer
-      nav
-        h1 Sitemap
-        ol
-          li: a(href="index.html") Home
-          li: a(href="coding.html") Coding Style
-          li: a(href="writing.html") Writing Style
-          li: a(href="visual.html") Visual Style
-          li: a(href="lib/index.html") Pattern Library
-          li: a(href="struct.html" rel="this") File Structure
-          li: a(href="sample/index.html") Sample Site
+extends index.tpl.jade
+
+block vars
+  - var heading = 'File Structure'
+  - var authors = ['Dae Clarke']
+  - var description = 'Standard on Drupal file structure of the "confmultisite" repository.'
+  - var keywords = ['style guide','codebase','file structure']
+  - var main_itemtype = 'http://schema.org/TechArticle'
+  - var docmeta = true

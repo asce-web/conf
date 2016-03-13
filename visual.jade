@@ -1,40 +1,16 @@
-doctype html
-html(lang="en")
-  head
-    title Visual Style | ASCE Conferences Styleguide
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel="stylesheet" href="node_modules/xmeter/xmeter.min.css")
-    link(rel="stylesheet" href="node_modules/bangs/bangs.min.css")
-    link(rel="stylesheet" href="styles/styleguide.css")
-  body
-    main(itemscope="" itemtype="http://schema.org/Article")
-      header
-        h1(itemprop="name headline") ASCE Conference Styleguide &mdash; Visual Style
-        dl._docmeta
-          dt Authors
-          dd(itemprop="author") Chris Harvey
-          dt Description
-          dd(itemprop="description") Visual look-and-feel for conference sites.
-          dt Keywords
-          dd(itemprop="keywords") style guide
-          dd(itemprop="keywords") design
-          dt Version History
-          dd
-            time(datetime="2016-02-? 14:34" itemprop="dateModified") Feb ?, 2016 #[span.tod  2:34 PM]
-      p Follow this visual style guide for use in designing conference websites.
-      section
-        h2 Typography
-      section
-        h2 Colors
-    footer
-      nav
-        h1 Sitemap
-        ol
-          li: a(href="index.html") Home
-          li: a(href="coding.html") Coding Style
-          li: a(href="writing.html") Writing Style
-          li: a(href="visual.html" rel="this") Visual Style
-          li: a(href="lib/index.html") Pattern Library
-          li: a(href="struct.html") File Structure
-          li: a(href="sample/index.html") Sample Site
+extends index.tpl.jade
+
+block vars
+  - var heading = 'Visual Style'
+  - var authors = []
+  - var description = 'Visual look-and-feel for conference sites.'
+  - var keywords = ['style guide','design']
+  - var main_itemtype = 'http://schema.org/Article'
+  - var docmeta = true
+
+block append main
+  p Follow this visual style guide for use in designing conference websites.
+  section
+    h2 Typography
+  section
+    h2 Colors

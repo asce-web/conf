@@ -1,26 +1,13 @@
-doctype html
-html(lang="en")
-  head
-    title Home | ASCE Conferences Styleguide
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel="stylesheet" href="node_modules/xmeter/xmeter.min.css")
-    link(rel="stylesheet" href="styles/styleguide.css")
-  body
-    main
-      h1 ASCE Conferences Styleguide
-      p.
-        #[strong This is the master styleguide for all conference websites.]
-        Here you will find standards for coding, writing, and visual design.
-        In addition, this styleguide contains a pattern library for commonly used
-        components on conference sites, as well as a sample conference site itself.
-      nav
-        h2 Sitemap
-        ol
-          li: a(href="index.html" rel="this") Home
-          li: a(href="coding.html") Coding Style
-          li: a(href="writing.html") Writing Style
-          li: a(href="visual.html") Visual Style
-          li: a(href="lib/index.html") Pattern Library
-          li: a(href="struct.html") File Structure
-          li: a(href="sample/index.html") Sample Site
+extends index.tpl.jade
+
+block vars
+  - var authors = ['Chris Harvey', 'Dae Clarke']
+  - var description = 'Style guide for all ASCE conference sites.'
+  - var keywords = ['style guide','ASCE','conference','convention','congress']
+
+block append main
+  p.
+    #[strong This is the master styleguide for all conference websites.]
+    Here you will find standards for coding, writing, and visual design.
+    In addition, this styleguide contains a pattern library for commonly used
+    components on conference sites, as well as a sample conference site itself.

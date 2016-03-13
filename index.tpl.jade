@@ -1,19 +1,20 @@
 doctype html
 html(lang="en")
+  - function title(arr) { return arr.reduceRight(function (a, b) { return a + ' | ' + b }) }
+  - function mainH1(arr) { return arr.reduce(function (a, b) { return a + ' — ' + b }) }
   head
+    - var titles = ['ASCE Conferences Styleguide']
     block vars
       - var authors = []
       - var description = ''
       - var keywords = []
-    - var title = (heading ? heading + ' | ' : '') + 'ASCE Conferences Styleguide'
-    - var main_h1 = 'ASCE Conferences Styleguide' + (heading ? ' — ' + heading : '')
-    title= title
+    title= title(titles)
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(name="author" content=authors)
     meta(name="description" content=description)
     meta(name="keywords" content=keywords)
-    block style
+    block styles
       link(rel="stylesheet" href="node_modules/xmeter/xmeter.min.css")
       link(rel="stylesheet" href="node_modules/bangs/bangs.min.css")
       link(rel="stylesheet" href="styles/styleguide.css")
@@ -22,7 +23,8 @@ html(lang="en")
       block main
         header
           block main_header
-            h1(itemprop="name headline")= main_h1
+            h1&attributes(main_itemtype ? {itemprop: 'name headline'} : {})
+              = mainH1(titles)
             if docmeta
               dl._docmeta
                 dt Authors

@@ -1,12 +1,12 @@
 extends lib.tpl.jade
 
-block vars
-  - var heading = 'Base Typography'
+block append vars
+  - titles.push('Base Typography')
 
 block main
   include ../node_modules/xmeter/doc/include/_main-content.jade
   +main-content({
-    main_heading: main_h1
+    main_heading: mainH1(titles)
   , classnames: {
       code : 'sg-c-Code'
     , figure : 'sg-c-Fig'

@@ -1,14 +1,14 @@
 extends index.tpl.jade
 
 block vars
-  - var heading = 'Coding Style'
+  - titles.push('Coding Style')
   - var authors = ['Chris Harvey']
   - var description = 'Coding principles for conference sites.'
   - var keywords = ['style guide','coding','HTML','CSS']
   - var main_itemtype = 'http://schema.org/TechArticle'
   - var docmeta = true
 
-block append style
+block append styles
   style.
     table.demo th,
     table.demo td {

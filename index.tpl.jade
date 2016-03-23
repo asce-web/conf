@@ -22,7 +22,7 @@ html(lang="en")
     main&attributes(main_itemtype ? {itemscope: '', itemtype: main_itemtype} : {})
       block main
         header
-          block main_header
+          block main__header
             h1&attributes(main_itemtype ? {itemprop: 'name headline'} : {})
               = mainH1(titles)
             if docmeta

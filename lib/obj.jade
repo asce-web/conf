@@ -8,14 +8,14 @@ block append main__header
     h2 Table of Contents
     ol
       li: a(href="#table-contents") Table of Contents
-      li: a(href="#o-Block") The Block Object
-      li: a(href="#o-Inline") The Inline Object
-      li: a(href="#o-ListBare") The Bare List
-      li: a(href="#o-GridFlex") The Flex Grid
-      li: a(href="#o-GridFloat") The Float Grid
+      li: a(href="#block-object") The Block Object
+      li: a(href="#inline-object") The Inline Object
+      li: a(href="#bare-list") The Bare List
+      li: a(href="#flex-grid") The Flex Grid
+      li: a(href="#float-grid") The Float Grid
 
 block append main
-  section.sg-sect#o-Block
+  section.sg-sect#block-object
     h2 The Block Object
     figure.sg-c-Fig
       div.
@@ -24,7 +24,7 @@ block append main
         with an inherited line-height to maintain vertical rhythm.
       pre.sg-c-Code.sg-c-Code--block.
         ... to display an element as a &lt;span class="#[u o-Block]"&gt;block element,&lt;/span&gt; with ...
-  section.sg-sect#o-Inline
+  section.sg-sect#inline-object
     h2 The Inline Object
     p.
       A simple inline object. Use this class to display an element as an
@@ -47,7 +47,7 @@ block append main
           &lt;li class="#[u o-Inline]"&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
           ...
         &lt;/ul&gt;
-  section.sg-sect#o-ListBare
+  section.sg-sect#bare-list
     h2 The Bare List
     p.
       Use the Bare List object to remove the usual padding and list item markers accompanied by
@@ -67,7 +67,7 @@ block append main
           &lt;li&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
           ...
         &lt;/ul&gt;
-  section.sg-sect#o-GridFlex
+  section.sg-sect#flex-grid
     h2 The Flex Grid
     p.
       A Flex Grid is simply a list of items arranged like blocks in a grid.
@@ -114,7 +114,7 @@ block append main
           &lt;li class="#[u o-GridFlex__Item]"&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
           ...
         &lt;/ul&gt;
-  section.sg-sect#o-GridFloat
+  section.sg-sect#float-grid
     h2 The Float Grid
     p.
       The Float Grid works just like the Flex Grid object above, except that this object

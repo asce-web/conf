@@ -50,10 +50,13 @@ block main
           1st,
           #[q superscripted ordinals are tiny and hard to read]
           #[cite (Matthew Butterick, #[time 2014])],
-          but 2nd, and more importantly,
+          and 2nd, you should really be spelling out these ordinal numbers in the first place.
+          But third, and most importantly,
           the semantics would remain the same even if the superscript were removed.
           Use super/subscripts only when changing them to normal text would
           drastically affect their meaning. For example,
+          #[i 1#[span(style="font-size:smaller;vertical-align:super;") st]] means the same thing as #[i 1st];
+          however, this does not hold
           in math: #[u f(x) = a#[sub 0]x#[sup 2] + a#[sub 1]x + a#[sub 2]],
           in chemical formulae: #[u dihydgogen oxide, or H#[sub 2]O, is commonly known as water], and
           in French abbreviations: #[u #[abbr(title="Mademoiselle") M#[sup lle]] Juliette].

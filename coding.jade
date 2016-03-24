@@ -25,18 +25,27 @@ block version_history
   dd
     time(datetime="2016-02-15 18:33" itemprop="dateCreated") Feb 15, 2016 #[span.tod  6:33 PM]
   dd: time(datetime="2016-02-15 14:31") Feb 16, 2016 #[span.tod  2:31 PM]
+  dd: time(datetime="2016-03-07 17:18") Mar  7, 2016 #[span.tod  5:18 PM]
+  dd: time(datetime="2016-03-08 15:33") Mar  8, 2016 #[span.tod  3:33 PM]
+  dd: time(datetime="2016-03-09 15:25") Mar  9, 2016 #[span.tod  3:25 PM]
   dd
-    time(datetime="2016-03-07 17:18" itemprop="dateModified") Mar  7, 2016 #[span.tod  5:18 PM]
+    time(datetime="2016-03-24 11:00" itemprop="dateModified") Mar 24, 2016 #[span.tod 11:00 AM]
 
 block append main_header
   nav#table-contents
-      h2 Table of Contents
-      ol
-        li: a(href="#table-contents") Table of Contents
-        li
-          a(href="#textual-structure") Textual Structure
-          ol
-            li: a(href="#whitespace") Whitespace
+    h2 Table of Contents
+    ol
+      li: a(href="#table-contents") Table of Contents
+      li
+        a(href="#textual-structure") Textual Structure
+        ol
+          li: a(href="#whitespace") Whitespace
+          li
+            a(href="#line-breaks-line-length") Line Breaks &amp; Line Length
+            ol: li: a(href="#exceptions") Exceptions
+          li: a(href="#indentation") Indentation
+          li: a(href="#html-specifics-example") HTML Specifics &amp; Example
+          li: a(href="#css-specifics-example") CSS Specifics &amp; Example
             li
               a(href="#line-breaks") Line Breaks
               ol: li: a(href="#exceptions") Exceptions
@@ -75,7 +84,6 @@ block append main_header
                 li: a(href="#table-contents-1") Table of Contents
                 li: a(href="#section-and-subsection-headings") Section and Subsection Headings
             //- li: a(href="#js-class-files") JS Class Files
-
 block append main
   p.
     #[strong General Principles.] As
@@ -102,11 +110,16 @@ block append main
         li Always use spaces, never tabs.
         li Never leave trailing whitespace at the end of a line.
         li Use spaces to horizontally align repeated text.
-    section#line-breaks
-      h3 Line Breaks
+    section#line-breaks-line-length
+      h3 Line Breaks #[ins(datetime="2016-03-08 15:33") &amp; Line Length]
       ul
         li Blank lines are permitted, but only if they do not contain any spaces.
         li Use blank lines #[em only] to separate code structures and improve readability.
+        li: ins(datetime="2016-03-08 15:33") Keep lines of all code between 75&ndash;90 characters long to maximize readability.
+        li: ins(datetime="2016-03-08 15:33").
+          When writing long passages of prose (in HTML, etc.), use
+          hard line breaks to wrap text. This will help diff tools and
+          reduce merge conflicts.
       section#exceptions
         h4 Exceptions
         ul
@@ -116,10 +129,6 @@ block append main
       h3 Indentation
       ul
         li Use exactly two (2) spaces for each indent level.
-    section#line-length
-      h3 Line Length
-      ul
-        li Keep lines of all code between 75&ndash;90 characters long to maximize readability.
     section#html-specifics-example
       h3 HTML Specifics &amp; Example
       figure: pre.sg-c-Code.sg-c-Code--block.

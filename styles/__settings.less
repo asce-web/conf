@@ -14,11 +14,14 @@
 //++++++++++++++++++++++++++++++++//
 //    # BOX PADDING
 //++++++++++++++++++++++++++++++++//
-@g-boxpadding:   (0.125 * @g-vru) 0.25rem;
-@g-boxpadding_K: (0.250 * @g-vru) 0.50rem;
-@g-boxpadding_M: (0.500 * @g-vru) 1.00rem;
-@g-boxpadding_G: (1.000 * @g-vru) 2.00rem;
-@g-boxpadding_T: (2.000 * @g-vru) 4.00rem;
+@g-boxpadd_micr: (@g-vru/8)    (1rem*0.25); //  3px   4px
+@g-boxpadd_mill: (@g-vru*0.25) (1rem*0.50); //  6px   8px
+@g-boxpadd_norm: (@g-vru*0.50) (1rem*1.00); // 12px  16px
+@g-boxpadd_kilo: (@g-vru*1.00) (1rem*2.00); // 24px  32px
+@g-boxpadd_mega: (@g-vru*1.50) (1rem*3.00); // 36px  48px
+@g-boxpadd_giga: (@g-vru*2.00) (1rem*4.00); // 48px  64px
+@g-boxpadd_tera: (@g-vru*3.00) (1rem*6.00); // 72px  96px
+@g-boxpadd_peta: (@g-vru*4.00) (1rem*8.00); // 96px 128px
 //++++ end # BOX PADDING ++++ //
 
 

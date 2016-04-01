@@ -8,6 +8,8 @@
 // A highlighted section.
 // These are sections acting as "mini-pages" or "rows" on a large scrolly page.
 //
+// ^subcomponents
+// __Hn - a heading for the highlighted section
 // ^related
 // Runner - basically the same as Highlight but different padding. used for <header> and <footer>.
 // ^author
@@ -24,6 +26,12 @@
 .o-Highlight {
   .transition(padding, 250ms);
   padding: @g-boxpadd_norm;
+  .t-Callouts &:nth-of-type(even) {
+    background-color: rgba(0,0,0,0.1);
+  }
+}
+.o-Highlight__Hn {
+  text-align: center;
 }
 
 .o-Runner {

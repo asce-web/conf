@@ -12,7 +12,7 @@ block main
       p: span Get Details
   +action-buttons()
   section.o-Highlight
-    h1 About
+    h1.o-Highlight__Hn About
     p.
       Elevator pitch. One–two paragraphs. Sentence case.
       Join civil engineering professionals from around the world at
@@ -21,25 +21,30 @@ block main
     p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
   section(itemscope="" itemtype="http://schema.org/Event")
     a.o-GridFlex.o-Highlight(style="background-color: #c0ffee" href="" itemprop="url")
-      div.o-GridFlex__Item.-w-1o2-sK
+      div.o-GridFlex__Item.-w-1o2-sM
         h1(itemprop="name") ASCE Convention 2015
         meta(content="2015-10-11" itemprop="startDate")
         p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
           span(itemprop="name")
             span(itemprop="addressLocality") New York, 
             abbr(itemprop="addressRegion" title="New York") NY
-      p.o-GridFlex__Item.-w-1o2-sK.
+      p.o-GridFlex__Item.-w-1o2-sM.
         Access the 2015 program to see which sessions qualify for
         PDHs and other documentation.
   section(itemscope="" itemtype="http://schema.org/Event")
     a.o-GridFlex.o-Highlight(style="background-color: #bada55" href="" itemprop="url")
-      div.o-GridFlex__Item.-w-1o2-sK
+      div.o-GridFlex__Item.-w-1o2-sM
         h1(itemprop="name") ASCE Convention 2017
         meta(content="2017-10-11" itemprop="startDate")
         p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
           span(itemprop="name")
             span(itemprop="addressLocality") Chicago, 
             abbr(itemprop="addressRegion" title="Illinois") IL
-      p.o-GridFlex__Item.-w-1o2-sK.
+      p.o-GridFlex__Item.-w-1o2-sM.
         Plan ahead to attend, sponsor, or exhibit at the
         annual convention for civil engineering professionals.
+
+block callouts
+  aside.o-Highlight
+    h1.o-Highlight__Hn Sponsors
+    +sponsor-block()

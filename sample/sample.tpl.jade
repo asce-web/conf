@@ -72,8 +72,8 @@ html(lang="en")
             button.o-Block.c-Mast__Nav__ButtonContainer__MenuButton menu
             a.o-Block.c-Mast__Nav__ButtonContainer__CurrentButton(href="") 2016 Convention
       unless page_type === 'landing'
-        nav
-          ul.o-BodyChild.o-ListBare.o-GridFlex.c-MenuStandard
+        nav.o-BodyChild.c-MenuStandard
+          ul.o-ListBare.o-GridFlex.-mb-z
             li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="") Home
             li.o-GridFlex__Item.c-MenuStandard__Item
@@ -100,7 +100,7 @@ html(lang="en")
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Call for Submissions
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Our Lineup
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Become a Speaker
-    main.o-BodyChild
+    main
       block main
     footer.o-GridFlex.o-BodyChild.c-Mast(itemscope="" itemtype="http://schema.org/NGO")
       section.o-GridFlex__Item.-w-1o2-sM

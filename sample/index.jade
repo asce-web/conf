@@ -4,7 +4,7 @@ block append vars
   - var page_type = 'landing'
 
 block main
-  section.c-Hero.o-BodyChild__Inv(itemscope="" itemtype="http://schema.org/Event")
+  section.c-Hero(itemscope="" itemtype="http://schema.org/Event")
     a.o-Block(href="" itemprop="url")
       h1(itemprop="name")= conference_name
       +time-place()

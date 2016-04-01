@@ -5,12 +5,12 @@ block append vars
 
 block main
   section(itemscope="" itemtype="http://schema.org/Event")
-    header.c-Hero
+    header.o-Highlight.c-Hero
       h1.-d-n(itemprop="name") #{conference_name} Home
       p(itemprop="description")= theme
       +time-place()
     +action-buttons()
-    section.this-is-editable
+    section.o-Highlight.this-is-editable
       p: strong(style="color: red;") Editable section.
       p.
         More prose about this specific year goes here.
@@ -22,18 +22,17 @@ block main
         li 15 tracks and 6 plenary sessions focusing on ...
         li Prestigious awards and keynote lecture presentations
         li Lively programs for studdnts and young professionals
-    div.o-GridFlex
-      aside.o-GridFlex__Item.c-Callout
-        h1 Important Dates
-        +important-date-block()
-      aside.o-GridFlex__Item.c-Callout
-        h1 Keynote Speakers
-        div.o-GridFlex.c-Speaker
-          div.o-GridFlex__Item: img(src="/" alt="")
-          p.o-GridFlex__Item
-            span.o-Block Donald Trump, Ph.D.
-            span.o-Block Author, #[cite The Art of the Deal]
-        p
-          span Opening Plenary, 
-          time(datetime="2015-11-16") Monday Nov 16
-        p: a(href="") Speaker Details
+    aside.o-Highlight
+      h1 Important Dates
+      +important-date-block()
+    aside.o-Highlight
+      h1 Keynote Speakers
+      div.o-GridFlex.c-Speaker
+        div.o-GridFlex__Item: img(src="/" alt="")
+        p.o-GridFlex__Item
+          span.o-Block Donald Trump, Ph.D.
+          span.o-Block Author, #[cite The Art of the Deal]
+      p
+        span Opening Plenary, 
+        time(datetime="2015-11-16") Monday Nov 16
+      p: a(href="") Speaker Details

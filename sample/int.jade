@@ -7,10 +7,10 @@ block append vars
 
 block main
   section
-    header.c-Hero(style="padding: 4rem 0 2rem; text-align: left;")
+    header.o-Highlight.c-Hero(style="padding: 4rem 0 2rem; text-align: left;")
       h1(style="padding-top: 1rem; margin-top: 2rem; padding-bottom: 1rem; margin-bottom: 0.5rem; padding-left: 1rem; background-color: rgba(0,0,0,0.25);").
         #[span.-d-n= conference_name + ' — ']Hotel &amp; Travel
-    section.this-is-editable
+    section.o-Highlight.this-is-editable
       p: strong(style="color: red;") Editable section.
       h2 Hotel Information
       p.
@@ -50,14 +50,13 @@ block main
         which is overly redundant for a web page.
       h3 Taxi Service
       p About $25 one-way from airport to hotel. See, that wasn&rsquo;t so bad, was it?
-    div.o-GridFlex
-      aside.o-GridFlex__Item.c-Callout
-        h1 Questions?
-        ul.o-ListBare
-          li: a(href="") (800) 548-2723
-          li: a(href="") +1 (703) 295-6300
-          li: a(href="") registrations@asce.org
-        p: ins This callout isn&rsquo;t necessary with the same information in the footer.
-      aside.o-GridFlex__Item.c-Callout
-        h1 Important Dates
-        +important-date-block()
+    aside.o-Highlight
+      h1 Questions?
+      ul.o-ListBare
+        li: a(href="") (800) 548-2723
+        li: a(href="") +1 (703) 295-6300
+        li: a(href="") registrations@asce.org
+      p: ins This callout isn&rsquo;t necessary with the same information in the footer.
+    aside.o-Highlight
+      h1 Important Dates
+      +important-date-block()

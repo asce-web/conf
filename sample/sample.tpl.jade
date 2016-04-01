@@ -58,7 +58,7 @@ html(lang="en")
         +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes')
         +row('2016','Jan','12', '2016-01-12','Advance Registration Closes')
     header
-      div.o-BodyChild.o-GridFlex.c-Mast
+      div.o-GridFlex.o-Runner.c-Mast
         a.o-GridFlex__Item.o-Block.c-Mast__Title(href="")
           h1= site_title
           p= tagline
@@ -72,7 +72,7 @@ html(lang="en")
             button.o-Block.c-Mast__Nav__ButtonContainer__MenuButton menu
             a.o-Block.c-Mast__Nav__ButtonContainer__CurrentButton(href="") 2016 Convention
       unless page_type === 'landing'
-        nav.o-BodyChild.c-MenuStandard
+        nav.o-Runner.c-MenuStandard.-pv-0
           ul.o-ListBare.o-GridFlex.-mb-z
             li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="") Home
@@ -102,7 +102,7 @@ html(lang="en")
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Become a Speaker
     main
       block main
-    footer.o-GridFlex.o-BodyChild.c-Mast(itemscope="" itemtype="http://schema.org/NGO")
+    footer.o-GridFlex.o-Runner.c-Mast.-pb-0(itemscope="" itemtype="http://schema.org/NGO")
       section.o-GridFlex__Item.-w-1o2-sM
         h1 Contact Us
         address(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
@@ -120,6 +120,6 @@ html(lang="en")
           li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") Twitter
           li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") YouTube
           li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") Google+
-      div.o-GridFlex__Item.o-BodyChild__Inv.c-Copyright
-        a.o-Block.c-Copyright__Link(href="http://www.asce.org" itemprop="url").
-          &copy; #[time 1996]&ndash;#[time 2016], #[span(itemprop="name") American Society of Civil Engineers]
+      div.o-GridFlex__Item.c-Copyright
+        a.o-Block.c-Copyright__Link.-c-w(href="http://www.asce.org" itemprop="url").
+          &copy; #[time 1996]&ndash;#[time 2016] #[span(itemprop="name") American Society of Civil Engineers]

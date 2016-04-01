@@ -1,0 +1,73 @@
+
+/*################################*\
+    conf  |  _obj.Highlight.less
+\*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
+
+
+// A highlighted section.
+// These are sections acting as "mini-pages" or "rows" on a large scrolly page.
+//
+// ^related
+// Runner - basically the same as Highlight but different padding. used for <header> and <footer>.
+// ^author
+// : Chris Harvey
+// ^updated
+// 2016-04-01
+.p-mx-copyright(@padding_h) {
+  width: calc(~'100% + ' (2*@padding_h)); // because can’t use `width: auto` for `GridFlex__Item` objects
+  margin-left:  -@padding_h;
+  margin-right: -@padding_h;
+}
+
+
+.o-Highlight {
+  .transition(padding, 250ms);
+  padding: @g-boxpadd_norm;
+}
+
+.o-Runner {
+  .transition(padding, 250ms);
+  padding: @g-boxpadd_micr;
+}
+
+// HACK anomaly
+// not placed in `comp.Copyright.less` because of object-like styles
+// dependent on `.o-Runner`
+.c-Copyright {
+  .p-mx-copyright(0.25rem); // @g-boxpadd_micr horizontal
+}
+
+@media screen and (min-width: 30em) {
+  .o-Highlight {
+    padding: @g-boxpadd_kilo;
+  }
+  .o-Runner {
+    padding: @g-boxpadd_mill;
+  }
+  .c-Copyright {
+    .p-mx-copyright(0.50rem); // @g-boxpadd_mill horizontal
+  }
+}
+@media screen and (min-width: 45em) {
+  .o-Highlight {
+    padding: @g-boxpadd_giga;
+  }
+  .o-Runner {
+    padding: @g-boxpadd_norm;
+  }
+  .c-Copyright {
+    .p-mx-copyright(1.00rem); // @g-boxpadd_norm horizontal
+  }
+}
+@media screen and (min-width: 60em) {
+  .o-Highlight {
+    padding: @g-boxpadd_peta;
+  }
+  .o-Runner {
+    padding: @g-boxpadd_kilo;
+  }
+  .c-Copyright {
+    .p-mx-copyright(2.00rem); // @g-boxpadd_kilo horizontal
+  }
+}

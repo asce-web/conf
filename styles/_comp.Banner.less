@@ -19,15 +19,29 @@
 // ^updated
 // 2016-04-04
 .c-Banner {
+  position: relative;
   color: @g-color_asce_header_txt;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-color: @g-color_site_primary;
+  &::before {
+    content: '\00a0';
+    display: block;
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    z-index: -1;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    @filter: blur(2px);
+    -webkit-filter: @filter;
+       -moz-filter: @filter;
+         -o-filter: @filter;
+        -ms-filter: @filter;
+            filter: @filter;
+  }
 }
-.c-Banner--landing  {} // set in site-specific stylesheet
-.c-Banner--prev     {} // set in site-specific stylesheet
-.c-Banner--next     {} // set in site-specific stylesheet
-.c-Banner--home     {} // set in site-specific stylesheet
-.c-Banner--location {} // set in site-specific stylesheet
+// set background-images in site-specific stylesheet
+.c-Banner--landing::before {}
+.c-Banner--prev::before {}
+.c-Banner--next::before {}
+.c-Banner--home::before {}
+.c-Banner--location::before {}

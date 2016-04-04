@@ -2,13 +2,15 @@ extends sample.tpl.jade
 
 block append vars
   - var page_type = 'home'
+  - var tag_title = conference_name
+  - var tag_meta_description = conference_theme
 
 block main
   section(itemscope="" itemtype="http://schema.org/Event")
     header.o-Highlight.c-Hero
-      h1.-d-n(itemprop="name") #{conference_name} Home
-      p(itemprop="description")= theme
+      h1(itemprop="name") #{conference_name} Home
       +time-place()
+      p(itemprop="description")= conference_theme
     +action-buttons()
     section.o-Highlight.this-is-editable
       p.

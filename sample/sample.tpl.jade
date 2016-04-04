@@ -3,27 +3,16 @@ html(lang="en")
   head
     block vars
       - var site_title = 'ASCE Convention'
-      - var tagline = 'The Flagship Event for ASCE'
+      - var site_tagline = 'The Flagship Event of ASCE'
       - var conference_name = 'ASCE 2016'
-      - var theme = 'Mainstremaing green infrastructure.'
-      - var keywords = ['ASCE', 'civil engineering', 'convention']
-      -
-        var tag_title = {
-          landing:  function (str) { return site_title }
-        , brand:    function (str) { return str + ' | ' + site_title }
-        , home:     function (str) { return conference_name }
-        , interior: function (str) { return str + ' | ' + conference_name }
-        }
-        var tag_meta_description = {
-          landing:  function (str) { return tagline }
-        , brand:    function (str) { return str }
-        , home:     function (str) { return theme }
-        , interior: function (str) { return str }
-        }
-    title= page_type ? tag_title[page_type](page_name) : ''
+      - var conference_theme = 'Engineering > Innovating > Leading'
+      - var tag_title = ''
+      - var tag_meta_description = ''
+      - var tag_meta_keywords = ['ASCE', 'civil engineering', 'convention']
+    title= tag_title
     meta(charset="utf-8")
-    meta(name="description" content=(page_type ? tag_meta_description[page_type](page_description) : ''))
-    meta(name="keywords" content=keywords)
+    meta(name="description" content=tag_meta_description)
+    meta(name="keywords" content=tag_meta_keywords)
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel="stylesheet" href="../node_modules/xmeter/xmeter.min.css")
     link(rel="stylesheet" href="../node_modules/bangs/bangs.min.css")
@@ -99,7 +88,7 @@ html(lang="en")
       div.o-GridFlex.o-Runner.c-Mast
         a.o-GridFlex__Item.o-Block.c-Mast__Title(href="")
           h1= site_title
-          p= tagline
+          p= site_tagline
         nav.o-GridFlex__Item.o-GridFlex.c-Mast__Nav
           ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
             li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") About

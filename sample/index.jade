@@ -2,13 +2,15 @@ extends sample.tpl.jade
 
 block append vars
   - var page_type = 'landing'
+  - var tag_title = site_title
+  - var tag_meta_description = site_tagline
 
 block main
   section(itemscope="" itemtype="http://schema.org/Event")
     a.o-Block.o-Highlight.c-Hero(href="" itemprop="url")
       h1(itemprop="name")= conference_name
       +time-place()
-      p(itemprop="description")= theme
+      p(itemprop="description")= conference_theme
       p: span Get Details
   +action-buttons()
   section.o-Highlight

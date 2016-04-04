@@ -30,7 +30,19 @@ html(lang="en")
     link(rel="stylesheet" href="../styles/conf.css")
     block style
       style.
-        section.this-is-editable { background-color: rgba(255, 219, 64, 0.64); }
+        main {
+          border-left: 4px solid #0f0;
+        }
+        .this-is-editable {
+          background-color: rgba(255, 219, 64, 0.64);
+        }
+        .this-is-editable::before {
+          content: 'Editable section.';
+          display: block;
+          margin-bottom: 1.5rem;
+          font-weight: 900;
+          color: red;
+        }
   body
     mixin action-buttons()
       ul.o-ListBare.o-GridFlex.o-ListStacked
@@ -48,17 +60,43 @@ html(lang="en")
           | &ndash;
           time(datetime="2016-10-01" itemprop="endDate") Oct 1
     mixin important-date-block()
-      mixin row(year, month, day, datetime, description)
-        dt.o-GridFlex__Item: time.o-Block(datetime=datetime)
-          span.o-Block= month + ' ' + day
-          span.o-Block= year
-        dd.o-GridFlex__Item= description
       dl.o-GridFlex.c-DateBlock
+        mixin row(year, month, day, datetime, description)
+          dt.o-GridFlex__Item: time.o-Block(datetime=datetime)
+            span.o-Block= month + ' ' + day
+            span.o-Block= year
+          dd.o-GridFlex__Item= description
         +row('2015','Oct','12', '2015-10-12','Optional Final Papers Due')
         +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes')
         +row('2016','Jan','12', '2016-01-12','Advance Registration Closes')
+    mixin program-block(classes, datetext, data)
+      section.o-GridFlex__Item(class=classes)
+        h1= datetext
+        dl.o-GridFlex.c-TimeBlock
+          mixin row(starttime, endtime, description)
+            dt.o-GridFlex__Item
+              span= starttime
+              | –
+              span= endtime
+            dd.o-GridFlex__Item= description
+          each val in data
+            +row(val.starttime, val.endtime, val.description)
+    mixin sponsor-block()
+      mixin sponsortype(category)
+        section
+          h1= category
+          ul.o-ListBare.o-GridFlex.o-ListStacked
+            li.o-GridFlex__Item.o-ListStacked__Item: a(href="" title="")
+            li.o-GridFlex__Item.o-ListStacked__Item: a(href="" title="")
+            li.o-GridFlex__Item.o-ListStacked__Item: a(href="" title="")
+      +sponsortype('Platinum')
+      +sponsortype('Gold')
+      +sponsortype('Corporate Sponsors')
+      +sponsortype('Silver')
+      +sponsortype('Bronze')
+      +sponsortype('Copper')
     header
-      div.o-BodyChild.o-GridFlex.c-Mast
+      div.o-GridFlex.o-Runner.c-Mast
         a.o-GridFlex__Item.o-Block.c-Mast__Title(href="")
           h1= site_title
           p= tagline
@@ -72,8 +110,8 @@ html(lang="en")
             button.o-Block.c-Mast__Nav__ButtonContainer__MenuButton menu
             a.o-Block.c-Mast__Nav__ButtonContainer__CurrentButton(href="") 2016 Convention
       unless page_type === 'landing'
-        nav
-          ul.o-BodyChild.o-ListBare.o-GridFlex.c-MenuStandard
+        nav.o-Runner.c-MenuStandard.-pv-0
+          ul.o-ListBare.o-GridFlex.-mb-z
             li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="") Home
             li.o-GridFlex__Item.c-MenuStandard__Item
@@ -100,9 +138,11 @@ html(lang="en")
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Call for Submissions
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Our Lineup
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Become a Speaker
-    main.o-BodyChild
+    main
       block main
-    footer.o-GridFlex.o-BodyChild.c-Mast(itemscope="" itemtype="http://schema.org/NGO")
+    div.t-Callouts
+      block callouts
+    footer.o-GridFlex.o-Runner.c-Mast.-pb-0(itemscope="" itemtype="http://schema.org/NGO")
       section.o-GridFlex__Item.-w-1o2-sM
         h1 Contact Us
         address(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
@@ -120,6 +160,6 @@ html(lang="en")
           li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") Twitter
           li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") YouTube
           li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="" itemprop="sameAs") Google+
-      div.o-GridFlex__Item.o-BodyChild__Inv.c-Copyright
-        a.o-Block.c-Copyright__Link(href="http://www.asce.org" itemprop="url").
-          &copy; #[time 1996]&ndash;#[time 2016], #[span(itemprop="name") American Society of Civil Engineers]
+      div.o-GridFlex__Item.c-Copyright
+        a.o-Block.c-Copyright__Link.-c-w(href="http://www.asce.org" itemprop="url").
+          &copy; #[time 1996]&ndash;#[time 2016] #[span(itemprop="name") American Society of Civil Engineers]

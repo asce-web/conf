@@ -5,13 +5,12 @@ block append vars
 
 block main
   section(itemscope="" itemtype="http://schema.org/Event")
-    header.o-BodyChild__Inv.c-Hero
+    header.o-Highlight.c-Hero
       h1.-d-n(itemprop="name") #{conference_name} Home
       p(itemprop="description")= theme
       +time-place()
     +action-buttons()
-    section.this-is-editable
-      p: strong(style="color: red;") Editable section.
+    section.o-Highlight.this-is-editable
       p.
         More prose about this specific year goes here.
         The Geo-Institute and Structural Engineering Institute of the
@@ -22,18 +21,42 @@ block main
         li 15 tracks and 6 plenary sessions focusing on ...
         li Prestigious awards and keynote lecture presentations
         li Lively programs for studdnts and young professionals
+
+block callouts
+  aside.o-Highlight
+    h1.o-Highlight__Hn Important Dates
+    +important-date-block()
+  aside.o-Highlight
+    h1.o-Highlight__Hn Speakers
+    ul.o-ListBare.o-GridFlex.o-ListStacked
+      each val in [1,2,3]
+        li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
+          //- img.o-Block(src="/" alt="")
+          p.c-Speaker__Name Donald Trump, Ph.D.
+          p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
+    p.-ta-c: a(href="") View All Speakers
+  aside.o-Highlight
+    h1.o-Highlight__Hn Conference Co-Chairs
+    ul.o-ListBare.o-GridFlex.o-ListStacked
+      each val in [1,2]
+        li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
+          //- img.o-Block(src="/" alt="")
+          p.c-Speaker__Name Donald Trump, Ph.D.
+          p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
+  aside.o-Highlight
+    h1.o-Highlight__Hn Program
     div.o-GridFlex
-      aside.o-GridFlex__Item.c-Callout
-        h1 Important Dates
-        +important-date-block()
-      aside.o-GridFlex__Item.c-Callout
-        h1 Keynote Speakers
-        div.o-GridFlex.c-Speaker
-          div.o-GridFlex__Item: img(src="/" alt="")
-          p.o-GridFlex__Item
-            span.o-Block Donald Trump, Ph.D.
-            span.o-Block Author, #[cite The Art of the Deal]
-        p
-          span Opening Plenary, 
-          time(datetime="2015-11-16") Monday Nov 16
-        p: a(href="") Speaker Details
+      +program-block(['o-GridFlex__Item','-w-1o2'], 'Wednesday, April 5', [
+        { starttime: '7am', endtime: 'Noon', description: 'General Services Contractor Setup' }
+      , { starttime: '8am', endtime: '11pm', description: 'Committee Meetings' }
+      , { starttime: 'Noon', endtime: '6pm', description: 'Registration & ASCE Bookstore Hours' }
+      ])
+      +program-block(['o-GridFlex__Item','-w-1o2'], 'Thursday, April 6', [
+        { starttime: '07:00', endtime: '08:00', description: 'Continental Breakfast' }
+      , { starttime: '09:30', endtime: '10:00', description: 'Morning Refreshment Break' }
+      , { starttime: '18:30', endtime: '20:00', description: 'Welcome Reception' }
+      ])
+    p.-ta-c: a(href="") View Full Program
+  aside.o-Highlight
+    h1.o-Highlight__Hn Sponsors
+    +sponsor-block()

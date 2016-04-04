@@ -20,6 +20,7 @@
 // 2016-04-04
 .c-Banner {
   position: relative;
+  text-align: center;
   color: @g-color_asce_header_txt;
   &::before {
     content: '\00a0';
@@ -45,3 +46,9 @@
 .c-Banner--next::before {}
 .c-Banner--home::before {}
 .c-Banner--location::before {}
+
+.c-Banner__OtherYearDesc {
+  @media screen and (max-width: 44.999em) {
+    display: none;
+  }
+}

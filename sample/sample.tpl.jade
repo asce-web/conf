@@ -20,17 +20,30 @@ html(lang="en")
     block style
       style.
         main {
-          border-left: 4px solid #0f0;
+          border-left: 8px solid #0ee;
         }
-        .this-is-editable {
-          background-color: rgba(255, 219, 64, 0.64);
+        .t-Callouts {
+          border-left: 8px solid #e0e;
         }
-        .this-is-editable::before {
-          content: 'Editable section.';
+        .is-editable {
+          background-color: rgba(219, 255, 64, 0.64);
+        }
+        .is-editable::before {
+          content: 'editable content block (no heading)';
           display: block;
           margin-bottom: 1.5rem;
           font-weight: 900;
+          text-transform: uppercase;
           color: red;
+        }
+        section.is-editable {
+          background-color: rgba(255, 219, 64, 0.64);
+        }
+        section.is-editable::before {
+          content: 'editable <section> with heading';
+        }
+        [itemtype$="Event"] {
+            outline: 8px dotted #e00;
         }
   body
     mixin action-buttons()
@@ -127,10 +140,12 @@ html(lang="en")
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Call for Submissions
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Our Lineup
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Become a Speaker
-    main
-      block main
-    div.t-Callouts
-      block callouts
+    block dominant
+      section(itemscope="" itemtype="http://schema.org/Event")
+        main
+          block highlights_main
+        div.t-Callouts
+          block highlights_callouts
     footer.o-GridFlex.o-Runner.c-Mast.-pb-0(itemscope="" itemtype="http://schema.org/NGO")
       section.o-GridFlex__Item.-w-1o2-sM
         h1 Contact Us

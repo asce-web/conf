@@ -5,14 +5,15 @@ block append vars
   - var tag_title = conference_name
   - var tag_meta_description = conference_theme
 
-block main
-  section(itemscope="" itemtype="http://schema.org/Event")
-    header.o-Highlight.c-Hero
-      h1(itemprop="name") #{conference_name} Home
-      +time-place()
-      p(itemprop="description")= conference_theme
+block highlights_main
+  header.o-Highlight.c-Hero
+    h1(itemprop="name")= conference_name
+    +time-place()
+    p(itemprop="description")= conference_theme
     +action-buttons()
-    section.o-Highlight.this-is-editable
+  section.o-Highlight
+    h1.o-Highlight__Hn About
+    div.is-editable
       p.
         More prose about this specific year goes here.
         The Geo-Institute and Structural Engineering Institute of the
@@ -24,7 +25,7 @@ block main
         li Prestigious awards and keynote lecture presentations
         li Lively programs for studdnts and young professionals
 
-block callouts
+block highlights_callouts
   aside.o-Highlight
     h1.o-Highlight__Hn Important Dates
     +important-date-block()

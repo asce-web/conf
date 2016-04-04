@@ -7,6 +7,9 @@
 
 // Most prominent section or feature on a page.
 //
+// ^subcomponents
+// __HnInterior - on an interior page, a heading inside the hero section.
+//                right now this is only used on the Hotel & Travel page.
 // ^author
 // Chris Harvey
 // ^updated
@@ -16,4 +19,14 @@
   background-color: #074d1c;
   background-image: none; // TODO add image
   color: @g-color_asce_header_txt;
+}
+
+.c-Hero__HnInterior {
+  position: relative;
+  left:  -50%;
+  width: 200%;
+  padding: @g-vru 0;
+  margin: 0;
+  margin-top: 4*@g-vru;
+  background-color: rgba(0,0,0,0.25);
 }

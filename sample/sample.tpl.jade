@@ -46,8 +46,8 @@ html(lang="en")
         li.o-GridFlex__Item.o-ListStacked__Item: a(href="") Registor Today
         li.o-GridFlex__Item.o-ListStacked__Item: a(href="") Become A Sponsor
         li.o-GridFlex__Item.o-ListStacked__Item: a(href="") Submit Papers
-    mixin time-place()
-      p.o-GridFlex.o-ListStacked
+    mixin date-place()
+      p.o-GridFlex.o-ListStacked.-xjc-c
         span.o-GridFlex__Item.o-Block.o-ListStacked__Item(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
           span(itemprop="name")
             span(itemprop="addressLocality") Portland, 
@@ -79,19 +79,26 @@ html(lang="en")
           each val in data
             +row(val.starttime, val.endtime, val.description)
     mixin sponsor-block()
-      mixin sponsortype(category)
-        section
-          h1= category
-          ul.o-ListBare.o-GridFlex.o-ListStacked
-            li.o-GridFlex__Item.o-ListStacked__Item: a(href="" title="")
-            li.o-GridFlex__Item.o-ListStacked__Item: a(href="" title="")
-            li.o-GridFlex__Item.o-ListStacked__Item: a(href="" title="")
-      +sponsortype('Platinum')
-      +sponsortype('Gold')
-      +sponsortype('Corporate Sponsors')
-      +sponsortype('Silver')
-      +sponsortype('Bronze')
-      +sponsortype('Copper')
+      mixin sponsortype(category, category_class, spons)
+        section.o-Highlight.c-SponsorBlock(class='c-SponsorBlock--'+category_class)
+          h1.o-Highlight__Hn= category
+          ul.o-ListBare.o-GridFlex.o-ListSponsors
+            each item in spons
+              if (category_class !== 'bronze') && (category_class !== 'copper')
+                - var logosizes = { premier: 'lrg', platinum: 'lrg', gold: 'med', corporate: 'sml', silver: 'sml' }
+                li.o-GridFlex__Item.o-ListSponsors__Item
+                  a.o-Block.o-ListSponsors__Logo.c-SponsorBlock__Logo(class='o-ListSponsors__Logo--'+logosizes[category_class] href="" title=item.name style='background-image: url(' + item.url + ');')
+              else
+                li.o-GridFlex__Item.o-ListSponsors__Item
+                  a.o-Block.o-ListSponsors__Text.c-SponsorBlock__Text(href="")= item.name
+      - var sponsors = [ { name: 'Bank of America', url: 'img/logo-bank-america.png' }, { name: 'UPS', url: 'img/logo-ups.png' }, { name: 'Geico', url: 'img/logo-geico.png' } ]
+      +sponsortype('Premier', 'premier', sponsors)
+      +sponsortype('Platinum', 'platinum', sponsors)
+      +sponsortype('Gold', 'gold', sponsors)
+      +sponsortype('Corporate Sponsors', 'corporate', sponsors)
+      +sponsortype('Silver', 'silver', sponsors)
+      +sponsortype('Bronze', 'bronze', sponsors)
+      +sponsortype('Copper', 'copper', sponsors)
     header
       div.o-GridFlex.o-Runner.c-Mast
         a.o-GridFlex__Item.o-Block.c-Mast__Title(href="")

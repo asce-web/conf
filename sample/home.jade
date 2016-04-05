@@ -8,7 +8,7 @@ block append vars
 block highlights_main
   header.o-Highlight.c-Banner.c-Banner--home
     h1(itemprop="name")= conference_name
-    +time-place()
+    +date-place()
     p(itemprop="description")= conference_theme
     +action-buttons()
   section.o-Highlight
@@ -34,7 +34,6 @@ block highlights_callouts
     ul.o-ListBare.o-GridFlex.o-ListStacked
       each val in [1,2,3]
         li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
-          //- img.o-Block(src="/" alt="")
           p.c-Speaker__Name Donald Trump, Ph.D.
           p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
     p.-ta-c: a(href="") View All Speakers
@@ -43,7 +42,6 @@ block highlights_callouts
     ul.o-ListBare.o-GridFlex.o-ListStacked
       each val in [1,2]
         li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
-          //- img.o-Block(src="/" alt="")
           p.c-Speaker__Name Donald Trump, Ph.D.
           p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
   aside.o-Highlight
@@ -60,6 +58,6 @@ block highlights_callouts
       , { starttime: '18:30', endtime: '20:00', description: 'Welcome Reception' }
       ])
     p.-ta-c: a(href="") View Full Program
-  aside.o-Highlight
-    h1.o-Highlight__Hn Sponsors
+  aside.-ta-c
+    h1 Sponsors
     +sponsor-block()

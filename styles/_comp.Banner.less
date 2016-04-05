@@ -2,9 +2,17 @@
 /*################################*\
     conf  |  _comp.Banner.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.filter.less');
 @import (reference) url('__settings.less');
 
 
+.mx-overlay() {
+  content: '\00a0';
+  display: block;
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  z-index: -1;
+}
 // Any major section on any page with a full-width background image.
 //
 // ^subclasses
@@ -14,6 +22,8 @@
 // --prev     - banner for previous year’s conference
 // --next     - banner for next year’s conference
 // ^subcomponents
+// --location__Hn - on an interior page, a heading inside the banner section.
+//                  right now this is only used on the Hotel & Travel page.
 // ^author
 // Chris Harvey
 // ^updated
@@ -23,23 +33,42 @@
   text-align: center;
   color: @g-color_asce_header_txt;
   &::before {
-    content: '\00a0';
-    display: block;
-    position: absolute;
-    left: 0; right: 0; top: 0; bottom: 0;
-    z-index: -1;
+    .mx-overlay();
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: scroll;
-    @filter: blur(2px);
-    -webkit-filter: @filter;
-       -moz-filter: @filter;
-         -o-filter: @filter;
-        -ms-filter: @filter;
-            filter: @filter;
   }
 }
+.c-Banner--prev,
+.c-Banner--next {
+  & > * {
+    position: relative;
+    @bgc: rgba(0,0,0,0.5);
+    @bgc: rgba(255,255,255,0.5);
+    background-color: @bgc;
+    box-shadow: 0 0 1rem 1rem @bgc;
+    color: initial;
+    &:first-child {
+      top: -1rem;
+      @media screen and (min-width: 45em) { top: auto; left: -1rem; }
+    }
+    &:last-child  {
+      top:  1rem;
+      @media screen and (min-width: 45em) { top: auto; left:  1rem; }
+    }
+  }
+}
+.c-Banner--landing,
+.c-Banner--home {
+  &::before {
+    .filter(blur(2px));
+  }
+}
+.c-Banner--location {
+  min-height: 9*@g-vru;
+}
+
 // set background-images in site-specific stylesheet
 .c-Banner--landing::before {}
 .c-Banner--prev::before {}
@@ -51,4 +80,13 @@
   @media screen and (max-width: 44.999em) {
     display: none;
   }
+}
+
+.c-Banner--location__Hn {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: @g-vru 0;
+  background-color: rgba(0,0,0,0.5);
 }

@@ -1,4 +1,4 @@
-@import (reference) url('../node_modules/xmeter/src/__tool.module.clearfix.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
 
 /*################################*\
     conf  |  _obj.ListStacked.less
@@ -9,14 +9,12 @@
 //
 // ^subcomponents
 // __Item - an item in the list
-// ^variables
-// @p-spacer - the spacing between list items when unstacked
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-04-01
+// 2016-04-05
 .o-ListStacked {
-  .flex-justify-content(center);
+  .flex-justify-content(space-around);
   text-align: center;
 }
 .o-ListStacked__Item {

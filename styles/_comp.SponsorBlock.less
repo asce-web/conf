@@ -1,0 +1,56 @@
+
+/*################################*\
+    conf  |  _comp.SponsorBlock.less
+\*################################*/
+
+
+// A section containing one level of sponsor. Usually also a highlighted section.
+//
+// ^subclasses
+// --premier
+// --platinum
+// --gold
+// --corporate
+// --silver
+// --bronze
+// --copper
+// ^subcomponents
+// __Logo - cosmetic styles for sponsor logo
+// __Text - cosmetic styles for sponsor name
+// ^author
+// : Chris Harvey
+// ^updated
+// 2016-04-05
+
+@p-color_premier:   #b0bbcb; // CH chose this; may be changed at any time <charvey@asce.org>
+@p-color_platinum:  #cde1ec;
+@p-color_gold:      #f8cd79;
+@p-color_corporate: #9ed8f9;
+@p-color_silver:    #dbddde;
+@p-color_bronze:    #d9c5ac;
+@p-color_copper:    #d6a985; // CH chose this; may be changed at any time <charvey@asce.org>
+@p-color_coop_bg:   #e8eaeb; // bgcolor for coop orgs
+
+.c-SponsorBlock { background-color: transparent; }
+.c-SponsorBlock--premier   { background-color: @p-color_premier; }
+.c-SponsorBlock--platinum  { background-color: @p-color_platinum; }
+.c-SponsorBlock--gold      { background-color: @p-color_gold; }
+.c-SponsorBlock--corporate { background-color: @p-color_corporate; }
+.c-SponsorBlock--silver    { background-color: @p-color_silver; }
+.c-SponsorBlock--bronze    { background-color: @p-color_bronze; }
+.c-SponsorBlock--copper    { background-color: @p-color_copper; }
+
+.c-SponsorBlock__Logo {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.c-SponsorBlock__Text {
+  // &:not(:last-child)::after {
+  //   content: '';
+  //   padding-right: 1rem;
+  //   border-right: 1px solid @color_asce_primary; // so no change on hover
+  //   margin-right: 1re,;
+  // }
+}

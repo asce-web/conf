@@ -9,8 +9,9 @@
 // Masthead header and footer banners across entire site.
 //
 // ^subcomponents
-// __Title         - title containing conference name and tagline
-// __Nav           - navigation containing menu and buttons
+// __Link  - link in the mast head / foot
+// __Title - title containing conference name and tagline
+// __Nav   - navigation containing menu and buttons
 // ^author
 // Chris Harvey
 // ^updated
@@ -21,6 +22,19 @@
   color: @g-color_asce_header_txt;
 }
 
+.c-Mast__Link {
+  border-bottom: 1px solid transparent;
+  &,
+  &:hover,
+  &:focus {
+    color: inherit;
+  }
+  &:hover,
+  &:focus {
+    border-bottom-color: currentColor;
+  }
+}
+
 .c-Mast__Title,
 .c-Mast__Nav {
   width: auto;
@@ -28,6 +42,7 @@
 .c-Mast__Title {
   margin-left: 4rem; // TODO change this to fit the width of the logo
   background-image: none; // this is the conference logo (or institute shield)
+  border-bottom: 0; // override Mast__Link
 }
 
 // Navigation menu in masthead.

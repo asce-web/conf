@@ -5,14 +5,15 @@ block append vars
   - var tag_title = conference_name
   - var tag_meta_description = conference_theme
 
-block main
-  section(itemscope="" itemtype="http://schema.org/Event")
-    header.o-Highlight.c-Hero
-      h1(itemprop="name") #{conference_name} Home
-      +time-place()
-      p(itemprop="description")= conference_theme
+block highlights_main
+  header.o-Highlight.c-Banner.c-Banner--home
+    h1(itemprop="name")= conference_name
+    +date-place()
+    p(itemprop="description")= conference_theme
     +action-buttons()
-    section.o-Highlight.this-is-editable
+  section.o-Highlight
+    h1.o-Highlight__Hn About
+    div.is-editable
       p.
         More prose about this specific year goes here.
         The Geo-Institute and Structural Engineering Institute of the
@@ -24,41 +25,25 @@ block main
         li Prestigious awards and keynote lecture presentations
         li Lively programs for studdnts and young professionals
 
-block callouts
-  aside.o-Highlight
+block highlights_callouts
+  aside.o-Highlight.c-Banner
     h1.o-Highlight__Hn Important Dates
-    +important-date-block()
+    +important-date-content()
   aside.o-Highlight
+    h1.o-Highlight__Hn Registration
+    +registration-content()
+  aside.o-Highlight.c-Banner
     h1.o-Highlight__Hn Speakers
-    ul.o-ListBare.o-GridFlex.o-ListStacked
-      each val in [1,2,3]
-        li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
-          //- img.o-Block(src="/" alt="")
-          p.c-Speaker__Name Donald Trump, Ph.D.
-          p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
-    p.-ta-c: a(href="") View All Speakers
+    +speakers-content()
   aside.o-Highlight
     h1.o-Highlight__Hn Conference Co-Chairs
-    ul.o-ListBare.o-GridFlex.o-ListStacked
-      each val in [1,2]
-        li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
-          //- img.o-Block(src="/" alt="")
-          p.c-Speaker__Name Donald Trump, Ph.D.
-          p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
-  aside.o-Highlight
+    +cochairs-content()
+  aside.o-Highlight.c-Banner
     h1.o-Highlight__Hn Program
-    div.o-GridFlex
-      +program-block(['o-GridFlex__Item','-w-1o2'], 'Wednesday, April 5', [
-        { starttime: '7am', endtime: 'Noon', description: 'General Services Contractor Setup' }
-      , { starttime: '8am', endtime: '11pm', description: 'Committee Meetings' }
-      , { starttime: 'Noon', endtime: '6pm', description: 'Registration & ASCE Bookstore Hours' }
-      ])
-      +program-block(['o-GridFlex__Item','-w-1o2'], 'Thursday, April 6', [
-        { starttime: '07:00', endtime: '08:00', description: 'Continental Breakfast' }
-      , { starttime: '09:30', endtime: '10:00', description: 'Morning Refreshment Break' }
-      , { starttime: '18:30', endtime: '20:00', description: 'Welcome Reception' }
-      ])
-    p.-ta-c: a(href="") View Full Program
+    +program-content()
   aside.o-Highlight
-    h1.o-Highlight__Hn Sponsors
-    +sponsor-block()
+    h1.o-Highlight__Hn Location
+    +location-content()
+  aside.-ta-c
+    h1 Sponsors
+    +sponsor-content()

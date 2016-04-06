@@ -6,13 +6,13 @@ block append vars
   - var tag_title = page_name + ' | ' + conference_name
   - var tag_meta_description = 'Get information about the location of the conference and where to stay.'
 
-block main
-  section
-    header.o-Highlight.c-Hero(style="padding: 4rem 0 2rem; text-align: left;")
-      h1(style="padding-top: 1rem; margin-top: 2rem; padding-bottom: 1rem; margin-bottom: 0.5rem; padding-left: 1rem; background-color: rgba(0,0,0,0.25);").
-        #[span.-d-n= conference_name + ' — ']Hotel &amp; Travel
-    section.o-Highlight.this-is-editable
-      h2 Hotel Information
+block highlights_main
+  header.o-Highlight.c-Banner.c-Banner--location
+    h1.c-Banner__Hn Hotel &amp; Travel
+  div.o-Highlight
+    p.is-editable Intro paragraph. Lorem ipsun dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    section.is-editable
+      h1 Hotel Information
       p.
         The reservation deadline for the hotel is
         #[time.c-Date(datetime="2016-01-14") Thursday, January 14, 2016] however rooms are
@@ -31,8 +31,9 @@ block main
           span(itemprop="postalCode") 85004
         br
         a(href="" itemprop="url") https://sheraton.com/phoenix/
-      h2 Transportation
-      h3 Airport
+    section.is-editable
+      h1 Transportation
+      h2 Airport
       p(itemscope="" itemtype="http://schema.org/Place")
         span(itemprop="name") Phoenix Sky Harbor International Airport (PHX)
         br
@@ -43,21 +44,21 @@ block main
         PHX is located #[del approximately]#[ins about] 6 miles from the Sheraton Phoenix Downtown Hotel
         and Phoenix Convention Center and no one will actually read this paragraph
         because they will probably just Google map it themselves.
-      h3 Shuttle
+      h2 Shuttle
       p.
         SuperShuttle Servidce costs approximately (again with the long words)
         $26 for a round-trip ride from the airport to the hotel then back to the airport,
         which is overly redundant for a web page.
-      h3 Taxi Service
+      h2 Taxi Service
       p About $25 one-way from airport to hotel. See, that wasn&rsquo;t so bad, was it?
-block callouts
-  aside.o-Highlight
+
+block highlights_callouts
+  aside.o-Highlight.c-Banner
     h1.o-Highlight__Hn Important Dates
-    +important-date-block()
+    +important-date-content()
   aside.o-Highlight
-    h1 Questions?
-    ul.o-ListBare
-      li: a(href="") (800) 548-2723
-      li: a(href="") +1 (703) 295-6300
-      li: a(href="") registrations@asce.org
-    p: ins This callout isn&rsquo;t necessary with the same information in the footer.
+    h1.o-Highlight__Hn Content
+    +contact-content()
+  aside.-ta-c
+    h1 Sponsors
+    +sponsor-content()

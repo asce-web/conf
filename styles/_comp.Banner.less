@@ -2,6 +2,7 @@
 /*################################*\
     conf  |  _comp.Banner.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.filter.less');
 @import (reference) url('__settings.less');
 
@@ -17,6 +18,8 @@
 // ^subcomponents
 // __Overlay  - an element with a translucent background color
 // __Hn       - a heading inside a banner section
+// __Title    - name and place of prev/next conferences
+// __Desc     - small description of prev/next conferences
 // ^author
 // Chris Harvey
 // ^updated
@@ -46,12 +49,23 @@
   min-height: 9*@g-vru;
 }
 
+.c-Banner--prev,
+.c-Banner--next {
+  @media screen and (max-width: 29.999em) {
+    padding: 0;
+  }
+  @media screen and (max-width: 44.999em) {
+    .flex-direction(column);
+    .flex-align-items(center);
+  }
+}
+
 // set background-images in site-specific stylesheet
 .c-Banner--landing::before {}
-.c-Banner--prev::before {}
-.c-Banner--next::before {}
 .c-Banner--home::before {}
 .c-Banner--location::before {}
+.c-Banner--prev::before {}
+.c-Banner--next::before {}
 
 .c-Banner__OtherYearDesc {
   @media screen and (max-width: 44.999em) {
@@ -68,7 +82,6 @@
 // ^updated
 // 2016-04-06
 .c-Banner__Overlay {
-  .transition(padding, 250ms);
   padding: @g-boxpadd_micr;
   @media screen and (min-width: 30em) { padding: @g-boxpadd_mill; }
   @media screen and (min-width: 45em) { padding: @g-boxpadd_norm; }
@@ -77,8 +90,7 @@
   @bgc: rgba(0,0,0,0.6);
   @bgc: rgba(255,255,255,0.6); color: initial;
   background-color: @bgc;
-  // box-shadow: 0 0 1rem 1rem @bgc;
-  color: initial;
+  .transition(padding, 250ms);
 }
 
 // On an interior page, a heading inside the banner section.
@@ -95,4 +107,52 @@
   width: 100%;
   padding: @g-vru 0;
   background-color: rgba(0,0,0,0.5);
+}
+
+// Title and Description of prev/next year conferences.
+//
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-04-06
+.c-Banner__Title,
+.c-Banner__Desc  { @media screen and (min-width: 30em) { width: 75%; } }
+.c-Banner__Title { @media screen and (min-width: 45em) { width: 33.333%; } }
+.c-Banner__Desc  { @media screen and (min-width: 45em) { width: 66.667%; } }
+
+.mx-rr-left(@rr)   { border-radius: @rr 0   0   @rr; }
+.mx-rr-right(@rr)  { border-radius: 0   @rr @rr 0  ; }
+.mx-rr-top(@rr)    { border-radius: @rr @rr 0   0  ; }
+.mx-rr-bottom(@rr) { border-radius: 0   0   @rr @rr; }
+.c-Banner__Title {
+  @media screen and (min-width: 30em) { .mx-rr-top(1rem); }
+  @media screen and (min-width: 45em) { .mx-rr-left(1rem); }
+  @media screen and (min-width: 60em) { .mx-rr-left(2rem); }
+}
+.c-Banner__Desc  {
+  @media screen and (min-width: 30em) { .mx-rr-bottom(1rem); }
+  @media screen and (min-width: 45em) { .mx-rr-right(1rem); }
+  @media screen and (min-width: 60em) { .mx-rr-right(2rem); }
+}
+
+.c-Banner__Title {
+  @media screen and (min-width: 45em) {
+    position: relative;
+    ::after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      border-right-width: 2px;
+      margin: @g-vru 0;
+      opacity: 0.5;
+    }
+  }
+}
+.c-Banner__Desc  {
+  & > p:first-child {
+    @media screen and (max-width: 44.999em) {
+      display: none;
+    }
+  }
 }

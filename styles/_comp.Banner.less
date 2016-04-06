@@ -32,12 +32,13 @@
     color: @g-color_asce_header_txt;
   }
   &::before {
-    // need this for blur effect
+    // need `::before` for filter effects
     content: '';
     display: block;
     position: absolute;
     left: 0; right: 0; top: 0; bottom: 0;
     z-index: -1;
+    background-image: url('../img/Blue-Geometric-Background-3.jpg'); // default background image
     background-position: center;
     background-size: cover;
   }
@@ -64,7 +65,7 @@
   }
 }
 
-// set background-images in site-specific stylesheet
+// override background-image in site-specific stylesheet
 .c-Banner--landing::before {}
 .c-Banner--home::before {}
 .c-Banner--location::before {}

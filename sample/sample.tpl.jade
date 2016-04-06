@@ -56,7 +56,7 @@ html(lang="en")
           time(datetime="2016-09-28" itemprop="startDate") Sep 28
           | &ndash;
           time(datetime="2016-10-01" itemprop="endDate") Oct 1
-    mixin important-date-block()
+    mixin important-date-content()
       dl.o-GridFlex.c-DateBlock
         mixin row(year, month, day, datetime, description)
           dt.o-GridFlex__Item: time.o-Block(datetime=datetime)
@@ -66,20 +66,66 @@ html(lang="en")
         +row('2015','Oct','12', '2015-10-12','Optional Final Papers Due')
         +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes')
         +row('2016','Jan','12', '2016-01-12','Advance Registration Closes')
-    mixin program-block(classes, datetext, data)
-      section.o-GridFlex__Item(class=classes)
-        h1= datetext
-        dl.o-GridFlex.c-TimeBlock
-          mixin row(starttime, endtime, description)
-            dt.o-GridFlex__Item
-              span= starttime
-              | –
-              span= endtime
-            dd.o-GridFlex__Item= description
-          each val in data
-            +row(val.starttime, val.endtime, val.description)
-    mixin sponsor-block()
-      mixin sponsortype(category, category_class, spons)
+    mixin registration-content()
+      p registration content goes here
+    mixin speakers-content()
+      ul.o-ListBare.o-GridFlex.o-ListStacked
+        each val in [1,2,3]
+          li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
+            p.c-Speaker__Name Donald Trump, Ph.D.
+            p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
+      p.-ta-c: a(href="") View All Speakers
+    mixin cochairs-content()
+      ul.o-ListBare.o-GridFlex.o-ListStacked
+        each val in [1,2]
+          li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
+            p.c-Speaker__Name Donald Trump, Ph.D.
+            p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
+    mixin program-content()
+      mixin program-block(classes, datetext, data)
+        section.o-GridFlex__Item(class=classes)
+          h1= datetext
+          dl.o-GridFlex.c-TimeBlock
+            mixin row(starttime, endtime, description)
+              dt.o-GridFlex__Item
+                span= starttime
+                | –
+                span= endtime
+              dd.o-GridFlex__Item= description
+            each val in data
+              +row(val.starttime, val.endtime, val.description)
+      div.o-GridFlex
+        +program-block(['o-GridFlex__Item','-w-1o2'], 'Wednesday, April 5', [
+          { starttime: '7am', endtime: 'Noon', description: 'General Services Contractor Setup' }
+        , { starttime: '8am', endtime: '11pm', description: 'Committee Meetings' }
+        , { starttime: 'Noon', endtime: '6pm', description: 'Registration & ASCE Bookstore Hours' }
+        ])
+        +program-block(['o-GridFlex__Item','-w-1o2'], 'Thursday, April 6', [
+          { starttime: '07:00', endtime: '08:00', description: 'Continental Breakfast' }
+        , { starttime: '09:30', endtime: '10:00', description: 'Morning Refreshment Break' }
+        , { starttime: '18:30', endtime: '20:00', description: 'Welcome Reception' }
+        ])
+      p.-ta-c: a(href="") View Full Program
+    mixin location-content()
+      p location content goes here
+    mixin contact-content()
+      form
+        label
+          | name
+          input(type="text")
+        label
+          | email
+          input(type="email")
+        label
+          | message
+          textarea
+        button submit
+      //- ul.o-ListBare
+        li: a(href="") (800) 548-2723
+        li: a(href="") +1 (703) 295-6300
+        li: a(href="") registrations@asce.org
+    mixin sponsor-content()
+      mixin sponsor-block(category, category_class, spons)
         section.o-Highlight.c-SponsorBlock(class='c-SponsorBlock--'+category_class)
           h1.o-Highlight__Hn= category
           ul.o-ListBare.o-GridFlex.o-ListSponsors
@@ -92,13 +138,13 @@ html(lang="en")
                 li.o-GridFlex__Item.o-ListSponsors__Item
                   a.o-Block.o-ListSponsors__Text.c-SponsorBlock__Text(href="")= item.name
       - var sponsors = [ { name: 'Bank of America', url: 'img/logo-bank-america.png' }, { name: 'UPS', url: 'img/logo-ups.png' }, { name: 'Geico', url: 'img/logo-geico.png' } ]
-      +sponsortype('Premier', 'premier', sponsors)
-      +sponsortype('Platinum', 'platinum', sponsors)
-      +sponsortype('Gold', 'gold', sponsors)
-      +sponsortype('Corporate Sponsors', 'corporate', sponsors)
-      +sponsortype('Silver', 'silver', sponsors)
-      +sponsortype('Bronze', 'bronze', sponsors)
-      +sponsortype('Copper', 'copper', sponsors)
+      +sponsor-block('Premier', 'premier', sponsors)
+      +sponsor-block('Platinum', 'platinum', sponsors)
+      +sponsor-block('Gold', 'gold', sponsors)
+      +sponsor-block('Corporate Sponsors', 'corporate', sponsors)
+      +sponsor-block('Silver', 'silver', sponsors)
+      +sponsor-block('Bronze', 'bronze', sponsors)
+      +sponsor-block('Copper', 'copper', sponsors)
     header
       div.o-GridFlex.o-Runner.c-Mast
         a.o-GridFlex__Item.o-Block.c-Mast__Title.c-Mast__Link(href="")

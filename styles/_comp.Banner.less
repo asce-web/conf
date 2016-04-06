@@ -6,13 +6,6 @@
 @import (reference) url('__settings.less');
 
 
-.mx-overlay() {
-  content: '\00a0';
-  display: block;
-  position: absolute;
-  left: 0; right: 0; top: 0; bottom: 0;
-  z-index: -1;
-}
 // Any major section on any page with a full-width background image.
 //
 // ^subclasses
@@ -22,8 +15,8 @@
 // --prev     - banner for previous year’s conference
 // --next     - banner for next year’s conference
 // ^subcomponents
-// --location__Hn - on an interior page, a heading inside the banner section.
-//                  right now this is only used on the Hotel & Travel page.
+// __Overlay  - an element with a translucent background color
+// __Hn       - a heading inside a banner section
 // ^author
 // Chris Harvey
 // ^updated
@@ -33,28 +26,14 @@
   text-align: center;
   color: @g-color_asce_header_txt;
   &::before {
-    .mx-overlay();
+    // need this for blur effect
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    z-index: -1;
     background-position: center;
     background-size: cover;
-  }
-}
-.c-Banner--prev,
-.c-Banner--next {
-  & > * {
-    position: relative;
-    @bgc: rgba(0,0,0,0.5);
-    @bgc: rgba(255,255,255,0.5);
-    background-color: @bgc;
-    box-shadow: 0 0 1rem 1rem @bgc;
-    color: initial;
-    &:first-child {
-      top: -1rem;
-      @media screen and (min-width: 45em) { top: auto; left: -1rem; }
-    }
-    &:last-child  {
-      top:  1rem;
-      @media screen and (min-width: 45em) { top: auto; left:  1rem; }
-    }
   }
 }
 .c-Banner--landing,
@@ -80,7 +59,36 @@
   }
 }
 
-.c-Banner--location__Hn {
+// Adds a background translucency to an element.
+// Useful for when this element has text and is a child of
+// another element that has a background image.
+//
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-04-06
+.c-Banner__Overlay {
+  .transition(padding, 250ms);
+  padding: @g-boxpadd_micr;
+  @media screen and (min-width: 30em) { padding: @g-boxpadd_mill; }
+  @media screen and (min-width: 45em) { padding: @g-boxpadd_norm; }
+  @media screen and (min-width: 60em) { padding: @g-boxpadd_kilo; }
+  @media screen and (min-width: 75em) { padding: @g-boxpadd_mega; }
+  @bgc: rgba(0,0,0,0.6);
+  @bgc: rgba(255,255,255,0.6); color: initial;
+  background-color: @bgc;
+  // box-shadow: 0 0 1rem 1rem @bgc;
+  color: initial;
+}
+
+// On an interior page, a heading inside the banner section.
+// Right now this is only used on the **Hotel & Travel** page.
+//
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-04-05
+.c-Banner__Hn {
   position: absolute;
   left: 0;
   bottom: 0;

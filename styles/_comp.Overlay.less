@@ -1,0 +1,35 @@
+
+/*################################*\
+    conf  |  _comp.Overlay.less
+\*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.filter.less');
+@import (reference) url('__settings.less');
+
+
+// Adds a background dark translucency to an element.
+// Useful for when this element has text and is a child of
+// another element that has a background image (e.g. a banner).
+//
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-04-06
+.c-Overlay {
+  padding: @g-boxpadd_micr;
+  margin: auto;
+  @bgc: rgba(0,0,0,0.5);
+  // @bgc: rgba(255,255,255,0.5); // use for light background
+  background-color: @bgc;
+  .transition(padding, 250ms);
+  @media screen and (min-width: 30em) { padding: @g-boxpadd_mill; border-radius: 1rem; }
+  @media screen and (min-width: 45em) { padding: @g-boxpadd_norm; }
+  @media screen and (min-width: 60em) { padding: @g-boxpadd_kilo; border-radius: 2rem; }
+  @media screen and (min-width: 75em) { padding: @g-boxpadd_mega; }
+  .c-Banner--prev > &,
+  .c-Banner--next > & {
+    @media screen and (min-width: 30em) and (max-width: 44.999em) {
+      width: 75%;
+    }
+  }
+}

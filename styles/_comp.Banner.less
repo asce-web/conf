@@ -46,7 +46,7 @@
 .c-Banner--landing,
 .c-Banner--home {
   &::before {
-    .filter(blur(2px));
+    .filter(blur(2px) brightness(0.75));
   }
 }
 .c-Banner--location {
@@ -58,10 +58,6 @@
   @media screen and (max-width: 29.999em) {
     padding: 0;
   }
-  @media screen and (max-width: 44.999em) {
-    .flex-direction(column);
-    .flex-align-items(center);
-  }
 }
 
 // set background-images in site-specific stylesheet
@@ -70,26 +66,6 @@
 .c-Banner--location::before {}
 .c-Banner--prev::before {}
 .c-Banner--next::before {}
-
-// Adds a background translucency to an element.
-// Useful for when this element has text and is a child of
-// another element that has a background image.
-//
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-04-06
-.c-Banner__Overlay {
-  padding: @g-boxpadd_micr;
-  @media screen and (min-width: 30em) { padding: @g-boxpadd_mill; }
-  @media screen and (min-width: 45em) { padding: @g-boxpadd_norm; }
-  @media screen and (min-width: 60em) { padding: @g-boxpadd_kilo; }
-  @media screen and (min-width: 75em) { padding: @g-boxpadd_mega; }
-  @bgc: rgba(0,0,0,0.6);
-  @bgc: rgba(255,255,255,0.6); color: initial;
-  background-color: @bgc;
-  .transition(padding, 250ms);
-}
 
 // On an interior page, a heading inside the banner section.
 // Right now this is only used on the **Hotel & Travel** page.
@@ -113,36 +89,21 @@
 // Chris Harvey
 // ^updated
 // 2016-04-06
-.c-Banner__Title,
-.c-Banner__Desc  { @media screen and (min-width: 30em) { width: 75%; } }
 .c-Banner__Title { @media screen and (min-width: 45em) { width: 33.333%; } }
 .c-Banner__Desc  { @media screen and (min-width: 45em) { width: 66.667%; } }
-
-.mx-rr-left(@rr)   { border-radius: @rr 0   0   @rr; }
-.mx-rr-right(@rr)  { border-radius: 0   @rr @rr 0  ; }
-.mx-rr-top(@rr)    { border-radius: @rr @rr 0   0  ; }
-.mx-rr-bottom(@rr) { border-radius: 0   0   @rr @rr; }
-.c-Banner__Title {
-  @media screen and (min-width: 30em) { .mx-rr-top(1rem); }
-  @media screen and (min-width: 45em) { .mx-rr-left(1rem); }
-  @media screen and (min-width: 60em) { .mx-rr-left(2rem); }
-}
-.c-Banner__Desc  {
-  @media screen and (min-width: 30em) { .mx-rr-bottom(1rem); }
-  @media screen and (min-width: 45em) { .mx-rr-right(1rem); }
-  @media screen and (min-width: 60em) { .mx-rr-right(2rem); }
-}
-
 .c-Banner__Title {
   @media screen and (min-width: 45em) {
     position: relative;
+    padding-right: 1rem;
     ::after {
+      @rw: 2px;
       content: '';
       display: block;
       position: absolute;
       right: 0; top: 0; bottom: 0;
-      border-right-width: 2px;
-      margin: @g-vru 0;
+      margin: (0.5*@g-vru) 0;
+      margin-right: 0.5rem;
+      border-right-width: @rw;
       opacity: 0.5;
     }
   }

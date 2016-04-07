@@ -7,6 +7,7 @@
 /*================================*\
     styleguide.less
 \*================================*/
+@import (reference) url('../node_modules/xmeter/src/__tool.module.borders.less');
 
 
 // This stylesheet is used on all styleguide files
@@ -40,13 +41,14 @@ body {
 //    # COMPONENTS
 //++++++++++++++++++++++++++++++++//
 .sg-c-Fig {
+  position: relative; // for containing other relative things
   margin-left: 1rem;
   margin-right: 1rem;
   padding: 0.5em;
-  border: 1px solid #e5eaef;
+  .border-vert(all; 1px);
+  border-color: #e5eaef;
   border-radius: 8px;
-  position: relative; // for containing other relative things
-  background: #f8fcff;
+  background-color: #f8fcff;
 }
 //++++ end # COMPONENTS ++++ //
 

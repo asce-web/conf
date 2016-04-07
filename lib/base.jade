@@ -8,8 +8,7 @@ block main
   +main-content({
     main_heading: mainH1(titles)
   , classnames: {
-      code : 'sg-c-Code'
-    , figure : 'sg-c-Fig'
+      figure : 'sg-c-Fig'
     }
   , appendages: [
       'lists'
@@ -24,7 +23,7 @@ block main
         dates/times and descriptions.
     mixin tables()
       p.
-        Use the table #[code.sg-c-Code caption] element
+        Use the table #[code caption] element
         for the title and/or summary of the table.
     mixin text-level-elements()
       footer: figure.sg-c-Fig
@@ -34,16 +33,16 @@ block main
           in text. Notice #[q commonly used] is emphasized: it&rsquo;s important
           to note that #[strong not all text-level elements are listed here].
         p.
-          Some have the opinion that #[code.sg-c-Code em] and #[code.sg-c-Code strong] are #[i semantic elements]
-          while #[code.sg-c-Code i] and #[code.sg-c-Code b] are #[i formatting elements]
+          Some have the opinion that #[code em] and #[code strong] are #[i semantic elements]
+          while #[code i] and #[code b] are #[i formatting elements]
           (which should be #[b deprecated] in HTML5), however
           others might argue that
           given the flexibility of these, they can be used for other undefined phrasing content,
           such as scare quotes and mentions (for the former), and keywords
           and technical terms (for the latter).
-          #[small However, #[s it&rsquo;s okay to use them interchangeably] one should remember not to use #[code.sg-c-Code i] and #[code.sg-c-Code b] for the meanings associated with #[code.sg-c-Code em] and #[code.sg-c-Code strong], respectively.]
+          #[small However, #[s it&rsquo;s okay to use them interchangeably] one should remember not to use #[code i] and #[code b] for the meanings associated with #[code em] and #[code strong], respectively.]
         p.
-          Use the #[code.sg-c-Code sup] and #[code.sg-c-Code sub] elements for when their presence
+          Use the #[code sup] and #[code sub] elements for when their presence
           is semantically required, not just when it looks good there.
           #[i(lang="la"): abbr(title="exampli gratia") E.g.], don&rsquo;t use superscripts
           for the abbreviation of ordinals. There are two reasons for this:

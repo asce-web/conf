@@ -30,7 +30,7 @@
   },
   "homepage": "http://conf.style.asce.org/",
   "devDependencies": {
-    "bangs": "^0.7.0",
+    "bangs": "^0.8.0",
     "clean-css": "^3.4.9",
     "harp": "^0.20.1",
     "jade": "^1.11.0",

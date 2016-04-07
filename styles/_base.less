@@ -3,6 +3,7 @@
     conf  |  _base.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.borders.less');
 @import (reference) url('__settings.less');
 
 
@@ -39,7 +40,16 @@ body {
   //--------------------------------//
   //    # Paragraphs
   //--------------------------------//
-
+  pre {
+    .font-size-block(0.75);
+    padding: @g-boxpadd_norm;
+    .border-vert(all; 1px);
+    border-radius: 4px;
+    border-color: @g-color_asce_primary;
+    background-color: lighten(desaturate(@g-color_asce_primary, 25%), 50%);
+    color: #000;
+    & u { color: #050; }
+  }
   //---- end # Paragraphs ----//
 
   //--------------------------------//
@@ -104,6 +114,12 @@ body {
   //--------------------------------//
   //    # Data
   //--------------------------------//
+  code {
+    padding: 1px 2px;
+    border-radius: 3px;
+    background-color: desaturate(lighten(@g-color_asce_primary, 40%), 25%);
+    color: #000;
+  }
 
   //---- end # Data ----//
 

@@ -7,18 +7,20 @@
 /*================================*\
     styleguide.less
 \*================================*/
+@import (reference) url('../../node_modules/xmeter/src/__tool.module.borders.less');
 
 
 // This stylesheet is used on all styleguide files
 // (except the sample conference site).
+// NOTE that this style sheet does NOT use any variables, settings, tools, or styles
+// of any kind from the Conf stylesheet (conf.less and its partials).
+// This is a stand-alone stylesheet.
 
 //Table Of Contents
 //# DEV...........................development styles. fixes for imported css.
 //# BASE
 //# COMPONENTS
 //  Fig............................a figure containing all demos
-//  Code...........................any code, block or inline
-//  Code--block....................block code (extends Code)
 //# HACKS
 //  _docmeta.......................a dictionary list containing document metadata
 
@@ -42,28 +44,14 @@ body {
 //    # COMPONENTS
 //++++++++++++++++++++++++++++++++//
 .sg-c-Fig {
+  position: relative; // for containing other relative things
   margin-left: 1rem;
   margin-right: 1rem;
   padding: 0.5em;
-  border: 1px solid #e5eaef;
+  .border-vert(all; 1px);
+  border-color: #e5eaef;
   border-radius: 8px;
-  position: relative; // for containing other relative things
-  background: #f8fcff;
-}
-.sg-c-Code {
-  padding: 1px 2px;
-  border-radius: 3px;
-  font-size: 0.75em;
-  line-height: 0;
-  background-color: #f8f4f0;
-  color: #800020;
-}
-.sg-c-Code--block {
-  font-size: 0.75rem;
-  line-height: 2;
-  padding: 0.75rem 1rem;
-  border: 1px solid lighten(desaturate(#800020, 75%), 25%);
-  border-radius: 4px
+  background-color: #f8fcff;
 }
 //++++ end # COMPONENTS ++++ //
 

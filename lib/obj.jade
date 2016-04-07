@@ -13,6 +13,9 @@ block append main__header
       li: a(href="#bare-list") The Bare List
       li: a(href="#flex-grid") The Flex Grid
       li: a(href="#float-grid") The Float Grid
+      li: a(href="#highlight-object") The Highlight Object
+      li: a(href="#runner-object") The Runner Object
+      li: a(href="#sponsors-list") The Sponsors List
 
 block append main
   section.sg-sect#block-object
@@ -152,3 +155,34 @@ block append main
           &lt;li class="#[u o-GridFloat__Item]"&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
           ...
         &lt;/ul&gt;
+  section.sg-sect#highlight-object
+    h2 The Highlight Object
+    p.
+      Callouts on the home page or interior pages are Highlight Objects.
+      This is an #[code aside.o-Highlight] element.
+      The top-level heading of this Object should be a #[code h1.o-Highlight__Hn].
+    p This Object is responsive.
+    figure.sg-c-Fig
+      aside.o-Highlight
+        h1.o-Highlight__Hn Location
+        p Location content goes here.
+      pre.
+        &lt;aside class="#[u o-Highlight]"&gt;
+          &lt;h1 class="#[u o-Highlight__Hn]"&gt;Location&lt;/h1&gt;
+          &lt;p&gt;Location content goes here.&lt;/p&gt;
+          ...
+        &lt;/aside&gt;
+  section.sg-sect#runner-object
+    h2 The Runner Object
+    p.
+      The Runner Object is similar to the Highlight Object in style, but used
+      for a different purpose. Runners are only used on the header and footer
+      of the site.
+    p This Object is responsive.
+    figure.sg-c-Fig
+      div.o-Runner
+      pre.
+        &lt;div class="#[u o-Runner]"&gt;
+        &lt;/div&gt;
+  section.sg-sect#sponsors-list
+    h2 The Sponsors List

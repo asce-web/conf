@@ -12,9 +12,9 @@
     "jade:all": "npm run jade:sg  ;  npm run jade:lib  ;  npm run jade:sample",
     "lessc": "lessc",
     "lessc:conf": "lessc styles/conf.less styles/conf.css",
-    "lessc:sg": "lessc styles/styleguide.less styles/styleguide.css",
+    "lessc:lib": "lessc lib/styles/lib.less lib/styles/lib.css",
     "lessc:sample": "lessc sample/styles/this.less sample/styles/this.css",
-    "lessc:all": "npm run lessc:conf  ;  npm run lessc:sg  ;  npm run lessc:sample",
+    "lessc:all": "npm run lessc:conf  ;  npm run lessc:lib  ;  npm run lessc:sample",
     "minify": "cleancss styles/conf.css -o styles/conf.min.css",
     "build": "npm run jade:all  ;  npm run lessc:all  ;  npm run minify",
     "test": "echo \"Error: no test specified\" && exit 1"

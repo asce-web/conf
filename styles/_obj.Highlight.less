@@ -10,8 +10,6 @@
 //
 // ^subcomponents
 // __Hn - a heading for the highlighted section
-// ^related
-// Runner - basically the same as Highlight but different padding. used for <header> and <footer>.
 // ^author
 // : Chris Harvey
 // ^updated
@@ -31,27 +29,4 @@
 
 .o-Highlight__Hn {
   text-align: center;
-}
-
-
-.o-Runner {
-  padding: @g-boxpadd_micr;
-  .transition(padding, 250ms);
-  @media screen and (min-width: 30em) { padding: @g-boxpadd_mill; }
-  @media screen and (min-width: 45em) { padding: @g-boxpadd_norm; }
-  @media screen and (min-width: 60em) { padding: @g-boxpadd_kilo; }
-  // HACK anomaly
-  // not placed in `comp.Copyright.less` because of object-like styles
-  // dependent on `.o-Runner`
-  .c-Copyright {
-    .mx-copyright(@padding_h) {
-      width: calc(~'100% + ' (2*@padding_h)); // because can’t use `width: auto` for `GridFlex__Item` objects
-      margin-left:  -@padding_h;
-      margin-right: -@padding_h;
-    }
-    .mx-copyright(@g-boxpadd_micr_h);
-    @media screen and (min-width: 30em) { .mx-copyright(@g-boxpadd_mill_h); }
-    @media screen and (min-width: 45em) { .mx-copyright(@g-boxpadd_norm_h); }
-    @media screen and (min-width: 60em) { .mx-copyright(@g-boxpadd_kilo_h); }
-  }
 }

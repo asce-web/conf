@@ -130,10 +130,10 @@ html(lang="en")
               if (category_class !== 'bronze') && (category_class !== 'copper')
                 - var logosizes = { premier: 'lrg', platinum: 'lrg', gold: 'med', corporate: 'sml', silver: 'sml' }
                 li.o-GridFlex__Item.o-ListSponsors__Item
-                  a.o-Block.o-ListSponsors__Logo.c-SponsorBlock__Logo(class='o-ListSponsors__Logo--'+logosizes[category_class] href="" title=item.name style='background-image: url(' + item.url + ');')
+                  a.o-Block.o-ListSponsors__Logo.c-SponsorBlock__Logo(class='o-ListSponsors__Logo--'+logosizes[category_class] href="" title=item.name style='background-image: url(\'' + item.url + '\');')
               else
                 li.o-GridFlex__Item.o-ListSponsors__Item
-                  a.o-Block.o-ListSponsors__Text.c-SponsorBlock__Text(href="")= item.name
+                  a.o-ListSponsors__Text.c-SponsorBlock__Text(href="")= item.name
       - var sponsors = [ { name: 'Bank of America', url: 'img/logo-bank-america.png' }, { name: 'UPS', url: 'img/logo-ups.png' }, { name: 'Geico', url: 'img/logo-geico.png' } ]
       +sponsor-block('Premier', 'premier', sponsors)
       +sponsor-block('Platinum', 'platinum', sponsors)

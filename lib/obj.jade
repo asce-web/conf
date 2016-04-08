@@ -159,9 +159,10 @@ block append main
     h2 The Highlight Object
     p.
       Callouts on the home page or interior pages are Highlight Objects.
-      This is an #[code aside.o-Highlight] element.
+      Use a #[code section.o-Highlight] if the content belongs in a
+      #[code &lt;main&gt;] element, or use an #[code aside.o-Highlight]
+      if the content is a #[i &ldquo;callout&rdquo;] (not essential to the page content).
       The top-level heading of this Object should be a #[code h1.o-Highlight__Hn].
-    p This Object is responsive.
     figure.sg-c-Fig
       aside.o-Highlight
         h1.o-Highlight__Hn Location
@@ -178,11 +179,78 @@ block append main
       The Runner Object is similar to the Highlight Object in style, but used
       for a different purpose. Runners are only used on the header and footer
       of the site.
-    p This Object is responsive.
     figure.sg-c-Fig
       div.o-Runner
       pre.
         &lt;div class="#[u o-Runner]"&gt;
+          ...
         &lt;/div&gt;
   section.sg-sect#sponsors-list
     h2 The Sponsors List
+    p.
+      A Sponsors List is an unordered list of items, each containing one link
+      to a sponsor website.
+    //- p.
+      On the list itself, use #[code .o-ListBare.o-GridFlex.o-ListSponsors].
+      On the items within the list, use #[code .o-ListBare__Item.o-GridFlex__Item.o-ListSponsors__Item].
+      On the #[em links] within those items, use #[code .o-ListSponsors__Logo].
+    figure.sg-c-Fig
+      ul.o-ListBare.o-GridFlex.o-ListSponsors
+        li.o-GridFlex__Item.o-ListSponsors__Item
+          a.o-Block.o-ListSponsors__Logo.o-ListSponsors__Logo--lrg(href="" title="Bank of America" style="background-position: center; background-image: url('../sample/img/logo-bank-america.png');")
+        li.o-GridFlex__Item.o-ListSponsors__Item
+          a.o-Block.o-ListSponsors__Logo.o-ListSponsors__Logo--lrg(href="" title="UPS"             style="background-position: center; background-image: url('../sample/img/logo-ups.png');")
+        li.o-GridFlex__Item.o-ListSponsors__Item
+          a.o-Block.o-ListSponsors__Logo.o-ListSponsors__Logo--lrg(href="" title="Geico"           style="background-position: center; background-image: url('../sample/img/logo-geico.png');")
+      br
+      br
+      ul.o-ListBare.o-GridFlex.o-ListSponsors
+        li.o-GridFlex__Item.o-ListSponsors__Item
+          a.o-Block.o-ListSponsors__Logo.o-ListSponsors__Logo--med(href="" title="Bank of America" style="background-position: center; background-image: url('../sample/img/logo-bank-america.png');")
+        li.o-GridFlex__Item.o-ListSponsors__Item
+          a.o-Block.o-ListSponsors__Logo.o-ListSponsors__Logo--med(href="" title="UPS"             style="background-position: center; background-image: url('../sample/img/logo-ups.png');")
+        li.o-GridFlex__Item.o-ListSponsors__Item
+          a.o-Block.o-ListSponsors__Logo.o-ListSponsors__Logo--med(href="" title="Geico"           style="background-position: center; background-image: url('../sample/img/logo-geico.png');")
+      br
+      br
+      ul.o-ListBare.o-GridFlex.o-ListSponsors
+        li.o-GridFlex__Item.o-ListSponsors__Item
+          a.o-Block.o-ListSponsors__Logo.o-ListSponsors__Logo--sml(href="" title="Bank of America" style="background-position: center; background-image: url('../sample/img/logo-bank-america.png');")
+        li.o-GridFlex__Item.o-ListSponsors__Item
+          a.o-Block.o-ListSponsors__Logo.o-ListSponsors__Logo--sml(href="" title="UPS"             style="background-position: center; background-image: url('../sample/img/logo-ups.png');")
+        li.o-GridFlex__Item.o-ListSponsors__Item
+          a.o-Block.o-ListSponsors__Logo.o-ListSponsors__Logo--sml(href="" title="Geico"           style="background-position: center; background-image: url('../sample/img/logo-geico.png');")
+      br
+      br
+      ul.o-ListBare.o-GridFlex.o-ListSponsors
+        li.o-GridFlex__Item.o-ListSponsors__Item
+          a.o-ListSponsors__Text(href="") Bank of America
+        li.o-GridFlex__Item.o-ListSponsors__Item
+          a.o-ListSponsors__Text(href="") UPS
+        li.o-GridFlex__Item.o-ListSponsors__Item
+          a.o-ListSponsors__Text(href="") Geico
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u o-ListSponsors]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u o-ListSponsors__Item]"&gt;
+            &lt;a class="o-Block  #[u o-ListSponsors__Logo]  #[u o-ListSponsors__Logo--lrg]"&gt;&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;
+        &lt;ul class="o-ListBare  o-GridFlex  #[u o-ListSponsors]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u o-ListSponsors__Item]"&gt;
+            &lt;a class="o-Block  #[u o-ListSponsors__Logo]  #[u o-ListSponsors__Logo--med]"&gt;&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;
+        &lt;ul class="o-ListBare  o-GridFlex  #[u o-ListSponsors]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u o-ListSponsors__Item]"&gt;
+            &lt;a class="o-Block  #[u o-ListSponsors__Logo]  #[u o-ListSponsors__Logo--sml]"&gt;&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;
+        &lt;ul class="o-ListBare  o-GridFlex  #[u o-ListSponsors]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u o-ListSponsors__Item]"&gt;
+            &lt;a class="#[u o-ListSponsors__Text]"&gt;&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;

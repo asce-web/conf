@@ -5,27 +5,28 @@ block append vars
   - var tag_title = conference_name
   - var tag_meta_description = conference_theme
 
-block highlights_main
-  header.o-Highlight.c-Banner.c-Banner--home
+block append main
+  +main-header(['c-Banner','c-Banner--home'])
     h1(itemprop="name")= conference_name
     +date-place()
     p(itemprop="description")= conference_theme
     +action-buttons()
-  section.o-Highlight
-    h1.o-Highlight__Hn About
-    div.is-editable
-      p.
-        More prose about this specific year goes here.
-        The Geo-Institute and Structural Engineering Institute of the
-        American Society of Civil Engineers are coming together to create this
-        first-of-its-kind event. By combining &hellip;
-      ul
-        li 3&frac12; days of premier educational and networking events
-        li 15 tracks and 6 plenary sessions focusing on ...
-        li Prestigious awards and keynote lecture presentations
-        li Lively programs for studdnts and young professionals
+  +main-body()
+    section
+      h1.o-Highlight__Hn About
+      div.is-editable
+        p.
+          More prose about this specific year goes here.
+          The Geo-Institute and Structural Engineering Institute of the
+          American Society of Civil Engineers are coming together to create this
+          first-of-its-kind event. By combining &hellip;
+        ul
+          li 3&frac12; days of premier educational and networking events
+          li 15 tracks and 6 plenary sessions focusing on ...
+          li Prestigious awards and keynote lecture presentations
+          li Lively programs for studdnts and young professionals
 
-block highlights_callouts
+block callouts
   aside.o-Highlight.c-Banner
     h1.o-Highlight__Hn Important Dates
     +important-date-content()

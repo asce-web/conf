@@ -186,11 +186,17 @@ html(lang="en")
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Our Lineup
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Become a Speaker
     block dominant
-      section(itemscope="" itemtype="http://schema.org/Event")
+      section(itemscope="" itemtype="http://schema.org/Event" data-id="dominant")
         main
-          block highlights_main
+          block main
+            mixin main-header(classes)
+              header.o-Highlight(class=classes)
+                block
+            mixin main-body()
+              div.o-Highlight
+                block
         div.t-Callouts
-          block highlights_callouts
+          block callouts
     footer.o-GridFlex.o-Runner.c-Mast.-pb-0(itemscope="" itemtype="http://schema.org/NGO")
       section.o-GridFlex__Item.-w-1o2-sM
         h1 Contact Us

@@ -1,0 +1,51 @@
+
+/*################################*\
+    conf  |  _obj.OtherYear.less
+\*################################*/
+@import (reference) url('__settings.less');
+
+
+// advertisement for another year’s conference
+//
+// ^subcomponents
+// __Title    - name and place of prev/next conferences
+// __Desc     - small description of prev/next conferences
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-04-08
+.o-OtherYear {
+  @media screen and (max-width: 29.999em) {
+    padding: 0;
+  }
+}
+
+.o-OtherYear__Title {
+  @media screen and (min-width: 45em) {
+    position: relative;
+    width: 33.333%;
+    padding-right: 1rem;
+    ::after {
+      @rw: 2px;
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      margin: (0.5*@g-vru) 0;
+      margin-right: 0.5rem;
+      border-right-width: @rw;
+      opacity: 0.5;
+    }
+  }
+}
+
+.o-OtherYear__Desc  {
+  @media screen and (max-width: 44.999em) {
+    & > p:first-child {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 45em) {
+    width: 66.667%;
+  }
+}

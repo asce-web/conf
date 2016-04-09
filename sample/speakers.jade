@@ -1,0 +1,33 @@
+extends sample.tpl.jade
+
+block append vars
+  - var page_type = 'interior'
+  - var page_name = 'Speakers'
+  - var tag_title = page_name + ' | ' + conference_name
+  - var tag_meta_description = 'Get information about current and prospective speakers at ASCE 2016.'
+
+block main-header
+  +main-header('Speakers')
+
+block main-body
+  section.o-Highlight
+    h1.o-Highlight__Hn Call for Submissions
+    div.is-editable
+      p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+      blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
+      ul
+        li 3&frac12; days of premier educational and networking events
+        li 15 tracks and 6 plenary sessions focusing on ...
+        li Prestigious awards and keynote lecture presentations
+        li Lively programs for studdnts and young professionals
+  section.o-Highlight.c-Banner
+    ul.o-ListBare.o-GridFlex.o-ListStacked
+      each val in [1,2,3,4,5,6]
+        li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
+          p.c-Speaker__Name Donald Trump, Ph.D.
+          p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
+
+block callouts
+  aside.-ta-c
+    h1 Sponsors
+    +sponsor-content()

@@ -8,14 +8,14 @@
 // serves as the header of the entire page
 //
 // ^subclasses
-// --landing  - Hero section on the Landing page
-// --home     - 〃 Home page
-// --location - 〃 Hotel & Travel page
 // ^author
 // Chris Harvey
 // ^updated
 // 2016-04-08
 .c-PageHeader {
+  @media screen and (min-width: 45em) { padding: @g-boxpadd_mega; }
+  @media screen and (min-width: 60em) { padding: @g-boxpadd_giga; }
+
   background-color: @g-color_site_accent; // FIXME
   text-align: center;
   &,

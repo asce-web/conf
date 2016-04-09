@@ -3,11 +3,18 @@
     conf  |  _comp.Banner.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.filter.less');
+// @import (reference) url('../node_modules/xmeter/src/__tool.fallback.filter.less');
 @import (reference) url('__settings.less');
 @import (reference) url('__settings.conf-colors.less');
 
 
+.filter(@filter) {
+  -webkit-filter: @filter;
+     -moz-filter: @filter;
+      -ms-filter: @filter;
+       -o-filter: @filter;
+          filter: @filter;
+}
 // Any major section on any page with a full-width background image.
 //
 // ^subclasses

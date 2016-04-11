@@ -21,11 +21,7 @@ block main-body
         li Prestigious awards and keynote lecture presentations
         li Lively programs for studdnts and young professionals
   section.o-Highlight.c-Banner
-    ul.o-ListBare.o-GridFlex.o-ListStacked
-      each val in [1,2,3,4,5,6]
-        li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
-          p.c-Speaker__Name Donald Trump, Ph.D.
-          p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
+    +num-speakers(6)
 
 block callouts
   aside.-ta-c

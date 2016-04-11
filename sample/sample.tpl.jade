@@ -65,12 +65,21 @@ html(lang="en")
         +row('2016','Jan','12', '2016-01-12','Advance Registration Closes')
     mixin registration-content()
       p registration content goes here
+    mixin num-speakers(n)
+      ul.o-ListBare.o-GridFlex.o-ListSpeakers
+        - for (var i = 0; i < n; i++)
+          li.o-GridFlex__Item.o-ListSpeakers__Item.c-Speaker
+            p.c-Speaker__Name Donna Fulman, P.ASCE
+            p.c-Speaker__JobTitle Interior Engineering Administration
+            div.c-Speaker__Desc
+              p Tobias van Schneider is an award-winning, German designer raised in Austria and currently living in New York City.
+              p Former Lead Product Designer and Art Director at Spotify, he recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
+              p
+                a(href="") Email
+                a(href="") LinkedIn
+                a(href="") Twitter
     mixin speakers-content()
-      ul.o-ListBare.o-GridFlex.o-ListStacked
-        each val in [1,2,3]
-          li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
-            p.c-Speaker__Name Donald Trump, Ph.D.
-            p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
+      +num-speakers(3)
       p.-ta-c: a(href="") View All Speakers
     mixin cochairs-content()
       ul.o-ListBare.o-GridFlex.o-ListStacked

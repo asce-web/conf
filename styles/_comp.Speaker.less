@@ -1,6 +1,6 @@
 
 /*################################*\
-    conf  |  _comp.DateBlock.less
+    conf  |  _comp.Speaker.less
 \*################################*/
 
 
@@ -13,12 +13,38 @@
 // ^updated
 // 2016-04-01
 .c-Speaker {
-  padding-top: 5em; // NOTE this will fit the headshot photo height. may be responsive
+  // padding-top: 25vw; // NOTE this will fit the headshot photo height. may be responsive
+  background-image: url('../sample/img/headshot1.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .c-Speaker__Name,
 .c-Speaker__JobTitle {
   margin-bottom: 0;
+  background-color: rgba(0,0,0,0.5);
 }
 .c-Speaker__Name {}
 .c-Speaker__JobTitle {}
+
+.c-Speaker__Desc {
+  display: none;
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  overflow: auto;
+  margin: @g-boxpadd_norm;
+  font-size: 0.85em;
+  background: fadeout(green, 50%);
+  & p,
+  & blockquote,
+  & ol,
+  & ul {
+    margin-bottom: 1.5em;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .c-Speaker:hover > & {
+    display: block;
+  }
+}

@@ -8,6 +8,11 @@
 // The first column is the headshot photo,
 // the second column is the description.
 //
+// ^subcomponents
+// __Name     - the speaker’s name and title
+// __JobTitle - affiliation
+// __Desc     - a block of content further describing information about the speaker
+// __Link     - link to speaker’s email, LinkedIn, and/or Twitter
 // ^author
 // Chris Harvey
 // ^updated
@@ -28,23 +33,15 @@
 .c-Speaker__JobTitle {}
 
 .c-Speaker__Desc {
-  display: none;
-  position: absolute;
-  left: 0; right: 0; top: 0; bottom: 0;
   overflow: auto;
-  margin: @g-boxpadd_norm;
   font-size: 0.85em;
   background: fadeout(green, 50%);
-  & p,
-  & blockquote,
-  & ol,
-  & ul {
-    margin-bottom: 1.5em;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-  .c-Speaker:hover > & {
-    display: block;
+}
+
+.c-Speaker__Link {
+  &,
+  &:hover,
+  &:focus {
+    color: inherit;
   }
 }

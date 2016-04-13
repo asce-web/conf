@@ -180,11 +180,19 @@ block append main
       The Runner Object is similar to the Highlight Object in style, but used
       for a different purpose. Runners are only used on the header and footer
       of the site.
+    p.
+      #[a(href="comp.html#copyright-footer") The #[code .c-Copyright] Component],
+      when placed inside the Runner Object, behaves slightly differently than
+      if it were not. Namely, it ignores the horizontal padding on the Runner.
+    p: strong(style="color:red;") TODO: create a subcomponent of Runner for this purpose.
     figure.sg-c-Fig
       div.o-Runner
+        p runner content
+        div.c-Copyright &copy; 2016 ASCE.org
       pre.
         &lt;div class="#[u o-Runner]"&gt;
-          ...
+          &lt;p&gt;runner content&lt;/p&gt;
+          &lt;div class="#[u c-Copyright]"&gt;&copy; 2016 ASCE.org&lt;/div&gt;
         &lt;/div&gt;
   section.sg-sect#sponsors-list
     h2 The Sponsors List

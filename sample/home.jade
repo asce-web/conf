@@ -2,6 +2,7 @@ extends sample.tpl.jade
 
 block append vars
   - var page_type = 'home'
+  - var page_name = 'Home'
   - var tag_title = conference_name
   - var tag_meta_description = conference_theme
 
@@ -12,9 +13,7 @@ block main-header
     p(itemprop="description")= conference_theme
     +action-buttons()
 
-block main-body
-  section.o-Highlight
-    h1.o-Highlight__Hn About #[small (is this heading necessary?)]
+block main-prose
     div.is-editable
       p.
         More prose about this specific year goes here.

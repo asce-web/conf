@@ -197,22 +197,21 @@ html(lang="en")
     block dominant
       section(itemscope="" itemtype="http://schema.org/Event" data-id="dominant")
         main
-          mixin main-header(heading)
-            header.o-Highlight.c-PageHeader
-              h1= heading
           block main-header
-            +main-header('sample page heading')
+            header.o-Highlight.c-PageHeader
+              h1= page_name
           block main-body
-            section.o-Highlight
-              h1.o-Highlight__Hn sample section heading
-              div.is-editable
-                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
-                blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
-                ul
-                  li 3&frac12; days of premier educational and networking events
-                  li 15 tracks and 6 plenary sessions focusing on ...
-                  li Prestigious awards and keynote lecture presentations
-                  li Lively programs for studdnts and young professionals
+            div.o-Highlight
+              block main-prose
+                section.is-editable
+                  h1 Sample Section Heading
+                  p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+                  blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
+                  ul
+                    li 3&frac12; days of premier educational and networking events
+                    li 15 tracks and 6 plenary sessions focusing on ...
+                    li Prestigious awards and keynote lecture presentations
+                    li Lively programs for studdnts and young professionals
         div.t-Callouts
           block callouts
     footer.o-GridFlex.o-Runner.c-Mast.-pb-0(itemscope="" itemtype="http://schema.org/NGO")

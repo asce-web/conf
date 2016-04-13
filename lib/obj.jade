@@ -16,6 +16,7 @@ block append main__header
       li: a(href="#highlight-object") The Highlight Object
       li: a(href="#runner-object") The Runner Object
       li: a(href="#sponsors-list") The Sponsors List
+      li: a(href="#speakers-list") The Speakers List
 
 block append main
   section.sg-sect#block-object
@@ -251,6 +252,36 @@ block append main
         &lt;ul class="o-ListBare  o-GridFlex  #[u o-ListSponsors]"&gt;
           &lt;li class="o-GridFlex__Item  #[u o-ListSponsors__Item]"&gt;
             &lt;a class="#[u o-ListSponsors__Text]"&gt;&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;
+  section.sg-sect#speakers-list
+    h2 The Speakers List
+    p.
+      A Speakers List is an unordered list of items, each containing
+      content for a keynote speaker.
+    figure.sg-c-Fig
+      ul.o-ListBare.o-GridFlex.o-ListSpeakers
+        li.o-GridFlex__Item.o-ListSpeakers__Item
+          p Donna Fulman, P.ASCE
+          p Interior Engineering Administration
+          div.o-ListSpeakers__Over
+            p Donna Fulman is an award-winning, German designer raised in Austria and currently living in New York City.
+            p Former Lead Product Designer and Art Director at Spotify, he recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
+            p
+              a(href="") Email
+              a(href="") LinkedIn
+              a(href="") Twitter
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u o-ListSpeakers]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u o-ListSpeakers__Item]"&gt;
+            &lt;p&gt;Donna Fulman, P.ASCE&lt;/p&gt;
+            &lt;p&gt;Interior Engineering Administration&lt;/p&gt;
+            &lt;div class="#[u o-ListSpeakers__Over]"&gt;
+              &lt;p&gt;Donna Fulman is ...&lt;/p&gt;
+              &lt;p&gt;Former Lead Product Designer ...&lt;/p&gt;
+              ...
+            &lt;/div&gt;
           &lt;/li&gt;
           ...
         &lt;/ul&gt;

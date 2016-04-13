@@ -97,9 +97,16 @@ block append main
   section.sg-sect#social-list
     h2 The Social List
     figure.sg-c-Fig
-      //- ul.o-ListBare.o-GridFlex.c-SocialList
-        li.o-GridFlex__Item.c-SocialList__Item: a.c-Mast__Link.c-SocialList__Link(href="" itemprop="sameAs") LinkedIn
-        li.o-GridFlex__Item.c-SocialList__Item: a.c-Mast__Link.c-SocialList__Link(href="" itemprop="sameAs") Facebook
-        li.o-GridFlex__Item.c-SocialList__Item: a.c-Mast__Link.c-SocialList__Link(href="" itemprop="sameAs") Twitter
-        li.o-GridFlex__Item.c-SocialList__Item: a.c-Mast__Link.c-SocialList__Link(href="" itemprop="sameAs") YouTube
-        li.o-GridFlex__Item.c-SocialList__Item: a.c-Mast__Link.c-SocialList__Link(href="" itemprop="sameAs") Google+
+      ul.o-ListBare.o-GridFlex.c-SocialList
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") LinkedIn
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") Facebook
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") Twitter
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") YouTube
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") Google+
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u c-SocialList]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u c-SocialList__Item]"&gt;
+            &lt;a class="o-Block  #[u c-SocialList__Link]"&gt;LinkedIn&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;

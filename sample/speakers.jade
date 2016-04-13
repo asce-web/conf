@@ -1,9 +1,7 @@
-extends sample.tpl.jade
+extends sample-basic.tpl.jade
 
-block append vars
-  - var page_type = 'interior'
+block prepend vars
   - var page_name = 'Speakers'
-  - var tag_title = page_name + ' | ' + conference_name
   - var tag_meta_description = 'Get information about current and prospective speakers at ASCE 2016.'
 
 block main-prose
@@ -17,8 +15,3 @@ block main-prose
 block append main-body
   div.o-Highlight.c-Banner
     +num-speakers(6)
-
-block callouts
-  aside.-ta-c
-    h1 Sponsors
-    +sponsor-content()

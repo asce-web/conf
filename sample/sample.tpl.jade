@@ -6,8 +6,6 @@ html(lang="en")
       - var site_tagline = 'The Flagship Event of ASCE'
       - var conference_name = 'ASCE 2016'
       - var conference_theme = 'Engineering > Innovating > Leading'
-      - var tag_title = ''
-      - var tag_meta_description = ''
       - var tag_meta_keywords = ['ASCE', 'civil engineering', 'convention']
     title= tag_title
     meta(charset="utf-8")
@@ -212,6 +210,8 @@ html(lang="en")
                     li 15 tracks and 6 plenary sessions focusing on ...
                     li Prestigious awards and keynote lecture presentations
                     li Lively programs for studdnts and young professionals
+            block main-body-insert
+            block main-prose2
         div.t-Callouts
           block callouts
     footer.o-GridFlex.o-Runner.c-Mast.-pb-0(itemscope="" itemtype="http://schema.org/NGO")

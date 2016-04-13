@@ -6,10 +6,11 @@ block append vars
   - var tag_title = page_name + ' | ' + conference_name
   - var tag_meta_description = 'Get information about the location of the conference and where to stay.'
 
-block append main
-  +main-header(['c-Banner','c-Banner--location'])
+block main-header
+  header.o-Highlight.c-PageHeader.c-Banner.c-Banner--location
     h1.c-Banner__Hn Hotel &amp; Travel
-  +main-body()
+
+block main-prose
     div.is-editable(data-id="intro")
       p Intro paragraph. Lorem ipsun dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
       ul
@@ -62,7 +63,7 @@ block callouts
     h1.o-Highlight__Hn Important Dates
     +important-date-content()
   aside.o-Highlight
-    h1.o-Highlight__Hn Content
+    h1.o-Highlight__Hn Contact
     +contact-content()
   aside.-ta-c
     h1 Sponsors

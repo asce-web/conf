@@ -6,8 +6,6 @@ html(lang="en")
       - var site_tagline = 'The Flagship Event of ASCE'
       - var conference_name = 'ASCE 2016'
       - var conference_theme = 'Engineering > Innovating > Leading'
-      - var tag_title = ''
-      - var tag_meta_description = ''
       - var tag_meta_keywords = ['ASCE', 'civil engineering', 'convention']
     title= tag_title
     meta(charset="utf-8")
@@ -66,12 +64,21 @@ html(lang="en")
         +row('2016','Jan','12', '2016-01-12','Advance Registration Closes')
     mixin registration-content()
       p registration content goes here
+    mixin num-speakers(n)
+      ul.o-ListBare.o-GridFlex.o-ListSpeakers
+        - for (var i = 0; i < n; i++)
+          li.o-GridFlex__Item.o-ListSpeakers__Item.c-Speaker
+            p.c-Speaker__Name Donna Fulman, P.ASCE
+            p.c-Speaker__JobTitle Interior Engineering Administration
+            div.o-ListSpeakers__Over.c-Speaker__Desc
+              p Tobias van Schneider is an award-winning, German designer raised in Austria and currently living in New York City.
+              p Former Lead Product Designer and Art Director at Spotify, he recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
+              p
+                a.c-Speaker__Link(href="") Email
+                a.c-Speaker__Link(href="") LinkedIn
+                a.c-Speaker__Link(href="") Twitter
     mixin speakers-content()
-      ul.o-ListBare.o-GridFlex.o-ListStacked
-        each val in [1,2,3]
-          li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
-            p.c-Speaker__Name Donald Trump, Ph.D.
-            p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
+      +num-speakers(3)
       p.-ta-c: a(href="") View All Speakers
     mixin cochairs-content()
       ul.o-ListBare.o-GridFlex.o-ListStacked
@@ -118,10 +125,6 @@ html(lang="en")
           | message
           textarea
         button submit
-      //- ul.o-ListBare
-        li: a(href="") (800) 548-2723
-        li: a(href="") +1 (703) 295-6300
-        li: a(href="") registrations@asce.org
     mixin sponsor-content()
       mixin sponsor-block(category, category_class, spons)
         section.o-Highlight.c-SponsorBlock(class='c-SponsorBlock--'+category_class)
@@ -145,43 +148,43 @@ html(lang="en")
       +sponsor-block('Copper', 'copper', sponsors)
     header
       div.o-GridFlex.o-Runner.c-Mast
-        a.o-GridFlex__Item.o-Block.c-Mast__Title.c-Mast__Link(href="")
+        a.o-GridFlex__Item.o-Block.c-Mast__Title.c-Mast__Link(href="index.html")
           h1= site_title
           p= site_tagline
         nav.o-GridFlex__Item.o-GridFlex.c-Mast__Nav
           ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
-            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="") About
-            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="") Sponsor
-            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="") Exhibit
-            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="") Contact
+            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="about.html") About
+            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="sponsor.html") Sponsor
+            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="exhibit.html") Exhibit
+            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="contact.html") Contact
           div.o-GridFlex__Item.c-Mast__Nav__ButtonContainer
             button.o-Block.c-Mast__Nav__ButtonContainer__MenuButton menu
-            a.o-Block.c-Mast__Link.c-Mast__Nav__ButtonContainer__CurrentButton(href="") 2016 Convention
+            a.o-Block.c-Mast__Link.c-Mast__Nav__ButtonContainer__CurrentButton(href="home.html") 2016 Convention
       unless page_type === 'landing'
         nav.o-Runner.c-MenuStandard.-pv-0
           ul.o-ListBare.o-GridFlex.-mb-z
             li.o-GridFlex__Item.c-MenuStandard__Item
-              a.o-Block.c-MenuStandard__Link(href="") Home
+              a.o-Block.c-MenuStandard__Link(href="home.html") Home
             li.o-GridFlex__Item.c-MenuStandard__Item
-              a.o-Block.c-MenuStandard__Link(href="") Register
+              a.o-Block.c-MenuStandard__Link(href="register.html") Register
               ul.o-ListBare.c-MenuSub(class=(page_name==='Register' ? 'c-MenuSub--active' : ''))
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 2
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 3
             li.o-GridFlex__Item.c-MenuStandard__Item
-              a.o-Block.c-MenuStandard__Link(href="") Program
+              a.o-Block.c-MenuStandard__Link(href="program.html") Program
               ul.o-ListBare.c-MenuSub(class=(page_name==='Program' ? 'c-MenuSub--active' : ''))
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Events
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Program Submenu Item 2
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Program Submenu Item 3
             li.o-GridFlex__Item.c-MenuStandard__Item
-              a.o-Block.c-MenuStandard__Link(href="") Hotel &amp; Travel
+              a.o-Block.c-MenuStandard__Link(href="location.html") Hotel &amp; Travel
               ul.o-ListBare.c-MenuSub(class=(page_name==='Hotel & Travel' ? 'c-MenuSub--active' : ''))
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") International Travel
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Location Submenu Item 2
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Location Submenu Item 3
             li.o-GridFlex__Item.c-MenuStandard__Item
-              a.o-Block.c-MenuStandard__Link(href="") Speakers
+              a.o-Block.c-MenuStandard__Link(href="speakers.html") Speakers
               ul.o-ListBare.c-MenuSub(class=(page_name==='Speakers' ? 'c-MenuSub--active' : ''))
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Call for Submissions
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Our Lineup
@@ -189,13 +192,23 @@ html(lang="en")
     block dominant
       section(itemscope="" itemtype="http://schema.org/Event" data-id="dominant")
         main
-          block main
-            mixin main-header(classes)
-              header.o-Highlight.c-PageHeader(class=classes)
-                block
-            mixin main-body()
-              div.o-Highlight
-                block
+          block main-header
+            header.o-Highlight.c-PageHeader
+              h1= page_name
+          block main-body
+            div.o-Highlight
+              block main-prose
+                section.is-editable
+                  h1 Sample Section Heading
+                  p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+                  blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
+                  ul
+                    li 3&frac12; days of premier educational and networking events
+                    li 15 tracks and 6 plenary sessions focusing on ...
+                    li Prestigious awards and keynote lecture presentations
+                    li Lively programs for studdnts and young professionals
+            block main-body-insert
+            block main-prose2
         div.t-Callouts
           block callouts
     footer.o-GridFlex.o-Runner.c-Mast.-pb-0(itemscope="" itemtype="http://schema.org/NGO")

@@ -181,18 +181,21 @@ block append main
       for a different purpose. Runners are only used on the header and footer
       of the site.
     p.
-      #[a(href="comp.html#copyright-footer") The #[code .c-Copyright] Component],
+      #[a(href="comp.html#copyright-line") The #[code .c-Copyright] Component],
       when placed inside the Runner Object, behaves slightly differently than
       if it were not. Namely, it ignores the horizontal padding on the Runner.
     p: strong(style="color:red;") TODO: create a subcomponent of Runner for this purpose.
     figure.sg-c-Fig
       div.o-Runner
         p runner content
-        div.c-Copyright &copy; 2016 ASCE.org
+        div.c-Copyright.
+          &copy; 1996&ndash;2016 American Society of Civil Engineers
       pre.
         &lt;div class="#[u o-Runner]"&gt;
           &lt;p&gt;runner content&lt;/p&gt;
-          &lt;div class="#[u c-Copyright]"&gt;&copy; 2016 ASCE.org&lt;/div&gt;
+          &lt;div class="#[u c-Copyright]"&gt;
+            &copy; 1996&ndash;2016 American Society of Civil Engineers
+          &lt;/div&gt;
         &lt;/div&gt;
   section.sg-sect#sponsors-list
     h2 The Sponsors List

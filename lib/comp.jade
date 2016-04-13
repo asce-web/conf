@@ -48,53 +48,58 @@ block append main
             &lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
-      //- unless page_type === 'landing'
-        nav.o-Runner.c-MenuStandard.-pv-0
-          ul.o-ListBare.o-GridFlex.-mb-z
-            li.o-GridFlex__Item.c-MenuStandard__Item
-              a.o-Block.c-MenuStandard__Link(href="home.html") Home
-            li.o-GridFlex__Item.c-MenuStandard__Item
-              a.o-Block.c-MenuStandard__Link(href="register.html") Register
-              ul.o-ListBare.c-MenuSub(class=(page_name==='Register' ? 'c-MenuSub--active' : ''))
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 2
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 3
-            li.o-GridFlex__Item.c-MenuStandard__Item
-              a.o-Block.c-MenuStandard__Link(href="program.html") Program
-              ul.o-ListBare.c-MenuSub(class=(page_name==='Program' ? 'c-MenuSub--active' : ''))
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Events
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Program Submenu Item 2
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Program Submenu Item 3
-            li.o-GridFlex__Item.c-MenuStandard__Item
-              a.o-Block.c-MenuStandard__Link(href="location.html") Hotel &amp; Travel
-              ul.o-ListBare.c-MenuSub(class=(page_name==='Hotel & Travel' ? 'c-MenuSub--active' : ''))
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") International Travel
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Location Submenu Item 2
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Location Submenu Item 3
-            li.o-GridFlex__Item.c-MenuStandard__Item
-              a.o-Block.c-MenuStandard__Link(href="speakers.html") Speakers
-              ul.o-ListBare.c-MenuSub(class=(page_name==='Speakers' ? 'c-MenuSub--active' : ''))
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Call for Submissions
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Our Lineup
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Become a Speaker
   section.sg-sect#universal-menu
     h2 The Universal Menu
+    p #[strong Note:] Universal Menu will convert to pull-out drawer when screen is smaller than 720px.
     figure.sg-c-Fig
-      ul.o-ListBare.o-GridFlex.c-MenuUniversal
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="about.html") About
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="sponsor.html") Sponsor
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="exhibit.html") Exhibit
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="contact.html") Contact
+      ul.o-ListBare.o-GridFlex.c-MenuUniversal(style="margin-bottom: 1.5rem;")
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") About
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Sponsor
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Exhibit
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Contact
       pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuUniversal]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuUniversal__Item]"&gt;
             &lt;a class="o-Block  #[u c-MenuUniversal__Link]"&gt;About&lt;/a&gt;
-          &lt;/li&gt;
-          &lt;li class="o-GridFlex__Item  #[u c-MenuUniversal__Item]"&gt;
-            &lt;a class="o-Block  #[u c-MenuUniversal__Link]"&gt;Sponsor&lt;/a&gt;
           &lt;/li&gt;
           ...
         &lt;/ul&gt;
   section.sg-sect#standard-menu
     h2 The Standard Menu
     figure.sg-c-Fig
+      ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
+        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Home
+        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Register
+        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Program
+        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Hotel &amp; Travel
+        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Speakers
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuStandard]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u c-MenuStandard__Item]"&gt;
+            &lt;a class="o-Block  #[u c-MenuStandard__Link]"&gt;Home&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;
+  section.sg-sect#sub-menu
+    h2 The Sub Menu
+    figure.sg-c-Fig
+      ul.o-ListBare.c-MenuSub(style="position: initial;")
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 2
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 3
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuSub]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u c-MenuSub__Item]"&gt;
+            &lt;a class="o-Block  #[u c-MenuSub__Link]"&gt;Why Attend&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;
+  section.sg-sect#social-list
+    h2 The Social List
+    figure.sg-c-Fig
+      //- ul.o-ListBare.o-GridFlex.c-SocialList
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-Mast__Link.c-SocialList__Link(href="" itemprop="sameAs") LinkedIn
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-Mast__Link.c-SocialList__Link(href="" itemprop="sameAs") Facebook
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-Mast__Link.c-SocialList__Link(href="" itemprop="sameAs") Twitter
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-Mast__Link.c-SocialList__Link(href="" itemprop="sameAs") YouTube
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-Mast__Link.c-SocialList__Link(href="" itemprop="sameAs") Google+

@@ -1,0 +1,10 @@
+extends sample.tpl.jade
+
+block append vars
+  - var page_type = 'interior'
+  - var tag_title = page_name + ' | ' + conference_name
+
+block callouts
+  aside.-ta-c
+    h1 Sponsors
+    +sponsor-content()

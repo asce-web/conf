@@ -3,10 +3,18 @@
     conf  |  _comp.Banner.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.filter.less');
+// @import (reference) url('../node_modules/xmeter/src/__tool.fallback.filter.less');
 @import (reference) url('__settings.less');
+@import (reference) url('__settings.conf-colors.less');
 
 
+.filter(@filter) {
+  -webkit-filter: @filter;
+     -moz-filter: @filter;
+      -ms-filter: @filter;
+       -o-filter: @filter;
+          filter: @filter;
+}
 // Any major section on any page with a full-width background image.
 //
 // ^subclasses
@@ -18,14 +26,13 @@
 // ^subcomponents
 // __Overlay  - an element with a translucent background color
 // __Hn       - a heading inside a banner section
-// __Title    - name and place of prev/next conferences
-// __Desc     - small description of prev/next conferences
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-04-04
+// 2016-04-08
 .c-Banner {
   position: relative;
+  background: transparent; // override PageHeader
   &,
   &:hover,
   &:focus {
@@ -43,11 +50,7 @@
     background-size: cover;
   }
 }
-.c-Banner--landing,
-.c-Banner--home,
-.c-Banner--location {
-  text-align: center;
-}
+
 .c-Banner--landing,
 .c-Banner--home {
   &::before {
@@ -57,20 +60,13 @@
 .c-Banner--location {
   min-height: 9*@g-vru;
 }
-
-.c-Banner--prev,
-.c-Banner--next {
-  @media screen and (max-width: 29.999em) {
-    padding: 0;
-  }
-}
-
 // override background-image in site-specific stylesheet
 .c-Banner--landing::before {}
 .c-Banner--home::before {}
 .c-Banner--location::before {}
 .c-Banner--prev::before {}
 .c-Banner--next::before {}
+
 
 // On an interior page, a heading inside the banner section.
 // Right now this is only used on the **Hotel & Travel** page.
@@ -86,37 +82,4 @@
   width: 100%;
   padding: @g-vru 0;
   background-color: rgba(0,0,0,0.5);
-}
-
-// Title and Description of prev/next year conferences.
-//
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-04-06
-.c-Banner__Title { @media screen and (min-width: 45em) { width: 33.333%; } }
-.c-Banner__Desc  { @media screen and (min-width: 45em) { width: 66.667%; } }
-.c-Banner__Title {
-  @media screen and (min-width: 45em) {
-    position: relative;
-    padding-right: 1rem;
-    ::after {
-      @rw: 2px;
-      content: '';
-      display: block;
-      position: absolute;
-      right: 0; top: 0; bottom: 0;
-      margin: (0.5*@g-vru) 0;
-      margin-right: 0.5rem;
-      border-right-width: @rw;
-      opacity: 0.5;
-    }
-  }
-}
-.c-Banner__Desc  {
-  & > p:first-child {
-    @media screen and (max-width: 44.999em) {
-      display: none;
-    }
-  }
 }

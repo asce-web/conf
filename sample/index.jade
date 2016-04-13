@@ -8,13 +8,13 @@ block append vars
 block dominant
   main
     section(itemscope="" itemtype="http://schema.org/Event")
-      a.o-Block.o-Highlight.c-Banner.c-Banner--landing(href="" itemprop="url")
+      a.o-Block.o-Highlight.c-PageHeader.c-Banner.c-Banner--landing(href="home.html")
+        meta(content="http://2016.asceconvention.org/" itemprop="url")
         h1(itemprop="name")= conference_name
         +date-place()
         p(itemprop="description")= conference_theme
         p: span Get Details
-    section.o-Highlight
-      h1.o-Highlight__Hn About
+    div.o-Highlight
       div.is-editable
         p.
           Elevator pitch. One–two paragraphs. Sentence case.
@@ -27,31 +27,31 @@ block dominant
           li two
           li three
     section(itemscope="" itemtype="http://schema.org/Event")
-      a.o-Block.o-Highlight.c-Banner.c-Banner--prev(href="" itemprop="url")
+      a.o-Block.o-Highlight.o-OtherYear.c-Banner.c-Banner--prev(href="//2015.asceconvention.org/" itemprop="url")
         div.o-GridFlex.c-Overlay
-          div.o-GridFlex__Item.c-Banner__Title
+          div.o-GridFlex__Item.o-OtherYear__Title
             h1(itemprop="name") ASCE 2015
             meta(content="2015-10-11" itemprop="startDate")
             p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
               span(itemprop="name")
                 span(itemprop="addressLocality") New York, 
                 abbr(itemprop="addressRegion" title="New York") NY
-          div.o-GridFlex__Item.c-Banner__Desc
+          div.o-GridFlex__Item.o-OtherYear__Desc
             p.
               Access the 2015 program to see which sessions qualify for
               PDHs and other documentation.
             p: span Event Details
     section(itemscope="" itemtype="http://schema.org/Event")
-      a.o-Block.o-Highlight.c-Banner.c-Banner--next(href="" itemprop="url")
+      a.o-Block.o-Highlight.o-OtherYear.c-Banner.c-Banner--next(href="//2017.asceconvention.org/" itemprop="url")
         div.o-GridFlex.c-Overlay
-          div.o-GridFlex__Item.c-Banner__Title
+          div.o-GridFlex__Item.o-OtherYear__Title
             h1(itemprop="name") ASCE 2017
             meta(content="2017-10-11" itemprop="startDate")
             p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
               span(itemprop="name")
                 span(itemprop="addressLocality") Chicago, 
                 abbr(itemprop="addressRegion" title="Illinois") IL
-          div.o-GridFlex__Item.c-Banner__Desc
+          div.o-GridFlex__Item.o-OtherYear__Desc
             p.
               Plan ahead to attend, sponsor, or exhibit at the
               annual convention for civil engineering professionals.

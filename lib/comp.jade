@@ -1,0 +1,90 @@
+extends lib.tpl.jade
+
+block append vars
+  - titles.push('Components')
+
+block append main__header
+  nav#table-contents
+    h2 Table of Contents
+    ol
+      li: a(href="#table-contents") Table of Contents
+      li: a(href="#masthead-mastfoot") The Masthead and Mastfoot
+      li: a(href="#universal-menu") The Universal Menu
+      li: a(href="#standard-menu") The Standard Menu
+      li: a(href="#sub-menu") The Sub Menu
+      li: a(href="#social-list") The Social List
+      li: a(href="#copyright-footer") The Copyright Footer
+      li: a(href="#page-header") The Page Header
+      li: a(href="#banner-component") The Banner Component
+      li: a(href="#overlay-component") The Overlay Component
+      li: a(href="#sponsor-block") The Sponsor Block
+      li: a(href="#date-block") The Date Block
+      li: a(href="#speaker-component") The Speaker Component
+
+block append main
+  section.sg-sect#masthead-mastfoot
+    h2 The Masthead and Mastfoot
+    figure.sg-c-Fig
+      div.c-Mast
+        div.c-Mast__Title
+          h1 ASCE Convention
+          p The Flagship Event of ASCE
+        p: a.c-Mast__Link(href="") link inside masthead
+        nav.c-Mast__Nav
+          div.c-Mast__Nav__ButtonContainer
+            span.c-Mast__Nav__ButtonContainer__MenuButton menu
+            span.c-Mast__Nav__ButtonContainer__CurrentButton 2016 Convention
+      pre.
+        &lt;div class="#[u c-Mast]"&gt;
+          &lt;div class="#[u c-Mast__Title]"&gt;
+            &lt;h1&gt;ASCE Convention&lt;/h1&gt;
+            &lt;p&gt;The Flagship Event of ASCE&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;p&gt;&lt;a class="#[u c-Mast__Link]"&gt;link inside masthead&lt;/a&gt;&lt;/p&gt;
+          &lt;div class="#[u c-Mast__Nav]"&gt;
+            &lt;div class="#[u c-Mast__Nav__ButtonContainer]"&gt;
+              &lt;span class="#[u c-Mast__Nav__ButtonContainer__MenuButton]"&gt;menu&lt;/span&gt;
+              &lt;span class="#[u c-Mast__Nav__ButtonContainer_CurrentButton]"&gt;2016 Convention&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      //- unless page_type === 'landing'
+        nav.o-Runner.c-MenuStandard.-pv-0
+          ul.o-ListBare.o-GridFlex.-mb-z
+            li.o-GridFlex__Item.c-MenuStandard__Item
+              a.o-Block.c-MenuStandard__Link(href="home.html") Home
+            li.o-GridFlex__Item.c-MenuStandard__Item
+              a.o-Block.c-MenuStandard__Link(href="register.html") Register
+              ul.o-ListBare.c-MenuSub(class=(page_name==='Register' ? 'c-MenuSub--active' : ''))
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 2
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 3
+            li.o-GridFlex__Item.c-MenuStandard__Item
+              a.o-Block.c-MenuStandard__Link(href="program.html") Program
+              ul.o-ListBare.c-MenuSub(class=(page_name==='Program' ? 'c-MenuSub--active' : ''))
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Events
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Program Submenu Item 2
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Program Submenu Item 3
+            li.o-GridFlex__Item.c-MenuStandard__Item
+              a.o-Block.c-MenuStandard__Link(href="location.html") Hotel &amp; Travel
+              ul.o-ListBare.c-MenuSub(class=(page_name==='Hotel & Travel' ? 'c-MenuSub--active' : ''))
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") International Travel
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Location Submenu Item 2
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Location Submenu Item 3
+            li.o-GridFlex__Item.c-MenuStandard__Item
+              a.o-Block.c-MenuStandard__Link(href="speakers.html") Speakers
+              ul.o-ListBare.c-MenuSub(class=(page_name==='Speakers' ? 'c-MenuSub--active' : ''))
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Call for Submissions
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Our Lineup
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Become a Speaker
+  section.sg-sect#universal-menu
+    h2 The Universal Menu
+    figure.sg-c-Fig
+      //- ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="about.html") About
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="sponsor.html") Sponsor
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="exhibit.html") Exhibit
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="contact.html") Contact
+  section.sg-sect#standard-menu
+    h2 The Standard Menu
+    figure.sg-c-Fig

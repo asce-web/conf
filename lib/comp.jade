@@ -1,0 +1,158 @@
+extends lib.tpl.jade
+
+block append vars
+  - titles.push('Components')
+
+block append main__header
+  nav#table-contents
+    h2 Table of Contents
+    ol
+      li: a(href="#table-contents") Table of Contents
+      li: a(href="#masthead-mastfoot") The Masthead and Mastfoot
+      li: a(href="#universal-menu") The Universal Menu
+      li: a(href="#standard-menu") The Standard Menu
+      li: a(href="#sub-menu") The Sub Menu
+      li: a(href="#social-list") The Social List
+      li: a(href="#copyright-line") The Copyright Line
+      li: a(href="#page-header") The Page Header
+      li: a(href="#banner-component") The Banner Component
+      li: a(href="#overlay-component") The Overlay Component
+      li: a(href="#sponsor-block") The Sponsor Block
+      li: a(href="#date-block") The Date Block
+      li: a(href="#speaker-component") The Speaker Component
+
+block append main
+  section.sg-sect#masthead-mastfoot
+    h2 The Masthead and Mastfoot
+    figure.sg-c-Fig
+      div.c-Mast
+        div.c-Mast__Title
+          h1 ASCE Convention
+          p The Flagship Event of ASCE
+        p: a.c-Mast__Link(href="") link inside masthead
+        nav.c-Mast__Nav
+          div.c-Mast__Nav__ButtonContainer
+            span.c-Mast__Nav__ButtonContainer__MenuButton menu
+            span.c-Mast__Nav__ButtonContainer__CurrentButton 2016 Convention
+      pre.
+        &lt;div class="#[u c-Mast]"&gt;
+          &lt;div class="#[u c-Mast__Title]"&gt;
+            &lt;h1&gt;ASCE Convention&lt;/h1&gt;
+            &lt;p&gt;The Flagship Event of ASCE&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;p&gt;&lt;a class="#[u c-Mast__Link]"&gt;link inside masthead&lt;/a&gt;&lt;/p&gt;
+          &lt;div class="#[u c-Mast__Nav]"&gt;
+            &lt;div class="#[u c-Mast__Nav__ButtonContainer]"&gt;
+              &lt;span class="#[u c-Mast__Nav__ButtonContainer__MenuButton]"&gt;menu&lt;/span&gt;
+              &lt;span class="#[u c-Mast__Nav__ButtonContainer_CurrentButton]"&gt;2016 Convention&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+  section.sg-sect#universal-menu
+    h2 The Universal Menu
+    p #[strong Note:] Universal Menu will convert to pull-out drawer when screen is smaller than 720px.
+    figure.sg-c-Fig
+      ul.o-ListBare.o-GridFlex.c-MenuUniversal(style="margin-bottom: 1.5rem;")
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") About
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Sponsor
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Exhibit
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Contact
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuUniversal]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u c-MenuUniversal__Item]"&gt;
+            &lt;a class="o-Block  #[u c-MenuUniversal__Link]"&gt;About&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;
+  section.sg-sect#standard-menu
+    h2 The Standard Menu
+    figure.sg-c-Fig
+      ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
+        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Home
+        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Register
+        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Program
+        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Hotel &amp; Travel
+        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Speakers
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuStandard]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u c-MenuStandard__Item]"&gt;
+            &lt;a class="o-Block  #[u c-MenuStandard__Link]"&gt;Home&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;
+  section.sg-sect#sub-menu
+    h2 The Sub Menu
+    figure.sg-c-Fig
+      ul.o-ListBare.c-MenuSub(style="position: initial;")
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 2
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 3
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuSub]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u c-MenuSub__Item]"&gt;
+            &lt;a class="o-Block  #[u c-MenuSub__Link]"&gt;Why Attend&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;
+  section.sg-sect#social-list
+    h2 The Social List
+    figure.sg-c-Fig
+      ul.o-ListBare.o-GridFlex.c-SocialList
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") LinkedIn
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") Facebook
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") Twitter
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") YouTube
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") Google+
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u c-SocialList]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u c-SocialList__Item]"&gt;
+            &lt;a class="o-Block  #[u c-SocialList__Link]"&gt;LinkedIn&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;
+  section.sg-sect#copyright-line
+    h2 The Copyright Line
+    figure.sg-c-Fig
+      div.c-Copyright.
+        &copy; 1996&ndash;2016 American Society of Civil Engineers
+      pre.
+        &lt;div class="#[u c-Copyright]"&gt;
+          &copy; 1996&ndash;2016 American Society of Civil Engineers
+        &lt;/div&gt;
+  section.sg-sect#page-header
+    h2 The Page Header
+    figure.sg-c-Fig
+      div.c-PageHeader(style="margin-bottom: 1.5rem;")
+        h1 Page Header
+      pre.
+        &lt;div class="#[u c-PageHeader]"&gt;
+          &lt;h1&gt;Page Header&lt;/h1&gt;
+        &lt;/div&gt;
+  section.sg-sect#banner-component
+    h2 The Banner Component
+    figure.sg-c-Fig
+      div.c-Banner(style="margin-bottom: 1.5rem; z-index:1;")
+        h1 banner heading
+        p banner content
+        br
+        br
+        br
+        br
+        br
+      div.c-Banner(style="margin-bottom: 1.5rem; z-index:1;")
+        h1.c-Banner__Hn special banner heading
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+      pre.
+        &lt;div class="#[u c-Banner]"&gt;
+          &lt;h1&gt;banner heading&lt;/h1&gt;
+          &lt;p&gt;banner content&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="#[u c-Banner]"&gt;
+          &lt;h1 class="#[u c-Banner__Hn]"&gt;special banner heading&lt;/h1&gt;
+        &lt;/div&gt;

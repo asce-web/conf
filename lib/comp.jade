@@ -80,11 +80,21 @@ block append main
   section.sg-sect#universal-menu
     h2 The Universal Menu
     figure.sg-c-Fig
-      //- ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
+      ul.o-ListBare.o-GridFlex.c-MenuUniversal
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="about.html") About
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="sponsor.html") Sponsor
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="exhibit.html") Exhibit
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="contact.html") Contact
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuUniversal]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u c-MenuUniversal__Item]"&gt;
+            &lt;a class="o-Block  #[u c-MenuUniversal__Link]"&gt;About&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class="o-GridFlex__Item  #[u c-MenuUniversal__Item]"&gt;
+            &lt;a class="o-Block  #[u c-MenuUniversal__Link]"&gt;Sponsor&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;
   section.sg-sect#standard-menu
     h2 The Standard Menu
     figure.sg-c-Fig

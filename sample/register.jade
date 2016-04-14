@@ -16,6 +16,37 @@ block main-prose
 block main-body-insert
   section.o-Highlight.c-Banner
     h1.o-Highlight__Hn Full Registration
+    mixin pass(attribs)
+      article.c-Pass&attributes(attribs)
+        header
+          h1.c-Pass__Hn Standard Pass
+          p: small Members &amp; Non-Members
+        section.c-Pass__Period.c-Pass__Period--current
+          h1.c-Pass__Period__Hn Advance
+          dl.-mb-z
+            dt.c-Pass__Attendee Non-Member
+            dd.c-Pass__Price $945
+            dt.c-Pass__Attendee Member
+            dd.c-Pass__Price.c-Pass__Price--featured $845
+        footer.o-GridFlex
+          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
+            h1.c-Pass__Period__Hn Early Bird
+            dl.-mb-z
+              dt.c-Pass__Attendee Non-Member
+              dd.c-Pass__Price $795
+              dt.c-Pass__Attendee Member
+              dd.c-Pass__Price $745
+          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
+            h1.c-Pass__Period__Hn Onsite
+            dl.-mb-z
+              dt.c-Pass__Attendee Non-Member
+              dd.c-Pass__Price $1045
+              dt.c-Pass__Attendee Member
+              dd.c-Pass__Price $945
+    div.o-GridFlex
+      +pass({class:'o-GridFlex__Item -w-1o3'})
+      +pass({class:'o-GridFlex__Item -w-1o3'})
+      +pass({class:'o-GridFlex__Item -w-1o3'})
 
 block main-prose2
   div.o-Highlight

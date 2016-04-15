@@ -20,6 +20,7 @@ block append main__header
       li: a(href="#sponsor-block") The Sponsor Block
       li: a(href="#date-block") The Date Block
       li: a(href="#speaker-component") The Speaker Component
+      li: a(href="#pass-component") The Pass Component
 
 block append main
   section.sg-sect#masthead-mastfoot
@@ -196,3 +197,45 @@ block append main
             &lt;/p&gt;
           &lt;/div&gt;
         &lt;/div&gt;
+  section.sg-sect#pass-component
+    h2 The Pass Component
+    p The Pass Component should be an #[code article] element.
+    p.
+      Remember that this is not a demonstration of an entire Pass Component.
+      This simply demonstrates the Component&rsquo;s styles and the styles
+      of its subcomponents. For a full demonstration, see the sample page.
+    figure.sg-c-Fig
+      article.c-Pass(style="margin-bottom: 1.5rem;")
+        h1.c-Pass__Hn Standard Pass
+        section.c-Pass__Period.c-Pass__Period--current
+          h1.c-Pass__Period__Hn Advance
+          dl
+            dt.c-Pass__Attendee Non-Member
+            dd.c-Pass__Price $945
+            dt.c-Pass__Attendee Member
+            dd.c-Pass__Price.c-Pass__Price--featured $845
+        section.c-Pass__Period
+          h1.c-Pass__Period__Hn Early Bird
+          dl
+            dt.c-Pass__Attendee Non-Member
+            dd.c-Pass__Price $795
+      pre.
+        &lt;article class="#[u c-Pass]"&gt;
+          &lt;h1 class="#[u c-Pass__Hn]"&gt;Standard Pass&lt;/h1&gt;
+          &lt;section class="#[u c-Pass__Period]"  #[u c-Pass__Period--current]"&gt;
+            &lt;h1 class="#[u c-Pass__Period__Hn]"&gt;Advance&lt;/h1&gt;
+            &lt;dl&gt;
+              &lt;dt class="#[u c-Pass__Attendee]"&gt;Non-Member&lt;/dt&gt;
+              &lt;dd class="#[u c-Pass__Price]&gt;$945&lt;/dd&gt;
+              &lt;dt class="#[u c-Pass__Attendee]"&gt;Member&lt;/dt&gt;
+              &lt;dd class="#[u c-Pass__Price]  #[u c-Pass__Price--featured]&gt;$845&lt;/dd&gt;
+            &lt;/dl&gt;
+          &lt;/section&gt;
+          &lt;section class="#[u c-Pass__Period]"&gt;
+            &lt;h1 class="#[u c-Pass__Period__Hn]"&gt;Early Bird&lt;/h1&gt;
+            &lt;dl&gt;
+              &lt;dt class="#[u c-Pass__Attendee]"&gt;Non-Member&lt;/dt&gt;
+              &lt;dd class="#[u c-Pass__Price]&gt;$795&lt;/dd&gt;
+            &lt;/dl&gt;
+          &lt;/section&gt;
+        &lt;/article&gt;

@@ -28,15 +28,14 @@
 
 .o-ListPass__Item {
   position: relative;
-  // width: calc(1/3 * 100%~' - '1rem);
   margin-bottom: @g-vru;
-  // @media screen and (min-width: 30em) {
-  //   width: calc(1/2 * 100%~' - '0.5rem);
-  // }
-  // @media screen and (min-width: 45em) {
-  //   width: calc(1/3 * 100%~' - '1rem);
-  // }
-  // @media screen and (min-width: 90em) {
-  //   width: calc(1/4 * 100%~' - '2rem);
-  // }
+  @media screen and (min-width: 30em) {
+    width: calc(1/2 * 100%~' - '0.5rem);
+  }
+  @media screen and (min-width: 45em) {
+    width: calc(1/3 * 100%~' - '1rem);
+  }
+  @media screen and (min-width: 90em) {
+    width: calc(1/4 * 100%~' - '2rem);
+  }
 }

@@ -37,11 +37,14 @@ html(lang="en")
           content: 'editable <section> with heading';
         }
   body
-    mixin action-buttons()
+    mixin action-buttons(arr, vanity)
       ul.o-ListBare.o-GridFlex.o-ListStacked
-        li.o-GridFlex__Item.o-ListStacked__Item: a(href="") Registor Today
-        li.o-GridFlex__Item.o-ListStacked__Item: a(href="") Become A Sponsor
-        li.o-GridFlex__Item.o-ListStacked__Item: a(href="") Submit Papers
+        each str in arr
+          li.o-GridFlex__Item.o-ListStacked__Item
+            if vanity
+              span= str
+            else
+              a(href="")= str
     mixin date-place()
       p.o-GridFlex.o-ListStacked.-xjc-c
         span.o-GridFlex__Item.o-Block.o-ListStacked__Item(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
@@ -79,7 +82,7 @@ html(lang="en")
                 a.c-Speaker__Link(href="") Twitter
     mixin speakers-content()
       +num-speakers(3)
-      p.-ta-c: a(href="") View All Speakers
+      +action-buttons(['View All Speakers'])
     mixin cochairs-content()
       ul.o-ListBare.o-GridFlex.o-ListStacked
         each val in [1,2]
@@ -110,7 +113,7 @@ html(lang="en")
         , { starttime: '09:30', endtime: '10:00', description: 'Morning Refreshment Break' }
         , { starttime: '18:30', endtime: '20:00', description: 'Welcome Reception' }
         ])
-      p.-ta-c: a(href="") View Full Program
+      +action-buttons(['View Full Program'])
     mixin location-content()
       p location content goes here
     mixin contact-content()

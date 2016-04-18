@@ -25,29 +25,30 @@ block append main__header
 block append main
   section.sg-sect#masthead-mastfoot
     h2 The Masthead and Mastfoot
+    p #[strong Note:] #[b 2016 Convention] button will be replaced with #[b Menu] button when screen is smaller than 720px.
     figure.sg-c-Fig
-      div.c-Mast
-        div.c-Mast__Title
+      div.o-GridFlex.o-Runner.c-Mast
+        a.o-GridFlex__Item.o-Block.c-Mast__Title.c-Mast__Link(href="")
           h1 ASCE Convention
           p The Flagship Event of ASCE
-        p: a.c-Mast__Link(href="") link inside masthead
-        nav.c-Mast__Nav
-          div.c-Mast__Nav__ButtonContainer
-            span.c-Mast__Nav__ButtonContainer__MenuButton menu
-            span.c-Mast__Nav__ButtonContainer__CurrentButton 2016 Convention
+        nav.o-GridFlex__Item.o-GridFlex.c-Mast__Nav
+          // ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
+          div.o-GridFlex__Item.c-Mast__Nav__ButtonContainer
+            button.c-Mast__Nav__ButtonContainer__MenuButton menu
+            a.c-Mast__Link.c-Mast__Nav__ButtonContainer__CurrentButton(href="") 2016 Convention
       pre.
-        &lt;div class="#[u c-Mast]"&gt;
-          &lt;div class="#[u c-Mast__Title]"&gt;
+        &lt;div class="o-GridFlex  o-Runner  #[u c-Mast]"&gt;
+          &lt;a class="o-GridFlex__Item  o-Block  #[u c-Mast__Title]  c-Mast__Link" href="/"&gt;
             &lt;h1&gt;ASCE Convention&lt;/h1&gt;
             &lt;p&gt;The Flagship Event of ASCE&lt;/p&gt;
           &lt;/div&gt;
-          &lt;p&gt;&lt;a class="#[u c-Mast__Link]"&gt;link inside masthead&lt;/a&gt;&lt;/p&gt;
-          &lt;div class="#[u c-Mast__Nav]"&gt;
-            &lt;div class="#[u c-Mast__Nav__ButtonContainer]"&gt;
-              &lt;span class="#[u c-Mast__Nav__ButtonContainer__MenuButton]"&gt;menu&lt;/span&gt;
-              &lt;span class="#[u c-Mast__Nav__ButtonContainer_CurrentButton]"&gt;2016 Convention&lt;/span&gt;
+          &lt;nav class="o-GridFlex__Item  o-GridFlex  #[u c-Mast__Nav]"&gt;
+            #[small.-fz-i(style="opacity: 0.6;") &lt;!--ul class="o-GridFlex__Item  o-ListBare  o-GridFlex  c-MenuUniversal"&gt;UNIVERSAL MENU&lt;&#x002f;ul--&gt;]
+            &lt;div class="o-GridFlex__Item  #[u c-Mast__Nav__ButtonContainer]"&gt;
+              &lt;button class="#[u c-Mast__Nav__ButtonContainer__MenuButton]"&gt;menu&lt;/span&gt;
+              &lt;a class="c-Mast__Link  #[u c-Mast__Nav__ButtonContainer_CurrentButton]" href="#[mark &#x002f;home]"&gt;2016 Convention&lt;/span&gt;
             &lt;/div&gt;
-          &lt;/div&gt;
+          &lt;/nav&gt;
         &lt;/div&gt;
   section.sg-sect#universal-menu
     h2 The Universal Menu

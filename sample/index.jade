@@ -7,13 +7,13 @@ block append vars
 
 block dominant
   main
-    section(itemscope="" itemtype="http://schema.org/Event")
-      a.o-Block.o-Highlight.c-PageHeader.c-Banner.c-Banner--landing(href="home.html")
-        meta(content="http://2016.asceconvention.org/" itemprop="url")
-        h1(itemprop="name")= conference_name
-        +date-place()
-        p(itemprop="description")= conference_theme
-        p: span Get Details
+    section.o-Highlight.c-PageHeader.c-Banner.c-Banner--landing(itemscope="" itemtype="http://schema.org/Event")
+      meta(content="http://2016.asceconvention.org/" itemprop="url")
+      h1(itemprop="name")= conference_name
+      +date-place()
+      p(itemprop="description")= conference_theme
+      +actionbuttons([{text:'Get Details', href:'home.html'}])
+      //- p: a(href="") Get Details
     div.o-Highlight
       div.is-editable
         p.
@@ -26,36 +26,34 @@ block dominant
           li one
           li two
           li three
-    section(itemscope="" itemtype="http://schema.org/Event")
-      a.o-Block.o-Highlight.o-OtherYear.c-Banner.c-Banner--prev(href="//2015.asceconvention.org/" itemprop="url")
-        div.o-GridFlex.c-Overlay
-          div.o-GridFlex__Item.o-OtherYear__Title
-            h1(itemprop="name") ASCE 2015
-            meta(content="2015-10-11" itemprop="startDate")
-            p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-              span(itemprop="name")
-                span(itemprop="addressLocality") New York, 
-                abbr(itemprop="addressRegion" title="New York") NY
-          div.o-GridFlex__Item.o-OtherYear__Desc
-            p.
-              Access the 2015 program to see which sessions qualify for
-              PDHs and other documentation.
-            +action-buttons(['Event Details'], true)
-    section(itemscope="" itemtype="http://schema.org/Event")
-      a.o-Block.o-Highlight.o-OtherYear.c-Banner.c-Banner--next(href="//2017.asceconvention.org/" itemprop="url")
-        div.o-GridFlex.c-Overlay
-          div.o-GridFlex__Item.o-OtherYear__Title
-            h1(itemprop="name") ASCE 2017
-            meta(content="2017-10-11" itemprop="startDate")
-            p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-              span(itemprop="name")
-                span(itemprop="addressLocality") Chicago, 
-                abbr(itemprop="addressRegion" title="Illinois") IL
-          div.o-GridFlex__Item.o-OtherYear__Desc
-            p.
-              Plan ahead to attend, sponsor, or exhibit at the
-              annual convention for civil engineering professionals.
-            +action-buttons(['Event Details'], true)
+    section.o-Highlight.o-OtherYear.c-Banner.c-Banner--prev(itemscope="" itemtype="http://schema.org/Event")
+      div.o-GridFlex.c-Overlay
+        div.o-GridFlex__Item.o-OtherYear__Title
+          h1(itemprop="name") ASCE 2015
+          meta(content="2015-10-11" itemprop="startDate")
+          p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+            span(itemprop="name")
+              span(itemprop="addressLocality") New York, 
+              abbr(itemprop="addressRegion" title="New York") NY
+        div.o-GridFlex__Item.o-OtherYear__Desc
+          p.
+            Access the 2015 program to see which sessions qualify for
+            PDHs and other documentation.
+          +actionbuttons([{text:'Event Details', href:'//2015.asceconvention.org/', attrs:{itemprop:'url'}}])
+    section.o-Highlight.o-OtherYear.c-Banner.c-Banner--next(itemscope="" itemtype="http://schema.org/Event")
+      div.o-GridFlex.c-Overlay
+        div.o-GridFlex__Item.o-OtherYear__Title
+          h1(itemprop="name") ASCE 2017
+          meta(content="2017-10-11" itemprop="startDate")
+          p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+            span(itemprop="name")
+              span(itemprop="addressLocality") Chicago, 
+              abbr(itemprop="addressRegion" title="Illinois") IL
+        div.o-GridFlex__Item.o-OtherYear__Desc
+          p.
+            Plan ahead to attend, sponsor, or exhibit at the
+            annual convention for civil engineering professionals.
+          +actionbuttons([{text:'Event Details', href:'//2017.asceconvention.org/', attrs:{itemprop:'url'}}])
   div.t-Callouts
     aside.-ta-c
       h1 Sponsors

@@ -45,6 +45,12 @@ html(lang="en")
               span= str
             else
               a(href="")= str
+    mixin actionbuttons(arr)
+      ul.o-ListBare.o-GridFlex.o-ListStacked
+        each obj in arr
+          - obj.attrs = obj.attrs || {}
+          li.o-GridFlex__Item.o-ListStacked__Item
+            a(href=obj.href)&attributes(obj.attrs)= obj.text
     mixin date-place()
       p.o-GridFlex.o-ListStacked.-xjc-c
         span.o-GridFlex__Item.o-Block.o-ListStacked__Item(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")

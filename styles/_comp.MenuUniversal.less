@@ -13,25 +13,26 @@
 // ^subcomponents
 // __Item - each item in the list
 // __Link - each link inside an __Item in the menu
+// __Link--current - link to the current convention (home) page
 // ^author
 // Chris Harvey
 // ^updated
 // 2016-03-04
 .c-MenuUniversal {
   .flex-align-content(flex-start);
-  width: 10em;
   margin-bottom: 0;
   @media screen and (max-width: 44.999em) {
     position: fixed;
     right: 0;
     top: 0;
     z-index: 10;
+    width: 10em;
     height: 100%;
     background-color: @g-color_site_secondary;
   }
-  @media screen and (min-width: 45em) {
-    width: auto;
-  }
+  // @media screen and (min-width: 45em) {
+  //   width: auto;
+  // }
 }
 .c-MenuUniversal__Item {
   margin: @g-boxpadd_micr;
@@ -48,4 +49,8 @@
       border-color: currentColor;
     }
   }
+}
+.c-MenuUniversal__Link--current {
+  background-color: green; // TODO decide later
+  color: white; // TODO decide later
 }

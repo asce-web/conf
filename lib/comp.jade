@@ -28,25 +28,22 @@ block append main
     p #[strong Note:] #[b 2016 Convention] button will be replaced with #[b Menu] button when screen is smaller than 720px.
     figure.sg-c-Fig
       div.o-GridFlex.o-Runner.c-Mast
-        a.o-GridFlex__Item.o-Block.c-Mast__Title.c-Mast__Link(href="")
+        a.o-Block.c-Mast__Title.c-Mast__Link(href="")
           h1 ASCE Convention
           p The Flagship Event of ASCE
-        nav.o-GridFlex__Item.o-GridFlex.c-Mast__Nav
-          // ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
+        nav.o-GridFlex.c-Mast__Nav
           div.o-GridFlex__Item.c-Mast__Nav__ButtonContainer
-            button.c-Mast__Nav__ButtonContainer__MenuButton menu
-            a.c-Mast__Link.c-Mast__Nav__ButtonContainer__CurrentButton(href="") 2016 Convention
+            button.c-Mast__MenuButton menu
       pre.
         &lt;div class="o-GridFlex  o-Runner  #[u c-Mast]"&gt;
-          &lt;a class="o-GridFlex__Item  o-Block  #[u c-Mast__Title]  c-Mast__Link" href="/"&gt;
+          &lt;a class="o-Block  #[u c-Mast__Title]  #[u c-Mast__Link]" href="/"&gt;
             &lt;h1&gt;ASCE Convention&lt;/h1&gt;
             &lt;p&gt;The Flagship Event of ASCE&lt;/p&gt;
           &lt;/div&gt;
-          &lt;nav class="o-GridFlex__Item  o-GridFlex  #[u c-Mast__Nav]"&gt;
-            #[small.-fz-i(style="opacity: 0.6;") &lt;!--ul class="o-GridFlex__Item  o-ListBare  o-GridFlex  c-MenuUniversal"&gt;UNIVERSAL MENU&lt;&#x002f;ul--&gt;]
-            &lt;div class="o-GridFlex__Item  #[u c-Mast__Nav__ButtonContainer]"&gt;
-              &lt;button class="#[u c-Mast__Nav__ButtonContainer__MenuButton]"&gt;menu&lt;/span&gt;
-              &lt;a class="c-Mast__Link  #[u c-Mast__Nav__ButtonContainer_CurrentButton]" href="#[mark &#x002f;home]"&gt;2016 Convention&lt;/span&gt;
+          &lt;nav class="o-GridFlex  #[u c-Mast__Nav]"&gt;
+            #[small &lt;!--ul class="o-GridFlex__Item  o-ListBare  o-GridFlex  c-MenuUniversal"&gt;#[a(href="#universal-menu") UNIVERSAL MENU]&lt;&#x002f;ul--&gt;]
+            &lt;div class="o-GridFlex__Item  #[u c-Mast__MenuButtonContainer]"&gt;
+              &lt;button class="#[u c-Mast__MenuButtonContainer__Button]"&gt;menu&lt;/span&gt;
             &lt;/div&gt;
           &lt;/nav&gt;
         &lt;/div&gt;
@@ -59,12 +56,16 @@ block append main
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Sponsor
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Exhibit
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Contact
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="") ASCE 2016
       pre.
-        &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuUniversal]"&gt;
+        &lt;ul class="#[small o-GridFlex__Item]  o-ListBare  o-GridFlex  #[u c-MenuUniversal]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuUniversal__Item]"&gt;
-            &lt;a class="o-Block  #[u c-MenuUniversal__Link]"&gt;About&lt;/a&gt;
+            &lt;a class="o-Block  #[small c-Mast__Link]  #[u c-MenuUniversal__Link]"&gt;About&lt;/a&gt;
           &lt;/li&gt;
           ...
+          &lt;li class="o-GridFlex__Item  #[u c-MenuUniversal__Item]"&gt;
+            &lt;a class="o-Block  #[small c-Mast__Link]  #[u c-MenuUniversal__Link]  #[u c-MenuUniversal__Link--current]"&gt;ASCE 2016&lt;/a&gt;
+          &lt;/li&gt;
         &lt;/ul&gt;
   section.sg-sect#standard-menu
     h2 The Standard Menu

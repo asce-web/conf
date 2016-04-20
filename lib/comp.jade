@@ -15,7 +15,6 @@ block append main__header
       li: a(href="#sub-menu") The Sub Menu
       li: a(href="#site-title") The Site Title
       li: a(href="#social-list") The Social List
-      li: a(href="#copyright-footer") The Copyright Footer
       li: a(href="#page-header") The Page Header
       li: a(href="#banner-component") The Banner Component
       li: a(href="#overlay-component") The Overlay Component
@@ -29,12 +28,12 @@ block append main
     h2 The Masthead and Mastfoot
     p #[strong Note:] #[b 2016 Convention] button will be replaced with #[b Menu] button when screen is smaller than 720px.
     figure.sg-c-Fig
-      div.o-GridFlex.o-Runner.c-Mast
+      header.o-GridFlex.o-Runner.c-Mast
         nav.o-GridFlex
           div.o-GridFlex__Item.c-Mast__MenuButtonContainer
             button.c-Mast__MenuButton menu
       pre.
-        &lt;div class="o-GridFlex  o-Runner  #[u c-Mast]"&gt;
+        &lt;header class="o-GridFlex  o-Runner  #[u c-Mast]"&gt;
           #[small &lt;!--a class="o-Block  c-SiteTitle  c-Mast__Link"&gt;#[a(href="#site-title") SITE TITLE]&lt;&#x002f;a--&gt;]
           &lt;nav class="o-GridFlex"&gt;
             #[small &lt;!--ul class="o-GridFlex__Item  o-ListBare  o-GridFlex  c-MenuUniversal"&gt;#[a(href="#universal-menu") UNIVERSAL MENU]&lt;&#x002f;ul--&gt;]
@@ -42,7 +41,16 @@ block append main
               &lt;button class="#[u c-Mast__MenuButtonContainer__Button]"&gt;menu&lt;/span&gt;
             &lt;/div&gt;
           &lt;/nav&gt;
-        &lt;/div&gt;
+        &lt;/header&gt;
+    figure.sg-c-Fig
+      footer.c-Mast.c-Mast--copyright
+        div: a.c-Mast__Link(href="") &copy; 1996&ndash;2016 American Society of Civil Engineers
+      pre.
+        &lt;footer class="#[u c-Mast]  #[u c-Mast--copyright]"&gt;
+          &lt;div&gt;
+            &lt;a class="#[u c-Mast__Link]"&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/footer&gt;
   section.sg-sect#sitemap
     h2 The Sitemap
     figure.sg-c-Fig
@@ -158,17 +166,6 @@ block append main
           &lt;/li&gt;
           ...
         &lt;/ul&gt;
-  section.sg-sect#copyright-footer
-    h2 The Copyright Footer
-    figure.sg-c-Fig
-      footer.c-Copyright
-        div: a.c-Mast__Link(href="") &copy; 1996&ndash;2016 American Society of Civil Engineers
-      pre.
-        &lt;footer class="#[u c-Copyright]"&gt;
-          &lt;div&gt;
-            &lt;a class="c-Mast__Link"&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;
-          &lt;/div&gt;
-        &lt;/footer&gt;
   section.sg-sect#page-header
     h2 The Page Header
     figure.sg-c-Fig

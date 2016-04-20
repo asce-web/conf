@@ -11,9 +11,9 @@ block append main__header
       li: a(href="#masthead-mastfoot") The Masthead and Mastfoot
       li: a(href="#site-title") The Site Title
       li: a(href="#universal-menu") The Universal Menu
+      li: a(href="#social-list") The Social List
       li: a(href="#standard-menu") The Standard Menu
       li: a(href="#sub-menu") The Sub Menu
-      li: a(href="#social-list") The Social List
       li: a(href="#page-header") The Page Header
       li: a(href="#banner-component") The Banner Component
       li: a(href="#overlay-component") The Overlay Component
@@ -120,9 +120,25 @@ block append main
             &lt;a class="o-Block  #[small c-Mast__Link]  #[u c-MenuUniversal__Link]  #[u c-MenuUniversal__Link--current]"&gt;ASCE 2016&lt;/a&gt;
           &lt;/li&gt;
         &lt;/ul&gt;
+  section.sg-sect#social-list
+    h2 The Social List
+    figure.sg-c-Fig
+      ul.o-ListBare.o-GridFlex.c-SocialList
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") LinkedIn
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") Facebook
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") Twitter
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") YouTube
+        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") Google+
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u c-SocialList]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u c-SocialList__Item]"&gt;
+            &lt;a class="o-Block  #[u c-SocialList__Link]"&gt;LinkedIn&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;
   section.sg-sect#standard-menu
     h2 The Standard Menu
-    //- p The Standard Menu uses the #[code .c-Mast.c-Mast--map] classes.
+    p The Standard Menu uses the #[code .c-Mast.c-Mast--map] classes.
     figure.sg-c-Fig
       ul.o-ListBare.o-GridFlex.o-Runner.c-Mast.c-Mast--map.c-MenuStandard(style="margin-bottom: 1.5rem;")
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="") Home
@@ -148,22 +164,6 @@ block append main
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuSub]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuSub__Item]"&gt;
             &lt;a class="o-Block  #[u c-MenuSub__Link]"&gt;Why Attend&lt;/a&gt;
-          &lt;/li&gt;
-          ...
-        &lt;/ul&gt;
-  section.sg-sect#social-list
-    h2 The Social List
-    figure.sg-c-Fig
-      ul.o-ListBare.o-GridFlex.c-SocialList
-        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") LinkedIn
-        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") Facebook
-        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") Twitter
-        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") YouTube
-        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") Google+
-      pre.
-        &lt;ul class="o-ListBare  o-GridFlex  #[u c-SocialList]"&gt;
-          &lt;li class="o-GridFlex__Item  #[u c-SocialList__Item]"&gt;
-            &lt;a class="o-Block  #[u c-SocialList__Link]"&gt;LinkedIn&lt;/a&gt;
           &lt;/li&gt;
           ...
         &lt;/ul&gt;

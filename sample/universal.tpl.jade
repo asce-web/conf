@@ -4,8 +4,4 @@ block append vars
   - var page_type = 'universal'
 
 block title
-  title= ((page_name !== 'Index') ? page_name + ' | ' : '') + site_title
-
-block description
-  - var descriptions = {'Index':site_tagline, 'About':'About the ASCE Convention.', 'Sponsor':'Sponsors of the ASCE Convention.', 'Exhibit':'Exhibitors at the ASCE Convention.', 'Contact':'Contact us for questions and comments about the ASCE Convention.'}
-  meta(name="description" content=descriptions[page_name])
+  title= ((page_subtype === 'landing') ? '' : page_name + ' | ') + site_title

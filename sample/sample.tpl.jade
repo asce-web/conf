@@ -6,11 +6,13 @@ html(lang="en")
       - var site_tagline = 'The Flagship Event of ASCE'
       - var conference_name = 'ASCE 2016'
       - var conference_theme = 'Engineering > Innovating > Leading'
-      - var tag_meta_keywords = ['ASCE', 'civil engineering', 'convention']
-    title= tag_title
+      - var descriptions = {'Index':site_tagline, 'About':'About the ASCE Convention.', 'Sponsor':'Sponsors of the ASCE Convention.', 'Exhibit':'Exhibitors at the ASCE Convention.', 'Contact':'Contact us for questions and comments about the ASCE Convention.', 'Home':conference_theme, 'Register':'Register for the ASCE 2016 conference here.', 'Program':'Program and Agenda of the ASCE 2016 conference.', 'Hotel & Travel':'Get information about the location of the conference and where to stay.', 'Speakers':'Get information about current and prospective speakers at ASCE 2016.'}
+    block title
+      title
     meta(charset="utf-8")
-    meta(name="description" content=tag_meta_description)
-    meta(name="keywords" content=tag_meta_keywords)
+    block description
+      meta(name="description" content=descriptions[page_name])
+    meta(name="keywords" content=['ASCE', 'civil engineering', 'convention'])
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     link(rel="stylesheet" href="../bower_components/xmeter/xmeter.min.css")
@@ -75,7 +77,7 @@ html(lang="en")
             ul.o-ListBare.c-MenuSub(class=(page_name==='Speakers' ? 'c-MenuSub--active' : ''))
               li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Distinguished Lecture Series
     block dominant
-      section&attributes((page_type === 'interior') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
+      section&attributes((page_type === 'internal') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
         main
           block main-header
             header.o-Highlight.c-PageHeader
@@ -120,7 +122,7 @@ html(lang="en")
               li: a(href="") Exhibitor List
           li
             a(href="contact.html") Contact
-        else if page_type === 'interior'
+        else if page_type === 'internal'
           li
             a(href="register.html") Register
             ul.o-ListBare.-pl-1

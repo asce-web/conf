@@ -155,42 +155,43 @@ html(lang="en")
       +sponsor-block('Silver', 'silver', sponsors)
       +sponsor-block('Bronze', 'bronze', sponsors)
       +sponsor-block('Copper', 'copper', sponsors)
-    header
-      div.o-GridFlex.o-Runner.c-Mast.-xjc-sb
-        a.o-Block.c-SiteTitle.c-Mast__Link(href="index.html")
-          h1= site_title
-          p= site_tagline
-        nav.o-GridFlex
-          ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
-            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="about.html") About
-            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="sponsor.html") Sponsor
-            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="exhibit.html") Exhibit
-            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="contact.html") Contact
-            li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="home.html") ASCE 2016
-          div.o-GridFlex__Item.c-Mast__MenuButtonContainer
-            button.c-Mast__MenuButtonContainer__Button menu
-    unless page_type === 'landing' || page_type === 'universal'
-      header
-        nav
-          ul.o-ListBare.o-GridFlex.o-Runner.c-Mast.c-Mast--map.c-MenuStandard
-            li.o-GridFlex__Item.c-MenuStandard__Item
-              a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="home.html") Home
-            li.o-GridFlex__Item.c-MenuStandard__Item
-              a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="register.html") Register
-              ul.o-ListBare.c-MenuSub(class=(page_name==='Register' ? 'c-MenuSub--active' : ''))
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
-            li.o-GridFlex__Item.c-MenuStandard__Item
-              a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="program.html") Program
-              ul.o-ListBare.c-MenuSub(class=(page_name==='Program' ? 'c-MenuSub--active' : ''))
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Events
-            li.o-GridFlex__Item.c-MenuStandard__Item
-              a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="location.html") Hotel &amp; Travel
-              ul.o-ListBare.c-MenuSub(class=(page_name==='Hotel & Travel' ? 'c-MenuSub--active' : ''))
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") International Travel
-            li.o-GridFlex__Item.c-MenuStandard__Item
-              a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="speakers.html") Speakers
-              ul.o-ListBare.c-MenuSub(class=(page_name==='Speakers' ? 'c-MenuSub--active' : ''))
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Distinguished Lecture Series
+    //- include include/_mixins.jade
+    header.o-GridFlex.o-Runner.c-Mast.-xjc-sb
+      a.o-Block.c-SiteTitle.c-Mast__Link(href="index.html")
+        h1= site_title
+        p= site_tagline
+      nav.o-GridFlex
+        h1.-d-n Top Menu
+        ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
+          li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="about.html") About
+          li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="sponsor.html") Sponsor
+          li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="exhibit.html") Exhibit
+          li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="contact.html") Contact
+          li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="home.html") ASCE 2016
+        div.o-GridFlex__Item.c-Mast__MenuButtonContainer
+          button.c-Mast__MenuButtonContainer__Button menu
+    unless page_type === 'universal'
+      header: nav
+        h1.-d-n Main Menu
+        ul.o-ListBare.o-GridFlex.o-Runner.c-Mast.c-Mast--map.c-MenuStandard
+          li.o-GridFlex__Item.c-MenuStandard__Item
+            a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="home.html") Home
+          li.o-GridFlex__Item.c-MenuStandard__Item
+            a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="register.html") Register
+            ul.o-ListBare.c-MenuSub(class=(page_name==='Register' ? 'c-MenuSub--active' : ''))
+              li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
+          li.o-GridFlex__Item.c-MenuStandard__Item
+            a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="program.html") Program
+            ul.o-ListBare.c-MenuSub(class=(page_name==='Program' ? 'c-MenuSub--active' : ''))
+              li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Events
+          li.o-GridFlex__Item.c-MenuStandard__Item
+            a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="location.html") Hotel &amp; Travel
+            ul.o-ListBare.c-MenuSub(class=(page_name==='Hotel & Travel' ? 'c-MenuSub--active' : ''))
+              li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") International Travel
+          li.o-GridFlex__Item.c-MenuStandard__Item
+            a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="speakers.html") Speakers
+            ul.o-ListBare.c-MenuSub(class=(page_name==='Speakers' ? 'c-MenuSub--active' : ''))
+              li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Distinguished Lecture Series
     block dominant
       section(itemscope="" itemtype="http://schema.org/Event" data-id="dominant")
         main
@@ -213,9 +214,13 @@ html(lang="en")
             block main-prose2
         div.t-Callouts
           block callouts
-    footer
-      nav: ul.o-ListBare.o-GridFlex.o-Runner.c-Mast.c-Mast--map.-xjc-sa
-        if page_type === 'landing' || page_type === 'universal'
+          aside
+            h1 Sponsors
+            +sponsor-content()
+    footer: nav
+      h1.-d-n Site Map
+      ul.o-ListBare.o-GridFlex.o-Runner.c-Mast.c-Mast--map.-xjc-sa
+        if page_type === 'universal'
           li
             a(href="index.html") Home
           li

@@ -13,6 +13,7 @@ block append main__header
       li: a(href="#universal-menu") The Universal Menu
       li: a(href="#standard-menu") The Standard Menu
       li: a(href="#sub-menu") The Sub Menu
+      li: a(href="#site-title") The Site Title
       li: a(href="#social-list") The Social List
       li: a(href="#copyright-footer") The Copyright Footer
       li: a(href="#page-header") The Page Header
@@ -29,18 +30,12 @@ block append main
     p #[strong Note:] #[b 2016 Convention] button will be replaced with #[b Menu] button when screen is smaller than 720px.
     figure.sg-c-Fig
       div.o-GridFlex.o-Runner.c-Mast
-        a.o-Block.c-Mast__Title.c-Mast__Link(href="")
-          h1 ASCE Convention
-          p The Flagship Event of ASCE
         nav.o-GridFlex.c-Mast__Nav
           div.o-GridFlex__Item.c-Mast__Nav__ButtonContainer
             button.c-Mast__MenuButton menu
       pre.
         &lt;div class="o-GridFlex  o-Runner  #[u c-Mast]"&gt;
-          &lt;a class="o-Block  #[u c-Mast__Title]  #[u c-Mast__Link]" href="/"&gt;
-            &lt;h1&gt;ASCE Convention&lt;/h1&gt;
-            &lt;p&gt;The Flagship Event of ASCE&lt;/p&gt;
-          &lt;/a&gt;
+          #[small &lt;!--a class="o-Block  c-SiteTitle  c-Mast__Link"&gt;#[a(href="#site-title") SITE TITLE]&lt;&#x002f;a--&gt;]
           &lt;nav class="o-GridFlex  #[u c-Mast__Nav]"&gt;
             #[small &lt;!--ul class="o-GridFlex__Item  o-ListBare  o-GridFlex  c-MenuUniversal"&gt;#[a(href="#universal-menu") UNIVERSAL MENU]&lt;&#x002f;ul--&gt;]
             &lt;div class="o-GridFlex__Item  #[u c-Mast__MenuButtonContainer]"&gt;
@@ -136,6 +131,17 @@ block append main
           &lt;/li&gt;
           ...
         &lt;/ul&gt;
+  section.sg-sect#site-title
+    h2 The Site Title
+    figure.sg-c-Fig
+      a.o-Block.c-SiteTitle(href="")
+        h1 ASCE Convention
+        p The Flagship Event of ASCE
+      pre.
+        &lt;a class="o-Block  #[u c-SiteTitle]" href="/"&gt;
+          &lt;h1&gt;ASCE Convention&lt;/h1&gt;
+          &lt;p&gt;The Flagship Event of ASCE&lt;/p&gt;
+        &lt;/a&gt;
   section.sg-sect#social-list
     h2 The Social List
     figure.sg-c-Fig

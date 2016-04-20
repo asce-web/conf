@@ -17,22 +17,18 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-03-04
+// 2016-04-19
 .c-MenuUniversal {
-  .flex-align-content(flex-start);
+  .flex-align-content(flex-start); // override 'stretch'
   margin-bottom: 0;
   @media screen and (max-width: 44.999em) {
     position: fixed;
-    right: 0;
-    top: 0;
+    right: 0; top: 0;
     z-index: 10;
     width: 10em;
     height: 100%;
     background-color: @g-color_site_secondary;
   }
-  // @media screen and (min-width: 45em) {
-  //   width: auto;
-  // }
 }
 .c-MenuUniversal__Item {
   margin: @g-boxpadd_micr;
@@ -41,16 +37,9 @@
   }
 }
 .c-MenuUniversal__Link {
-  padding: @g-boxpadd_micr;
-  border: 1px solid transparent;
-  border-radius: (0.25 * @g-vru);
-  @media screen and (min-width: 45em) {
-    &:hover {
-      border-color: currentColor;
-    }
-  }
+  padding: @g-boxpadd_mill;
 }
 .c-MenuUniversal__Link--current {
-  background-color: green; // TODO decide later
+  background-color: @g-color_site_primary; // TODO decide later
   color: white; // TODO decide later
 }

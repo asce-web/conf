@@ -2,25 +2,10 @@ extends sample.tpl.jade
 
 block append vars
   - var page_type = 'universal'
-  - var tag_title = page_name + ' | ' + site_title
 
-block dominant
-  main
-    header.o-Highlight.c-PageHeader
-      h1= page_name
-    block main-body
-      div.o-Highlight
-        block main-prose
-          section.is-editable
-            h1 Sample Section Heading
-            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
-            blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
-            ul
-              li 3&frac12; days of premier educational and networking events
-              li 15 tracks and 6 plenary sessions focusing on ...
-              li Prestigious awards and keynote lecture presentations
-              li Lively programs for studdnts and young professionals
-  div.t-Callouts
-    aside.-ta-c
-      h1 Sponsors
-      +sponsor-content()
+block title
+  title= ((page_name !== 'Index') ? page_name + ' | ' : '') + site_title
+
+block description
+  - var descriptions = {'Index':site_tagline, 'About':'About the ASCE Convention.', 'Sponsor':'Sponsors of the ASCE Convention.', 'Exhibit':'Exhibitors at the ASCE Convention.', 'Contact':'Contact us for questions and comments about the ASCE Convention.'}
+  meta(name="description" content=descriptions[page_name])

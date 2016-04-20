@@ -14,7 +14,7 @@ block append main__header
       li: a(href="#standard-menu") The Standard Menu
       li: a(href="#sub-menu") The Sub Menu
       li: a(href="#social-list") The Social List
-      li: a(href="#copyright-line") The Copyright Line
+      li: a(href="#copyright-footer") The Copyright Footer
       li: a(href="#page-header") The Page Header
       li: a(href="#banner-component") The Banner Component
       li: a(href="#overlay-component") The Overlay Component
@@ -152,15 +152,17 @@ block append main
           &lt;/li&gt;
           ...
         &lt;/ul&gt;
-  section.sg-sect#copyright-line
-    h2 The Copyright Line
+  section.sg-sect#copyright-footer
+    h2 The Copyright Footer
     figure.sg-c-Fig
-      div.c-Copyright.
-        &copy; 1996&ndash;2016 American Society of Civil Engineers
+      footer.c-Copyright
+        div: a.c-Mast__Link(href="") &copy; 1996&ndash;2016 American Society of Civil Engineers
       pre.
-        &lt;div class="#[u c-Copyright]"&gt;
-          &copy; 1996&ndash;2016 American Society of Civil Engineers
-        &lt;/div&gt;
+        &lt;footer class="#[u c-Copyright]"&gt;
+          &lt;div&gt;
+            &lt;a class="c-Mast__Link"&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/footer&gt;
   section.sg-sect#page-header
     h2 The Page Header
     figure.sg-c-Fig

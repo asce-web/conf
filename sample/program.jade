@@ -3,5 +3,9 @@ extends internal.tpl.jade
 block append vars
   - var page_name = 'Program'
 
-block main-body
+block main-prose
+  +minimal-text-block()
+
+block append main-body
   section.o-Highlight.c-Banner
+    h1.o-Highlight__Hn Full Program

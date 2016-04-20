@@ -6,12 +6,14 @@ mixin action-buttons(arr, vanity)
           span= str
         else
           a(href="")= str
+
 mixin actionbuttons(arr)
   ul.o-ListBare.o-GridFlex.o-ListStacked
     each obj in arr
       - obj.attrs = obj.attrs || {}
       li.o-GridFlex__Item.o-ListStacked__Item
         a(href=obj.href)&attributes(obj.attrs)= obj.text
+
 mixin date-place()
   p.o-GridFlex.o-ListStacked.-xjc-c
     span.o-GridFlex__Item.o-Block.o-ListStacked__Item(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
@@ -22,6 +24,7 @@ mixin date-place()
       time(datetime="2016-09-28" itemprop="startDate") Sep 28
       | &ndash;
       time(datetime="2016-10-01" itemprop="endDate") Oct 1
+
 mixin important-date-content()
   dl.o-GridFlex.c-DateBlock
     mixin row(year, month, day, datetime, description)
@@ -32,8 +35,10 @@ mixin important-date-content()
     +row('2015','Oct','12', '2015-10-12','Optional Final Papers Due')
     +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes')
     +row('2016','Jan','12', '2016-01-12','Advance Registration Closes')
+
 mixin registration-content()
   p registration content goes here
+
 mixin num-speakers(n)
   ul.o-ListBare.o-GridFlex.o-ListSpeakers
     - for (var i = 0; i < n; i++)
@@ -47,15 +52,18 @@ mixin num-speakers(n)
             a.c-Speaker__Link(href="") Email
             a.c-Speaker__Link(href="") LinkedIn
             a.c-Speaker__Link(href="") Twitter
+
 mixin speakers-content()
   +num-speakers(3)
   +action-buttons(['View All Speakers'])
+
 mixin cochairs-content()
   ul.o-ListBare.o-GridFlex.o-ListStacked
     each val in [1,2]
       li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
         p.c-Speaker__Name Donald Trump, Ph.D.
         p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
+
 mixin program-content()
   mixin program-block(classes, datetext, data)
     section.o-GridFlex__Item(class=classes)
@@ -81,8 +89,10 @@ mixin program-content()
     , { starttime: '18:30', endtime: '20:00', description: 'Welcome Reception' }
     ])
   +action-buttons(['View Full Program'])
+
 mixin location-content()
   p location content goes here
+
 mixin contact-content()
   form
     label
@@ -95,6 +105,7 @@ mixin contact-content()
       | message
       textarea
     button submit
+
 mixin sponsor-content()
   mixin sponsor-block(category, category_class, spons)
     section.o-Highlight.c-SponsorBlock(class='c-SponsorBlock--'+category_class)
@@ -116,3 +127,44 @@ mixin sponsor-content()
   +sponsor-block('Silver', 'silver', sponsors)
   +sponsor-block('Bronze', 'bronze', sponsors)
   +sponsor-block('Copper', 'copper', sponsors)
+
+mixin minimal-text-block()
+  div.minimal-text
+    p.
+      Join civil engineering professionals from around the world at
+      this ASCE flagship event. Network with peers, earn PDHs, and
+      expand your knowledge base.
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    ul
+      li 3&frac12; days of premier educational and networking events
+      li 15 tracks and 6 plenary sessions focusing on ...
+      li Prestigious awards and keynote lecture presentations
+      li Lively programs for studdnts and young professionals
+
+mixin long-text-block()
+  div.long-text
+    h2 a heading
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    h3 another heading
+    blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
+    ul
+      li 3&frac12; days of premier educational and networking events
+      li 15 tracks and 6 plenary sessions focusing on ...
+      li Prestigious awards and keynote lecture presentations
+      li Lively programs for studdnts and young professionals
+    h2 a heading
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    h3 another heading
+    blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
+
+mixin section-block(heading)
+  section.long-text
+    h1= heading
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
+    h2 inside heading
+    ul
+      li 3&frac12; days of premier educational and networking events
+      li 15 tracks and 6 plenary sessions focusing on ...
+      li Prestigious awards and keynote lecture presentations
+      li Lively programs for studdnts and young professionals

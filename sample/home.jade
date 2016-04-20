@@ -9,7 +9,7 @@ block main-header
     h1(itemprop="name")= conference_name
     +date-place()
     p(itemprop="description")= conference_theme
-    +action-buttons(['Registor Today','Become A Sponsor','Submit Papers'])
+    +actionbuttons([{text:'Register', href:'register.html'}, {text:'Sponsor', href:'sponsor.html'}, {text:'Submit a Paper'}], 'c-Btn c-Btn--hilite c-Btn--hero')
 
 block main-prose
   +minimal-text-block()
@@ -28,7 +28,7 @@ block callouts
     h1.o-Highlight__Hn Conference Co-Chairs
     +cochairs-content()
   aside.o-Highlight.c-Banner
-    h1.o-Highlight__Hn Program
+    h1.o-Highlight__Hn Program Highlights
     +program-content()
   aside.o-Highlight
     h1.o-Highlight__Hn Location

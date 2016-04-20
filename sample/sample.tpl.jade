@@ -6,11 +6,13 @@ html(lang="en")
       - var site_tagline = 'The Flagship Event of ASCE'
       - var conference_name = 'ASCE 2016'
       - var conference_theme = 'Engineering > Innovating > Leading'
-      - var tag_meta_keywords = ['ASCE', 'civil engineering', 'convention']
-    title= tag_title
+      - var descriptions = {'Index':site_tagline, 'About':'About the ASCE Convention.', 'Sponsor':'Sponsors of the ASCE Convention.', 'Exhibit':'Exhibitors at the ASCE Convention.', 'Contact':'Contact us for questions and comments about the ASCE Convention.', 'Home':conference_theme, 'Register':'Register for the ASCE 2016 conference here.', 'Program':'Program and Agenda of the ASCE 2016 conference.', 'Hotel & Travel':'Get information about the location of the conference and where to stay.', 'Speakers':'Get information about current and prospective speakers at ASCE 2016.'}
+    block title
+      title
     meta(charset="utf-8")
-    meta(name="description" content=tag_meta_description)
-    meta(name="keywords" content=tag_meta_keywords)
+    block description
+      meta(name="description" content=descriptions[page_name])
+    meta(name="keywords" content=['ASCE', 'civil engineering', 'convention'])
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     link(rel="stylesheet" href="../bower_components/xmeter/xmeter.min.css")
@@ -37,125 +39,7 @@ html(lang="en")
           content: 'editable <section> with heading';
         }
   body
-    mixin action-buttons(arr, vanity)
-      ul.o-ListBare.o-GridFlex.o-ListStacked
-        each str in arr
-          li.o-GridFlex__Item.o-ListStacked__Item
-            if vanity
-              span= str
-            else
-              a(href="")= str
-    mixin actionbuttons(arr)
-      ul.o-ListBare.o-GridFlex.o-ListStacked
-        each obj in arr
-          - obj.attrs = obj.attrs || {}
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a(href=obj.href)&attributes(obj.attrs)= obj.text
-    mixin date-place()
-      p.o-GridFlex.o-ListStacked.-xjc-c
-        span.o-GridFlex__Item.o-Block.o-ListStacked__Item(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-          span(itemprop="name")
-            span(itemprop="addressLocality") Portland, 
-            abbr(itemprop="addressRegion" title="Oregon") OR
-        span.o-GridFlex__Item.o-Block.o-ListStacked__Item
-          time(datetime="2016-09-28" itemprop="startDate") Sep 28
-          | &ndash;
-          time(datetime="2016-10-01" itemprop="endDate") Oct 1
-    mixin important-date-content()
-      dl.o-GridFlex.c-DateBlock
-        mixin row(year, month, day, datetime, description)
-          dt.o-GridFlex__Item: time.o-Block(datetime=datetime)
-            span.o-Block= month + ' ' + day
-            span.o-Block= year
-          dd.o-GridFlex__Item= description
-        +row('2015','Oct','12', '2015-10-12','Optional Final Papers Due')
-        +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes')
-        +row('2016','Jan','12', '2016-01-12','Advance Registration Closes')
-    mixin registration-content()
-      p registration content goes here
-    mixin num-speakers(n)
-      ul.o-ListBare.o-GridFlex.o-ListSpeakers
-        - for (var i = 0; i < n; i++)
-          li.o-GridFlex__Item.o-ListSpeakers__Item.c-Speaker
-            p.c-Speaker__Name Donna Fulman, P.ASCE
-            p.c-Speaker__JobTitle Interior Engineering Administration
-            div.o-ListSpeakers__Over.c-Speaker__Desc
-              p Tobias van Schneider is an award-winning, German designer raised in Austria and currently living in New York City.
-              p Former Lead Product Designer and Art Director at Spotify, he recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
-              p
-                a.c-Speaker__Link(href="") Email
-                a.c-Speaker__Link(href="") LinkedIn
-                a.c-Speaker__Link(href="") Twitter
-    mixin speakers-content()
-      +num-speakers(3)
-      +action-buttons(['View All Speakers'])
-    mixin cochairs-content()
-      ul.o-ListBare.o-GridFlex.o-ListStacked
-        each val in [1,2]
-          li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
-            p.c-Speaker__Name Donald Trump, Ph.D.
-            p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
-    mixin program-content()
-      mixin program-block(classes, datetext, data)
-        section.o-GridFlex__Item(class=classes)
-          h1= datetext
-          dl.o-GridFlex.c-TimeBlock
-            mixin row(starttime, endtime, description)
-              dt.o-GridFlex__Item
-                span= starttime
-                | –
-                span= endtime
-              dd.o-GridFlex__Item= description
-            each val in data
-              +row(val.starttime, val.endtime, val.description)
-      div.o-GridFlex
-        +program-block(['o-GridFlex__Item','-w-1o2'], 'Wednesday, April 5', [
-          { starttime: '7am', endtime: 'Noon', description: 'General Services Contractor Setup' }
-        , { starttime: '8am', endtime: '11pm', description: 'Committee Meetings' }
-        , { starttime: 'Noon', endtime: '6pm', description: 'Registration & ASCE Bookstore Hours' }
-        ])
-        +program-block(['o-GridFlex__Item','-w-1o2'], 'Thursday, April 6', [
-          { starttime: '07:00', endtime: '08:00', description: 'Continental Breakfast' }
-        , { starttime: '09:30', endtime: '10:00', description: 'Morning Refreshment Break' }
-        , { starttime: '18:30', endtime: '20:00', description: 'Welcome Reception' }
-        ])
-      +action-buttons(['View Full Program'])
-    mixin location-content()
-      p location content goes here
-    mixin contact-content()
-      form
-        label
-          | name
-          input(type="text")
-        label
-          | email
-          input(type="email")
-        label
-          | message
-          textarea
-        button submit
-    mixin sponsor-content()
-      mixin sponsor-block(category, category_class, spons)
-        section.o-Highlight.c-SponsorBlock(class='c-SponsorBlock--'+category_class)
-          h1.o-Highlight__Hn= category
-          ul.o-ListBare.o-GridFlex.o-ListSponsors
-            each item in spons
-              if (category_class !== 'bronze') && (category_class !== 'copper')
-                - var logosizes = { premier: 'lrg', platinum: 'lrg', gold: 'med', corporate: 'sml', silver: 'sml' }
-                li.o-GridFlex__Item.o-ListSponsors__Item
-                  a.o-Block.o-ListSponsors__Logo.c-SponsorBlock__Logo(class='o-ListSponsors__Logo--'+logosizes[category_class] href="" title=item.name style='background-image: url(\'' + item.url + '\');')
-              else
-                li.o-GridFlex__Item.o-ListSponsors__Item
-                  a.o-ListSponsors__Text.c-SponsorBlock__Text(href="")= item.name
-      - var sponsors = [ { name: 'Bank of America', url: 'img/logo-bank-america.png' }, { name: 'UPS', url: 'img/logo-ups.png' }, { name: 'Geico', url: 'img/logo-geico.png' } ]
-      +sponsor-block('Premier', 'premier', sponsors)
-      +sponsor-block('Platinum', 'platinum', sponsors)
-      +sponsor-block('Gold', 'gold', sponsors)
-      +sponsor-block('Corporate Sponsors', 'corporate', sponsors)
-      +sponsor-block('Silver', 'silver', sponsors)
-      +sponsor-block('Bronze', 'bronze', sponsors)
-      +sponsor-block('Copper', 'copper', sponsors)
-    //- include include/_mixins.jade
+    include include/_mixins.jade
     header.o-GridFlex.o-Runner.c-Mast.-xjc-sb
       a.o-Block.c-SiteTitle.c-Mast__Link(href="index.html")
         h1= site_title
@@ -170,30 +54,9 @@ html(lang="en")
           li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="home.html") ASCE 2016
         div.o-GridFlex__Item.c-Mast__MenuButtonContainer
           button.c-Mast__MenuButtonContainer__Button menu
-    unless page_type === 'universal'
-      header: nav
-        h1.-d-n Main Menu
-        ul.o-ListBare.o-GridFlex.o-Runner.c-Mast.c-Mast--map.c-MenuStandard
-          li.o-GridFlex__Item.c-MenuStandard__Item
-            a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="home.html") Home
-          li.o-GridFlex__Item.c-MenuStandard__Item
-            a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="register.html") Register
-            ul.o-ListBare.c-MenuSub(class=(page_name==='Register' ? 'c-MenuSub--active' : ''))
-              li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
-          li.o-GridFlex__Item.c-MenuStandard__Item
-            a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="program.html") Program
-            ul.o-ListBare.c-MenuSub(class=(page_name==='Program' ? 'c-MenuSub--active' : ''))
-              li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Events
-          li.o-GridFlex__Item.c-MenuStandard__Item
-            a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="location.html") Hotel &amp; Travel
-            ul.o-ListBare.c-MenuSub(class=(page_name==='Hotel & Travel' ? 'c-MenuSub--active' : ''))
-              li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") International Travel
-          li.o-GridFlex__Item.c-MenuStandard__Item
-            a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="speakers.html") Speakers
-            ul.o-ListBare.c-MenuSub(class=(page_name==='Speakers' ? 'c-MenuSub--active' : ''))
-              li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Distinguished Lecture Series
+    block standard-menu
     block dominant
-      section(itemscope="" itemtype="http://schema.org/Event" data-id="dominant")
+      section&attributes((page_type === 'internal') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
         main
           block main-header
             header.o-Highlight.c-PageHeader
@@ -220,41 +83,7 @@ html(lang="en")
     footer: nav
       h1.-d-n Site Map
       ul.o-ListBare.o-GridFlex.o-Runner.c-Mast.c-Mast--map.-xjc-sa
-        if page_type === 'universal'
-          li
-            a(href="index.html") Home
-          li
-            a(href="about.html") About
-            ul.o-ListBare.-pl-1
-              li: a(href="") Cooperating Orgs
-              li: a(href="") Partnering Orgs
-              li: a(href="") Volunteer
-              li: a(href="") Why Attend
-          li
-            a(href="sponsor.html") Sponsor
-          li
-            a(href="exhibit.html") Exhibit
-            ul.o-ListBare.-pl-1
-              li: a(href="") Exhibitor List
-          li
-            a(href="contact.html") Contact
-        else if page_type === 'home' || page_type === 'interior'
-          li
-            a(href="register.html") Register
-            ul.o-ListBare.-pl-1
-              li: a(href="") Why Attend
-          li
-            a(href="program.html") Program
-            ul.o-ListBare.-pl-1
-              li: a(href="") Events
-          li
-            a(href="location.html") Hotel &amp; Travel
-            ul.o-ListBare.-pl-1
-              li: a(href="") International Travel
-          li
-            a(href="speakers.html") Speakers
-            ul.o-ListBare.-pl-1
-              li: a(href="") Distinguished Lecture Series
+        block sitemap-items
     footer.o-GridFlex.o-Runner.c-Mast.c-Mast--copyright(itemscope="" itemtype="http://schema.org/NGO")
       section.o-GridFlex__Item.-w-1o2-sM
         h1.-d-n Contact Us

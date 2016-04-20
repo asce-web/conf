@@ -1,10 +1,8 @@
-extends sample.tpl.jade
+extends internal.tpl.jade
 
 block append vars
-  - var page_type = 'home'
+  - var page_subtype = 'home'
   - var page_name = 'Home'
-  - var tag_title = conference_name
-  - var tag_meta_description = conference_theme
 
 block main-header
   header.o-Highlight.c-PageHeader.c-Banner.c-Banner--home

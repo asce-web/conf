@@ -2,25 +2,25 @@ extends sample.tpl.jade
 
 block append vars
   - var page_type = 'universal'
-  - var tag_title = page_name + ' | ' + site_title
 
-block dominant
-  main
-    header.o-Highlight.c-PageHeader
-      h1= page_name
-    block main-body
-      div.o-Highlight
-        block main-prose
-          section.is-editable
-            h1 Sample Section Heading
-            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
-            blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
-            ul
-              li 3&frac12; days of premier educational and networking events
-              li 15 tracks and 6 plenary sessions focusing on ...
-              li Prestigious awards and keynote lecture presentations
-              li Lively programs for studdnts and young professionals
-  div.t-Callouts
-    aside.-ta-c
-      h1 Sponsors
-      +sponsor-content()
+block title
+  title= ((page_subtype === 'landing') ? '' : page_name + ' | ') + site_title
+
+block sitemap-items
+  li
+    a(href="index.html") Home
+  li
+    a(href="about.html") About
+    ul.o-ListBare.-pl-1
+      li: a(href="") Cooperating Orgs
+      li: a(href="") Partnering Orgs
+      li: a(href="") Volunteer
+      li: a(href="") Why Attend
+  li
+    a(href="sponsor.html") Sponsor
+  li
+    a(href="exhibit.html") Exhibit
+    ul.o-ListBare.-pl-1
+      li: a(href="") Exhibitor List
+  li
+    a(href="contact.html") Contact

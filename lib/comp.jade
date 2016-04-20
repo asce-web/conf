@@ -11,7 +11,6 @@ block append main__header
       li: a(href="#masthead-mastfoot") The Masthead and Mastfoot
       li: a(href="#site-title") The Site Title
       li: a(href="#universal-menu") The Universal Menu
-      li: a(href="#sitemap") The Sitemap
       li: a(href="#standard-menu") The Standard Menu
       li: a(href="#sub-menu") The Sub Menu
       li: a(href="#social-list") The Social List
@@ -51,6 +50,44 @@ block append main
             &lt;a class="#[u c-Mast__Link]"&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;
           &lt;/div&gt;
         &lt;/footer&gt;
+    figure.sg-c-Fig
+      footer
+        nav: ul.o-ListBare.o-GridFlex.o-Runner.c-Mast.c-Mast--map.-xjc-sa
+          li
+            a(href="") Home
+          li
+            a(href="") About
+            ul.o-ListBare.-pl-1
+              li: a(href="") Cooperating Orgs
+              li: a(href="") Partnering Orgs
+              li: a(href="") Volunteer
+              li: a(href="") Why Attend
+          li
+            a(href="") Sponsor
+          li
+            a(href="") Exhibit
+            ul.o-ListBare.-pl-1
+              li: a(href="") Exhibitor List
+          li
+            a(href="") Contact
+      pre.
+        &lt;footer&gt;
+          &lt;nav&gt;
+            &lt;ul class="o-ListBare  o-GridFlex  o-Runner  #[u c-Mast]  #[u c-Mast--map]  -xjc-sa"&gt;
+              &lt;li&gt;
+                &lt;a href="/"&gt;Home&lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;a href="/"&gt;About&lt;/a&gt;
+                &lt;ul class="o-ListBare  -pl-1"&gt;
+                  &lt;li&gt;&lt;a href="/"&gt;Cooperating Orgs&lt;/a&gt;&lt;/li&gt;
+                  ...
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              ...
+            &lt;/ul&gt;
+          &lt;/nav&gt;
+        &lt;/footer&gt;
   section.sg-sect#site-title
     h2 The Site Title
     figure.sg-c-Fig
@@ -82,55 +119,17 @@ block append main
             &lt;a class="o-Block  #[small c-Mast__Link]  #[u c-MenuUniversal__Link]  #[u c-MenuUniversal__Link--current]"&gt;ASCE 2016&lt;/a&gt;
           &lt;/li&gt;
         &lt;/ul&gt;
-  section.sg-sect#sitemap
-    h2 The Sitemap
-    figure.sg-c-Fig
-      footer.o-Runner.c-Sitemap
-        ul.o-ListBare.o-GridFlex.c-Sitemap__List
-          li
-            a(href="") Home
-          li
-            a(href="") About
-            ul.o-ListBare.c-Sitemap__SubList
-              li: a(href="") Cooperating Orgs
-              li: a(href="") Partnering Orgs
-              li: a(href="") Volunteer
-              li: a(href="") Why Attend
-          li
-            a(href="") Sponsor
-          li
-            a(href="") Exhibit
-            ul.o-ListBare.c-Sitemap__SubList
-              li: a(href="") Exhibitor List
-          li
-            a(href="") Contact
-      pre.
-        &lt;footer class="o-Runner  #[u c-Sitemap]"&gt;
-          &lt;ul class="o-ListBare  o-GridFlex  #[u c-Sitemap__List]"&gt;
-            &lt;li&gt;
-              &lt;a href="/"&gt;Home&lt;/a&gt;
-            &lt;/li&gt;
-            &lt;li&gt;
-              &lt;a href="/"&gt;About&lt;/a&gt;
-              &lt;ul class="o-ListBare  #[u c-Sitemap__SubList]"&gt;
-                &lt;li&gt;&lt;a href="/"&gt;Cooperating Orgs&lt;/a&gt;&lt;/li&gt;
-                ...
-              &lt;/ul&gt;
-            &lt;/li&gt;
-            ...
-          &lt;/ul&gt;
-        &lt;/footer&gt;
   section.sg-sect#standard-menu
     h2 The Standard Menu
     figure.sg-c-Fig
-      ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
+      ul.o-ListBare.o-GridFlex.o-Runner.c-Mast.c-Mast--map.c-MenuStandard(style="margin-bottom: 1.5rem;")
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Home
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Register
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Program
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Hotel &amp; Travel
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Speakers
       pre.
-        &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuStandard]"&gt;
+        &lt;ul class="o-ListBare  o-GridFlex  o-Runner  c-Mast  c-Mast--map  #[u c-MenuStandard]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuStandard__Item]"&gt;
             &lt;a class="o-Block  #[u c-MenuStandard__Link]"&gt;Home&lt;/a&gt;
           &lt;/li&gt;

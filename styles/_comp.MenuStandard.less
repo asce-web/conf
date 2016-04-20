@@ -16,9 +16,7 @@
 // 2016-03-01
 .c-MenuStandard {
   position: relative; // for the NavSubmenu positioning
-  background-color: @g-color_site_secondary;
-  padding-top: 0; padding-bottom: 0;
-  margin-bottom: 0;
+  padding-top: 0; padding-bottom: 0; // override o-Runner
 }
 .c-MenuStandard__Item {
   width: auto;
@@ -26,10 +24,8 @@
 }
 .c-MenuStandard__Link {
   padding: @g-boxpadd_micr;
-  border: 1px outset transparent;
   @media screen and (min-width: 45em) {
     .c-MenuStandard__Item:hover & {
-      border-color: @g-color_site_accent;
       background-color: #fff;
     }
   }

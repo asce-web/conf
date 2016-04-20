@@ -178,26 +178,18 @@ html(lang="en")
               a.o-Block.c-MenuStandard__Link(href="register.html") Register
               ul.o-ListBare.c-MenuSub(class=(page_name==='Register' ? 'c-MenuSub--active' : ''))
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 2
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 3
             li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="program.html") Program
               ul.o-ListBare.c-MenuSub(class=(page_name==='Program' ? 'c-MenuSub--active' : ''))
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Events
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Program Submenu Item 2
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Program Submenu Item 3
             li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="location.html") Hotel &amp; Travel
               ul.o-ListBare.c-MenuSub(class=(page_name==='Hotel & Travel' ? 'c-MenuSub--active' : ''))
                 li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") International Travel
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Location Submenu Item 2
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Location Submenu Item 3
             li.o-GridFlex__Item.c-MenuStandard__Item
               a.o-Block.c-MenuStandard__Link(href="speakers.html") Speakers
               ul.o-ListBare.c-MenuSub(class=(page_name==='Speakers' ? 'c-MenuSub--active' : ''))
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Call for Submissions
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Our Lineup
-                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Become a Speaker
+                li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Distinguished Lecture Series
     block dominant
       section(itemscope="" itemtype="http://schema.org/Event" data-id="dominant")
         main
@@ -220,6 +212,43 @@ html(lang="en")
             block main-prose2
         div.t-Callouts
           block callouts
+    footer.o-Runner.c-Sitemap
+      ul.o-ListBare.o-GridFlex.c-Sitemap__List
+        if page_type == 'landing' || page_type == 'universal'
+          li
+            a(href="index.html") Home
+          li
+            a(href="about.html") About
+            ul.o-ListBare.c-Sitemap__SubList
+              li: a(href="") Cooperating Orgs
+              li: a(href="") Partnering Orgs
+              li: a(href="") Volunteer
+              li: a(href="") Why Attend
+          li
+            a(href="sponsor.html") Sponsor
+          li
+            a(href="exhibit.html") Exhibit
+            ul.o-ListBare.c-Sitemap__SubList
+              li: a(href="") Exhibitor List
+          li
+            a(href="contact.html") Contact
+        else if page_type == 'home' || page_type == 'interior'
+          li
+            a(href="register.html") Register
+            ul.o-ListBare.c-Sitemap__SubList
+              li: a(href="") Why Attend
+          li
+            a(href="program.html") Program
+            ul.o-ListBare.c-Sitemap__SubList
+              li: a(href="") Events
+          li
+            a(href="location.html") Hotel &amp; Travel
+            ul.o-ListBare.c-Sitemap__SubList
+              li: a(href="") International Travel
+          li
+            a(href="speakers.html") Speakers
+            ul.o-ListBare.c-Sitemap__SubList
+              li: a(href="") Distinguished Lecture Series
     footer.o-GridFlex.o-Runner.c-Mast(itemscope="" itemtype="http://schema.org/NGO")
       section.o-GridFlex__Item.-w-1o2-sM
         h1 Contact Us

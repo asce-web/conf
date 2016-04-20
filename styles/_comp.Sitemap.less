@@ -1,0 +1,31 @@
+
+/*################################*\
+    conf  |  _comp.Sitemap.less
+\*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+@import (reference) url('__settings.less');
+
+
+// Masthead header and footer banners across entire site.
+//
+// ^subcomponents
+// __List  - list of top-level pages of the portion of the site
+//           (either universal or interior)
+// __SubList - list of low-level page children of top-level pages
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-04-19
+.c-Sitemap {
+  background-color: @g-color_site_primary;
+  color: @g-color_asce_header_txt;
+}
+
+.c-Sitemap__List {
+  .flex-justify-content(space-around);
+  margin-bottom: 0; // undo ul
+}
+
+.c-Sitemap__SubList {
+  padding-left: 1rem;
+}

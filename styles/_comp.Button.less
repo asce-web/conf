@@ -1,0 +1,77 @@
+
+/*################################*\
+    conf  |  _comp.Button.less
+\*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+@import (reference) url('__settings.less');
+
+
+// Buttons.
+// (e.g. Student, Speaker, Standard, etc.)
+//
+// ^subclasses
+// --hero   - for action button(s) in hero section
+// --hilite - for singular button in highlight block
+// --inline - for buttons inline with text
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-04-20
+
+
+.c-Btn {
+  display: inline-block;
+  padding: @g-boxpadd_mill;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid;
+  cursor: pointer;
+}
+a.c-Btn {
+  opacity: 1; // HACK specificity
+}
+
+.c-Btn {
+  border-color: currentColor;
+  background-color: #fff;
+  &:hover,
+  &:focus {
+    background-color: darken(#fff, 10%);
+  }
+  &:active {
+    background-color: darken(#fff, 20%);
+  }
+}
+
+.c-Btn--hilite {
+  padding: @g-boxpadd_kilo_v @g-boxpadd_kilo_h;
+  .font-size-block(1.5);
+}
+
+.c-Btn--hero {
+  font-weight: bold;
+  border-width: 2px;
+  border-color: @g-color_site_primary;
+  color: @g-color_asce_header_txt;
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: transparent;
+  }
+  &:hover,
+  &:focus {
+    color: @g-color_site_primary;
+  }
+  &:active {
+    border-color: currentColor;
+    color: @g-color_asce_header_txt;
+  }
+}
+
+.c-Btn--inline {
+  display: inline; // override .c-Btn
+  line-height: 0;
+  padding: 0 @g-boxpadd_micr_h;
+  // border-radius: 0.25em;
+}

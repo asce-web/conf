@@ -2,12 +2,13 @@
 /*################################*\
     conf  |  _comp.Mast.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
 @import (reference) url('__settings.less');
 
 
 // Masthead header and footer banners across entire site.
 //
+// ^subclasses
+// --copyright - the copyright footline
 // ^subcomponents
 // __Link  - link in the mast head / foot
 // __Title - title containing conference name and tagline
@@ -17,28 +18,16 @@
 // ^updated
 // 2016-03-01
 .c-Mast {
-  .flex-justify-content(space-between);
-  background-color: @g-color_site_primary;
+  background-color: @g-color_asce_primary;
   color: @g-color_asce_header_txt;
 }
 
 .c-Mast__Link {
-  border-bottom: 1px solid transparent;
-  &,
+  color: inherit;
   &:hover,
   &:focus {
-    color: inherit;
+    color: darken(@g-color_asce_header_txt, 30%); // darken(inherit, 10%)
   }
-  &:hover,
-  &:focus {
-    border-bottom-color: currentColor;
-  }
-}
-
-.c-Mast__Title {
-  margin-left: 4rem; // TODO change this to fit the width of the logo
-  background-image: none; // this is the conference logo (or institute shield)
-  border-bottom: 0; // override Mast__Link
 }
 
 // Menu button masthead.
@@ -56,4 +45,21 @@
   }
 }
 .c-Mast__MenuButtonContainer__Button {
+}
+
+
+// Copyright footline.
+//
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-03-01
+.c-Mast--copyright {
+  text-align: center;
+  background-image: none; // this is the ASCE logo
+}
+
+.c-Mast--map {
+  background-color: @g-color_site_primary;
+  margin-bottom: 0; // override ul for univ menu and sitemap
 }

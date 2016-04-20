@@ -1,16 +1,10 @@
-extends sample-basic.tpl.jade
+extends internal.tpl.jade
 
-block prepend vars
+block append vars
   - var page_name = 'Speakers'
-  - var tag_meta_description = 'Get information about current and prospective speakers at ASCE 2016.'
 
 block main-prose
-    section.is-editable
-      h1 Call for Submissions
-      p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
-      ul
-        li 3&frac12; days of premier educational and networking events
-        li 15 tracks and 6 plenary sessions focusing on ...
+  +section-block('Call for Submissions')
 
 block append main-body
   div.o-Highlight.c-Banner

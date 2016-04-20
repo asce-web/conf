@@ -1,19 +1,12 @@
-extends sample-basic.tpl.jade
+extends internal.tpl.jade
 
-block prepend vars
+block append vars
   - var page_name = 'Register'
-  - var tag_meta_description = 'Register for the ASCE 2016 conference here.'
 
 block main-prose
-    section.is-editable
-      h1 Why Attend
-      p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
-      p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
-      ul
-        li 3&frac12; days of premier educational and networking events
-        li 15 tracks and 6 plenary sessions focusing on ...
+  +minimal-text-block()
 
-block main-body-insert
+block append main-body
   section.o-Highlight.c-Banner
     h1.o-Highlight__Hn Full Registration
     mixin pass()
@@ -47,10 +40,8 @@ block main-body-insert
       li.o-GridFlex__Item.o-ListPass__Item: +pass()
       li.o-GridFlex__Item.o-ListPass__Item: +pass()
       li.o-GridFlex__Item.o-ListPass__Item: +pass()
-
-block main-prose2
   div.o-Highlight
-    section.is-editable
+    section.long-text
       h1 Registration Information
       p: mark: strong.
         #[strong Important:] Please do not use
@@ -72,7 +63,7 @@ block main-prose2
         li Monday, October 12 | 7:00am&ndash;4:30pm
         li Tuesday, October 13 | 7:30am&ndash;4:30pm
         li Wednesday, October 14 | 7:00am&ndash;2:00pm
-    section.is-editable
+    section.long-text
       h1 Registration Details
       h2 CONFIRMATION OF REGISTRATION
       p Confirmation will be emailed to all Early Bird and Advance registrants within one week of registering for the convention. Online registrants should receive immediate notification following submission of the registration information. Preregistered attendees will receive their name badges and any tickets ordered at the on-site ASCE Registration Desk during Registration hours.

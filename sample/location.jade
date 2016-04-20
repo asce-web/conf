@@ -1,62 +1,102 @@
-extends sample.tpl.jade
+extends internal.tpl.jade
 
 block append vars
-  - var page_type = 'interior'
   - var page_name = 'Hotel & Travel'
-  - var tag_title = page_name + ' | ' + conference_name
-  - var tag_meta_description = 'Get information about the location of the conference and where to stay.'
 
 block main-header
   header.o-Highlight.c-PageHeader.c-Banner.c-Banner--location
     h1.c-Banner__Hn Hotel &amp; Travel
 
 block main-prose
-    div.is-editable(data-id="intro")
-      p Intro paragraph. Lorem ipsun dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
-      ul
-        li list item one
-        li list item two
-        li list item three
-    section.is-editable
-      h1 Hotel Information
-      p.
-        The reservation deadline for the hotel is
-        #[time.c-Date(datetime="2016-01-14") Thursday, January 14, 2016] however rooms are
-        selling out, so make sure you read this very long paragraph which probably
-        no one will read because studies show that users of the web merely skim through
-        the page to find the information most relavent to them in the fastest
-        way possible.
-      p(itemscope="" itemtype="http://schema.org/Place")
-        span(itemprop="name") Sheraton Phoenix Downtown Hotel
+  div.long-text
+    p.
+      Join civil engineering professionals from around the world at
+      this ASCE flagship event. Network with peers, earn PDHs, and
+      expand your knowledge base.
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    ul
+      li 3&frac12; days of premier educational and networking events
+      li 15 tracks and 6 plenary sessions focusing on ...
+      li Prestigious awards and keynote lecture presentations
+      li Lively programs for studdnts and young professionals
+    h2 Hotel Information
+    p.
+      The reservation deadline for the hotel is
+      #[time.c-Date(datetime="2016-01-14") Thursday, January 14, 2016] however rooms are
+      selling out, so make sure you read this very long paragraph which probably
+      no one will read because studies show that users of the web merely skim through
+      the page to find the information most relavent to them in the fastest
+      way possible.
+    p(itemscope="" itemtype="http://schema.org/Place")
+      span(itemprop="name") Sheraton Phoenix Downtown Hotel
+      br
+      span(itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
+        span(itemprop="streetAddress") 340 North 3rd Street
         br
-        span(itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
-          span(itemprop="streetAddress") 340 North 3rd Street
-          br
-          span(itemprop="addressLocality") Phoenix, 
-          abbr(itemprop="addressRegion" title="Arizona") AZ 
-          span(itemprop="postalCode") 85004
+        span(itemprop="addressLocality") Phoenix, 
+        abbr(itemprop="addressRegion" title="Arizona") AZ 
+        span(itemprop="postalCode") 85004
+      br
+      a(href="" itemprop="url") https://sheraton.com/phoenix/
+    h2 Transportation
+    h3 Airport
+    p(itemscope="" itemtype="http://schema.org/Place")
+      span(itemprop="name") Phoenix Sky Harbor International Airport (PHX)
+      br
+      a(href="" itemprop="url") https://sheraton.com/phoenix/
+      br
+      a(href="" itemprop="telephone") 602-273-3300
+    p.
+      PHX is located #[del approximately]#[ins about] 6 miles from the Sheraton Phoenix Downtown Hotel
+      and Phoenix Convention Center and no one will actually read this paragraph
+      because they will probably just Google map it themselves.
+    h3 Shuttle
+    p.
+      SuperShuttle Servidce costs approximately (again with the long words)
+      $26 for a round-trip ride from the airport to the hotel then back to the airport,
+      which is overly redundant for a web page.
+    h2 Taxi Service
+    p About $25 one-way from airport to hotel. See, that wasn&rsquo;t so bad, was it?
+  //- section.long-text
+    h1 Hotel Information
+    p.
+      The reservation deadline for the hotel is
+      #[time.c-Date(datetime="2016-01-14") Thursday, January 14, 2016] however rooms are
+      selling out, so make sure you read this very long paragraph which probably
+      no one will read because studies show that users of the web merely skim through
+      the page to find the information most relavent to them in the fastest
+      way possible.
+    p(itemscope="" itemtype="http://schema.org/Place")
+      span(itemprop="name") Sheraton Phoenix Downtown Hotel
+      br
+      span(itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
+        span(itemprop="streetAddress") 340 North 3rd Street
         br
-        a(href="" itemprop="url") https://sheraton.com/phoenix/
-    section.is-editable
-      h1 Transportation
-      h2 Airport
-      p(itemscope="" itemtype="http://schema.org/Place")
-        span(itemprop="name") Phoenix Sky Harbor International Airport (PHX)
-        br
-        a(href="" itemprop="url") https://sheraton.com/phoenix/
-        br
-        a(href="" itemprop="telephone") 602-273-3300
-      p.
-        PHX is located #[del approximately]#[ins about] 6 miles from the Sheraton Phoenix Downtown Hotel
-        and Phoenix Convention Center and no one will actually read this paragraph
-        because they will probably just Google map it themselves.
-      h2 Shuttle
-      p.
-        SuperShuttle Servidce costs approximately (again with the long words)
-        $26 for a round-trip ride from the airport to the hotel then back to the airport,
-        which is overly redundant for a web page.
-      h2 Taxi Service
-      p About $25 one-way from airport to hotel. See, that wasn&rsquo;t so bad, was it?
+        span(itemprop="addressLocality") Phoenix, 
+        abbr(itemprop="addressRegion" title="Arizona") AZ 
+        span(itemprop="postalCode") 85004
+      br
+      a(href="" itemprop="url") https://sheraton.com/phoenix/
+  //- section.long-text
+    h1 Transportation
+    h2 Airport
+    p(itemscope="" itemtype="http://schema.org/Place")
+      span(itemprop="name") Phoenix Sky Harbor International Airport (PHX)
+      br
+      a(href="" itemprop="url") https://sheraton.com/phoenix/
+      br
+      a(href="" itemprop="telephone") 602-273-3300
+    p.
+      PHX is located #[del approximately]#[ins about] 6 miles from the Sheraton Phoenix Downtown Hotel
+      and Phoenix Convention Center and no one will actually read this paragraph
+      because they will probably just Google map it themselves.
+    h2 Shuttle
+    p.
+      SuperShuttle Servidce costs approximately (again with the long words)
+      $26 for a round-trip ride from the airport to the hotel then back to the airport,
+      which is overly redundant for a web page.
+    h2 Taxi Service
+    p About $25 one-way from airport to hotel. See, that wasn&rsquo;t so bad, was it?
 
 block callouts
   aside.o-Highlight.c-Banner

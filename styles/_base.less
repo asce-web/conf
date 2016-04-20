@@ -28,8 +28,12 @@
 //    # SECTIONS
 //++++++++++++++++++++++++++++++++//
 body {
-  font-family: 'Open Sans','Helvetica Neue','Arial',sans-serif;
+  // font-family: 'Open Sans','Helvetica Neue','Arial',sans-serif;
   color: @g-color_asce_body_txt;
+  background: @g-color_asce_body_bg;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: @g-color_site_primary;
 }
 //++++ end # SECTIONS ++++//
 
@@ -83,10 +87,13 @@ body {
   //    # Links
   //--------------------------------//
   a {
-    color: @g-color_asce_link;
+    color: @g-color_site_secondary;
     &:hover,
     &:focus {
-      color: @g-color_asce_link_hover;
+      color: desaturate(@g-color_site_secondary, 50%);
+    }
+    &:active {
+      color: inherit;
     }
   }
   //---- end # Links ----//

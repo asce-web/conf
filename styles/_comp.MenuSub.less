@@ -26,8 +26,9 @@
     }
   }
   @media screen and (min-width: 45em) {
-    background-color: #fff;
-    border: 1px outset @g-color_site_accent;
+    background-color: @g-color_asce_header_txt;
+    color: @g-color_site_primary;
+    border: 1px solid currentColor;
     .c-MenuStandard__Item:not(:hover) & {
       display: none;
     }
@@ -41,4 +42,12 @@
   }
 }
 .c-MenuSub__Link {
+  color: inherit;
+  &:hover,
+  &:focus {
+    color: desaturate(@g-color_site_primary, 50%); // desaturate(inherit, 50%)
+  }
+  &:active {
+    color: inherit;
+  }
 }

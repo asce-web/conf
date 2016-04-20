@@ -16,5 +16,10 @@
 .c-SiteTitle {
   margin-left: 4rem; // TODO change this to fit the width of the logo
   background-image: none; // this is the conference logo (or institute shield)
-  border-bottom: 0; // override Mast__Link
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    color: inherit;
+  }
 }

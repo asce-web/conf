@@ -7,9 +7,17 @@
 // This stylesheet contains conference site-specific colors.
 
 // Sample site
+// old
 @g-color_site_primary:   #26a1d7;
 @g-color_site_secondary: #79bb6d;
 @g-color_site_accent:    #128d47;
+// new
+@g-color_site_primary:   #3fae2a;
+@g-color_site_secondary: #00a1e1;
+
+@g-color_site_gray_lt: lighten(desaturate(@g-color_site_primary, 50%), 25%);
+@g-color_site_gray_dk:  darken(desaturate(@g-color_site_primary, 50%), 25%);
+
 
 // CI Summit 2016
 @g-color_ci_primary:   #21a0f2;

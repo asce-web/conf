@@ -27,7 +27,6 @@
   }
   @media screen and (min-width: 45em) {
     background-color: @g-color_asce_header_txt;
-    color: @g-color_site_primary;
     border: 1px solid currentColor;
     .c-MenuStandard__Item:not(:hover) & {
       display: none;
@@ -45,7 +44,7 @@
   color: inherit;
   &:hover,
   &:focus {
-    color: desaturate(@g-color_site_primary, 50%); // desaturate(inherit, 50%)
+    color: @g-color_asce_body_txt;
   }
   &:active {
     color: inherit;

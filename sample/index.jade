@@ -11,9 +11,9 @@ block dominant
       h1(itemprop="name")= conference_name
       +date-place()
       p(itemprop="description")= conference_theme
-      +actionbuttons([{text:'Get Details', href:'home.html'}])
+      +actionbuttons([{text:'Get Details', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
     div.o-Highlight
-      +minimal-text()
+      +minimal-text-block()
     section.o-Highlight.o-OtherYear.c-Banner.c-Banner--prev(itemscope="" itemtype="http://schema.org/Event")
       div.o-GridFlex.c-Overlay
         div.o-GridFlex__Item.o-OtherYear__Title
@@ -27,7 +27,7 @@ block dominant
           p.
             Access the 2015 program to see which sessions qualify for
             PDHs and other documentation.
-          +actionbuttons([{text:'Event Details', href:'//2015.asceconvention.org/', attrs:{itemprop:'url'}}])
+          +actionbuttons([{text:'Event Details', href:'//2015.asceconvention.org/', attrs:{itemprop:'url'}}], 'c-Btn c-Btn--hero')
     section.o-Highlight.o-OtherYear.c-Banner.c-Banner--next(itemscope="" itemtype="http://schema.org/Event")
       div.o-GridFlex.c-Overlay
         div.o-GridFlex__Item.o-OtherYear__Title
@@ -41,7 +41,7 @@ block dominant
           p.
             Plan ahead to attend, sponsor, or exhibit at the
             annual convention for civil engineering professionals.
-          +actionbuttons([{text:'Event Details', href:'//2017.asceconvention.org/', attrs:{itemprop:'url'}}])
+          +actionbuttons([{text:'Event Details', href:'//2017.asceconvention.org/', attrs:{itemprop:'url'}}], 'c-Btn c-Btn--hero')
   div.t-Callouts
     aside
       h1 Sponsors

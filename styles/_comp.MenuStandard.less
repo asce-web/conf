@@ -23,14 +23,18 @@
   margin: @g-boxpadd_mill;
   &:hover,
   &:focus {
+    // so when mouse cursor leaves link but enters submenu
+    background-color: @g-color_asce_white;
     color: @g-color_site_primary;
   }
 }
 .c-MenuStandard__Link {
   padding: @g-boxpadd_micr;
-  @media screen and (min-width: 45em) {
-    .c-MenuStandard__Item:hover & {
-      background-color: #fff;
-    }
+  &:hover,
+  &:focus {
+    color: @g-color_asce_black;
+  }
+  &:active {
+    color: inherit;
   }
 }

@@ -21,6 +21,7 @@ block append main__header
       li: a(href="#date-block") The Date Block
       li: a(href="#speaker-component") The Speaker Component
       li: a(href="#pass-component") The Pass Component
+      li: a(href="#buttons") Buttons
 
 block append main
   section.sg-sect#masthead-mastfoot
@@ -286,3 +287,53 @@ block append main
             &lt;/dl&gt;
           &lt;/section&gt;
         &lt;/article&gt;
+  section.sg-sect#buttons
+    h2 Buttons
+    p Generic, general purpose buttons: #[code .c-Btn]
+    figure.sg-c-Fig
+      div(style="margin-bottom:1.5rem;"): a.c-Btn generic button
+      pre.
+        &lt;div&gt;
+          &lt;a class="#[u c-Btn]"&gt;generic button&lt;/a&gt;
+        &lt;/div&gt;
+    p Highlight buttons, for singular button in highlight block: #[code .c-Btn.c-Btn--hilite]
+    figure.sg-c-Fig
+      div(style="margin-bottom:1.5rem;"): a.c-Btn.c-Btn--hilite regular highlight button
+      div.o-Highlight.c-Banner(style="margin-bottom:1.5rem; z-index:1;"): a.c-Btn.c-Btn--hilite highlight button inside a banner
+      pre.
+        &lt;div&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;regular highlight button&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="c-Banner"&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;highlight button inside a banner&lt;/a&gt;
+        &lt;/div&gt;
+    p Hero button, for action button(s) in hero section: #[code .c-Btn.c-Btn--hero]
+    figure.sg-c-Fig
+      div(style="margin-bottom: 1.5rem;")
+        a.c-Btn.c-Btn--hero hero button
+        a.c-Btn.c-Btn--hilite.c-Btn--hero highlight hero button
+      div.o-Highlight.c-Banner(style="margin-bottom:1.5rem; z-index:1;")
+        a.c-Btn.c-Btn--hero hero button inside a banner
+        a.c-Btn.c-Btn--hilite.c-Btn--hero highlight hero button inside a banner
+      pre.
+        &lt;div&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button&lt;/a&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]  #[u c-Btn--hero]"&gt;hilight hero button&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="c-Banner"&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button inside a banner&lt;/a&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]  #[u c-Btn--hero]"&gt;hilight hero button inside a banner&lt;/a&gt;
+        &lt;/div&gt;
+    p Inline buttons, for buttons inline with text: #[code .c-Btn.c-Btn--inline]
+    figure.sg-c-Fig
+      div(style="margin-bottom: 1.5rem;")
+        p.
+          The following button,
+          #[a.c-Btn.c-Btn--inline inline button],
+          is inline with the text in this paragraph.
+      pre.
+        &lt;div&gt;
+          &lt;p&gt;The following button,
+            &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
+            is inline with the text in this paragraph.&lt;/p&gt;
+        &lt;/div&gt;

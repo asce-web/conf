@@ -32,12 +32,8 @@
 // 2016-04-08
 .c-Banner {
   position: relative;
-  background: transparent; // override PageHeader
-  &,
-  &:hover,
-  &:focus {
-    color: @g-color_asce_header_txt;
-  }
+  background: transparent; // override `c-PageHeader`
+  color: @g-color_asce_white;
   &::before {
     // need `::before` for filter effects
     content: '';
@@ -48,6 +44,9 @@
     background-image: url('../img/Blue-Geometric-Background-3.jpg'); // default background image
     background-position: center;
     background-size: cover;
+  }
+  h1 {
+    color: inherit;
   }
 }
 

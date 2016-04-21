@@ -21,13 +21,14 @@
 .c-MenuUniversal {
   .flex-align-content(flex-start); // override 'stretch'
   margin-bottom: 0;
+  color: @g-color_asce_white;
   @media screen and (max-width: 44.999em) {
     position: fixed;
     right: 0; top: 0;
     z-index: 10;
     width: 10em;
     height: 100%;
-    background-color: @g-color_site_secondary;
+    background-color: @g-color_site_gray_lt;
   }
 }
 .c-MenuUniversal__Item {
@@ -38,8 +39,22 @@
 }
 .c-MenuUniversal__Link {
   padding: @g-boxpadd_mill;
+  @media screen and (max-width: 44.999em) {
+    &:hover,
+    &:focus {
+      background-color: #fff;
+    }
+    &:active {
+      background-color: #fff;
+      color: @g-color_site_gray_lt;
+    }
+  }
 }
 .c-MenuUniversal__Link--current {
-  background-color: @g-color_site_primary; // TODO decide later
-  color: white; // TODO decide later
+  background-color: @g-color_site_primary;
+  &:hover,
+  &:focus,
+  &:active {
+    color: @g-color_asce_black;
+  }
 }

@@ -28,8 +28,12 @@
 // 2016-04-14
 .c-Pass {
   text-align: center;
-  background-color: #666; // TODO decide on this color later
-  color: @g-color_asce_header_txt;
+  background-color: @g-color_site_gray_dk;
+  color: @g-color_asce_white;
+}
+.c-Pass__Hn,
+.c-Pass__Period__Hn {
+  color: inherit;
 }
 .c-Pass__Period {
   position: relative;
@@ -47,8 +51,8 @@
   }
 }
 .c-Pass__Period--current {
-  background-color: #fff;
-  color: @g-color_asce_body_txt;
+  background-color: @g-color_asce_white;
+  color: @g-color_asce_black;
 }
 .c-Pass__Attendee,
 .c-Pass__Price {
@@ -62,10 +66,11 @@
 .c-Pass__Price {
   .clearfix();
   .c-Pass__Period--current & {
-    color: green; // TODO decide later
+    // color: @g-color_site_primary;
   }
 }
 .c-Pass__Price--featured {
   display: block;
   padding: (0.5*@g-vru) 0;
+  color: @g-color_site_primary;
 }

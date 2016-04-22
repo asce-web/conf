@@ -27,11 +27,8 @@
   @media screen and (min-width: 45em) { padding: @g-boxpadd_norm; }
   @media screen and (min-width: 60em) { padding: @g-boxpadd_kilo; }
   @media screen and (min-width: 75em) { padding: @g-boxpadd_mega; }
-  .c-Banner--prev > &,
-  .c-Banner--next > & {
-    @media screen and (min-width: 30em) and (max-width: 44.999em) {
-      width: 75%;
-    }
+  @media screen and (min-width: 45em) {
+    width: 75%;
   }
 }
 
@@ -47,5 +44,6 @@
   position: absolute;
   left: 0; right: 0;
   bottom: 0.5em; // so not completely flush
+  width: auto; // override 75% above
   padding: @g-vru 0;
 }

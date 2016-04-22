@@ -34,6 +34,11 @@
   position: relative;
   background: transparent; // override `c-PageHeader`
   color: @g-color_asce_white;
+  @media screen and (max-width: 29.999em) {
+    &:has(> .c-Overlay) {
+      padding: 0;
+    }
+  }
   &::before {
     // need `::before` for filter effects
     content: '';

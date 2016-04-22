@@ -36,8 +36,46 @@ mixin important-date-content()
     +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes')
     +row('2016','Jan','12', '2016-01-12','Advance Registration Closes')
 
+- var student = { name:'Student Pass', description:'Undergraduates 18–24'}
+- var standard = { name:'Standard Pass', description:'Members & Non-Members'}
+- var ym = { name:'Younger Member', description:'Members 18–35'}
+- var speaker = { name:'Speaker Pass', description:'Speakers and Presenters'}
+- var guest = { name:'Guest Pass', description:'Speaker and Moderator Guests'}
+- var moderator = { name:'Moderator Pass', description:'Moderators'}
+- var daily = { name:'Daily Pass', description:'For One Day Only'}
+mixin pass(type)
+  article.c-Pass
+    header
+      h1.c-Pass__Hn-= type.name
+      p: small= type.description
+    section.c-Pass__Period.c-Pass__Period--current
+      h1.c-Pass__Period__Hn Advance
+      dl.-mb-z
+        dt.c-Pass__Attendee Non-Member
+        dd.c-Pass__Price $945
+        dt.c-Pass__Attendee Member
+        dd.c-Pass__Price.c-Pass__Price--featured $845
+    footer.o-GridFlex
+      section.o-GridFlex__Item.-w-1o2.c-Pass__Period
+        h1.c-Pass__Period__Hn Early Bird
+        dl.-mb-z
+          dt.c-Pass__Attendee Non-Member
+          dd.c-Pass__Price $795
+          dt.c-Pass__Attendee Member
+          dd.c-Pass__Price $745
+      section.o-GridFlex__Item.-w-1o2.c-Pass__Period
+        h1.c-Pass__Period__Hn Onsite
+        dl.-mb-z
+          dt.c-Pass__Attendee Non-Member
+          dd.c-Pass__Price $1045
+          dt.c-Pass__Attendee Member
+          dd.c-Pass__Price $945
+
 mixin registration-content()
-  p registration content goes here
+  ul.o-ListBare.o-GridFlex.o-ListPass
+    li.o-GridFlex__Item.o-ListPass__Item: +pass(student)
+    li.o-GridFlex__Item.o-ListPass__Item: +pass(standard)
+    li.o-GridFlex__Item.o-ListPass__Item: +pass(ym)
   +actionbuttons([{text:'Register', href:'register.html'}], 'c-Btn c-Btn--hilite')
 
 mixin num-speakers(n)

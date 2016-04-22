@@ -13,18 +13,49 @@
 // ^updated
 // 2016-03-04
 .c-DateBlock {
-  .list-pairs(5em);
-  & > *:nth-child(odd) {
-    padding-right: 1rem;
-    text-align: right;
+  width: 75%;
+  margin: auto;
+  @oddwidth: 10em;
+  // .list-pairs(@oddwidth);
+  & > * {
+    background: #fff;
+    color: #000;
+    margin-bottom: @g-vru;
+    &:nth-child(odd)  {
+      width: @oddwidth;
+      position: relative;
+      padding-right: 2rem;
+      text-align: right;
+      border-right: 1px solid black;
+      // &::after {
+      //   @rw: 2px;
+      //   content: '';
+      //   display: block;
+      //   position: absolute;
+      //   right: 0; top: 0; bottom: 0;
+      //   margin: (0.25*@g-vru) 0;
+      //   margin-right: 0.5rem;
+      //   border-right-width: @rw;
+      //   opacity: 0.5;
+      // }
+    }
+    &:nth-child(even) {
+      width: calc(~'100% - ' @oddwidth);
+      padding-left: 2rem;
+      & > * {
+        padding: (0.5*@g-vru) 0;
+        // margin: auto;
+
+      }
+    }
   }
 }
 
 
-.c-TimeBlock {
-  .list-pairs(10em);
-  & > *:nth-child(odd) {
-    padding-right: 1rem;
-    text-align: right;
-  }
-}
+// .c-TimeBlock {
+//   .list-pairs(10em);
+//   & > *:nth-child(odd) {
+//     padding-right: 1rem;
+//     text-align: right;
+//   }
+// }

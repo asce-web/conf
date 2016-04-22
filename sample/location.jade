@@ -5,10 +5,10 @@ block append vars
 
 block main-header
   header.o-Highlight.c-PageHeader.c-Banner.c-Banner--location
-    h1.c-Banner__Hn Hotel &amp; Travel
+    h1.c-Banner__Hn= page_name
 
-block main-prose
-  div.long-text
+block main-rich
+  div.o-Highlight.rich-text
     p.
       Join civil engineering professionals from around the world at
       this ASCE flagship event. Network with peers, earn PDHs, and
@@ -57,46 +57,6 @@ block main-prose
       which is overly redundant for a web page.
     h2 Taxi Service
     p About $25 one-way from airport to hotel. See, that wasn&rsquo;t so bad, was it?
-  //- section.long-text
-    h1 Hotel Information
-    p.
-      The reservation deadline for the hotel is
-      #[time.c-Date(datetime="2016-01-14") Thursday, January 14, 2016] however rooms are
-      selling out, so make sure you read this very long paragraph which probably
-      no one will read because studies show that users of the web merely skim through
-      the page to find the information most relavent to them in the fastest
-      way possible.
-    p(itemscope="" itemtype="http://schema.org/Place")
-      span(itemprop="name") Sheraton Phoenix Downtown Hotel
-      br
-      span(itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
-        span(itemprop="streetAddress") 340 North 3rd Street
-        br
-        span(itemprop="addressLocality") Phoenix, 
-        abbr(itemprop="addressRegion" title="Arizona") AZ 
-        span(itemprop="postalCode") 85004
-      br
-      a(href="" itemprop="url") https://sheraton.com/phoenix/
-  //- section.long-text
-    h1 Transportation
-    h2 Airport
-    p(itemscope="" itemtype="http://schema.org/Place")
-      span(itemprop="name") Phoenix Sky Harbor International Airport (PHX)
-      br
-      a(href="" itemprop="url") https://sheraton.com/phoenix/
-      br
-      a(href="" itemprop="telephone") 602-273-3300
-    p.
-      PHX is located #[del approximately]#[ins about] 6 miles from the Sheraton Phoenix Downtown Hotel
-      and Phoenix Convention Center and no one will actually read this paragraph
-      because they will probably just Google map it themselves.
-    h2 Shuttle
-    p.
-      SuperShuttle Servidce costs approximately (again with the long words)
-      $26 for a round-trip ride from the airport to the hotel then back to the airport,
-      which is overly redundant for a web page.
-    h2 Taxi Service
-    p About $25 one-way from airport to hotel. See, that wasn&rsquo;t so bad, was it?
 
 block callouts
   aside.o-Highlight.c-Banner
@@ -105,6 +65,3 @@ block callouts
   aside.o-Highlight
     h1.o-Highlight__Hn Contact
     +contact-content()
-  aside.-ta-c
-    h1 Sponsors
-    +sponsor-content()

@@ -11,8 +11,10 @@ block main-header
     p(itemprop="description")= conference_theme
     +actionbuttons([{text:'Register', href:'register.html'}, {text:'Sponsor', href:'sponsor.html'}, {text:'Submit a Paper'}], 'c-Btn c-Btn--hilite c-Btn--hero')
 
-block main-prose
+block main-minimal
   +minimal-text-block()
+
+block main-rich
 
 block callouts
   aside.o-Highlight.c-Banner

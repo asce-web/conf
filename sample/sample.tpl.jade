@@ -21,10 +21,10 @@ html(lang="en")
     link(rel="stylesheet" href="styles/this.css")
     block style
       style.
-        div.minimal-text {
+        .minimal-text {
           background-color: rgba(219, 255, 64, 0.64);
         }
-        div.minimal-text::before {
+        .minimal-text::before {
           content: 'minimal text block (no headings inside)';
           display: block;
           margin-bottom: 1.5rem;
@@ -32,24 +32,16 @@ html(lang="en")
           text-transform: uppercase;
           color: red;
         }
-        div.long-text {
-          background-color: rgba(64, 255, 219, 0.64);
-        }
-        section.long-text {
+        .rich-text {
           background-color: rgba(255, 219, 64, 0.64);
         }
-        .long-text::before {
+        .rich-text::before {
+          content: 'rich text block <div> with optional subheadings';
           display: block;
           margin-bottom: 1.5rem;
           font-weight: 900;
           text-transform: uppercase;
           color: red;
-        }
-        div.long-text::before {
-          content: 'long text <div>, no title ("page type")';
-        }
-        section.long-text::before {
-          content: 'long text <section> with title';
         }
   body
     include include/_mixins.jade
@@ -75,9 +67,10 @@ html(lang="en")
             header.o-Highlight.c-PageHeader
               h1= page_name
           block main-body
-            div.o-Highlight
-              block main-prose
-                +long-text-block()
+            block main-minimal
+            block main-reference
+            block main-rich
+              +rich-text-block()
         div.t-Callouts
           block callouts
           aside

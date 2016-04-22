@@ -59,11 +59,9 @@ mixin speakers-content()
   +actionbuttons([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
 
 mixin cochairs-content()
-  ul.o-ListBare.o-GridFlex.o-ListStacked
-    each val in [1,2]
-      li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
-        p.c-Speaker__Name Donald Trump, Ph.D.
-        p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
+  ul.o-ListBare
+    li #[b Thomas J. McCollough], P.E., M.ASCE
+    li #[b Stephen E. Dickenson], Ph.D., P.E., D.PE, M.ASCE
 
 mixin program-content()
   mixin program-block(classes, datetext, data)

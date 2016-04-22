@@ -2,3 +2,8 @@ extends universal.tpl.jade
 
 block append vars
   - var page_name = 'Sponsor'
+
+block sponsors
+  aside
+    h1 Sponsors
+    +sponsor-content-full()

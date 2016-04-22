@@ -115,6 +115,17 @@ mixin contact-content()
     button submit
 
 mixin sponsor-content()
+  mixin sponsor-carousel(spons)
+    ul.o-ListBare.o-GridFlex.-xjc-c.-ta-c
+      each item in spons
+        li.o-GridFlex__Item.-w-1o4
+          p: a.o-Block.o-ListSponsors__Logo.o-ListSponsors__Logo--lrg.c-SponsorBlock__Logo.-w-a.-mh-h(href="" title=item.name style='background-image: url(\'' + item.url + '\');')
+          p.-mb-0= item.level
+  - var sponsors = [ {name:'Bank of America', url:'img/logo-bank-america.png', level:'Platinum'}, {name:'UPS', url:'img/logo-ups.png', level:'Platinum'}, {name:'Geico', url:'img/logo-geico.png', level:'Gold'} ]
+  +sponsor-carousel(sponsors)
+  +actionbuttons([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
+
+mixin sponsor-content-full()
   mixin sponsor-block(category, category_class, spons)
     section.o-Highlight.c-SponsorBlock(class='c-SponsorBlock--'+category_class)
       h1= category
@@ -127,7 +138,7 @@ mixin sponsor-content()
           else
             li.o-GridFlex__Item.o-ListSponsors__Item
               a.o-ListSponsors__Text.c-SponsorBlock__Text(href="")= item.name
-  - var sponsors = [ { name: 'Bank of America', url: 'img/logo-bank-america.png' }, { name: 'UPS', url: 'img/logo-ups.png' }, { name: 'Geico', url: 'img/logo-geico.png' } ]
+  - var sponsors = [ {name:'Bank of America', url:'img/logo-bank-america.png'}, {name:'UPS', url:'img/logo-ups.png'}, {name:'Geico', url:'img/logo-geico.png'} ]
   +sponsor-block('Premier', 'premier', sponsors)
   +sponsor-block('Platinum', 'platinum', sponsors)
   +sponsor-block('Gold', 'gold', sponsors)

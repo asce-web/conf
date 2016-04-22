@@ -188,34 +188,35 @@ block append main
         br
         br
         br
-      div.c-Banner(style="margin-bottom: 1.5rem; z-index:1;")
-        h1.c-Banner__Hn special banner heading
-        br
-        br
-        br
-        br
-        br
-        br
         br
       pre.
         &lt;div class="#[u c-Banner]"&gt;
           &lt;h1&gt;banner heading&lt;/h1&gt;
           &lt;p&gt;banner content&lt;/p&gt;
         &lt;/div&gt;
-        &lt;div class="#[u c-Banner]"&gt;
-          &lt;h1 class="#[u c-Banner__Hn]"&gt;special banner heading&lt;/h1&gt;
-        &lt;/div&gt;
   section.sg-sect#overlay-component
     h2 The Overlay Component
     p Use the Overlay Component over a Banner.
     figure.sg-c-Fig
-      div.c-Overlay(style="margin-bottom: 1.5rem;")
-        h1 overlay heading
-        p overlay content
+      div.c-Banner(style="margin-bottom: 1.5rem; padding: 1.5rem; z-index:1;")
+        div.c-Overlay
+          h1 overlay heading
+          p overlay content
+      div.c-Banner(style="margin-bottom: 1.5rem; z-index:1;")
+        h1.c-Overlay.c-Overlay--full special banner heading
+        br
+        br
+        br
+        br
+        br
+        br
       pre.
         &lt;div class="#[u c-Overlay]"&gt;
           &lt;h1&gt;overlay heading&lt;/h1&gt;
           &lt;p&gt;overlay content&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="#[u c-Banner]"&gt;
+          &lt;h1 class="#[u c-Overlay]  #[u c-Overlay--full]"&gt;special banner heading&lt;/h1&gt;
         &lt;/div&gt;
   section.sg-sect#speaker-component
     h2 The Speaker Component

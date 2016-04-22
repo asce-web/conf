@@ -5,7 +5,7 @@ block append vars
 
 block main-header
   header.o-Highlight.c-Banner.c-Banner--location
-    h1.c-Banner__Hn= page_name
+    h1.c-Overlay.c-Overlay--full= page_name
 
 block main-rich
   div.o-Highlight.rich-text
@@ -60,8 +60,8 @@ block main-rich
 
 block callouts
   aside.o-Highlight.c-Banner
-    h1.o-Highlight__Hn Important Dates
+    h1 Important Dates
     +important-date-content()
   aside.o-Highlight
-    h1.o-Highlight__Hn Contact
+    h1 Contact
     +contact-content()

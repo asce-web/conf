@@ -110,7 +110,7 @@ mixin contact-content()
 mixin sponsor-content()
   mixin sponsor-block(category, category_class, spons)
     section.o-Highlight.c-SponsorBlock(class='c-SponsorBlock--'+category_class)
-      h1.o-Highlight__Hn= category
+      h1= category
       ul.o-ListBare.o-GridFlex.o-ListSponsors
         each item in spons
           if (category_class !== 'bronze') && (category_class !== 'copper')

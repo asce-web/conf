@@ -95,6 +95,20 @@ mixin program-content()
     ])
   +actionbuttons([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
 
+mixin mobile-content()
+  p Enhance your conference experience with our mobile app.
+  +actionbuttons([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
+
+mixin social-content()
+  p Follow ASCE on social media for real-time conversation.
+  ul.o-ListBare.o-GridFlex.-xjc-c.-ta-c
+    li.o-GridFlex__Item(style="outline: thin solid black; width: 11.11vw; height: 11.11vw;")
+      a(href="" title="Follow #ASCE2016 on Twitter") Twitter
+    li.o-GridFlex__Item(style="outline: thin solid black; width: 11.11vw; height: 11.11vw;")
+      a(href="" title="Follow #ASCE2016 on Google+") Google+
+    li.o-GridFlex__Item(style="outline: thin solid black; width: 11.11vw; height: 11.11vw;")
+      a(href="" title="Follow #ASCE2016 on Facebook") Facebook
+
 mixin location-content(heading)
   div.c-Overlay
     h1= heading

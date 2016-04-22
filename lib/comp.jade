@@ -202,20 +202,30 @@ block append main
         div.c-Overlay
           h1 overlay heading
           p overlay content
-      div.c-Banner(style="margin-bottom: 1.5rem; z-index:1;")
+      //- div.c-Banner(style="margin-bottom: 1.5rem; padding: 1.5rem; z-index:1;")
+      //-   a.o-Block.c-Overlay.c-Overlay--link(href="")
+      //-     h1 overlay-link heading
+      //-     p overlay-link content
+      div.c-Banner(style="margin-bottom: 1.5rem; padding: 1.5rem; z-index:1;")
         h1.c-Overlay.c-Overlay--full special banner heading
         br
         br
         br
         br
-        br
-        br
       pre.
-        &lt;div class="#[u c-Overlay]"&gt;
-          &lt;h1&gt;overlay heading&lt;/h1&gt;
-          &lt;p&gt;overlay content&lt;/p&gt;
+        &lt;div class="c-Banner"&gt;
+          &lt;div class="#[u c-Overlay]"&gt;
+            &lt;h1&gt;overlay heading&lt;/h1&gt;
+            &lt;p&gt;overlay content&lt;/p&gt;
+          &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class="#[u c-Banner]"&gt;
+        //- &lt;div class="c-Banner"&gt;
+        //-   &lt;a class="o-Block #[u c-Overlay]  #[u c-Overlay--link]"&gt;
+        //-     &lt;h1&gt;overlay-link heading&lt;/h1&gt;
+        //-     &lt;p&gt;overlay-link content&lt;/p&gt;
+        //-   &lt;/a&gt;
+        //- &lt;/div&gt;
+        &lt;div class="c-Banner"&gt;
           &lt;h1 class="#[u c-Overlay]  #[u c-Overlay--full]"&gt;special banner heading&lt;/h1&gt;
         &lt;/div&gt;
   section.sg-sect#speaker-component

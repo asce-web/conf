@@ -91,8 +91,11 @@ mixin program-content()
     ])
   +actionbuttons([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
 
-mixin location-content()
-  p location content goes here
+mixin location-content(heading)
+  div.c-Overlay
+    h1= heading
+    p With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
+    +actionbuttons([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
 
 mixin contact-content()
   form

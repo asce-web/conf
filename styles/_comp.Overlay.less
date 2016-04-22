@@ -39,7 +39,7 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-04-05
+// 2016-04-22
 .c-Overlay--full {
   position: absolute;
   left: 0; right: 0;
@@ -47,3 +47,43 @@
   width: auto; // override 75% above
   padding: @g-vru 0;
 }
+
+// An overlay that is a link.
+// Semantically equivalent to `a.c-Overlay`, but with lower specificity.
+//
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-04-22
+// .c-Overlay--link {
+//   &,
+//   &:hover,
+//   &:focus {
+//     color: inherit;
+//   }
+// }
+// .c-Overlay--link {
+//   .transition(border-color, 250ms);
+//   border-width: 2px;
+//   border-color: transparent;
+//   &:hover,
+//   &:focus {
+//     border-color: @g-color_site_secondary;
+//   }
+// }
+// .c-Btn--hilite,
+// .c-Overlay--link {
+//   .transition(box-shadow, 250ms);
+//   box-shadow: 0 0 1rem 0 @g-color_site_secondary;
+//   &:hover,
+//   &:focus {
+//     box-shadow: 0 0 1rem 0.5rem @g-color_site_secondary;
+//   }
+//   &.c-Btn--hero {
+//     box-shadow: 0 0 1rem 0 @g-color_site_primary;
+//     &:hover,
+//     &:focus {
+//       box-shadow: 0 0 1rem 0.5rem @g-color_site_primary;
+//     }
+//   }
+// }

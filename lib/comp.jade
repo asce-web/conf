@@ -228,6 +228,33 @@ block append main
         &lt;div class="c-Banner"&gt;
           &lt;h1 class="#[u c-Overlay]  #[u c-Overlay--full]"&gt;special banner heading&lt;/h1&gt;
         &lt;/div&gt;
+  section.sg-sect#date-block
+    h2 The Date Block
+    figure.sg-c-Fig
+      dl.c-DateBlock
+        dt.c-DateBlock__Date
+          time(datetime="2015-10-12") Oct 12, 2015
+        dd.c-DateBlock__Desc
+          | Optional Final Papers Due
+        dt.c-DateBlock__Date
+          time(datetime="2015-12-17") Dec 17, 2015
+        dd.c-DateBlock__Desc
+          a.o-Inline.c-DateBlock__Link(href="") Early-Bird Registration Closes
+      pre.
+        &lt;dl class="#[u c-DateBlock]"&gt;
+          &lt;dt class="#[u c-DateBlock__Date]"&gt;
+            &lt;time datetime="2015-10-12"&gt;Oct 12, 2015&lt;/time&gt;
+          &lt;/dt&gt;
+          &lt;dd class="#[u c-DateBlock__Desc]"&gt;
+            Optional Final Papers Due
+          &lt;/dd&gt;
+          &lt;dt class="#[u c-DateBlock__Date]"&gt;
+            &lt;time datetime="2015-12-17"&gt;Dec 17, 2015&lt;/time&gt;
+          &lt;/dt&gt;
+          &lt;dd class="#[u c-DateBlock__Desc]"&gt;
+            &lt;a class="o-Inline  #[u c-DateBlock__Link]" href=""&gt;Early-Bird Registration Closes&lt;/a&gt;
+          &lt;/dd&gt;
+        &lt;/dl&gt;
   section.sg-sect#speaker-component
     h2 The Speaker Component
     figure.sg-c-Fig

@@ -166,13 +166,24 @@ block append main
       if the content is a #[i &ldquo;callout&rdquo;] (not essential to the page content).
     figure.sg-c-Fig
       aside.o-Highlight
-        h1 Location
-        p Location content goes here.
+        h1 Highlight
+        p Content goes here.
+      aside.o-Highlight.o-Highlight--wrappedInner
+        div
+          h1 Wrapper
+          p.
+            Use #[code .o-Highlight--wrappedInner] if all this content is wrapped
+            with an inner container. It will make padding 0 on xx-small screens.
       pre.
         &lt;aside class="#[u o-Highlight]"&gt;
-          &lt;h1&gt;Location&lt;/h1&gt;
-          &lt;p&gt;Location content goes here.&lt;/p&gt;
-          ...
+          &lt;h1&gt;Highlight&lt;/h1&gt;
+          &lt;p&gt;Content goes here.&lt;/p&gt;
+        &lt;/aside&gt;
+        &lt;aside class="#[u o-Highlight]  #[u o-Highlight--wrappedInner]"&gt;
+          #[u &lt;div&gt;]
+            &lt;h1&gt;Wrapper&lt;/h1&gt;
+            &lt;p&gt;... all this content is wrapped with an inner container ...&lt;/p&gt;
+          #[u &lt;&#x002f;div&gt;]
         &lt;/aside&gt;
   section.sg-sect#runner-object
     h2 The Runner Object

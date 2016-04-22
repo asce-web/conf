@@ -26,16 +26,15 @@ mixin date-place()
       time(datetime="2016-10-01" itemprop="endDate") Oct 1
 
 mixin important-date-content()
-  dl.o-GridFlex.c-DateBlock
+  dl.c-DateBlock
     mixin row(year, month, day, datetime, description, url)
-      dt.o-GridFlex__Item: time.o-Block(datetime=datetime)
-        span.o-Block= month + ' ' + day
-        span.o-Block= year
-      dd.o-GridFlex__Item
+      dt.c-DateBlock__Date
+        time(datetime=datetime)= month + ', ' + day + ' ' + year
+      dd.c-DateBlock__Desc
         if url
-          a.o-Block(href=url)= description
+          a.o-Inline.c-DateBlock__Link(href=url)= description
         else
-          span.o-Block= description
+          = description
     +row('2015','Oct','12', '2015-10-12','Optional Final Papers Due')
     +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes', 'registration.html')
     +row('2016','Jan','12', '2016-01-12','Advance Registration Closes', 'registration.html')

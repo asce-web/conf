@@ -3,6 +3,7 @@
     conf  |  _comp.SocialList.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+@import (reference) url('__settings.conf-colors.less');
 
 
 // List of social media icons
@@ -17,7 +18,7 @@
 .c-SocialList {
   .flex-justify-content(space-between);
   width: 50%;
-  margin: auto;
+  margin-left: auto; margin-right: auto;
   text-align: center;
 }
 .c-SocialList__Item {
@@ -30,18 +31,23 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+  background-color: @g-color_site_gray_dk;
   &:hover,
   &:active {
     opacity: 0.7;
+    background-color: @g-color_site_secondary;
   }
 }
 
+// these subclasses will use negative images
+// (white icons inside transparent circles)
+// then change the background-color on hover
 .c-SocialList__Link--twitter {
-  background-image: url('../img/twitter.png');
+  // background-image: url('../img/twitter.png');
 }
 .c-SocialList__Link--google {
-  background-image: url('../img/google.png');
+  // background-image: url('../img/google.png');
 }
 .c-SocialList__Link--facebook {
-  background-image: url('../img/facebook.png');
+  // background-image: url('../img/facebook.png');
 }

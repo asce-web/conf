@@ -15,17 +15,16 @@
 // ^updated
 // 2016-04-23
 .c-SocialList {
-  .flex-justify-content(center);
+  .flex-justify-content(space-between);
+  width: 50%;
+  margin: auto;
   text-align: center;
 }
 .c-SocialList__Item {
   width: auto;
-  &:not(:last-child) {
-    margin-right: 10vw;
-  }
 }
 .c-SocialList__Link {
-  @width: 10vw;
+  @width: (100vw/10);
   width:  @width;
   height: @width;
   background-position: center;

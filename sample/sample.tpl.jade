@@ -81,24 +81,31 @@ html(lang="en")
       h1.-d-n Site Map
       ul.o-ListBare.o-GridFlex.o-Runner.c-Mast.c-Mast--map.-xjc-sa
         block sitemap-items
-    footer.o-GridFlex.o-Runner.c-Mast.c-Mast--copyright(itemscope="" itemtype="http://schema.org/NGO")
-      section.o-GridFlex__Item.-w-1o2-sM
-        h1.-d-n Contact Us
+    footer.o-Runner.c-Mast.c-Mast--copyright(itemscope="" itemtype="http://schema.org/NGO")
+      nav
+        h1.-d-n Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
         address(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
           ul.o-ListBare
             li: a.c-Mast__Link(href="tel:+1-800-548-2723") (800) 548-2723
             li
               meta(content="customer support" itemprop="contactType")
               meta(content="+1-703-295-6300" itemprop="telephone")
-              a.c-Mast__Link(href="tel:+1-703-295-6300") +1 (703) 295-6300
-            li: a.c-Mast__Link(href="") Other Contacts
-      section.o-GridFlex__Item.-w-1o2-sM
-        h1.-d-n Connect With ASCE
+              a.c-Mast__Link(href="tel:+1-703-295-6300") (703) 295-6300
+        p: mark.
+          #[strong Note:]
+          Each social icon will be a transparent logo in a dark gray background.
+          #[code background-color] is white, and secondary color on hover.
+          (Use conference color scheme.)
         ul.o-ListBare.o-GridFlex.c-SocialList
-          li.o-GridFlex__Item.c-SocialList__Item: a.c-Mast__Link.c-SocialList__Link(href="" itemprop="sameAs") LinkedIn
-          li.o-GridFlex__Item.c-SocialList__Item: a.c-Mast__Link.c-SocialList__Link(href="" itemprop="sameAs") Facebook
-          li.o-GridFlex__Item.c-SocialList__Item: a.c-Mast__Link.c-SocialList__Link(href="" itemprop="sameAs") Twitter
-          li.o-GridFlex__Item.c-SocialList__Item: a.c-Mast__Link.c-SocialList__Link(href="" itemprop="sameAs") YouTube
-          li.o-GridFlex__Item.c-SocialList__Item: a.c-Mast__Link.c-SocialList__Link(href="" itemprop="sameAs") Google+
-      div.o-GridFlex__Item: a.c-Mast__Link(href="http://www.asce.org" itemprop="url").
-        &copy; #[time 1996]&ndash;#[time 2016] #[span(itemprop="name") American Society of Civil Engineers]
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" itemprop="sameAs" title="Follow ASCE on Twitter")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" itemprop="sameAs" title="Follow ASCE on Google+")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" itemprop="sameAs" title="Follow ASCE on Facebook")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--linkedin(href="" itemprop="sameAs" title="Follow ASCE on LinkedIn")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--youtube(href="" itemprop="sameAs" title="Follow ASCE on YouTube")
+        a.o-Block.c-Mast__Link(href="http://www.asce.org" itemprop="url").
+          &copy; #[time 1996]&ndash;#[time 2016] #[span(itemprop="name") American Society of Civil Engineers]

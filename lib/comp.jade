@@ -125,18 +125,33 @@ block append main
     h2 The Social List
     figure.sg-c-Fig
       ul.o-ListBare.o-GridFlex.c-SocialList
-        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") LinkedIn
-        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") Facebook
-        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") Twitter
-        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") YouTube
-        li.o-GridFlex__Item.c-SocialList__Item: a.c-SocialList__Link(href="") Google+
+        li.o-GridFlex__Item.c-SocialList__Item
+          a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")
+        li.o-GridFlex__Item.c-SocialList__Item
+          a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" title="Follow #ASCE2016 on Google+")
+        li.o-GridFlex__Item.c-SocialList__Item
+          a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" title="Follow #ASCE2016 on Facebook")
+      footer
+        ul.o-ListBare.o-GridFlex.c-SocialList
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" itemprop="sameAs" title="Follow ASCE on Twitter")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" itemprop="sameAs" title="Follow ASCE on Google+")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" itemprop="sameAs" title="Follow ASCE on Facebook")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--linkedin(href="" itemprop="sameAs" title="Follow ASCE on LinkedIn")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--youtube(href="" itemprop="sameAs" title="Follow ASCE on YouTube")
       pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-SocialList]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-SocialList__Item]"&gt;
-            &lt;a class="o-Block  #[u c-SocialList__Link]"&gt;LinkedIn&lt;/a&gt;
+            &lt;a class="o-Block  #[u c-SocialList__Link]  #[u c-SocialList__Link--twitter]"
+              title="Follow #ASCE2016 on Twitter"&gt;&lt;/a&gt;
           &lt;/li&gt;
           ...
         &lt;/ul&gt;
+        #[small &lt;!-- second social list same structure but inside a #[code footer] element --&gt;]
   section.sg-sect#standard-menu
     h2 The Standard Menu
     p The Standard Menu uses the #[code .c-Mast.c-Mast--map] classes.

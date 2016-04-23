@@ -95,6 +95,28 @@ mixin program-content()
     ])
   +actionbuttons([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
 
+mixin mobile-content()
+  p.-ta-c Enhance your conference experience with our mobile app.
+  +actionbuttons([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
+
+mixin social-content()
+  p.-ta-c Follow ASCE on social media for real-time conversation.
+  p: mark.
+    #[strong Note:]
+    Each social icon will be a white logo inside a transparent circle, all in
+    a white "circle-in-square" thing.
+    #[code background-color] will be dark gray, and secondary color on hover.
+    (Use conference color scheme.)
+  p: mark.
+    #[strong Question:] size of logos? how far spaced apart?
+  ul.o-ListBare.o-GridFlex.c-SocialList
+    li.o-GridFlex__Item.c-SocialList__Item
+      a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")
+    li.o-GridFlex__Item.c-SocialList__Item
+      a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" title="Follow #ASCE2016 on Google+")
+    li.o-GridFlex__Item.c-SocialList__Item
+      a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" title="Follow #ASCE2016 on Facebook")
+
 mixin location-content(heading)
   div.c-Overlay
     h1= heading

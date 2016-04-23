@@ -34,8 +34,13 @@
   background-color: @g-color_site_gray_dk;
   &:hover,
   &:active {
-    opacity: 0.7;
     background-color: @g-color_site_secondary;
+  }
+  footer & {
+    @width: (100vw/15);
+    width:  @width;
+    height: @width;
+    background-color: @g-color_asce_white;
   }
 }
 
@@ -43,11 +48,11 @@
 // (white icons inside transparent circles)
 // then change the background-color on hover
 .c-SocialList__Link--twitter {
-  // background-image: url('../img/twitter.png');
+  background-image: url('../img/twitter.png');
 }
 .c-SocialList__Link--google {
-  // background-image: url('../img/google.png');
+  background-image: url('../img/google.png');
 }
 .c-SocialList__Link--facebook {
-  // background-image: url('../img/facebook.png');
+  background-image: url('../img/facebook.png');
 }

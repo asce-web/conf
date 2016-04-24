@@ -14,6 +14,7 @@ block append main__header
       li: a(href="#social-list") The Social List
       li: a(href="#standard-menu") The Standard Menu
       li: a(href="#sub-menu") The Sub Menu
+      li: a(href="#sitemap-component") The Sitemap Component
       li: a(href="#page-header") The Page Header
       li: a(href="#banner-component") The Banner Component
       li: a(href="#overlay-component") The Overlay Component
@@ -26,69 +27,31 @@ block append main__header
 block append main
   section.sg-sect#masthead-mastfoot
     h2 The Masthead and Mastfoot
-    p #[strong Note:] #[b 2016 Convention] button will be replaced with #[b Menu] button when screen is smaller than 720px.
+    p #[strong Note:] #[b Menu] button will be visible when screen is smaller than 720px.
     figure.sg-c-Fig
-      header.o-GridFlex.o-Runner.c-Mast.-xjc-sb
-        nav.o-GridFlex
-          div.o-GridFlex__Item.c-Mast__MenuButtonContainer
-            button.c-Mast__MenuButton menu
+      header.c-Mast
+        h1 mast heading
+        p mast content
+        p: a(href="") mast link
       pre.
-        &lt;header class="o-GridFlex  o-Runner  #[u c-Mast]  -xjc-sb"&gt;
-          #[small &lt;!--a class="o-Block  c-SiteTitle"&gt;#[a(href="#site-title") SITE TITLE]&lt;&#x002f;a--&gt;]
-          &lt;nav class="o-GridFlex"&gt;
-            #[small &lt;!--ul class="o-GridFlex__Item  o-ListBare  o-GridFlex  c-MenuUniversal"&gt;#[a(href="#universal-menu") UNIVERSAL MENU]&lt;&#x002f;ul--&gt;]
-            &lt;div class="o-GridFlex__Item  #[u c-Mast__MenuButtonContainer]"&gt;
-              &lt;button class="#[u c-Mast__MenuButtonContainer__Button]"&gt;menu&lt;/span&gt;
-            &lt;/div&gt;
-          &lt;/nav&gt;
+        &lt;header class="#[u c-Mast]"&gt;
+          &lt;h1&gt;mast heading&lt;/h1&gt;
+          &lt;p&gt;mast content&lt;/p&gt;
+          &lt;p&gt;&lt;a&gt;mast link&lt;/a&gt;&lt;/p&gt;
         &lt;/header&gt;
     figure.sg-c-Fig
-      footer.o-GridFlex.o-Runner.c-Mast.c-Mast--copyright
-        div.o-GridFlex__Item: a(href="") &copy; 1996&ndash;2016 American Society of Civil Engineers
+      footer.c-Mast.c-Mast--copyright
+        p: a(href="") &copy; 1996&ndash;2016 American Society of Civil Engineers
       pre.
-        &lt;footer class="o-GridFlex  o-Runner  #[u c-Mast]  #[u c-Mast--copyright]"&gt;
-          &lt;div class="o-GridFlex__Item"&gt;
-            &lt;a&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;
-          &lt;/div&gt;
+        &lt;footer class="#[u c-Mast]  #[u c-Mast--copyright]"&gt;
+          &lt;p&gt;&lt;a&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;&lt;/p&gt;
         &lt;/footer&gt;
     figure.sg-c-Fig
-      figcaption: h1 A Sitemap
-      footer
-        nav: ul.o-ListBare.o-GridFlex.o-Runner.c-Mast.c-Mast--map.-xjc-sa
-          li
-            a(href="") Home
-          li
-            a(href="") About
-            ul.o-ListBare
-              li: a(href="") Cooperating Orgs
-              li: a(href="") Partnering Orgs
-              li: a(href="") Volunteer
-              li: a(href="") Why Attend
-          li
-            a(href="") Sponsor
-          li
-            a(href="") Exhibit
-            ul.o-ListBare
-              li: a(href="") Exhibitor List
-          li
-            a(href="") Contact
+      footer.c-Mast.c-Mast--internal
+        p: a(href="") &copy; 1996&ndash;2016 American Society of Civil Engineers
       pre.
-        &lt;footer&gt;
-          &lt;nav&gt;
-            &lt;ul class="o-ListBare  o-GridFlex  o-Runner  #[u c-Mast]  #[u c-Mast--map]  -xjc-sa"&gt;
-              &lt;li&gt;
-                &lt;a href="/"&gt;Home&lt;/a&gt;
-              &lt;/li&gt;
-              &lt;li&gt;
-                &lt;a href="/about"&gt;About&lt;/a&gt;
-                &lt;ul class="o-ListBare"&gt;
-                  &lt;li&gt;&lt;a href="/cooperating-orgs"&gt;Cooperating Orgs&lt;/a&gt;&lt;/li&gt;
-                  ...
-                &lt;/ul&gt;
-              &lt;/li&gt;
-              ...
-            &lt;/ul&gt;
-          &lt;/nav&gt;
+        &lt;footer class="#[u c-Mast]  #[u c-Mast--internal]"&gt;
+          &lt;p&gt;&lt;a&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;&lt;/p&gt;
         &lt;/footer&gt;
   section.sg-sect#site-title
     h2 The Site Title
@@ -179,6 +142,44 @@ block append main
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuSub]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuSub__Item]"&gt;
             &lt;a class="o-Block  #[u c-MenuSub__Link]"&gt;Why Attend&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;
+  section.sg-sect#sitemap-component
+    h2 The Sitemap Component
+    figure.sg-c-Fig
+      ul.o-ListBare.o-GridFlex.c-Sitemap
+        li.o-GridFlex__Item.c-Sitemap__Item
+          a(href="") ASCE 2016
+        li.o-GridFlex__Item.c-Sitemap__Item
+          a(href="") Register
+          ul.o-ListBare
+            li.c-Sitemap__SubItem: a(href="") Why Attend
+        li.o-GridFlex__Item.c-Sitemap__Item
+          a(href="") Program
+          ul.o-ListBare
+            li.c-Sitemap__SubItem: a(href="") Events
+        li.o-GridFlex__Item.c-Sitemap__Item
+          a(href="") Hotel &amp; Travel
+          ul.o-ListBare
+            li.c-Sitemap__SubItem: a(href="") International Travel
+        li.o-GridFlex__Item.c-Sitemap__Item
+          a(href="") Speakers
+          ul.o-ListBare
+            li.c-Sitemap__SubItem: a(href="") Distinguished Lecture Series
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u c-Sitemap]"&gt;
+          &lt;li class="#[u c-Sitemap__Item]"&gt;
+            &lt;a&gt;ASCE 2016&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class="#[u c-Sitemap__Item]"&gt;
+            &lt;a&gt;About&lt;/a&gt;
+            &lt;ul class="o-ListBare"&gt;
+              &lt;li class="#[u c-Sitemap__SubItem]"&gt;
+                &lt;a&gt;Cooperating Orgs&lt;/a&gt;
+              &lt;/li&gt;
+              ...
+            &lt;/ul&gt;
           &lt;/li&gt;
           ...
         &lt;/ul&gt;
@@ -378,14 +379,20 @@ block append main
         &lt;/div&gt;
     p Inline buttons, for buttons inline with text: #[code .c-Btn.c-Btn--inline]
     figure.sg-c-Fig
-      div(style="margin-bottom: 1.5rem;")
-        p.
-          The following button,
-          #[a.c-Btn.c-Btn--inline inline button],
-          is inline with the text in this paragraph.
+      p.
+        The following button,
+        #[a.c-Btn.c-Btn--inline inline button],
+        is inline with the text in this paragraph.
       pre.
-        &lt;div&gt;
-          &lt;p&gt;The following button,
-            &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
-            is inline with the text in this paragraph.&lt;/p&gt;
+        &lt;p&gt;The following button,
+          &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
+          is inline with the text in this paragraph.&lt;/p&gt;
+    p Hamburger menu button inside masthead: #[code .c-Btn.c-Btn--drawer]
+    p Class #[code .js-hamburgerbutton] is a scripting hook for drawer functionality.
+    figure.sg-c-Fig
+      div.o-GridFlex__Item.-w-a.js-hamburgerbutton(style="margin-bottom: 1.5rem;")
+        button.c-Btn.c-Btn--drawer menu
+      pre.
+        &lt;div class="#[u js-hamburgerbutton]"&gt;
+          &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]"&gt;menu&lt;/button&gt;
         &lt;/div&gt;

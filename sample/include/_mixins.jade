@@ -26,15 +26,19 @@ mixin date-place()
       time(datetime="2016-10-01" itemprop="endDate") Oct 1
 
 mixin important-date-content()
-  dl.o-GridFlex.c-DateBlock
-    mixin row(year, month, day, datetime, description)
-      dt.o-GridFlex__Item: time.o-Block(datetime=datetime)
-        span.o-Block= month + ' ' + day
-        span.o-Block= year
-      dd.o-GridFlex__Item= description
+  dl.c-DateBlock
+    mixin row(year, month, day, datetime, description, url)
+      dt.c-DateBlock__Date
+        time(datetime=datetime)= month + ', ' + day + ' ' + year
+      dd.c-DateBlock__Desc
+        if url
+          a.o-Inline.c-DateBlock__Link(href=url)= description
+        else
+          = description
     +row('2015','Oct','12', '2015-10-12','Optional Final Papers Due')
-    +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes')
-    +row('2016','Jan','12', '2016-01-12','Advance Registration Closes')
+    +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes', 'registration.html')
+    +row('2016','Jan','12', '2016-01-12','Advance Registration Closes', 'registration.html')
+    +row('2016','Jun','12', '2016-06-12','Convention Begins')
 
 mixin registration-content()
   p registration content goes here
@@ -89,8 +93,33 @@ mixin program-content()
     ])
   +actionbuttons([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
 
-mixin location-content()
-  p location content goes here
+mixin mobile-content()
+  p.-ta-c Enhance your conference experience with our mobile app.
+  +actionbuttons([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
+
+mixin social-content()
+  p.-ta-c Follow ASCE on social media for real-time conversation.
+  p: mark.
+    #[strong Note:]
+    Each social icon will be a white logo inside a transparent circle, all in
+    a white "circle-in-square" thing.
+    #[code background-color] will be dark gray, and secondary color on hover.
+    (Use conference color scheme.)
+  p: mark.
+    #[strong Question:] size of logos? how far spaced apart?
+  ul.o-ListBare.o-GridFlex.c-SocialList
+    li.o-GridFlex__Item.c-SocialList__Item
+      a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")
+    li.o-GridFlex__Item.c-SocialList__Item
+      a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" title="Follow #ASCE2016 on Google+")
+    li.o-GridFlex__Item.c-SocialList__Item
+      a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" title="Follow #ASCE2016 on Facebook")
+
+mixin location-content(heading)
+  div.c-Overlay
+    h1= heading
+    p With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
+    +actionbuttons([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
 
 mixin contact-content()
   form
@@ -108,7 +137,7 @@ mixin contact-content()
 mixin sponsor-content()
   mixin sponsor-block(category, category_class, spons)
     section.o-Highlight.c-SponsorBlock(class='c-SponsorBlock--'+category_class)
-      h1.o-Highlight__Hn= category
+      h1= category
       ul.o-ListBare.o-GridFlex.o-ListSponsors
         each item in spons
           if (category_class !== 'bronze') && (category_class !== 'copper')

@@ -11,40 +11,40 @@ block standard-menu
     h1.-d-n Main Menu
     ul.o-ListBare.o-GridFlex.c-MenuStandard
       li.o-GridFlex__Item.c-MenuStandard__Item
-        a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="home.html") Home
+        a.o-Block.c-MenuStandard__Link(href="home.html") Home
       li.o-GridFlex__Item.c-MenuStandard__Item
-        a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="register.html") Register
+        a.o-Block.c-MenuStandard__Link(href="register.html") Register
         ul.o-ListBare.c-MenuSub(class=(page_name==='Register' ? 'c-MenuSub--active' : ''))
           li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
       li.o-GridFlex__Item.c-MenuStandard__Item
-        a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="program.html") Program
+        a.o-Block.c-MenuStandard__Link(href="program.html") Program
         ul.o-ListBare.c-MenuSub(class=(page_name==='Program' ? 'c-MenuSub--active' : ''))
           li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Events
       li.o-GridFlex__Item.c-MenuStandard__Item
-        a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="location.html") Hotel &amp; Travel
+        a.o-Block.c-MenuStandard__Link(href="location.html") Hotel &amp; Travel
         ul.o-ListBare.c-MenuSub(class=(page_name==='Hotel & Travel' ? 'c-MenuSub--active' : ''))
           li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") International Travel
       li.o-GridFlex__Item.c-MenuStandard__Item
-        a.o-Block.c-Mast__Link.c-MenuStandard__Link(href="speakers.html") Speakers
+        a.o-Block.c-MenuStandard__Link(href="speakers.html") Speakers
         ul.o-ListBare.c-MenuSub(class=(page_name==='Speakers' ? 'c-MenuSub--active' : ''))
           li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Distinguished Lecture Series
 
 block sitemap-items
   li
-    a.c-Mast__Link(href="home.html") ASCE 2016
+    a(href="home.html") ASCE 2016
   li
-    a.c-Mast__Link(href="register.html") Register
+    a(href="register.html") Register
     ul.o-ListBare(style="text-indent: 1rem;")
-      li: a.c-Mast__Link(href="") Why Attend
+      li: a(href="") Why Attend
   li
-    a.c-Mast__Link(href="program.html") Program
+    a(href="program.html") Program
     ul.o-ListBare(style="text-indent: 1rem;")
-      li: a.c-Mast__Link(href="") Events
+      li: a(href="") Events
   li
-    a.c-Mast__Link(href="location.html") Hotel &amp; Travel
+    a(href="location.html") Hotel &amp; Travel
     ul.o-ListBare(style="text-indent: 1rem;")
-      li: a.c-Mast__Link(href="") International Travel
+      li: a(href="") International Travel
   li
-    a.c-Mast__Link(href="speakers.html") Speakers
+    a(href="speakers.html") Speakers
     ul.o-ListBare(style="text-indent: 1rem;")
-      li: a.c-Mast__Link(href="") Distinguished Lecture Series
+      li: a(href="") Distinguished Lecture Series

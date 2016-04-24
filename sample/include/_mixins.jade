@@ -63,11 +63,9 @@ mixin speakers-content()
   +actionbuttons([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
 
 mixin cochairs-content()
-  ul.o-ListBare.o-GridFlex.o-ListStacked
-    each val in [1,2]
-      li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
-        p.c-Speaker__Name Donald Trump, Ph.D.
-        p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
+  ul.o-ListBare
+    li #[b Thomas J. McCollough], P.E., M.ASCE
+    li #[b Stephen E. Dickenson], Ph.D., P.E., D.PE, M.ASCE
 
 mixin program-content()
   mixin program-block(classes, datetext, data)
@@ -164,7 +162,7 @@ mixin minimal-text-block()
       Join civil engineering professionals from around the world at
       this ASCE flagship event. Network with peers, earn PDHs, and
       expand your knowledge base.
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    p #[a(href="") Lorem ipsum dolor sit amet], consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
     ul
       li 3&frac12; days of premier educational and networking events
       li 15 tracks and 6 plenary sessions focusing on ...
@@ -174,9 +172,9 @@ mixin minimal-text-block()
 mixin rich-text-block()
   div.o-Highlight.rich-text
     h2 a heading
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    p #[a(href="") Lorem ipsum dolor sit amet], consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
     h3 another heading
-    blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
+    blockquote #[a(href="") Aenean euismod bibendum laoreet]. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
     ul
       li 3&frac12; days of premier educational and networking events
       li 15 tracks and 6 plenary sessions focusing on ...

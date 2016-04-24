@@ -20,19 +20,16 @@
 .c-Mast {
   background-color: @g-color_site_gray_dk;
   color: @g-color_asce_white;
-  & h1 {
+  h1,
+  a {
     color: inherit;
   }
-}
-
-.c-Mast__Link {
-  color: inherit;
-  &:hover,
-  &:focus {
-    color: @g-color_site_gray_lt;
-  }
-  &:active {
-    color: inherit;
+  a {
+    &:hover,
+    &:focus {
+      color: @g-color_site_gray_lt;
+    }
+    &:active { color: inherit; } // duplicating due to :hover
   }
 }
 
@@ -73,6 +70,13 @@
 // 2016-04-20
 .c-Mast--map {
   background-color: @g-color_site_primary;
+  a {
+    &:hover,
+    &:focus {
+      color: @g-color_site_gray_dk;
+    }
+    &:active { color: inherit; } // duplicating due to :hover
+  }
 }
 
 // .c-Mast--copyright,

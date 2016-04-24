@@ -2,6 +2,7 @@
 /*################################*\
     conf  |  _comp.MenuStandard.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
 @import (reference) url('__settings.less');
 
 
@@ -17,24 +18,29 @@
 .c-MenuStandard {
   position: relative; // for the NavSubmenu positioning
   margin-bottom: 0; // override `ul`
+  a {
+    &:hover,
+    &:focus {
+      color: inherit;
+    }
+    &:active {
+      color: @g-color_asce_black;
+    }
+  }
 }
 .c-MenuStandard__Item {
+  .transition(background-color, 125ms);
   width: auto;
-  margin: 0 @g-boxpadd_mill_h;
+  margin: 0 @g-boxpadd_micr_h;
   &:hover,
-  &:focus {
-    // so when mouse cursor leaves link but enters submenu
-    background-color: @g-color_asce_white;
-    color: @g-color_site_primary;
+  & .c-MenuSub {
+    background-color: mix(@g-color_asce_white, @g-color_site_gray_lt);
+    background-color: @g-color_site_gray_lt;
+  }
+  &:not(:hover) .c-MenuSub {
+    opacity: 0;
   }
 }
 .c-MenuStandard__Link {
-  padding: @g-boxpadd_micr;
-  &:hover,
-  &:focus {
-    color: @g-color_asce_black;
-  }
-  &:active {
-    color: inherit;
-  }
+  padding: @g-boxpadd_mill;
 }

@@ -24,11 +24,13 @@
   a {
     color: inherit;
   }
-  a:hover,
-  a:focus {
-    color: @g-color_site_gray_lt;
+  a {
+    &:hover,
+    &:focus {
+      color: @g-color_site_gray_lt;
+    }
+    &:active { color: inherit; } // duplicating due to :hover
   }
-  a:active { color: inherit; } // duplicating due to :hover
 }
 
 // Menu button masthead.
@@ -68,11 +70,13 @@
 // 2016-04-20
 .c-Mast--map {
   background-color: @g-color_site_primary;
-  a:hover,
-  a:focus {
-    color: @g-color_site_gray_dk;
+  a {
+    &:hover,
+    &:focus {
+      color: @g-color_site_gray_dk;
+    }
+    &:active { color: inherit; } // duplicating due to :hover
   }
-  a:active { color: inherit; } // duplicating due to :hover
 }
 
 // .c-Mast--copyright,

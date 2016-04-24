@@ -21,7 +21,6 @@
 .c-MenuUniversal {
   .flex-align-content(flex-start); // override 'stretch'
   margin-bottom: 0; // override `ul`
-  color: @g-color_asce_white;
   @media screen and (max-width: 44.999em) {
     position: fixed;
     right: 0; top: 0;
@@ -29,6 +28,14 @@
     width: 10em;
     height: 100%;
     background-color: @g-color_site_gray_lt;
+    a {
+      &:hover,
+      &:focus,
+      &:active {
+        color: @g-color_site_gray_lt;
+        background-color: @g-color_asce_white;
+      }
+    }
   }
 }
 .c-MenuUniversal__Item {
@@ -39,22 +46,12 @@
 }
 .c-MenuUniversal__Link {
   padding: @g-boxpadd_mill;
-  @media screen and (max-width: 44.999em) {
-    &:hover,
-    &:focus {
-      background-color: #fff;
-    }
-    &:active {
-      background-color: #fff;
-      color: @g-color_site_gray_lt;
-    }
-  }
 }
-.c-MenuUniversal__Link--current {
+a.c-MenuUniversal__Link--current {
   background-color: @g-color_site_primary;
   &:hover,
-  &:focus,
-  &:active {
-    color: @g-color_asce_black;
+  &:focus {
+    color: @g-color_site_gray_dk;
   }
+  &:active { color: inherit; } // duplicating due to :hover
 }

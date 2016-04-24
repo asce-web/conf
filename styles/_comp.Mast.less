@@ -9,50 +9,28 @@
 //
 // ^subclasses
 // --copyright - the copyright footline
+// --internal  - masthead for internal pages
 // ^subcomponents
-// __Link  - link in the mast head / foot
-// __Title - title containing conference name and tagline
 // __MenuButtonContainer - hamburger menu button
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-03-01
+// 2016-04-24
 .c-Mast {
   background-color: @g-color_site_gray_dk;
   color: @g-color_asce_white;
-  & h1 {
+  h1,
+  a {
     color: inherit;
   }
-}
-
-.c-Mast__Link {
-  color: inherit;
-  &:hover,
-  &:focus {
-    color: @g-color_site_gray_lt;
-  }
-  &:active {
-    color: inherit;
+  a {
+    &:hover,
+    &:focus {
+      color: @g-color_site_gray_lt;
+    }
+    &:active { color: inherit; } // duplicating due to :hover
   }
 }
-
-// Menu button masthead.
-// Container contains the button
-//
-// ^subcomponents
-// __Button - the actual button
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-04-19
-.c-Mast__MenuButtonContainer {
-  @media screen and (min-width: 45em) {
-    display: none;
-  }
-}
-.c-Mast__MenuButtonContainer__Button {
-}
-
 
 // Copyright footline.
 //
@@ -65,23 +43,19 @@
   background-image: none; // this is the ASCE logo
 }
 
-// Sitemap
+// Masthead for internal pages
 //
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-04-20
-.c-Mast--map {
+// 2016-04-24
+.c-Mast--internal {
   background-color: @g-color_site_primary;
-  margin-bottom: 0; // override ul for univ menu and sitemap
+  a {
+    &:hover,
+    &:focus {
+      color: @g-color_site_gray_dk;
+    }
+    &:active { color: inherit; } // duplicating due to :hover
+  }
 }
-
-// .c-Mast--copyright,
-// .c-Mast--map {
-//   & a {
-//     &:hover,
-//     &:focus {
-//       color: @g-color_site_gray_lt;
-//     }
-//   }
-// }

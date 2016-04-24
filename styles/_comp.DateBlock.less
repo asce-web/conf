@@ -83,16 +83,16 @@
     // content: '\203a'; // rsaquo
     display: inline-block;
     position: absolute;
-    right: 1em; top: -1em;
+    right: 1em; top: (-0.5em*@g-line_height);
     vertical-align: middle;
     @width: 1.5em;
     width:  @width;
     height: @width;
-    padding-top: (@width/2);
-    font-size: 1em;
+    padding-top: calc(@width/2~' - 1px');
     text-align: center;
     border: 1px solid;
-    background-color: darken(#fff, 10%);
+    border-radius:1em;
+    background-color: @g-color_asce_white;
   }
 }
 

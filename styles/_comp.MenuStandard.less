@@ -29,21 +29,18 @@
   }
 }
 .c-MenuStandard__Item {
-  @trans_duration: 125ms;
-  .transition(background-color; @trans_duration);
+  @trans_dura: 125ms;
+  .transition(background-color; @trans_dura);
   width: auto;
   margin: 0 @g-boxpadd_micr_h;
   &:hover,
   & .c-MenuSub {
-    // background-color: mix(@g-color_asce_white, @g-color_site_gray_lt);
-    // background-color: mix(@g-color_asce_black, @g-color_site_gray_lt);
     background-color: @g-color_site_gray_lt;
   }
   & .c-MenuSub {
-    .transition(padding, font-size, background-color; @trans_duration);
+    .transition(font-size, background-color; @trans_dura);
   }
   &:not(:hover) .c-MenuSub {
-    padding: 0;
     font-size: 0;
     background-color: transparent;
   }

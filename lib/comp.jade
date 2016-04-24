@@ -27,30 +27,39 @@ block append main__header
 block append main
   section.sg-sect#masthead-mastfoot
     h2 The Masthead and Mastfoot
-    p #[strong Note:] #[b 2016 Convention] button will be replaced with #[b Menu] button when screen is smaller than 720px.
+    p #[strong Note:] #[b Menu] button will be visible when screen is smaller than 720px.
     figure.sg-c-Fig
-      header.o-GridFlex.o-Runner.c-Mast.-xjc-sb
-        nav.o-GridFlex
-          div.o-GridFlex__Item.c-Mast__MenuButtonContainer
+      header.c-Mast
+        h1 mast heading
+        p mast content
+        p: a(href="") mast link
+        nav
+          div.c-Mast__MenuButtonContainer
             button.c-Mast__MenuButton menu
       pre.
-        &lt;header class="o-GridFlex  o-Runner  #[u c-Mast]  -xjc-sb"&gt;
-          #[small &lt;!--a class="o-Block  c-SiteTitle"&gt;#[a(href="#site-title") SITE TITLE]&lt;&#x002f;a--&gt;]
+        &lt;header class="#[u c-Mast]"&gt;
+          &lt;h1&gt;mast heading&lt;/h1&gt;
+          &lt;p&gt;mast content&lt;/p&gt;
+          &lt;p&gt;&lt;a&gt;mast link&lt;/a&gt;&lt;/p&gt;
           &lt;nav class="o-GridFlex"&gt;
-            #[small &lt;!--ul class="o-GridFlex__Item  o-ListBare  o-GridFlex  c-MenuUniversal"&gt;#[a(href="#universal-menu") UNIVERSAL MENU]&lt;&#x002f;ul--&gt;]
             &lt;div class="o-GridFlex__Item  #[u c-Mast__MenuButtonContainer]"&gt;
               &lt;button class="#[u c-Mast__MenuButtonContainer__Button]"&gt;menu&lt;/span&gt;
             &lt;/div&gt;
           &lt;/nav&gt;
         &lt;/header&gt;
     figure.sg-c-Fig
-      footer.o-GridFlex.o-Runner.c-Mast.c-Mast--copyright
-        div.o-GridFlex__Item: a(href="") &copy; 1996&ndash;2016 American Society of Civil Engineers
+      footer.c-Mast.c-Mast--copyright
+        p: a(href="") &copy; 1996&ndash;2016 American Society of Civil Engineers
       pre.
-        &lt;footer class="o-GridFlex  o-Runner  #[u c-Mast]  #[u c-Mast--copyright]"&gt;
-          &lt;div class="o-GridFlex__Item"&gt;
-            &lt;a&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;
-          &lt;/div&gt;
+        &lt;footer class="#[u c-Mast]  #[u c-Mast--copyright]"&gt;
+          &lt;p&gt;&lt;a&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;&lt;/p&gt;
+        &lt;/footer&gt;
+    figure.sg-c-Fig
+      footer.c-Mast.c-Mast--internal
+        p: a(href="") &copy; 1996&ndash;2016 American Society of Civil Engineers
+      pre.
+        &lt;footer class="#[u c-Mast]  #[u c-Mast--internal]"&gt;
+          &lt;p&gt;&lt;a&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;&lt;/p&gt;
         &lt;/footer&gt;
   section.sg-sect#site-title
     h2 The Site Title

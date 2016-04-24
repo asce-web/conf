@@ -20,10 +20,8 @@ block append main
     - schemes.site = {}
     - schemes.site.primary   = {code:'#3fae2a',bg_class:'-bc-site_primary'  ,name:'ASCE 2016 Primary'}
     - schemes.site.secondary = {code:'#00a1e1',bg_class:'-bc-site_secondary',name:'ASCE 2016 Secondary'}
-    - schemes.site.gray1_dk  = {code:'#xxxxxx',bg_class:'-bc-site_gray1_dk' ,name:'ASCE 2016 Dark  Gray Primary'}
-    - schemes.site.gray1_lt  = {code:'#xxxxxx',bg_class:'-bc-site_gray1_lt' ,name:'ASCE 2016 Light Gray Primary'}
-    - schemes.site.gray2_dk  = {code:'#xxxxxx',bg_class:'-bc-site_gray2_dk' ,name:'ASCE 2016 Dark  Gray Secondary'}
-    - schemes.site.gray2_lt  = {code:'#xxxxxx',bg_class:'-bc-site_gray2_lt' ,name:'ASCE 2016 Light Gray Secondary'}
+    - schemes.site.gray_dk   = {code:'#373c36',bg_class:'-bc-site_gray_dk'  ,name:'ASCE 2016 Dark Gray'}
+    - schemes.site.gray_lt   = {code:'#9fa5a8',bg_class:'-bc-site_gray_lt'  ,name:'ASCE 2016 Light Gray'}
     //- -
       var schemes = {
         asce: {
@@ -34,10 +32,8 @@ block append main
       , site: {
           primary   : {code:'#3fae2a',bg_class:'-bc-site_primary'  ,name:'ASCE 2016 Primary'}
           secondary : {code:'#00a1e1',bg_class:'-bc-site_secondary',name:'ASCE 2016 Secondary'}
-          gray1_dk  : {code:'#xxxxxx',bg_class:'-bc-site_gray1_dk' ,name:'ASCE 2016 Dark  Gray Primary'}
-          gray1_lt  : {code:'#xxxxxx',bg_class:'-bc-site_gray1_lt' ,name:'ASCE 2016 Light Gray Primary'}
-          gray2_dk  : {code:'#xxxxxx',bg_class:'-bc-site_gray2_dk' ,name:'ASCE 2016 Dark  Gray Secondary'}
-          gray2_lt  : {code:'#xxxxxx',bg_class:'-bc-site_gray2_lt' ,name:'ASCE 2016 Light Gray Secondary'}
+          gray1_dk  : {code:'#373c36',bg_class:'-bc-site_gray_dk' ,name:'ASCE 2016 Dark Gray'}
+          gray1_lt  : {code:'#9fa5a8',bg_class:'-bc-site_gray_lt' ,name:'ASCE 2016 Light Gray'}
         }
       }
     mixin colorsample(color)
@@ -60,7 +56,5 @@ block append main
       ul.o-ListBare.o-GridFlex
         +colorsample(schemes.site.primary)
         +colorsample(schemes.site.secondary)
-        +colorsample(schemes.site.gray1_dk)
-        +colorsample(schemes.site.gray1_lt)
-        +colorsample(schemes.site.gray2_dk)
-        +colorsample(schemes.site.gray2_lt)
+        +colorsample(schemes.site.gray_dk)
+        +colorsample(schemes.site.gray_lt)

@@ -13,10 +13,11 @@
 // --hero   - for action button(s) in hero section
 // --hilite - for singular button in highlight block
 // --inline - for buttons inline with text
+// --drawer - universal menu button in site masthead
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-04-20
+// 2016-04-24
 
 
 .c-Btn {
@@ -85,4 +86,22 @@ a.c-Btn {
   line-height: 0;
   padding: 0 @g-boxpadd_micr_h;
   // border-radius: 0.25em;
+}
+
+.js-hamburgerbutton { display: none; } // CHANGED in javascript
+.c-Btn--drawer {
+  padding: @g-boxpadd_micr_v @g-boxpadd_mill_h;
+  border-radius: 0.5em;
+  color: @g-color_asce_white;
+  background-color: @g-color_site_secondary;
+  &:focus { outline: 0; } // override browser default
+  &:hover,
+  &:focus {
+    color: mix(@g-color_asce_white, @g-color_site_gray_lt);
+    background-color: @g-color_site_gray_dk;
+  }
+  &:active {
+    color: @g-color_site_gray_lt;
+    background-color: @g-color_asce_black;
+  }
 }

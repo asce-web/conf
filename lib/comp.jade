@@ -33,19 +33,11 @@ block append main
         h1 mast heading
         p mast content
         p: a(href="") mast link
-        nav
-          div.c-Mast__MenuButtonContainer
-            button.c-Mast__MenuButton menu
       pre.
         &lt;header class="#[u c-Mast]"&gt;
           &lt;h1&gt;mast heading&lt;/h1&gt;
           &lt;p&gt;mast content&lt;/p&gt;
           &lt;p&gt;&lt;a&gt;mast link&lt;/a&gt;&lt;/p&gt;
-          &lt;nav class="o-GridFlex"&gt;
-            &lt;div class="o-GridFlex__Item  #[u c-Mast__MenuButtonContainer]"&gt;
-              &lt;button class="#[u c-Mast__MenuButtonContainer__Button]"&gt;menu&lt;/span&gt;
-            &lt;/div&gt;
-          &lt;/nav&gt;
         &lt;/header&gt;
     figure.sg-c-Fig
       footer.c-Mast.c-Mast--copyright
@@ -387,14 +379,22 @@ block append main
         &lt;/div&gt;
     p Inline buttons, for buttons inline with text: #[code .c-Btn.c-Btn--inline]
     figure.sg-c-Fig
-      div(style="margin-bottom: 1.5rem;")
-        p.
-          The following button,
-          #[a.c-Btn.c-Btn--inline inline button],
-          is inline with the text in this paragraph.
+      p.
+        The following button,
+        #[a.c-Btn.c-Btn--inline inline button],
+        is inline with the text in this paragraph.
       pre.
-        &lt;div&gt;
-          &lt;p&gt;The following button,
-            &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
-            is inline with the text in this paragraph.&lt;/p&gt;
+        &lt;p&gt;The following button,
+          &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
+          is inline with the text in this paragraph.&lt;/p&gt;
+    p Hamburger menu button inside masthead: #[code .c-Btn.c-Btn--drawer]
+    p.
+      Class #[code .js-hamburgerbutton] is a scripting hook for drawer functionality.
+      Enable JavScript to see the button.
+    figure.sg-c-Fig
+      div.o-GridFlex__Item.-w-a.js-hamburgerbutton(style="margin-bottom: 1.5rem;")
+        button.c-Btn.c-Btn--drawer menu
+      pre.
+        &lt;div class="#[u js-hamburgerbutton]"&gt;
+          &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]"&gt;menu&lt;/button&gt;
         &lt;/div&gt;

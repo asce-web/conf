@@ -52,45 +52,6 @@ block append main
             &lt;a&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;
           &lt;/div&gt;
         &lt;/footer&gt;
-    figure.sg-c-Fig
-      figcaption: h1 A Sitemap
-      footer
-        nav: ul.o-ListBare.o-GridFlex.o-Runner.c-Mast.c-Mast--map.-xjc-sa
-          li
-            a(href="") Home
-          li
-            a(href="") About
-            ul.o-ListBare
-              li: a(href="") Cooperating Orgs
-              li: a(href="") Partnering Orgs
-              li: a(href="") Volunteer
-              li: a(href="") Why Attend
-          li
-            a(href="") Sponsor
-          li
-            a(href="") Exhibit
-            ul.o-ListBare
-              li: a(href="") Exhibitor List
-          li
-            a(href="") Contact
-      pre.
-        &lt;footer&gt;
-          &lt;nav&gt;
-            &lt;ul class="o-ListBare  o-GridFlex  o-Runner  #[u c-Mast]  #[u c-Mast--map]  -xjc-sa"&gt;
-              &lt;li&gt;
-                &lt;a href="/"&gt;Home&lt;/a&gt;
-              &lt;/li&gt;
-              &lt;li&gt;
-                &lt;a href="/about"&gt;About&lt;/a&gt;
-                &lt;ul class="o-ListBare"&gt;
-                  &lt;li&gt;&lt;a href="/cooperating-orgs"&gt;Cooperating Orgs&lt;/a&gt;&lt;/li&gt;
-                  ...
-                &lt;/ul&gt;
-              &lt;/li&gt;
-              ...
-            &lt;/ul&gt;
-          &lt;/nav&gt;
-        &lt;/footer&gt;
   section.sg-sect#site-title
     h2 The Site Title
     figure.sg-c-Fig
@@ -185,6 +146,42 @@ block append main
         &lt;/ul&gt;
   section.sg-sect#sitemap-component
     h2 The Sitemap Component
+    figure.sg-c-Fig
+      ul.o-ListBare.o-GridFlex.c-Sitemap
+        li.o-GridFlex__Item.c-Sitemap__Item
+          a(href="") ASCE 2016
+        li.o-GridFlex__Item.c-Sitemap__Item
+          a(href="") Register
+          ul.o-ListBare
+            li.c-Sitemap__SubItem: a(href="") Why Attend
+        li.o-GridFlex__Item.c-Sitemap__Item
+          a(href="") Program
+          ul.o-ListBare
+            li.c-Sitemap__SubItem: a(href="") Events
+        li.o-GridFlex__Item.c-Sitemap__Item
+          a(href="") Hotel &amp; Travel
+          ul.o-ListBare
+            li.c-Sitemap__SubItem: a(href="") International Travel
+        li.o-GridFlex__Item.c-Sitemap__Item
+          a(href="") Speakers
+          ul.o-ListBare
+            li.c-Sitemap__SubItem: a(href="") Distinguished Lecture Series
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u c-Sitemap]"&gt;
+          &lt;li class="#[u c-Sitemap__Item]"&gt;
+            &lt;a&gt;ASCE 2016&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class="#[u c-Sitemap__Item]"&gt;
+            &lt;a&gt;About&lt;/a&gt;
+            &lt;ul class="o-ListBare"&gt;
+              &lt;li class="#[u c-Sitemap__SubItem]"&gt;
+                &lt;a&gt;Cooperating Orgs&lt;/a&gt;
+              &lt;/li&gt;
+              ...
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;
   section.sg-sect#page-header
     h2 The Page Header
     figure.sg-c-Fig

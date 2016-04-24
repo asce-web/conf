@@ -29,22 +29,25 @@ block standard-menu
         ul.o-ListBare.c-MenuSub(class=(page_name==='Speakers' ? 'c-MenuSub--active' : ''))
           li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Distinguished Lecture Series
 
-block sitemap-items
-  li
-    a(href="home.html") ASCE 2016
-  li
-    a(href="register.html") Register
-    ul.o-ListBare(style="text-indent: 1rem;")
-      li: a(href="") Why Attend
-  li
-    a(href="program.html") Program
-    ul.o-ListBare(style="text-indent: 1rem;")
-      li: a(href="") Events
-  li
-    a(href="location.html") Hotel &amp; Travel
-    ul.o-ListBare(style="text-indent: 1rem;")
-      li: a(href="") International Travel
-  li
-    a(href="speakers.html") Speakers
-    ul.o-ListBare(style="text-indent: 1rem;")
-      li: a(href="") Distinguished Lecture Series
+block site-map
+  footer.o-Runner.c-Mast.c-Mast--map: nav
+    h1.-d-n Site Map
+    ul.o-ListBare.o-GridFlex.c-Sitemap
+      li.o-GridFlex__Item.c-Sitemap__Item
+        a(href="home.html") ASCE 2016
+      li.o-GridFlex__Item.c-Sitemap__Item
+        a(href="register.html") Register
+        ul.o-ListBare
+          li.c-Sitemap__SubItem: a(href="") Why Attend
+      li.o-GridFlex__Item.c-Sitemap__Item
+        a(href="program.html") Program
+        ul.o-ListBare
+          li.c-Sitemap__SubItem: a(href="") Events
+      li.o-GridFlex__Item.c-Sitemap__Item
+        a(href="location.html") Hotel &amp; Travel
+        ul.o-ListBare
+          li.c-Sitemap__SubItem: a(href="") International Travel
+      li.o-GridFlex__Item.c-Sitemap__Item
+        a(href="speakers.html") Speakers
+        ul.o-ListBare
+          li.c-Sitemap__SubItem: a(href="") Distinguished Lecture Series

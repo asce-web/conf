@@ -76,10 +76,7 @@ html(lang="en")
           aside
             h1 Sponsors
             +sponsor-content()
-    footer.o-Runner.c-Mast(class=(page_type == 'internal') ? 'c-Mast--map' : ''): nav
-      h1.-d-n Site Map
-      ul.o-ListBare.o-GridFlex.-xjc-sa.-mb-0
-        block sitemap-items
+    block site-map
     footer.o-Runner.c-Mast.c-Mast--copyright: nav
       h1.-d-n Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")

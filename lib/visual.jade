@@ -12,21 +12,55 @@ block append main__header
 block append main
   section.sg-sect#color-schemes
     h2 Color Schemes
-    mixin colorsample(classes, name, code)
+    - var schemes = {}
+    - schemes.asce = {}
+    - schemes.asce.black = {name:'ASCE Black',code:'#222222',bg_class:'-bc-asce_black'}
+    - schemes.asce.white = {name:'ASCE White',code:'#ffffff',bg_class:'-bc-asce_white'}
+    - schemes.asce.blue  = {name:'ASCE Blue' ,code:'#0c5fa8',bg_class:'-bc-asce_blue'}
+    - schemes.site = {}
+    - schemes.site.primary   = {code:'#3fae2a',bg_class:'-bc-site_primary'  ,name:'ASCE 2016 Primary'}
+    - schemes.site.secondary = {code:'#00a1e1',bg_class:'-bc-site_secondary',name:'ASCE 2016 Secondary'}
+    - schemes.site.gray1_dk  = {code:'#xxxxxx',bg_class:'-bc-site_gray1_dk' ,name:'ASCE 2016 Dark  Gray Primary'}
+    - schemes.site.gray1_lt  = {code:'#xxxxxx',bg_class:'-bc-site_gray1_lt' ,name:'ASCE 2016 Light Gray Primary'}
+    - schemes.site.gray2_dk  = {code:'#xxxxxx',bg_class:'-bc-site_gray2_dk' ,name:'ASCE 2016 Dark  Gray Secondary'}
+    - schemes.site.gray2_lt  = {code:'#xxxxxx',bg_class:'-bc-site_gray2_lt' ,name:'ASCE 2016 Light Gray Secondary'}
+    //- -
+      var schemes = {
+        asce: {
+          black : {code:'#222222',bg_class:'-bc-asce_black',name:'ASCE Black'}
+        , white : {code:'#ffffff',bg_class:'-bc-asce_white',name:'ASCE White'}
+        , blue  : {code:'#0c5fa8',bg_class:'-bc-asce_blue' ,name:'ASCE Blue' }
+        }
+      , site: {
+          primary   : {code:'#3fae2a',bg_class:'-bc-site_primary'  ,name:'ASCE 2016 Primary'}
+          secondary : {code:'#00a1e1',bg_class:'-bc-site_secondary',name:'ASCE 2016 Secondary'}
+          gray1_dk  : {code:'#xxxxxx',bg_class:'-bc-site_gray1_dk' ,name:'ASCE 2016 Dark  Gray Primary'}
+          gray1_lt  : {code:'#xxxxxx',bg_class:'-bc-site_gray1_lt' ,name:'ASCE 2016 Light Gray Primary'}
+          gray2_dk  : {code:'#xxxxxx',bg_class:'-bc-site_gray2_dk' ,name:'ASCE 2016 Dark  Gray Secondary'}
+          gray2_lt  : {code:'#xxxxxx',bg_class:'-bc-site_gray2_lt' ,name:'ASCE 2016 Light Gray Secondary'}
+        }
+      }
+    mixin colorsample(color)
       - var boxwidth = '96px'
       li.o-GridFlex__Item.-mr-1(style={width:boxwidth})
-        div.-ta-c(class=classes style={height:boxwidth})
-          code(style="position:relative;top:32px;")= code
+        div.sg-c-ColorBox(class=color.bg_class style={height:boxwidth})
+          p
+            each foreground in ['#222', '#fff']
+              code.o-Block(style={color:foreground})= color.code
         p(style="font-size: 0.8rem; line-height:1.875;")
-          span.o-Block= name
+          span.o-Block= color.name
     section.sg-sect
       h3 Society Colors
       ul.o-ListBare.o-GridFlex
-        +colorsample('-bc-asce_black', 'ASCE Black', '#222222')
-        +colorsample('-bc-asce_white', 'ASCE White', '#ffffff')
-        +colorsample('-bc-asce_blue' , 'ASCE Blue' , '#0c5fa8')
+        +colorsample(schemes.asce.black)
+        +colorsample(schemes.asce.white)
+        +colorsample(schemes.asce.blue)
     section.sg-sect
       h3 ASCE 2016 Convention Colors
       ul.o-ListBare.o-GridFlex
-        +colorsample('-bc-site_primary'  , 'ASCE 2016 Primary'   , '#3fae2a')
-        +colorsample('-bc-site_secondary', 'ASCE 2016 Secondary' , '#00a1e1')
+        +colorsample(schemes.site.primary)
+        +colorsample(schemes.site.secondary)
+        +colorsample(schemes.site.gray1_dk)
+        +colorsample(schemes.site.gray1_lt)
+        +colorsample(schemes.site.gray2_dk)
+        +colorsample(schemes.site.gray2_lt)

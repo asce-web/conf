@@ -20,18 +20,15 @@
 .c-Mast {
   background-color: @g-color_site_gray_dk;
   color: @g-color_asce_white;
-  & h1 {
+  h1,
+  a {
     color: inherit;
   }
-}
-
-.c-Mast__Link {
-  color: inherit;
-  &:hover,
-  &:focus {
+  a:hover,
+  a:focus {
     color: @g-color_site_gray_lt;
   }
-  &:active {
+  a:active {
     color: inherit;
   }
 }

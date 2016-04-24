@@ -46,17 +46,17 @@ html(lang="en")
   body
     include include/_mixins.jade
     header.o-GridFlex.o-Runner.c-Mast.-xjc-sb
-      a.o-Block.c-SiteTitle.c-Mast__Link(href="index.html")
+      a.o-Block.c-SiteTitle(href="index.html")
         h1= site_title
         p= site_tagline
       nav.o-GridFlex
         h1.-d-n Top Menu
         ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
-          li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="about.html") About
-          li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="sponsor.html") Sponsor
-          li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="exhibit.html") Exhibit
-          li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link(href="contact.html") Contact
-          li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-Mast__Link.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="home.html") ASCE 2016
+          li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="about.html") About
+          li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="sponsor.html") Sponsor
+          li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="exhibit.html") Exhibit
+          li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="contact.html") Contact
+          li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="home.html") ASCE 2016
         div.o-GridFlex__Item.c-Mast__MenuButtonContainer
           button.c-Mast__MenuButtonContainer__Button menu
     block standard-menu
@@ -92,11 +92,11 @@ html(lang="en")
               span(itemprop="addressRegion") VA 
               span(itemprop="postalCode") 22901-4382
           span.o-Block(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
-            a.c-Mast__Link(href="tel:+1-800-548-2723") (800) 548-2723
+            a(href="tel:+1-800-548-2723") (800) 548-2723
             meta(content="+1-800-548-2723" itemprop="telephone")
             meta(content="customer support" itemprop="contactType")
           span.o-Block(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
-            a.c-Mast__Link(href="tel:+1-703-295-6300") +1 (703) 295-6300
+            a(href="tel:+1-703-295-6300") +1 (703) 295-6300
             meta(content="+1-703-295-6300" itemprop="telephone")
             meta(content="United States of America" itemprop="areaServed")
             meta(content="customer support" itemprop="contactType")
@@ -117,5 +117,5 @@ html(lang="en")
           li.o-GridFlex__Item.c-SocialList__Item
             a.o-Block.c-SocialList__Link.c-SocialList__Link--youtube(href="//youtube.com/ASCE" itemprop="sameAs" title="Follow ASCE on YouTube")
         //- p: img(src="ASCE-logo.png" itemprop="image")
-        a.o-Block.c-Mast__Link(href="http://www.asce.org" itemprop="url").
+        a.o-Block(href="http://www.asce.org" itemprop="url").
           &copy; #[time 1996]&ndash;#[time 2016] American Society of Civil Engineers

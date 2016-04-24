@@ -2,29 +2,104 @@
 /*################################*\
     conf  |  _comp.DateBlock.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+
+
+// A mixin generator for creating
+// an object whose children come in pairs, each taking up one row.
+// Define an absolute width for the odd children, and the even children’s widths
+// will take up the rest of the row. Could be useful for a `dl`-like structure.
+// Call this mixin generator inside the parent class.
+//
+// ^arguments
+// @oddwidth - the width of the odd children
+// ^author
+// : Chris Harvey
+// ^updated
+// : 2016-03-04
+// .list-pairs(@oddwidth) {
+//   & > * {
+//     &:nth-child(odd)  { width: @oddwidth; }
+//     &:nth-child(even) { width: calc(~'100% - ' @oddwidth); }
+//   }
+// }
+
+.mx-padd(@bp; @val; @prop: ~'') {
+  @media screen and (min-width: @bp) {
+    padding@{prop}: @val;
+  }
+}
 
 
 // A block containing rows of important dates.
 // The first column is the date,
 // the second column is the description.
 //
+// ^subcomponents
+// __Date - the date
+// __Desc - the description
+// __Link - link in the description, if any
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-03-04
+// 2016-04-22
 .c-DateBlock {
-  .list-pairs(5em);
-  & > *:nth-child(odd) {
-    padding-right: 1rem;
-    text-align: right;
+  width: 75%;
+  margin: auto;
+  color: @g-color_asce_black;
+  & > * {
+    background: @g-color_asce_white;
   }
 }
 
+.c-DateBlock__Date,
+.c-DateBlock__Desc {
+  .transition(padding, 250ms);
+  padding: 0 @g-boxpadd_micr_h;
+  .mx-padd(30em; 0 @g-boxpadd_mill_h);
+  .mx-padd(45em; 0 @g-boxpadd_norm_h);
+}
 
-.c-TimeBlock {
-  .list-pairs(10em);
-  & > *:nth-child(odd) {
-    padding-right: 1rem;
-    text-align: right;
+.c-DateBlock__Date {
+  padding-top: @g-boxpadd_micr_v;
+  .mx-padd(30em; @g-boxpadd_mill_v; ~'-top');
+  .mx-padd(45em; @g-boxpadd_norm_v; ~'-top');
+}
+
+.c-DateBlock__Desc {
+  position: relative; // for button in link
+  padding-bottom: @g-boxpadd_micr_v;
+  .mx-padd(30em; @g-boxpadd_mill_v; ~'-bottom');
+  .mx-padd(45em; @g-boxpadd_norm_v; ~'-bottom');
+  .font-size-block(1.25);
+  margin-bottom: @g-vru;
+}
+
+.c-DateBlock__Link {
+  &::after {
+    content: '\2192'; // rarr
+    // content: '\2026'; // hellip
+    // content: '\203a'; // rsaquo
+    display: inline-block;
+    position: absolute;
+    right: 1em; top: (-0.5em*@g-line_height);
+    vertical-align: middle;
+    @width: 1.5em;
+    width:  @width;
+    height: @width;
+    padding-top: calc(@width/2~' - 1px');
+    text-align: center;
+    border: 1px solid;
+    border-radius:1em;
+    background-color: @g-color_asce_white;
   }
 }
+
+// .c-TimeBlock {
+//   .list-pairs(10em);
+//   & > *:nth-child(odd) {
+//     padding-right: 1rem;
+//     text-align: right;
+//   }
+// }

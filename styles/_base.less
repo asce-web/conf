@@ -35,6 +35,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: @g-color_site_primary;
 }
+h1 {
+  text-align: center;
+}
 //++++ end # SECTIONS ++++//
 
 
@@ -90,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
     color: @g-color_site_secondary;
     &:hover,
     &:focus {
-      color: desaturate(@g-color_site_secondary, 50%);
+      color: @g-color_site_gray_lt;
     }
     &:active {
       color: inherit;

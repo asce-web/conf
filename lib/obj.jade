@@ -164,16 +164,26 @@ block append main
       Use a #[code section.o-Highlight] if the content belongs in a
       #[code &lt;main&gt;] element, or use an #[code aside.o-Highlight]
       if the content is a #[i &ldquo;callout&rdquo;] (not essential to the page content).
-      The top-level heading of this Object should be a #[code h1.o-Highlight__Hn].
     figure.sg-c-Fig
       aside.o-Highlight
-        h1.o-Highlight__Hn Location
-        p Location content goes here.
+        h1 Highlight
+        p Content goes here.
+      aside.o-Highlight.o-Highlight--wrappedInner
+        div
+          h1 Wrapper
+          p.
+            Use #[code .o-Highlight--wrappedInner] if all this content is wrapped
+            with an inner container. It will make padding 0 on x-small screens.
       pre.
         &lt;aside class="#[u o-Highlight]"&gt;
-          &lt;h1 class="#[u o-Highlight__Hn]"&gt;Location&lt;/h1&gt;
-          &lt;p&gt;Location content goes here.&lt;/p&gt;
-          ...
+          &lt;h1&gt;Highlight&lt;/h1&gt;
+          &lt;p&gt;Content goes here.&lt;/p&gt;
+        &lt;/aside&gt;
+        &lt;aside class="#[u o-Highlight]  #[u o-Highlight--wrappedInner]"&gt;
+          #[u &lt;div&gt;]
+            &lt;h1&gt;Wrapper&lt;/h1&gt;
+            &lt;p&gt;... all this content is wrapped with an inner container ...&lt;/p&gt;
+          #[u &lt;&#x002f;div&gt;]
         &lt;/aside&gt;
   section.sg-sect#runner-object
     h2 The Runner Object

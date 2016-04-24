@@ -76,7 +76,7 @@ html(lang="en")
           aside
             h1 Sponsors
             +sponsor-content()
-    footer.o-Runner.c-Mast.c-Mast--map: nav
+    footer.o-Runner.c-Mast(class=(page_type == 'internal') ? 'c-Mast--map' : ''): nav
       h1.-d-n Site Map
       ul.o-ListBare.o-GridFlex.-xjc-sa.-mb-0
         block sitemap-items

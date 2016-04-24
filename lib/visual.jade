@@ -1,0 +1,32 @@
+extends lib.tpl.jade
+
+block append vars
+  - titles.push('Visual Design')
+
+block append main__header
+  nav#table-contents
+    h2 Table of Contents
+    ol
+      li: a(href="#color-schemes") Color Schemes
+
+block append main
+  section.sg-sect#color-schemes
+    h2 Color Schemes
+    mixin colorsample(classes, name, code)
+      - var boxwidth = '96px'
+      li.o-GridFlex__Item.-mr-1(style={width:boxwidth})
+        div.-ta-c(class=classes style={height:boxwidth})
+          code(style="position:relative;top:32px;")= code
+        p(style="font-size: 0.8rem; line-height:1.875;")
+          span.o-Block= name
+    section.sg-sect
+      h3 Society Colors
+      ul.o-ListBare.o-GridFlex
+        +colorsample('-bc-asce_black', 'ASCE Black', '#222222')
+        +colorsample('-bc-asce_white', 'ASCE White', '#ffffff')
+        +colorsample('-bc-asce_blue' , 'ASCE Blue' , '#0c5fa8')
+    section.sg-sect
+      h3 ASCE 2016 Convention Colors
+      ul.o-ListBare.o-GridFlex
+        +colorsample('-bc-site_primary'  , 'ASCE 2016 Primary'   , '#3fae2a')
+        +colorsample('-bc-site_secondary', 'ASCE 2016 Secondary' , '#00a1e1')

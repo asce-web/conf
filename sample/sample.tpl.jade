@@ -51,13 +51,13 @@ html(lang="en")
         p= site_tagline
       nav.o-GridFlex__Item.-w-a
         h1.-d-n Top Menu
-        ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
+        ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal.-d-n.-d-fx-sM
           li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="about.html") About
           li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="sponsor.html") Sponsor
           li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="exhibit.html") Exhibit
           li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="contact.html") Contact
           li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="home.html") ASCE 2016
-      div.o-GridFlex__Item.-w-a.js-hamburgerbutton
+      div.o-GridFlex__Item.-d-n.-d-n-sM.-w-a.js-hamburgerbutton
         button.c-Btn.c-Btn--drawer menu
     block standard-menu
     block dominant
@@ -116,3 +116,8 @@ html(lang="en")
         //- p: img(src="ASCE-logo.png" itemprop="image")
         a.o-Block(href="http://www.asce.org" itemprop="url").
           &copy; #[time 1996]&ndash;#[time 2016] American Society of Civil Engineers
+    script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
+    script.
+      $('.js-hamburgerbutton').removeClass('-d-n').click(function () {
+        $('.c-MenuUniversal').removeClass('-d-n -d-fx-sM')
+      })

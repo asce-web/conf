@@ -28,6 +28,7 @@ mixin hero-content()
   p.c-Hero__Theme(itemprop="description")= conference_theme
 
 mixin important-date-content()
+  h1 Important Dates
   dl.c-DateBlock
     mixin row(year, month, day, datetime, description, url)
       dt.c-DateBlock__Date
@@ -43,6 +44,7 @@ mixin important-date-content()
     +row('2016','Jun','12', '2016-06-12','Convention Begins')
 
 mixin registration-content()
+  h1 Registration
   p registration content goes here
   +actionbuttons([{text:'Register', href:'register.html'}], 'c-Btn c-Btn--hilite')
 
@@ -61,15 +63,18 @@ mixin num-speakers(n)
             a.c-Speaker__Link(href="") Twitter
 
 mixin speakers-content()
+  h1 Speakers
   +num-speakers(3)
   +actionbuttons([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
 
 mixin cochairs-content()
+  h1 Conference Co-Chairs
   ul.o-ListBare
     li #[b Thomas J. McCollough], P.E., M.ASCE
     li #[b Stephen E. Dickenson], Ph.D., P.E., D.PE, M.ASCE
 
 mixin program-content()
+  h1 Program Highlights
   mixin program-block(classes, datetext, data)
     section.o-GridFlex__Item(class=classes)
       h1= datetext
@@ -96,10 +101,12 @@ mixin program-content()
   +actionbuttons([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
 
 mixin mobile-content()
+  h1 Plan, Engage, Connect
   p.-ta-c Enhance your conference experience with our mobile app.
   +actionbuttons([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
 
 mixin social-content()
+  h1 Join the Conversation
   p.-ta-c Follow ASCE on social media for real-time conversation.
   p: mark.
     #[strong Note:]
@@ -118,6 +125,7 @@ mixin social-content()
       a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" title="Follow #ASCE2016 on Facebook")
 
 mixin location-content(heading)
+  //- heading is moved into inner div
   div.c-Overlay
     h1= heading
     p With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.

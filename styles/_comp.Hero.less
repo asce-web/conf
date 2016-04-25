@@ -2,30 +2,54 @@
 /*################################*\
     conf  |  _comp.Hero.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.clearfix.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 
 
 // advertisement for this year’s conference
 //
 // ^subcomponents
-// __Name  - conference name
-// __Detail - place and/or dates of conference
+// __Name   - conference name
+// __Detail - contains place and dates of conference
+// __Place  - place of conference
+// __Dates  - dates of conference
 // __Theme  - conference theme
 // ^author
 // Chris Harvey
 // ^updated
 // 2016-04-22
 .c-Hero {
+  font-weight: 600;
 }
 
 .c-Hero__Name {
-  .font-size-block(4; @g-line_height; 2);
+  .font-size-block(4; @g-line_height; 3);
 }
 
 .c-Hero__Detail {
+  .font-size-block(2; @g-line_height; 2);
+}
+
+.c-Hero__Place,
+.c-Hero__Dates {
+}
+.c-Hero__Place {
+  @media screen and (max-width: 44.999em) {
+    .clearfix();
+  }
+  @media screen and (min-width: 45em) {
+    padding-right: 2rem;
+    border-right: 1px solid;
+    margin-right: 2rem;
+  }
+}
+.c-Hero__Dates {
 }
 
 .c-Hero__Theme  {
+  .font-size-block(1.5);
+  font-style: italic;
   @media screen and (max-width: 44.999em) {
     display: none;
   }

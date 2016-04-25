@@ -6,12 +6,10 @@ block append vars
 
 block dominant
   main
-    section.o-Highlight.c-Banner.c-Banner--landing(itemscope="" itemtype="http://schema.org/Event")
-      meta(content="http://2016.asceconvention.org/" itemprop="url")
-      h1.c-Hero__Name(itemprop="name")= conference_name
-      +date-place()
-      p.c-Hero__Theme(itemprop="description")= conference_theme
+    section.o-Highlight.c-Banner.c-Banner--landing.c-Hero(itemscope="" itemtype="http://schema.org/Event")
+      +hero-content()
       +actionbuttons([{text:'Find Out More', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
+      meta(content="http://2016.asceconvention.org/" itemprop="url")
     +minimal-text-block()
     section.o-Highlight.o-Highlight--wrappedInner.c-Banner.c-Banner--prev.c-OtherYear(itemscope="" itemtype="http://schema.org/Event")
       div.c-Overlay

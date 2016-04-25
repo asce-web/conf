@@ -32,26 +32,6 @@
   }
 }
 
-// A full-width overlay that rests just above the bottom of the container.
-// On an internal page, a heading inside the banner section.
-// Right now this is only used on the **Hotel & Travel** page.
-//
-// ^author
-// Chris Harvey
-// ^updated
-// 2016-04-22
-.c-Overlay--full {
-  position: absolute;
-  left: 0; right: 0;
-  bottom: 0.5em; // so not completely flush
-  width: auto; // override 75% above
-  padding: @g-vru 0;
-  h1& {
-    // HACK used for when this is a page heading
-    .font-size-block(3);
-  }
-}
-
 // An overlay that is a link.
 // Semantically equivalent to `a.c-Overlay`, but with lower specificity.
 //

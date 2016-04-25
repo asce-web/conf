@@ -3,6 +3,7 @@
     conf  |  _comp.MenuUniversal.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('__settings.less');
 
 
@@ -19,7 +20,14 @@
 // ^updated
 // 2016-04-19
 .c-MenuUniversal {
+  // all menu bar typographic styles
+  // TODO consider moving to new component?
+    .font-size-block(14/16);
+    font-weight: 600;
+    text-transform: uppercase;
+  // end menu bar styles
   .flex-align-content(flex-start); // override 'stretch'
+  z-index: 1; // over hero and sub menus
   margin-bottom: 0; // override `ul`
   @media screen and (max-width: 44.999em) {
     position: fixed;

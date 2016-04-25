@@ -19,7 +19,8 @@
 // ^updated
 // 2016-04-19
 .c-MenuUniversal {
-  .flex-align-content(flex-start); // override 'stretch'
+  .flex-align-content(flex-start); // override 'stretch' // for mobile drawer menu
+  z-index: 1; // over hero and sub menus
   margin-bottom: 0; // override `ul`
   @media screen and (max-width: 44.999em) {
     position: fixed;

@@ -11,6 +11,7 @@
 //
 // ^subclasses
 // --hero   - for action button(s) in hero section
+// --hero2  - alternate hero button
 // --hilite - for singular button in highlight block
 // --inline - for buttons inline with text
 // --drawer - universal menu button in site masthead
@@ -25,7 +26,7 @@
   vertical-align: middle;
   padding: @g-boxpadd_mill;
   white-space: nowrap;
-  border: 1px solid;
+  border: 1px outset;
   cursor: pointer;
 }
 a.c-Btn {
@@ -44,6 +45,7 @@ a.c-Btn {
   &:active {
     color: @g-color_asce_black;
     background-color: @g-color_site_gray_lt;
+    border-style: inset;
   }
 }
 
@@ -53,32 +55,48 @@ a.c-Btn {
   .font-size-block(1.5);
 }
 
-// .c-Btn--hero {
-//   font-weight: bold;
-//   color: @g-color_asce_white;
-//   border-width: 2px;
-//   border-color: @g-color_site_primary;
-//   &,
-//   &:hover,
-//   &:focus,
-//   &:active {
-//     background-color: transparent; // override above
-//   }
-//   &:hover,
-//   &:focus {
-//     color: @g-color_site_primary;
-//   }
-//   &:active {
-//     color: @g-color_asce_white;
-//     border-color: currentColor;
-//   }
-// }
-
 .c-Btn--hero {
   font-weight: bold;
-  background: @g-color_site_primary;
+  color: inherit;
+  border-width: 2px;
+  border-color: @g-color_site_primary;
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: transparent; // override `.c-Btn`
+  }
+  &,
+  &:active {
+    border-style: solid; // override `.c-Btn`
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: currentColor;
+  }
+  &:hover,
+  &:focus {
+    color: inherit;
+  }
+  &:active {
+    color: @g-color_site_gray_lt;
+  }
+}
+
+.c-Btn--hero2 {
+  font-weight: bold;
   border: 0;
+  background-color: @g-color_site_primary;
+  border-color: @g-color_site_primary;
   color: @g-color_asce_white;
+  // &:hover,
+  // &:focus {
+  //   border-color: mix(@g-color_asce_white, @g-color_site_gray_lt); // same as border color of .c-Btn
+  // }
+  // &:active {
+  //   border-color: @g-color_site_gray_lt; // same as border color of .c-Btn
+  // }
 }
 
 .c-Btn--inline {

@@ -57,18 +57,22 @@ a.c-Btn {
 }
 
 .c-Btn--hero {
-  color: @g-color_site_primary;
+  @color: lighten(@g-color_site_primary, 15%);
   border: 2px solid;
-  background-color: fadeout(@g-color_asce_white, 80%);
+  color: @color;
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: transparent;
+  }
   &:hover,
   &:focus {
-    background-color: @g-color_asce_white;
-    color: @g-color_site_primary;
+    color: inherit;
   }
   &:active {
     border-style: solid;
-    color: @g-color_site_primary;
-    background-color: mix(@g-color_asce_white, @g-color_site_gray_lt);
+    color: @color;
   }
 }
 

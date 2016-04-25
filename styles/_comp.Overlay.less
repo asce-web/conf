@@ -46,6 +46,10 @@
   bottom: 0.5em; // so not completely flush
   width: auto; // override 75% above
   padding: @g-vru 0;
+  h1& {
+    // HACK used for when this is a page heading
+    .font-size-block(3);
+  }
 }
 
 // An overlay that is a link.

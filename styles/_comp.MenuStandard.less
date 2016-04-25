@@ -3,6 +3,7 @@
     conf  |  _comp.MenuStandard.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('__settings.less');
 
 
@@ -16,6 +17,11 @@
 // ^updated
 // 2016-03-01
 .c-MenuStandard {
+  // menu bar styles copied from `_comp.MenuUniversal.less`
+    .font-size-block(14/16);
+    font-weight: 600;
+    text-transform: uppercase;
+  // end menu bar styles
   position: relative; // for the NavSubmenu positioning
   margin-bottom: 0; // override `ul`
   a {

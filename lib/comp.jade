@@ -17,6 +17,8 @@ block append main__header
       li: a(href="#sitemap-component") The Sitemap Component
       li: a(href="#page-header") The Page Header
       li: a(href="#banner-component") The Banner Component
+      li: a(href="#hero-block") The Hero Block
+      li: a(href="#other-year-block") The Other Year Block
       li: a(href="#overlay-component") The Overlay Component
       li: a(href="#sponsor-block") The Sponsor Block
       li: a(href="#date-block") The Date Block
@@ -186,10 +188,10 @@ block append main
     h2 The Page Header
     figure.sg-c-Fig
       div.c-PageHeader(style="margin-bottom: 1.5rem;")
-        h1 Page Header
+        h1.c-PageHeader__Hn Page Header
       pre.
         &lt;div class="#[u c-PageHeader]"&gt;
-          &lt;h1&gt;Page Header&lt;/h1&gt;
+          &lt;h1 class="#[u c-PageHeader__Hn]"&gt;Page Header&lt;/h1&gt;
         &lt;/div&gt;
   section.sg-sect#banner-component
     h2 The Banner Component
@@ -207,6 +209,39 @@ block append main
         &lt;div class="#[u c-Banner]"&gt;
           &lt;h1&gt;banner heading&lt;/h1&gt;
           &lt;p&gt;banner content&lt;/p&gt;
+        &lt;/div&gt;
+  section.sg-sect#hero-block
+    h2 The Hero Block
+    figure.sg-c-Fig
+      div.c-Hero
+        h1.c-Hero__Name Geo-Risk 2016
+        p.c-Hero__Detail
+          span.c-Hero__Place Portland, OR
+          span.c-Hero__Dates Sep 28&ndash;Oct 1
+        p.c-Hero__Theme Geotechincal Risk From Theory to Practice
+      pre.
+        &lt;div class="#[u c-Hero]"&gt;
+          &lt;h1 class="#[u c-Hero__Name]"&gt;Geo-Risk 2016&lt;/h1&gt;
+          &lt;p class="#[u c-Hero__Detail]"&gt;
+            &lt;span class="#[u c-Hero__Place]"&gt;Portland, OR&lt;/span&gt;
+            &lt;span class="#[u c-Hero__Dates]"&gt;Sep 28&ndash;Oct 1&lt;/span&gt;
+          &lt;/p&gt;
+          &lt;p class="#[u c-Hero__Theme]"&gt;Geotechincal Risk ...&lt;/p&gt;
+        &lt;/div&gt;
+  section.sg-sect#other-year-block
+    h2 An Other Year Block
+    figure.sg-c-Fig
+      div.c-OtherYear
+        h1.c-OtherYear__Name ASCE 2015
+        p.c-OtherYear__Detail New York, NY
+        p.c-OtherYear__Desc.
+          Access the 2015 program to see which sessions qualify for
+          PDHs and other documentation.
+      pre.
+        &lt;div class="#[u c-OtherYear]"&gt;
+          &lt;h1 class="#[u c-OtherYear__Name]"&gt;ASCE 2015&lt;/h1&gt;
+          &lt;p class="#[u c-OtherYear__Detail]"&gt;New York, NY&lt;/p&gt;
+          &lt;p class="#[u c-OtherYear__Desc]"&gt;Access the 2015 ...&lt;/p&gt;
         &lt;/div&gt;
   section.sg-sect#overlay-component
     h2 The Overlay Component

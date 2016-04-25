@@ -2,6 +2,7 @@
 /*################################*\
     conf  |  _comp.PageHeader.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('__settings.less');
 
 
@@ -18,4 +19,8 @@
   @media screen and (min-width: 45em) { padding: @g-boxpadd_mega; }
   @media screen and (min-width: 60em) { padding: @g-boxpadd_giga; }
   text-align: center;
+}
+
+.c-PageHeader__Hn {
+  .font-size-block(4; @g-line_height; 3);
 }

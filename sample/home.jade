@@ -6,9 +6,7 @@ block append vars
 
 block main-header
   header.o-Highlight.c-Banner.c-Banner--home
-    h1(itemprop="name")= conference_name
-    +date-place()
-    p(itemprop="description")= conference_theme
+    +hero-content()
     +actionbuttons([{text:'Register', href:'register.html'}, {text:'Sponsor', href:'sponsor.html'}, {text:'Submit a Paper'}], 'c-Btn c-Btn--hilite c-Btn--hero')
 
 block main-minimal
@@ -18,26 +16,18 @@ block main-rich
 
 block callouts
   aside.o-Highlight.c-Banner
-    h1 Important Dates
     +important-date-content()
   aside.o-Highlight
-    h1 Registration
     +registration-content()
   aside.o-Highlight.c-Banner
-    h1 Speakers
     +speakers-content()
   aside.o-Highlight
-    h1 Conference Co-Chairs
     +cochairs-content()
   aside.o-Highlight.c-Banner
-    h1 Program Highlights
     +program-content()
   aside.o-Highlight
-    h1 Plan, Engage, Connect
     +mobile-content()
   aside.o-Highlight.o-Highlight--wrappedInner.c-Banner.c-Banner--location
-    //- heading is moved into inner div
     +location-content('Portland, OR')
   aside.o-Highlight
-    h1 Join the Conversation
     +social-content()

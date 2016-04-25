@@ -3,9 +3,22 @@ extends internal.tpl.jade
 block append vars
   - var page_name = 'Speakers'
 
-block main-prose
-  +section-block('Call for Submissions')
+block main-minimal
+  +minimal-text-block()
 
-block append main-body
-  div.o-Highlight.c-Banner
+block main-reference
+  section.o-Highlight.c-Banner
+    h1.-d-n All Speakers
     +num-speakers(6)
+
+block main-rich
+  div.o-Highlight.rich-text
+    h2 Call for Submissions
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
+    h3 inside heading
+    ul
+      li 3&frac12; days of premier educational and networking events
+      li 15 tracks and 6 plenary sessions focusing on ...
+      li Prestigious awards and keynote lecture presentations
+      li Lively programs for studdnts and young professionals

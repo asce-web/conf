@@ -6,42 +6,37 @@ block append vars
 
 block dominant
   main
-    section.o-Highlight.c-PageHeader.c-Banner.c-Banner--landing(itemscope="" itemtype="http://schema.org/Event")
+    section.o-Highlight.c-Banner.c-Banner--landing(itemscope="" itemtype="http://schema.org/Event")
       meta(content="http://2016.asceconvention.org/" itemprop="url")
       h1(itemprop="name")= conference_name
       +date-place()
       p(itemprop="description")= conference_theme
-      +actionbuttons([{text:'Get Details', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
-    div.o-Highlight
-      +minimal-text-block()
-    section.o-Highlight.o-OtherYear.c-Banner.c-Banner--prev(itemscope="" itemtype="http://schema.org/Event")
-      div.o-GridFlex.c-Overlay
-        div.o-GridFlex__Item.o-OtherYear__Title
-          h1(itemprop="name") ASCE 2015
-          meta(content="2015-10-11" itemprop="startDate")
-          p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-            span(itemprop="name")
-              span(itemprop="addressLocality") New York, 
-              abbr(itemprop="addressRegion" title="New York") NY
-        div.o-GridFlex__Item.o-OtherYear__Desc
-          p.
-            Access the 2015 program to see which sessions qualify for
-            PDHs and other documentation.
-          +actionbuttons([{text:'Event Details', href:'//2015.asceconvention.org/', attrs:{itemprop:'url'}}], 'c-Btn c-Btn--hero')
-    section.o-Highlight.o-OtherYear.c-Banner.c-Banner--next(itemscope="" itemtype="http://schema.org/Event")
-      div.o-GridFlex.c-Overlay
-        div.o-GridFlex__Item.o-OtherYear__Title
-          h1(itemprop="name") ASCE 2017
-          meta(content="2017-10-11" itemprop="startDate")
-          p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-            span(itemprop="name")
-              span(itemprop="addressLocality") Chicago, 
-              abbr(itemprop="addressRegion" title="Illinois") IL
-        div.o-GridFlex__Item.o-OtherYear__Desc
-          p.
-            Plan ahead to attend, sponsor, or exhibit at the
-            annual convention for civil engineering professionals.
-          +actionbuttons([{text:'Event Details', href:'//2017.asceconvention.org/', attrs:{itemprop:'url'}}], 'c-Btn c-Btn--hero')
+      +actionbuttons([{text:'Find Out More', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
+    +minimal-text-block()
+    section.o-Highlight.o-Highlight--wrappedInner.c-Banner.c-Banner--prev.c-OtherYear(itemscope="" itemtype="http://schema.org/Event")
+      div.c-Overlay
+        h1.c-OtherYear__Title(itemprop="name") ASCE 2015
+        meta(content="2015-10-11" itemprop="startDate")
+        p.c-OtherYear__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+          span(itemprop="name")
+            span(itemprop="addressLocality") New York, 
+            abbr(itemprop="addressRegion" title="New York") NY
+        p.c-OtherYear__Desc.
+          Access the 2015 program to see which sessions qualify for
+          PDHs and other documentation.
+        +actionbuttons([{text:'Event Details', href:'//2015.asceconvention.org/', attrs:{itemprop:'url'}}], 'c-Btn c-Btn--hilite c-Btn--hero')
+    section.o-Highlight.o-Highlight--wrappedInner.c-Banner.c-Banner--next.c-OtherYear(itemscope="" itemtype="http://schema.org/Event")
+      div.c-Overlay
+        h1.c-OtherYear__Title(itemprop="name") ASCE 2017
+        meta(content="2017-10-11" itemprop="startDate")
+        p.c-OtherYear__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+          span(itemprop="name")
+            span(itemprop="addressLocality") Chicago, 
+            abbr(itemprop="addressRegion" title="Illinois") IL
+        p.c-OtherYear__Desc.
+          Plan ahead to attend, sponsor, or exhibit at the
+          annual convention for civil engineering professionals.
+        +actionbuttons([{text:'Event Details', href:'//2017.asceconvention.org/', attrs:{itemprop:'url'}}], 'c-Btn c-Btn--hilite c-Btn--hero')
   div.t-Callouts
     aside
       h1 Sponsors

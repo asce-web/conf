@@ -35,6 +35,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: @g-fontfam_hn;
   font-weight: 900;
+  text-align: center;
   color: @g-color_site_primary;
 }
 // .c-MenuUniversal,
@@ -101,7 +102,7 @@ h1, h2, h3, h4, h5, h6 {
     color: @g-color_site_secondary;
     &:hover,
     &:focus {
-      color: desaturate(@g-color_site_secondary, 50%);
+      color: @g-color_site_gray_lt;
     }
     &:active {
       color: inherit;

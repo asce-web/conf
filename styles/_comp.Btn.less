@@ -25,6 +25,7 @@
   display: inline-block;
   vertical-align: middle;
   padding: @g-boxpadd_mill;
+  font-weight: 700;
   white-space: nowrap;
   border: 1px outset;
   cursor: pointer;
@@ -56,36 +57,22 @@ a.c-Btn {
 }
 
 .c-Btn--hero {
-  font-weight: bold;
-  color: inherit;
-  border-width: 2px;
-  border-color: @g-color_site_primary;
-  &,
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: transparent; // override `.c-Btn`
-  }
-  &,
-  &:active {
-    border-style: solid; // override `.c-Btn`
-  }
-  &:hover,
-  &:focus,
-  &:active {
-    border-color: currentColor;
-  }
+  color: @g-color_site_primary;
+  border: 2px solid;
+  background-color: fadeout(@g-color_asce_white, 80%);
   &:hover,
   &:focus {
-    color: inherit;
+    background-color: @g-color_asce_white;
+    color: @g-color_site_primary;
   }
   &:active {
-    color: @g-color_site_gray_lt;
+    border-style: solid;
+    color: @g-color_site_primary;
+    background-color: mix(@g-color_asce_white, @g-color_site_gray_lt);
   }
 }
 
 .c-Btn--hero2 {
-  font-weight: bold;
   border: 0;
   background-color: @g-color_site_primary;
   border-color: @g-color_site_primary;
@@ -100,14 +87,16 @@ a.c-Btn {
 }
 
 .c-Btn--inline {
-  display: inline; // override .c-Btn
-  line-height: 0;
+  display: inline;
   padding: 0 @g-boxpadd_micr_h;
-  // border-radius: 0.25em;
+  font-size: 0.75em;
+  line-height: 0;
+  border-radius: 0.25em;
 }
 
 .c-Btn--drawer {
   padding: @g-boxpadd_micr_v @g-boxpadd_mill_h;
+  border-style: solid;
   border-radius: 0.5em;
   color: @g-color_asce_white;
   background-color: @g-color_site_secondary;
@@ -118,6 +107,7 @@ a.c-Btn {
     background-color: @g-color_site_gray_dk;
   }
   &:active {
+    border-style: solid;
     color: @g-color_site_gray_lt;
     background-color: @g-color_asce_black;
   }

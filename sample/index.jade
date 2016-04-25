@@ -8,16 +8,16 @@ block dominant
   main
     section.o-Highlight.c-Banner.c-Banner--landing(itemscope="" itemtype="http://schema.org/Event")
       meta(content="http://2016.asceconvention.org/" itemprop="url")
-      h1(itemprop="name")= conference_name
+      h1.c-Hero__Name(itemprop="name")= conference_name
       +date-place()
-      p(itemprop="description")= conference_theme
+      p.c-Hero__Theme(itemprop="description")= conference_theme
       +actionbuttons([{text:'Find Out More', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
     +minimal-text-block()
     section.o-Highlight.o-Highlight--wrappedInner.c-Banner.c-Banner--prev.c-OtherYear(itemscope="" itemtype="http://schema.org/Event")
       div.c-Overlay
-        h1.c-OtherYear__Title(itemprop="name") ASCE 2015
+        h1.c-OtherYear__Name(itemprop="name") ASCE 2015
         meta(content="2015-10-11" itemprop="startDate")
-        p.c-OtherYear__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+        p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
           span(itemprop="name")
             span(itemprop="addressLocality") New York, 
             abbr(itemprop="addressRegion" title="New York") NY
@@ -27,9 +27,9 @@ block dominant
         +actionbuttons([{text:'Event Details', href:'//2015.asceconvention.org/', attrs:{itemprop:'url'}}], 'c-Btn c-Btn--hilite c-Btn--hero')
     section.o-Highlight.o-Highlight--wrappedInner.c-Banner.c-Banner--next.c-OtherYear(itemscope="" itemtype="http://schema.org/Event")
       div.c-Overlay
-        h1.c-OtherYear__Title(itemprop="name") ASCE 2017
+        h1.c-OtherYear__Name(itemprop="name") ASCE 2017
         meta(content="2017-10-11" itemprop="startDate")
-        p.c-OtherYear__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+        p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
           span(itemprop="name")
             span(itemprop="addressLocality") Chicago, 
             abbr(itemprop="addressRegion" title="Illinois") IL

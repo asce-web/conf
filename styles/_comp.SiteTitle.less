@@ -15,8 +15,10 @@
 // 2016-04-19
 .c-SiteTitle {
   width: auto;
-  margin-left: 4rem; // TODO change this to fit the width of the logo
-  background-image: none; // this is the conference logo (or institute shield)
+  padding-left: 0;        // change this on a site-to-site basis for the logo size
+  background-image: none; // change this on a site-to-site basis
+  background-size: auto 100%;
+  background-repeat: no-repeat;
   a&:hover,
   a&:focus {
     color: inherit; // override `.c-Mast >> a`

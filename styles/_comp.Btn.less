@@ -57,7 +57,7 @@ a.c-Btn {
 }
 
 .c-Btn--hero {
-  border: 2px solid;
+  border: 2px;
   &,
   &:hover,
   &:focus,
@@ -70,10 +70,8 @@ a.c-Btn {
   }
   &,
   &:active {
-    color: lighten(@g-color_site_primary, 20%, relative);
-  }
-  &:active {
     border-style: solid;
+    color: @g-color_site_primary;
   }
 }
 

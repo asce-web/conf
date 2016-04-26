@@ -15,12 +15,25 @@
 // 2016-04-19
 .c-SiteTitle {
   width: auto;
-  padding-left: 0;        // change this on a site-to-site basis for the logo size
+  height: (5*@g-vru);
+  padding: (@g-vru/2) 0; // change padding-left on a site-to-site basis for the logo size
   background-image: none; // change this on a site-to-site basis
   background-size: auto 100%;
   background-repeat: no-repeat;
+  @media screen and (min-width: 52em) {
+    width: 50%;
+  }
   a&:hover,
   a&:focus {
     color: inherit; // override `.c-Mast >> a`
+  }
+  h1,
+  p {
+    padding-bottom: @g-vru;
+    margin: 0;
+    white-space: nowrap;
+  }
+  h1 {
+    text-align: inherit;
   }
 }

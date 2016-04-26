@@ -1,0 +1,11 @@
+extends internal.tpl.jade
+
+block append vars
+  - var page_name = 'Program'
+
+block main-minimal
+  +minimal-text-block()
+
+block main-reference
+  section.o-Runner.o-Runner--highlight.c-Banner
+    h1.-d-n Full Program

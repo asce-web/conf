@@ -2,6 +2,8 @@
 /*################################*\
     conf  |  _comp.MenuStandard.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('__settings.less');
 
 
@@ -15,21 +17,40 @@
 // ^updated
 // 2016-03-01
 .c-MenuStandard {
+  // menu bar styles copied from `_comp.MenuUniversal.less`
+    .font-size-block(14/16);
+    font-weight: 600;
+    text-transform: uppercase;
+  // end menu bar styles
   position: relative; // for the NavSubmenu positioning
-  margin-bottom: 0;
-  background-color: @g-color_site_secondary;
-}
-.c-MenuStandard__Item {
-  width: auto;
-  margin: @g-boxpadding_K;
-}
-.c-MenuStandard__Link {
-  padding: @g-boxpadding;
-  border: 1px outset transparent;
-  @media screen and (min-width: 45em) {
-    .c-MenuStandard__Item:hover & {
-      border-color: @g-color_site_accent;
-      background-color: #fff;
+  margin-bottom: 0; // override `ul`
+  a {
+    &:hover,
+    &:focus {
+      color: inherit;
+    }
+    &:active {
+      color: @g-color_asce_black;
     }
   }
+}
+.c-MenuStandard__Item {
+  @trans_dura: 125ms;
+  .transition(background-color; @trans_dura);
+  width: auto;
+  margin: 0 @g-boxpadd_micr_h;
+  &:hover,
+  & .c-MenuSub {
+    background-color: @g-color_site_gray_lt;
+  }
+  & .c-MenuSub {
+    .transition(font-size, background-color; @trans_dura);
+  }
+  &:not(:hover) .c-MenuSub {
+    font-size: 0;
+    background-color: transparent;
+  }
+}
+.c-MenuStandard__Link {
+  padding: @g-boxpadd_mill;
 }

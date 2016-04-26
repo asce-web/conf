@@ -3,6 +3,7 @@
     conf  |  _comp.MenuUniversal.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('__settings.less');
 
 
@@ -13,39 +14,51 @@
 // ^subcomponents
 // __Item - each item in the list
 // __Link - each link inside an __Item in the menu
+// __Link--current - link to the current convention (home) page
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-03-04
+// 2016-04-19
 .c-MenuUniversal {
-  .flex-align-content(flex-start);
-  width: 10em;
-  margin-bottom: 0;
+  // all menu bar typographic styles
+  // TODO consider moving to new component?
+    .font-size-block(14/16);
+    font-weight: 600;
+    text-transform: uppercase;
+  // end menu bar styles
+  .flex-align-content(flex-start); // override 'stretch' // for mobile drawer menu
+  z-index: 1; // over hero and sub menus
+  margin-bottom: 0; // override `ul`
   @media screen and (max-width: 44.999em) {
     position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 10;
+    right: 0; top: 0;
+    width: 10em;
     height: 100%;
-    background-color: @g-color_site_secondary;
-  }
-  @media screen and (min-width: 45em) {
-    width: auto;
+    background-color: @g-color_site_gray_lt;
+    a {
+      &:hover,
+      &:focus,
+      &:active {
+        color: @g-color_site_gray_lt;
+        background-color: @g-color_asce_white;
+      }
+    }
   }
 }
 .c-MenuUniversal__Item {
-  margin: @g-boxpadding;
+  margin: @g-boxpadd_micr;
   @media screen and (min-width: 45em) {
     width: auto;
   }
 }
 .c-MenuUniversal__Link {
-  padding: @g-boxpadding;
-  border: 1px solid transparent;
-  border-radius: (0.25 * @g-vru);
-  @media screen and (min-width: 45em) {
-    &:hover {
-      border-color: currentColor;
-    }
+  padding: @g-boxpadd_mill;
+}
+a.c-MenuUniversal__Link--current {
+  background-color: @g-color_site_primary;
+  &:hover,
+  &:focus {
+    color: @g-color_site_gray_dk;
   }
+  &:active { color: inherit; } // duplicating due to :hover
 }

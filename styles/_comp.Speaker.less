@@ -1,6 +1,6 @@
 
 /*################################*\
-    conf  |  _comp.DateBlock.less
+    conf  |  _comp.Speaker.less
 \*################################*/
 
 
@@ -8,13 +8,40 @@
 // The first column is the headshot photo,
 // the second column is the description.
 //
+// ^subcomponents
+// __Name     - the speaker’s name and title
+// __JobTitle - affiliation
+// __Desc     - a block of content further describing information about the speaker
+// __Link     - link to speaker’s email, LinkedIn, and/or Twitter
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-03-04
+// 2016-04-01
 .c-Speaker {
-  .list-pairs(25%);
-  & > *:nth-child(odd) {
-    padding-right: 1rem;
+  // padding-top: 25vw; // NOTE this will fit the headshot photo height. may be responsive
+  background-image: url('../sample/img/headshot1.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.c-Speaker__Name,
+.c-Speaker__JobTitle {
+  margin-bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+.c-Speaker__Name {}
+.c-Speaker__JobTitle {}
+
+.c-Speaker__Desc {
+  overflow: auto;
+  font-size: 0.85em;
+  background: fadeout(green, 50%);
+}
+
+.c-Speaker__Link {
+  &,
+  &:hover,
+  &:focus {
+    color: inherit;
   }
 }

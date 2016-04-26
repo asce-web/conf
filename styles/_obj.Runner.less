@@ -1,0 +1,43 @@
+
+/*################################*\
+    conf  |  _obj.Runner.less
+\*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
+
+
+// A large, full-width section with padding.
+// May be used for headers, footers, heros, highlight blocks, etc.
+//
+// ^subclasses
+// --pageHeader - A generic header of the entire page.
+// --highlight  - Highlighted content, like a callout.
+// ^author
+// : Chris Harvey
+// ^updated
+// 2016-04-25
+.o-Runner {
+  padding: @g-boxpadd_micr;
+  .transition(padding, 250ms);
+  @media screen and (min-width: 30em) { padding: @g-boxpadd_mill; }
+  @media screen and (min-width: 45em) { padding: @g-boxpadd_norm; }
+  @media screen and (min-width: 60em) { padding: @g-boxpadd_kilo; }
+}
+
+.o-Runner--pageHeader {
+  padding: @g-boxpadd_norm;
+  @media screen and (min-width: 45em) { padding: @g-boxpadd_mega; }
+  @media screen and (min-width: 60em) { padding: @g-boxpadd_giga; }
+}
+
+.o-Runner--highlight {
+  padding: @g-boxpadd_norm;
+  @media screen and (min-width: 30em) { padding: @g-boxpadd_kilo; }
+  @media screen and (min-width: 45em) { padding: @g-boxpadd_giga; }
+  @media screen and (min-width: 60em) { padding: @g-boxpadd_peta; }
+}
+
+.o-Runner--wrappedInner {
+  @media screen and (max-width: 29.999em) {
+    padding: 0;
+  }
+}

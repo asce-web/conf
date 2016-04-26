@@ -1,43 +1,41 @@
-extends sample.tpl.jade
+extends universal.tpl.jade
 
 block append vars
-  - var page_type = 'landing'
+  - var page_subtype = 'landing'
+  - var page_name = 'Index'
 
-block main
-  section.c-Hero.o-BodyChild__Inv(itemscope="" itemtype="http://schema.org/Event")
-    a.o-Block(href="" itemprop="url")
-      h1(itemprop="name")= conference_name
-      +time-place()
-      p(itemprop="description")= theme
-      p: span Get Details
-  +action-buttons()
-  p.
-    Elevator pitch. One paragraph. Sentence case.
-    Join civil engineering professionals from around the world at
-    this ASCE flagship event. Network with peers, earn PDHs, and
-    expand your knowledge base.
-  div.o-GridFlex
-    section.o-GridFlex__Item.-w-1o2-sM(itemscope="" itemtype="http://schema.org/Event")
-      a.o-GridFlex(href="" itemprop="url")
-        div.o-GridFlex__Item.-w-1o2-sK
-          h1(itemprop="name") ASCE Convention 2015
-          meta(content="2015-10-11" itemprop="startDate")
-          p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-            span(itemprop="name")
-              span(itemprop="addressLocality") New York, 
-              abbr(itemprop="addressRegion" title="New York") NY
-        p.o-GridFlex__Item.-w-1o2-sK.
+block dominant
+  main
+    section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing.c-Hero(itemscope="" itemtype="http://schema.org/Event")
+      +hero-content()
+      +actionbuttons([{text:'Find Out More', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
+      meta(content="http://2016.asceconvention.org/" itemprop="url")
+    +minimal-text-block()
+    section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--prev.c-OtherYear(itemscope="" itemtype="http://schema.org/Event")
+      div.c-Overlay
+        h1.c-OtherYear__Name(itemprop="name") ASCE 2015
+        meta(content="2015-10-11" itemprop="startDate")
+        p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+          span(itemprop="name")
+            span(itemprop="addressLocality") New York, 
+            abbr(itemprop="addressRegion" title="New York") NY
+        p.c-OtherYear__Desc.
           Access the 2015 program to see which sessions qualify for
           PDHs and other documentation.
-    section.o-GridFlex__Item.-w-1o2-sM(itemscope="" itemtype="http://schema.org/Event")
-      a.o-GridFlex(href="" itemprop="url")
-        div.o-GridFlex__Item.-w-1o2-sK
-          h1(itemprop="name") ASCE Convention 2017
-          meta(content="2017-10-11" itemprop="startDate")
-          p(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-            span(itemprop="name")
-              span(itemprop="addressLocality") Chicago, 
-              abbr(itemprop="addressRegion" title="Illinois") IL
-        p.o-GridFlex__Item.-w-1o2-sK.
+        +actionbuttons([{text:'Event Details', href:'//2015.asceconvention.org/', attrs:{itemprop:'url'}}], 'c-Btn c-Btn--hilite c-Btn--hero')
+    section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--next.c-OtherYear(itemscope="" itemtype="http://schema.org/Event")
+      div.c-Overlay
+        h1.c-OtherYear__Name(itemprop="name") ASCE 2017
+        meta(content="2017-10-11" itemprop="startDate")
+        p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+          span(itemprop="name")
+            span(itemprop="addressLocality") Chicago, 
+            abbr(itemprop="addressRegion" title="Illinois") IL
+        p.c-OtherYear__Desc.
           Plan ahead to attend, sponsor, or exhibit at the
           annual convention for civil engineering professionals.
+        +actionbuttons([{text:'Event Details', href:'//2017.asceconvention.org/', attrs:{itemprop:'url'}}], 'c-Btn c-Btn--hilite c-Btn--hero')
+  div.t-Callouts
+    aside
+      h1 Sponsors
+      +sponsor-content()

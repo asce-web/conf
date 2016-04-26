@@ -1,0 +1,68 @@
+
+/*################################*\
+    conf  |  _comp.Banner.less
+\*################################*/
+// @import (reference) url('../node_modules/xmeter/src/__tool.fallback.filter.less');
+@import (reference) url('__settings.less');
+
+
+.filter(@filter) {
+  -webkit-filter: @filter;
+     -moz-filter: @filter;
+      -ms-filter: @filter;
+       -o-filter: @filter;
+          filter: @filter;
+}
+
+// Any major section on any page with a full-width background image.
+//
+// ^subclasses
+// --landing  - Hero section on the Landing page
+// --home     - 〃 Home page
+// --location - 〃 Hotel & Travel page
+// --prev     - banner for previous year’s conference
+// --next     - banner for next year’s conference
+// ^subcomponents
+// __Overlay  - an element with a translucent background color
+// __Hn       - a heading inside a banner section
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-04-22
+.c-Banner {
+  position: relative; // for ::before
+  color: @g-color_asce_white;
+  &::before {
+    // need `::before` for filter effects
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    z-index: -1;
+    background-image: url('../img/Blue-Geometric-Background-3.jpg'); // default background image
+    background-position: center;
+    background-size: cover;
+  }
+  h1 {
+    color: inherit;
+  }
+}
+
+.c-Banner--landing,
+.c-Banner--home,
+.c-Banner--location,
+.c-Banner--prev,
+.c-Banner--next {
+}
+.c-Banner--landing,
+.c-Banner--home {
+  &::before {
+    .filter(blur(2px) brightness(0.75));
+  }
+}
+// override background-image in site-specific stylesheet
+.c-Banner--landing::before {}
+.c-Banner--home::before {}
+.c-Banner--location::before {}
+.c-Banner--prev::before {}
+.c-Banner--next::before {}

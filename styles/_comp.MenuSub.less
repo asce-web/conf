@@ -16,28 +16,19 @@
 // 2016-03-02
 .c-MenuSub {
   position: absolute; // inside the .c-MenuStandard
-  @media screen and (max-width: 44.999em) {
-    left:  1rem;
-    right: 1rem;
-    top: (2 * @g-vru);
-    &:not(.c-MenuSub--active) {
-      display: none;
+  z-index: 1; // atop of c-Banner which is relative
+  padding: @g-boxpadd_mill;
+  text-transform: none; // override inherited from MenuStandard
+  a {
+    &:hover,
+    &:focus {
+      color: @g-color_asce_black;
     }
-  }
-  @media screen and (min-width: 45em) {
-    background-color: #fff;
-    border: 1px outset @g-color_site_accent;
-    .c-MenuStandard__Item:not(:hover) & {
-      display: none;
-    }
+    &:active { color: inherit; } // duplicating due to :hover
   }
 }
 .c-MenuSub__Item {
-  @media screen and (max-width: 44.999em) {
-    display: inline-block;
-    text-decoration: underline;
-    padding-right: 1em;
-  }
 }
 .c-MenuSub__Link {
+  padding: @g-boxpadd_micr;
 }

@@ -7,11 +7,10 @@ block vars
   - var keywords = ['style guide','pattern library','components']
 
 block styles
-  link(rel="stylesheet" href="../node_modules/xmeter/xmeter.min.css")
-  link(rel="stylesheet" href="../node_modules/bangs/bangs.min.css")
-  link(rel="stylesheet" href="../styles/styleguide.css")
-  unless is_index_page
-    link(rel="stylesheet" href="../styles/conf.css")
+  link(rel="stylesheet" href="../bower_components/xmeter/xmeter.min.css")
+  link(rel="stylesheet" href="../bower_components/bangs/bangs.min.css")
+  link(rel="stylesheet" href="../styles/conf.css")
+  link(rel="stylesheet" href="styles/lib.css")
 
 block footer
   unless is_index_page
@@ -19,19 +18,17 @@ block footer
       h1 Subsitemap
       ol
         li: a(href="index.html") Pattern Library Home
+        li: a(href="visual.html") Visual Design
         li: a(href="base.html") Base
         li: a(href="obj.html") Objects
-        li: a(href="comp-typo.html") Typographical Components
-        li: a(href="comp-ui.html") UI Components
+        li: a(href="comp.html") Components
+        //- li: a(href="comp-typo.html") Typographical Components
+        //- li: a(href="comp-ui.html") UI Components
         li: a(href="helpers.html") Helpers
         li: a(href="atoms.html") Atoms
   nav
     h1 Sitemap
     ol
       li: a(href="../index.html") Home
-      li: a(href="../coding.html") Coding Style
-      li: a(href="../writing.html") Writing Style
-      li: a(href="../visual.html") Visual Style
       li: a(href="index.html") Pattern Library
-      li: a(href="../struct.html") File Structure
       li: a(href="../sample/index.html") Sample Site

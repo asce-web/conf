@@ -1,0 +1,125 @@
+
+/*################################*\
+    conf  |  _comp.Btn.less
+\*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+@import (reference) url('__settings.less');
+
+
+// Buttons.
+// (e.g. Student, Speaker, Standard, etc.)
+//
+// ^subclasses
+// --hero   - for action button(s) in hero section
+// --hero2  - alternate hero button
+// --hilite - for singular button in highlight block
+// --inline - for buttons inline with text
+// --drawer - universal menu button in site masthead
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-04-24
+
+
+.c-Btn {
+  display: inline-block;
+  vertical-align: middle;
+  padding: @g-boxpadd_mill;
+  font-weight: 700;
+  white-space: nowrap;
+  border: 1px outset;
+  cursor: pointer;
+}
+a.c-Btn {
+  opacity: 1; // HACK specificity
+}
+
+.c-Btn {
+  color: @g-color_site_secondary;
+  border-color: currentColor;
+  background-color: @g-color_asce_white;
+  &:hover,
+  &:focus {
+    color: @g-color_site_gray_dk;
+    background-color: mix(@g-color_asce_white, @g-color_site_gray_lt);
+  }
+  &:active {
+    color: @g-color_asce_black;
+    background-color: @g-color_site_gray_lt;
+    border-style: inset;
+  }
+}
+
+.c-Btn--hilite {
+  padding: @g-boxpadd_norm_v @g-boxpadd_kilo_h;
+  border-width: 2px;
+  .font-size-block(1.5);
+}
+
+.c-Btn--hero {
+  border: 2px solid;
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: transparent;
+  }
+  &:hover,
+  &:focus {
+    color: inherit;
+  }
+  &,
+  &:active {
+    color: lighten(@g-color_site_primary, 20%, relative);
+  }
+  &:active {
+    border-style: solid;
+  }
+}
+
+.c-Btn--hero2 {
+  border: 0;
+  background-color: @g-color_site_primary;
+  border-color: @g-color_site_primary;
+  color: @g-color_asce_white;
+  // &:hover,
+  // &:focus {
+  //   border-color: mix(@g-color_asce_white, @g-color_site_gray_lt); // same as border color of .c-Btn
+  // }
+  // &:active {
+  //   border-color: @g-color_site_gray_lt; // same as border color of .c-Btn
+  // }
+}
+
+.c-Btn--inline {
+  display: inline;
+  padding: 0 @g-boxpadd_micr_h;
+  font-size: 0.75em;
+  line-height: 0;
+  border-radius: 0.25em;
+}
+
+.c-Btn--drawer {
+  padding: @g-boxpadd_micr_v @g-boxpadd_mill_h;
+  border-style: solid;
+  border-radius: 0.5em;
+  color: @g-color_asce_white;
+  background-color: @g-color_site_secondary;
+  &:focus { outline: 0; } // override browser default
+  &:hover,
+  &:focus {
+    color: mix(@g-color_asce_white, @g-color_site_gray_lt);
+    background-color: @g-color_site_gray_dk;
+  }
+  &:active {
+    border-style: solid;
+    color: @g-color_site_gray_lt;
+    background-color: @g-color_asce_black;
+  }
+}
+.c-Btn--drawer--close {
+  position: absolute;
+  top: 0; right: 0;
+  z-index: 1;
+  margin: @g-boxpadd_mill;
+}

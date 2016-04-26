@@ -8,27 +8,49 @@
 //++++++++++++++++++++++++++++++++//
 //    # TYPOGRAPHY
 //++++++++++++++++++++++++++++++++//
+@g-fontfam_body: 'Open Sans',sans-serif;
+@g-fontfam_hn:   'Bitter',serif;
 //++++ end # TYPOGRAPHY ++++ //
 
 
 //++++++++++++++++++++++++++++++++//
 //    # BOX PADDING
 //++++++++++++++++++++++++++++++++//
-@g-boxpadding:   (0.125 * @g-vru) 0.25rem;
-@g-boxpadding_K: (0.250 * @g-vru) 0.50rem;
-@g-boxpadding_M: (0.500 * @g-vru) 1.00rem;
-@g-boxpadding_G: (1.000 * @g-vru) 2.00rem;
-@g-boxpadding_T: (2.000 * @g-vru) 4.00rem;
+@g-boxpadd_micr_h: 0.25rem; //   4px
+@g-boxpadd_mill_h: 0.50rem; //   8px
+@g-boxpadd_norm_h: 1.00rem; //  16px
+@g-boxpadd_kilo_h: 2.00rem; //  32px
+@g-boxpadd_mega_h: 3.00rem; //  48px
+@g-boxpadd_giga_h: 4.00rem; //  64px
+@g-boxpadd_tera_h: 6.00rem; //  96px
+@g-boxpadd_peta_h: 8.00rem; // 128px
+
+@g-boxpadd_micr_v: (@g-vru/8)   ; // 0.1875rem //  3px
+@g-boxpadd_mill_v: (@g-vru*0.25); // 0.3750rem //  6px
+@g-boxpadd_norm_v: (@g-vru*0.50); // 0.7500rem // 12px
+@g-boxpadd_kilo_v: (@g-vru*1.00); // 1.5000rem // 24px
+@g-boxpadd_mega_v: (@g-vru*1.50); // 2.2500rem // 36px
+@g-boxpadd_giga_v: (@g-vru*2.00); // 3.0000rem // 48px
+@g-boxpadd_tera_v: (@g-vru*3.00); // 4.5000rem // 72px
+@g-boxpadd_peta_v: (@g-vru*4.00); // 6.0000rem // 96px
+
+@g-boxpadd_micr: @g-boxpadd_micr_v @g-boxpadd_micr_h; //  3px   4px
+@g-boxpadd_mill: @g-boxpadd_mill_v @g-boxpadd_mill_h; //  6px   8px
+@g-boxpadd_norm: @g-boxpadd_norm_v @g-boxpadd_norm_h; // 12px  16px
+@g-boxpadd_kilo: @g-boxpadd_kilo_v @g-boxpadd_kilo_h; // 24px  32px
+@g-boxpadd_mega: @g-boxpadd_mega_v @g-boxpadd_mega_h; // 36px  48px
+@g-boxpadd_giga: @g-boxpadd_giga_v @g-boxpadd_giga_h; // 48px  64px
+@g-boxpadd_tera: @g-boxpadd_tera_v @g-boxpadd_tera_h; // 72px  96px
+@g-boxpadd_peta: @g-boxpadd_peta_v @g-boxpadd_peta_h; // 96px 128px
 //++++ end # BOX PADDING ++++ //
 
 
 //++++++++++++++++++++++++++++++++//
 //    # ASCE COMPANY COLORS
 //++++++++++++++++++++++++++++++++//
-@g-color_asce_primary: #0c5fa8;
-@g-color_asce_body_bg: #fff;
-@g-color_asce_body_txt: #333;
-@g-color_asce_header_txt: #fff;
+@g-color_asce_blue: #0c5fa8;
+@g-color_asce_black: #222;
+@g-color_asce_white: #fff;
 
 // ASCE table colors
 @g-color_asce_table_border:  #e8e8e8;
@@ -36,33 +58,7 @@
 
 // ASCE form colors
 @g-color_asce_form_bground: #f4f4f5;
-
-// ASCE button colors
-@g-color_asce_btn_bg: @g-color_asce_primary;
-@g-color_asce_btn_txt: #fff;
-@g-color_asce_btn_sw: #cdcdcd;
-
-// ASCE label colors --- see Label.less
-@g-color_asce_label_bg: @g-color_asce_primary;
-@g-color_asce_label_txt: @g-color_asce_header_txt;
-
-// ASCE inline hyperlink colors
-@g-color_asce_link: @g-color_asce_primary;
-@g-color_asce_link_hover: #19a1cf;
 //++++ end # ASCE COMPANY COLORS ++++ //
-
-
-//++++++++++++++++++++++++++++++++//
-//    # SPONSOR COLORS
-//++++++++++++++++++++++++++++++++//
-@g-color_platinum:  #cde1ec;
-@g-color_gold:      #f8cd79;
-@g-color_corporate: #9ed8f9;
-@g-color_silver:    #dbddde;
-@g-color_bronze:    #d9c5ac;
-@g-color_copper:    #d6a985; // CH chose this; may be changed at any time <charvey@asce.org>
-@g-color_coop_bg:   #e8eaeb; // bgcolor for coop orgs
-//++++ end # SPONSOR COLORS ++++ //
 
 
 //++++++++++++++++++++++++++++++++//

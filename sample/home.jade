@@ -1,39 +1,33 @@
-extends sample.tpl.jade
+extends internal.tpl.jade
 
 block append vars
-  - var page_type = 'home'
+  - var page_subtype = 'home'
+  - var page_name = 'Home'
 
-block main
-  section(itemscope="" itemtype="http://schema.org/Event")
-    header.o-BodyChild__Inv.c-Hero
-      h1.-d-n(itemprop="name") #{conference_name} Home
-      p(itemprop="description")= theme
-      +time-place()
-    +action-buttons()
-    section.this-is-editable
-      p: strong(style="color: red;") Editable section.
-      p.
-        More prose about this specific year goes here.
-        The Geo-Institute and Structural Engineering Institute of the
-        American Society of Civil Engineers are coming together to create this
-        first-of-its-kind event. By combining &hellip;
-      ul
-        li 3&frac12; days of premier educational and networking events
-        li 15 tracks and 6 plenary sessions focusing on ...
-        li Prestigious awards and keynote lecture presentations
-        li Lively programs for studdnts and young professionals
-    div.o-GridFlex
-      aside.o-GridFlex__Item.c-Callout
-        h1 Important Dates
-        +important-date-block()
-      aside.o-GridFlex__Item.c-Callout
-        h1 Keynote Speakers
-        div.o-GridFlex.c-Speaker
-          div.o-GridFlex__Item: img(src="/" alt="")
-          p.o-GridFlex__Item
-            span.o-Block Donald Trump, Ph.D.
-            span.o-Block Author, #[cite The Art of the Deal]
-        p
-          span Opening Plenary, 
-          time(datetime="2015-11-16") Monday Nov 16
-        p: a(href="") Speaker Details
+block main-header
+  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--home.c-Hero
+    +hero-content()
+    +actionbuttons([{text:'Register', href:'register.html'}, {text:'Sponsor', href:'sponsor.html'}, {text:'Submit a Paper'}], 'c-Btn c-Btn--hilite c-Btn--hero')
+
+block main-minimal
+  +minimal-text-block()
+
+block main-rich
+
+block callouts
+  aside.o-Runner.o-Runner--highlight.c-Banner
+    +important-date-content()
+  aside.o-Runner.o-Runner--highlight
+    +registration-content()
+  aside.o-Runner.o-Runner--highlight.c-Banner
+    +speakers-content()
+  aside.o-Runner.o-Runner--highlight
+    +cochairs-content()
+  aside.o-Runner.o-Runner--highlight.c-Banner
+    +program-content()
+  aside.o-Runner.o-Runner--highlight
+    +mobile-content()
+  aside.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--location
+    +location-content('Portland, OR')
+  aside.o-Runner.o-Runner--highlight
+    +social-content()

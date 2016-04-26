@@ -15,37 +15,19 @@ html(lang="en")
     meta(name="description" content=description)
     meta(name="keywords" content=keywords)
     block styles
-      link(rel="stylesheet" href="node_modules/xmeter/xmeter.min.css")
-      link(rel="stylesheet" href="node_modules/bangs/bangs.min.css")
-      link(rel="stylesheet" href="styles/styleguide.css")
+      link(rel="stylesheet" href="bower_components/xmeter/xmeter.min.css")
+      link(rel="stylesheet" href="bower_components/bangs/bangs.min.css")
   body
-    main&attributes(main_itemtype ? {itemscope: '', itemtype: main_itemtype} : {})
+    main
       block main
         header
           block main__header
-            h1&attributes(main_itemtype ? {itemprop: 'name headline'} : {})
-              = mainH1(titles)
-            if docmeta
-              dl._docmeta
-                dt Authors
-                each author in authors
-                  dd(itemprop="author")= author
-                dt Description
-                dd(itemprop="description")= description
-                dt Keywords
-                each keyword in keywords
-                  dd(itemprop="keywords")= keyword
-                dt Version History
-                block version_history
+            h1= mainH1(titles)
     footer
       block footer
         nav
           h1 Sitemap
           ol
             li: a(href="index.html") Home
-            li: a(href="coding.html") Coding Style
-            li: a(href="writing.html") Writing Style
-            li: a(href="visual.html") Visual Style
             li: a(href="lib/index.html") Pattern Library
-            li: a(href="struct.html" rel="this") File Structure
             li: a(href="sample/index.html") Sample Site

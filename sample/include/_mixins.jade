@@ -1,0 +1,187 @@
+mixin actionbuttons(arr, classes)
+  ul.o-ListBare.o-GridFlex.o-ListStacked
+    each obj in arr
+      - obj.attrs = obj.attrs || {}
+      li.o-GridFlex__Item.o-ListStacked__Item
+        a(class=classes href=obj.href)&attributes(obj.attrs)= obj.text
+
+mixin hero-content()
+  h1.c-PageTitle.c-Hero__Name(itemprop="name")= conference_name
+  p.c-Hero__Detail
+    span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+      span(itemprop="name")
+        span(itemprop="addressLocality") Portland, 
+        abbr(itemprop="addressRegion" title="Oregon") OR
+    span.c-Hero__Dates
+      time(datetime="2016-09-28" itemprop="startDate") Sep 28
+      | &ndash;
+      time(datetime="2016-10-01" itemprop="endDate") Oct 1
+  p.c-Hero__Theme(itemprop="description")= conference_theme
+
+mixin important-date-content()
+  h1 Important Dates
+  dl.c-DateBlock
+    mixin row(year, month, day, datetime, description, url)
+      dt.c-DateBlock__Date
+        time(datetime=datetime)= month + ', ' + day + ' ' + year
+      dd.c-DateBlock__Desc
+        if url
+          a.o-Inline.c-DateBlock__Link(href=url)= description
+        else
+          = description
+    +row('2015','Oct','12', '2015-10-12','Optional Final Papers Due')
+    +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes', 'register.html')
+    +row('2016','Jan','12', '2016-01-12','Advance Registration Closes', 'register.html')
+    +row('2016','Jun','12', '2016-06-12','Convention Begins')
+
+mixin registration-content()
+  h1 Registration
+  p registration content goes here
+  +actionbuttons([{text:'Register', href:'register.html'}], 'c-Btn c-Btn--hilite')
+
+mixin num-speakers(n)
+  ul.o-ListBare.o-GridFlex.o-ListSpeakers
+    - for (var i = 0; i < n; i++)
+      li.o-GridFlex__Item.o-ListSpeakers__Item.c-Speaker
+        p.c-Speaker__Name Donna Fulman, P.ASCE
+        p.c-Speaker__JobTitle Interior Engineering Administration
+        div.o-ListSpeakers__Over.c-Speaker__Desc
+          p Tobias van Schneider is an award-winning, German designer raised in Austria and currently living in New York City.
+          p Former Lead Product Designer and Art Director at Spotify, he recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
+          p
+            a.c-Speaker__Link(href="") Email
+            a.c-Speaker__Link(href="") LinkedIn
+            a.c-Speaker__Link(href="") Twitter
+
+mixin speakers-content()
+  h1 Speakers
+  +num-speakers(3)
+  +actionbuttons([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
+
+mixin cochairs-content()
+  h1 Conference Co-Chairs
+  ul.o-ListBare
+    li #[b Thomas J. McCollough], P.E., M.ASCE
+    li #[b Stephen E. Dickenson], Ph.D., P.E., D.PE, M.ASCE
+
+mixin program-content()
+  h1 Program Highlights
+  mixin program-block(classes, datetext, data)
+    section.o-GridFlex__Item(class=classes)
+      h1= datetext
+      dl.o-GridFlex.c-TimeBlock
+        mixin row(starttime, endtime, description)
+          dt.o-GridFlex__Item
+            span= starttime
+            | –
+            span= endtime
+          dd.o-GridFlex__Item= description
+        each val in data
+          +row(val.starttime, val.endtime, val.description)
+  div.o-GridFlex
+    +program-block(['o-GridFlex__Item','-w-1o2'], 'Wednesday, April 5', [
+      { starttime: '7am', endtime: 'Noon', description: 'General Services Contractor Setup' }
+    , { starttime: '8am', endtime: '11pm', description: 'Committee Meetings' }
+    , { starttime: 'Noon', endtime: '6pm', description: 'Registration & ASCE Bookstore Hours' }
+    ])
+    +program-block(['o-GridFlex__Item','-w-1o2'], 'Thursday, April 6', [
+      { starttime: '07:00', endtime: '08:00', description: 'Continental Breakfast' }
+    , { starttime: '09:30', endtime: '10:00', description: 'Morning Refreshment Break' }
+    , { starttime: '18:30', endtime: '20:00', description: 'Welcome Reception' }
+    ])
+  +actionbuttons([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
+
+mixin mobile-content()
+  h1 Plan, Engage, Connect
+  p.-ta-c Enhance your conference experience with our mobile app.
+  +actionbuttons([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
+
+mixin social-content()
+  h1 Join the Conversation
+  p.-ta-c Follow ASCE on social media for real-time conversation.
+  p: mark.
+    #[strong Note:]
+    Each social icon will be a white logo inside a transparent circle, all in
+    a white "circle-in-square" thing.
+    #[code background-color] will be dark gray, and secondary color on hover.
+    (Use conference color scheme.)
+  p: mark.
+    #[strong Question:] size of logos? how far spaced apart?
+  ul.o-ListBare.o-GridFlex.c-SocialList
+    li.o-GridFlex__Item.c-SocialList__Item
+      a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")
+    li.o-GridFlex__Item.c-SocialList__Item
+      a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" title="Follow #ASCE2016 on Google+")
+    li.o-GridFlex__Item.c-SocialList__Item
+      a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" title="Follow #ASCE2016 on Facebook")
+
+mixin location-content(heading)
+  //- heading is moved into inner div
+  div.c-Overlay
+    h1= heading
+    p With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
+    +actionbuttons([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
+
+mixin contact-content()
+  form
+    label
+      | name
+      input(type="text")
+    label
+      | email
+      input(type="email")
+    label
+      | message
+      textarea
+    button submit
+
+mixin sponsor-content()
+  mixin sponsor-block(category, category_class, spons)
+    section.o-Runner.o-Runner--highlight.c-SponsorBlock(class='c-SponsorBlock--'+category_class)
+      h1= category
+      ul.o-ListBare.o-GridFlex.o-ListSponsors
+        each item in spons
+          if (category_class !== 'bronze') && (category_class !== 'copper')
+            - var logosizes = { premier: 'lrg', platinum: 'lrg', gold: 'med', corporate: 'sml', silver: 'sml' }
+            li.o-GridFlex__Item.o-ListSponsors__Item
+              a.o-Block.o-ListSponsors__Logo.c-SponsorBlock__Logo(class='o-ListSponsors__Logo--'+logosizes[category_class] href="" title=item.name style='background-image: url(\'' + item.url + '\');')
+          else
+            li.o-GridFlex__Item.o-ListSponsors__Item
+              a.o-ListSponsors__Text.c-SponsorBlock__Text(href="")= item.name
+  - var sponsors = [ { name: 'Bank of America', url: 'img/logo-bank-america.png' }, { name: 'UPS', url: 'img/logo-ups.png' }, { name: 'Geico', url: 'img/logo-geico.png' } ]
+  +sponsor-block('Premier', 'premier', sponsors)
+  +sponsor-block('Platinum', 'platinum', sponsors)
+  +sponsor-block('Gold', 'gold', sponsors)
+  +sponsor-block('Corporate Sponsors', 'corporate', sponsors)
+  +sponsor-block('Silver', 'silver', sponsors)
+  +sponsor-block('Bronze', 'bronze', sponsors)
+  +sponsor-block('Copper', 'copper', sponsors)
+
+mixin minimal-text-block()
+  div.o-Runner--highlight.minimal-text
+    p.
+      Join civil engineering professionals from around the world at
+      this ASCE flagship event. Network with peers, earn PDHs, and
+      expand your knowledge base.
+    p #[a(href="") Lorem ipsum dolor sit amet], consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    ul
+      li 3&frac12; days of premier educational and networking events
+      li 15 tracks and 6 plenary sessions focusing on ...
+      li Prestigious awards and keynote lecture presentations
+      li Lively programs for studdnts and young professionals
+
+mixin rich-text-block()
+  div.o-Runner--highlight.rich-text
+    h2 a heading
+    p #[a(href="") Lorem ipsum dolor sit amet], consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    h3 another heading
+    blockquote #[a(href="") Aenean euismod bibendum laoreet]. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
+    ul
+      li 3&frac12; days of premier educational and networking events
+      li 15 tracks and 6 plenary sessions focusing on ...
+      li Prestigious awards and keynote lecture presentations
+      li Lively programs for studdnts and young professionals
+    h2 a heading
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    h3 another heading
+    blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.

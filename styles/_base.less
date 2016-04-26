@@ -3,6 +3,7 @@
     conf  |  _base.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.borders.less');
 @import (reference) url('__settings.less');
 
 
@@ -27,8 +28,17 @@
 //    # SECTIONS
 //++++++++++++++++++++++++++++++++//
 body {
-  font-family: 'Open Sans','Helvetica Neue','Arial',sans-serif;
-  color: @g-color_asce_body_txt;
+  font-family: @g-fontfam_body;
+  background: @g-color_asce_white;
+  color: @g-color_asce_black;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: @g-fontfam_hn;
+  font-weight: 900;
+  color: @g-color_site_primary;
+}
+h1 {
+  text-align: center;
 }
 //++++ end # SECTIONS ++++//
 
@@ -39,7 +49,6 @@ body {
   //--------------------------------//
   //    # Paragraphs
   //--------------------------------//
-
   //---- end # Paragraphs ----//
 
   //--------------------------------//
@@ -83,10 +92,14 @@ body {
   //    # Links
   //--------------------------------//
   a {
-    color: @g-color_asce_link;
+    color: @g-color_site_secondary;
     &:hover,
     &:focus {
-      color: @g-color_asce_link_hover;
+      color: @g-color_site_gray_lt;
+      // .filter(blur(1px));
+    }
+    &:active {
+      color: inherit;
     }
   }
   //---- end # Links ----//
@@ -104,7 +117,6 @@ body {
   //--------------------------------//
   //    # Data
   //--------------------------------//
-
   //---- end # Data ----//
 
 //++++ end # TEXT ++++//

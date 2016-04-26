@@ -11,9 +11,11 @@ block append main
     design needs. Each demo also has accompanying example code to show its proper use.
   p.
     #[strong Note:] On these pages, component demos and example code will be
-    placed in #[code.sg-c-Code &lt;figure&gt;] elements to separate them from the surrounding documentation.
+    placed in #[code &lt;figure&gt;] elements to separate them from the surrounding documentation.
   nav
     h2 Table of Contents
+    section
+      h3: a(href="visual.html") Visual Design
     section
       h3: a(href="base.html") Base Typography
       p Bare, unstyled HTML elements. No classes.
@@ -38,11 +40,32 @@ block append main
         li The Bare List
         li The Flex Grid
         li The Float Grid
+        li The Runner Object
+        li The Sponsors List
+        li The Speakers List
+        li The Pass List
     section
-      h3 Components
+      h3: a(href="comp.html") Components
       p Patterns of look-and-feel that are each only used for one purpose.
       ol
-        li: section
+        li The Masthead and Mastfoot
+        li The Site Title
+        li The Universal Menu
+        li The Social List
+        li The Standard Menu
+        li The Sub Menu
+        li The Sitemap Component
+        li The Page Title
+        li The Banner Component
+        li The Hero Block
+        li The Other Year Block
+        li The Overlay Component
+        li The Sponsor Block
+        li The Date Block
+        li The Speaker Component
+        li The Pass Component
+        li Buttons
+        //- li: section
           h4: a(href="comp-typo.html") Typographical Components
           p Static, textual content. No user interaction or functionality.
           ol
@@ -69,7 +92,7 @@ block append main
                 li Dates Callout
                 li Sponsors Callout
             li Summary Banner
-        li: section
+        //- li: section
           h4: a(href="comp-ui.html") UI (user-interactive) Components
           p Dynamic, user-interactive, visually identifiable, functional, and even pretty.
           ol

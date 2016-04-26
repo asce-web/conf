@@ -1,0 +1,29 @@
+extends sample.tpl.jade
+
+block append vars
+  - var page_type = 'universal'
+
+block title
+  title= ((page_subtype === 'landing') ? '' : page_name + ' | ') + site_title
+
+block site-map
+  footer.o-Runner.c-Mast: nav
+    h1.-d-n Site Map
+    ul.o-ListBare.o-GridFlex.c-Sitemap
+      li.o-GridFlex__Item.c-Sitemap__Item
+        a(href="index.html") ASCE Convention
+      li.o-GridFlex__Item.c-Sitemap__Item
+        a(href="about.html") About
+        ul.o-ListBare
+          li.c-Sitemap__SubItem: a(href="") Cooperating Orgs
+          li.c-Sitemap__SubItem: a(href="") Partnering Orgs
+          li.c-Sitemap__SubItem: a(href="") Volunteer
+          li.c-Sitemap__SubItem: a(href="") Why Attend
+      li.o-GridFlex__Item.c-Sitemap__Item
+        a(href="sponsor.html") Sponsor
+      li.o-GridFlex__Item.c-Sitemap__Item
+        a(href="exhibit.html") Exhibit
+        ul.o-ListBare
+          li.c-Sitemap__SubItem: a(href="") Exhibitor List
+      li.o-GridFlex__Item.c-Sitemap__Item
+        a(href="contact.html") Contact

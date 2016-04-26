@@ -2,11 +2,24 @@
 /*################################*\
     conf  |  _atom.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
 
 
 //++++++++++++++++++++++++++++++++//
 //    # COLORS
 //++++++++++++++++++++++++++++++++//
+  //--------------------------------//
+  //    # Display
+  //--------------------------------//
+  @media screen and (min-width: 52em) {
+    .-d-n-s52em {
+      display: none !important;
+    }
+    .-d-fx-s52em {
+      .flexbox() !important;
+    }
+  }
+  //---- end # Display ----//
   //--------------------------------//
   //    # Background colors
   //--------------------------------//

@@ -57,9 +57,7 @@ a.c-Btn {
 }
 
 .c-Btn--hero {
-  @color: lighten(@g-color_site_primary, 15%);
   border: 2px solid;
-  color: @color;
   &,
   &:hover,
   &:focus,
@@ -70,9 +68,12 @@ a.c-Btn {
   &:focus {
     color: inherit;
   }
+  &,
+  &:active {
+    color: lighten(@g-color_site_primary, 20%, relative);
+  }
   &:active {
     border-style: solid;
-    color: @color;
   }
 }
 

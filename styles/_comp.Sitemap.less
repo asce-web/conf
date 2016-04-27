@@ -22,7 +22,9 @@
 }
 .c-Sitemap__Item {
   @media screen and (max-width: 44.999em) {
-    margin-bottom: @g-vru;
+    &:not(:last-child) {
+      margin-bottom: @g-vru;
+    }
   }
   @media screen and (min-width: 45em) {
     width: auto;

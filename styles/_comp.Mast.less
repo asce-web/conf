@@ -2,6 +2,7 @@
 /*################################*\
     conf  |  _comp.Mast.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.module.borders.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('__settings.less');
 
@@ -41,6 +42,8 @@
 // ^updated
 // 2016-03-01
 .c-Mast--copyright {
+  .border-vert(top; 2px);
+  border-color: @g-color_site_primary;
   text-align: center;
   background-image: none; // this is the ASCE logo
 }

@@ -45,7 +45,8 @@ html(lang="en")
         }
   body
     include include/_mixins.jade
-    header.o-GridFlex.o-Runner.c-Mast.-xw-n.-xjc-sb.-xai-c
+    header.o-Runner.c-Mast: div.o-GridFlex.-xw-n.-xjc-sb.-xai-c
+      // this div wraps content for enforcing max-width
       a.o-GridFlex__Item.o-Block.c-SiteTitle(href="index.html")
         h1= site_title
         p= site_tagline

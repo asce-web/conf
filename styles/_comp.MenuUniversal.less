@@ -3,6 +3,7 @@
     conf  |  _comp.MenuUniversal.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('__settings.less');
 
 
@@ -19,42 +20,45 @@
 // ^updated
 // 2016-04-19
 .c-MenuUniversal {
-  .flex-align-content(flex-start); // override 'stretch'
-  margin-bottom: 0;
-  color: @g-color_asce_white;
-  @media screen and (max-width: 44.999em) {
+  // all menu bar typographic styles
+  // TODO consider moving to new component?
+    .font-size-block(14/16);
+    font-weight: 600;
+    text-transform: uppercase;
+  // end menu bar styles
+  .flex-align-content(flex-start); // override 'stretch' // for mobile drawer menu
+  z-index: 2; // over hero and sub menus
+  // max-width: 25rem; // 52 rems == 25 (the width) * 2 + 2 (Runner padding in the sM space)
+  margin-bottom: 0; // override `ul`
+  @media screen and (max-width: 51.999em) {
     position: fixed;
     right: 0; top: 0;
-    z-index: 10;
-    width: 10em;
+    width: 12rem;
     height: 100%;
     background-color: @g-color_site_gray_lt;
+    a {
+      &:hover,
+      &:focus,
+      &:active {
+        color: @g-color_site_gray_lt;
+        background-color: @g-color_asce_white;
+      }
+    }
   }
 }
 .c-MenuUniversal__Item {
-  margin: @g-boxpadd_micr;
-  @media screen and (min-width: 45em) {
+  @media screen and (min-width: 52em) {
     width: auto;
   }
 }
 .c-MenuUniversal__Link {
   padding: @g-boxpadd_mill;
-  @media screen and (max-width: 44.999em) {
-    &:hover,
-    &:focus {
-      background-color: #fff;
-    }
-    &:active {
-      background-color: #fff;
-      color: @g-color_site_gray_lt;
-    }
-  }
 }
-.c-MenuUniversal__Link--current {
+a.c-MenuUniversal__Link--current {
   background-color: @g-color_site_primary;
   &:hover,
-  &:focus,
-  &:active {
-    color: @g-color_asce_black;
+  &:focus {
+    color: @g-color_site_gray_dk;
   }
+  &:active { color: inherit; } // duplicating due to :hover
 }

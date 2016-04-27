@@ -2,26 +2,30 @@
 /*################################*\
     conf  |  _comp.OtherYear.less
 \*################################*/
-// @import (reference) url('__settings.less');
+// @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 
 
 // advertisement for another year’s conference
 //
 // ^subcomponents
-// __Title - name of prev/next conferences
-// __Place - place of prev/next conferences
+// __Name - name of prev/next conferences
+// __Detail - place and/or dates of prev/next conferences
 // __Desc  - small description of prev/next conferences
 // ^author
 // Chris Harvey
 // ^updated
 // 2016-04-22
 .c-OtherYear {
+  text-align: center;
 }
 
-.c-OtherYear__Title {
+.c-OtherYear__Name {
 }
 
-.c-OtherYear__Place {
+.c-OtherYear__Detail {
+  .font-size-block(1.5);
+  font-weight: 600;
 }
 
 .c-OtherYear__Desc  {

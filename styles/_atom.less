@@ -2,3 +2,33 @@
 /*################################*\
     conf  |  _atom.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+
+
+//++++++++++++++++++++++++++++++++//
+//    # COLORS
+//++++++++++++++++++++++++++++++++//
+  //--------------------------------//
+  //    # Display
+  //--------------------------------//
+  @media screen and (min-width: 52em) {
+    .-d-n-s52em {
+      display: none !important;
+    }
+    .-d-fx-s52em {
+      .flexbox() !important;
+    }
+  }
+  //---- end # Display ----//
+  //--------------------------------//
+  //    # Background colors
+  //--------------------------------//
+  .-bc-asce_black { background-color: @g-color_asce_black; }
+  .-bc-asce_white { background-color: @g-color_asce_white; }
+  .-bc-asce_blue  { background-color: @g-color_asce_blue ; }
+  .-bc-site_primary   { background-color: @g-color_site_primary  ; }
+  .-bc-site_secondary { background-color: @g-color_site_secondary; }
+  .-bc-site_gray_dk   { background-color: @g-color_site_gray_dk  ; }
+  .-bc-site_gray_lt   { background-color: @g-color_site_gray_lt  ; }
+  //---- end # Background colors ----//
+//++++ end # COLORS ++++//

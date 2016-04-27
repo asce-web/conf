@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700,800|Bitter:400,400italic,700');
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
     conf
@@ -24,11 +25,9 @@
  * # TABLE OF CONTENTS
  *
  * settings.......................variables
- * conf-colors....................conference-specific, year-specific color schemes
  *
  * ## TOOLS
  * border-radius..................useful mixins for grouping border-radii
- * list-pairs.....................generates list object with pairs of children
  *
  * ## BASE........................bare, unclassed elements
  *
@@ -38,7 +37,6 @@
  * ListBare.......................plain, unstyled, blocky list
  * GridFlex.......................grid of items
  * GridFloat......................grid of items; legacy support
- * Highlight......................a main section of a page or repeatable aside block
  * Runner.........................header and footer
  * ListStacked....................row of stackable items
  * ListSponsors...................list of sponsor logos/links
@@ -51,8 +49,10 @@
  * SocialList.....................list of social media icons
  * MenuStandard...................top-level navigation for a conference
  * MenuSub........................secondary-level navigation for a conference
- * PageHeader.....................header for a page
- * Banner.........................highlighted feature with a background image
+ * Sitemap........................sitemap for universal or internal sites
+ * PageTitle......................title of entire page
+ * Banner.........................full-width block with a background image
+ * Hero...........................advertisment for current year conference
  * OtherYear......................advertisment for other year conference
  * Overlay........................a translucent slide inside a banner
  * SponsorBlock...................block containing one level of sponsors
@@ -75,10 +75,8 @@
  */
 
 @import url('__settings.less');
-@import url('__settings.conf-colors.less');
 
 @import url('__tool.module.border-radius.less');
-@import url('__tool.module.list-pairs.less');
 
 @import url('_base.less');
 
@@ -87,7 +85,6 @@
 @import url('_obj.ListBare.less');
 @import url('_obj.GridFlex.less');
 @import url('_obj.GridFloat.less');
-@import url('_obj.Highlight.less');
 @import url('_obj.Runner.less');
 @import url('_obj.ListStacked.less');
 @import url('_obj.ListSponsors.less');
@@ -98,8 +95,10 @@
 @import url('_comp.SocialList.less');
 @import url('_comp.MenuStandard.less');
 @import url('_comp.MenuSub.less');
-@import url('_comp.PageHeader.less');
+@import url('_comp.Sitemap.less');
+@import url('_comp.PageTitle.less');
 @import url('_comp.Banner.less');
+@import url('_comp.Hero.less');
 @import url('_comp.OtherYear.less');
 @import url('_comp.Overlay.less');
 @import url('_comp.SponsorBlock.less');
@@ -111,7 +110,7 @@
 @import url('_comp.DateBlock.less');
 @import url('_comp.Speaker.less');
 
-// @import url('_atom.less');
+@import url('_atom.less');
 
 // @import url('_shame.less');
 

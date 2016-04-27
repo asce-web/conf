@@ -1,0 +1,25 @@
+
+/*################################*\
+    conf  |  _comp.Sitemap.less
+\*################################*/
+
+
+// Sitemap for universal or internal sites.
+//
+// ^Subcomponents:
+// __Item    - each item in the list
+// __SubItem - an item within a list within an item
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-04-24
+.c-Sitemap {
+  .flex-justify-content(space-around);
+  margin-bottom: 0; // override ul
+}
+.c-Sitemap__Item {
+  width: auto; // override .o-GridFlex__Item
+}
+.c-Sitemap__SubItem {
+  text-indent: 1rem;
+}

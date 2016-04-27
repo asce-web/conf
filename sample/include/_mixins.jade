@@ -1,12 +1,3 @@
-mixin action-buttons(arr, vanity)
-  ul.o-ListBare.o-GridFlex.o-ListStacked
-    each str in arr
-      li.o-GridFlex__Item.o-ListStacked__Item
-        if vanity
-          span= str
-        else
-          a(href="")= str
-
 mixin actionbuttons(arr, classes)
   ul.o-ListBare.o-GridFlex.o-ListStacked
     each obj in arr
@@ -14,27 +5,34 @@ mixin actionbuttons(arr, classes)
       li.o-GridFlex__Item.o-ListStacked__Item
         a(class=classes href=obj.href)&attributes(obj.attrs)= obj.text
 
-mixin date-place()
-  p.o-GridFlex.o-ListStacked.-xjc-c
-    span.o-GridFlex__Item.o-Block.o-ListStacked__Item(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+mixin hero-content()
+  h1.c-PageTitle.c-Hero__Name(itemprop="name")= conference_name
+  p.c-Hero__Detail
+    span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
       span(itemprop="name")
         span(itemprop="addressLocality") Portland, 
         abbr(itemprop="addressRegion" title="Oregon") OR
-    span.o-GridFlex__Item.o-Block.o-ListStacked__Item
+    span.c-Hero__Dates
       time(datetime="2016-09-28" itemprop="startDate") Sep 28
       | &ndash;
       time(datetime="2016-10-01" itemprop="endDate") Oct 1
+  p.c-Hero__Theme(itemprop="description")= conference_theme
 
 mixin important-date-content()
-  dl.o-GridFlex.c-DateBlock
-    mixin row(year, month, day, datetime, description)
-      dt.o-GridFlex__Item: time.o-Block(datetime=datetime)
-        span.o-Block= month + ' ' + day
-        span.o-Block= year
-      dd.o-GridFlex__Item= description
+  h1 Important Dates
+  dl.c-DateBlock
+    mixin row(year, month, day, datetime, description, url)
+      dt.c-DateBlock__Date
+        time(datetime=datetime)= month + ', ' + day + ' ' + year
+      dd.c-DateBlock__Desc
+        if url
+          a.o-Inline.c-DateBlock__Link(href=url)= description
+        else
+          = description
     +row('2015','Oct','12', '2015-10-12','Optional Final Papers Due')
-    +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes')
-    +row('2016','Jan','12', '2016-01-12','Advance Registration Closes')
+    +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes', 'register.html')
+    +row('2016','Jan','12', '2016-01-12','Advance Registration Closes', 'register.html')
+    +row('2016','Jun','12', '2016-06-12','Convention Begins')
 
 - var student = { name:'Student Pass', description:'Undergraduates 18–24'}
 - var standard = { name:'Standard Pass', description:'Members & Non-Members'}
@@ -72,6 +70,7 @@ mixin pass(type)
           dd.c-Pass__Price $945
 
 mixin registration-content()
+  h1 Registration
   ul.o-ListBare.o-GridFlex.o-ListPass
     li.o-GridFlex__Item.o-ListPass__Item: +pass(student)
     li.o-GridFlex__Item.o-ListPass__Item: +pass(standard)
@@ -93,17 +92,18 @@ mixin num-speakers(n)
             a.c-Speaker__Link(href="") Twitter
 
 mixin speakers-content()
+  h1 Speakers
   +num-speakers(3)
   +actionbuttons([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
 
 mixin cochairs-content()
-  ul.o-ListBare.o-GridFlex.o-ListStacked
-    each val in [1,2]
-      li.o-GridFlex__Item.o-ListStacked__Item.c-Speaker
-        p.c-Speaker__Name Donald Trump, Ph.D.
-        p.c-Speaker__JobTitle Author, #[cite The Art of the Deal]
+  h1 Conference Co-Chairs
+  ul.o-ListBare
+    li #[b Thomas J. McCollough], P.E., M.ASCE
+    li #[b Stephen E. Dickenson], Ph.D., P.E., D.PE, M.ASCE
 
 mixin program-content()
+  h1 Program Highlights
   mixin program-block(classes, datetext, data)
     section.o-GridFlex__Item(class=classes)
       h1= datetext
@@ -129,7 +129,32 @@ mixin program-content()
     ])
   +actionbuttons([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
 
+mixin mobile-content()
+  h1 Plan, Engage, Connect
+  p.-ta-c Enhance your conference experience with our mobile app.
+  +actionbuttons([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
+
+mixin social-content()
+  h1 Join the Conversation
+  p.-ta-c Follow ASCE on social media for real-time conversation.
+  p: mark.
+    #[strong Note:]
+    Each social icon will be a white logo inside a transparent circle, all in
+    a white "circle-in-square" thing.
+    #[code background-color] will be dark gray, and secondary color on hover.
+    (Use conference color scheme.)
+  p: mark.
+    #[strong Question:] size of logos? how far spaced apart?
+  ul.o-ListBare.o-GridFlex.c-SocialList
+    li.o-GridFlex__Item.c-SocialList__Item
+      a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")
+    li.o-GridFlex__Item.c-SocialList__Item
+      a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" title="Follow #ASCE2016 on Google+")
+    li.o-GridFlex__Item.c-SocialList__Item
+      a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" title="Follow #ASCE2016 on Facebook")
+
 mixin location-content(heading)
+  //- heading is moved into inner div
   div.c-Overlay
     h1= heading
     p With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
@@ -150,7 +175,7 @@ mixin contact-content()
 
 mixin sponsor-content()
   mixin sponsor-block(category, category_class, spons)
-    section.o-Highlight.c-SponsorBlock(class='c-SponsorBlock--'+category_class)
+    section.o-Runner.o-Runner--highlight.c-SponsorBlock(class='c-SponsorBlock--'+category_class)
       h1= category
       ul.o-ListBare.o-GridFlex.o-ListSponsors
         each item in spons
@@ -171,12 +196,12 @@ mixin sponsor-content()
   +sponsor-block('Copper', 'copper', sponsors)
 
 mixin minimal-text-block()
-  div.o-Highlight.minimal-text
+  div.o-Runner--highlight.minimal-text
     p.
       Join civil engineering professionals from around the world at
       this ASCE flagship event. Network with peers, earn PDHs, and
       expand your knowledge base.
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    p #[a(href="") Lorem ipsum dolor sit amet], consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
     ul
       li 3&frac12; days of premier educational and networking events
       li 15 tracks and 6 plenary sessions focusing on ...
@@ -184,11 +209,11 @@ mixin minimal-text-block()
       li Lively programs for studdnts and young professionals
 
 mixin rich-text-block()
-  div.o-Highlight.rich-text
+  div.o-Runner--highlight.rich-text
     h2 a heading
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    p #[a(href="") Lorem ipsum dolor sit amet], consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
     h3 another heading
-    blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
+    blockquote #[a(href="") Aenean euismod bibendum laoreet]. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
     ul
       li 3&frac12; days of premier educational and networking events
       li 15 tracks and 6 plenary sessions focusing on ...

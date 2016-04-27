@@ -2,10 +2,8 @@
 /*################################*\
     conf  |  _comp.Banner.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
 // @import (reference) url('../node_modules/xmeter/src/__tool.fallback.filter.less');
 @import (reference) url('__settings.less');
-@import (reference) url('__settings.conf-colors.less');
 
 
 .filter(@filter) {
@@ -15,6 +13,7 @@
        -o-filter: @filter;
           filter: @filter;
 }
+
 // Any major section on any page with a full-width background image.
 //
 // ^subclasses
@@ -31,8 +30,7 @@
 // ^updated
 // 2016-04-22
 .c-Banner {
-  position: relative;
-  background: transparent; // override `c-PageHeader`
+  position: relative; // for ::before
   color: @g-color_asce_white;
   &::before {
     // need `::before` for filter effects
@@ -55,16 +53,12 @@
 .c-Banner--location,
 .c-Banner--prev,
 .c-Banner--next {
-  text-align: center;
 }
 .c-Banner--landing,
 .c-Banner--home {
   &::before {
     .filter(blur(2px) brightness(0.75));
   }
-}
-.c-Banner--location {
-  min-height: 9*@g-vru;
 }
 // override background-image in site-specific stylesheet
 .c-Banner--landing::before {}

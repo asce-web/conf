@@ -17,3 +17,19 @@
 .c-Banner--location::before { background-image: url('../img/portland.jpg'); }
 .c-Banner--prev::before     { background-image: url('../img/new-york-city.jpg'); }
 .c-Banner--next::before     { background-image: url('../img/cable-stayed-bridge.jpg'); }
+
+.c-SiteTitle {
+  padding-left: 140px; // HACK fudged
+  background-image: url('../img/site-logo-white.png');
+  h1 {
+    background-image: url('../img/site-title-2016.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: transparent;
+  }
+}
+
+.c-Btn--hero {
+  @p-color_site_primary: #3fae2a;
+  color: lighten(@p-color_site_primary, 50%, relative);
+}

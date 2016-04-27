@@ -10,10 +10,11 @@
 // (e.g. Student, Speaker, Standard, etc.)
 //
 // ^subclasses
-// --hero   - for action button(s) in hero section
-// --hero2  - alternate hero button
 // --hilite - for singular button in highlight block
 // --inline - for buttons inline with text
+// --hero     - for action button(s) in hero section
+// --hero2    - alternate hero button
+// --dominant - button for some other primary use
 // --drawer - universal menu button in site masthead
 // ^author
 // Chris Harvey
@@ -53,7 +54,15 @@ a.c-Btn {
 .c-Btn--hilite {
   padding: @g-boxpadd_norm_v @g-boxpadd_kilo_h;
   border-width: 2px;
-  .font-size-block(1.5);
+  .font-size-el(1.5);
+}
+
+.c-Btn--inline {
+  display: inline;
+  padding: 0 @g-boxpadd_micr_h;
+  font-size: 0.75em;
+  line-height: 0;
+  border-radius: 0.25em;
 }
 
 .c-Btn--hero {
@@ -75,6 +84,12 @@ a.c-Btn {
   }
 }
 
+.c-Btn--dominant {
+  color: @g-color_asce_white;
+  background-color: @g-color_site_secondary;
+  font-style: italic;
+}
+
 .c-Btn--hero2 {
   border: 0;
   background-color: @g-color_site_primary;
@@ -89,21 +104,12 @@ a.c-Btn {
   // }
 }
 
-.c-Btn--inline {
-  display: inline;
-  padding: 0 @g-boxpadd_micr_h;
-  font-size: 0.75em;
-  line-height: 0;
-  border-radius: 0.25em;
-}
-
 .c-Btn--drawer {
   padding: @g-boxpadd_micr_v @g-boxpadd_mill_h;
   border-style: solid;
   border-radius: 0.5em;
   color: @g-color_asce_white;
   background-color: @g-color_site_secondary;
-  &:focus { outline: 0; } // override browser default
   &:hover,
   &:focus {
     color: mix(@g-color_asce_white, @g-color_site_gray_lt);

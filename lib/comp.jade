@@ -378,21 +378,32 @@ block append main
         &lt;/article&gt;
   section.sg-sect#buttons
     h2 Buttons
-    p Generic, general purpose buttons: #[code .c-Btn]
+    p #[strong Important:] colors will vary by site.
+    p Generic, general purpose buttons.
     figure.sg-c-Fig
       div(style="margin-bottom:1.5rem;"): a.c-Btn generic button
       pre.
         &lt;div&gt;
           &lt;a class="#[u c-Btn]"&gt;generic button&lt;/a&gt;
         &lt;/div&gt;
-    p Highlight buttons, for singular button in highlight block: #[code .c-Btn.c-Btn--hilite]
+    p Highlight buttons, for large buttons in highlight block.
     figure.sg-c-Fig
       div(style="margin-bottom:1.5rem;"): a.c-Btn.c-Btn--hilite highlight button
       pre.
         &lt;div&gt;
           &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;highlight button&lt;/a&gt;
         &lt;/div&gt;
-    p Hero button, for action button(s) in hero section: #[code .c-Btn.c-Btn--hero]
+    p Inline buttons, for buttons inline with text.
+    figure.sg-c-Fig
+      p.
+        The following button,
+        #[a.c-Btn.c-Btn--inline inline button],
+        is inline with the text in this paragraph.
+      pre.
+        &lt;p&gt;The following button,
+          &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
+          is inline with the text in this paragraph.&lt;/p&gt;
+    p Hero button, for action button(s) in hero section.
     figure.sg-c-Fig
       div(style="margin-bottom: 1.5rem;")
         a.c-Btn.c-Btn--hero hero button
@@ -409,17 +420,19 @@ block append main
           &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button inside a banner&lt;/a&gt;
           &lt;a class="#[u c-Btn]  #[u c-Btn--hero2]"&gt;hero2 button inside a banner&lt;/a&gt;
         &lt;/div&gt;
-    p Inline buttons, for buttons inline with text: #[code .c-Btn.c-Btn--inline]
+    p Dominant button, for emphasizing a button when it is near other not-as-important buttons.
     figure.sg-c-Fig
-      p.
-        The following button,
-        #[a.c-Btn.c-Btn--inline inline button],
-        is inline with the text in this paragraph.
+      div(style="margin-bottom: 1.5rem;")
+        a.c-Btn regular button
+        a.c-Btn.c-Btn--dominant dominant button!
+        a.c-Btn regular button
       pre.
-        &lt;p&gt;The following button,
-          &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
-          is inline with the text in this paragraph.&lt;/p&gt;
-    p Hamburger menu button inside masthead: #[code .c-Btn.c-Btn--drawer]
+        &lt;div&gt;
+          &lt;a class="#[u c-Btn]"&gt;regular button&lt;/a&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--dominant]"&gt;dominant button!&lt;/a&gt;
+          &lt;a class="#[u c-Btn]"&gt;regular button&lt;/a&gt;
+        &lt;/div&gt;
+    p Hamburger menu button inside masthead.
     p Class #[code .js-hamburgerbutton] is a scripting hook for drawer functionality.
     figure.sg-c-Fig
       div.o-GridFlex__Item.-w-a.js-hamburgerbutton(style="margin-bottom: 1.5rem;")

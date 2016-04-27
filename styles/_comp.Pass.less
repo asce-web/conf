@@ -102,30 +102,22 @@
 .c-Pass__Period__Hn {
   font-weight: 700;
   .font-size-el(@g-font_size_h3);
-  h1&{
-    margin-bottom: 0;
-  }
+  h1& { margin-bottom: 0; } // specificity HACK: override `.c-Pass >> h1`
   .c-Pass__Body & {
     .font-size-el(@g-font_size_h2);
   }
 }
 
-.c-Pass__Period__Attendee,
-.c-Pass__Period__Price {
-  display: inline;
-  .clearfix();
-}
 .c-Pass__Period__Attendee {
-  // &::after {
-  //   content: ':\0020';
-  // }
+  &::after {
+    content: ':\0020';
+  }
 }
 
 .c-Pass__Period__Price {
 }
 
 .c-Pass__Price--featured {
-  display: block;
   .font-size-el(@g-font_size_h1);
   font-weight: 600;
   color: @g-color_site_primary;

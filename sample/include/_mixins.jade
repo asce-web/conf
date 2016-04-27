@@ -34,13 +34,14 @@ mixin important-date-content()
     +row('2016','Jan','12', '2016-01-12','Advance Registration Closes', 'registration.html')
     +row('2016','Jun','12', '2016-06-12','Convention Begins')
 
-- var student = { name:'Student Pass', description:'Undergraduates 18–24'}
-- var standard = { name:'Standard Pass', description:'Members & Non-Members'}
-- var ym = { name:'Younger Member', description:'Members 18–35'}
-- var speaker = { name:'Speaker Pass', description:'Speakers and Presenters'}
-- var guest = { name:'Guest Pass', description:'Speaker and Moderator Guests'}
-- var moderator = { name:'Moderator Pass', description:'Moderators'}
-- var daily = { name:'Daily Pass', description:'For One Day Only'}
+- var pass = {}
+- pass.student = { name:'Student Pass', description:'Undergraduates 18–24'}
+- pass.standard = { name:'Standard Pass', description:'Members & Non-Members'}
+- pass.ym = { name:'Younger Member', description:'Members 18–35'}
+- pass.speaker = { name:'Speaker Pass', description:'Speakers and Presenters'}
+- pass.guest = { name:'Guest Pass', description:'Speaker and Moderator Guests'}
+- pass.moderator = { name:'Moderator Pass', description:'Moderators'}
+- pass.daily = { name:'Daily Pass', description:'For One Day Only'}
 mixin pass(type)
   article.c-Pass
     header.c-Pass__Head
@@ -73,9 +74,9 @@ mixin pass(type)
 mixin registration-content()
   h1 Registration
   ul.o-ListBare.o-GridFlex.o-ListPass
-    li.o-GridFlex__Item.o-ListPass__Item: +pass(student)
-    li.o-GridFlex__Item.o-ListPass__Item: +pass(standard)
-    li.o-GridFlex__Item.o-ListPass__Item: +pass(ym)
+    li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.student)
+    li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.standard)
+    li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.ym)
   +actionbuttons([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
 
 mixin num-speakers(n)

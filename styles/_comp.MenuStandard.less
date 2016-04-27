@@ -37,7 +37,9 @@
 .c-MenuStandard__Item {
   @trans_dura: 125ms;
   .transition(background-color; @trans_dura);
-  width: auto;
+  @media screen and (min-width: 487px) {
+    width: auto;
+  }
   &:hover,
   & .c-MenuSub {
     background-color: @g-color_site_gray_lt;

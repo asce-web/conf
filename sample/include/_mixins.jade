@@ -43,31 +43,32 @@ mixin important-date-content()
 - var daily = { name:'Daily Pass', description:'For One Day Only'}
 mixin pass(type)
   article.c-Pass
-    header
-      h1.c-Pass__Hn-= type.name
-      p: small= type.description
-    section.c-Pass__Period.c-Pass__Period--current
-      h1.c-Pass__Period__Hn Advance
-      dl.-mb-z
-        dt.c-Pass__Attendee Non-Member
-        dd.c-Pass__Price $945
-        dt.c-Pass__Attendee Member
-        dd.c-Pass__Price.c-Pass__Price--featured $845
-    footer.o-GridFlex
+    header.c-Pass__Head
+      h1.c-Pass__Hn= type.name
+      p.c-Pass__Desc= type.description
+    div.c-Pass__Body
+      section.c-Pass__Period
+        h1.c-Pass__Period__Hn Advance
+        dl
+          dt.c-Pass__Period__Attendee Non-Member
+          dd.c-Pass__Period__Price $945
+          dt.c-Pass__Period__Attendee Member
+          dd.c-Pass__Period__Price.c-Pass__Price--featured $845
+    footer.o-GridFlex.c-Pass__Foot
       section.o-GridFlex__Item.-w-1o2.c-Pass__Period
         h1.c-Pass__Period__Hn Early Bird
-        dl.-mb-z
-          dt.c-Pass__Attendee Non-Member
-          dd.c-Pass__Price $795
-          dt.c-Pass__Attendee Member
-          dd.c-Pass__Price $745
+        dl
+          dt.c-Pass__Period__Attendee Non-Member
+          dd.c-Pass__Period__Price $795
+          dt.c-Pass__Period__Attendee Member
+          dd.c-Pass__Period__Price $745
       section.o-GridFlex__Item.-w-1o2.c-Pass__Period
         h1.c-Pass__Period__Hn Onsite
-        dl.-mb-z
-          dt.c-Pass__Attendee Non-Member
-          dd.c-Pass__Price $1045
-          dt.c-Pass__Attendee Member
-          dd.c-Pass__Price $945
+        dl
+          dt.c-Pass__Period__Attendee Non-Member
+          dd.c-Pass__Period__Price $1045
+          dt.c-Pass__Period__Attendee Member
+          dd.c-Pass__Period__Price $945
 
 mixin registration-content()
   h1 Registration

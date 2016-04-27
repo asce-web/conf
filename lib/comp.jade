@@ -121,7 +121,7 @@ block append main
     figure.sg-c-Fig
       ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Home
-        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Register
+        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Registration
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Program
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Hotel &amp; Travel
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Speakers
@@ -137,8 +137,8 @@ block append main
     figure.sg-c-Fig
       ul.o-ListBare.c-MenuSub(style="position: initial;")
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 2
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 3
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Registration Submenu Item 2
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Registration Submenu Item 3
       pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuSub]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuSub__Item]"&gt;
@@ -153,7 +153,7 @@ block append main
         li.o-GridFlex__Item.c-Sitemap__Item
           a(href="") ASCE 2016
         li.o-GridFlex__Item.c-Sitemap__Item
-          a(href="") Register
+          a(href="") Registration
           ul.o-ListBare
             li.c-Sitemap__SubItem: a(href="") Why Attend
         li.o-GridFlex__Item.c-Sitemap__Item
@@ -324,38 +324,54 @@ block append main
       of its subcomponents. For a full demonstration, see the sample page.
     figure.sg-c-Fig
       article.c-Pass(style="margin-bottom: 1.5rem;")
-        h1.c-Pass__Hn Standard Pass
-        section.c-Pass__Period.c-Pass__Period--current
+        header.c-Pass__Head
+          h1.c-Pass__Hn Speaker Pass
+          p.c-Pass__Desc Speakers and Presenters
+        section.c-Pass__Body.c-Pass__Period
           h1.c-Pass__Period__Hn Advance
           dl
-            dt.c-Pass__Attendee Non-Member
-            dd.c-Pass__Price $945
-            dt.c-Pass__Attendee Member
-            dd.c-Pass__Price.c-Pass__Price--featured $845
-        section.c-Pass__Period
-          h1.c-Pass__Period__Hn Early Bird
-          dl
-            dt.c-Pass__Attendee Non-Member
-            dd.c-Pass__Price $795
+            dt.c-Pass__Period__Attendee Non-Member
+            dd.c-Pass__Period__Price $945
+            dt.c-Pass__Period__Attendee Member
+            dd.c-Pass__Period__Price.c-Pass__Price--featured $845
+        footer.o-GridFlex.c-Pass__Foot
+          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
+            h1.c-Pass__Period__Hn Advance
+            dl
+              dt.c-Pass__Period__Attendee Non-Member
+              dd.c-Pass__Period__Price $945
+              dt.c-Pass__Period__Attendee Member
+              dd.c-Pass__Period__Price $845
+          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
+            h1.c-Pass__Period__Hn Advance
+            dl
+              dt.c-Pass__Period__Attendee Non-Member
+              dd.c-Pass__Period__Price $945
+              dt.c-Pass__Period__Attendee Member
+              dd.c-Pass__Period__Price $845
       pre.
         &lt;article class="#[u c-Pass]"&gt;
-          &lt;h1 class="#[u c-Pass__Hn]"&gt;Standard Pass&lt;/h1&gt;
-          &lt;section class="#[u c-Pass__Period]"  #[u c-Pass__Period--current]"&gt;
+          &lt;header class="#[u c-Pass__Head]"&gt;
+            &lt;h1 class="#[u c-Pass__Hn]"&gt;Speaker Pass&lt;/h1&gt;
+            &lt;p class="#[u c-Pass__Desc]"&gt;Speakers and Presenters&lt;/p&gt;
+          &lt;/header&gt;
+          &lt;section class="#[u c-Pass__Body]  #[u c-Pass__Period]"&gt;
             &lt;h1 class="#[u c-Pass__Period__Hn]"&gt;Advance&lt;/h1&gt;
             &lt;dl&gt;
-              &lt;dt class="#[u c-Pass__Attendee]"&gt;Non-Member&lt;/dt&gt;
-              &lt;dd class="#[u c-Pass__Price]&gt;$945&lt;/dd&gt;
-              &lt;dt class="#[u c-Pass__Attendee]"&gt;Member&lt;/dt&gt;
-              &lt;dd class="#[u c-Pass__Price]  #[u c-Pass__Price--featured]&gt;$845&lt;/dd&gt;
+              &lt;dt class="#[u c-Pass__Period__Attendee]"&gt;Non-Member&lt;/dt&gt;
+              &lt;dd class="#[u c-Pass__Period__Price]&gt;$945&lt;/dd&gt;
+              &lt;dt class="#[u c-Pass__Period__Attendee]"&gt;Member&lt;/dt&gt;
+              &lt;dd class="#[u c-Pass__Period__Price]  #[u c-Pass__Price--featured]&gt;$845&lt;/dd&gt;
             &lt;/dl&gt;
           &lt;/section&gt;
-          &lt;section class="#[u c-Pass__Period]"&gt;
-            &lt;h1 class="#[u c-Pass__Period__Hn]"&gt;Early Bird&lt;/h1&gt;
-            &lt;dl&gt;
-              &lt;dt class="#[u c-Pass__Attendee]"&gt;Non-Member&lt;/dt&gt;
-              &lt;dd class="#[u c-Pass__Price]&gt;$795&lt;/dd&gt;
-            &lt;/dl&gt;
-          &lt;/section&gt;
+          &lt;footer class="o-GridFlex  #[u c-Pass__Foot]"&gt;
+            &lt;section class="o-GridFlex__Item  #[u c-Pass__Period]"&gt;
+              ...
+            &lt;/section&gt;
+            &lt;section class="o-GridFlex__Item  #[u c-Pass__Period]"&gt;
+              ...
+            &lt;/section&gt;
+          &lt;/footer&gt;
         &lt;/article&gt;
   section.sg-sect#buttons
     h2 Buttons

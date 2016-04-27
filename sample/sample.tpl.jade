@@ -45,7 +45,7 @@ html(lang="en")
         }
   body
     include include/_mixins.jade
-    header.o-GridFlex.o-Runner.c-Mast.-xjc-sb.-xai-c
+    header.o-GridFlex.o-Runner.c-Mast.-xw-n.-xjc-sb.-xai-c
       a.o-GridFlex__Item.o-Block.c-SiteTitle(href="index.html")
         h1= site_title
         p= site_tagline
@@ -63,6 +63,27 @@ html(lang="en")
         button(type="button" name="open").c-Btn.c-Btn--drawer menu
         button(type="button" name="close").c-Btn.c-Btn--drawer.c-Btn--drawer--close.-d-n X
     block standard-menu
+      //- -
+        var standard_menu_class_obj = {
+          listclasses : 'o-ListBare o-GridFlex c-MenuStandard'
+        , itemclasses : 'o-GridFlex__Item c-MenuStandard__Item'
+        , linkclasses : 'o-Block c-MenuStandard__Link'
+        , sub: {
+          , listclasses : 'o-ListBare c-MenuSub'
+          , itemclasses : 'c-MenuSub__Item'
+          , linkclasses : 'o-Block c-MenuSub__Link'
+          }
+        }
+      //- unbuffered block code isn’t fucking supported,
+      //- so I have to do this:
+      - var standard_menu_class_obj = {}
+      - standard_menu_class_obj.listclasses = 'o-ListBare o-GridFlex c-MenuStandard'
+      - standard_menu_class_obj.itemclasses = 'o-GridFlex__Item c-MenuStandard__Item'
+      - standard_menu_class_obj.linkclasses = 'o-Block c-MenuStandard__Link'
+      - standard_menu_class_obj.sub = {}
+      - standard_menu_class_obj.sub.listclasses = 'o-ListBare c-MenuSub'
+      - standard_menu_class_obj.sub.itemclasses = 'c-MenuSub__Item'
+      - standard_menu_class_obj.sub.linkclasses = 'o-Block c-MenuSub__Link'
     block dominant
       article&attributes((page_type === 'internal') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
         main
@@ -80,6 +101,23 @@ html(lang="en")
             h1 Sponsors
             +sponsor-content()
     block site-map
+      //- -
+        var sitemap_class_obj = {
+          listclasses : 'o-ListBare o-GridFlex c-Sitemap'
+        , itemclasses : 'o-GridFlex__Item c-Sitemap__Item'
+        , sub: {
+          , listclasses : 'o-ListBare c-Sitemap__SubList'
+          , itemclasses : 'c-Sitemap__SubItem'
+          }
+        }
+      //- unbuffered block code isn’t fucking supported,
+      //- so I have to do this:
+      - var sitemap_class_obj = {}
+      - sitemap_class_obj.listclasses = 'o-ListBare o-GridFlex c-Sitemap'
+      - sitemap_class_obj.itemclasses = 'o-GridFlex__Item c-Sitemap__Item'
+      - sitemap_class_obj.sub = {}
+      - sitemap_class_obj.sub.listclasses = 'o-ListBare c-Sitemap__SubList'
+      - sitemap_class_obj.sub.itemclasses = 'c-Sitemap__SubItem'
     footer.o-Runner.c-Mast.c-Mast--copyright: nav
       h1.-d-n Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
@@ -117,7 +155,7 @@ html(lang="en")
           li.o-GridFlex__Item.c-SocialList__Item
             a.o-Block.c-SocialList__Link.c-SocialList__Link--youtube(href="//youtube.com/ASCE" itemprop="sameAs" title="Follow ASCE on YouTube")
         //- p: img(src="ASCE-logo.png" itemprop="image")
-        a.o-Block(href="http://www.asce.org" itemprop="url").
+        p: a(href="http://www.asce.org" itemprop="url").
           &copy; #[time 1996]&ndash;#[time 2016] American Society of Civil Engineers
     script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
     script.

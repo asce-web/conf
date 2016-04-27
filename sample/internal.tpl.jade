@@ -2,14 +2,62 @@ extends sample.tpl.jade
 
 block append vars
   - var page_type = 'internal'
+  //- -
+    var pages = [
+      { name: 'Home', href: 'home.html' }
+    , {
+        name: 'Registration', href: 'registration.html'
+      , sub: [
+          { name: 'Why Attend'      , href: '' }
+        , { name: 'Short Courses'   , href: '' }
+        , { name: 'Technical Tours' , href: '' }
+        , { name: 'Optional Tours'  , href: '' }
+        ]
+      }
+    , {
+        name: 'Program', href: 'program.html'
+      , sub: [
+          { name: 'Events', href: '' }
+        ]
+      }
+    , {
+        name: 'Hotel & Travel', href: 'location.html'
+      , sub: [
+          { name: 'International Travel', href: '' }
+        ]
+      }
+    , {
+        name: 'Speakers', href: 'speakers.html'
+      , sub: [
+          { name: 'Distinguished Lecture Series', href: '' }
+        ]
+      }
+    ]
+  //- unbuffered block code isn’t fucking supported,
+  //- so I have to do this:
+  - var pages = []
+  - pages.push({name:'Home'          , href:'home.html'})
+  - pages.push({name:'Registration'  , href:'registration.html'})
+  - pages.push({name:'Program'       , href:'program.html'})
+  - pages.push({name:'Hotel & Travel', href:'location.html'})
+  - pages.push({name:'Speakers'      , href:'speakers.html'})
+  - pages[1].sub =   []
+  - pages[2].sub =   [{name:'Events'                       , href:''}]
+  - pages[3].sub =   [{name:'International Travel'         , href:''}]
+  - pages[4].sub =   [{name:'Distinguished Lecture Series' , href:''}]
+  - pages[1].sub.push({name:'Why Attend'                   , href:''})
+  - pages[1].sub.push({name:'Short Courses'                , href:''})
+  - pages[1].sub.push({name:'Technical Tours'              , href:''})
+  - pages[1].sub.push({name:'Optional Tours'               , href:''})
 
 block title
   title= ((page_subtype === 'home') ? '' : page_name + ' | ') + conference_name
 
-block standard-menu
+block append standard-menu
   header.o-Runner.c-Mast.c-Mast--internal: nav
     h1.-d-n Main Menu
-    ul.o-ListBare.o-GridFlex.c-MenuStandard
+    +menulist(pages, standard_menu_class_obj)
+    //- ul.o-ListBare.o-GridFlex.c-MenuStandard
       li.o-GridFlex__Item.c-MenuStandard__Item
         a.o-Block.c-MenuStandard__Link(href="home.html") Home
       li.o-GridFlex__Item.c-MenuStandard__Item
@@ -29,25 +77,26 @@ block standard-menu
         ul.o-ListBare.c-MenuSub(class=(page_name==='Speakers' ? 'c-MenuSub--active' : ''))
           li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Distinguished Lecture Series
 
-block site-map
+block append site-map
   footer.o-Runner.c-Mast.c-Mast--internal: nav
     h1.-d-n Site Map
-    ul.o-ListBare.o-GridFlex.c-Sitemap
+    +menulist(pages, sitemap_class_obj)
+    //- ul.o-ListBare.o-GridFlex.c-Sitemap
       li.o-GridFlex__Item.c-Sitemap__Item
         a(href="home.html") ASCE 2016
       li.o-GridFlex__Item.c-Sitemap__Item
         a(href="registration.html") Registration
-        ul.o-ListBare
+        ul.o-ListBare.c-Sitemap__SubList
           li.c-Sitemap__SubItem: a(href="") Why Attend
       li.o-GridFlex__Item.c-Sitemap__Item
         a(href="program.html") Program
-        ul.o-ListBare
+        ul.o-ListBare.c-Sitemap__SubList
           li.c-Sitemap__SubItem: a(href="") Events
       li.o-GridFlex__Item.c-Sitemap__Item
         a(href="location.html") Hotel &amp; Travel
-        ul.o-ListBare
+        ul.o-ListBare.c-Sitemap__SubList
           li.c-Sitemap__SubItem: a(href="") International Travel
       li.o-GridFlex__Item.c-Sitemap__Item
         a(href="speakers.html") Speakers
-        ul.o-ListBare
+        ul.o-ListBare.c-Sitemap__SubList
           li.c-Sitemap__SubItem: a(href="") Distinguished Lecture Series

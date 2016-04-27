@@ -3,8 +3,8 @@
     conf  |  _comp.MenuStandard.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('__settings.less');
+@import (reference) url('__tool.module.menubar.less');
 
 
 // Top-level navigation for current year site.
@@ -17,11 +17,7 @@
 // ^updated
 // 2016-03-01
 .c-MenuStandard {
-  // menu bar styles copied from `_comp.MenuUniversal.less`
-    .font-size-block(14/16);
-    font-weight: 600;
-    text-transform: uppercase;
-  // end menu bar styles
+  .menubar();
   position: relative; // for the NavSubmenu positioning
   margin-bottom: 0; // override `ul`
   a {
@@ -37,7 +33,9 @@
 .c-MenuStandard__Item {
   @trans_dura: 125ms;
   .transition(background-color; @trans_dura);
-  width: auto;
+  @media screen and (min-width: 487px) {
+    width: auto;
+  }
   &:hover,
   & .c-MenuSub {
     background-color: @g-color_site_gray_lt;

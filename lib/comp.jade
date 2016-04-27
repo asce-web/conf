@@ -15,8 +15,10 @@ block append main__header
       li: a(href="#standard-menu") The Standard Menu
       li: a(href="#sub-menu") The Sub Menu
       li: a(href="#sitemap-component") The Sitemap Component
-      li: a(href="#page-header") The Page Header
+      li: a(href="#page-title") The Page Title
       li: a(href="#banner-component") The Banner Component
+      li: a(href="#hero-block") The Hero Block
+      li: a(href="#other-year-block") The Other Year Block
       li: a(href="#overlay-component") The Overlay Component
       li: a(href="#sponsor-block") The Sponsor Block
       li: a(href="#date-block") The Date Block
@@ -119,7 +121,7 @@ block append main
     figure.sg-c-Fig
       ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Home
-        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Register
+        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Registration
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Program
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Hotel &amp; Travel
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Speakers
@@ -135,8 +137,8 @@ block append main
     figure.sg-c-Fig
       ul.o-ListBare.c-MenuSub(style="position: initial;")
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 2
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Register Submenu Item 3
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Registration Submenu Item 2
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Registration Submenu Item 3
       pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuSub]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuSub__Item]"&gt;
@@ -149,47 +151,56 @@ block append main
     figure.sg-c-Fig
       ul.o-ListBare.o-GridFlex.c-Sitemap
         li.o-GridFlex__Item.c-Sitemap__Item
-          a(href="") ASCE 2016
+          a(href="") Home
         li.o-GridFlex__Item.c-Sitemap__Item
-          a(href="") Register
-          ul.o-ListBare
+          a(href="") Registration
+          ul.o-ListBare.c-Sitemap__SubList
             li.c-Sitemap__SubItem: a(href="") Why Attend
+            li.c-Sitemap__SubItem: a(href="") Short Courses
+            li.c-Sitemap__SubItem: a(href="") Technical Tours
+            li.c-Sitemap__SubItem: a(href="") Optional Tours
         li.o-GridFlex__Item.c-Sitemap__Item
           a(href="") Program
-          ul.o-ListBare
+          ul.o-ListBare.c-Sitemap__SubList
             li.c-Sitemap__SubItem: a(href="") Events
         li.o-GridFlex__Item.c-Sitemap__Item
           a(href="") Hotel &amp; Travel
-          ul.o-ListBare
+          ul.o-ListBare.c-Sitemap__SubList
             li.c-Sitemap__SubItem: a(href="") International Travel
         li.o-GridFlex__Item.c-Sitemap__Item
           a(href="") Speakers
-          ul.o-ListBare
+          ul.o-ListBare.c-Sitemap__SubList
             li.c-Sitemap__SubItem: a(href="") Distinguished Lecture Series
       pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-Sitemap]"&gt;
           &lt;li class="#[u c-Sitemap__Item]"&gt;
-            &lt;a&gt;ASCE 2016&lt;/a&gt;
+            &lt;a&gt;Home&lt;/a&gt;
           &lt;/li&gt;
           &lt;li class="#[u c-Sitemap__Item]"&gt;
-            &lt;a&gt;About&lt;/a&gt;
-            &lt;ul class="o-ListBare"&gt;
+            &lt;a&gt;Registration&lt;/a&gt;
+            &lt;ul class="o-ListBare  #[u c-Sitemap__SubList]"&gt;
               &lt;li class="#[u c-Sitemap__SubItem]"&gt;
-                &lt;a&gt;Cooperating Orgs&lt;/a&gt;
+                &lt;a&gt;Why Attend&lt;/a&gt;
               &lt;/li&gt;
               ...
             &lt;/ul&gt;
           &lt;/li&gt;
           ...
         &lt;/ul&gt;
-  section.sg-sect#page-header
-    h2 The Page Header
+  section.sg-sect#page-title
+    h2 The Page Title
+    p Use #[code .c-PageTitle] for the top-level heading of a page.
     figure.sg-c-Fig
-      div.c-PageHeader(style="margin-bottom: 1.5rem;")
-        h1 Page Header
+      h1.c-PageTitle A Page Title
       pre.
-        &lt;div class="#[u c-PageHeader]"&gt;
-          &lt;h1&gt;Page Header&lt;/h1&gt;
+        &lt;h1 class="#[u c-PageTitle]"&gt;A Page Title&lt;/h1&gt;
+    p Use #[code .c-PageTitle--special] if you want a special page title inside a banner.
+    figure.sg-c-Fig
+      div.c-Banner(style="height: 13.5rem; margin-bottom: 1.5rem; z-index:1;")
+        h1.c-PageTitle.c-PageTitle--special special page title
+      pre.
+        &lt;div class="c-Banner"&gt;
+          &lt;h1 class="#[u c-PageTitle]  #[u c-PageTitle--special]"&gt;special page title&lt;/h1&gt;
         &lt;/div&gt;
   section.sg-sect#banner-component
     h2 The Banner Component
@@ -197,16 +208,43 @@ block append main
       div.c-Banner(style="margin-bottom: 1.5rem; z-index:1;")
         h1 banner heading
         p banner content
-        br
-        br
-        br
-        br
-        br
-        br
       pre.
         &lt;div class="#[u c-Banner]"&gt;
           &lt;h1&gt;banner heading&lt;/h1&gt;
           &lt;p&gt;banner content&lt;/p&gt;
+        &lt;/div&gt;
+  section.sg-sect#hero-block
+    h2 The Hero Block
+    figure.sg-c-Fig
+      div.c-Hero
+        h1.c-Hero__Name Geo-Risk 2016
+        p.c-Hero__Detail
+          span.c-Hero__Place Portland, OR
+          span.c-Hero__Dates Sep 28&ndash;Oct 1
+        p.c-Hero__Theme Geotechincal Risk From Theory to Practice
+      pre.
+        &lt;div class="#[u c-Hero]"&gt;
+          &lt;h1 class="#[u c-Hero__Name]"&gt;Geo-Risk 2016&lt;/h1&gt;
+          &lt;p class="#[u c-Hero__Detail]"&gt;
+            &lt;span class="#[u c-Hero__Place]"&gt;Portland, OR&lt;/span&gt;
+            &lt;span class="#[u c-Hero__Dates]"&gt;Sep 28&ndash;Oct 1&lt;/span&gt;
+          &lt;/p&gt;
+          &lt;p class="#[u c-Hero__Theme]"&gt;Geotechincal Risk ...&lt;/p&gt;
+        &lt;/div&gt;
+  section.sg-sect#other-year-block
+    h2 An Other Year Block
+    figure.sg-c-Fig
+      div.c-OtherYear
+        h1.c-OtherYear__Name ASCE 2015
+        p.c-OtherYear__Detail New York, NY
+        p.c-OtherYear__Desc.
+          Access the 2015 program to see which sessions qualify for
+          PDHs and other documentation.
+      pre.
+        &lt;div class="#[u c-OtherYear]"&gt;
+          &lt;h1 class="#[u c-OtherYear__Name]"&gt;ASCE 2015&lt;/h1&gt;
+          &lt;p class="#[u c-OtherYear__Detail]"&gt;New York, NY&lt;/p&gt;
+          &lt;p class="#[u c-OtherYear__Desc]"&gt;Access the 2015 ...&lt;/p&gt;
         &lt;/div&gt;
   section.sg-sect#overlay-component
     h2 The Overlay Component
@@ -216,12 +254,6 @@ block append main
         div.c-Overlay
           h1 overlay heading
           p overlay content
-      div.c-Banner(style="margin-bottom: 1.5rem; padding: 1.5rem; z-index:1;")
-        h1.c-Overlay.c-Overlay--full special banner heading
-        br
-        br
-        br
-        br
       pre.
         &lt;div class="c-Banner"&gt;
           &lt;div class="#[u c-Overlay]"&gt;
@@ -229,9 +261,8 @@ block append main
             &lt;p&gt;overlay content&lt;/p&gt;
           &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class="c-Banner"&gt;
-          &lt;h1 class="#[u c-Overlay]  #[u c-Overlay--full]"&gt;special banner heading&lt;/h1&gt;
-        &lt;/div&gt;
+  section.sg-sect#sponsor-block
+    h2 The Sponsor Block
   section.sg-sect#date-block
     h2 The Date Block
     figure.sg-c-Fig
@@ -296,77 +327,73 @@ block append main
       of its subcomponents. For a full demonstration, see the sample page.
     figure.sg-c-Fig
       article.c-Pass(style="margin-bottom: 1.5rem;")
-        h1.c-Pass__Hn Standard Pass
-        section.c-Pass__Period.c-Pass__Period--current
+        header.c-Pass__Head
+          h1.c-Pass__Hn Speaker Pass
+          p.c-Pass__Desc Speakers and Presenters
+        section.c-Pass__Body.c-Pass__Period
           h1.c-Pass__Period__Hn Advance
           dl
-            dt.c-Pass__Attendee Non-Member
-            dd.c-Pass__Price $945
-            dt.c-Pass__Attendee Member
-            dd.c-Pass__Price.c-Pass__Price--featured $845
-        section.c-Pass__Period
-          h1.c-Pass__Period__Hn Early Bird
-          dl
-            dt.c-Pass__Attendee Non-Member
-            dd.c-Pass__Price $795
+            dt.c-Pass__Period__Attendee Non-Member
+            dd.c-Pass__Period__Price $945
+            dt.c-Pass__Period__Attendee Member
+            dd.c-Pass__Period__Price.c-Pass__Price--featured $845
+        footer.o-GridFlex.c-Pass__Foot
+          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
+            h1.c-Pass__Period__Hn Advance
+            dl
+              dt.c-Pass__Period__Attendee Non-Member
+              dd.c-Pass__Period__Price $945
+              dt.c-Pass__Period__Attendee Member
+              dd.c-Pass__Period__Price $845
+          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
+            h1.c-Pass__Period__Hn Advance
+            dl
+              dt.c-Pass__Period__Attendee Non-Member
+              dd.c-Pass__Period__Price $945
+              dt.c-Pass__Period__Attendee Member
+              dd.c-Pass__Period__Price $845
       pre.
         &lt;article class="#[u c-Pass]"&gt;
-          &lt;h1 class="#[u c-Pass__Hn]"&gt;Standard Pass&lt;/h1&gt;
-          &lt;section class="#[u c-Pass__Period]"  #[u c-Pass__Period--current]"&gt;
+          &lt;header class="#[u c-Pass__Head]"&gt;
+            &lt;h1 class="#[u c-Pass__Hn]"&gt;Speaker Pass&lt;/h1&gt;
+            &lt;p class="#[u c-Pass__Desc]"&gt;Speakers and Presenters&lt;/p&gt;
+          &lt;/header&gt;
+          &lt;section class="#[u c-Pass__Body]  #[u c-Pass__Period]"&gt;
             &lt;h1 class="#[u c-Pass__Period__Hn]"&gt;Advance&lt;/h1&gt;
             &lt;dl&gt;
-              &lt;dt class="#[u c-Pass__Attendee]"&gt;Non-Member&lt;/dt&gt;
-              &lt;dd class="#[u c-Pass__Price]&gt;$945&lt;/dd&gt;
-              &lt;dt class="#[u c-Pass__Attendee]"&gt;Member&lt;/dt&gt;
-              &lt;dd class="#[u c-Pass__Price]  #[u c-Pass__Price--featured]&gt;$845&lt;/dd&gt;
+              &lt;dt class="#[u c-Pass__Period__Attendee]"&gt;Non-Member&lt;/dt&gt;
+              &lt;dd class="#[u c-Pass__Period__Price]&gt;$945&lt;/dd&gt;
+              &lt;dt class="#[u c-Pass__Period__Attendee]"&gt;Member&lt;/dt&gt;
+              &lt;dd class="#[u c-Pass__Period__Price]  #[u c-Pass__Price--featured]&gt;$845&lt;/dd&gt;
             &lt;/dl&gt;
           &lt;/section&gt;
-          &lt;section class="#[u c-Pass__Period]"&gt;
-            &lt;h1 class="#[u c-Pass__Period__Hn]"&gt;Early Bird&lt;/h1&gt;
-            &lt;dl&gt;
-              &lt;dt class="#[u c-Pass__Attendee]"&gt;Non-Member&lt;/dt&gt;
-              &lt;dd class="#[u c-Pass__Price]&gt;$795&lt;/dd&gt;
-            &lt;/dl&gt;
-          &lt;/section&gt;
+          &lt;footer class="o-GridFlex  #[u c-Pass__Foot]"&gt;
+            &lt;section class="o-GridFlex__Item  #[u c-Pass__Period]"&gt;
+              ...
+            &lt;/section&gt;
+            &lt;section class="o-GridFlex__Item  #[u c-Pass__Period]"&gt;
+              ...
+            &lt;/section&gt;
+          &lt;/footer&gt;
         &lt;/article&gt;
   section.sg-sect#buttons
     h2 Buttons
-    p Generic, general purpose buttons: #[code .c-Btn]
+    p #[strong Important:] colors will vary by site.
+    p Generic, general purpose buttons.
     figure.sg-c-Fig
       div(style="margin-bottom:1.5rem;"): a.c-Btn generic button
       pre.
         &lt;div&gt;
           &lt;a class="#[u c-Btn]"&gt;generic button&lt;/a&gt;
         &lt;/div&gt;
-    p Highlight buttons, for singular button in highlight block: #[code .c-Btn.c-Btn--hilite]
+    p Highlight buttons, for large buttons in highlight block.
     figure.sg-c-Fig
-      div(style="margin-bottom:1.5rem;"): a.c-Btn.c-Btn--hilite regular highlight button
-      div.o-Highlight.c-Banner(style="margin-bottom:1.5rem; z-index:1;"): a.c-Btn.c-Btn--hilite highlight button inside a banner
+      div(style="margin-bottom:1.5rem;"): a.c-Btn.c-Btn--hilite highlight button
       pre.
         &lt;div&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;regular highlight button&lt;/a&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;highlight button&lt;/a&gt;
         &lt;/div&gt;
-        &lt;div class="c-Banner"&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;highlight button inside a banner&lt;/a&gt;
-        &lt;/div&gt;
-    p Hero button, for action button(s) in hero section: #[code .c-Btn.c-Btn--hero]
-    figure.sg-c-Fig
-      div(style="margin-bottom: 1.5rem;")
-        a.c-Btn.c-Btn--hero hero button
-        a.c-Btn.c-Btn--hilite.c-Btn--hero highlight hero button
-      div.o-Highlight.c-Banner(style="margin-bottom:1.5rem; z-index:1;")
-        a.c-Btn.c-Btn--hero hero button inside a banner
-        a.c-Btn.c-Btn--hilite.c-Btn--hero highlight hero button inside a banner
-      pre.
-        &lt;div&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button&lt;/a&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]  #[u c-Btn--hero]"&gt;hilight hero button&lt;/a&gt;
-        &lt;/div&gt;
-        &lt;div class="c-Banner"&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button inside a banner&lt;/a&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]  #[u c-Btn--hero]"&gt;hilight hero button inside a banner&lt;/a&gt;
-        &lt;/div&gt;
-    p Inline buttons, for buttons inline with text: #[code .c-Btn.c-Btn--inline]
+    p Inline buttons, for buttons inline with text.
     figure.sg-c-Fig
       p.
         The following button,
@@ -376,7 +403,36 @@ block append main
         &lt;p&gt;The following button,
           &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
           is inline with the text in this paragraph.&lt;/p&gt;
-    p Hamburger menu button inside masthead: #[code .c-Btn.c-Btn--drawer]
+    p Hero button, for action button(s) in hero section.
+    figure.sg-c-Fig
+      div(style="margin-bottom: 1.5rem;")
+        a.c-Btn.c-Btn--hero hero button
+        a.c-Btn.c-Btn--hero2 hero2 button
+      div.o-Highlight.c-Banner(style="margin-bottom:1.5rem; z-index:1;")
+        a.c-Btn.c-Btn--hero hero button inside a banner
+        a.c-Btn.c-Btn--hero2 hero2 button inside a banner
+      pre.
+        &lt;div&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button&lt;/a&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--hero2]"&gt;hero2 button&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="c-Banner"&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button inside a banner&lt;/a&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--hero2]"&gt;hero2 button inside a banner&lt;/a&gt;
+        &lt;/div&gt;
+    p Dominant button, for emphasizing a button when it is near other not-as-important buttons.
+    figure.sg-c-Fig
+      div(style="margin-bottom: 1.5rem;")
+        a.c-Btn regular button
+        a.c-Btn.c-Btn--dominant dominant button!
+        a.c-Btn regular button
+      pre.
+        &lt;div&gt;
+          &lt;a class="#[u c-Btn]"&gt;regular button&lt;/a&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--dominant]"&gt;dominant button!&lt;/a&gt;
+          &lt;a class="#[u c-Btn]"&gt;regular button&lt;/a&gt;
+        &lt;/div&gt;
+    p Hamburger menu button inside masthead.
     p Class #[code .js-hamburgerbutton] is a scripting hook for drawer functionality.
     figure.sg-c-Fig
       div.o-GridFlex__Item.-w-a.js-hamburgerbutton(style="margin-bottom: 1.5rem;")

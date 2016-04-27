@@ -23,16 +23,23 @@
 //++++++++++++++++++++++++++++++++//
 //    # GENERIC
 //++++++++++++++++++++++++++++++++//
+.o-Runner > * {
+  // ensures body content does not expand infinitely
+  max-width: 1200px;
+  margin-left: auto; margin-right: auto;
+}
 //++++ end # GENERIC ++++//
 //++++++++++++++++++++++++++++++++//
 //    # SECTIONS
 //++++++++++++++++++++++++++++++++//
 body {
-  // font-family: 'Open Sans','Helvetica Neue','Arial',sans-serif;
-  color: @g-color_asce_black;
+  font-family: @g-fontfam_body;
   background: @g-color_asce_white;
+  color: @g-color_asce_black;
 }
 h1, h2, h3, h4, h5, h6 {
+  font-family: @g-fontfam_hn;
+  font-weight: 900;
   color: @g-color_site_primary;
 }
 h1 {
@@ -94,6 +101,7 @@ h1 {
     &:hover,
     &:focus {
       color: @g-color_site_gray_lt;
+      // .filter(blur(1px));
     }
     &:active {
       color: inherit;

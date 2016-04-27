@@ -5,11 +5,9 @@ block append vars
   - var page_name = 'Home'
 
 block main-header
-  header.o-Highlight.c-Banner.c-Banner--home
-    h1(itemprop="name")= conference_name
-    +date-place()
-    p(itemprop="description")= conference_theme
-    +actionbuttons([{text:'Register', href:'register.html'}, {text:'Sponsor', href:'sponsor.html'}, {text:'Submit a Paper'}], 'c-Btn c-Btn--hilite c-Btn--hero')
+  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--home.c-Hero
+    +hero-content()
+    +actionbuttons([{text:'Register', href:'registration.html'}, {text:'Sponsor', href:'sponsor.html'}, {text:'Submit a Paper'}], 'c-Btn c-Btn--hilite c-Btn--hero')
 
 block main-minimal
   +minimal-text-block()
@@ -17,27 +15,19 @@ block main-minimal
 block main-rich
 
 block callouts
-  aside.o-Highlight.c-Banner
-    h1 Important Dates
+  aside.o-Runner.o-Runner--highlight.c-Banner
     +important-date-content()
-  aside.o-Highlight
-    h1 Registration
+  aside.o-Runner.o-Runner--highlight
     +registration-content()
-  aside.o-Highlight.c-Banner
-    h1 Speakers
+  aside.o-Runner.o-Runner--highlight.c-Banner
     +speakers-content()
-  aside.o-Highlight
-    h1 Conference Co-Chairs
+  aside.o-Runner.o-Runner--highlight
     +cochairs-content()
-  aside.o-Highlight.c-Banner
-    h1 Program Highlights
+  aside.o-Runner.o-Runner--highlight.c-Banner
     +program-content()
-  aside.o-Highlight
-    h1 Plan, Engage, Connect
+  aside.o-Runner.o-Runner--highlight
     +mobile-content()
-  aside.o-Highlight.o-Highlight--wrappedInner.c-Banner.c-Banner--location
-    //- heading is moved into inner div
+  aside.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--location
     +location-content('Portland, OR')
-  aside.o-Highlight
-    h1 Join the Conversation
+  aside.o-Runner.o-Runner--highlight
     +social-content()

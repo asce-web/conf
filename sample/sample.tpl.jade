@@ -3,10 +3,11 @@ html(lang="en")
   head
     block vars
       - var site_title = 'ASCE Convention'
-      - var site_tagline = 'The Flagship Event of ASCE'
+      //- - var site_tagline = 'The Flagship Event of ASCE'
+      - var site_tagline = 'Engineering > Innovating > Leading'
       - var conference_name = 'ASCE 2016'
-      - var conference_theme = 'Engineering > Innovating > Leading'
-      - var descriptions = {'Index':site_tagline, 'About':'About the ASCE Convention.', 'Sponsor':'Sponsors of the ASCE Convention.', 'Exhibit':'Exhibitors at the ASCE Convention.', 'Contact':'Contact us for questions and comments about the ASCE Convention.', 'Home':conference_theme, 'Register':'Register for the ASCE 2016 conference here.', 'Program':'Program and Agenda of the ASCE 2016 conference.', 'Hotel & Travel':'Get information about the location of the conference and where to stay.', 'Speakers':'Get information about current and prospective speakers at ASCE 2016.'}
+      - var conference_theme = ''
+      - var descriptions = {'Index':site_tagline, 'About':'About the ASCE Convention.', 'Sponsor':'Sponsors of the ASCE Convention.', 'Exhibit':'Exhibitors at the ASCE Convention.', 'Contact':'Contact us for questions and comments about the ASCE Convention.', 'Home':conference_theme, 'Registration':'Register for the ASCE 2016 conference here.', 'Program':'Program and Agenda of the ASCE 2016 conference.', 'Hotel & Travel':'Get information about the location of the conference and where to stay.', 'Speakers':'Get information about current and prospective speakers at ASCE 2016.'}
     block title
       title
     meta(charset="utf-8")
@@ -45,30 +46,52 @@ html(lang="en")
         }
   body
     include include/_mixins.jade
-    header.o-GridFlex.o-Runner.c-Mast.-xjc-sb.-xai-c
-      a.o-GridFlex__Item.o-Block.c-SiteTitle.-w-a(href="index.html")
+    header.o-Runner.c-Mast: div.o-GridFlex.-xw-n.-xjc-sb.-xai-c
+      // this div wraps content for enforcing max-width
+      a.o-GridFlex__Item.o-Block.c-SiteTitle(href="index.html")
         h1= site_title
         p= site_tagline
       nav.o-GridFlex__Item.-w-a
         h1.-d-n Top Menu
-        ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal.-d-n.-d-fx-sM
+        ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal.-d-n.-d-fx-s52em
           // NOTE: need `.-d-n.-d-fx-sM` for javascript
           li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="about.html") About
           li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="sponsor.html") Sponsor
           li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="exhibit.html") Exhibit
           li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="contact.html") Contact
           li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="home.html") ASCE 2016
-      div.o-GridFlex__Item.-d-n.-d-n-sM.-w-a.js-hamburgerbutton
+      div.o-GridFlex__Item.-d-n.-d-n-s52em.-w-a.js-hamburgerbutton
         // NOTE: need `.-d-n.-d-n-sM` for javascript
         button(type="button" name="open").c-Btn.c-Btn--drawer menu
         button(type="button" name="close").c-Btn.c-Btn--drawer.c-Btn--drawer--close.-d-n X
     block standard-menu
+      //- -
+        var standard_menu_class_obj = {
+          listclasses : 'o-ListBare o-GridFlex c-MenuStandard'
+        , itemclasses : 'o-GridFlex__Item c-MenuStandard__Item'
+        , linkclasses : 'o-Block c-MenuStandard__Link'
+        , sub: {
+          , listclasses : 'o-ListBare c-MenuSub'
+          , itemclasses : 'c-MenuSub__Item'
+          , linkclasses : 'o-Block c-MenuSub__Link'
+          }
+        }
+      //- unbuffered block code isn’t fucking supported,
+      //- so I have to do this:
+      - var standard_menu_class_obj = {}
+      - standard_menu_class_obj.listclasses = 'o-ListBare o-GridFlex c-MenuStandard'
+      - standard_menu_class_obj.itemclasses = 'o-GridFlex__Item c-MenuStandard__Item'
+      - standard_menu_class_obj.linkclasses = 'o-Block c-MenuStandard__Link'
+      - standard_menu_class_obj.sub = {}
+      - standard_menu_class_obj.sub.listclasses = 'o-ListBare c-MenuSub'
+      - standard_menu_class_obj.sub.itemclasses = 'c-MenuSub__Item'
+      - standard_menu_class_obj.sub.linkclasses = 'o-Block c-MenuSub__Link'
     block dominant
       article&attributes((page_type === 'internal') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
         main
           block main-header
-            header.o-Highlight.c-PageHeader
-              h1= page_name
+            header.o-Runner.o-Runner--pageHeader
+              h1.c-PageTitle= page_name
           block main-body
             block main-minimal
             block main-reference
@@ -81,6 +104,23 @@ html(lang="en")
               h1 Sponsors
               +sponsor-content()
     block site-map
+      //- -
+        var sitemap_class_obj = {
+          listclasses : 'o-ListBare o-GridFlex c-Sitemap'
+        , itemclasses : 'o-GridFlex__Item c-Sitemap__Item'
+        , sub: {
+          , listclasses : 'o-ListBare c-Sitemap__SubList'
+          , itemclasses : 'c-Sitemap__SubItem'
+          }
+        }
+      //- unbuffered block code isn’t fucking supported,
+      //- so I have to do this:
+      - var sitemap_class_obj = {}
+      - sitemap_class_obj.listclasses = 'o-ListBare o-GridFlex c-Sitemap'
+      - sitemap_class_obj.itemclasses = 'o-GridFlex__Item c-Sitemap__Item'
+      - sitemap_class_obj.sub = {}
+      - sitemap_class_obj.sub.listclasses = 'o-ListBare c-Sitemap__SubList'
+      - sitemap_class_obj.sub.itemclasses = 'c-Sitemap__SubItem'
     footer.o-Runner.c-Mast.c-Mast--copyright: nav
       h1.-d-n Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
@@ -118,16 +158,16 @@ html(lang="en")
           li.o-GridFlex__Item.c-SocialList__Item
             a.o-Block.c-SocialList__Link.c-SocialList__Link--youtube(href="//youtube.com/ASCE" itemprop="sameAs" title="Follow ASCE on YouTube")
         //- p: img(src="ASCE-logo.png" itemprop="image")
-        a.o-Block(href="http://www.asce.org" itemprop="url").
+        p: a(href="http://www.asce.org" itemprop="url").
           &copy; #[time 1996]&ndash;#[time 2016] American Society of Civil Engineers
     script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
     script.
       $('.js-hamburgerbutton').removeClass('-d-n')
       $('button[name="open"]').click(function () {
-        $('.c-MenuUniversal').removeClass('-d-n -d-fx-sM')
+        $('.c-MenuUniversal').removeClass('-d-n -d-fx-s52em')
         $('button[name="close"]').removeClass('-d-n')
       })
       $('button[name="close"]').click(function () {
-        $('.c-MenuUniversal').addClass('-d-n -d-fx-sM')
+        $('.c-MenuUniversal').addClass('-d-n -d-fx-s52em')
         $('button[name="close"]').addClass('-d-n')
       })

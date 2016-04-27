@@ -10,9 +10,11 @@
 // (e.g. Student, Speaker, Standard, etc.)
 //
 // ^subclasses
-// --hero   - for action button(s) in hero section
 // --hilite - for singular button in highlight block
 // --inline - for buttons inline with text
+// --hero     - for action button(s) in hero section
+// --hero2    - alternate hero button
+// --dominant - button for some other primary use
 // --drawer - universal menu button in site masthead
 // ^author
 // Chris Harvey
@@ -24,8 +26,9 @@
   display: inline-block;
   vertical-align: middle;
   padding: @g-boxpadd_mill;
+  font-weight: 700;
   white-space: nowrap;
-  border: 1px solid;
+  border: 1px outset;
   cursor: pointer;
 }
 a.c-Btn {
@@ -44,62 +47,76 @@ a.c-Btn {
   &:active {
     color: @g-color_asce_black;
     background-color: @g-color_site_gray_lt;
+    border-style: inset;
   }
 }
 
 .c-Btn--hilite {
   padding: @g-boxpadd_norm_v @g-boxpadd_kilo_h;
   border-width: 2px;
-  .font-size-block(1.5);
-}
-
-// .c-Btn--hero {
-//   font-weight: bold;
-//   color: @g-color_asce_white;
-//   border-width: 2px;
-//   border-color: @g-color_site_primary;
-//   &,
-//   &:hover,
-//   &:focus,
-//   &:active {
-//     background-color: transparent; // override above
-//   }
-//   &:hover,
-//   &:focus {
-//     color: @g-color_site_primary;
-//   }
-//   &:active {
-//     color: @g-color_asce_white;
-//     border-color: currentColor;
-//   }
-// }
-
-.c-Btn--hero {
-  font-weight: bold;
-  background: @g-color_site_primary;
-  border: 0;
-  color: @g-color_asce_white;
+  .font-size-el(1.5);
 }
 
 .c-Btn--inline {
-  display: inline; // override .c-Btn
-  line-height: 0;
+  display: inline;
   padding: 0 @g-boxpadd_micr_h;
-  // border-radius: 0.25em;
+  font-size: 0.75em;
+  line-height: 0;
+  border-radius: 0.25em;
+}
+
+.c-Btn--hero {
+  border: 2px;
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: transparent;
+  }
+  &:hover,
+  &:focus {
+    color: inherit;
+  }
+  &,
+  &:active {
+    border-style: solid;
+    color: @g-color_site_primary;
+  }
+}
+
+.c-Btn--dominant {
+  color: @g-color_asce_white;
+  background-color: @g-color_site_secondary;
+  font-style: italic;
+}
+
+.c-Btn--hero2 {
+  border: 0;
+  background-color: @g-color_site_primary;
+  border-color: @g-color_site_primary;
+  color: @g-color_asce_white;
+  // &:hover,
+  // &:focus {
+  //   border-color: mix(@g-color_asce_white, @g-color_site_gray_lt); // same as border color of .c-Btn
+  // }
+  // &:active {
+  //   border-color: @g-color_site_gray_lt; // same as border color of .c-Btn
+  // }
 }
 
 .c-Btn--drawer {
   padding: @g-boxpadd_micr_v @g-boxpadd_mill_h;
+  border-style: solid;
   border-radius: 0.5em;
   color: @g-color_asce_white;
   background-color: @g-color_site_secondary;
-  &:focus { outline: 0; } // override browser default
   &:hover,
   &:focus {
     color: mix(@g-color_asce_white, @g-color_site_gray_lt);
     background-color: @g-color_site_gray_dk;
   }
   &:active {
+    border-style: solid;
     color: @g-color_site_gray_lt;
     background-color: @g-color_asce_black;
   }
@@ -107,6 +124,6 @@ a.c-Btn {
 .c-Btn--drawer--close {
   position: absolute;
   top: 0; right: 0;
-  z-index: 1;
+  z-index: 2; // over MenuUniversal
   margin: @g-boxpadd_mill;
 }

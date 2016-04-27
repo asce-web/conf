@@ -8,7 +8,7 @@
     "jade": "jade",
     "jade:sg": "jade index.jade",
     "jade:lib": "jade lib/{index,base,obj,comp,comp-typo,comp-ui,helpers,atoms}.jade",
-    "jade:sample": "jade sample/{index,about,sponsor,exhibit,contact,home,register,program,location,speakers}.jade",
+    "jade:sample": "jade sample/{index,about,sponsor,exhibit,contact,home,registration,program,location,speakers}.jade",
     "jade:all": "npm run jade:sg  ;  npm run jade:lib  ;  npm run jade:sample",
     "lessc": "lessc",
     "lessc:conf": "lessc styles/conf.less styles/conf.css",

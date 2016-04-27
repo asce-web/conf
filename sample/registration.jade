@@ -1,48 +1,26 @@
 extends internal.tpl.jade
 
 block append vars
-  - var page_name = 'Register'
+  - var page_name = 'Registration'
 
 block main-minimal
   +minimal-text-block()
 
 block main-reference
-  section.o-Highlight.c-Banner
+  section.o-Runner.o-Runner--highlight.c-Banner
     h1.-d-n Full Registration
-    mixin pass()
-      article.c-Pass
-        header
-          h1.c-Pass__Hn Standard Pass
-          p: small Members &amp; Non-Members
-        section.c-Pass__Period.c-Pass__Period--current
-          h1.c-Pass__Period__Hn Advance
-          dl.-mb-z
-            dt.c-Pass__Attendee Non-Member
-            dd.c-Pass__Price $945
-            dt.c-Pass__Attendee Member
-            dd.c-Pass__Price.c-Pass__Price--featured $845
-        footer.o-GridFlex
-          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
-            h1.c-Pass__Period__Hn Early Bird
-            dl.-mb-z
-              dt.c-Pass__Attendee Non-Member
-              dd.c-Pass__Price $795
-              dt.c-Pass__Attendee Member
-              dd.c-Pass__Price $745
-          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
-            h1.c-Pass__Period__Hn Onsite
-            dl.-mb-z
-              dt.c-Pass__Attendee Non-Member
-              dd.c-Pass__Price $1045
-              dt.c-Pass__Attendee Member
-              dd.c-Pass__Price $945
     ul.o-ListBare.o-GridFlex.o-ListPass
-      li.o-GridFlex__Item.o-ListPass__Item: +pass()
-      li.o-GridFlex__Item.o-ListPass__Item: +pass()
-      li.o-GridFlex__Item.o-ListPass__Item: +pass()
+      li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.student)
+      li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.standard)
+      li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.speaker)
+      li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.guest)
+      li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.moderator)
+      li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.ym)
+      li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.daily)
+    +actionbuttons([{text:'Register Today!'}], 'c-Btn c-Btn--hilite c-Btn--dominant')
 
 block main-rich
-  div.o-Highlight.rich-text
+  div.o-Runner.o-Runner--highlight.rich-text
     h2 Registration Information
     p: mark: strong.
       #[strong Important:] Please do not use

@@ -1,0 +1,40 @@
+
+/*################################*\
+    conf  |  _dev.less
+\*################################*/
+@import (reference) url('../node_modules/xmeter/src/__settings.less');
+@import (reference) url('__settings.less');
+
+// DEV STYLESHEET. FOR FIXING IMPORTED PROJECTS.
+
+
+// copied directly from xmeter
+.vertspacing(@spacing: @g-vru) {
+  h1, h2, h3, h4, h5, h6,
+  p, pre, figure, blockquote,
+  ol, ul, dl,
+  table,
+  fieldset {
+    margin-bottom: @spacing;
+  }
+  h1 {
+    padding-top: @spacing;
+  }
+}
+.font-size-mod(@ratio) {
+  @l-vru: @ratio * @g-vru; // in rems
+  font-size: (@ratio * @g-1rem); // legacy browsers (see __settings for more info)
+  font-size: (@ratio *    1rem);
+  line-height: @g-line_height; // NOTE this is redundant but here for clarification.
+  .vertspacing(@l-vru);
+}
+.font-size-el(@ratio; @lines: 1; @line_height_parent: @g-line_height) {
+  font-size: (@ratio * 1em);
+  line-height: ((@line_height_parent / @ratio) * @lines);
+}
+h1 { .font-size-el(@g-font_size_h1); }
+h2 { .font-size-el(@g-font_size_h2); }
+h3 { .font-size-el(@g-font_size_h3); }
+h4 { .font-size-el(@g-font_size_h4); }
+h5 { .font-size-el(@g-font_size_h5); }
+h6 { .font-size-el(@g-font_size_h6); }

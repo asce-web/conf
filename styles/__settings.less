@@ -8,6 +8,8 @@
 //++++++++++++++++++++++++++++++++//
 //    # TYPOGRAPHY
 //++++++++++++++++++++++++++++++++//
+@g-fontfam_body: 'Open Sans',sans-serif;
+@g-fontfam_hn:   'Bitter',serif;
 //++++ end # TYPOGRAPHY ++++ //
 
 
@@ -57,6 +59,34 @@
 // ASCE form colors
 @g-color_asce_form_bground: #f4f4f5;
 //++++ end # ASCE COMPANY COLORS ++++ //
+
+
+//++++++++++++++++++++++++++++++++//
+//    # CONFERENCE SITE-SPECIFIC COLORS
+//++++++++++++++++++++++++++++++++//
+
+// Sample site
+// Chewie 2015
+// @g-color_site_primary:   #6a9556;
+// @g-color_site_secondary: #6fc2c4;
+// @g-color_site_accent:    #714509;
+// old 2016 style
+// @g-color_site_primary:   #26a1d7;
+// @g-color_site_secondary: #79bb6d;
+// @g-color_site_accent:    #128d47;
+
+// ASCE 2016
+@g-color_site_primary:   #3fae2a;
+@g-color_site_secondary: #00a1e1;
+
+@p-site_gray1_dk:  darken(desaturate(@g-color_site_primary,   90%, relative), 20%);
+@p-site_gray1_lt: lighten(desaturate(@g-color_site_primary,   90%, relative), 20%);
+@p-site_gray2_dk:  darken(desaturate(@g-color_site_secondary, 90%, relative), 20%);
+@p-site_gray2_lt: lighten(desaturate(@g-color_site_secondary, 90%, relative), 20%);
+
+@g-color_site_gray_dk: @p-site_gray1_dk;
+@g-color_site_gray_lt: @p-site_gray2_lt;
+//++++ end # CONFERENCE SITE-SPECIFIC COLORS ++++//
 
 
 //++++++++++++++++++++++++++++++++//

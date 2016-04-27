@@ -2,6 +2,7 @@
 /*################################*\
     conf  |  _comp.SponsorBlock.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.module.clearfix.less');
 
 
 // A section containing one level of sponsor. Usually also a highlighted section.
@@ -41,10 +42,13 @@
 // .c-SponsorBlock--copper    { background-color: @p-color_copper; }
 
 .c-SponsorBlock {
+  padding-top: 0; padding-bottom: 0; // override `.o-Highlight`
+  .clearfix();
   &::after {
-    content: ' ';
-    display: block;
     border-bottom: 1px solid @g-color_site_gray_lt;
+  }
+  & h1 {
+    color: inherit;
   }
 }
 

@@ -8,18 +8,30 @@
 //
 // ^Subcomponents:
 // __Item    - each item in the list
-// __SubItem - an item within a list within an item
+// __SubList - a sub menu list
+// __SubItem - an item within the SubList
+//             (too complicated to use `__SubList__Item`)
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-04-24
+// 2016-04-27
 .c-Sitemap {
   .flex-justify-content(space-around);
   margin-bottom: 0; // override ul
+  .menubar();
 }
 .c-Sitemap__Item {
-  width: auto; // override .o-GridFlex__Item
+  @media screen and (max-width: 44.999em) {
+    margin-bottom: @g-vru;
+  }
+  @media screen and (min-width: 45em) {
+    width: auto;
+  }
+}
+.c-Sitemap__SubList {
+  padding-left: 1rem;
+  text-transform: none;
+  font-weight: 300;
 }
 .c-Sitemap__SubItem {
-  text-indent: 1rem;
 }

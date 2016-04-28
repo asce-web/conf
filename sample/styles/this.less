@@ -43,10 +43,8 @@
   background-image: url('../img/site-title-2016.png');
   background-size: contain;
   background-repeat: no-repeat;
-  // text-indent: -999999px; // instead of ``
   color: transparent !important;
 }
-.c-SiteTitle__Tagline {
 
 
 // need the `::before` pseudo for the blur effect
@@ -56,21 +54,9 @@
 .c-Banner--prev::before     { background-image: url('../img/new-york-city.jpg'); }
 .c-Banner--next::before     { background-image: url('../img/cable-stayed-bridge.jpg'); }
 
-.c-Banner--landing,
-.c-Banner--home {
-  &::before {
-  }
-}
-.c-Banner--landing {
-  &::before {
-    .filter(saturate(200%) brightness(80%) blur(2px));
-  }
-}
-.c-Banner--home {
-  &::before {
-    .filter(saturate(150%) brightness(80%));
-  }
-}
+.c-Banner--landing::before { .filter(saturate(200%) brightness(80%) blur(2px)); }
+.c-Banner--home::before    { .filter(saturate(150%) brightness(80%)); }
+
 
 
 .c-Btn--hero--landing,

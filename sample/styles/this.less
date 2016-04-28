@@ -18,18 +18,32 @@
 .c-Banner--prev::before     { background-image: url('../img/new-york-city.jpg'); }
 .c-Banner--next::before     { background-image: url('../img/cable-stayed-bridge.jpg'); }
 
-.c-SiteTitle {
-  padding-left: 140px; // HACK fudged
-  background-image: url('../img/site-logo-white.png');
-  h1 {
-    background-image: url('../img/site-title-2016.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    color: transparent;
-  }
-}
-
 .c-Btn--hero {
   @p-color_site_primary: #3fae2a;
   color: lighten(@p-color_site_primary, 50%, relative);
+}
+
+@p-logosize-s: 0;
+@p-logosize-sK: 60px;
+@p-logosize-sM: 120px;
+.c-SiteTitle__Logo {
+  background-image: url('../img/site-logo-white.png');
+  width: @p-logosize-s; height: @p-logosize-s;
+  @media screen and (min-width: 30em) { width: @p-logosize-sK; height: @p-logosize-sK; }
+  @media screen and (min-width: 45em) { width: @p-logosize-sM; height: @p-logosize-sM; }
+}
+.c-SiteTitle__Name,
+.c-SiteTitle__Tagline {
+  width: 100%;
+  @media screen and (min-width: 30em) { width: calc(~'100% - '@p-logosize-sK); }
+  @media screen and (min-width: 45em) { width: calc(~'100% - '@p-logosize-sM); }
+}
+.c-SiteTitle__Name {
+  background-image: url('../img/site-title-2016.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  // text-indent: -999999px; // instead of ``
+  color: transparent !important;
+}
+.c-SiteTitle__Tagline {
 }

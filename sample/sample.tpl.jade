@@ -47,10 +47,11 @@ html(lang="en")
   body
     include include/_mixins.jade
     header.o-Runner.c-Mast: div.o-GridFlex.-xw-n.-xjc-sb.-xai-c
-      // this div wraps content for enforcing max-width
-      a.o-GridFlex__Item.o-Block.c-SiteTitle(href="index.html")
-        h1= site_title
-        p= site_tagline
+      // this inner div wraps content for enforcing max-width
+      a.o-GridFlex__Item.o-Block.o-GridFloat.c-SiteTitle(href="index.html")
+        span.o-GridFloat__Item.c-SiteTitle__Logo
+        h1.o-GridFloat__Item.c-SiteTitle__Name= site_title
+        p.o-GridFloat__Item.c-SiteTitle__Tagline= site_tagline
       nav.o-GridFlex__Item.-w-a
         h1.-d-n Top Menu
         ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal.-d-n.-d-fx-s52em

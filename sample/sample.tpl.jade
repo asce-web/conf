@@ -3,12 +3,12 @@ html(lang="en")
   head
     include include/_data.jade
     block vars
+      - var page_name = ''
+      - var page_description = ''
     block title
       title
     meta(charset="utf-8")
-    meta(name="startDate" content=conference.startDate)
-    block description
-      meta(name="description" content=page_description[page_name])
+    meta(name="description" content=page_description)
     meta(name="keywords" content=['ASCE', 'civil engineering', 'convention'])
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")

@@ -5,15 +5,10 @@ html(lang="en")
   head
     - var titles = ['ASCE Conferences Styleguide']
     block vars
-      - var authors = []
-      - var description = ''
-      - var keywords = []
     title= title(titles)
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    meta(name="author" content=authors)
-    meta(name="description" content=description)
-    meta(name="keywords" content=keywords)
+    block meta
     block styles
       link(rel="stylesheet" href="bower_components/xmeter/xmeter.min.css")
       link(rel="stylesheet" href="bower_components/bangs/bangs.min.css")

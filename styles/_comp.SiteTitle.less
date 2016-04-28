@@ -9,17 +9,15 @@
 // Area containing the site logo, title, and tagline.
 //
 // ^subcomponents
+// __Logo    - holds the conference logo or institute shield
+// __Name    - the name of the entire site
+// __Tagline - site tagline
 // ^author
 // Chris Harvey
 // ^updated
 // 2016-04-19
 .c-SiteTitle {
   width: auto;
-  height: (5*@g-vru);
-  padding: (@g-vru/2) 0; // change padding-left on a site-to-site basis for the logo size
-  background-image: none; // change this on a site-to-site basis
-  background-size: auto 100%;
-  background-repeat: no-repeat;
   @media screen and (min-width: 52em) {
     width: 50%;
   }
@@ -27,13 +25,25 @@
   a&:focus {
     color: inherit; // override `.c-Mast >> a`
   }
-  h1,
-  p {
-    padding-bottom: @g-vru;
-    margin: 0;
-    white-space: nowrap;
-  }
-  h1 {
-    text-align: inherit;
+}
+
+.c-SiteTitle__Logo {
+  background-image: none; // change this on a site-to-site basis
+  background-size: contain;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+.c-SiteTitle__Name,
+.c-SiteTitle__Tagline {
+  padding-bottom: @g-vru;
+  margin: 0;
+  white-space: nowrap;
+}
+.c-SiteTitle__Name {
+  text-align: inherit; // override h1 center
+}
+.c-SiteTitle__Tagline {
+  @media screen and (max-width: 44.999em) {
+    display: none;
   }
 }

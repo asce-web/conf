@@ -23,6 +23,32 @@
           filter: @filter;
 }
 
+
+@p-logosize-s: 0;
+@p-logosize-sK: 60px;
+@p-logosize-sM: 120px;
+.c-SiteTitle__Logo {
+  background-image: url('../img/site-logo-white.png');
+  width: @p-logosize-s; height: @p-logosize-s;
+  @media screen and (min-width: 30em) { width: @p-logosize-sK; height: @p-logosize-sK; }
+  @media screen and (min-width: 45em) { width: @p-logosize-sM; height: @p-logosize-sM; }
+}
+.c-SiteTitle__Name,
+.c-SiteTitle__Tagline {
+  width: 100%;
+  @media screen and (min-width: 30em) { width: calc(~'100% - '@p-logosize-sK); }
+  @media screen and (min-width: 45em) { width: calc(~'100% - '@p-logosize-sM); }
+}
+.c-SiteTitle__Name {
+  background-image: url('../img/site-title-2016.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  // text-indent: -999999px; // instead of ``
+  color: transparent !important;
+}
+.c-SiteTitle__Tagline {
+
+
 // need the `::before` pseudo for the blur effect
 .c-Banner--landing::before  { background-image: url('http://img04.deviantart.net/e300/i/2006/277/b/c/portland_skyline_ii_by_hottoku.jpg'); }
 .c-Banner--home::before     { background-image: url('../img/cable-car.jpg'); }
@@ -46,6 +72,7 @@
   }
 }
 
+
 .c-Btn--hero--landing,
 .c-Btn--hero--home {
 }
@@ -54,15 +81,4 @@
 }
 .c-Btn--hero--home {
   color: lighten(@p-color_site_primary, 50%, relative);
-}
-
-.c-SiteTitle {
-  padding-left: 140px; // HACK fudged
-  background-image: url('../img/site-logo-white.png');
-  h1 {
-    background-image: url('../img/site-title-2016.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    color: transparent;
-  }
 }

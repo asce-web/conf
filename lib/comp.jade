@@ -58,13 +58,15 @@ block append main
   section.sg-sect#site-title
     h2 The Site Title
     figure.sg-c-Fig
-      a.o-Block.c-SiteTitle(href="")
-        h1 ASCE Convention
-        p The Flagship Event of ASCE
+      a.o-Block.o-GridFloat.c-SiteTitle(href="" style="margin-bottom: 1.5rem;")
+        span.o-GridFloat__Item.c-SiteTitle__Logo
+        h1.o-GridFloat__Item.c-SiteTitle__Name ASCE Convention
+        p.o-GridFloat__Item.c-SiteTitle__Tagline The Flagship Event of ASCE
       pre.
-        &lt;a class="o-Block  #[u c-SiteTitle]"&gt;
-          &lt;h1&gt;ASCE Convention&lt;/h1&gt;
-          &lt;p&gt;The Flagship Event of ASCE&lt;/p&gt;
+        &lt;a class="o-Block  o-GridFloat  #[u c-SiteTitle]"&gt;
+          &lt;span class="o-GridFloat__Item  #[u c-SiteTitle__Logo]"&gt;&lt;/span&gt;
+          &lt;h1 class="o-GridFloat__Item  #[u c-SiteTitle__Name]"&gt;ASCE Convention&lt;/h1&gt;
+          &lt;p class="o-GridFloat__Item  #[u c-SiteTitle__Tagline]"&gt;The Flagship Event of ASCE&lt;/p&gt;
         &lt;/a&gt;
   section.sg-sect#universal-menu
     h2 The Universal Menu

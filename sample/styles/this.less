@@ -24,26 +24,12 @@
 }
 
 
-@p-logosize-s: 0;
-@p-logosize-sK: 60px;
-@p-logosize-sM: 120px;
 .c-SiteTitle__Logo {
   background-image: url('../img/site-logo-white.png');
-  width: @p-logosize-s; height: @p-logosize-s;
-  @media screen and (min-width: 30em) { width: @p-logosize-sK; height: @p-logosize-sK; }
-  @media screen and (min-width: 45em) { width: @p-logosize-sM; height: @p-logosize-sM; }
-}
-.c-SiteTitle__Name,
-.c-SiteTitle__Tagline {
-  width: 100%;
-  @media screen and (min-width: 30em) { width: calc(~'100% - '@p-logosize-sK); }
-  @media screen and (min-width: 45em) { width: calc(~'100% - '@p-logosize-sM); }
 }
 .c-SiteTitle__Name {
   background-image: url('../img/site-title-2016.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  color: transparent !important;
+  color: transparent !important; // override `.c-Mast >> h1`
 }
 
 

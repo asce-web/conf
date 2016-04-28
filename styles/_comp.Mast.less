@@ -19,7 +19,7 @@
 // ^updated
 // 2016-04-27
 .c-Mast {
-  .font-size-el(14/16);
+  .font-size-mod(14/16);
   background-color: @g-color_site_gray_dk;
   color: @g-color_asce_white;
   h1,
@@ -32,6 +32,19 @@
       color: @g-color_site_gray_lt;
     }
     &:active { color: inherit; } // duplicating due to :hover
+  }
+  .c-SiteTitle__Name {
+    // HACK need local vars
+    padding-bottom: @l-vru;
+  }
+  .c-SiteTitle__Name,
+  .c-MenuUniversal,
+  .c-MenuStandard,
+  .c-MenuSub,
+  .c-Sitemap,
+  .c-Sitemap__SubList {
+    // HACK override `.font-size-mod() >> h1` and `.font-size-mod() >> ul`
+    margin-bottom: 0;
   }
 }
 

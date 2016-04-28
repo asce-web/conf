@@ -2,66 +2,11 @@ extends sample.tpl.jade
 
 block append vars
   - var page_type = 'universal'
-  //- -
-    var pages = [
-      {
-        name: 'ASCE Convention', href: 'index.html'
-      }
-    , {
-        name: 'About', href: 'about.html'
-      , sub: [
-          { name: 'Cooperating Orgs' , href: '' }
-        , { name: 'Partnering Orgs'  , href: '' }
-        , { name: 'Volunteer'        , href: '' }
-        , { name: 'Why Attend'       , href: '' }
-        ]
-      }
-    , { name: 'Sponsor', href: 'sponsor.html' }
-    , {
-        name: 'Exhibit', href: 'exhibit.html'
-      , sub: [
-          { name:'Exhibitor List', href:'' }
-        ]
-      }
-    , { name: 'Contact', href: 'contact.html' }
-    ]
-  //- unbuffered block code isn’t fucking supported,
-  //- so I have to do this:
-  - var pages = []
-  - pages.push({name:'ASCE Convention', href:'index.html'})
-  - pages.push({name:'About'          , href:'about.html'})
-  - pages.push({name:'Sponsor'        , href:'sponsor.html'})
-  - pages.push({name:'Exhibit'        , href:'exhibit.html'})
-  - pages.push({name:'Contact'        , href:'contact.html'})
-  - pages[1].sub =   []
-  - pages[3].sub =   [{name:'International Travel' , href:''}]
-  - pages[1].sub.push({name:'Cooperating Orgs'     , href:''})
-  - pages[1].sub.push({name:'Partnering Orgs'      , href:''})
-  - pages[1].sub.push({name:'Volunteer'            , href:''})
-  - pages[1].sub.push({name:'Why Attend'           , href:''})
 
 block title
-  title= ((page_subtype === 'landing') ? '' : page_name + ' | ') + site.title
+  title= ((page_subtype === 'landing') ? '' : page_id.name + ' | ') + site.title
 
 block append site-map
   footer.o-Runner.c-Mast: nav
     h1.-d-n Site Map
-    +menulist(pages, sitemap_class_obj)
-    //- ul.o-ListBare.o-GridFlex.c-Sitemap
-      li.o-GridFlex__Item.c-Sitemap__Item
-        a(href="index.html") ASCE Convention
-      li.o-GridFlex__Item.c-Sitemap__Item
-        a(href="about.html") About
-        ul.o-ListBare.c-Sitemap__SubList
-          li.c-Sitemap__SubItem: a(href="") Cooperating Orgs
-          li.c-Sitemap__SubItem: a(href="") Partnering Orgs
-          li.c-Sitemap__SubItem: a(href="") Volunteer
-          li.c-Sitemap__SubItem: a(href="") Why Attend
-      li.o-GridFlex__Item.c-Sitemap__Item
-        a(href="sponsor.html") Sponsor
-      li.o-GridFlex__Item.c-Sitemap__Item
-        a(href="exhibit.html") Exhibit
-        ul.o-ListBare.c-Sitemap__SubList
-          li.c-Sitemap__SubItem: a(href="") Exhibitor List
-      li.o-GridFlex__Item.c-Sitemap__Item
-        a(href="contact.html") Contact
+    +menulist(sitemap.universal, sitemap_class_obj)

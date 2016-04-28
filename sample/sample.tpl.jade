@@ -6,9 +6,7 @@ html(lang="en")
     block title
       title
     meta(charset="utf-8")
-    meta(name="startDate" content=conference.startDate)
-    block description
-      meta(name="description" content=page_description[page_name])
+    meta(name="description" content=page_id.description)
     meta(name="keywords" content=['ASCE', 'civil engineering', 'convention'])
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
@@ -88,7 +86,7 @@ html(lang="en")
         main
           block main-header
             header.o-Runner.o-Runner--pageHeader
-              h1.c-PageTitle= page_name
+              h1.c-PageTitle= page_id.name
           block main-body
             block main-minimal
             block main-reference

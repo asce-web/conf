@@ -10,12 +10,14 @@
 // (e.g. Student, Speaker, Standard, etc.)
 //
 // ^subclasses
-// --hilite - for singular button in highlight block
-// --inline - for buttons inline with text
+// --hilite   - singular button in highlight block
+// --inline   - buttons inline with text
 // --hero     - for action button(s) in hero section
+// --hero--landing     - hero button on landing page (customizable per each site)
+// --hero--home        - hero button on home    page (customizable per each site)
 // --hero2    - alternate hero button
 // --dominant - button for some other primary use
-// --drawer - universal menu button in site masthead
+// --drawer   - universal menu button in site masthead
 // ^author
 // Chris Harvey
 // ^updated
@@ -84,11 +86,9 @@ a.c-Btn {
   }
 }
 
-.c-Btn--dominant {
-  color: @g-color_asce_white;
-  background-color: @g-color_site_secondary;
-  font-style: italic;
-}
+// customizable per site
+.c-Btn--hero--landing {}
+.c-Btn--hero--home {}
 
 .c-Btn--hero2 {
   border: 0;
@@ -102,6 +102,15 @@ a.c-Btn {
   // &:active {
   //   border-color: @g-color_site_gray_lt; // same as border color of .c-Btn
   // }
+}
+
+.c-Btn--dominant {
+  color: @g-color_asce_white;
+  background-color: @g-color_site_secondary;
+  font-style: italic;
+  &:hover {
+    border-color: @g-color_asce_white;
+  }
 }
 
 .c-Btn--drawer {

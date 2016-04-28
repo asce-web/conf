@@ -2,17 +2,7 @@
 /*################################*\
     conf  |  _comp.Banner.less
 \*################################*/
-// @import (reference) url('../node_modules/xmeter/src/__tool.fallback.filter.less');
 @import (reference) url('__settings.less');
-
-
-.filter(@filter) {
-  -webkit-filter: @filter;
-     -moz-filter: @filter;
-      -ms-filter: @filter;
-       -o-filter: @filter;
-          filter: @filter;
-}
 
 // Any major section on any page with a full-width background image.
 //
@@ -53,12 +43,6 @@
 .c-Banner--location,
 .c-Banner--prev,
 .c-Banner--next {
-}
-.c-Banner--landing,
-.c-Banner--home {
-  &::before {
-    .filter(blur(2px) brightness(0.75));
-  }
 }
 // override background-image in site-specific stylesheet
 .c-Banner--landing::before {}

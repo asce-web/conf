@@ -10,9 +10,9 @@ mixin menulist(arr, class_obj)
 mixin actionbuttons(arr, classes)
   ul.o-ListBare.o-GridFlex.o-ListStacked
     each obj in arr
-      - obj.attrs = obj.attrs || {}
+      - obj.attr = obj.attr || {}
       li.o-GridFlex__Item.o-ListStacked__Item
-        a(class=classes href=obj.href)&attributes(obj.attrs)= obj.text
+        a(class=classes href=obj.href)&attributes(obj.attr)= obj.text
 
 mixin hero-content(event0)
   - event0 = event0 || {}

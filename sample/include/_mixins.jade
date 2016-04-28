@@ -14,18 +14,28 @@ mixin actionbuttons(arr, classes)
       li.o-GridFlex__Item.o-ListStacked__Item
         a(class=classes href=obj.href)&attributes(obj.attrs)= obj.text
 
-mixin hero-content()
-  h1.c-PageTitle.c-Hero__Name(itemprop="name")= conference_name
+mixin hero-content(conference)
+  - conference = conference || {}
+  h1.c-PageTitle.c-Hero__Name(itemprop="name")= conference.name
   p.c-Hero__Detail
     span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
       span(itemprop="name")
-        span(itemprop="addressLocality") Portland, 
-        abbr(itemprop="addressRegion" title="Oregon") OR
+        span(itemprop="addressLocality")= conference.addressLocality + ', '
+        if typeof conference.addressRegion === 'object'
+          abbr(itemprop="addressRegion" title=conference.addressRegion.name)= conference.addressRegion.abbr
+        else
+          span(itemprop="addressRegion")= conference.addressRegion
     span.c-Hero__Dates
-      time(datetime="2016-09-28" itemprop="startDate") Sep 28
+      time(datetime="#{conference.startDate.toString().slice(0,10)}" itemprop="startDate")
+        = month_names[conference.startDate.getUTCMonth()].slice(0,3) + ' ' + conference.startDate.getUTCDate()
       | &ndash;
-      time(datetime="2016-10-01" itemprop="endDate") Oct 1
-  p.c-Hero__Theme(itemprop="description")= conference_theme
+      time(datetime="#{conference.endDate.toString().slice(0,10)}" itemprop="endDate")
+        = month_names[conference.endDate.getUTCMonth()].slice(0,3) + ' ' + conference.endDate.getUTCDate()
+  p.c-Hero__Theme(itemprop="description")
+    if conference.theme
+      = conference.theme
+    else
+      | &nbsp;
 
 mixin important-date-content()
   h1 Important Dates

@@ -7,30 +7,20 @@ block append vars
 block dominant
   main
     section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing.c-Hero(itemscope="" itemtype="http://schema.org/Event")
-      +hero-content(conference)
+      +hero-content(conference.current)
       +actionbuttons([{text:'Find Out More', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
       meta(content="http://2016.asceconvention.org/" itemprop="url")
     +minimal-text-block()
     section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--prev.c-OtherYear(itemscope="" itemtype="http://schema.org/Event")
       div.c-Overlay
-        h1.c-OtherYear__Name(itemprop="name") ASCE 2015
-        meta(content="2015-10-11" itemprop="startDate")
-        p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-          span(itemprop="name")
-            span(itemprop="addressLocality") New York, 
-            abbr(itemprop="addressRegion" title="New York") NY
+        +otheryear-content(conference.prev)
         p.c-OtherYear__Desc.
           Access the 2015 program to see which sessions qualify for
           PDHs and other documentation.
         +actionbuttons([{text:'Event Details', href:'//2015.asceconvention.org/', attrs:{itemprop:'url'}}], 'c-Btn c-Btn--hilite c-Btn--hero')
     section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--next.c-OtherYear(itemscope="" itemtype="http://schema.org/Event")
       div.c-Overlay
-        h1.c-OtherYear__Name(itemprop="name") ASCE 2017
-        meta(content="2017-10-11" itemprop="startDate")
-        p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-          span(itemprop="name")
-            span(itemprop="addressLocality") Chicago, 
-            abbr(itemprop="addressRegion" title="Illinois") IL
+        +otheryear-content(conference.next)
         p.c-OtherYear__Desc.
           Plan ahead to attend, sponsor, or exhibit at the
           annual convention for civil engineering professionals.

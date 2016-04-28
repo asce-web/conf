@@ -1,31 +1,8 @@
 doctype html
 html(lang="en")
-  block globals
-    //- repeatable from project to project
-    - var month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   head
+    include include/_data.jade
     block vars
-      - var site = {}
-      - site.title = 'ASCE Convention'
-      - site.tagline = 'Engineering > Innovating > Leading' // old: 'The Flagship Event of ASCE'
-      - var conference = {}
-      - conference.name = 'ASCE 2016'
-      - conference.theme = ''
-      - conference.addressLocality = 'Portland'
-      - conference.addressRegion = {name: 'Oregon', abbr: 'OR'}
-      - conference.startDate = new Date('2016-09-28')
-      - conference.endDate = new Date('2016-10-01')
-      - var page_description = {}
-      - page_description['Index']          = site.tagline
-      - page_description['About']          = 'About the ASCE Convention.'
-      - page_description['Sponsor']        = 'Sponsors of the ASCE Convention.'
-      - page_description['Exhibit']        = 'Exhibitors at the ASCE Convention.'
-      - page_description['Contact']        = 'Contact us for questions and comments about the ASCE Convention.'
-      - page_description['Home']           = conference.theme
-      - page_description['Registration']   = 'Register for the ASCE 2016 conference here.'
-      - page_description['Program']        = 'Program and Agenda of the ASCE 2016 conference.'
-      - page_description['Hotel & Travel'] = 'Get information about the location of the conference and where to stay.'
-      - page_description['Speakers']       = 'Get information about current and prospective speakers at ASCE 2016.'
     block title
       title
     meta(charset="utf-8")

@@ -14,28 +14,40 @@ mixin actionbuttons(arr, classes)
       li.o-GridFlex__Item.o-ListStacked__Item
         a(class=classes href=obj.href)&attributes(obj.attrs)= obj.text
 
-mixin hero-content(conference)
-  - conference = conference || {}
-  h1.c-PageTitle.c-Hero__Name(itemprop="name")= conference.name
+mixin hero-content(event0)
+  - event0 = event0 || {}
+  h1.c-PageTitle.c-Hero__Name(itemprop="name")= event0.name
   p.c-Hero__Detail
     span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
       span(itemprop="name")
-        span(itemprop="addressLocality")= conference.addressLocality + ', '
-        if typeof conference.addressRegion === 'object'
-          abbr(itemprop="addressRegion" title=conference.addressRegion.name)= conference.addressRegion.abbr
+        span(itemprop="addressLocality")= event0.addressLocality + ', '
+        if event0.addressRegion.name && event0.addressRegion.abbr
+          abbr(itemprop="addressRegion" title=event0.addressRegion.name)= event0.addressRegion.abbr
         else
-          span(itemprop="addressRegion")= conference.addressRegion
+          span(itemprop="addressRegion")= event0.addressRegion
     span.c-Hero__Dates
-      time(datetime="#{conference.startDate.toString().slice(0,10)}" itemprop="startDate")
-        = month_names[conference.startDate.getUTCMonth()].slice(0,3) + ' ' + conference.startDate.getUTCDate()
+      time(datetime=event0.startDate.toString().slice(0,10) itemprop="startDate")
+        = month_names[event0.startDate.getUTCMonth()].slice(0,3) + ' ' + event0.startDate.getUTCDate()
       | &ndash;
-      time(datetime="#{conference.endDate.toString().slice(0,10)}" itemprop="endDate")
-        = month_names[conference.endDate.getUTCMonth()].slice(0,3) + ' ' + conference.endDate.getUTCDate()
+      time(datetime=event0.endDate.toString().slice(0,10) itemprop="endDate")
+        = month_names[event0.endDate.getUTCMonth()].slice(0,3) + ' ' + event0.endDate.getUTCDate()
   p.c-Hero__Theme(itemprop="description")
-    if conference.theme
-      = conference.theme
+    if event0.theme
+      = event0.theme
     else
       | &nbsp;
+
+mixin otheryear-content(event0)
+  - event0 = event0 || {}
+  h1.c-OtherYear__Name(itemprop="name")= event0.name
+  meta(content=event0.startDate.toString().slice(0,10) itemprop="startDate")
+  p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+    span(itemprop="name")
+      span(itemprop="addressLocality")= event0.addressLocality + ', '
+        if event0.addressRegion.name && event0.addressRegion.abbr
+          abbr(itemprop="addressRegion" title=event0.addressRegion.name)= event0.addressRegion.abbr
+        else
+          span(itemprop="addressRegion")= event0.addressRegion
 
 mixin important-date-content()
   h1 Important Dates

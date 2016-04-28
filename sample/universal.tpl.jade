@@ -41,7 +41,7 @@ block append vars
   - pages[1].sub.push({name:'Why Attend'           , href:''})
 
 block title
-  title= ((page_subtype === 'landing') ? '' : page_name + ' | ') + site_title
+  title= ((page_subtype === 'landing') ? '' : page_name + ' | ') + site.title
 
 block append site-map
   footer.o-Runner.c-Mast: nav

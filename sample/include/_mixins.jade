@@ -14,18 +14,40 @@ mixin actionbuttons(arr, classes)
       li.o-GridFlex__Item.o-ListStacked__Item
         a(class=classes href=obj.href)&attributes(obj.attrs)= obj.text
 
-mixin hero-content()
-  h1.c-PageTitle.c-Hero__Name(itemprop="name")= conference_name
+mixin hero-content(event0)
+  - event0 = event0 || {}
+  h1.c-PageTitle.c-Hero__Name(itemprop="name")= event0.name
   p.c-Hero__Detail
     span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
       span(itemprop="name")
-        span(itemprop="addressLocality") Portland, 
-        abbr(itemprop="addressRegion" title="Oregon") OR
+        span(itemprop="addressLocality")= event0.addressLocality + ', '
+        if event0.addressRegion.name && event0.addressRegion.abbr
+          abbr(itemprop="addressRegion" title=event0.addressRegion.name)= event0.addressRegion.abbr
+        else
+          span(itemprop="addressRegion")= event0.addressRegion
     span.c-Hero__Dates
-      time(datetime="2016-09-28" itemprop="startDate") Sep 28
+      time(datetime=event0.startDate.toString().slice(0,10) itemprop="startDate")
+        = month_names[event0.startDate.getUTCMonth()].slice(0,3) + ' ' + event0.startDate.getUTCDate()
       | &ndash;
-      time(datetime="2016-10-01" itemprop="endDate") Oct 1
-  p.c-Hero__Theme(itemprop="description")= conference_theme
+      time(datetime=event0.endDate.toString().slice(0,10) itemprop="endDate")
+        = month_names[event0.endDate.getUTCMonth()].slice(0,3) + ' ' + event0.endDate.getUTCDate()
+  p.c-Hero__Theme(itemprop="description")
+    if event0.theme
+      = event0.theme
+    else
+      | &nbsp;
+
+mixin otheryear-content(event0)
+  - event0 = event0 || {}
+  h1.c-OtherYear__Name(itemprop="name")= event0.name
+  meta(content=event0.startDate.toString().slice(0,10) itemprop="startDate")
+  p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+    span(itemprop="name")
+      span(itemprop="addressLocality")= event0.addressLocality + ', '
+        if event0.addressRegion.name && event0.addressRegion.abbr
+          abbr(itemprop="addressRegion" title=event0.addressRegion.name)= event0.addressRegion.abbr
+        else
+          span(itemprop="addressRegion")= event0.addressRegion
 
 mixin important-date-content()
   h1 Important Dates

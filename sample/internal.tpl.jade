@@ -51,7 +51,7 @@ block append vars
   - pages[1].sub.push({name:'Optional Tours'               , href:''})
 
 block title
-  title= ((page_subtype === 'home') ? '' : page_name + ' | ') + conference_name
+  title= ((page_subtype === 'home') ? '' : page_name + ' | ') + conference.current.name
 
 block append standard-menu
   header.o-Runner.c-Mast.c-Mast--internal: nav

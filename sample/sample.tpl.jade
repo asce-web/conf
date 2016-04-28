@@ -1,18 +1,14 @@
 doctype html
 html(lang="en")
   head
+    include include/_data.jade
     block vars
-      - var site_title = 'ASCE Convention'
-      //- - var site_tagline = 'The Flagship Event of ASCE'
-      - var site_tagline = 'Engineering > Innovating > Leading'
-      - var conference_name = 'ASCE 2016'
-      - var conference_theme = ''
-      - var descriptions = {'Index':site_tagline, 'About':'About the ASCE Convention.', 'Sponsor':'Sponsors of the ASCE Convention.', 'Exhibit':'Exhibitors at the ASCE Convention.', 'Contact':'Contact us for questions and comments about the ASCE Convention.', 'Home':conference_theme, 'Registration':'Register for the ASCE 2016 conference here.', 'Program':'Program and Agenda of the ASCE 2016 conference.', 'Hotel & Travel':'Get information about the location of the conference and where to stay.', 'Speakers':'Get information about current and prospective speakers at ASCE 2016.'}
     block title
       title
     meta(charset="utf-8")
+    meta(name="startDate" content=conference.startDate)
     block description
-      meta(name="description" content=descriptions[page_name])
+      meta(name="description" content=page_description[page_name])
     meta(name="keywords" content=['ASCE', 'civil engineering', 'convention'])
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
@@ -49,8 +45,8 @@ html(lang="en")
     header.o-Runner.c-Mast: div.o-GridFlex.-xw-n.-xjc-sb.-xai-c
       // this div wraps content for enforcing max-width
       a.o-GridFlex__Item.o-Block.c-SiteTitle(href="index.html")
-        h1= site_title
-        p= site_tagline
+        h1= site.title
+        p= site.tagline
       nav.o-GridFlex__Item.-w-a
         h1.-d-n Top Menu
         ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal.-d-n.-d-fx-s52em

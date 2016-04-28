@@ -4,7 +4,7 @@ block append vars
   - var page_type = 'internal'
 
 block title
-  title= ((page_subtype === 'home') ? '' : page_name + ' | ') + conference.current.name
+  title= ((page_subtype === 'home') ? '' : page_id.name + ' | ') + conference.current.name
 
 block append standard-menu
   header.o-Runner.c-Mast.c-Mast--internal: nav

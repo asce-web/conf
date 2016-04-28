@@ -4,7 +4,7 @@ block append vars
   - var page_type = 'universal'
 
 block title
-  title= ((page_subtype === 'landing') ? '' : page_name + ' | ') + site.title
+  title= ((page_subtype === 'landing') ? '' : page_id.name + ' | ') + site.title
 
 block append site-map
   footer.o-Runner.c-Mast: nav

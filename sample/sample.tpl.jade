@@ -3,12 +3,10 @@ html(lang="en")
   head
     include include/_data.jade
     block vars
-      - var page_name = ''
-      - var page_description = ''
     block title
       title
     meta(charset="utf-8")
-    meta(name="description" content=page_description)
+    meta(name="description" content=page_id.description)
     meta(name="keywords" content=['ASCE', 'civil engineering', 'convention'])
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
@@ -88,7 +86,7 @@ html(lang="en")
         main
           block main-header
             header.o-Runner.o-Runner--pageHeader
-              h1.c-PageTitle= page_name
+              h1.c-PageTitle= page_id.name
           block main-body
             block main-minimal
             block main-reference

@@ -1,8 +1,7 @@
 extends internal.tpl.jade
 
 block append vars
-  - var page_name = sitemap.internal.speakers.name
-  - var page_description = sitemap.internal.speakers.description
+  - var page_id = sitemap.internal.speakers
 
 block main-minimal
   +minimal-text-block()

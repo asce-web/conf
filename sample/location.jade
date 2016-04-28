@@ -1,8 +1,7 @@
 extends internal.tpl.jade
 
 block append vars
-  - var page_name = sitemap.internal.location.name
-  - var page_description = sitemap.internal.location.description
+  - var page_id = sitemap.internal.location
 
 block main-header
   header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--location.c-Hero(style="height: 13.5rem;")

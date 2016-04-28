@@ -36,3 +36,87 @@
 - page_description['Program']        = 'Program and Agenda of the ASCE 2016 conference.'
 - page_description['Hotel & Travel'] = 'Get information about the location of the conference and where to stay.'
 - page_description['Speakers']       = 'Get information about current and prospective speakers at ASCE 2016.'
+
+script.
+  var sitemap = {
+    universal: {
+      index: {
+        name: 'ASCE Convention', href: 'index.html'
+      }
+    , about: {
+        name: 'About', href: 'about.html'
+      , sub: {
+          'coop-orgs' : { name: 'Cooperating Orgs' , href: '' }
+        , 'part-orgs' : { name: 'Partnering Orgs'  , href: '' }
+        , 'volunteer' : { name: 'Volunteer'        , href: '' }
+        , 'why-attend': { name: 'Why Attend'       , href: '' }
+        }
+      }
+    , sponsor: { name: 'Sponsor', href: 'sponsor.html' }
+    , exhibit: {
+        name: 'Exhibit', href: 'exhibit.html'
+      , sub: {
+          'exhibitor-list': { name:'Exhibitor List', href:'' }
+        }
+      }
+    , contact: { name: 'Contact', href: 'contact.html' }
+    }
+  , internal: {
+      home: { name: 'Home', href: 'home.html' }
+    , registration: {
+        name: 'Registration', href: 'registration.html'
+      , sub: {
+          'why-attend'     : { name: 'Why Attend'      , href: '' }
+        , 'short-courses'  : { name: 'Short Courses'   , href: '' }
+        , 'technical-tours': { name: 'Technical Tours' , href: '' }
+        , 'optional-tours' : { name: 'Optional Tours'  , href: '' }
+        }
+      }
+    , program: {
+        name: 'Program', href: 'program.html'
+      , sub: {
+          events: { name: 'Events', href: '' }
+        }
+      }
+    , location: {
+        name: 'Hotel & Travel', href: 'location.html'
+      , sub: {
+          'international-travel': { name: 'International Travel', href: '' }
+        }
+      }
+    , speakers: {
+        name: 'Speakers', href: 'speakers.html'
+      , sub: {
+          'distinguished-lecture-series': { name: 'Distinguished Lecture Series', href: '' }
+        }
+      }
+    }
+  }
+
+- var sitemap = {}
+- sitemap.universal = {}
+- sitemap.universal.index   = {name:'ASCE Convention', href:'index.html'}
+- sitemap.universal.about   = {name:'About'          , href:'about.html'}
+- sitemap.universal.sponsor = {name:'Sponsor'        , href:'sponsor.html'}
+- sitemap.universal.exhibit = {name:'Exhibit'        , href:'exhibit.html'}
+- sitemap.universal.contact = {name:'Contact'        , href:'contact.html'}
+- sitemap.universal.about.sub = {}
+- sitemap.universal.about.sub['coop-orgs']  = {name:'Cooperating Orgs', href:''}
+- sitemap.universal.about.sub['part-orgs']  = {name:'Partnering Orgs' , href:''}
+- sitemap.universal.about.sub['volunteer']  = {name:'Volunteer'       , href:''}
+- sitemap.universal.about.sub['why-attend'] = {name:'Why Attend'      , href:''}
+- sitemap.universal.exhibit.sub = {'exhibitor-list': {name:'Exhibitor List', href:''}}
+- sitemap.internal = {}
+- sitemap.internal.home         = {name:'Home'          , href:'home.html'}
+- sitemap.internal.registration = {name:'Registration'  , href:'registration.html'}
+- sitemap.internal.program      = {name:'Program'       , href:'program.html'}
+- sitemap.internal.location     = {name:'Hotel & Travel', href:'location.html'}
+- sitemap.internal.speakers     = {name:'Speakers'      , href:'speakers.html'}
+- sitemap.internal.registration.sub = {}
+- sitemap.internal.registration.sub['why-attend']      = {name:'Why Attend'     , href:''}
+- sitemap.internal.registration.sub['short-courses']   = {name:'Short Courses'  , href:''}
+- sitemap.internal.registration.sub['technical-tours'] = {name:'Technical Tours', href:''}
+- sitemap.internal.registration.sub['optional-tours']  = {name:'Optional Tours' , href:''}
+- sitemap.internal.program.sub =  {events                        : {name:'Events'                      , href:''}}
+- sitemap.internal.location.sub = {'international-travel'        : {name:'International Travel'        , href:''}}
+- sitemap.internal.speakers.sub = {'distinguished-lecture-series': {name:'Distinguished Lecture Series', href:''}}

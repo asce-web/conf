@@ -1,4 +1,5 @@
 mixin menulist(structure, class_obj)
+  - structure = structure || {}
   - class_obj = class_obj || {}
   ul(class=class_obj.listclasses)
     each value in structure

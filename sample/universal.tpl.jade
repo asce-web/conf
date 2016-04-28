@@ -2,43 +2,6 @@ extends sample.tpl.jade
 
 block append vars
   - var page_type = 'universal'
-  //- -
-    var pages = {
-      index: {
-        name: 'ASCE Convention', href: 'index.html'
-      }
-    , about: {
-        name: 'About', href: 'about.html'
-      , sub: {
-          'coop-orgs' : { name: 'Cooperating Orgs' , href: '' }
-        , 'part-orgs' : { name: 'Partnering Orgs'  , href: '' }
-        , 'volunteer' : { name: 'Volunteer'        , href: '' }
-        , 'why-attend': { name: 'Why Attend'       , href: '' }
-        }
-      }
-    , sponsor: { name: 'Sponsor', href: 'sponsor.html' }
-    , exhibit: {
-        name: 'Exhibit', href: 'exhibit.html'
-      , sub: {
-          'exhibitor-list': { name:'Exhibitor List', href:'' }
-        }
-      }
-    , contact: { name: 'Contact', href: 'contact.html' }
-    }
-  //- unbuffered block code isn’t fucking supported,
-  //- so I have to do this:
-  - var pages = {}
-  - pages.index   = {name:'ASCE Convention', href:'index.html'}
-  - pages.about   = {name:'About'          , href:'about.html'}
-  - pages.sponsor = {name:'Sponsor'        , href:'sponsor.html'}
-  - pages.exhibit = {name:'Exhibit'        , href:'exhibit.html'}
-  - pages.contact = {name:'Contact'        , href:'contact.html'}
-  - pages.about.sub = {}
-  - pages.about.sub['coop-orgs']  = {name:'Cooperating Orgs', href:''}
-  - pages.about.sub['part-orgs']  = {name:'Partnering Orgs' , href:''}
-  - pages.about.sub['volunteer']  = {name:'Volunteer'       , href:''}
-  - pages.about.sub['why-attend'] = {name:'Why Attend'      , href:''}
-  - pages.exhibit.sub = {'exhibitor-list': {name:'Exhibitor List', href:''}}
 
 block title
   title= ((page_subtype === 'landing') ? '' : page_name + ' | ') + site.title
@@ -46,4 +9,4 @@ block title
 block append site-map
   footer.o-Runner.c-Mast: nav
     h1.-d-n Site Map
-    +menulist(pages, sitemap_class_obj)
+    +menulist(sitemap.universal, sitemap_class_obj)

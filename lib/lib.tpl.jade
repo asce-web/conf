@@ -2,9 +2,6 @@ extends ../index.tpl.jade
 
 block vars
   - titles.push('Pattern Library')
-  - var authors = ['Chris Harvey']
-  - var description = 'Pattern library of conference site styles.'
-  - var keywords = ['style guide','pattern library','components']
 
 block styles
   link(rel="stylesheet" href="../bower_components/xmeter/xmeter.min.css")
@@ -13,19 +10,18 @@ block styles
   link(rel="stylesheet" href="styles/lib.css")
 
 block footer
-  unless is_index_page
-    nav
-      h1 Subsitemap
-      ol
-        li: a(href="index.html") Pattern Library Home
-        li: a(href="visual.html") Visual Design
-        li: a(href="base.html") Base
-        li: a(href="obj.html") Objects
-        li: a(href="comp.html") Components
-        //- li: a(href="comp-typo.html") Typographical Components
-        //- li: a(href="comp-ui.html") UI Components
-        li: a(href="helpers.html") Helpers
-        li: a(href="atoms.html") Atoms
+  nav
+    h1 Subsitemap
+    ol
+      li: a(href="index.html") Pattern Library Home
+      li: a(href="visual.html") Visual Design
+      li: a(href="base.html") Base
+      li: a(href="obj.html") Objects
+      li: a(href="comp.html") Components
+      //- li: a(href="comp-typo.html") Typographical Components
+      //- li: a(href="comp-ui.html") UI Components
+      li: a(href="helpers.html") Helpers
+      li: a(href="atoms.html") Atoms
   nav
     h1 Sitemap
     ol

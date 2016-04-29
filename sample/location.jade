@@ -4,11 +4,11 @@ block append vars
   - var page_id = sitemap.internal.location
 
 block main-header
-  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--location.c-Hero(style="height: 13.5rem;")
+  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--location.c-Hero(style="height: 13.5rem;"): div.o-ContentWrapper
     h1.c-PageTitle.c-PageTitle--special= page_id.name
 
 block main-rich
-  div.o-Runner.o-Runner--highlight.rich-text
+  div.o-Runner.o-Runner--highlight.rich-text: div.o-ContentWrapper
     p.
       Join civil engineering professionals from around the world at
       this ASCE flagship event. Network with peers, earn PDHs, and
@@ -59,9 +59,8 @@ block main-rich
     p About $25 one-way from airport to hotel. See, that wasn&rsquo;t so bad, was it?
 
 block callouts
-  aside.o-Runner.o-Runner--highlight.c-Banner
-    h1 Important Dates
+  aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     +important-date-content()
-  aside.o-Runner.o-Runner--highlight
+  aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
     h1 Contact
     +contact-content()

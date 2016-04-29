@@ -5,7 +5,7 @@ block append vars
   - var page_id = sitemap.internal.home
 
 block main-header
-  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--home.c-Hero
+  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--home.c-Hero: div.o-ContentWrapper
     +hero-content(conference.current)
     +actionbuttons([{text:'Register', href:'registration.html'}, {text:'Sponsor', href:'sponsor.html'}, {text:'Submit a Paper'}], 'c-Btn c-Btn--hilite c-Btn--hero c-Btn--hero--home')
 
@@ -15,19 +15,19 @@ block main-minimal
 block main-rich
 
 block callouts
-  aside.o-Runner.o-Runner--highlight.c-Banner
+  aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     +important-date-content()
-  aside.o-Runner.o-Runner--highlight
+  aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
     +registration-content()
-  aside.o-Runner.o-Runner--highlight.c-Banner
+  aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     +speakers-content()
-  aside.o-Runner.o-Runner--highlight
+  aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
     +cochairs-content()
-  aside.o-Runner.o-Runner--highlight.c-Banner
+  aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     +program-content()
-  aside.o-Runner.o-Runner--highlight
+  aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
     +mobile-content()
-  aside.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--location
+  aside.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--location: div.o-ContentWrapper
     +location-content('Portland, OR')
-  aside.o-Runner.o-Runner--highlight
+  aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
     +social-content()

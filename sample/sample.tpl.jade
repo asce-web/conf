@@ -40,8 +40,7 @@ html(lang="en")
         }
   body
     include include/_mixins.jade
-    header.o-Runner.c-Mast: div.o-GridFlex.-xw-n.-xjc-sb.-xai-c
-      // this inner div wraps content for enforcing max-width
+    header.o-Runner.c-Mast: div.o-GridFlex.o-ContentWrapper.-xw-n.-xjc-sb.-xai-c
       a.o-GridFlex__Item.o-Block.o-GridFloat.c-SiteTitle(href="index.html")
         span.o-GridFloat__Item.c-SiteTitle__Logo
         h1.o-GridFloat__Item.c-SiteTitle__Name= site.title
@@ -85,7 +84,7 @@ html(lang="en")
       article&attributes((page_type === 'internal') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
         main
           block main-header
-            header.o-Runner.o-Runner--pageHeader
+            header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
               h1.c-PageTitle= page_id.name
           block main-body
             block main-minimal
@@ -115,7 +114,7 @@ html(lang="en")
       - sitemap_class_obj.sub = {}
       - sitemap_class_obj.sub.listclasses = 'o-ListBare c-Sitemap__SubList'
       - sitemap_class_obj.sub.itemclasses = 'c-Sitemap__SubItem'
-    footer.o-Runner.c-Mast.c-Mast--copyright: nav
+    footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-ContentWrapper
       h1.-d-n Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
         p

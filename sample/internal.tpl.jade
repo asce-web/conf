@@ -7,11 +7,11 @@ block title
   title= ((page_subtype === 'home') ? '' : page_id.name + ' | ') + conference.current.name
 
 block append standard-menu
-  header.o-Runner.c-Mast.c-Mast--internal: nav
+  header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
     h1.-d-n Main Menu
     +menulist(sitemap.internal, standard_menu_class_obj)
 
 block append site-map
-  footer.o-Runner.c-Mast.c-Mast--internal: nav
+  footer.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
     h1.-d-n Site Map
     +menulist(sitemap.internal, sitemap_class_obj)

@@ -14,6 +14,7 @@ block append main__header
       li: a(href="#flex-grid") The Flex Grid
       li: a(href="#float-grid") The Float Grid
       li: a(href="#runner-object") The Runner Object
+      li: a(href="#content-wrapper") The Content Wrapper
       li: a(href="#sponsors-list") The Sponsors List
       li: a(href="#speakers-list") The Speakers List
       li: a(href="#speakers-list") The Pass List
@@ -208,6 +209,24 @@ block append main
             &lt;h1&gt;Wrapper&lt;/h1&gt;
             &lt;p&gt;runner content&lt;/p&gt;
           #[u &lt;&#x002f;div&gt;]
+        &lt;/div&gt;
+  section.sg-sect#content-wrapper
+    h2 The Content Wrapper
+    p.
+      This object wraps content, limiting its maximum width.
+      Use it to wrap content directly inside a Runner
+      (though it may not necessarily be a child of Runner).
+    figure.sg-c-Fig
+      div.o-Runner
+        div.o-ContentWrapper
+          h1 content heading
+          p content
+      pre.
+        &lt;div class="#[u o-Runner]"&gt;
+          &lt;div class="#[u o-ContentWrapper]"&gt;
+            &lt;h1&gt;content heading&lt;/h1&gt;
+            &lt;p&gt;content&lt;/p&gt;
+          &lt;/div&gt;
         &lt;/div&gt;
   section.sg-sect#sponsors-list
     h2 The Sponsors List

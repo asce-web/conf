@@ -112,11 +112,13 @@ mixin registration-content()
   +actionbuttons([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
 
 mixin speaker()
-  div.c-Speaker
-    p.c-Speaker__Name Donna Fulman, P.ASCE
-    p.c-Speaker__JobTitle Interior Engineering Administration
-    div.o-ListSpeakers__Over.c-Speaker__Detail
-      div.c-Speaker__Desc.minimal-text
+  article.c-Speaker
+    div.c-Speaker__Img(style="background-image:url('../sample/img/headshot1.jpg');")
+      header.c-Speaker__Head
+        h1.c-Speaker__Name Donna Fulman, P.ASCE
+        p.c-Speaker__JobTitle Interior Engineering Administration
+    div.c-Speaker__Body
+      div.c-Speaker__Bio.minimal-text
         p Tobias van Schneider is an award-winning, German designer raised in Austria and currently living in New York City.
         p Former Lead Product Designer and Art Director at Spotify, he recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
       ul.o-ListBare

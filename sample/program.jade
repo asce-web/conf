@@ -1,11 +1,11 @@
 extends internal.tpl.jade
 
 block append vars
-  - var page_name = 'Program'
+  - var page_id = sitemap.internal.program
 
 block main-minimal
   +minimal-text-block()
 
 block main-reference
-  section.o-Runner.o-Runner--highlight.c-Banner
+  section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n Full Program

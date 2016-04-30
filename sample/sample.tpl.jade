@@ -1,18 +1,12 @@
 doctype html
 html(lang="en")
   head
+    include include/_data.jade
     block vars
-      - var site_title = 'ASCE Convention'
-      //- - var site_tagline = 'The Flagship Event of ASCE'
-      - var site_tagline = 'Engineering > Innovating > Leading'
-      - var conference_name = 'ASCE 2016'
-      - var conference_theme = ''
-      - var descriptions = {'Index':site_tagline, 'About':'About the ASCE Convention.', 'Sponsor':'Sponsors of the ASCE Convention.', 'Exhibit':'Exhibitors at the ASCE Convention.', 'Contact':'Contact us for questions and comments about the ASCE Convention.', 'Home':conference_theme, 'Registration':'Register for the ASCE 2016 conference here.', 'Program':'Program and Agenda of the ASCE 2016 conference.', 'Hotel & Travel':'Get information about the location of the conference and where to stay.', 'Speakers':'Get information about current and prospective speakers at ASCE 2016.'}
     block title
       title
     meta(charset="utf-8")
-    block description
-      meta(name="description" content=descriptions[page_name])
+    meta(name="description" content=page_id.description)
     meta(name="keywords" content=['ASCE', 'civil engineering', 'convention'])
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
@@ -46,11 +40,11 @@ html(lang="en")
         }
   body
     include include/_mixins.jade
-    header.o-Runner.c-Mast: div.o-GridFlex.-xw-n.-xjc-sb.-xai-c
-      // this div wraps content for enforcing max-width
-      a.o-GridFlex__Item.o-Block.c-SiteTitle(href="index.html")
-        h1= site_title
-        p= site_tagline
+    header.o-Runner.c-Mast: div.o-GridFlex.o-ContentWrapper.-xw-n.-xjc-sb.-xai-c
+      a.o-GridFlex__Item.o-Block.o-GridFloat.c-SiteTitle(href="index.html")
+        span.o-GridFloat__Item.c-SiteTitle__Logo
+        h1.o-GridFloat__Item.c-SiteTitle__Name= site.title
+        p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
       nav.o-GridFlex__Item.-w-a
         h1.-d-n Top Menu
         ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal.-d-n.-d-fx-s52em
@@ -90,8 +84,8 @@ html(lang="en")
       article&attributes((page_type === 'internal') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
         main
           block main-header
-            header.o-Runner.o-Runner--pageHeader
-              h1.c-PageTitle= page_name
+            header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
+              h1.c-PageTitle= page_id.name
           block main-body
             block main-minimal
             block main-reference
@@ -121,7 +115,7 @@ html(lang="en")
       - sitemap_class_obj.sub = {}
       - sitemap_class_obj.sub.listclasses = 'o-ListBare c-Sitemap__SubList'
       - sitemap_class_obj.sub.itemclasses = 'c-Sitemap__SubItem'
-    footer.o-Runner.c-Mast.c-Mast--copyright: nav
+    footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-ContentWrapper
       h1.-d-n Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
         p

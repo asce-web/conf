@@ -1,9 +1,9 @@
 extends index.tpl.jade
 
-block vars
-  - var authors = ['Chris Harvey', 'Dae Clarke']
-  - var description = 'Style guide for all ASCE conference sites.'
-  - var keywords = ['style guide','ASCE','conference','convention','congress']
+block meta
+  meta(name="author" content=['Chris Harvey', 'Dae Clarke'])
+  meta(name="description" content='Style guide for all ASCE conference sites.')
+  meta(name="keywords" content=['style guide','pattern library','sample site','ASCE','conference','convention','congress'])
 
 block append main
   p.

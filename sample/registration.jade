@@ -1,13 +1,13 @@
 extends internal.tpl.jade
 
 block append vars
-  - var page_name = 'Registration'
+  - var page_id = sitemap.internal.registration
 
 block main-minimal
   +minimal-text-block()
 
 block main-reference
-  section.o-Runner.o-Runner--highlight.c-Banner
+  section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n Full Registration
     ul.o-ListBare.o-GridFlex.o-ListPass
       li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.student)
@@ -20,7 +20,7 @@ block main-reference
     +actionbuttons([{text:'Register Today!'}], 'c-Btn c-Btn--hilite c-Btn--dominant')
 
 block main-rich
-  div.o-Runner.o-Runner--highlight.rich-text
+  div.o-Runner.o-Runner--highlight.rich-text: div.o-ContentWrapper
     h2 Registration Information
     p: mark: strong.
       #[strong Important:] Please do not use

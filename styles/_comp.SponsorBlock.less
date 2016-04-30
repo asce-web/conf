@@ -34,9 +34,9 @@
 .c-SponsorBlock {
   .font-size-mod(0.75);
   text-align: center;
-  .c-SponsorBlock__Label {
-    padding-top: @l-vru;
-    margin-bottom: 0;
+  .c-SponsorBlock__Logo,
+  .c-SponsorBlock__Text {
+    margin-bottom: @l-vru;
   }
 }
 .c-SponsorBlock--separate {
@@ -103,5 +103,6 @@
 
 .c-SponsorBlock__Label {
   font-weight: 800;
+  font-size: inherit; // override small
   color: @g-color_site_gray_lt;
 }

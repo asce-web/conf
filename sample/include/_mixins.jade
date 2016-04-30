@@ -213,7 +213,7 @@ mixin sponsor-content()
       each item in spons
         li.o-GridFlex__Item.o-ListSponsors__Item
           a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.url title=item.name style='background-image: url(\'' + item.src + '\');')
-          p.c-SponsorBlock__Label= item.level.name
+          small.c-SponsorBlock__Label= item.level.name
   +sponsor-carousel([sponsor.asce_foundation, sponsor.bentley, sponsor.pennoni])
   +actionbuttons([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
 
@@ -229,7 +229,7 @@ mixin sponsor-content-full()
               a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+level.size href=item.url title=item.name style='background-image: url(\'' + item.src + '\');')
           else
             li.o-GridFlex__Item.o-ListSponsors__Item
-              a.c-SponsorBlock__Text(href=item.url)= item.name
+              a.o-Block.c-SponsorBlock__Text(href=item.url)= item.name
   +sponsor-block(sponsorlevel.platinum , 'c-SponsorBlock--separate', [sponsor.asce_foundation, sponsor.bentley])
   +sponsor-block(sponsorlevel.corporate, 'c-SponsorBlock--separate', [sponsor.bank_america, sponsor.geico, sponsor.pearl, sponsor.ups, sponsor.keller])
   +sponsor-block(sponsorlevel.silver   , 'c-SponsorBlock--separate', [sponsor.pennoni, sponsor.innovyze])

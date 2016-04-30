@@ -219,15 +219,15 @@ mixin sponsor-content()
   +actionbuttons([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
 
 mixin sponsor-content-full()
-  mixin sponsor-block(category, category_class, spons)
-    section.o-Runner.o-Runner--highlight.c-SponsorBlock(class='c-SponsorBlock--'+category_class): div.o-ContentWrapper
-      h1= category
+  mixin sponsor-block(category_name, category_class, spons)
+    section.c-SponsorBlock(class='c-SponsorBlock--'+category_class)
+      h1.c-SponsorBlock__Hn= category_name
       ul.o-ListBare.o-GridFlex.o-ListSponsors
         each item in spons
           if (category_class !== 'bronze') && (category_class !== 'copper')
             - var logosizes = { premier: 'lrg', platinum: 'lrg', gold: 'med', corporate: 'sml', silver: 'sml' }
             li.o-GridFlex__Item.o-ListSponsors__Item
-              a.o-Block.o-ListSponsors__Logo.c-SponsorBlock__Logo(class='o-ListSponsors__Logo--'+logosizes[category_class] href="" title=item.name style='background-image: url(\'' + item.url + '\');')
+              a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+logosizes[category_class] href="" title=item.name style='background-image: url(\'' + item.url + '\');')
           else
             li.o-GridFlex__Item.o-ListSponsors__Item
               a.o-ListSponsors__Text.c-SponsorBlock__Text(href="")= item.name

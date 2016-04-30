@@ -212,52 +212,29 @@ mixin sponsor-content()
     ul.o-ListBare.o-GridFlex.o-ListSponsors.c-SponsorBlock
       each item in spons
         li.o-GridFlex__Item.o-ListSponsors__Item
-          a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" title=item.name style='background-image: url(\'' + item.url + '\');')
-          p.c-SponsorBlock__Label= item.level
-  - var sponsors = []
-  - sponsors.push({name:'Bank of America', url:'img/logo-bank-america.png', level:'Platinum'})
-  - sponsors.push({name:'UPS', url:'img/logo-ups.png', level:'Platinum'})
-  - sponsors.push({name:'Geico', url:'img/logo-geico.png', level:'Gold'})
-  +sponsor-carousel(sponsors)
+          a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.url title=item.name style='background-image: url(\'' + item.src + '\');')
+          p.c-SponsorBlock__Label= item.level.name
+  +sponsor-carousel([sponsor.asce_foundation, sponsor.bentley, sponsor.pennoni])
   +actionbuttons([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
 
 mixin sponsor-content-full()
-  mixin sponsor-block(category, classes, spons)
+  mixin sponsor-block(level, classes, spons)
+    //- TODO: remove `spons` param and get them from `level`
     section.c-SponsorBlock(class=classes)
-      - var headings = {}
-      - headings.premier   = 'Premier'
-      - headings.platinum  = 'Platinum'
-      - headings.gold      = 'Gold'
-      - headings.corporate = 'Corporate Sponsors'
-      - headings.silver    = 'Silver'
-      - headings.bronze    = 'Bronze'
-      - headings.copper    = 'Copper'
-      - var logosizes = {}
-      - logosizes.premier   = 'lrg'
-      - logosizes.platinum  = 'lrg'
-      - logosizes.gold      = 'med'
-      - logosizes.corporate = 'sml'
-      - logosizes.silver    = 'sml'
-      h1.c-SponsorBlock__Hn= headings[category]
+      h1.c-SponsorBlock__Hn= level.name
       ul.o-ListBare.o-GridFlex.o-ListSponsors
         each item in spons
-          unless (category === 'bronze') || (category === 'copper')
+          unless (level === sponsorlevel.bronze) || (level === sponsorlevel.copper)
             li.o-GridFlex__Item.o-ListSponsors__Item
-              a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+logosizes[category] href="" title=item.name style='background-image: url(\'' + item.url + '\');')
+              a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+level.size href=item.url title=item.name style='background-image: url(\'' + item.src + '\');')
           else
             li.o-GridFlex__Item.o-ListSponsors__Item
-              a.c-SponsorBlock__Text(href="")= item.name
-  - var sponsors = []
-  - sponsors.push({name:'Bank of America', url:'img/logo-bank-america.png'})
-  - sponsors.push({name:'UPS', url:'img/logo-ups.png'})
-  - sponsors.push({name:'Geico', url:'img/logo-geico.png'})
-  +sponsor-block('premier'  , 'c-SponsorBlock--separate', sponsors)
-  +sponsor-block('platinum' , 'c-SponsorBlock--separate', sponsors)
-  +sponsor-block('gold'     , 'c-SponsorBlock--separate', sponsors)
-  +sponsor-block('corporate', 'c-SponsorBlock--separate', sponsors)
-  +sponsor-block('silver'   , 'c-SponsorBlock--separate', sponsors)
-  +sponsor-block('bronze'   , 'c-SponsorBlock--separate', sponsors)
-  +sponsor-block('copper'   , ''                        , sponsors)
+              a.c-SponsorBlock__Text(href=item.url)= item.name
+  +sponsor-block(sponsorlevel.platinum , 'c-SponsorBlock--separate', [sponsor.asce_foundation, sponsor.bentley])
+  +sponsor-block(sponsorlevel.corporate, 'c-SponsorBlock--separate', [sponsor.bank_america, sponsor.geico, sponsor.pearl, sponsor.ups, sponsor.keller])
+  +sponsor-block(sponsorlevel.silver   , 'c-SponsorBlock--separate', [sponsor.pennoni, sponsor.innovyze])
+  +sponsor-block(sponsorlevel.bronze   , 'c-SponsorBlock--separate', [sponsor.fasten, sponsor.david_evans, sponsor.kci, sponsor.mccormick_taylor])
+  +sponsor-block(sponsorlevel.copper   , ''                        , [sponsor.rutgers, sponsor.kimley_horn, sponsor.cbb])
 
 mixin minimal-text-block()
   div.o-Runner.o-Runner--highlight.minimal-text: div.o-ContentWrapper

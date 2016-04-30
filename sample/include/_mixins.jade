@@ -208,26 +208,33 @@ mixin contact-content()
     button submit
 
 mixin sponsor-content()
-  mixin sponsor-block(category, category_class, spons)
-    section.o-Runner.o-Runner--highlight.c-SponsorBlock(class='c-SponsorBlock--'+category_class): div.o-ContentWrapper
-      h1= category
+  mixin sponsor-carousel(spons)
+    div.c-SponsorBlock: ul.o-ListBare.o-GridFlex.o-ListSponsors
+      each item in spons
+        li.o-GridFlex__Item.o-ListSponsors__Item
+          a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.url style='background-image: url(\'' + item.src + '\');')= item.name
+          small.c-SponsorBlock__Label= item.level.name
+  +sponsor-carousel([sponsor.asce_foundation, sponsor.bentley, sponsor.pennoni])
+  +actionbuttons([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
+
+mixin sponsor-content-full()
+  mixin sponsor-block(level, classes, spons)
+    //- TODO: remove `spons` param and get them from `level`
+    section.c-SponsorBlock(class=classes)
+      h1.c-SponsorBlock__Hn= level.name
       ul.o-ListBare.o-GridFlex.o-ListSponsors
         each item in spons
-          if (category_class !== 'bronze') && (category_class !== 'copper')
-            - var logosizes = { premier: 'lrg', platinum: 'lrg', gold: 'med', corporate: 'sml', silver: 'sml' }
+          unless (level === sponsorlevel.bronze) || (level === sponsorlevel.copper)
             li.o-GridFlex__Item.o-ListSponsors__Item
-              a.o-Block.o-ListSponsors__Logo.c-SponsorBlock__Logo(class='o-ListSponsors__Logo--'+logosizes[category_class] href="" title=item.name style='background-image: url(\'' + item.url + '\');')
+              a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+level.size href=item.url style='background-image: url(\'' + item.src + '\');')= item.name
           else
             li.o-GridFlex__Item.o-ListSponsors__Item
-              a.o-ListSponsors__Text.c-SponsorBlock__Text(href="")= item.name
-  - var sponsors = [ { name: 'Bank of America', url: 'img/logo-bank-america.png' }, { name: 'UPS', url: 'img/logo-ups.png' }, { name: 'Geico', url: 'img/logo-geico.png' } ]
-  +sponsor-block('Premier', 'premier', sponsors)
-  +sponsor-block('Platinum', 'platinum', sponsors)
-  +sponsor-block('Gold', 'gold', sponsors)
-  +sponsor-block('Corporate Sponsors', 'corporate', sponsors)
-  +sponsor-block('Silver', 'silver', sponsors)
-  +sponsor-block('Bronze', 'bronze', sponsors)
-  +sponsor-block('Copper', 'copper', sponsors)
+              a.o-Block.c-SponsorBlock__Text(href=item.url)= item.name
+  +sponsor-block(sponsorlevel.platinum , 'c-SponsorBlock--separate', [sponsor.asce_foundation, sponsor.bentley])
+  +sponsor-block(sponsorlevel.corporate, 'c-SponsorBlock--separate', [sponsor.bank_america, sponsor.geico, sponsor.pearl, sponsor.ups, sponsor.keller])
+  +sponsor-block(sponsorlevel.silver   , 'c-SponsorBlock--separate', [sponsor.pennoni, sponsor.innovyze])
+  +sponsor-block(sponsorlevel.bronze   , 'c-SponsorBlock--separate', [sponsor.fasten, sponsor.david_evans, sponsor.kci, sponsor.mccormick_taylor])
+  +sponsor-block(sponsorlevel.copper   , ''                        , [sponsor.rutgers, sponsor.kimley_horn, sponsor.cbb])
 
 mixin minimal-text-block()
   div.o-Runner.o-Runner--highlight.minimal-text: div.o-ContentWrapper

@@ -93,9 +93,10 @@ html(lang="en")
               +rich-text-block()
         div.t-Callouts
           block callouts
-          aside
-            h1 Sponsors
-            +sponsor-content()
+          block sponsors
+            aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
+              h1 Sponsors
+              +sponsor-content()
     block site-map
       //- -
         var sitemap_class_obj = {

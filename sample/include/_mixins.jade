@@ -171,13 +171,13 @@ mixin mobile-content()
 mixin social-content()
   h1 Join the Conversation
   p.-ta-c Follow ASCE on social media for real-time conversation.
-  p: mark.
+  // p: mark.
     #[strong Note:]
     Each social icon will be a white logo inside a transparent circle, all in
     a white "circle-in-square" thing.
     #[code background-color] will be dark gray, and secondary color on hover.
     (Use conference color scheme.)
-  p: mark.
+  // p: mark.
     #[strong Question:] size of logos? how far spaced apart?
   ul.o-ListBare.o-GridFlex.c-SocialList
     li.o-GridFlex__Item.c-SocialList__Item
@@ -212,7 +212,7 @@ mixin sponsor-content()
     div.c-SponsorBlock: ul.o-ListBare.o-GridFlex.o-ListSponsors
       each item in spons
         li.o-GridFlex__Item.o-ListSponsors__Item
-          a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.url style='background-image: url(\'' + item.src + '\');')= item.name
+          a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
           small.c-SponsorBlock__Label= item.level.name
   +sponsor-carousel([sponsor.asce_foundation, sponsor.bentley, sponsor.pennoni])
   +actionbuttons([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
@@ -226,10 +226,10 @@ mixin sponsor-content-full()
         each item in spons
           unless (level === sponsorlevel.bronze) || (level === sponsorlevel.copper)
             li.o-GridFlex__Item.o-ListSponsors__Item
-              a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+level.size href=item.url style='background-image: url(\'' + item.src + '\');')= item.name
+              a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+level.size href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
           else
             li.o-GridFlex__Item.o-ListSponsors__Item
-              a.o-Block.c-SponsorBlock__Text(href=item.url)= item.name
+              a.o-Block.c-SponsorBlock__Text(href=item.href)= item.name
   +sponsor-block(sponsorlevel.platinum , 'c-SponsorBlock--separate', [sponsor.asce_foundation, sponsor.bentley])
   +sponsor-block(sponsorlevel.corporate, 'c-SponsorBlock--separate', [sponsor.bank_america, sponsor.geico, sponsor.pearl, sponsor.ups, sponsor.keller])
   +sponsor-block(sponsorlevel.silver   , 'c-SponsorBlock--separate', [sponsor.pennoni, sponsor.innovyze])

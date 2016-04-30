@@ -209,36 +209,55 @@ mixin contact-content()
 
 mixin sponsor-content()
   mixin sponsor-carousel(spons)
-    ul.o-ListBare.o-GridFlex.-xjc-c.-ta-c
+    ul.o-ListBare.o-GridFlex.o-ListSponsors.c-SponsorBlock
       each item in spons
-        li.o-GridFlex__Item.-w-1o4
-          p: a.o-Block.o-ListSponsors__Logo.o-ListSponsors__Logo--lrg.c-SponsorBlock__Logo.-w-a.-mh-h(href="" title=item.name style='background-image: url(\'' + item.url + '\');')
-          p.-mb-0= item.level
-  - var sponsors = [ {name:'Bank of America', url:'img/logo-bank-america.png', level:'Platinum'}, {name:'UPS', url:'img/logo-ups.png', level:'Platinum'}, {name:'Geico', url:'img/logo-geico.png', level:'Gold'} ]
+        li.o-GridFlex__Item.o-ListSponsors__Item
+          a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" title=item.name style='background-image: url(\'' + item.url + '\');')
+          p.c-SponsorBlock__Label= item.level
+  - var sponsors = []
+  - sponsors.push({name:'Bank of America', url:'img/logo-bank-america.png', level:'Platinum'})
+  - sponsors.push({name:'UPS', url:'img/logo-ups.png', level:'Platinum'})
+  - sponsors.push({name:'Geico', url:'img/logo-geico.png', level:'Gold'})
   +sponsor-carousel(sponsors)
   +actionbuttons([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
 
 mixin sponsor-content-full()
-  mixin sponsor-block(category_name, category_class, spons)
-    section.c-SponsorBlock(class='c-SponsorBlock--'+category_class)
-      h1.c-SponsorBlock__Hn= category_name
+  mixin sponsor-block(category, classes, spons)
+    section.c-SponsorBlock(class=classes)
+      - var headings = {}
+      - headings.premier   = 'Premier'
+      - headings.platinum  = 'Platinum'
+      - headings.gold      = 'Gold'
+      - headings.corporate = 'Corporate Sponsors'
+      - headings.silver    = 'Silver'
+      - headings.bronze    = 'Bronze'
+      - headings.copper    = 'Copper'
+      - var logosizes = {}
+      - logosizes.premier   = 'lrg'
+      - logosizes.platinum  = 'lrg'
+      - logosizes.gold      = 'med'
+      - logosizes.corporate = 'sml'
+      - logosizes.silver    = 'sml'
+      h1.c-SponsorBlock__Hn= headings[category]
       ul.o-ListBare.o-GridFlex.o-ListSponsors
         each item in spons
-          if (category_class !== 'bronze') && (category_class !== 'copper')
-            - var logosizes = { premier: 'lrg', platinum: 'lrg', gold: 'med', corporate: 'sml', silver: 'sml' }
+          unless (category === 'bronze') || (category === 'copper')
             li.o-GridFlex__Item.o-ListSponsors__Item
-              a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+logosizes[category_class] href="" title=item.name style='background-image: url(\'' + item.url + '\');')
+              a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+logosizes[category] href="" title=item.name style='background-image: url(\'' + item.url + '\');')
           else
             li.o-GridFlex__Item.o-ListSponsors__Item
-              a.o-ListSponsors__Text.c-SponsorBlock__Text(href="")= item.name
-  - var sponsors = [ {name:'Bank of America', url:'img/logo-bank-america.png'}, {name:'UPS', url:'img/logo-ups.png'}, {name:'Geico', url:'img/logo-geico.png'} ]
-  +sponsor-block('Premier', 'premier', sponsors)
-  +sponsor-block('Platinum', 'platinum', sponsors)
-  +sponsor-block('Gold', 'gold', sponsors)
-  +sponsor-block('Corporate Sponsors', 'corporate', sponsors)
-  +sponsor-block('Silver', 'silver', sponsors)
-  +sponsor-block('Bronze', 'bronze', sponsors)
-  +sponsor-block('Copper', 'copper', sponsors)
+              a.c-SponsorBlock__Text(href="")= item.name
+  - var sponsors = []
+  - sponsors.push({name:'Bank of America', url:'img/logo-bank-america.png'})
+  - sponsors.push({name:'UPS', url:'img/logo-ups.png'})
+  - sponsors.push({name:'Geico', url:'img/logo-geico.png'})
+  +sponsor-block('premier'  , 'c-SponsorBlock--separate', sponsors)
+  +sponsor-block('platinum' , 'c-SponsorBlock--separate', sponsors)
+  +sponsor-block('gold'     , 'c-SponsorBlock--separate', sponsors)
+  +sponsor-block('corporate', 'c-SponsorBlock--separate', sponsors)
+  +sponsor-block('silver'   , 'c-SponsorBlock--separate', sponsors)
+  +sponsor-block('bronze'   , 'c-SponsorBlock--separate', sponsors)
+  +sponsor-block('copper'   , ''                        , sponsors)
 
 mixin minimal-text-block()
   div.o-Runner.o-Runner--highlight.minimal-text: div.o-ContentWrapper

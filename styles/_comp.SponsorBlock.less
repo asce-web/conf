@@ -5,14 +5,18 @@
 @import (reference) url('../node_modules/xmeter/src/__tool.module.clearfix.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.borders.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+@import (reference) url('__settings.less');
 
 
 // A section containing one level of sponsor.
 //
+// ^subclasses
+// --separate - separates this block from a subsequent one
 // ^subcomponents
 // __Hn   - name of sponsor level ("Platinum", etc.)
 // __Logo - cosmetic styles for sponsor logo
 // __Text - cosmetic styles for sponsor name
+// __Label - label for sponsor in carousel
 // ^author
 // : Chris Harvey
 // ^updated
@@ -30,6 +34,12 @@
 .c-SponsorBlock {
   .font-size-mod(0.75);
   text-align: center;
+  .c-SponsorBlock__Label {
+    padding-top: @l-vru;
+    margin-bottom: 0;
+  }
+}
+.c-SponsorBlock--separate {
   .border-vert(bottom; 1px);
   border-style: solid;
   border-color: @g-color_site_gray_lt;
@@ -89,4 +99,9 @@
   //   border-right: 1px solid @color_asce_primary; // so no change on hover
   //   margin-right: 1re,;
   // }
+}
+
+.c-SponsorBlock__Label {
+  font-weight: 800;
+  color: @g-color_site_gray_lt;
 }

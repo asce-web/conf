@@ -39,7 +39,6 @@
   @media screen and (min-width: 45em) { width: @p-logosize-sM; height: @p-logosize-sM; }
   background-image: none; // NOTE change this on a site-to-site basis
   background-size: contain;
-  background-size: 100% auto;
   background-repeat: no-repeat;
 }
 .c-SiteTitle__Name,
@@ -51,10 +50,12 @@
 }
 .c-SiteTitle__Name {
   text-align: inherit; // override h1 center
+  background-position: left;
   background-size: contain;
   background-repeat: no-repeat;
 }
 .c-SiteTitle__Tagline {
+  font-weight: 300;
   @media screen and (max-width: 44.999em) {
     display: none;
   }

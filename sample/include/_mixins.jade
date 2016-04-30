@@ -111,23 +111,25 @@ mixin registration-content()
     li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.ym)
   +actionbuttons([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
 
-mixin num-speakers(n)
-  ul.o-ListBare.o-GridFlex.o-ListSpeakers
-    - for (var i = 0; i < n; i++)
-      li.o-GridFlex__Item.o-ListSpeakers__Item.c-Speaker
-        p.c-Speaker__Name Donna Fulman, P.ASCE
-        p.c-Speaker__JobTitle Interior Engineering Administration
-        div.o-ListSpeakers__Over.c-Speaker__Desc
-          p Tobias van Schneider is an award-winning, German designer raised in Austria and currently living in New York City.
-          p Former Lead Product Designer and Art Director at Spotify, he recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
-          p
-            a.c-Speaker__Link(href="") Email
-            a.c-Speaker__Link(href="") LinkedIn
-            a.c-Speaker__Link(href="") Twitter
+mixin speaker()
+  div.c-Speaker
+    p.c-Speaker__Name Donna Fulman, P.ASCE
+    p.c-Speaker__JobTitle Interior Engineering Administration
+    div.o-ListSpeakers__Over.c-Speaker__Detail
+      div.c-Speaker__Desc.minimal-text
+        p Tobias van Schneider is an award-winning, German designer raised in Austria and currently living in New York City.
+        p Former Lead Product Designer and Art Director at Spotify, he recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
+      ul.o-ListBare
+        li.o-Inline: a.c-Speaker__Link(href="") Email
+        li.o-Inline: a.c-Speaker__Link(href="") LinkedIn
+        li.o-Inline: a.c-Speaker__Link(href="") Twitter
 
 mixin speakers-content()
   h1 Speakers
-  +num-speakers(3)
+  ul.o-ListBare.o-GridFlex.o-ListSpeakers
+    li.o-GridFlex__Item.o-ListSpeakers__Item: +speaker()
+    li.o-GridFlex__Item.o-ListSpeakers__Item: +speaker()
+    li.o-GridFlex__Item.o-ListSpeakers__Item: +speaker()
   +actionbuttons([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
 
 mixin cochairs-content()

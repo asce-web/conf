@@ -17,20 +17,20 @@ block append main
     section
       h3: a(href="base.html") Base Typography
       p Bare, unstyled HTML elements. No classes.
-      +menulist(pages.base.sub, Infinity)
+      +menulist({structure: pages.base.sub, depth: Infinity})
     section
       h3: a(href="obj.html") Objects
       p Patterns of structure that can be reused many times for many different purposes.
-      +menulist(pages.obj.sub, Infinity)
+      +menulist({structure: pages.obj.sub, depth: Infinity})
     section
       h3: a(href="comp.html") Components
       p Patterns of look-and-feel that are each only used for one purpose.
-      +menulist(pages.comp.sub, Infinity)
+      +menulist({structure: pages.comp.sub, depth: Infinity})
     section
       h3: a(href="helpers.html") Helpers
       p Somewhat explicit classes used for enhancing default styles.
-      +menulist(pages.helpers.sub, Infinity)
+      +menulist({structure: pages.helpers.sub, depth: Infinity})
     section
       h3: a(href="atoms.html") Atoms
       p Very specific classes used for creating anomalies or fixing broken styles.
-      +menulist(pages.atoms.sub, Infinity)
+      +menulist({structure: pages.atoms.sub, depth: Infinity})

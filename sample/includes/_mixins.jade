@@ -1,12 +1,4 @@
-mixin menulist(structure, class_obj)
-  - structure = structure || {}
-  - class_obj = class_obj || {}
-  ul(class=class_obj.listclasses)
-    each value in structure
-      li(class=class_obj.itemclasses)
-        a(class=class_obj.linkclasses href=value.href)= value.name
-        if value.sub
-          +menulist(value.sub, class_obj.sub)
+include ../../lib/includes/_mixins.jade
 
 mixin actionbuttons(arr, classes)
   ul.o-ListBare.o-GridFlex.-xjc-sa.-ta-c

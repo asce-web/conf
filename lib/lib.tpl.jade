@@ -1,155 +1,33 @@
-extends ../index.tpl.jade
-
-block vars
-  - titles.push('Pattern Library')
-  //- -
-    var pages = {
-      index: {
-        name: 'Pattern Library Home', href: 'index.html'
-      }
-    , visual: {
-        name: 'Visual Design', href: 'visual.html'
-      }
-    , base: {
-        name: 'Base', href: 'base.html'
-      , sub: {
-          toc         : { name: 'Table of Contents'    , href: 'base.html#table-contents' }
-        , hn_p        : { name: 'Headings & Paragraphs', href: 'base.html#headings-paragraphs' }
-        , lists       : { name: 'Lists'                , href: 'base.html#lists' }
-        , tables      : { name: 'Tables'               , href: 'base.html#tables' }
-        , text: {
-            name: 'Text-Level Elements', href: '#text-level-elements'
-          , sub: {
-              links  : { name: 'Links'        , href: 'base.html#links' }
-            , stress : { name: 'Stress'       , href: 'base.html#stress' }
-            , doc    : { name: 'Documentation', href: 'base.html#documentation' }
-            , data   : { name: 'Data'         , href: 'base.html#data' }
-            }
-          }
-        , embeded     : { name: 'Embedded Elements'    , href: 'base.html#embedded-elements' }
-        , forms       : { name: 'Forms'                , href: 'base.html#forms' }
-        , interactive : { name: 'Interactive Elements' , href: 'base.html#interactive-elements' }
-        }
-      }
-    , obj: {
-        name: 'Objects', href: 'obj.html'
-      , sub: {
-          toc            : { name: 'Table of Contents'  , href: 'obj.html#table-contents' }
-        , blocks         : { name: 'The Block Object'   , href: 'obj.html#block-object' }
-        , inline         : { name: 'The Inline Object'  , href: 'obj.html#inline-object' }
-        , listbare       : { name: 'The Bare List'      , href: 'obj.html#bare-list' }
-        , gridflex       : { name: 'The Flex Grid'      , href: 'obj.html#flex-grid' }
-        , gridfloat      : { name: 'The Float Grid'     , href: 'obj.html#float-grid' }
-        , runner         : { name: 'The Runner Object'  , href: 'obj.html#runner-object' }
-        , contentwrapper : { name: 'The Content Wrapper', href: 'obj.html#content-wrapper' }
-        , liststacked    : { name: 'The Stacked List'   , href: 'obj.html#stacked-list' }
-        }
-      }
-    , comp: {
-        name: 'Components', href: 'comp.html'
-      , sub: {
-          toc           : { name: 'Table of Contents'        , href: 'comp.html#table-contents' }
-        , mast          : { name: 'The Masthead and Mastfoot', href: 'comp.html#masthead-mastfoot' }
-        , sitetitle     : { name: 'The Site Title'           , href: 'comp.html#site-title' }
-        , menuuniversal : { name: 'The Universal Menu'       , href: 'comp.html#universal-menu' }
-        , menustandard  : { name: 'The Standard Menu'        , href: 'comp.html#standard-menu' }
-        , menusub       : { name: 'The Sub Menu'             , href: 'comp.html#sub-menu' }
-        , sitemap       : { name: 'The Sitemap Component'    , href: 'comp.html#sitemap-component' }
-        , pagetitle     : { name: 'The Page Title'           , href: 'comp.html#page-title' }
-        , banner        : { name: 'The Banner Component'     , href: 'comp.html#banner-component' }
-        , hero          : { name: 'The Hero Block'           , href: 'comp.html#hero-block' }
-        , otheryear     : { name: 'The Other Year Block'     , href: 'comp.html#other-year-block' }
-        , overlay       : { name: 'The Overlay Component'    , href: 'comp.html#overlay-component' }
-        , sponsorblock  : { name: 'The Sponsor Block'        , href: 'comp.html#sponsor-block' }
-        , dateblock     : { name: 'The Date Block'           , href: 'comp.html#date-block' }
-        , pass          : { name: 'The Pass Component'       , href: 'comp.html#pass-component' }
-        , speaker       : { name: 'The Speaker Component'    , href: 'comp.html#speaker-component' }
-        , sociallist    : { name: 'The Social List'          , href: 'comp.html#social-list' }
-        , btn           : { name: 'Buttons'                  , href: 'comp.html#buttons' }
-        }
-      }
-    , helpers: {
-        name: 'Helpers', href: 'helpers.html'
-      }
-    , atoms: {
-        name: 'Atoms', href: 'atoms.html'
-      }
-    }
-  - var pages = {}
-  - pages.index    = { name: 'Pattern Library Home', href: 'index.html' }
-  - pages.visual   = { name: 'Visual Design'       , href: 'visual.html' }
-  - pages.base     = { name: 'Base'                , href: 'base.html' }
-  - pages.obj      = { name: 'Objects'             , href: 'obj.html' }
-  - pages.comp     = { name: 'Components'          , href: 'comp.html' }
-  - pages.helpers  = { name: 'Helpers'             , href: 'helpers.html' }
-  - pages.atoms    = { name: 'Atoms'               , href: 'atoms.html' }
-  - pages.base.sub = {}
-  - pages.base.sub.toc         = { name: 'Table of Contents'    , href: 'base.html#table-contents' }
-  - pages.base.sub.hn_p        = { name: 'Headings & Paragraphs', href: 'base.html#headings-paragraphs' }
-  - pages.base.sub.lists       = { name: 'Lists'                , href: 'base.html#lists' }
-  - pages.base.sub.tables      = { name: 'Tables'               , href: 'base.html#tables' }
-  - pages.base.sub.text        = { name: 'Text-Level Elements'  , href: 'base.html#text-level-elements' }
-  - pages.base.sub.embeded     = { name: 'Embedded Elements'    , href: 'base.html#embedded-elements' }
-  - pages.base.sub.forms       = { name: 'Forms'                , href: 'base.html#forms' }
-  - pages.base.sub.interactive = { name: 'Interactive Elements' , href: 'base.html#interactive-elements' }
-  - pages.base.sub.text.sub = {}
-  - pages.base.sub.text.sub.links  = { name: 'Links'        , href: 'base.html#links' }
-  - pages.base.sub.text.sub.stress = { name: 'Stress'       , href: 'base.html#stress' }
-  - pages.base.sub.text.sub.doc    = { name: 'Documentation', href: 'base.html#documentation' }
-  - pages.base.sub.text.sub.data   = { name: 'Data'         , href: 'base.html#data' }
-  - pages.obj.sub = {}
-  - pages.obj.sub.toc            = { name: 'Table of Contents'  , href: 'obj.html#table-contents' }
-  - pages.obj.sub.blocks         = { name: 'The Block Object'   , href: 'obj.html#block-object' }
-  - pages.obj.sub.inline         = { name: 'The Inline Object'  , href: 'obj.html#inline-object' }
-  - pages.obj.sub.listbare       = { name: 'The Bare List'      , href: 'obj.html#bare-list' }
-  - pages.obj.sub.gridflex       = { name: 'The Flex Grid'      , href: 'obj.html#flex-grid' }
-  - pages.obj.sub.gridfloat      = { name: 'The Float Grid'     , href: 'obj.html#float-grid' }
-  - pages.obj.sub.runner         = { name: 'The Runner Object'  , href: 'obj.html#runner-object' }
-  - pages.obj.sub.contentwrapper = { name: 'The Content Wrapper', href: 'obj.html#content-wrapper' }
-  - pages.obj.sub.liststacked    = { name: 'The Stacked List'   , href: 'obj.html#stacked-list' }
-  - pages.comp.sub = {}
-  - pages.comp.sub.toc           = { name: 'Table of Contents'        , href: 'comp.html#table-contents' }
-  - pages.comp.sub.mast          = { name: 'The Masthead and Mastfoot', href: 'comp.html#masthead-mastfoot' }
-  - pages.comp.sub.sitetitle     = { name: 'The Site Title'           , href: 'comp.html#site-title' }
-  - pages.comp.sub.menuuniversal = { name: 'The Universal Menu'       , href: 'comp.html#universal-menu' }
-  - pages.comp.sub.menustandard  = { name: 'The Standard Menu'        , href: 'comp.html#standard-menu' }
-  - pages.comp.sub.menusub       = { name: 'The Sub Menu'             , href: 'comp.html#sub-menu' }
-  - pages.comp.sub.sitemap       = { name: 'The Sitemap Component'    , href: 'comp.html#sitemap-component' }
-  - pages.comp.sub.pagetitle     = { name: 'The Page Title'           , href: 'comp.html#page-title' }
-  - pages.comp.sub.banner        = { name: 'The Banner Component'     , href: 'comp.html#banner-component' }
-  - pages.comp.sub.hero          = { name: 'The Hero Block'           , href: 'comp.html#hero-block' }
-  - pages.comp.sub.otheryear     = { name: 'The Other Year Block'     , href: 'comp.html#other-year-block' }
-  - pages.comp.sub.overlay       = { name: 'The Overlay Component'    , href: 'comp.html#overlay-component' }
-  - pages.comp.sub.sponsorblock  = { name: 'The Sponsor Block'        , href: 'comp.html#sponsor-block' }
-  - pages.comp.sub.dateblock     = { name: 'The Date Block'           , href: 'comp.html#date-block' }
-  - pages.comp.sub.pass          = { name: 'The Pass Component'       , href: 'comp.html#pass-component' }
-  - pages.comp.sub.speaker       = { name: 'The Speaker Component'    , href: 'comp.html#speaker-component' }
-  - pages.comp.sub.sociallist    = { name: 'The Social List'          , href: 'comp.html#social-list' }
-  - pages.comp.sub.btn           = { name: 'Buttons'                  , href: 'comp.html#buttons' }
-  mixin menulist(structure, depth, class_obj)
-    - structure = structure || {}
-    - class_obj = class_obj || {}
-    - depth = +depth
-    ol(class=class_obj.listclasses)
-      each value in structure
-        li(class=class_obj.itemclasses)
-          a(class=class_obj.linkclasses href=value.href)= value.name
-          if value.sub && depth > 0
-            +menulist(value.sub, depth-1, class_obj.sub)
-
-block styles
-  link(rel="stylesheet" href="../bower_components/xmeter/xmeter.min.css")
-  link(rel="stylesheet" href="../bower_components/bangs/bangs.min.css")
-  link(rel="stylesheet" href="../styles/conf.css")
-  link(rel="stylesheet" href="styles/lib.css")
-
-block footer
-  nav
-    h1 Subsitemap
-    +menulist(pages)
-  nav
-    h1 Sitemap
-    ol
-      li: a(href="../index.html") Home
-      li: a(href="index.html") Pattern Library
-      li: a(href="../sample/index.html") Sample Site
+doctype html
+html(lang="en")
+  include includes/_data.jade
+  include includes/_mixins.jade
+  head
+    - var titles = ['ASCE Conferences Styleguide', 'Pattern Library']
+    block vars
+    title= title(titles)
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,400italic,700")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet" href="../bower_components/xmeter/xmeter.min.css")
+    link(rel="stylesheet" href="../bower_components/bangs/bangs.min.css")
+    link(rel="stylesheet" href="../styles/conf.css")
+    link(rel="stylesheet" href="styles/lib.css")
+  body
+    main
+      block main
+        header
+          block main__header
+            h1= mainH1(titles)
+    footer
+      nav
+        h1 Subsitemap
+        +menulist({structure: pages})
+      nav
+        h1 Sitemap
+        ol
+          li: a(href="../index.html") Home
+          li: a(href="index.html") Pattern Library
+          li: a(href="../sample/index.html") Sample Site

@@ -18,11 +18,11 @@
 }
 
 .o-ListSponsors__Item {
-  width: (100%/3);
-  // @media screen and (min-width: 30em) {
-  //   width: calc(1/2 * 100%~' - '0.5rem);
-  // }
-  // @media screen and (min-width: 45em) {
-  //   width: calc(1/3 * 100%~' - '1rem);
-  // }
+  margin-bottom: @g-vru; // vertical spacing
+  @media screen and (min-width: 30em) {
+    width: calc(100%/2~' - '0.5rem);
+  }
+  @media screen and (min-width: 45em) {
+    width: calc(100%/3~' - '1rem);
+  }
 }

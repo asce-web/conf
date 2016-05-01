@@ -4,28 +4,26 @@ block append vars
   - var page_subtype = 'landing'
   - var page_id = sitemap.universal.index
 
-block dominant
-  main
-    section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing.c-Hero(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
-      +hero-content(conference.current)
-      +actionbuttons([{text:'Find Out More', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--hero c-Btn--hero--landing')
-      meta(content="http://2016.asceconvention.org/" itemprop="url")
-    +minimal-text-block()
-    section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--prev.c-OtherYear(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
-      div.c-Overlay
-        +otheryear-content(conference.prev)
-        p.c-OtherYear__Desc.
-          Access the 2015 program to see which sessions qualify for
-          PDHs and other documentation.
-        +actionbuttons([{text:'Event Details', href:'//2015.asceconvention.org/', attrs:{itemprop:'url'}}], 'c-Btn c-Btn--hilite c-Btn--hero')
-    section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--next.c-OtherYear(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
-      div.c-Overlay
-        +otheryear-content(conference.next)
-        p.c-OtherYear__Desc.
-          Plan ahead to attend, sponsor, or exhibit at the
-          annual convention for civil engineering professionals.
-        +actionbuttons([{text:'Event Details', href:'//2017.asceconvention.org/', attrs:{itemprop:'url'}}], 'c-Btn c-Btn--hilite c-Btn--hero')
-  div.t-Callouts
-    aside.o-Runner.o-Runner--highlight(style="background-color: #eee;"): div.o-ContentWrapper
-      h1 Sponsors
-      +sponsor-content()
+block main
+  section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing.c-Hero(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
+    +hero-content(conference.current)
+    +actionbuttons([{text:'Find Out More', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--hero c-Btn--hero--landing')
+    meta(content="http://2016.asceconvention.org/" itemprop="url")
+  +minimal-text-block()
+  section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--prev.c-OtherYear(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
+    div.c-Overlay
+      +otheryear-content(conference.prev)
+      p.c-OtherYear__Desc.
+        Access the 2015 program to see which sessions qualify for
+        PDHs and other documentation.
+      +actionbuttons([{text:'Event Details', href:'//2015.asceconvention.org/', attrs:{itemprop:'url'}}], 'c-Btn c-Btn--hilite c-Btn--hero')
+  section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--next.c-OtherYear(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
+    div.c-Overlay
+      +otheryear-content(conference.next)
+      p.c-OtherYear__Desc.
+        Plan ahead to attend, sponsor, or exhibit at the
+        annual convention for civil engineering professionals.
+      +actionbuttons([{text:'Event Details', href:'//2017.asceconvention.org/', attrs:{itemprop:'url'}}], 'c-Btn c-Btn--hilite c-Btn--hero')
+  aside.o-Runner.o-Runner--highlight(style="background-color: #eee;"): div.o-ContentWrapper
+    h1 Sponsors
+    +sponsor-content()

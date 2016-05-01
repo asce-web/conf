@@ -1,15 +1,13 @@
 extends lib.tpl.jade
 
 block append vars
-  - titles.push('Atoms')
+  - var page_id = pages.atoms
+  - titles.push(page_id.name)
 
 block append main__header
   nav#table-contents
     h2 Table of Contents
-    ol
-      li: a(href="#table-contents") Table of Contents
-      li: a(href="#-fl") Floats
-      li: a(href="#-w") Widths
+    +menulist(page_id.sub, Infinity)
 
 block append main
   p.

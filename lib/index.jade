@@ -13,107 +13,24 @@ block append main
     h2 Table of Contents
     section
       h3: a(href="visual.html") Visual Design
+      p Color and font schemes, look-and-feel, overall mood and tone.
     section
       h3: a(href="base.html") Base Typography
       p Bare, unstyled HTML elements. No classes.
-      ol
-        li Headings &amp; Paragraphs
-        li Lists
-        li Tables
-        li Text-Level Elements
-          ol
-            li Links
-            li Stress
-            li Documentation
-            li Data
-        li Embedded Elements
-        li Interactive Elements
+      +menulist(pages.base.sub, Infinity)
     section
       h3: a(href="obj.html") Objects
       p Patterns of structure that can be reused many times for many different purposes.
-      ol
-        li The Block Object
-        li The Inline Object
-        li The Bare List
-        li The Flex Grid
-        li The Float Grid
-        li The Runner Object
-        li The Content Wrapper
-        li The Stacked List
+      +menulist(pages.obj.sub, Infinity)
     section
       h3: a(href="comp.html") Components
       p Patterns of look-and-feel that are each only used for one purpose.
-      ol
-        li The Masthead and Mastfoot
-        li The Site Title
-        li The Universal Menu
-        li The Social List
-        li The Standard Menu
-        li The Sub Menu
-        li The Sitemap Component
-        li The Page Title
-        li The Banner Component
-        li The Hero Block
-        li The Other Year Block
-        li The Overlay Component
-        li The Sponsor Block
-        li The Date Block
-        li The Speaker Component
-        li The Pass Component
-        li Buttons
-        //- li: section
-          h4: a(href="comp-typo.html") Typographical Components
-          p Static, textual content. No user interaction or functionality.
-          ol
-            li Headings
-            li Paragraphs
-              ol
-                li Hero Lede
-                li Person Name, Title
-                li Date Block
-                li Session Column
-            li Inline Text
-              ol
-                li Date Text
-                li Links
-                  ol
-                    li Link Arrow
-                    li Link to PDF
-                    li Link to Email
-                    li Link in Banner, Header, Footer, etc.
-            li Callouts
-              ol
-                li Generic Callout
-                li Registration Callout
-                li Dates Callout
-                li Sponsors Callout
-            li Summary Banner
-        //- li: section
-          h4: a(href="comp-ui.html") UI (user-interactive) Components
-          p Dynamic, user-interactive, visually identifiable, functional, and even pretty.
-          ol
-            li Year Badge
-            li Year Ribbon
-            li Conference Logo
-            li Speaker Photo
-            li Navigation Bars
-              ol
-                li Generic Navigation Bar
-                li Main Navigation Bar
-                li Side Navigation Bar
-                li Utility Navigation Bar
-                li Secondary Navigation Bar
-                li Year Tab Bar
-            li Speaker Profile
-            li Speaker Details
-            li Buttons
-            li Flags
+      +menulist(pages.comp.sub, Infinity)
     section
       h3: a(href="helpers.html") Helpers
       p Somewhat explicit classes used for enhancing default styles.
+      +menulist(pages.helpers.sub, Infinity)
     section
       h3: a(href="atoms.html") Atoms
       p Very specific classes used for creating anomalies or fixing broken styles.
-      ol
-        li Floats
-        li Widths
+      +menulist(pages.atoms.sub, Infinity)

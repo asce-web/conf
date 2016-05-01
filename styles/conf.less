@@ -21,159 +21,70 @@
 // specific to that conference, which determines the conference-specific
 // styles such as colors.
 
-/**
- * # TABLE OF CONTENTS
- *
- * settings.......................variables
- *
- * ## TOOLS
- * border-radius..................useful mixins for grouping border-radii
- *
- * ## DEV
- * dev............................development code
- *
- * ## BASE........................bare, unclassed elements
- *
- * ## OBJECTS
- * Block..........................a simple block object
- * Inline.........................a simple inline object
- * ListBare.......................plain, unstyled, blocky list
- * GridFlex.......................grid of items
- * GridFloat......................grid of items; legacy support
- * Runner.........................header and footer
- * ContentWrapper.................keeps content at max width
- * ListStacked....................row of stackable items (Sponsors, Passes, Speakers, etc.)
- *
- * ## COMPONENTS
- * ### Block Section-y Components
- * Mast...........................masthead for the site
- * SiteTitle......................area containg logo and site title and tagline
- * MenuUniversal..................universal main navigation
- * SocialList.....................list of social media icons
- * MenuStandard...................top-level navigation for a conference
- * MenuSub........................secondary-level navigation for a conference
- * Sitemap........................sitemap for universal or internal sites
- * PageTitle......................title of entire page
- * Banner.........................full-width block with a background image
- * Hero...........................advertisment for current year conference
- * OtherYear......................advertisment for other year conference
- * Overlay........................a translucent slide inside a banner
- * SponsorBlock...................block containing one level of sponsors
- * Pass...........................a listing of prices for one Pass Type
- * Btn............................buttons
- * ### Typographical Components
- * ### User-Interactive Components
- *
- * ## TODO WORKS IN PROGRESS
- * DateBlock......................list of important dates
- * Speaker........................(keynote) speaker profile
- *
- * ## ATOMS
- * atom...........................all uncategorized atoms
- *
- * ## SHAME
- * shame.less.....................hacks
- */
 
-@import url('__settings.less');
+//++++++++++++++++++++++++++++++++//
+//    # TABLE OF CONTENTS
+//++++++++++++++++++++++++++++++++//
+  //--------------------------------//
+  //    ## Settings, Tools, Dev, and Base
+  //--------------------------------//
+  @import url('__settings.less'); //.......................variables
+  @import url('__tool.module.border-radius.less'); //......useful mixins for grouping border-radii
+  @import url('_dev.less'); //.............................development code
+  @import url('_base.less'); //............................bare, unclassed elements
+  //---- end ## Settings, Tools, Dev, and Base ----//
 
-@import url('__tool.module.border-radius.less');
+  //--------------------------------//
+  //    ## Objects
+  //--------------------------------//
+  @import url('_obj.Block.less'); //.......................a simple block object
+  @import url('_obj.Inline.less'); //......................a simple inline object
+  @import url('_obj.ListBare.less'); //....................plain, unstyled, blocky list
+  @import url('_obj.GridFlex.less'); //....................grid of items
+  @import url('_obj.GridFloat.less'); //...................grid of items; legacy support
+  @import url('_obj.Runner.less'); //......................header and footer
+  @import url('_obj.ContentWrapper.less'); //..............keeps content at max width
+  @import url('_obj.ListStacked.less'); //.................row of stackable items (Sponsors, Passes, Speakers, etc.)
+  //---- end ## Objects ----//
 
-@import url('_dev.less');
+  //--------------------------------//
+  //    ## Components
+  //--------------------------------//
+  @import url('_comp.Mast.less'); //.......................masthead for the site
+  @import url('_comp.SiteTitle.less'); //..................area containg logo and site title and tagline
+  @import url('_comp.MenuUniversal.less'); //..............universal main navigation
+  @import url('_comp.MenuStandard.less'); //...............top-level navigation for a conference
+  @import url('_comp.MenuSub.less'); //....................secondary-level navigation for a conference
+  @import url('_comp.Sitemap.less'); //....................sitemap for universal or internal sites
+  @import url('_comp.PageTitle.less'); //..................title of entire page
+  @import url('_comp.Banner.less'); //.....................full-width block with a background image
+  @import url('_comp.Hero.less'); //.......................advertisment for current year conference
+  @import url('_comp.OtherYear.less'); //..................advertisment for other year conference
+  @import url('_comp.Overlay.less'); //....................a translucent slide inside a banner
+  @import url('_comp.SponsorBlock.less'); //...............block containing one level of sponsors
+  @import url('_comp.DateBlock.less'); //..................list of important dates
+  @import url('_comp.Pass.less'); //.......................a listing of prices for one Pass Type
+  @import url('_comp.Speaker.less'); //....................(keynote) speaker profile
+  @import url('_comp.SocialList.less'); //.................list of social media icons
+  @import url('_comp.Btn.less'); //........................buttons
+  // ### Block Section-y Components
+  // ### Typographical Components
+  // ### User-Interactive Components
+  //---- end ## Components ----//
 
-@import url('_base.less');
+  //--------------------------------//
+  //    ## Helpers, Atoms, and Shame
+  //--------------------------------//
+  @import url('_atom.less'); //............................all uncategorized atoms
+  // @import url('_shame.less'); //...........................hacks
+  //---- end ## Helpers, Atoms, and Shame ----//
+//++++ end # TABLE OF CONTENTS ++++//
 
-@import url('_obj.Block.less');
-@import url('_obj.Inline.less');
-@import url('_obj.ListBare.less');
-@import url('_obj.GridFlex.less');
-@import url('_obj.GridFloat.less');
-@import url('_obj.Runner.less');
-@import url('_obj.ContentWrapper.less');
-@import url('_obj.ListStacked.less');
 
-@import url('_comp.Mast.less');
-@import url('_comp.SiteTitle.less');
-@import url('_comp.MenuUniversal.less');
-@import url('_comp.SocialList.less');
-@import url('_comp.MenuStandard.less');
-@import url('_comp.MenuSub.less');
-@import url('_comp.Sitemap.less');
-@import url('_comp.PageTitle.less');
-@import url('_comp.Banner.less');
-@import url('_comp.Hero.less');
-@import url('_comp.OtherYear.less');
-@import url('_comp.Overlay.less');
-@import url('_comp.SponsorBlock.less');
-@import url('_comp.Pass.less');
-@import url('_comp.Btn.less');
+//++++++++++++++++++++++++++++++++//
+//    # DRAFT
+//++++++++++++++++++++++++++++++++//
 
-@import url('_comp.DateBlock.less');
-@import url('_comp.Speaker.less');
-
-@import url('_atom.less');
-
-// @import url('_shame.less');
-
-// // -------- HEADINGS -------- //
-// // Name of entire conference
-// .c-ConfName {}
-// // Slogan for entire conference
-// .c-ConfSlogan {}
-// // Name of conference for this year
-// .c-ConfNameCurrent {}
-// // Location (City | Dates) of this year’s conference
-// .c-ConfLocation {}
-// // Tagline for this year’s conference
-// .c-ConfTagline {}
-// .c-ElevatorPitch {}
-// // -------- LINKS AND BUTTONS -------- //
-// .c-HeroButtonContainer,
-// .c-ElevatorButtonContainer {
-//   text-align: center;
-//   @media screen and (min-width: 45em) {
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: space-around;
-//     width: 80%;
-//     margin-left: auto;
-//     margin-right: auto;
-//   }
-// }
-// .c-Button {
-//   display: inline-block;
-//   line-height: inherit;
-// }
-// .c-Button--hero {
-//   @media screen and (min-width: 45em) {
-//     width: 20%;
-//     margin-left: 40%;
-//     margin-right: 40%;
-//   }
-// }
-// .c-LandingLinkList {
-//   // text-align: center;
-//   // font-size: 0.5rem;
-//   // line-height: 2.5;
-// }
-// .c-LandingLink--home {
-//   padding: 5px;
-//   border: 1px solid #fff;
-//   margin-left:10px;
-//   margin-right: 10px;
-//   // display: block;
-//   // line-height: inherit;
-//   // border: 1px solid black;
-//   // width: 60%;
-//   // margin: auto;
-// }
-// // -------- OTHER -------- //
-// .c-ConfShield {}
-//
-// footer.copyright {
-//   background-color: @g-color_asce_blue;
-//   color: @g-color_asce_white;
-// }
 // .asce-logo {
 //   display: inline-block;
 //   width: 73px;  // magic nummmmmmmbers
@@ -187,6 +98,9 @@
 //     background-image: url('../img/asce-logo-footer.png');
 //   }
 // }
+//++++ end # DRAFT ++++//
+
+
 //++++++++++++++++++++++++++++++++//
 //    # DEBUGGING MICRODATA STYLES
 //++++++++++++++++++++++++++++++++//
@@ -223,4 +137,4 @@
     border-color: #9c0;
   }
 }
-//++++ end # DEBUGGING MICRODATA STYLES ++++ //
+//++++ end # DEBUGGING MICRODATA STYLES ++++//

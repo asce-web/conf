@@ -1,13 +1,13 @@
 extends lib.tpl.jade
 
 block append vars
-  - titles.push('Visual Design')
+  - var page_id = pages.visual
+  - titles.push(page_id.name)
 
 block append main__header
   nav#table-contents
     h2 Table of Contents
-    ol
-      li: a(href="#color-schemes") Color Schemes
+    +menulist(page_id.sub, Infinity)
 
 block append main
   section.sg-sect#color-schemes

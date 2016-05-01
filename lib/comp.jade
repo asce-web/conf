@@ -353,31 +353,38 @@ block append main
   section.sg-sect#speaker-component
     h2 The Speaker Component
     figure.sg-c-Fig
-      div.c-Speaker(style="margin-bottom: 1.5rem;")
-        p.c-Speaker__Name Donna Fulman, P.ASCE
-        p.c-Speaker__JobTitle Interior Engineering Administration
-        a.c-Speaker__Link(href="") example speaker link
-        div.c-Speaker__Desc
-          p Donna Fulman is an award-winning, German designer raised in Austria and currently living in New York City.
-          p Former Lead Product Designer and Art Director at Spotify, he recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
-          p
-            a.c-Speaker__Link(href="") Email
-            a.c-Speaker__Link(href="") LinkedIn
-            a.c-Speaker__Link(href="") Twitter
+      article.c-Speaker(style="margin-bottom: 1.5rem;")
+        div.c-Speaker__Img(style="background-image: url(../sample/img/headshot1.jpg)")
+          header.c-Speaker__Head
+            h1.c-Speaker__Name Donna Fulman, P.ASCE
+            p.c-Speaker__JobTitle Interior Engineering Administration
+        div.c-Speaker__Body
+          div.c-Speaker__Bio
+            p Donna Fulman is an award-winning, German designer raised in Austria and currently living in New York City.
+            p Former Lead Product Designer and Art Director at Spotify, she recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
+          ul.o-ListBare
+            li.o-Inline: a.c-Speaker__Link(href="") Email
+            li.o-Inline: a.c-Speaker__Link(href="") LinkedIn
+            li.o-Inline: a.c-Speaker__Link(href="") Twitter
       pre.
-        &lt;div class="#[u c-Speaker]"&gt;
-          &lt;p class="#[u c-Speaker__Name]"&gt;Donna Fulman, P.ASCE&lt;/p&gt;
-          &lt;p class="#[u c-Speaker__JobTitle]"&gt;Interior Engineering Administration&lt;/p&gt;
-          &lt;a class="#[u c-Speaker__Link]"&gt;example speaker link&lt;/a&gt;
-          &lt;div class="#[u c-Speaker__Desc]"&gt;
-            &lt;p&gt;Donna Fulman is ...&lt;/p&gt;
-            &lt;p&gt;Former Lead Product Designer ...&lt;/p&gt;
-            &lt;p&gt;
-              &lt;a class="#[u c-Speaker__Link]"&gt;Email&lt;/a&gt;
-              ...
-            &lt;/p&gt;
+        &lt;article class="#[u c-Speaker]"&gt;
+          &lt;div class="#[u c-Speaker__Img]" #[u style="background-image: url('#[var= '/path-to-img-src/']');"]&gt;
+            &lt;header class="#[u c-Speaker__Head]"&gt;
+              &lt;h1 class="#[u c-Speaker__Name]"&gt;Donna Fulman, P.ASCE&lt;/h1&gt;
+              &lt;p class="#[u c-Speaker__JobTitle]"&gt;Interior Engineering Administration&lt;/p&gt;
+            &lt;/header&gt;
           &lt;/div&gt;
-        &lt;/div&gt;
+          &lt;div class="#[u c-Speaker__Body]"&gt;
+            &lt;div class="#[u c-Speaker__Bio]"&gt;
+              &lt;p&gt;Donna Fulman is ...&lt;/p&gt;
+              &lt;p&gt;Former Lead Product Designer ...&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;ul class="o-ListBare"&gt;
+              &lt;li class="o-Inline"&gt;&lt;a class="#[u c-Speaker__Link]"&gt;Email&lt;/a&gt;&lt;/li&gt;
+              ...
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/article&gt;
   section.sg-sect#pass-component
     h2 The Pass Component
     p The Pass Component should be an #[code article] element.

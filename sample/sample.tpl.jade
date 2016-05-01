@@ -94,7 +94,7 @@ html(lang="en")
         div.t-Callouts
           block callouts
           block sponsors
-            aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
+            aside.o-Runner.o-Runner--highlight(style="background-color: #eee;"): div.o-ContentWrapper
               h1 Sponsors
               +sponsor-content()
     block site-map
@@ -165,3 +165,9 @@ html(lang="en")
         $('.c-MenuUniversal').addClass('-d-n -d-fx-s52em')
         $('button[name="close"]').addClass('-d-n')
       })
+      //- $('.c-Speaker__Body').addClass('-h-z')
+      //- $('.c-Speaker__Img').height(function () { return $(this).width() })
+      //-   .click(function () { $(this).siblings('.c-Speaker__Body').removeClass('-h-z') })
+      //- $(window).resize(function () {
+      //-   $('.c-Speaker__Img').height(function () { return $(this).width() })
+      //- })

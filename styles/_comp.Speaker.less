@@ -2,46 +2,98 @@
 /*################################*\
     conf  |  _comp.Speaker.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+@import (reference) url('__settings.less');
 
 
+.transform(@transform) {
+  -webkit-transform: @transform;
+     -moz-transform: @transform;
+      -ms-transform: @transform;
+       -o-transform: @transform;
+          transform: @transform;
+}
 // A block containing a (keynote) speaker.
 // The first column is the headshot photo,
 // the second column is the description.
 //
 // ^subcomponents
-// __Name     - the speaker’s name and title
+// __Head     - header containing name and job title (affiliation)
+// __Body     - body of speaker info containing bio and social media links
+// __Img      - the speaker’s headshot photo
+// __Name     - the speaker’s name and suffix (e.g. M.ASCE)
 // __JobTitle - affiliation
-// __Desc     - a block of content further describing information about the speaker
+// __Bio      - a block of content further describing information about the speaker
 // __Link     - link to speaker’s email, LinkedIn, and/or Twitter
 // ^author
 // Chris Harvey
 // ^updated
 // 2016-04-01
 .c-Speaker {
-  // padding-top: 25vw; // NOTE this will fit the headshot photo height. may be responsive
-  background-image: url('../sample/img/headshot1.jpg');
-  background-size: contain;
+  position: relative;
+  .font-size-mod(0.75);
+  .border-vert(all; 1px);
+  border-style: solid;
+  border-color: @g-color_asce_black;
+  h1 {
+    font-family: inherit;
+    text-align: inherit;
+    color: inherit;
+  }
+  .c-Speaker__Name,
+  .c-Speaker__JobTitle {
+    // HACK override `.c-Speaker >> h1`, `.c-Speaker >> p`
+    margin-bottom: 0;
+    padding-top: 0;
+  }
+}
+
+.c-Speaker__Head,
+.c-Speaker__Body {
+  padding: @g-boxpadd_mill;
+}
+
+.c-Speaker__Head {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: fadeout(@g-color_site_primary, 25%);
+  color: @g-color_asce_white;
+}
+
+.c-Speaker__Body {
+  background-color: @g-color_asce_white;
+  color: @g-color_asce_black;
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-Speaker__Img {
+  position: relative; // for containing the __Head
+  height: 60vw;
+  @media screen and (min-width: 30em)  { height: 40vw; }
+  @media screen and (min-width: 45em)  { height: 20vw; }
+  @media screen and (min-width: 90em)  { height: 15vw; }
+  @media screen and (min-width: 135em) { height: 10vw; }
+  background-image: none; // NOTE change this on a site-to-site basis
+  background-position: right;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
-.c-Speaker__Name,
-.c-Speaker__JobTitle {
-  margin-bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+.c-Speaker__Name {
+  .font-size-el(@g-font_size_h3);
+  font-weight: 700;
 }
-.c-Speaker__Name {}
-.c-Speaker__JobTitle {}
 
-.c-Speaker__Desc {
-  overflow: auto;
-  font-size: 0.85em;
-  background: fadeout(green, 50%);
+.c-Speaker__JobTitle {
+  font-weight: 300;
+}
+
+.c-Speaker__Bio {
 }
 
 .c-Speaker__Link {
-  &,
-  &:hover,
-  &:focus {
-    color: inherit;
-  }
 }
+.-h-z { height: 0 !important; }

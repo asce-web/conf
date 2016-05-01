@@ -32,12 +32,7 @@
 // @p-color_coop_bg:   #e8eaeb; // bgcolor for coop orgs
 
 .c-SponsorBlock {
-  .font-size-mod(0.75);
   text-align: center;
-  .c-SponsorBlock__Logo,
-  .c-SponsorBlock__Text {
-    margin-bottom: @l-vru;
-  }
 }
 .c-SponsorBlock--separate {
   .border-vert(bottom; 1px);
@@ -46,7 +41,7 @@
 }
 
 .c-SponsorBlock__Hn {
-  .font-size-el(@g-font_size_h1; 2);
+  .font-size-el(@g-font_size_h2);
   font-family: inherit;
   color: @g-color_site_gray_dk;
 }
@@ -94,6 +89,7 @@
 }
 
 .c-SponsorBlock__Text {
+  .font-size-el(0.875);
   // &:not(:last-child)::after {
   //   content: '';
   //   padding-right: 1rem;
@@ -104,6 +100,5 @@
 
 .c-SponsorBlock__Label {
   font-weight: 800;
-  font-size: inherit; // override small
   color: @g-color_site_gray_lt;
 }

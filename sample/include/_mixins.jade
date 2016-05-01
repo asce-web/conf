@@ -9,10 +9,10 @@ mixin menulist(structure, class_obj)
           +menulist(value.sub, class_obj.sub)
 
 mixin actionbuttons(arr, classes)
-  ul.o-ListBare.o-GridFlex.o-ListStacked
+  ul.o-ListBare.o-GridFlex.-xjc-sa.-ta-c
     each obj in arr
       - obj.attr = obj.attr || {}
-      li.o-GridFlex__Item.o-ListStacked__Item
+      li.o-GridFlex__Item.-w-a-sM
         a(class=classes href=obj.href)&attributes(obj.attr)= obj.text
 
 mixin hero-content(event0)
@@ -66,14 +66,6 @@ mixin important-date-content()
     +row('2016','Jan','12', '2016-01-12','Advance Registration Closes', 'registration.html')
     +row('2016','Jun','12', '2016-06-12','Convention Begins')
 
-- var pass = {}
-- pass.student = { name:'Student Pass', description:'Undergraduates 18–24'}
-- pass.standard = { name:'Standard Pass', description:'Members & Non-Members'}
-- pass.ym = { name:'Younger Member', description:'Members 18–35'}
-- pass.speaker = { name:'Speaker Pass', description:'Speakers and Presenters'}
-- pass.guest = { name:'Guest Pass', description:'Speaker and Moderator Guests'}
-- pass.moderator = { name:'Moderator Pass', description:'Moderators'}
-- pass.daily = { name:'Daily Pass', description:'For One Day Only'}
 mixin pass(type)
   article.c-Pass
     header.c-Pass__Head
@@ -105,36 +97,11 @@ mixin pass(type)
 
 mixin registration-content()
   h1 Registration
-  ul.o-ListBare.o-GridFlex.o-ListPass
-    li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.student)
-    li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.standard)
-    li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.ym)
+  ul.o-ListBare.o-GridFlex.o-ListStacked
+    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student)
+    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard)
+    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym)
   +actionbuttons([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
-
-mixin num-speakers(n)
-  ul.o-ListBare.o-GridFlex.o-ListSpeakers
-    - for (var i = 0; i < n; i++)
-      li.o-GridFlex__Item.o-ListSpeakers__Item.c-Speaker
-        p.c-Speaker__Name Donna Fulman, P.ASCE
-        p.c-Speaker__JobTitle Interior Engineering Administration
-        div.o-ListSpeakers__Over.c-Speaker__Desc
-          p Tobias van Schneider is an award-winning, German designer raised in Austria and currently living in New York City.
-          p Former Lead Product Designer and Art Director at Spotify, he recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
-          p
-            a.c-Speaker__Link(href="") Email
-            a.c-Speaker__Link(href="") LinkedIn
-            a.c-Speaker__Link(href="") Twitter
-
-mixin speakers-content()
-  h1 Speakers
-  +num-speakers(3)
-  +actionbuttons([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
-
-mixin cochairs-content()
-  h1 Conference Co-Chairs
-  ul.o-ListBare
-    li #[b Thomas J. McCollough], P.E., M.ASCE
-    li #[b Stephen E. Dickenson], Ph.D., P.E., D.PE, M.ASCE
 
 mixin program-content()
   h1 Program Highlights
@@ -163,10 +130,46 @@ mixin program-content()
     ])
   +actionbuttons([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
 
+mixin speaker()
+  article.c-Speaker
+    div.c-Speaker__Img(style="background-image:url('img/headshot1.jpg');")
+      header.c-Speaker__Head
+        h1.c-Speaker__Name Donna Fulman, P.ASCE
+        p.c-Speaker__JobTitle Interior Engineering Administration
+    div.c-Speaker__Body
+      div.c-Speaker__Bio.minimal-text
+        p Tobias van Schneider is an award-winning, German designer raised in Austria and currently living in New York City.
+        p Former Lead Product Designer and Art Director at Spotify, he recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
+      ul.o-ListBare
+        li.o-Inline: a.c-Speaker__Link(href="") Email
+        li.o-Inline: a.c-Speaker__Link(href="") LinkedIn
+        li.o-Inline: a.c-Speaker__Link(href="") Twitter
+
+mixin speakers-content()
+  h1 Speakers
+  ul.o-ListBare.o-GridFlex.o-ListStacked
+    li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
+    li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
+    li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
+  +actionbuttons([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
+
+mixin cochairs-content()
+  h1 Conference Co-Chairs
+  ul.o-ListBare
+    li #[b Thomas J. McCollough], P.E., M.ASCE
+    li #[b Stephen E. Dickenson], Ph.D., P.E., D.PE, M.ASCE
+
 mixin mobile-content()
   h1 Plan, Engage, Connect
   p.-ta-c Enhance your conference experience with our mobile app.
   +actionbuttons([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
+
+mixin location-content(heading)
+  //- heading is moved into inner div
+  div.c-Overlay
+    h1= heading
+    p With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
+    +actionbuttons([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
 
 mixin social-content()
   h1 Join the Conversation
@@ -187,13 +190,6 @@ mixin social-content()
     li.o-GridFlex__Item.c-SocialList__Item
       a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" title="Follow #ASCE2016 on Facebook")
 
-mixin location-content(heading)
-  //- heading is moved into inner div
-  div.c-Overlay
-    h1= heading
-    p With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
-    +actionbuttons([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
-
 mixin contact-content()
   form
     label
@@ -209,9 +205,9 @@ mixin contact-content()
 
 mixin sponsor-content()
   mixin sponsor-carousel(spons)
-    div.c-SponsorBlock: ul.o-ListBare.o-GridFlex.o-ListSponsors
+    div.c-SponsorBlock: ul.o-ListBare.o-GridFlex.o-ListStacked
       each item in spons
-        li.o-GridFlex__Item.o-ListSponsors__Item
+        li.o-GridFlex__Item.o-ListStacked__Item
           a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
           small.c-SponsorBlock__Label= item.level.name
   +sponsor-carousel([sponsor.asce_foundation, sponsor.bentley, sponsor.pennoni])
@@ -222,13 +218,12 @@ mixin sponsor-content-full()
     //- TODO: remove `spons` param and get them from `level`
     section.c-SponsorBlock(class=classes)
       h1.c-SponsorBlock__Hn= level.name
-      ul.o-ListBare.o-GridFlex.o-ListSponsors
+      ul.o-ListBare.o-GridFlex.o-ListStacked
         each item in spons
-          unless (level === sponsorlevel.bronze) || (level === sponsorlevel.copper)
-            li.o-GridFlex__Item.o-ListSponsors__Item
+          li.o-GridFlex__Item.o-ListStacked__Item
+            unless (level === sponsorlevel.bronze) || (level === sponsorlevel.copper)
               a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+level.size href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
-          else
-            li.o-GridFlex__Item.o-ListSponsors__Item
+            else
               a.o-Block.c-SponsorBlock__Text(href=item.href)= item.name
   +sponsor-block(sponsorlevel.platinum , 'c-SponsorBlock--separate', [sponsor.asce_foundation, sponsor.bentley])
   +sponsor-block(sponsorlevel.corporate, 'c-SponsorBlock--separate', [sponsor.bank_america, sponsor.geico, sponsor.pearl, sponsor.ups, sponsor.keller])

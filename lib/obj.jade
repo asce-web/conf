@@ -15,9 +15,7 @@ block append main__header
       li: a(href="#float-grid") The Float Grid
       li: a(href="#runner-object") The Runner Object
       li: a(href="#content-wrapper") The Content Wrapper
-      li: a(href="#sponsors-list") The Sponsors List
-      li: a(href="#speakers-list") The Speakers List
-      li: a(href="#pass-list") The Pass List
+      li: a(href="#stacked-list") The Stacked List
 
 block append main
   section.sg-sect#block-object
@@ -195,8 +193,9 @@ block append main
           &lt;p&gt;highlight content&lt;/p&gt;
         &lt;/div&gt;
     p.
-      Use #[code .o-Runner--wrappedInner] if all the content inside is wrapped
-      with an inner container. It will make padding 0 on x-small screens.
+      Use #[code .o-Runner--wrappedInner] if you want to override the normal behavior and
+      remove all padding on x-small screens. This will make the inner #[code :only-child]
+      cover the entire Runner.
       Combine with other subclasses if necessary.
     figure.sg-c-Fig
       aside.o-Runner.o-Runner--wrappedInner
@@ -238,69 +237,25 @@ block append main
     //-     &lt;div class="#[u o-Runner]"&gt;
     //-       &lt;h1 class="#[u o-ContentWrapper]"&gt;heading with a max-width&lt;/h1&gt;
     //-     &lt;/div&gt;
-  section.sg-sect#sponsors-list
-    h2 The Sponsors List
+  section.sg-sect#stacked-list
+    h2 The Stacked List
     p.
-      A Sponsors List is an unordered list of items, each containing one link
-      to a sponsor website. For specific sponsor block styling, see
-      #[a(href="comp.html#sponsor-block") The Sponsor Block] Component.
+      The Stacked List Object is usually an unordered list (though it can be ordered) of blocky items.
+      These items may be sponsor logos, passes, speakers, and more. This Object is responsive,
+      adjusting its items&rsquo; widths at different breakpoints.
     figure.sg-c-Fig
-      ul.o-ListBare.o-GridFlex.o-ListSponsors
-        li.o-GridFlex__Item.o-ListSponsors__Item sponsor item
-        li.o-GridFlex__Item.o-ListSponsors__Item sponsor item
-        li.o-GridFlex__Item.o-ListSponsors__Item sponsor item
+      ul.o-ListBare.o-GridFlex.o-ListStacked
+        each val in [1,2,3]
+          li.o-GridFlex__Item.o-ListStacked__Item
+            article
+              h1 a blocky heading
+              p blocky content
       pre.
-        &lt;ul class="o-ListBare  o-GridFlex  #[u o-ListSponsors]"&gt;
-          &lt;li class="o-GridFlex__Item  #[u o-ListSponsors__Item]"&gt;sponsor item&lt;/li&gt;
-          ...
-        &lt;/ul&gt;
-  section.sg-sect#speakers-list
-    h2 The Speakers List
-    p.
-      A Speakers List is an unordered list of items, each containing
-      content for a keynote speaker.
-    figure.sg-c-Fig
-      ul.o-ListBare.o-GridFlex.o-ListSpeakers
-        li.o-GridFlex__Item.o-ListSpeakers__Item
-          p Donna Fulman, P.ASCE
-          p Interior Engineering Administration
-          div.o-ListSpeakers__Over
-            p Donna Fulman is an award-winning, German designer raised in Austria and currently living in New York City.
-            p Former Lead Product Designer and Art Director at Spotify, he recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
-            p
-              a(href="") Email
-              a(href="") LinkedIn
-              a(href="") Twitter
-      pre.
-        &lt;ul class="o-ListBare  o-GridFlex  #[u o-ListSpeakers]"&gt;
-          &lt;li class="o-GridFlex__Item  #[u o-ListSpeakers__Item]"&gt;
-            &lt;p&gt;Donna Fulman, P.ASCE&lt;/p&gt;
-            &lt;p&gt;Interior Engineering Administration&lt;/p&gt;
-            &lt;div class="#[u o-ListSpeakers__Over]"&gt;
-              &lt;p&gt;Donna Fulman is ...&lt;/p&gt;
-              &lt;p&gt;Former Lead Product Designer ...&lt;/p&gt;
-              &lt;p&gt;
-                &lt;a&gt;Email&lt;/a&gt;
-                ...
-              &lt;/p&gt;
-            &lt;/div&gt;
-          &lt;/li&gt;
-          ...
-        &lt;/ul&gt;
-  section.sg-sect#pass-list
-    h2 The Pass List
-    p Holds a set of #[a(href="comp.jade#pass-component") Pass Components].
-    figure.sg-c-Fig
-      ul.o-ListBare.o-GridFlex.o-ListPass
-        li.o-GridFlex__Item.o-ListPass__Item: article.c-Pass: h1.c-Pass__Hn Standard Pass
-        li.o-GridFlex__Item.o-ListPass__Item: article.c-Pass: h1.c-Pass__Hn Standard Pass
-        li.o-GridFlex__Item.o-ListPass__Item: article.c-Pass: h1.c-Pass__Hn Standard Pass
-      pre.
-        &lt;ul class="o-ListBare  o-GridFlex  #[u o-ListPass]"&gt;
-          &lt;li class="o-GridFlex__Item  #[u o-ListPass__Item]"&gt;
-            &lt;article class="c-Pass"&gt;
-              &lt;h1 class="c-Pass__Hn"&gt;Standard Pass&lt;/h1&gt;
-              ...
+        &lt;ul class="o-ListBare  o-GridFlex  #[u o-ListStacked]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u o-ListStacked__Item]"&gt;
+            &lt;article&gt;
+              &lt;h1&gt;a blocky heading&lt;h1&gt;
+              &lt;p&gt;blocky content&lt;p&gt;
             &lt;/article&gt;
           &lt;/li&gt;
           ...

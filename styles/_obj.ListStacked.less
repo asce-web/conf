@@ -13,13 +13,16 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-04-05
+// 2016-05-01
 .o-ListStacked {
   .flex-justify-content(space-around);
-  text-align: center;
 }
 .o-ListStacked__Item {
+  margin-bottom: @g-vru; // vertical spacing
+  @media screen and (min-width: 30em) {
+    width: calc(100%/2~' - '0.5rem);
+  }
   @media screen and (min-width: 45em) {
-    width: auto;
+    width: calc(100%/3~' - '1rem);
   }
 }

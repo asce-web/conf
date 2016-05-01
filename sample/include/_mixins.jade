@@ -9,10 +9,10 @@ mixin menulist(structure, class_obj)
           +menulist(value.sub, class_obj.sub)
 
 mixin actionbuttons(arr, classes)
-  ul.o-ListBare.o-GridFlex.o-ListStacked
+  ul.o-ListBare.o-GridFlex.-xjc-sa.-ta-c
     each obj in arr
       - obj.attr = obj.attr || {}
-      li.o-GridFlex__Item.o-ListStacked__Item
+      li.o-GridFlex__Item.-w-a-sM
         a(class=classes href=obj.href)&attributes(obj.attr)= obj.text
 
 mixin hero-content(event0)
@@ -105,10 +105,10 @@ mixin pass(type)
 
 mixin registration-content()
   h1 Registration
-  ul.o-ListBare.o-GridFlex.o-ListPass
-    li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.student)
-    li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.standard)
-    li.o-GridFlex__Item.o-ListPass__Item: +pass(pass.ym)
+  ul.o-ListBare.o-GridFlex.o-ListStacked
+    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student)
+    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard)
+    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym)
   +actionbuttons([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
 
 mixin speaker()
@@ -128,10 +128,10 @@ mixin speaker()
 
 mixin speakers-content()
   h1 Speakers
-  ul.o-ListBare.o-GridFlex.o-ListSpeakers
-    li.o-GridFlex__Item.o-ListSpeakers__Item: +speaker()
-    li.o-GridFlex__Item.o-ListSpeakers__Item: +speaker()
-    li.o-GridFlex__Item.o-ListSpeakers__Item: +speaker()
+  ul.o-ListBare.o-GridFlex.o-ListStacked
+    li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
+    li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
+    li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
   +actionbuttons([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
 
 mixin cochairs-content()
@@ -213,9 +213,9 @@ mixin contact-content()
 
 mixin sponsor-content()
   mixin sponsor-carousel(spons)
-    div.c-SponsorBlock: ul.o-ListBare.o-GridFlex.o-ListSponsors
+    div.c-SponsorBlock: ul.o-ListBare.o-GridFlex.o-ListStacked
       each item in spons
-        li.o-GridFlex__Item.o-ListSponsors__Item
+        li.o-GridFlex__Item.o-ListStacked__Item
           a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
           small.c-SponsorBlock__Label= item.level.name
   +sponsor-carousel([sponsor.asce_foundation, sponsor.bentley, sponsor.pennoni])
@@ -226,13 +226,12 @@ mixin sponsor-content-full()
     //- TODO: remove `spons` param and get them from `level`
     section.c-SponsorBlock(class=classes)
       h1.c-SponsorBlock__Hn= level.name
-      ul.o-ListBare.o-GridFlex.o-ListSponsors
+      ul.o-ListBare.o-GridFlex.o-ListStacked
         each item in spons
-          unless (level === sponsorlevel.bronze) || (level === sponsorlevel.copper)
-            li.o-GridFlex__Item.o-ListSponsors__Item
+          li.o-GridFlex__Item.o-ListStacked__Item
+            unless (level === sponsorlevel.bronze) || (level === sponsorlevel.copper)
               a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+level.size href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
-          else
-            li.o-GridFlex__Item.o-ListSponsors__Item
+            else
               a.o-Block.c-SponsorBlock__Text(href=item.href)= item.name
   +sponsor-block(sponsorlevel.platinum , 'c-SponsorBlock--separate', [sponsor.asce_foundation, sponsor.bentley])
   +sponsor-block(sponsorlevel.corporate, 'c-SponsorBlock--separate', [sponsor.bank_america, sponsor.geico, sponsor.pearl, sponsor.ups, sponsor.keller])

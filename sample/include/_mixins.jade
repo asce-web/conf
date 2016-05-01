@@ -66,14 +66,6 @@ mixin important-date-content()
     +row('2016','Jan','12', '2016-01-12','Advance Registration Closes', 'registration.html')
     +row('2016','Jun','12', '2016-06-12','Convention Begins')
 
-- var pass = {}
-- pass.student = { name:'Student Pass', description:'Undergraduates 18–24'}
-- pass.standard = { name:'Standard Pass', description:'Members & Non-Members'}
-- pass.ym = { name:'Younger Member', description:'Members 18–35'}
-- pass.speaker = { name:'Speaker Pass', description:'Speakers and Presenters'}
-- pass.guest = { name:'Guest Pass', description:'Speaker and Moderator Guests'}
-- pass.moderator = { name:'Moderator Pass', description:'Moderators'}
-- pass.daily = { name:'Daily Pass', description:'For One Day Only'}
 mixin pass(type)
   article.c-Pass
     header.c-Pass__Head
@@ -111,6 +103,33 @@ mixin registration-content()
     li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym)
   +actionbuttons([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
 
+mixin program-content()
+  h1 Program Highlights
+  mixin program-block(classes, datetext, data)
+    section.o-GridFlex__Item(class=classes)
+      h1= datetext
+      dl.o-GridFlex.c-TimeBlock
+        mixin row(starttime, endtime, description)
+          dt.o-GridFlex__Item
+            span= starttime
+            | –
+            span= endtime
+          dd.o-GridFlex__Item= description
+        each val in data
+          +row(val.starttime, val.endtime, val.description)
+  div.o-GridFlex
+    +program-block(['o-GridFlex__Item','-w-1o2'], 'Wednesday, April 5', [
+      { starttime: '7am', endtime: 'Noon', description: 'General Services Contractor Setup' }
+    , { starttime: '8am', endtime: '11pm', description: 'Committee Meetings' }
+    , { starttime: 'Noon', endtime: '6pm', description: 'Registration & ASCE Bookstore Hours' }
+    ])
+    +program-block(['o-GridFlex__Item','-w-1o2'], 'Thursday, April 6', [
+      { starttime: '07:00', endtime: '08:00', description: 'Continental Breakfast' }
+    , { starttime: '09:30', endtime: '10:00', description: 'Morning Refreshment Break' }
+    , { starttime: '18:30', endtime: '20:00', description: 'Welcome Reception' }
+    ])
+  +actionbuttons([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
+
 mixin speaker()
   article.c-Speaker
     div.c-Speaker__Img(style="background-image:url('img/headshot1.jpg');")
@@ -140,37 +159,17 @@ mixin cochairs-content()
     li #[b Thomas J. McCollough], P.E., M.ASCE
     li #[b Stephen E. Dickenson], Ph.D., P.E., D.PE, M.ASCE
 
-mixin program-content()
-  h1 Program Highlights
-  mixin program-block(classes, datetext, data)
-    section.o-GridFlex__Item(class=classes)
-      h1= datetext
-      dl.o-GridFlex.c-TimeBlock
-        mixin row(starttime, endtime, description)
-          dt.o-GridFlex__Item
-            span= starttime
-            | –
-            span= endtime
-          dd.o-GridFlex__Item= description
-        each val in data
-          +row(val.starttime, val.endtime, val.description)
-  div.o-GridFlex
-    +program-block(['o-GridFlex__Item','-w-1o2'], 'Wednesday, April 5', [
-      { starttime: '7am', endtime: 'Noon', description: 'General Services Contractor Setup' }
-    , { starttime: '8am', endtime: '11pm', description: 'Committee Meetings' }
-    , { starttime: 'Noon', endtime: '6pm', description: 'Registration & ASCE Bookstore Hours' }
-    ])
-    +program-block(['o-GridFlex__Item','-w-1o2'], 'Thursday, April 6', [
-      { starttime: '07:00', endtime: '08:00', description: 'Continental Breakfast' }
-    , { starttime: '09:30', endtime: '10:00', description: 'Morning Refreshment Break' }
-    , { starttime: '18:30', endtime: '20:00', description: 'Welcome Reception' }
-    ])
-  +actionbuttons([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
-
 mixin mobile-content()
   h1 Plan, Engage, Connect
   p.-ta-c Enhance your conference experience with our mobile app.
   +actionbuttons([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
+
+mixin location-content(heading)
+  //- heading is moved into inner div
+  div.c-Overlay
+    h1= heading
+    p With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
+    +actionbuttons([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
 
 mixin social-content()
   h1 Join the Conversation
@@ -190,13 +189,6 @@ mixin social-content()
       a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" title="Follow #ASCE2016 on Google+")
     li.o-GridFlex__Item.c-SocialList__Item
       a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" title="Follow #ASCE2016 on Facebook")
-
-mixin location-content(heading)
-  //- heading is moved into inner div
-  div.c-Overlay
-    h1= heading
-    p With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
-    +actionbuttons([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
 
 mixin contact-content()
   form

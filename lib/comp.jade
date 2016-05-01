@@ -11,7 +11,6 @@ block append main__header
       li: a(href="#masthead-mastfoot") The Masthead and Mastfoot
       li: a(href="#site-title") The Site Title
       li: a(href="#universal-menu") The Universal Menu
-      li: a(href="#social-list") The Social List
       li: a(href="#standard-menu") The Standard Menu
       li: a(href="#sub-menu") The Sub Menu
       li: a(href="#sitemap-component") The Sitemap Component
@@ -22,8 +21,9 @@ block append main__header
       li: a(href="#overlay-component") The Overlay Component
       li: a(href="#sponsor-block") The Sponsor Block
       li: a(href="#date-block") The Date Block
-      li: a(href="#speaker-component") The Speaker Component
       li: a(href="#pass-component") The Pass Component
+      li: a(href="#speaker-component") The Speaker Component
+      li: a(href="#social-list") The Social List
       li: a(href="#buttons") Buttons
 
 block append main
@@ -88,36 +88,6 @@ block append main
             &lt;a class="o-Block  #[u c-MenuUniversal__Link]  #[u c-MenuUniversal__Link--current]"&gt;ASCE 2016&lt;/a&gt;
           &lt;/li&gt;
         &lt;/ul&gt;
-  section.sg-sect#social-list
-    h2 The Social List
-    figure.sg-c-Fig
-      ul.o-ListBare.o-GridFlex.c-SocialList
-        li.o-GridFlex__Item.c-SocialList__Item
-          a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")
-        li.o-GridFlex__Item.c-SocialList__Item
-          a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" title="Follow #ASCE2016 on Google+")
-        li.o-GridFlex__Item.c-SocialList__Item
-          a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" title="Follow #ASCE2016 on Facebook")
-      footer
-        ul.o-ListBare.o-GridFlex.c-SocialList
-          li.o-GridFlex__Item.c-SocialList__Item
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" itemprop="sameAs" title="Follow ASCE on Twitter")
-          li.o-GridFlex__Item.c-SocialList__Item
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" itemprop="sameAs" title="Follow ASCE on Google+")
-          li.o-GridFlex__Item.c-SocialList__Item
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" itemprop="sameAs" title="Follow ASCE on Facebook")
-          li.o-GridFlex__Item.c-SocialList__Item
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--linkedin(href="" itemprop="sameAs" title="Follow ASCE on LinkedIn")
-          li.o-GridFlex__Item.c-SocialList__Item
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--youtube(href="" itemprop="sameAs" title="Follow ASCE on YouTube")
-      pre.
-        &lt;ul class="o-ListBare  o-GridFlex  #[u c-SocialList]"&gt;
-          &lt;li class="o-GridFlex__Item  #[u c-SocialList__Item]"&gt;
-            &lt;a class="o-Block  #[u c-SocialList__Link]  #[u c-SocialList__Link--twitter]"&gt;&lt;/a&gt;
-          &lt;/li&gt;
-          ...
-        &lt;/ul&gt;
-        #[small &lt;!-- second social list same structure but inside a #[code footer] element --&gt;]
   section.sg-sect#standard-menu
     h2 The Standard Menu
     figure.sg-c-Fig
@@ -350,41 +320,6 @@ block append main
             &lt;a class="o-Inline  #[u c-DateBlock__Link]" href=""&gt;Early-Bird Registration Closes&lt;/a&gt;
           &lt;/dd&gt;
         &lt;/dl&gt;
-  section.sg-sect#speaker-component
-    h2 The Speaker Component
-    figure.sg-c-Fig
-      article.c-Speaker(style="margin-bottom: 1.5rem;")
-        div.c-Speaker__Img(style="background-image: url(../sample/img/headshot1.jpg)")
-          header.c-Speaker__Head
-            h1.c-Speaker__Name Donna Fulman, P.ASCE
-            p.c-Speaker__JobTitle Interior Engineering Administration
-        div.c-Speaker__Body
-          div.c-Speaker__Bio
-            p Donna Fulman is an award-winning, German designer raised in Austria and currently living in New York City.
-            p Former Lead Product Designer and Art Director at Spotify, she recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
-          ul.o-ListBare
-            li.o-Inline: a.c-Speaker__Link(href="") Email
-            li.o-Inline: a.c-Speaker__Link(href="") LinkedIn
-            li.o-Inline: a.c-Speaker__Link(href="") Twitter
-      pre.
-        &lt;article class="#[u c-Speaker]"&gt;
-          &lt;div class="#[u c-Speaker__Img]" #[u style="background-image: url('#[var= '/path-to-img-src/']');"]&gt;
-            &lt;header class="#[u c-Speaker__Head]"&gt;
-              &lt;h1 class="#[u c-Speaker__Name]"&gt;Donna Fulman, P.ASCE&lt;/h1&gt;
-              &lt;p class="#[u c-Speaker__JobTitle]"&gt;Interior Engineering Administration&lt;/p&gt;
-            &lt;/header&gt;
-          &lt;/div&gt;
-          &lt;div class="#[u c-Speaker__Body]"&gt;
-            &lt;div class="#[u c-Speaker__Bio]"&gt;
-              &lt;p&gt;Donna Fulman is ...&lt;/p&gt;
-              &lt;p&gt;Former Lead Product Designer ...&lt;/p&gt;
-            &lt;/div&gt;
-            &lt;ul class="o-ListBare"&gt;
-              &lt;li class="o-Inline"&gt;&lt;a class="#[u c-Speaker__Link]"&gt;Email&lt;/a&gt;&lt;/li&gt;
-              ...
-            &lt;/ul&gt;
-          &lt;/div&gt;
-        &lt;/article&gt;
   section.sg-sect#pass-component
     h2 The Pass Component
     p The Pass Component should be an #[code article] element.
@@ -443,6 +378,71 @@ block append main
             &lt;/section&gt;
           &lt;/footer&gt;
         &lt;/article&gt;
+  section.sg-sect#speaker-component
+    h2 The Speaker Component
+    figure.sg-c-Fig
+      article.c-Speaker(style="margin-bottom: 1.5rem;")
+        div.c-Speaker__Img(style="background-image: url(../sample/img/headshot1.jpg)")
+          header.c-Speaker__Head
+            h1.c-Speaker__Name Donna Fulman, P.ASCE
+            p.c-Speaker__JobTitle Interior Engineering Administration
+        div.c-Speaker__Body
+          div.c-Speaker__Bio
+            p Donna Fulman is an award-winning, German designer raised in Austria and currently living in New York City.
+            p Former Lead Product Designer and Art Director at Spotify, she recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
+          ul.o-ListBare
+            li.o-Inline: a.c-Speaker__Link(href="") Email
+            li.o-Inline: a.c-Speaker__Link(href="") LinkedIn
+            li.o-Inline: a.c-Speaker__Link(href="") Twitter
+      pre.
+        &lt;article class="#[u c-Speaker]"&gt;
+          &lt;div class="#[u c-Speaker__Img]" #[u style="background-image: url('#[var= '/path-to-img-src/']');"]&gt;
+            &lt;header class="#[u c-Speaker__Head]"&gt;
+              &lt;h1 class="#[u c-Speaker__Name]"&gt;Donna Fulman, P.ASCE&lt;/h1&gt;
+              &lt;p class="#[u c-Speaker__JobTitle]"&gt;Interior Engineering Administration&lt;/p&gt;
+            &lt;/header&gt;
+          &lt;/div&gt;
+          &lt;div class="#[u c-Speaker__Body]"&gt;
+            &lt;div class="#[u c-Speaker__Bio]"&gt;
+              &lt;p&gt;Donna Fulman is ...&lt;/p&gt;
+              &lt;p&gt;Former Lead Product Designer ...&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;ul class="o-ListBare"&gt;
+              &lt;li class="o-Inline"&gt;&lt;a class="#[u c-Speaker__Link]"&gt;Email&lt;/a&gt;&lt;/li&gt;
+              ...
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/article&gt;
+  section.sg-sect#social-list
+    h2 The Social List
+    figure.sg-c-Fig
+      ul.o-ListBare.o-GridFlex.c-SocialList
+        li.o-GridFlex__Item.c-SocialList__Item
+          a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")
+        li.o-GridFlex__Item.c-SocialList__Item
+          a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" title="Follow #ASCE2016 on Google+")
+        li.o-GridFlex__Item.c-SocialList__Item
+          a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" title="Follow #ASCE2016 on Facebook")
+      footer
+        ul.o-ListBare.o-GridFlex.c-SocialList
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" itemprop="sameAs" title="Follow ASCE on Twitter")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" itemprop="sameAs" title="Follow ASCE on Google+")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" itemprop="sameAs" title="Follow ASCE on Facebook")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--linkedin(href="" itemprop="sameAs" title="Follow ASCE on LinkedIn")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--youtube(href="" itemprop="sameAs" title="Follow ASCE on YouTube")
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u c-SocialList]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u c-SocialList__Item]"&gt;
+            &lt;a class="o-Block  #[u c-SocialList__Link]  #[u c-SocialList__Link--twitter]"&gt;&lt;/a&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ul&gt;
+        #[small &lt;!-- second social list same structure but inside a #[code footer] element --&gt;]
   section.sg-sect#buttons
     h2 Buttons
     p #[strong Important:] colors will vary by site.

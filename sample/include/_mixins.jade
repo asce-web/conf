@@ -27,10 +27,10 @@ mixin hero-content(event0)
         else
           span(itemprop="addressRegion")= event0.addressRegion
     span.c-Hero__Dates
-      time(datetime=event0.startDate.toString().slice(0,10) itemprop="startDate")
+      time(datetime=event0.startDate.toISOString().slice(0,10) itemprop="startDate")
         = month_names[event0.startDate.getUTCMonth()].slice(0,3) + ' ' + event0.startDate.getUTCDate()
       | &ndash;
-      time(datetime=event0.endDate.toString().slice(0,10) itemprop="endDate")
+      time(datetime=event0.endDate.toISOString().slice(0,10) itemprop="endDate")
         = month_names[event0.endDate.getUTCMonth()].slice(0,3) + ' ' + event0.endDate.getUTCDate()
   p.c-Hero__Theme(itemprop="description")
     if event0.theme

@@ -2,7 +2,6 @@
 /*################################*\
     conf  |  _comp.Btn.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('__settings.less');
 
 
@@ -17,26 +16,25 @@
 // --hero--home        - hero button on home    page (customizable per each site)
 // --hero2    - alternate hero button
 // --dominant - button for some other primary use
-// --drawer   - universal menu button in site masthead
+// --flat     - button element to look like a regular link
+// --drawer   - structural styles for menu buttons in site masthead
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-04-24
-
-
+// 2016-05-02
 .c-Btn {
   display: inline-block;
   vertical-align: middle;
   padding: @g-boxpadd_mill;
+  margin: 0; // override margin-top from xmeter
   font-weight: 700;
   white-space: nowrap;
   border: 1px outset;
   cursor: pointer;
+  a& {
+    opacity: 1; // HACK specificity
+  }
 }
-a.c-Btn {
-  opacity: 1; // HACK specificity
-}
-
 .c-Btn {
   color: @g-color_site_secondary;
   border-color: currentColor;
@@ -54,9 +52,9 @@ a.c-Btn {
 }
 
 .c-Btn--hilite {
-  padding: @g-boxpadd_norm_v @g-boxpadd_kilo_h;
+  padding: @g-boxpadd_mill_v @g-boxpadd_kilo_h;
   border-width: 2px;
-  .font-size-el(1.5);
+  font-size: 1.5em;
 }
 
 .c-Btn--inline {
@@ -113,26 +111,33 @@ a.c-Btn {
   }
 }
 
+.c-Btn--flat {
+  // (mostly) copied from base `a` and adjusted slightly
+  color: @g-color_site_secondary;
+  text-transform: uppercase;
+  font-size: 0.875em;
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    background: none;
+    border: 0;
+  }
+  &:hover,
+  &:focus {
+    color: @g-color_site_gray_lt;
+  }
+  &:active {
+    color: inherit; // override `.c-Btn:active black`
+  }
+}
+
 .c-Btn--drawer {
   padding: @g-boxpadd_micr;
   margin: @g-boxpadd_mill;
-  border-radius: 0.5em;
-  color: @g-color_asce_white;
-  background-color: @g-color_site_secondary;
-  &:hover,
-  &:focus {
-    color: mix(@g-color_asce_white, @g-color_site_gray_lt);
-    background-color: @g-color_site_gray_dk;
-  }
-  &,
-  &:active {
-    border-style: solid;
-  }
-  &:active {
-    color: @g-color_site_gray_lt;
-    background-color: @g-color_asce_black;
-  }
+  color: inherit; // override `.c-Btn secondary`
 }
+
 .c-Btn--drawer--close {
   position: absolute;
   top: 0; right: 0;

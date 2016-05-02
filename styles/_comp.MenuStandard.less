@@ -2,7 +2,9 @@
 /*################################*\
     conf  |  _comp.MenuStandard.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('__settings.less');
 @import (reference) url('__tool.module.menubar.less');
 
@@ -20,6 +22,7 @@
   .menubar();
   position: relative; // for the NavSubmenu positioning
   margin-bottom: 0; // override `ul`
+  text-align: center;
   a {
     &:hover,
     &:focus {
@@ -29,13 +32,33 @@
       color: @g-color_asce_black;
     }
   }
+  @iconbreakpoint: 487px;
+  @media screen and (max-width: (@iconbreakpoint - 1)) {
+    .flex-justify-content(space-around);
+  }
+  .material-icons {
+    display: block;
+    @media screen and (max-width: (@iconbreakpoint - 1)) {
+      & + span {
+        display: block;
+        .font-size-el(0.75);
+        font-weight: 400;
+      }
+    }
+    @media screen and (max-width: 381px) {
+      & + span {
+        display: none;
+      }
+    }
+    @media screen and (min-width: @iconbreakpoint) {
+      display: none;
+    }
+  }
 }
 .c-MenuStandard__Item {
   @trans_dura: 125ms;
+  width: auto;
   .transition(background-color; @trans_dura);
-  @media screen and (min-width: 487px) {
-    width: auto;
-  }
   &:hover,
   & .c-MenuSub {
     background-color: @g-color_site_gray_lt;

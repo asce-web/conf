@@ -7,4 +7,4 @@ block append vars
 block append main__header
   nav#table-contents
     h2 Table of Contents
-    +menulist(page_id.sub, Infinity)
+    +menulist({structure: page_id.sub, depth: Infinity})

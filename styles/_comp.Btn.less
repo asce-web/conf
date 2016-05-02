@@ -114,8 +114,8 @@ a.c-Btn {
 }
 
 .c-Btn--drawer {
-  padding: @g-boxpadd_micr_v @g-boxpadd_mill_h;
-  border-style: solid;
+  padding: @g-boxpadd_micr;
+  margin: @g-boxpadd_mill;
   border-radius: 0.5em;
   color: @g-color_asce_white;
   background-color: @g-color_site_secondary;
@@ -124,8 +124,11 @@ a.c-Btn {
     color: mix(@g-color_asce_white, @g-color_site_gray_lt);
     background-color: @g-color_site_gray_dk;
   }
+  &,
   &:active {
     border-style: solid;
+  }
+  &:active {
     color: @g-color_site_gray_lt;
     background-color: @g-color_asce_black;
   }
@@ -134,5 +137,4 @@ a.c-Btn {
   position: absolute;
   top: 0; right: 0;
   z-index: 2; // over MenuUniversal
-  margin: @g-boxpadd_mill;
 }

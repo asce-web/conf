@@ -1,12 +1,4 @@
-mixin menulist(structure, class_obj)
-  - structure = structure || {}
-  - class_obj = class_obj || {}
-  ul(class=class_obj.listclasses)
-    each value in structure
-      li(class=class_obj.itemclasses)
-        a(class=class_obj.linkclasses href=value.href)= value.name
-        if value.sub
-          +menulist(value.sub, class_obj.sub)
+include ../../lib/includes/_mixins.jade
 
 mixin actionbuttons(arr, classes)
   ul.o-ListBare.o-GridFlex.-xjc-sa.-ta-c
@@ -53,18 +45,25 @@ mixin otheryear-content(event0)
 mixin important-date-content()
   h1 Important Dates
   dl.c-DateBlock
-    mixin row(year, month, day, datetime, description, url)
+    mixin row(date_obj, url)
       dt.c-DateBlock__Date
-        time(datetime=datetime)= month + ', ' + day + ' ' + year
+        time(datetime=date_obj.toISOString().slice(0,10))
+          = month_names[date_obj.getUTCMonth()].slice(0,3) + ' ' + date_obj.getUTCDate() + ', ' + date_obj.getFullYear()
       dd.c-DateBlock__Desc
         if url
-          a.o-Inline.c-DateBlock__Link(href=url)= description
+          a.o-Block.c-DateBlock__Link(href=url)
+            block
+            i.material-icons arrow_forward
         else
-          = description
-    +row('2015','Oct','12', '2015-10-12','Optional Final Papers Due')
-    +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes', 'registration.html')
-    +row('2016','Jan','12', '2016-01-12','Advance Registration Closes', 'registration.html')
-    +row('2016','Jun','12', '2016-06-12','Convention Begins')
+          block
+    +row(new Date('2015-10-12'))
+      | #[em Optional] Final Papers Due
+    +row(new Date('2015-12-17'), 'registration.html')
+      | Early-Bird Registration Closes
+    +row(new Date('2016-01-12'), 'registration.html')
+      | Advance Registration Closes
+    +row(new Date('2016-06-12'))
+      | #[strong Convention Begins]
 
 mixin pass(type)
   article.c-Pass

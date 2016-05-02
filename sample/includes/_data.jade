@@ -65,6 +65,7 @@
     , about: {
         name: 'About', href: 'about.html'
       , description: 'About the ASCE Convention.'
+      , icon: { content: 'info_outline', fallback: '&#xE88F;' }
       , sub: {
           'coop-orgs' : { name: 'Cooperating Orgs' , href: '' }
         , 'part-orgs' : { name: 'Partnering Orgs'  , href: '' }
@@ -75,10 +76,12 @@
     , sponsor: {
         name: 'Sponsor', href: 'sponsor.html'
       , description: 'Sponsors of the ASCE Convention.'
+      , icon: { content: 'people', fallback: '&#xE7FB;' }
       }
     , exhibit: {
         name: 'Exhibit', href: 'exhibit.html'
       , description: 'Exhibitors at the ASCE Convention.'
+      , icon: { content: 'work', fallback: '&#xE8F9;' }
       , sub: {
           'exhibitor-list': { name:'Exhibitor List', href:'' }
         }
@@ -86,16 +89,19 @@
     , contact: {
         name: 'Contact', href: 'contact.html'
       , description: 'Contact us for questions and comments about the ASCE Convention.'
+      , icon: { content: 'email', fallback: '&#xE0BE;' }
       }
     }
   , internal: {
       home: {
         name: 'Home', href: 'home.html'
       , description: conference.current.theme
+      , icon: { content: 'home', fallback: '&#xE88A;' }
       }
     , registration: {
         name: 'Registration', href: 'registration.html'
       , description: 'Register for the ASCE 2016 conference here.'
+      , icon: { content: 'shopping_cart', fallback: '&#xE8CC;' }
       , sub: {
           'why-attend'     : { name: 'Why Attend'      , href: '' }
         , 'short-courses'  : { name: 'Short Courses'   , href: '' }
@@ -106,6 +112,7 @@
     , program: {
         name: 'Program', href: 'program.html'
       , description: 'Program and Agenda of the ASCE 2016 conference.'
+      , icon: { content: 'event', fallback: '&#xE878;' }
       , sub: {
           events: { name: 'Events', href: '' }
         }
@@ -113,6 +120,7 @@
     , location: {
         name: 'Hotel & Travel', href: 'location.html'
       , description: 'Get information about the location of the conference and where to stay.'
+      , icon: { content: 'flight', fallback: '&#xE539;' }
       , sub: {
           'international-travel': { name: 'International Travel', href: '' }
         }
@@ -120,6 +128,7 @@
     , speakers: {
         name: 'Speakers', href: 'speakers.html'
       , description: 'Get information about current and prospective speakers at ASCE 2016.'
+      , icon: { content: 'account_box', fallback: '&#xE851;' }
       , sub: {
           'distinguished-lecture-series': { name: 'Distinguished Lecture Series', href: '' }
         }
@@ -133,6 +142,10 @@
 - sitemap.universal.sponsor = {name:'Sponsor'        , href:'sponsor.html', description:'Sponsors of the ASCE Convention.'}
 - sitemap.universal.exhibit = {name:'Exhibit'        , href:'exhibit.html', description:'Exhibitors at the ASCE Convention.'}
 - sitemap.universal.contact = {name:'Contact'        , href:'contact.html', description:'Contact us for questions and comments about the ASCE Convention.'}
+- sitemap.universal.about.icon   = { content: 'info_outline' , fallback: '&#xE88F;'}
+- sitemap.universal.sponsor.icon = { content: 'people'       , fallback: '&#xE7FB;'}
+- sitemap.universal.exhibit.icon = { content: 'work'         , fallback: '&#xE8F9;'}
+- sitemap.universal.contact.icon = { content: 'email'        , fallback: '&#xE0BE;'}
 - sitemap.universal.about.sub = {}
 - sitemap.universal.about.sub['coop-orgs']  = {name:'Cooperating Orgs', href:''}
 - sitemap.universal.about.sub['part-orgs']  = {name:'Partnering Orgs' , href:''}
@@ -145,6 +158,11 @@
 - sitemap.internal.program      = {name:'Program'       , href:'program.html'     , description:'Program and Agenda of the ASCE 2016 conference.'}
 - sitemap.internal.location     = {name:'Hotel & Travel', href:'location.html'    , description:'Get information about the location of the conference and where to stay.'}
 - sitemap.internal.speakers     = {name:'Speakers'      , href:'speakers.html'    , description:'Get information about current and prospective speakers at ASCE 2016.'}
+- sitemap.internal.home.icon         = { content: 'home'         , fallback: '&#xE88A;'}
+- sitemap.internal.registration.icon = { content: 'shopping_cart', fallback: '&#xE8CC;'}
+- sitemap.internal.program.icon      = { content: 'event'        , fallback: '&#xE878;'}
+- sitemap.internal.location.icon     = { content: 'flight'       , fallback: '&#xE539;'}
+- sitemap.internal.speakers.icon     = { content: 'account_box'  , fallback: '&#xE851;'}
 - sitemap.internal.registration.sub = {}
 - sitemap.internal.registration.sub['why-attend']      = {name:'Why Attend'     , href:''}
 - sitemap.internal.registration.sub['short-courses']   = {name:'Short Courses'  , href:''}

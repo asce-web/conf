@@ -1,0 +1,17 @@
+- function title(arr) { return arr.reduceRight(function (a, b) { return a + ' | ' + b }) }
+- function mainH1(arr) { return arr.reduce(function (a, b) { return a + ' — ' + b }) }
+
+mixin menulist(args)
+  - var structure = args.structure || {}
+  - var class_obj = args.class_obj || {}
+  - var depth     = +args.depth
+  ol(class=class_obj.listclasses)
+    each value in structure
+      li(class=class_obj.itemclasses)
+        a(class=class_obj.linkclasses href=value.href)
+          if value.icon && args.icons
+            i.material-icons= value.icon.content
+          span= value.name
+        if value.sub && depth > 0
+          - class_obj.sub = class_obj.sub || {}
+          +menulist({structure: value.sub, class_obj: class_obj.sub, depth: depth-1})

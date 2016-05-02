@@ -31,6 +31,7 @@
     width: 12rem;
     height: 100%;
     background-color: @g-color_site_gray_lt;
+    border-left: 1px solid currentColor;
     a {
       &:hover,
       &:focus,
@@ -38,6 +39,12 @@
         color: @g-color_site_gray_lt;
         background-color: @g-color_asce_white;
       }
+    }
+  }
+  .material-icons {
+    margin-right: 1rem;
+    @media screen and (min-width: 52em) {
+      display: none;
     }
   }
 }

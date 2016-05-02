@@ -2,7 +2,7 @@
 /*################################*\
     conf  |  _comp.DateBlock.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.borders.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 
 
@@ -48,52 +48,42 @@
   width: 75%;
   margin: auto;
   color: @g-color_asce_black;
-  & > * {
-    background: @g-color_asce_white;
-  }
 }
 
+@p-rw: 1px;
 .c-DateBlock__Date,
 .c-DateBlock__Desc {
-  .transition(padding, 250ms);
+  background-color: lighten(@g-color_site_gray_lt, 50%, relative);
   padding: 0 @g-boxpadd_micr_h;
   .mx-padd(30em; 0 @g-boxpadd_mill_h);
   .mx-padd(45em; 0 @g-boxpadd_norm_h);
+  border-width: 0 @p-rw;
+  border-style: solid;
+  border-color: @g-color_asce_black;
 }
 
 .c-DateBlock__Date {
   padding-top: @g-boxpadd_micr_v;
   .mx-padd(30em; @g-boxpadd_mill_v; ~'-top');
   .mx-padd(45em; @g-boxpadd_norm_v; ~'-top');
+  .border-vert(top, @p-rw);
 }
 
 .c-DateBlock__Desc {
-  position: relative; // for button in link
   padding-bottom: @g-boxpadd_micr_v;
   .mx-padd(30em; @g-boxpadd_mill_v; ~'-bottom');
   .mx-padd(45em; @g-boxpadd_norm_v; ~'-bottom');
+  .border-vert(bottom, @p-rw);
   .font-size-block(1.25);
   font-weight: 600;
   margin-bottom: @g-vru;
 }
 
 .c-DateBlock__Link {
-  &::after {
-    content: '\2192'; // rarr
-    // content: '\2026'; // hellip
-    // content: '\203a'; // rsaquo
-    display: inline-block;
+  position: relative; // for icon in link
+  .material-icons {
     position: absolute;
-    right: 1em; top: (-0.5em*@g-line_height);
-    vertical-align: middle;
-    @width: 1.5em;
-    width:  @width;
-    height: @width;
-    padding-top: calc(@width/2~' - 1px');
-    text-align: center;
-    border: 1px solid;
-    border-radius:1em;
-    background-color: @g-color_asce_white;
+    right: 0; top: -0.5em;
   }
 }
 

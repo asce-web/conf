@@ -70,7 +70,6 @@
 }
 
 .c-DateBlock__Desc {
-  position: relative; // for button in link
   padding-bottom: @g-boxpadd_micr_v;
   .mx-padd(30em; @g-boxpadd_mill_v; ~'-bottom');
   .mx-padd(45em; @g-boxpadd_norm_v; ~'-bottom');
@@ -81,22 +80,10 @@
 }
 
 .c-DateBlock__Link {
-  &::after {
-    content: '\2192'; // rarr
-    // content: '\2026'; // hellip
-    // content: '\203a'; // rsaquo
-    display: inline-block;
+  position: relative; // for icon in link
+  .material-icons {
     position: absolute;
-    right: 1em; top: (-0.5em*@g-line_height);
-    vertical-align: middle;
-    @width: 1.5em;
-    width:  @width;
-    height: @width;
-    padding-top: calc(@width/2~' - 1px');
-    text-align: center;
-    border: 1px solid;
-    border-radius:1em;
-    background-color: @g-color_asce_white;
+    right: 0; top: -0.5em;
   }
 }
 

@@ -45,18 +45,24 @@ mixin otheryear-content(event0)
 mixin important-date-content()
   h1 Important Dates
   dl.c-DateBlock
-    mixin row(year, month, day, datetime, description, url)
+    mixin row(year, month, day, datetime, url)
       dt.c-DateBlock__Date
         time(datetime=datetime)= month + ', ' + day + ' ' + year
       dd.c-DateBlock__Desc
         if url
-          a.o-Inline.c-DateBlock__Link(href=url)= description
+          a.o-Block.c-DateBlock__Link(href=url)
+            block
+            i.material-icons arrow_forward
         else
-          = description
-    +row('2015','Oct','12', '2015-10-12','Optional Final Papers Due')
-    +row('2015','Dec','17', '2015-12-17','Early-Bird Registration Closes', 'registration.html')
-    +row('2016','Jan','12', '2016-01-12','Advance Registration Closes', 'registration.html')
-    +row('2016','Jun','12', '2016-06-12','Convention Begins')
+          block
+    +row('2015','Oct','12', '2015-10-12')
+      | #[em Optional] Final Papers Due
+    +row('2015','Dec','17', '2015-12-17', 'registration.html')
+      | Early-Bird Registration Closes
+    +row('2016','Jan','12', '2016-01-12', 'registration.html')
+      | Advance Registration Closes
+    +row('2016','Jun','12', '2016-06-12')
+      | #[strong Convention Begins]
 
 mixin pass(type)
   article.c-Pass

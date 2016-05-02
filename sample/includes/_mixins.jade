@@ -45,9 +45,10 @@ mixin otheryear-content(event0)
 mixin important-date-content()
   h1 Important Dates
   dl.c-DateBlock
-    mixin row(year, month, day, datetime, url)
+    mixin row(date_obj, url)
       dt.c-DateBlock__Date
-        time(datetime=datetime)= month + ', ' + day + ' ' + year
+        time(datetime=date_obj.toISOString().slice(0,10))
+          = month_names[date_obj.getUTCMonth()].slice(0,3) + ' ' + date_obj.getUTCDate() + ', ' + date_obj.getFullYear()
       dd.c-DateBlock__Desc
         if url
           a.o-Block.c-DateBlock__Link(href=url)
@@ -55,13 +56,13 @@ mixin important-date-content()
             i.material-icons arrow_forward
         else
           block
-    +row('2015','Oct','12', '2015-10-12')
+    +row(new Date('2015-10-12'))
       | #[em Optional] Final Papers Due
-    +row('2015','Dec','17', '2015-12-17', 'registration.html')
+    +row(new Date('2015-12-17'), 'registration.html')
       | Early-Bird Registration Closes
-    +row('2016','Jan','12', '2016-01-12', 'registration.html')
+    +row(new Date('2016-01-12'), 'registration.html')
       | Advance Registration Closes
-    +row('2016','Jun','12', '2016-06-12')
+    +row(new Date('2016-06-12'))
       | #[strong Convention Begins]
 
 mixin pass(type)

@@ -60,7 +60,8 @@ a.c-MenuUniversal__Link--current {
   background-color: @g-color_site_primary;
   &:hover,
   &:focus {
-    color: @g-color_site_gray_dk;
+    &:not(:active) {
+      color: @g-color_site_gray_dk;
+    }
   }
-  &:active { color: inherit; } // duplicating due to :hover
 }

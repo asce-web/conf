@@ -23,15 +23,8 @@
   background-color: @g-color_site_gray_dk;
   color: @g-color_asce_white;
   h1,
-  a {
+  a:not(:hover):not(:focus):not(:active) {
     color: inherit;
-  }
-  a {
-    &:hover,
-    &:focus {
-      color: @g-color_site_gray_lt;
-    }
-    &:active { color: inherit; } // duplicating due to :hover
   }
   .c-SiteTitle__Name {
     // HACK need local vars
@@ -69,11 +62,10 @@
 // 2016-04-24
 .c-Mast--internal {
   background-color: @g-color_site_primary;
-  a {
+  a:not(:active) {
     &:hover,
     &:focus {
       color: @g-color_site_gray_dk;
     }
-    &:active { color: inherit; } // duplicating due to :hover
   }
 }

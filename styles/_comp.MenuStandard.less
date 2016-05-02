@@ -23,15 +23,6 @@
   position: relative; // for the NavSubmenu positioning
   margin-bottom: 0; // override `ul`
   text-align: center;
-  a {
-    &:hover,
-    &:focus {
-      color: inherit;
-    }
-    &:active {
-      color: @g-color_asce_black;
-    }
-  }
   @iconbreakpoint: 487px;
   @media screen and (max-width: (@iconbreakpoint - 1)) {
     .flex-justify-content(space-around);

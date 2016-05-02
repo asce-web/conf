@@ -428,21 +428,26 @@ block append main
         #[small &lt;!-- second social list same structure but inside a #[code footer] element --&gt;]
   section.sg-sect#buttons
     h2 Buttons
-    p #[strong Important:] colors will vary by site.
+    p.
+      Buttons are displayed inline-block, so in order to preserve
+      vertical rhythm, be sure to contain them in typographical block-level elements
+      such as paragraphs or lists.
+    p.
+      #[strong Important:] colors will vary by site. Colors shown here are
+      #[a(href="visual.html") ASCE 2016].
+    h3 Generic Buttons
     p Generic, general purpose buttons.
     figure.sg-c-Fig
       div(style="margin-bottom:1.5rem;"): a.c-Btn generic button
       pre.
-        &lt;div&gt;
-          &lt;a class="#[u c-Btn]"&gt;generic button&lt;/a&gt;
-        &lt;/div&gt;
+        &lt;a class="#[u c-Btn]"&gt;generic button&lt;/a&gt;
+    h3 Highlight Buttons
     p Highlight buttons, for large buttons in highlight block.
     figure.sg-c-Fig
       div(style="margin-bottom:1.5rem;"): a.c-Btn.c-Btn--hilite highlight button
       pre.
-        &lt;div&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;highlight button&lt;/a&gt;
-        &lt;/div&gt;
+        &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;highlight button&lt;/a&gt;
+    h3 Inline Buttons
     p Inline buttons, for buttons inline with text.
     figure.sg-c-Fig
       p.
@@ -453,6 +458,7 @@ block append main
         &lt;p&gt;The following button,
           &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
           is inline with the text in this paragraph.&lt;/p&gt;
+    h3 Hero Buttons
     p Hero button, for action button(s) in hero section.
     figure.sg-c-Fig
       div(style="margin-bottom: 1.5rem;")
@@ -470,6 +476,7 @@ block append main
           &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button inside a banner&lt;/a&gt;
           &lt;a class="#[u c-Btn]  #[u c-Btn--hero2]"&gt;hero2 button inside a banner&lt;/a&gt;
         &lt;/div&gt;
+    h3 Dominant Buttons
     p Dominant button, for emphasizing a button when it is near other not-as-important buttons.
     figure.sg-c-Fig
       div(style="margin-bottom: 1.5rem;")
@@ -477,17 +484,28 @@ block append main
         a.c-Btn.c-Btn--dominant dominant button!
         a.c-Btn regular button
       pre.
-        &lt;div&gt;
-          &lt;a class="#[u c-Btn]"&gt;regular button&lt;/a&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--dominant]"&gt;dominant button!&lt;/a&gt;
-          &lt;a class="#[u c-Btn]"&gt;regular button&lt;/a&gt;
-        &lt;/div&gt;
-    p Hamburger menu button inside masthead.
-    p Class #[code .js-hamburgerbutton] is a scripting hook for drawer functionality.
+        &lt;a class="#[u c-Btn]"&gt;regular button&lt;/a&gt;
+        &lt;a class="#[u c-Btn]  #[u c-Btn--dominant]"&gt;dominant button!&lt;/a&gt;
+        &lt;a class="#[u c-Btn]"&gt;regular button&lt;/a&gt;
+    h3 Flat Buttons
+    p Flat button, for making a #[code button] element look like a link.
+    figure.sg-c-Fig
+      div(style="margin-bottom: 1.5rem;")
+        button.c-Btn.c-Btn--flat flat button
+      pre.
+        &lt;#[u button] class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/#[u button]&gt;
+    h3 Drawer Buttons
+    p Drawer buttons for pull-out menu.
+    p: small.
+      #[strong Note:]
+      Class #[code .js-hamburgerbutton] is a scripting hook for drawer functionality.
+      It must be on a container for both buttons.
     figure.sg-c-Fig
       div.o-GridFlex__Item.-w-a.js-hamburgerbutton(style="margin-bottom: 1.5rem;")
         button.c-Btn.c-Btn--drawer menu
+        button.c-Btn.c-Btn--drawer.c-Btn--drawer--close close
       pre.
         &lt;div class="#[u js-hamburgerbutton]"&gt;
           &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]"&gt;menu&lt;/button&gt;
+          &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]  #[u c-Btn--drawer--close]"&gt;close&lt;/button&gt;
         &lt;/div&gt;

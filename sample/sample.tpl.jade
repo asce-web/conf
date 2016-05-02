@@ -80,9 +80,9 @@ html(lang="en")
       - standard_menu_class_obj.sub.listclasses = 'o-ListBare c-MenuSub'
       - standard_menu_class_obj.sub.itemclasses = 'c-MenuSub__Item'
       - standard_menu_class_obj.sub.linkclasses = 'o-Block c-MenuSub__Link'
-    block dominant
-      article&attributes((page_type === 'internal') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
-        main
+    main
+      block main
+        article&attributes((page_type === 'internal') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
           block main-header
             header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
               h1.c-PageTitle= page_id.name
@@ -91,7 +91,6 @@ html(lang="en")
             block main-reference
             block main-rich
               +rich-text-block()
-        div.t-Callouts
           block callouts
           block sponsors
             aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper

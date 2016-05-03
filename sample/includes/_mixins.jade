@@ -65,24 +65,25 @@ mixin important-date-content()
     +row(new Date('2016-06-12'))
       | #[strong Convention Begins]
 
-mixin pass(type, featured_period)
+mixin pass(type, body_period)
   article.c-Pass
     mixin period-details(regperiod, is_body)
       h1.c-Pass__Period__Hn= regperiod.name
       dl
         each attendee in regperiod.membership
           dt.c-Pass__Period__Attendee= attendee.name
-          dd.c-Pass__Period__Price(class=(is_body && attendee===regperiod.membership.member)?'c-Pass__Price--featured':'')
+          dd.c-Pass__Period__Price(class=(is_body && attendee.is_featured)?'c-Pass__Price--featured':'')
             = '$' + attendee.price
     header.c-Pass__Head
       h1.c-Pass__Hn= type.name
       p.c-Pass__Desc= type.description
     div.c-Pass__Body
       section.c-Pass__Period
-        +period-details(type.period[featured_period], true)
+        if type.period[body_period]
+          +period-details(type.period[body_period], true)
     footer.o-GridFlex.c-Pass__Foot
       each regperiod in type.period
-        unless regperiod === type.period[featured_period]
+        unless regperiod === type.period[body_period]
           section.o-GridFlex__Item.-w-1o2.c-Pass__Period
             +period-details(regperiod)
 

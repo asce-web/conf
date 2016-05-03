@@ -173,35 +173,92 @@
 - sitemap.internal.speakers.sub = {'distinguished-lecture-series': {name:'Distinguished Lecture Series', href:''}}
 
 
-- var global_period = {}
-- global_period.earlybird = {name:'Early Bird', membership:{}}
-- global_period.advance   = {name:'Advance'   , membership:{}}
-- global_period.onsite    = {name:'Onsite'    , membership:{}}
 
 - var pass = {}
-- pass.student   = {name:'Student Pass'  , period:global_period, description:'Undergraduates 18–24'}
-- pass.standard  = {name:'Standard Pass' , period:global_period, description:'Members & Non-Members'}
-- pass.ym        = {name:'Younger Member', period:global_period, description:'Members 18–35'}
-- pass.speaker   = {name:'Speaker Pass'  , period:global_period, description:'Speakers and Presenters'}
-- pass.guest     = {name:'Guest Pass'    , period:global_period, description:'Speaker and Moderator Guests'}
-- pass.moderator = {name:'Moderator Pass', period:global_period, description:'Moderators'}
-- pass.daily     = {name:'Daily Pass'    , period:global_period, description:'For One Day Only'}
+- pass.standard  = {name:'Standard Pass' , period:{}}
+- pass.speaker   = {name:'Speaker Pass'  , period:{}}
+- pass.moderator = {name:'Moderator Pass', period:{}}
+- pass.ym        = {name:'Younger Member', period:{}}
+- pass.student   = {name:'Student Pass'  , period:{}}
+- pass.guest     = {name:'Guest Pass'    , period:{}}
+- pass.daily     = {name:'Daily Pass'    , period:{}}
 
-- pass.student.period.earlybird.membership.nonmember = {name:'Non-Member', price:795}
-- pass.student.period.earlybird.membership.member    = {name:'Member'    , price:745, is_featured: true}
-- pass.student.period.advance.membership.nonmember   = {name:'Non-Member', price:945}
-- pass.student.period.advance.membership.member      = {name:'Member'    , price:845, is_featured: true}
-- pass.student.period.onsite.membership.nonmember    = {name:'Non-Member', price:1045}
-- pass.student.period.onsite.membership.member       = {name:'Member'    , price:945, is_featured: true}
+- pass.standard.description  = 'Members & Non-Members'
+- pass.speaker.description   = 'Speakers and Presenters'
+- pass.moderator.description = 'Moderators'
+- pass.ym.description        = 'Members 18–35'
+- pass.student.description   = 'Undergraduates 18–24'
+- pass.guest.description     = 'Speaker and Moderator Guests'
+- pass.daily.description     = 'For One Day Only'
 
-//- HACK for quick duplication
-- pass.standard.period  = pass.student.period
-- pass.ym.period        = pass.student.period
-- pass.speaker.period   = pass.student.period
-- pass.guest.period     = pass.student.period
-- pass.moderator.period = pass.student.period
-- pass.daily.period     = pass.student.period
+- pass.standard.period.earlybird = {name:'Early Bird', membership:{}}
+- pass.standard.period.advance   = {name:'Advance'   , membership:{}}
+- pass.standard.period.onsite    = {name:'Onsite'    , membership:{}}
 
+- pass.speaker.period.earlybird = {name:'Early Bird', membership:{}}
+- pass.speaker.period.advance   = {name:'Advance'   , membership:{}}
+- pass.speaker.period.onsite    = {name:'Onsite'    , membership:{}}
+
+- pass.moderator.period.earlybird = {name:'Early Bird', membership:{}}
+- pass.moderator.period.advance   = {name:'Advance'   , membership:{}}
+- pass.moderator.period.onsite    = {name:'Onsite'    , membership:{}}
+
+- pass.ym.period.earlybird = {name:'Early Bird', membership:{}}
+- pass.ym.period.advance   = {name:'Advance'   , membership:{}}
+- pass.ym.period.onsite    = {name:'Onsite'    , membership:{}}
+
+- pass.student.period.earlybird = {name:'Early Bird', membership:{}}
+- pass.student.period.advance   = {name:'Advance'   , membership:{}}
+- pass.student.period.onsite    = {name:'Onsite'    , membership:{}}
+
+- pass.guest.period.earlybird = {name:'Early Bird', membership:{}}
+- pass.guest.period.advance   = {name:'Advance'   , membership:{}}
+- pass.guest.period.onsite    = {name:'Onsite'    , membership:{}}
+
+- pass.daily.period.earlybird = {name:'Early Bird', membership:{}}
+- pass.daily.period.advance   = {name:'Advance'   , membership:{}}
+- pass.daily.period.onsite    = {name:'Onsite'    , membership:{}}
+
+
+- pass.standard.period.earlybird.membership.member    = {name:'Member'    , price:745, is_featured: true}
+- pass.standard.period.earlybird.membership.nonmember = {name:'Non-Member', price:845}
+- pass.standard.period.advance.membership.member      = {name:'Member'    , price:845, is_featured: true}
+- pass.standard.period.advance.membership.nonmember   = {name:'Non-Member', price:945}
+- pass.standard.period.onsite.membership.member       = {name:'Member'    , price:945, is_featured: true}
+- pass.standard.period.onsite.membership.nonmember    = {name:'Non-Member', price:1045}
+
+- pass.speaker.period.earlybird.membership.member    = {name:'Member'    , price:645, is_featured: true}
+- pass.speaker.period.earlybird.membership.nonmember = {name:'Non-Member', price:745}
+- pass.speaker.period.advance.membership.member      = {name:'Member'    , price:745, is_featured: true}
+- pass.speaker.period.advance.membership.nonmember   = {name:'Non-Member', price:845}
+- pass.speaker.period.onsite.membership.member       = {name:'Member'    , price:945, is_featured: true}
+- pass.speaker.period.onsite.membership.nonmember    = {name:'Non-Member', price:945}
+
+- pass.moderator.period.earlybird.membership.member    = {name:'Member'    , price:645, is_featured: true}
+- pass.moderator.period.earlybird.membership.nonmember = {name:'Non-Member', price:745}
+- pass.moderator.period.advance.membership.member      = {name:'Member'    , price:745, is_featured: true}
+- pass.moderator.period.advance.membership.nonmember   = {name:'Non-Member', price:845}
+- pass.moderator.period.onsite.membership.member       = {name:'Member'    , price:845, is_featured: true}
+- pass.moderator.period.onsite.membership.nonmember    = {name:'Non-Member', price:945}
+
+- pass.ym.period.earlybird.membership.all = {name:'Member/Non-Member', price:645, is_featured: true}
+- pass.ym.period.advance.membership.all   = {name:'Member/Non-Member', price:745, is_featured: true}
+- pass.ym.period.onsite.membership.all    = {name:'Member/Non-Member', price:845, is_featured: true}
+
+- pass.student.period.earlybird.membership.all = {name:'Member/Non-Member', price:295, is_featured: true}
+- pass.student.period.advance.membership.all   = {name:'Member/Non-Member', price:295, is_featured: true}
+- pass.student.period.onsite.membership.all    = {name:'Member/Non-Member', price:395, is_featured: true}
+
+- pass.guest.period.earlybird.membership.all = {name:'Member/Non-Member', price:295, is_featured: true}
+- pass.guest.period.advance.membership.all   = {name:'Member/Non-Member', price:320, is_featured: true}
+- pass.guest.period.onsite.membership.all    = {name:'Member/Non-Member', price:395, is_featured: true}
+
+- pass.daily.period.earlybird.membership.member    = {name:'Member'    , price:495, is_featured: true}
+- pass.daily.period.earlybird.membership.nonmember = {name:'Non-Member', price:595}
+- pass.daily.period.advance.membership.member      = {name:'Member'    , price:545, is_featured: true}
+- pass.daily.period.advance.membership.nonmember   = {name:'Non-Member', price:645}
+- pass.daily.period.onsite.membership.member       = {name:'Member'    , price:645, is_featured: true}
+- pass.daily.period.onsite.membership.nonmember    = {name:'Non-Member', price:745}
 
 
 //- -

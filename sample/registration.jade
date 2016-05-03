@@ -11,13 +11,13 @@ block main-reference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n Full Registration
     ul.o-ListBare.o-GridFlex.o-ListStacked
-      - var thisperiod = 'advance'
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student  , thisperiod)
+      - var thisperiod = 'earlybird'
       li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard , thisperiod)
       li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.speaker  , thisperiod)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.guest    , thisperiod)
       li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.moderator, thisperiod)
       li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym       , thisperiod)
+      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student  , thisperiod)
+      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.guest    , thisperiod)
       li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.daily    , thisperiod)
     +actionbuttons([{text:'Register Today!'}], 'c-Btn c-Btn--hilite c-Btn--dominant')
 

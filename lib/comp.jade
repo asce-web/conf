@@ -370,24 +370,31 @@ block append main
     h2 The Program Component
     figure.sg-c-Fig
       section.o-GridFlex.c-Program
-        h1.o-GridFlex__Item.c-Program__Hn Wednesday,#[br]Sep&nbsp;28
-        dl.o-GridFlex__Item.c-Program__Schedule
-          dt times 1
-          dd event 1
-          dt times 2
-          dd event 2
-        h1.o-GridFlex__Item.c-Program__Hn Thursday,#[br]Sep&nbsp;29
-        dl.o-GridFlex__Item.c-Program__Schedule
-          dt times 3
-          dd event 3
-          dt times 4
-          dd event 4
+        input.c-Program__Check#date1(type="radio" name="program" value="2016-09-28" checked="")
+        h1.o-GridFlex__Item.c-Program__Hn: label(for="date1") Wednesday,#[br]Sep&nbsp;28
+        p.o-GridFlex__Item.c-Program__Schedule program schedule content 1
+        input.c-Program__Check#date2(type="radio" name="program" value="2016-09-29")
+        h1.o-GridFlex__Item.c-Program__Hn: label(for="date2") Thursday,#[br]Sep&nbsp;29
+        p.o-GridFlex__Item.c-Program__Schedule program schedule content 2
+        input.c-Program__Check#date3(type="radio" name="program" value="2016-09-30")
+        h1.o-GridFlex__Item.c-Program__Hn: label(for="date3") Friday,#[br]Sep&nbsp;30
+        p.o-GridFlex__Item.c-Program__Schedule program schedule content 3
+        input.c-Program__Check#date4(type="radio" name="program" value="2016-10-01")
+        h1.o-GridFlex__Item.c-Program__Hn: label(for="date4") Saturday,#[br]Oct&nbsp;1
+        p.o-GridFlex__Item.c-Program__Schedule program schedule content 4
       pre.
         &lt;section class="o-GridFlex  #[u c-Program]"&gt;
-          &lt;h1 class="o-GridFlex__Item  #[u c-Program__Hn]"&gt;Wednesday, Sep 28&lt;/h1&gt;
-          &lt;dl class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;
-            ...
-          &lt;/dl&gt;
+          #[small &lt;!-- NOTE: this structure is not final --&gt;]
+          &lt;input class="#[u c-Program__Check]" id="date1" type="radio" name="program"/&gt;
+          &lt;h1 class="o-GridFlex__Item  #[u c-Program__Hn]"&gt;
+            &lt;label for="date1"&gt;Wednesday, Sep 28&lt;/label&gt;
+          &lt;/h1&gt;
+          &lt;p class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;program schedule ...&lt;/p&gt;
+
+          &lt;input class="#[u c-Program__Check]" .../&gt;
+          &lt;h1 class="o-GridFlex__Item  #[u c-Program__Hn]"&gt;...&lt;/h1&gt;
+          &lt;p class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;...&lt;/p&gt;
+
           ...
         &lt;/section&gt;
   section.sg-sect#time-block

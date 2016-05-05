@@ -11,6 +11,7 @@
 // ^subcomponents
 // __Hn       - heading for a date
 // __Schedule - schedule for a date
+// __Check    - a radio button selecting the desired date to view
 // ^author
 // Chris Harvey
 // ^updated
@@ -23,11 +24,13 @@
     color: inherit;
     font-family: inherit;
   }
+  dl {
+    margin-bottom: 0; // HACK override `.c-Program >> dl`
+  }
 }
 
 .c-Program__Hn,
 .c-Program__Schedule {
-  overflow: hidden;
 }
 .c-Program__Hn {
   width: 25%; // FIXME depends on how many !!!
@@ -35,8 +38,21 @@
 }
 
 .c-Program__Schedule {
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
   .flex-order(1);
-  &:not(:nth-of-type(1)) {
-    width: 0; height: 0;
+  .transition(width, height, font-size; 250ms);
+}
+
+.c-Program__Check {
+  display: none;
+  &:not(:checked) + .c-Program__Hn {
+    opacity: 0.5;
+    & + .c-Program__Schedule {
+      width: 0;
+      height: 0;
+      font-size: 0;
+    }
   }
 }

@@ -366,6 +366,64 @@ block append main
             &lt;/section&gt;
           &lt;/footer&gt;
         &lt;/article&gt;
+  section.sg-sect#program-component
+    h2 The Program Component
+    figure.sg-c-Fig
+      section.o-GridFlex.c-Program
+        input.c-Program__Check#date1(type="radio" name="program" value="2016-09-28" checked="")
+        h1.o-GridFlex__Item.c-Program__Hn: label(for="date1") Wednesday,#[br]Sep&nbsp;28
+        p.o-GridFlex__Item.c-Program__Schedule program schedule content 1
+        input.c-Program__Check#date2(type="radio" name="program" value="2016-09-29")
+        h1.o-GridFlex__Item.c-Program__Hn: label(for="date2") Thursday,#[br]Sep&nbsp;29
+        p.o-GridFlex__Item.c-Program__Schedule program schedule content 2
+        input.c-Program__Check#date3(type="radio" name="program" value="2016-09-30")
+        h1.o-GridFlex__Item.c-Program__Hn: label(for="date3") Friday,#[br]Sep&nbsp;30
+        p.o-GridFlex__Item.c-Program__Schedule program schedule content 3
+        input.c-Program__Check#date4(type="radio" name="program" value="2016-10-01")
+        h1.o-GridFlex__Item.c-Program__Hn: label(for="date4") Saturday,#[br]Oct&nbsp;1
+        p.o-GridFlex__Item.c-Program__Schedule program schedule content 4
+      pre.
+        &lt;section class="o-GridFlex  #[u c-Program]"&gt;
+          #[small &lt;!-- NOTE: this structure is not final --&gt;]
+          &lt;input class="#[u c-Program__Check]" id="date1" type="radio" name="program"/&gt;
+          &lt;h1 class="o-GridFlex__Item  #[u c-Program__Hn]"&gt;
+            &lt;label for="date1"&gt;Wednesday, Sep 28&lt;/label&gt;
+          &lt;/h1&gt;
+          &lt;p class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;program schedule ...&lt;/p&gt;
+
+          &lt;input class="#[u c-Program__Check]" .../&gt;
+          &lt;h1 class="o-GridFlex__Item  #[u c-Program__Hn]"&gt;...&lt;/h1&gt;
+          &lt;p class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;...&lt;/p&gt;
+
+          ...
+        &lt;/section&gt;
+  section.sg-sect#time-block
+    h2 The Time Block
+    figure.sg-c-Fig
+      dl.o-GridFlex.c-TimeBlock
+        dt.o-GridFlex__Item.c-TimeBlock__Times
+          time 10:30 am
+          | &ndash;
+          time 4:30 pm
+        dd.o-GridFlex__Item.c-TimeBlock__Desc
+          a.o-Block.c-TimeBlock__Link(href="")
+            | Technical Tours
+            i.material-icons arrow_forward
+        dt.o-GridFlex__Item.c-TimeBlock__Times
+          time 1:00 pm
+          | &ndash;
+          time 5:00 pm
+        dd.o-GridFlex__Item.c-TimeBlock__Desc Short Courses
+      pre.
+        &lt;dl class="o-GridFlex  #[u c-TimeBlock]"&gt;
+          &lt;dt class="o-GridFlex__Item  #[u c-TimeBlock__Times]"&gt;
+            &lt;time&gt;10:30 am&lt;/time&gt;&ndash;&lt;time&gt;4:30 pm&lt;/time&gt;
+          &lt;/dt&gt;
+          &lt;dd class="o-GridFlex__Item  #[u c-TimeBlock__Desc]"&gt;
+            &lt;a class="o-Block  #[u c-TimeBlock__Link]"&gt;Technical Tours&lt;/a&gt;
+          &lt;/dd&gt;
+          ...
+        &lt;/dl&gt;
   section.sg-sect#speaker-component
     h2 The Speaker Component
     figure.sg-c-Fig

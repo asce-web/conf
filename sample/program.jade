@@ -9,3 +9,61 @@ block main-minimal
 block main-reference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n Full Program
+    section.o-GridFlex.c-Overlay.c-Program
+      mixin row(start, end, name, href)
+        dt.o-GridFlex__Item.c-TimeBlock__Times
+          time= start
+          | &ndash;
+          time= end
+        dd.o-GridFlex__Item.c-TimeBlock__Desc
+          if href
+            a.o-Block.c-TimeBlock__Link(href=href)
+              = name
+              i.material-icons arrow_forward
+          else
+            = name
+      input.c-Program__Check#date1(type="radio" name="program" value="2016-09-28" checked="")
+      h1.o-GridFlex__Item.c-Program__Hn: label(for="date1") Wednesday,#[br]Sep&nbsp;28
+      dl.o-GridFlex__Item.o-GridFlex.c-Program__Schedule.c-TimeBlock
+        +row('10:00 am', '7:00 pm', 'Registration')
+        +row('10:30 am', '4:30 pm', 'Technical Tours', './')
+        +row('1:00 pm', '5:00 pm', 'Short Courses', './')
+        +row('1:00 pm', '5:00 pm', 'Optional Tours', './')
+        +row('5:30 pm', '7:30 pm', 'Opening Welcome Reception')
+        +row('12:00 pm', '5:00 pm', 'Community Service Project')
+      input.c-Program__Check#date2(type="radio" name="program" value="2016-09-29")
+      h1.o-GridFlex__Item.c-Program__Hn: label(for="date2") Thursday,#[br]Sep&nbsp;29
+      dl.o-GridFlex__Item.o-GridFlex.c-Program__Schedule.c-TimeBlock
+        +row('7:00 am', '4:30 pm', 'Registration')
+        +row('7:30', '8:30 am', 'Student & Emerging Leaders Welcome Breakfast and Orientation')
+        +row('1:00 pm', '5:00 pm', 'Opening Plenary Session', './')
+        +row('1:00 pm', '5:00 pm', 'Guest Program Orientation & Tour')
+        +row('5:30 pm', '7:30 pm', 'Beverage Break')
+        +row('12:00 pm', '5:00 pm', 'Concurrent Sessions')
+        +row('12:00 pm', '5:00 pm', 'Optional Tour', './')
+        +row('12:00 pm', '5:00 pm', 'Industry Leaders Forum', './')
+        +row('12:00 pm', '5:00 pm', 'Beverage Break')
+        +row('12:00 pm', '5:00 pm', 'Concurrent Sessions')
+        +row('12:00 pm', '5:00 pm', 'Theater Night Out')
+      input.c-Program__Check#date3(type="radio" name="program" value="2016-09-30")
+      h1.o-GridFlex__Item.c-Program__Hn: label(for="date3") Friday,#[br]Sep&nbsp;30
+      dl.o-GridFlex__Item.o-GridFlex.c-Program__Schedule.c-TimeBlock
+        +row('7:00 am', '4:30 pm', 'Registration')
+        +row('7:30', '8:30 am', 'Leadership & Society Awards Breakfast')
+        +row('1:00 pm', '5:00 pm', 'ASCE Annual Business Meeting', './')
+        +row('12:00 pm', '5:00 pm', 'Lunch on Your Own')
+        +row('12:00 pm', '5:00 pm', 'Optional Tour')
+        +row('12:00 pm', '5:00 pm', 'Industry Leaders Forum')
+        +row('12:00 pm', '5:00 pm', 'Theater Night Out')
+      input.c-Program__Check#date4(type="radio" name="program" value="2016-10-01")
+      h1.o-GridFlex__Item.c-Program__Hn: label(for="date4") Saturday,#[br]Oct&nbsp;1
+      dl.o-GridFlex__Item.o-GridFlex.c-Program__Schedule.c-TimeBlock
+        +row('7:00 am', '2:30 pm', 'Registration')
+        +row('7:30', '8:30 am', 'Order of the Engineer Ceremony')
+        +row('1:00 pm', '5:00 pm', 'Optional Tour')
+        +row('12:00 pm', '5:00 pm', 'Concurrent Sessions')
+        +row('12:00 pm', '5:00 pm', 'Communities and Pavilion')
+        +row('12:00 pm', '5:00 pm', 'Concurrent Sessions')
+        +row('12:00 pm', '5:00 pm', 'ASCE Luncheon & Closing General Session')
+        +row('12:00 pm', '5:00 pm', 'Technical Tours', './')
+    p: small Program subject to change.

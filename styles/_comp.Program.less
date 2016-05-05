@@ -1,0 +1,58 @@
+
+/*################################*\
+    conf  |  _comp.Program.less
+\*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+
+
+// A block containing the entire program.
+//
+// ^subcomponents
+// __Hn       - heading for a date
+// __Schedule - schedule for a date
+// __Check    - a radio button selecting the desired date to view
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-05-05
+.c-Program {
+  width: 100%; // override `.c-Overlay`
+  .font-size-mod(14/16);
+  .flex-align-items(flex-start);
+  h1 {
+    color: inherit;
+    font-family: inherit;
+  }
+  dl {
+    margin-bottom: 0; // HACK override `.c-Program >> dl`
+  }
+}
+
+.c-Program__Hn,
+.c-Program__Schedule {
+}
+.c-Program__Hn {
+  width: 25%; // FIXME depends on how many !!!
+  .font-size-el(1.5);
+}
+
+.c-Program__Schedule {
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  .flex-order(1);
+  .transition(width, height, font-size; 250ms);
+}
+
+.c-Program__Check {
+  display: none;
+  &:not(:checked) + .c-Program__Hn {
+    opacity: 0.5;
+    & + .c-Program__Schedule {
+      width: 0;
+      height: 0;
+      font-size: 0;
+    }
+  }
+}

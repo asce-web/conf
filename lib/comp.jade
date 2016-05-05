@@ -366,6 +366,57 @@ block append main
             &lt;/section&gt;
           &lt;/footer&gt;
         &lt;/article&gt;
+  section.sg-sect#program-component
+    h2 The Program Component
+    figure.sg-c-Fig
+      section.o-GridFlex.c-Program
+        h1.o-GridFlex__Item.c-Program__Hn Wednesday,#[br]Sep&nbsp;28
+        dl.o-GridFlex__Item.c-Program__Schedule
+          dt times 1
+          dd event 1
+          dt times 2
+          dd event 2
+        h1.o-GridFlex__Item.c-Program__Hn Thursday,#[br]Sep&nbsp;29
+        dl.o-GridFlex__Item.c-Program__Schedule
+          dt times 3
+          dd event 3
+          dt times 4
+          dd event 4
+      pre.
+        &lt;section class="o-GridFlex  #[u c-Program]"&gt;
+          &lt;h1 class="o-GridFlex__Item  #[u c-Program__Hn]"&gt;Wednesday, Sep 28&lt;/h1&gt;
+          &lt;dl class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;
+            ...
+          &lt;/dl&gt;
+          ...
+        &lt;/section&gt;
+  section.sg-sect#time-block
+    h2 The Time Block
+    figure.sg-c-Fig
+      dl.o-GridFlex.c-TimeBlock
+        dt.o-GridFlex__Item.c-TimeBlock__Times
+          time 10:30 am
+          | &ndash;
+          time 4:30 pm
+        dd.o-GridFlex__Item.c-TimeBlock__Desc
+          a.o-Block.c-TimeBlock__Link(href="")
+            | Technical Tours
+            i.material-icons arrow_forward
+        dt.o-GridFlex__Item.c-TimeBlock__Times
+          time 1:00 pm
+          | &ndash;
+          time 5:00 pm
+        dd.o-GridFlex__Item.c-TimeBlock__Desc Short Courses
+      pre.
+        &lt;dl class="o-GridFlex  #[u c-TimeBlock]"&gt;
+          &lt;dt class="o-GridFlex__Item  #[u c-TimeBlock__Times]"&gt;
+            &lt;time&gt;10:30 am&lt;/time&gt;&ndash;&lt;time&gt;4:30 pm&lt;/time&gt;
+          &lt;/dt&gt;
+          &lt;dd class="o-GridFlex__Item  #[u c-TimeBlock__Desc]"&gt;
+            &lt;a class="o-Block  #[u c-TimeBlock__Link]"&gt;Technical Tours&lt;/a&gt;
+          &lt;/dd&gt;
+          ...
+        &lt;/dl&gt;
   section.sg-sect#speaker-component
     h2 The Speaker Component
     figure.sg-c-Fig

@@ -287,7 +287,9 @@ block append main
         dt.c-DateBlock__Date
           time(datetime="2015-12-17") Dec 17, 2015
         dd.c-DateBlock__Desc
-          a.o-Inline.c-DateBlock__Link(href="") Early-Bird Registration Closes
+          a.o-Block.c-DateBlock__Link(href="")
+            | Early-Bird Registration Closes
+            i.material-icons arrow_forward
       pre.
         &lt;dl class="#[u c-DateBlock]"&gt;
           &lt;dt class="#[u c-DateBlock__Date]"&gt;
@@ -300,7 +302,10 @@ block append main
             &lt;time datetime="2015-12-17"&gt;Dec 17, 2015&lt;/time&gt;
           &lt;/dt&gt;
           &lt;dd class="#[u c-DateBlock__Desc]"&gt;
-            &lt;a class="o-Inline  #[u c-DateBlock__Link]" href=""&gt;Early-Bird Registration Closes&lt;/a&gt;
+            &lt;a class="o-Inline  #[u c-DateBlock__Link]"&gt;
+              Early-Bird Registration Closes
+              #[mark!= '&lt;i class="material-icons"&gt;arrow_forward&lt;/i&gt;']
+            &lt;/a&gt;
           &lt;/dd&gt;
         &lt;/dl&gt;
   section.sg-sect#pass-component
@@ -373,7 +378,7 @@ block append main
           div.c-Speaker__Bio
             p Donna Fulman is an award-winning, German designer raised in Austria and currently living in New York City.
             p Former Lead Product Designer and Art Director at Spotify, she recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
-          ul.o-ListBare
+          footer: ul.o-ListBare
             li.o-Inline: a.c-Speaker__Link(href="") Email
             li.o-Inline: a.c-Speaker__Link(href="") LinkedIn
             li.o-Inline: a.c-Speaker__Link(href="") Twitter

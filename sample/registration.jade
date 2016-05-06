@@ -19,31 +19,24 @@ block main-reference
       li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student  , thisperiod)
       li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.guest    , thisperiod)
       li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.daily    , thisperiod)
-    ul.o-ListBare.o-GridFlex.c-Overlay.-xjc-sa(style={
-      position: 'absolute',
-      left: '0',
-      right: '0',
-      width: 'auto',
-      'text-align': 'center'
-    })
-      li.o-GridFlex__Item.-w-a-sM(style="padding:0.375rem 0.5rem")
-        i.material-icons.-mr-1 stars
-        span Early Bird ends Jul 28
-      li.o-GridFlex__Item.-w-a-sM(style="padding:0.375rem 0.5rem")
-        i.material-icons.-mr-1 date_range
-        span Advance ends Aug 25
-      li.o-GridFlex__Item.-w-a-sM(style="padding:0.375rem 0.5rem")
-        i.material-icons.-mr-1 account_balance
-        span Onsite begins Aug 26
-    div(style="margin-top: 12rem;"): +actionbuttons([{text:'Register Today!'}], 'c-Btn c-Btn--hilite c-Btn--dominant')
-    h2(style={
-      'margin-top':`3rem`,
-      'text-align':'center'
-    }) Additional Events and Pricing
-    ul.o-ListBare.o-GridFlex.-xjc-sa.-ta-c
-      li.o-GridFlex__Item.-w-a-sM: a(href="") Short Courses   #[i.material-icons arrow_forward]
-      li.o-GridFlex__Item.-w-a-sM: a(href="") Technical Tours #[i.material-icons arrow_forward]
-      li.o-GridFlex__Item.-w-a-sM: a(href="") Optional Tours  #[i.material-icons arrow_forward]
+    ul.o-ListBare.o-GridFlex.c-RegisterFinePrint.-xjc-sa.-ta-c
+      li.o-GridFlex__Item.c-RegisterFinePrint__Item.-w-a-sM
+        i.material-icons stars
+        small Early Bird ends Jul 28
+      li.o-GridFlex__Item.c-RegisterFinePrint__Item.-w-a-sM
+        i.material-icons date_range
+        small Advance ends Aug 25
+      li.o-GridFlex__Item.c-RegisterFinePrint__Item.-w-a-sM
+        i.material-icons account_balance
+        small Onsite begins Aug 26
+    +actionbuttons([{text:'Register Today!'}], 'c-Btn c-Btn--hilite c-Btn--dominant')
+    div.c-Overlay.-w-1o1
+      h1 Additional Events and Pricing
+      +actionbuttons([{text:'Short Courses', href:''}, {text:'Technical Tours', href:''}, {text:'Optional Tours', href:''}], 'c-Btn c-Btn--flat')
+      ul.o-ListBare.o-GridFlex.-xjc-sa.-ta-c
+        li.o-GridFlex__Item.-w-a-sM: a(href="") Short Courses   #[i.material-icons arrow_forward]
+        li.o-GridFlex__Item.-w-a-sM: a(href="") Technical Tours #[i.material-icons arrow_forward]
+        li.o-GridFlex__Item.-w-a-sM: a(href="") Optional Tours  #[i.material-icons arrow_forward]
 
 block main-rich
   div.o-Runner.o-Runner--highlight.rich-text: div.o-ContentWrapper

@@ -10,23 +10,32 @@
 // another element that has a background image (e.g. a banner).
 //
 // ^subclasses
-// --full - full width overlay
+// --callout - as a callout (just narrower)
+// --inv - opposite color backgorund
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-05-03
+// 2016-05-06
 .c-Overlay {
   padding: @g-boxpadd_micr;
   margin-left:  auto;
   margin-right: auto;
-  // background-color: rgba(255,255,255,0.5); // use for light background
-  background-color: rgba(0,0,0,0.5);
-  @media screen and (min-width: 45em) {
-    width: 75%;
-  }
+  background-color: fadeout(#000, 50%);// rgba(0,0,0,0.5);
+  color: @g-color_asce_white;
   @media screen and (min-width: 30em) { padding: @g-boxpadd_mill; }
   @media screen and (min-width: 45em) { padding: @g-boxpadd_norm; }
   @media screen and (min-width: 60em) { padding: @g-boxpadd_kilo; }
+}
+
+.c-Overlay--callout {
+  @media screen and (min-width: 45em) {
+    width: 75%;
+  }
+}
+
+.c-Overlay--inv {
+  background-color: fadeout(#fff, 50%);
+  color: @g-color_asce_black;
 }
 
 // An overlay that is a link.

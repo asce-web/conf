@@ -380,34 +380,6 @@ block append main
             &lt;/section&gt;
           &lt;/footer&gt;
         &lt;/article&gt;
-  section.sg-sect#register-fine-print
-    h2 Register Fine Print
-    figure.sg-c-Fig
-      ul.o-ListBare.o-GridFlex.c-RegisterFinePrint
-        li.o-GridFlex__Item.c-RegisterFinePrint__Item
-          i.material-icons stars
-          small Early Bird ends Jul 28
-        li.o-GridFlex__Item.c-RegisterFinePrint__Item
-          i.material-icons date_range
-          small Advance ends Aug 25
-        li.o-GridFlex__Item.c-RegisterFinePrint__Item
-          i.material-icons account_balance
-          small Onsite begins Aug 26
-      pre.
-        &lt;ul class="o-ListBare  o-GridFlex  #[u c-RegisterFinePrint]"&gt;
-          &lt;li class="o-GridFlex__Item  #[u c-RegisterFinePrint__Item]"&gt;
-            &lt;i class="material-icons"&gt;stars&lt;/i&gt;
-            &lt;small&gt;Early Bird ends Jul 28&lt;/small&gt;
-          &lt;/li&gt;
-          &lt;li class="o-GridFlex__Item  #[u c-RegisterFinePrint__Item]"&gt;
-            &lt;i class="material-icons"&gt;date_range&lt;/i&gt;
-            &lt;small&gt;Advance ends Aug 25&lt;/small&gt;
-          &lt;/li&gt;
-          &lt;li class="o-GridFlex__Item  #[u c-RegisterFinePrint__Item]"&gt;
-            &lt;i class="material-icons"&gt;account_balance&lt;/i&gt;
-            &lt;small&gt;Onsite begins Aug 26&lt;/small&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
   section.sg-sect#program-component
     h2 The Program Component
     figure.sg-c-Fig
@@ -531,6 +503,22 @@ block append main
           ...
         &lt;/ul&gt;
         #[small &lt;!-- second social list same structure but inside a #[code footer] element --&gt;]
+  section.sg-sect#callout-component
+    h2 The Callout Component
+    figure.sg-c-Fig
+      p.c-Callout A callout! Use whatever the heck element you want, even a #[code &lt;figure&gt;]!
+      pre.
+        &lt;p class="#[u c-Callout]"&gt;A callout! ...&lt;/p&gt;
+    figure.sg-c-Fig
+      ul.o-ListBare.o-GridFlex.c-Callout
+        li.c-Callout__Item An item in a callout list!
+        li.c-Callout__Item Another item in a callout list!
+        li.c-Callout__Item Note the padding!
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u c-Callout]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u c-Callout__Item]"&gt;...&lt;/li&gt;
+          ...
+        &lt;/ul&gt;
   section.sg-sect#buttons
     h2 Buttons
     p.

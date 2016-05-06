@@ -11,14 +11,29 @@ block main-reference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n Full Registration
     ul.o-ListBare.o-GridFlex.o-ListStacked
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.speaker)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.guest)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.moderator)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.daily)
-    +actionbuttons([{text:'Register Today!'}], 'c-Btn c-Btn--hilite c-Btn--dominant')
+      - var thisperiod = 'earlybird'
+      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard , thisperiod)
+      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.speaker  , thisperiod)
+      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.moderator, thisperiod)
+      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym       , thisperiod)
+      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student  , thisperiod)
+      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.guest    , thisperiod)
+      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.daily    , thisperiod)
+    ul.o-ListBare.o-GridFlex.o-ListAction.c-Callout
+      li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item
+        i.material-icons(style="display: block; font-size: 2.25em;") stars
+        small Early Bird ends Jul 28
+      li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item
+        i.material-icons(style="display: block; font-size: 2.25em;") date_range
+        small Advance ends Aug 25
+      li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item
+        i.material-icons(style="display: block; font-size: 2.25em;") account_balance
+        small Onsite begins Aug 26
+    +actionchoices([{text:'Register Today!'}], 'c-Btn c-Btn--hilite c-Btn--dominant', {style:'padding: 1.5rem 0;'})
+    div.c-Overlay
+      h1 Additional Events and Pricing
+      +actionchoices([{text:'Short Courses', href:''}, {text:'Technical Tours', href:''}, {text:'Optional Tours', href:''}])
+        #[i.material-icons arrow_forward]
 
 block main-rich
   div.o-Runner.o-Runner--highlight.rich-text: div.o-ContentWrapper

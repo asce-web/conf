@@ -1,11 +1,14 @@
 include ../../lib/includes/_mixins.jade
 
-mixin actionbuttons(arr, classes)
-  ul.o-ListBare.o-GridFlex.-xjc-sa.-ta-c
-    each obj in arr
+mixin actionchoices(items, classes, list_attr)
+  - list_attr = list_attr || {}
+  ul.o-ListBare.o-GridFlex.o-ListAction&attributes(list_attr)
+    each obj in items
       - obj.attr = obj.attr || {}
-      li.o-GridFlex__Item.-w-a-sM
-        a(class=classes href=obj.href)&attributes(obj.attr)= obj.text
+      li.o-GridFlex__Item.o-ListAction__Item
+        a(class=classes href=obj.href)&attributes(obj.attr)
+          = obj.text
+          block
 
 mixin hero-content(event0)
   - event0 = event0 || {}
@@ -61,42 +64,40 @@ mixin important-date-content()
     +row({date:new Date('2016-01-12'), name:'Advance Registration Closes', href:'registration.html'})
     +row({date:new Date('2016-06-12'), name:'Convention Begins'})
 
-mixin pass(type)
+mixin pass(type, body_period)
   article.c-Pass
+    mixin period-details(regperiod, is_body)
+      h1.c-Pass__Period__Hn= regperiod.name
+      dl
+        each attendee in regperiod.membership
+          dt.c-Pass__Period__Attendee= attendee.name
+          dd.c-Pass__Period__Price(class=(is_body && attendee.is_featured)?'c-Pass__Price--featured':'')
+            = attendee.price.toLocaleString('en', {style:'currency', currency:'USD'})
     header.c-Pass__Head
       h1.c-Pass__Hn= type.name
-      p.c-Pass__Desc= type.description
+      p.c-Pass__Desc
+        = type.description
+        if type.fineprint
+          br
+          small.c-Pass__Fine!= type.fineprint
     div.c-Pass__Body
       section.c-Pass__Period
-        h1.c-Pass__Period__Hn Advance
-        dl
-          dt.c-Pass__Period__Attendee Non-Member
-          dd.c-Pass__Period__Price $945
-          dt.c-Pass__Period__Attendee Member
-          dd.c-Pass__Period__Price.c-Pass__Price--featured $845
+        if type.period[body_period]
+          +period-details(type.period[body_period], true)
     footer.o-GridFlex.c-Pass__Foot
-      section.o-GridFlex__Item.-w-1o2.c-Pass__Period
-        h1.c-Pass__Period__Hn Early Bird
-        dl
-          dt.c-Pass__Period__Attendee Non-Member
-          dd.c-Pass__Period__Price $795
-          dt.c-Pass__Period__Attendee Member
-          dd.c-Pass__Period__Price $745
-      section.o-GridFlex__Item.-w-1o2.c-Pass__Period
-        h1.c-Pass__Period__Hn Onsite
-        dl
-          dt.c-Pass__Period__Attendee Non-Member
-          dd.c-Pass__Period__Price $1045
-          dt.c-Pass__Period__Attendee Member
-          dd.c-Pass__Period__Price $945
+      each regperiod in type.period
+        unless regperiod === type.period[body_period]
+          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
+            +period-details(regperiod)
 
 mixin registration-content()
   h1 Registration
   ul.o-ListBare.o-GridFlex.o-ListStacked
-    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student)
-    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard)
-    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym)
-  +actionbuttons([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
+    - var thisperiod = 'advance'
+    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student , thisperiod)
+    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard, thisperiod)
+    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym      , thisperiod)
+  +actionchoices([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
 
 mixin programAgenda(events, index, show_all)
   - var date = events[0].startDate
@@ -125,7 +126,7 @@ mixin program-content()
   section.o-GridFlex.c-Overlay.c-Program
     each events, index in program_events
       +programAgenda(events, index, false)
-  +actionbuttons([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
+  +actionchoices([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
 
 mixin speaker()
   article.c-Speaker
@@ -148,7 +149,7 @@ mixin speakers-content()
     li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
     li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
     li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
-  +actionbuttons([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
+  +actionchoices([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
 
 mixin cochairs-content()
   h1 Conference Co-Chairs
@@ -159,14 +160,14 @@ mixin cochairs-content()
 mixin mobile-content()
   h1 Plan, Engage, Connect
   p.-ta-c Enhance your conference experience with our mobile app.
-  +actionbuttons([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
+  +actionchoices([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
 
 mixin location-content(heading)
   //- heading is moved into inner div
-  div.c-Overlay
+  div.c-Overlay.c-Overlay--callout
     h1= heading
     p With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
-    +actionbuttons([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
+    +actionchoices([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
 
 mixin social-content()
   h1 Join the Conversation
@@ -208,7 +209,7 @@ mixin sponsor-content()
           a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
           small.c-SponsorBlock__Label= item.level.name
   +sponsor-carousel([sponsor.asce_foundation, sponsor.bentley, sponsor.pennoni])
-  +actionbuttons([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
+  +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
 
 mixin sponsor-content-full()
   mixin sponsor-block(level, classes, spons)

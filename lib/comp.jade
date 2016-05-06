@@ -206,14 +206,28 @@ block append main
     p Use the Overlay Component over a Banner.
     figure.sg-c-Fig
       div.c-Banner(style="margin-bottom: 1.5rem; padding: 1.5rem; z-index:1;")
-        div.c-Overlay
+        div.c-Overlay(style="margin-bottom:1.5rem;")
           h1 overlay heading
           p overlay content
+        div.c-Overlay.c-Overlay--callout(style="margin-bottom:1.5rem;")
+          h1 overlay as callout heading
+          p overlay as callout content
+        div.c-Overlay.c-Overlay--inv(style="margin-bottom:1.5rem;")
+          h1 inverted overlay heading
+          p inverted overlay content
       pre.
         &lt;div class="c-Banner"&gt;
           &lt;div class="#[u c-Overlay]"&gt;
             &lt;h1&gt;overlay heading&lt;/h1&gt;
             &lt;p&gt;overlay content&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class="#[u c-Overlay]  #[u c-Overlay--callout]"&gt;
+            &lt;h1&gt;overlay as callout heading&lt;/h1&gt;
+            &lt;p&gt;overlay as callout content&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class="#[u c-Overlay]  #[u c-Overlay--inv]"&gt;
+            &lt;h1&gt;inverted overlay heading&lt;/h1&gt;
+            &lt;p&gt;inverted overlay content&lt;/p&gt;
           &lt;/div&gt;
         &lt;/div&gt;
   section.sg-sect#sponsor-block
@@ -489,6 +503,22 @@ block append main
           ...
         &lt;/ul&gt;
         #[small &lt;!-- second social list same structure but inside a #[code footer] element --&gt;]
+  section.sg-sect#callout-component
+    h2 The Callout Component
+    figure.sg-c-Fig
+      p.c-Callout A callout! Use whatever the heck element you want, even a #[code &lt;figure&gt;]!
+      pre.
+        &lt;p class="#[u c-Callout]"&gt;A callout! ...&lt;/p&gt;
+    figure.sg-c-Fig
+      ul.o-ListBare.o-GridFlex.c-Callout
+        li.c-Callout__Item An item in a callout list!
+        li.c-Callout__Item Another item in a callout list!
+        li.c-Callout__Item Note the padding!
+      pre.
+        &lt;ul class="o-ListBare  o-GridFlex  #[u c-Callout]"&gt;
+          &lt;li class="o-GridFlex__Item  #[u c-Callout__Item]"&gt;...&lt;/li&gt;
+          ...
+        &lt;/ul&gt;
   section.sg-sect#buttons
     h2 Buttons
     p.

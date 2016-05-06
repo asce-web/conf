@@ -4,7 +4,6 @@
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.module.borders.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.module.clearfix.less');
 @import (reference) url('__settings.less');
 @import (reference) url('_dev.less');
 
@@ -13,16 +12,17 @@
 // (e.g. Student, Speaker, Standard, etc.)
 //
 // ^subcomponents
-// __Head            - pass header. contains heading and description
-// __Body            - pass body containing current registration period
-// __Foot            - pass footer containing other registration periods
-// __Hn              - name of pass type (e.g. "Standard Pass")
-// __Desc            - description of pass type (e.g. "Undergraduates 18–24")
-// __Period          - a registration period. see below.
+// __Head   - pass header. contains heading and description
+// __Body   - pass body containing current registration period
+// __Foot   - pass footer containing other registration periods
+// __Hn     - name of pass type (e.g. "Standard Pass")
+// __Desc   - description of pass type (e.g. "Undergraduates 18–24")
+// __Fine   - fine print (additional to description)
+// __Period - a registration period. see below.
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-04-26
+// 2016-05-03
 .c-Pass {
   text-align: center;
   background-color: @g-color_site_gray_dk;
@@ -73,6 +73,14 @@
   font-weight: 600;
 }
 
+.c-Pass__Fine {
+  font-weight: 300;
+  font-style: italic;
+  .font-size-el(14/16);
+  white-space: normal; // fallback
+  white-space: initial; // override __Desc
+}
+
 
 // A registration period containing a heading and a price listing.
 // A subcomponent of `.c-Pass`.
@@ -81,7 +89,7 @@
 // __Hn              - the name of the registration period
 // __Attendee        - attendee type (membership status)
 // __Price           - any price for any pass
-//   __Price--featured - highlighted price of some sort
+//   __Price--featured - highlighted price of some sort (usually membership price)
 // ^author
 // Chris Harvey
 // ^updated

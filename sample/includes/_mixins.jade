@@ -45,21 +45,21 @@ mixin otheryear-content(event0)
 mixin important-date-content()
   h1 Important Dates
   dl.c-DateBlock
-    mixin row(date_obj, name, href)
+    mixin row(event0)
       dt.c-DateBlock__Date
-        time(datetime=date_obj.toISOString().slice(0,10))
-          = month_names[date_obj.getUTCMonth()].slice(0,3) + ' ' + date_obj.getUTCDate() + ', ' + date_obj.getFullYear()
+        time(datetime=event0.date.toISOString().slice(0,10))
+          = month_names[event0.date.getUTCMonth()].slice(0,3) + ' ' + event0.date.getUTCDate() + ', ' + event0.date.getFullYear()
       dd.c-DateBlock__Desc
-        if href
-          a.o-Block.c-DateBlock__Link(href=href)
-            = name
+        if event0.href || event0.href === ''
+          a.o-Block.c-DateBlock__Link(href=event0.href)
+            = event0.name
             i.material-icons arrow_forward
         else
-          = name
-    +row(new Date('2015-10-12'), 'Optional Final Papers Due')
-    +row(new Date('2015-12-17'), 'Early-Bird Registration Closes', 'registration.html')
-    +row(new Date('2016-01-12'), 'Advance Registration Closes', 'registration.html')
-    +row(new Date('2016-06-12'), 'Convention Begins')
+          = event0.name
+    +row({date:new Date('2015-10-12'), name:'Optional Final Papers Due'})
+    +row({date:new Date('2015-12-17'), name:'Early-Bird Registration Closes', href:'registration.html'})
+    +row({date:new Date('2016-01-12'), name:'Advance Registration Closes', href:'registration.html'})
+    +row({date:new Date('2016-06-12'), name:'Convention Begins'})
 
 mixin pass(type)
   article.c-Pass
@@ -98,7 +98,7 @@ mixin registration-content()
     li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym)
   +actionbuttons([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
 
-mixin time-block(events, index)
+mixin programAgenda(events, index)
   - var date = events[0].startDate
   input.c-Program__Check(id='date'+index type="radio" name="program" value=date.toISOString().slice(0,10))&attributes((index===0) ? {checked:''} : {})
   h1.o-GridFlex__Item.c-Program__Hn: label(for='date'+index): time(datetime=date.toISOString().slice(0,10))

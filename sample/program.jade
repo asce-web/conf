@@ -52,5 +52,5 @@ block main-reference
       - all_events[3].push({startDate:new Date('2016-10-01 12:00'), endDate:new Date('2016-10-01 14:00'), name:'ASCE Luncheon & Closing General Session'})
       - all_events[3].push({startDate:new Date('2016-10-01 14:30'), endDate:new Date('2016-10-01 17:30'), name:'Technical Tours', href:''})
       each events, index in all_events
-        +time-block(events, index)
+        +programAgenda(events, index)
     p: small Program subject to change.

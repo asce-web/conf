@@ -21,31 +21,46 @@
   .font-size-mod(14/16);
   .flex-align-items(flex-start);
   h1 {
-    color: inherit;
+    padding-top: 0;
     font-family: inherit;
+    color: inherit;
   }
   dl {
     margin-bottom: 0; // HACK override `.c-Program >> dl`
   }
 }
 
+@p-transdura: 250ms;
 .c-Program__Hn,
 .c-Program__Schedule {
 }
 .c-Program__Hn {
-  width: 25%; // FIXME depends on how many !!!
-  .font-size-el(1.5);
+  .font-size-el(1);
+  white-space: nowrap;
+  cursor: pointer;
+  .transition(font-size, line-height; @p-transdura);
+  @media screen and (min-width: 45em) {
+    width: 25%; // FIXME depends on how many !!!
+    .font-size-el(1.25);
+  }
+  label {
+    line-height: 0;
+    cursor: inherit;
+  }
 }
 
 .c-Program__Schedule {
   height: 100%;
   overflow: hidden;
   .flex-order(1);
-  .transition(width, height, font-size; 250ms);
+  .transition(width, height, font-size; @p-transdura);
 }
 
 .c-Program__Check {
   display: none;
+  &:checked + .c-Program__Hn {
+    .font-size-el(1.5);
+  }
   &:not(:checked) + .c-Program__Hn {
     opacity: 0.5;
     & + .c-Program__Schedule {

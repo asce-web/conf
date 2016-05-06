@@ -29,14 +29,11 @@ block main-reference
       li.o-GridFlex__Item.o-ListAction__Item.c-RegisterFinePrint__Item
         i.material-icons account_balance
         small Onsite begins Aug 26
-    +actionbuttons([{text:'Register Today!'}], 'c-Btn c-Btn--hilite c-Btn--dominant')
+    +actionchoices([{text:'Register Today!'}], 'c-Btn c-Btn--hilite c-Btn--dominant', {style:'padding: 1.5rem 0;'})
     div.c-Overlay
       h1 Additional Events and Pricing
-      +actionbuttons([{text:'Short Courses', href:''}, {text:'Technical Tours', href:''}, {text:'Optional Tours', href:''}], 'c-Btn c-Btn--flat')
-      ul.o-ListBare.o-GridFlex.-xjc-sa.-ta-c
-        li.o-GridFlex__Item.-w-a-sM: a(href="") Short Courses   #[i.material-icons arrow_forward]
-        li.o-GridFlex__Item.-w-a-sM: a(href="") Technical Tours #[i.material-icons arrow_forward]
-        li.o-GridFlex__Item.-w-a-sM: a(href="") Optional Tours  #[i.material-icons arrow_forward]
+      +actionchoices([{text:'Short Courses', href:''}, {text:'Technical Tours', href:''}, {text:'Optional Tours', href:''}])
+        #[i.material-icons arrow_forward]
 
 block main-rich
   div.o-Runner.o-Runner--highlight.rich-text: div.o-ContentWrapper

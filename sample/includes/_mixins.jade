@@ -1,11 +1,14 @@
 include ../../lib/includes/_mixins.jade
 
-mixin actionbuttons(arr, classes)
-  ul.o-ListBare.o-GridFlex.-xjc-sa.-ta-c
-    each obj in arr
+mixin actionchoices(items, classes, list_attr)
+  - list_attr = list_attr || {}
+  ul.o-ListBare.o-GridFlex.o-ListAction&attributes(list_attr)
+    each obj in items
       - obj.attr = obj.attr || {}
-      li.o-GridFlex__Item.-w-a-sM
-        a(class=classes href=obj.href)&attributes(obj.attr)= obj.text
+      li.o-GridFlex__Item.o-ListAction__Item
+        a(class=classes href=obj.href)&attributes(obj.attr)
+          = obj.text
+          block
 
 mixin hero-content(event0)
   - event0 = event0 || {}
@@ -94,7 +97,7 @@ mixin registration-content()
     li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student , thisperiod)
     li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard, thisperiod)
     li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym      , thisperiod)
-  +actionbuttons([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
+  +actionchoices([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
 
 mixin programAgenda(events, index, show_all)
   - var date = events[0].startDate
@@ -123,7 +126,7 @@ mixin program-content()
   section.o-GridFlex.c-Overlay.c-Program
     each events, index in program_events
       +programAgenda(events, index, false)
-  +actionbuttons([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
+  +actionchoices([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
 
 mixin speaker()
   article.c-Speaker
@@ -146,7 +149,7 @@ mixin speakers-content()
     li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
     li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
     li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
-  +actionbuttons([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
+  +actionchoices([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
 
 mixin cochairs-content()
   h1 Conference Co-Chairs
@@ -157,14 +160,14 @@ mixin cochairs-content()
 mixin mobile-content()
   h1 Plan, Engage, Connect
   p.-ta-c Enhance your conference experience with our mobile app.
-  +actionbuttons([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
+  +actionchoices([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
 
 mixin location-content(heading)
   //- heading is moved into inner div
   div.c-Overlay.c-Overlay--callout
     h1= heading
     p With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
-    +actionbuttons([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
+    +actionchoices([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
 
 mixin social-content()
   h1 Join the Conversation
@@ -206,7 +209,7 @@ mixin sponsor-content()
           a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
           small.c-SponsorBlock__Label= item.level.name
   +sponsor-carousel([sponsor.asce_foundation, sponsor.bentley, sponsor.pennoni])
-  +actionbuttons([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
+  +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
 
 mixin sponsor-content-full()
   mixin sponsor-block(level, classes, spons)

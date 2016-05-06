@@ -98,6 +98,27 @@ mixin registration-content()
     li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym)
   +actionbuttons([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
 
+mixin time-block(events, index)
+  - var date = events[0].startDate
+  input.c-Program__Check(id='date'+index type="radio" name="program" value=date.toISOString().slice(0,10))&attributes((index===0) ? {checked:''} : {})
+  h1.o-GridFlex__Item.c-Program__Hn: label(for='date'+index): time(datetime=date.toISOString().slice(0,10))
+    = day_names[date.getUTCDay()] + ','
+    br
+    = month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
+  dl.o-GridFlex__Item.o-GridFlex.c-Program__Schedule.c-TimeBlock
+    each event0 in events
+      dt.o-GridFlex__Item.c-TimeBlock__Times
+        time(datetime=event0.startDate.toISOString())= hourTime12(event0.startDate)
+        | &ndash;
+        time(datetime=event0.endDate.toISOString())= hourTime12(event0.endDate)
+      dd.o-GridFlex__Item.c-TimeBlock__Desc
+        if event0.href || event0.href === ''
+          a.o-Block.c-TimeBlock__Link(href=event0.href)
+            = event0.name
+            i.material-icons arrow_forward
+        else
+          = event0.name
+
 mixin program-content()
   h1 Program Highlights
   mixin program-block(classes, datetext, data)

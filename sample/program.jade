@@ -10,60 +10,47 @@ block main-reference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n Full Program
     section.o-GridFlex.c-Overlay.c-Program
-      mixin row(start, end, name, href)
-        dt.o-GridFlex__Item.c-TimeBlock__Times
-          time= start
-          | &ndash;
-          time= end
-        dd.o-GridFlex__Item.c-TimeBlock__Desc
-          if href
-            a.o-Block.c-TimeBlock__Link(href=href)
-              = name
-              i.material-icons arrow_forward
-          else
-            = name
-      input.c-Program__Check#date1(type="radio" name="program" value="2016-09-28" checked="")
-      h1.o-GridFlex__Item.c-Program__Hn: label(for="date1") Wednesday,#[br]Sep&nbsp;28
-      dl.o-GridFlex__Item.o-GridFlex.c-Program__Schedule.c-TimeBlock
-        +row('10:00 am', '7:00 pm', 'Registration')
-        +row('10:30 am', '4:30 pm', 'Technical Tours', './')
-        +row('1:00 pm', '5:00 pm', 'Short Courses', './')
-        +row('1:00 pm', '5:00 pm', 'Optional Tours', './')
-        +row('5:30 pm', '7:30 pm', 'Opening Welcome Reception')
-        +row('12:00 pm', '5:00 pm', 'Community Service Project')
-      input.c-Program__Check#date2(type="radio" name="program" value="2016-09-29")
-      h1.o-GridFlex__Item.c-Program__Hn: label(for="date2") Thursday,#[br]Sep&nbsp;29
-      dl.o-GridFlex__Item.o-GridFlex.c-Program__Schedule.c-TimeBlock
-        +row('7:00 am', '4:30 pm', 'Registration')
-        +row('7:30', '8:30 am', 'Student & Emerging Leaders Welcome Breakfast and Orientation')
-        +row('1:00 pm', '5:00 pm', 'Opening Plenary Session', './')
-        +row('1:00 pm', '5:00 pm', 'Guest Program Orientation & Tour')
-        +row('5:30 pm', '7:30 pm', 'Beverage Break')
-        +row('12:00 pm', '5:00 pm', 'Concurrent Sessions')
-        +row('12:00 pm', '5:00 pm', 'Optional Tour', './')
-        +row('12:00 pm', '5:00 pm', 'Industry Leaders Forum', './')
-        +row('12:00 pm', '5:00 pm', 'Beverage Break')
-        +row('12:00 pm', '5:00 pm', 'Concurrent Sessions')
-        +row('12:00 pm', '5:00 pm', 'Theater Night Out')
-      input.c-Program__Check#date3(type="radio" name="program" value="2016-09-30")
-      h1.o-GridFlex__Item.c-Program__Hn: label(for="date3") Friday,#[br]Sep&nbsp;30
-      dl.o-GridFlex__Item.o-GridFlex.c-Program__Schedule.c-TimeBlock
-        +row('7:00 am', '4:30 pm', 'Registration')
-        +row('7:30', '8:30 am', 'Leadership & Society Awards Breakfast')
-        +row('1:00 pm', '5:00 pm', 'ASCE Annual Business Meeting', './')
-        +row('12:00 pm', '5:00 pm', 'Lunch on Your Own')
-        +row('12:00 pm', '5:00 pm', 'Optional Tour')
-        +row('12:00 pm', '5:00 pm', 'Industry Leaders Forum')
-        +row('12:00 pm', '5:00 pm', 'Theater Night Out')
-      input.c-Program__Check#date4(type="radio" name="program" value="2016-10-01")
-      h1.o-GridFlex__Item.c-Program__Hn: label(for="date4") Saturday,#[br]Oct&nbsp;1
-      dl.o-GridFlex__Item.o-GridFlex.c-Program__Schedule.c-TimeBlock
-        +row('7:00 am', '2:30 pm', 'Registration')
-        +row('7:30', '8:30 am', 'Order of the Engineer Ceremony')
-        +row('1:00 pm', '5:00 pm', 'Optional Tour')
-        +row('12:00 pm', '5:00 pm', 'Concurrent Sessions')
-        +row('12:00 pm', '5:00 pm', 'Communities and Pavilion')
-        +row('12:00 pm', '5:00 pm', 'Concurrent Sessions')
-        +row('12:00 pm', '5:00 pm', 'ASCE Luncheon & Closing General Session')
-        +row('12:00 pm', '5:00 pm', 'Technical Tours', './')
+      - var all_events = [[], [], [], []]
+      - all_events[0].push({startDate:new Date('2016-09-28 10:00'), endDate:new Date('2016-09-28 19:00'), name:'Registration'})
+      - all_events[0].push({startDate:new Date('2016-09-28 10:30'), endDate:new Date('2016-09-28 16:30'), name:'Technical Tours', href:''})
+      - all_events[0].push({startDate:new Date('2016-09-28 13:00'), endDate:new Date('2016-09-28 17:00'), name:'Short Courses', href:''})
+      - all_events[0].push({startDate:new Date('2016-09-28 12:00'), endDate:new Date('2016-09-28 17:00'), name:'Optional Tours', href:''})
+      - all_events[0].push({startDate:new Date('2016-09-28 17:30'), endDate:new Date('2016-09-28 19:30'), name:'Opening Welcome Reception'})
+      - all_events[0].push({startDate:new Date('2016-09-28 13:00'), endDate:new Date('2016-09-28 17:00'), name:'Community Service Project'})
+      - all_events[1].push({startDate:new Date('2016-09-29 07:00'), endDate:new Date('2016-09-29 16:30'), name:'Registration'})
+      - all_events[1].push({startDate:new Date('2016-09-29 07:30'), endDate:new Date('2016-09-29 08:30'), name:'Student & Emerging Leaders Welcome Breakfast and Orientation'})
+      - all_events[1].push({startDate:new Date('2016-09-29 08:30'), endDate:new Date('2016-09-29 10:00'), name:'Opening Plenary Session'})
+      - all_events[1].push({startDate:new Date('2016-09-29 09:30'), endDate:new Date('2016-09-29 15:30'), name:'Guest Program Orientation & Tour'})
+      - all_events[1].push({startDate:new Date('2016-09-29 10:00'), endDate:new Date('2016-09-29 10:30'), name:'Beverage Break'})
+      - all_events[1].push({startDate:new Date('2016-09-29 10:30'), endDate:new Date('2016-09-29 11:30'), name:'Concurrent Sessions'})
+      - all_events[1].push({startDate:new Date('2016-09-29 11:45'), endDate:new Date('2016-09-29 13:45'), name:'Celebration of Leaders Luncheon'})
+      - all_events[1].push({startDate:new Date('2016-09-29 14:00'), endDate:new Date('2016-09-29 15:30'), name:'Concurrent Sessions'})
+      - all_events[1].push({startDate:new Date('2016-09-29 14:00'), endDate:new Date('2016-09-29 18:00'), name:'Communities and Pavilion'})
+      - all_events[1].push({startDate:new Date('2016-09-29 15:30'), endDate:new Date('2016-09-29 16:00'), name:'Beverage Break'})
+      - all_events[1].push({startDate:new Date('2016-09-29 16:00'), endDate:new Date('2016-09-29 17:30'), name:'Concurrent Sessions'})
+      - all_events[1].push({startDate:new Date('2016-09-29 18:45'), endDate:new Date('2016-09-29 21:45'), name:'Optional Tour', href:''})
+      - all_events[2].push({startDate:new Date('2016-09-30 07:00'), endDate:new Date('2016-09-30 16:30'), name:'Registration'})
+      - all_events[2].push({startDate:new Date('2016-09-30 07:30'), endDate:new Date('2016-09-30 08:30'), name:'Leadership & Society Awards Breakfast'})
+      - all_events[2].push({startDate:new Date('2016-09-30 08:30'), endDate:new Date('2016-09-30 17:00'), name:'Communities and Pavilion'})
+      - all_events[2].push({startDate:new Date('2016-09-30 08:45'), endDate:new Date('2016-09-30 09:45'), name:'ASCE Annual Business Meeting'})
+      - all_events[2].push({startDate:new Date('2016-09-30 09:45'), endDate:new Date('2016-09-30 10:15'), name:'Beverage Break'})
+      - all_events[2].push({startDate:new Date('2016-09-30 10:15'), endDate:new Date('2016-09-30 11:45'), name:'Concurrent Sessions'})
+      - all_events[2].push({startDate:new Date('2016-09-30 11:45'), endDate:new Date('2016-09-30 13:15'), name:'Lunch on Your Own'})
+      - all_events[2].push({startDate:new Date('2016-09-30 11:45'), endDate:new Date('2016-09-30 13:15'), name:'International Luncheon (ticketed)'})
+      - all_events[2].push({startDate:new Date('2016-09-30 13:15'), endDate:new Date('2016-09-30 14:15'), name:'Concurrent Sessions'})
+      - all_events[2].push({startDate:new Date('2016-09-30 13:00'), endDate:new Date('2016-09-30 17:15'), name:'Optional Tour', href:''})
+      - all_events[2].push({startDate:new Date('2016-09-30 14:30'), endDate:new Date('2016-09-30 16:00'), name:'Industry Leaders Forum'})
+      - all_events[2].push({startDate:new Date('2016-09-30 16:00'), endDate:new Date('2016-09-30 16:30'), name:'Beverage Break'})
+      - all_events[2].push({startDate:new Date('2016-09-30 16:30'), endDate:new Date('2016-09-30 17:30'), name:'Concurrent Sessions'})
+      - all_events[2].push({startDate:new Date('2016-09-30 18:30'), endDate:new Date('2016-09-30 21:30'), name:'Theater Night Out'})
+      - all_events[3].push({startDate:new Date('2016-10-01 07:00'), endDate:new Date('2016-10-01 14:30'), name:'Registration'})
+      - all_events[3].push({startDate:new Date('2016-10-01 07:30'), endDate:new Date('2016-10-01 08:15'), name:'Order of the Engineer Ceremony'})
+      - all_events[3].push({startDate:new Date('2016-10-01 08:45'), endDate:new Date('2016-10-01 11:45'), name:'Optional Tour', href:''})
+      - all_events[3].push({startDate:new Date('2016-10-01 08:30'), endDate:new Date('2016-10-01 10:00'), name:'Concurrent Sessions'})
+      - all_events[3].push({startDate:new Date('2016-10-01 08:30'), endDate:new Date('2016-10-01 14:00'), name:'Communities and Pavilion'})
+      - all_events[3].push({startDate:new Date('2016-10-01 10:15'), endDate:new Date('2016-10-01 11:45'), name:'Concurrent Sessions'})
+      - all_events[3].push({startDate:new Date('2016-10-01 12:00'), endDate:new Date('2016-10-01 14:00'), name:'ASCE Luncheon & Closing General Session'})
+      - all_events[3].push({startDate:new Date('2016-10-01 14:30'), endDate:new Date('2016-10-01 17:30'), name:'Technical Tours', href:''})
+      each events, index in all_events
+        +time-block(events, index)
     p: small Program subject to change.

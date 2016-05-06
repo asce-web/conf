@@ -3,6 +3,7 @@
     conf  |  _comp.SiteTitle.less
 \*################################*/
 // @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+// @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
 @import (reference) url('__settings.less');
 
 
@@ -33,6 +34,11 @@
   }
 }
 
+.c-SiteTitle__Logo,
+.c-SiteTitle__Name,
+.c-SiteTitle__Tagline {
+  .transition(width, height; 250ms);
+}
 .c-SiteTitle__Logo {
   width: @p-logosize-s; height: @p-logosize-s;
   @media screen and (min-width: 30em) { width: @p-logosize-sK; height: @p-logosize-sK; }
@@ -46,7 +52,6 @@
   width: 100%;
   @media screen and (min-width: 30em) { width: calc(~'100% - '@p-logosize-sK); }
   @media screen and (min-width: 45em) { width: calc(~'100% - '@p-logosize-sM); }
-  // white-space: nowrap;
 }
 .c-SiteTitle__Name {
   text-align: inherit; // override h1 center

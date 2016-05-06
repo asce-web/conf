@@ -45,25 +45,21 @@ mixin otheryear-content(event0)
 mixin important-date-content()
   h1 Important Dates
   dl.c-DateBlock
-    mixin row(date_obj, url)
+    mixin row(event0)
       dt.c-DateBlock__Date
-        time(datetime=date_obj.toISOString().slice(0,10))
-          = month_names[date_obj.getUTCMonth()].slice(0,3) + ' ' + date_obj.getUTCDate() + ', ' + date_obj.getFullYear()
+        time(datetime=event0.date.toISOString().slice(0,10))
+          = month_names[event0.date.getUTCMonth()].slice(0,3) + ' ' + event0.date.getUTCDate() + ', ' + event0.date.getFullYear()
       dd.c-DateBlock__Desc
-        if url
-          a.o-Block.c-DateBlock__Link(href=url)
-            block
+        if event0.href || event0.href === ''
+          a.o-Block.c-DateBlock__Link(href=event0.href)
+            = event0.name
             i.material-icons arrow_forward
         else
-          block
-    +row(new Date('2015-10-12'))
-      | #[em Optional] Final Papers Due
-    +row(new Date('2015-12-17'), 'registration.html')
-      | Early-Bird Registration Closes
-    +row(new Date('2016-01-12'), 'registration.html')
-      | Advance Registration Closes
-    +row(new Date('2016-06-12'))
-      | #[strong Convention Begins]
+          = event0.name
+    +row({date:new Date('2015-10-12'), name:'Optional Final Papers Due'})
+    +row({date:new Date('2015-12-17'), name:'Early-Bird Registration Closes', href:'registration.html'})
+    +row({date:new Date('2016-01-12'), name:'Advance Registration Closes', href:'registration.html'})
+    +row({date:new Date('2016-06-12'), name:'Convention Begins'})
 
 mixin pass(type, body_period)
   article.c-Pass
@@ -100,31 +96,33 @@ mixin registration-content()
     li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym      , thisperiod)
   +actionbuttons([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
 
+mixin programAgenda(events, index, show_all)
+  - var date = events[0].startDate
+  input.c-Program__Check(id='date'+index type="radio" name="program" value=date.toISOString().slice(0,10))&attributes((index===0) ? {checked:''} : {})
+  h1.o-GridFlex__Item.c-Program__Hn: label(for='date'+index): time(datetime=date.toISOString().slice(0,10))
+    = day_names[date.getUTCDay()] + ','
+    br
+    = month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
+  dl.o-GridFlex__Item.o-GridFlex.c-Program__Schedule.c-TimeBlock
+    each event0 in events
+      if show_all || event0.starred
+        dt.o-GridFlex__Item.c-TimeBlock__Times
+          time(datetime=event0.startDate.toISOString())= hourTime12(event0.startDate)
+          | &ndash;
+          time(datetime=event0.endDate.toISOString())= hourTime12(event0.endDate)
+        dd.o-GridFlex__Item.c-TimeBlock__Desc
+          if event0.href || event0.href === ''
+            a.o-Block.c-TimeBlock__Link(href=event0.href)
+              = event0.name
+              i.material-icons arrow_forward
+          else
+            = event0.name
+
 mixin program-content()
   h1 Program Highlights
-  mixin program-block(classes, datetext, data)
-    section.o-GridFlex__Item(class=classes)
-      h1= datetext
-      dl.o-GridFlex.c-TimeBlock
-        mixin row(starttime, endtime, description)
-          dt.o-GridFlex__Item
-            span= starttime
-            | –
-            span= endtime
-          dd.o-GridFlex__Item= description
-        each val in data
-          +row(val.starttime, val.endtime, val.description)
-  div.o-GridFlex
-    +program-block(['o-GridFlex__Item','-w-1o2'], 'Wednesday, April 5', [
-      { starttime: '7am', endtime: 'Noon', description: 'General Services Contractor Setup' }
-    , { starttime: '8am', endtime: '11pm', description: 'Committee Meetings' }
-    , { starttime: 'Noon', endtime: '6pm', description: 'Registration & ASCE Bookstore Hours' }
-    ])
-    +program-block(['o-GridFlex__Item','-w-1o2'], 'Thursday, April 6', [
-      { starttime: '07:00', endtime: '08:00', description: 'Continental Breakfast' }
-    , { starttime: '09:30', endtime: '10:00', description: 'Morning Refreshment Break' }
-    , { starttime: '18:30', endtime: '20:00', description: 'Welcome Reception' }
-    ])
+  section.o-GridFlex.c-Overlay.c-Program
+    each events, index in program_events
+      +programAgenda(events, index, false)
   +actionbuttons([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
 
 mixin speaker()

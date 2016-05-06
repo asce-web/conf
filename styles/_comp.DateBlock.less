@@ -6,32 +6,6 @@
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 
 
-// A mixin generator for creating
-// an object whose children come in pairs, each taking up one row.
-// Define an absolute width for the odd children, and the even children’s widths
-// will take up the rest of the row. Could be useful for a `dl`-like structure.
-// Call this mixin generator inside the parent class.
-//
-// ^arguments
-// @oddwidth - the width of the odd children
-// ^author
-// : Chris Harvey
-// ^updated
-// : 2016-03-04
-// .list-pairs(@oddwidth) {
-//   & > * {
-//     &:nth-child(odd)  { width: @oddwidth; }
-//     &:nth-child(even) { width: calc(~'100% - ' @oddwidth); }
-//   }
-// }
-
-.mx-padd(@bp; @val; @prop: ~'') {
-  @media screen and (min-width: @bp) {
-    padding@{prop}: @val;
-  }
-}
-
-
 // A block containing rows of important dates.
 // The first column is the date,
 // the second column is the description.
@@ -55,28 +29,41 @@
 .c-DateBlock__Desc {
   background-color: lighten(@g-color_site_gray_lt, 50%, relative);
   padding: 0 @g-boxpadd_micr_h;
-  .mx-padd(30em; 0 @g-boxpadd_mill_h);
-  .mx-padd(45em; 0 @g-boxpadd_norm_h);
   border-width: 0 @p-rw;
   border-style: solid;
   border-color: @g-color_asce_black;
+  @media screen and (min-width: 30em) {
+    padding: 0 @g-boxpadd_mill_h;
+  }
+  @media screen and (min-width: 45em) {
+    padding: 0 @g-boxpadd_norm_h;
+  }
 }
 
 .c-DateBlock__Date {
   padding-top: @g-boxpadd_micr_v;
-  .mx-padd(30em; @g-boxpadd_mill_v; ~'-top');
-  .mx-padd(45em; @g-boxpadd_norm_v; ~'-top');
+  white-space: nowrap;
   .border-vert(top, @p-rw);
+  @media screen and (min-width: 30em) {
+    padding-top: @g-boxpadd_mill_v;
+  }
+  @media screen and (min-width: 45em) {
+    padding-top: @g-boxpadd_norm_v;
+  }
 }
 
 .c-DateBlock__Desc {
   padding-bottom: @g-boxpadd_micr_v;
-  .mx-padd(30em; @g-boxpadd_mill_v; ~'-bottom');
-  .mx-padd(45em; @g-boxpadd_norm_v; ~'-bottom');
   .border-vert(bottom, @p-rw);
   .font-size-block(1.25);
   font-weight: 600;
   margin-bottom: @g-vru;
+  @media screen and (min-width: 30em) {
+    padding-bottom: @g-boxpadd_mill_v;
+  }
+  @media screen and (min-width: 45em) {
+    padding-bottom: @g-boxpadd_norm_v;
+  }
 }
 
 .c-DateBlock__Link {
@@ -86,11 +73,3 @@
     right: 0; top: -0.5em;
   }
 }
-
-// .c-TimeBlock {
-//   .list-pairs(10em);
-//   & > *:nth-child(odd) {
-//     padding-right: 1rem;
-//     text-align: right;
-//   }
-// }

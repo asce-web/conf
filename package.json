@@ -31,7 +31,6 @@
   "homepage": "http://conf.style.asce.org/",
   "devDependencies": {
     "clean-css": "^3.4.9",
-    "harp": "^0.20.1",
     "jade": "^1.11.0",
     "less": "^2.6.0",
     "xmeter": "^4.0.0"

@@ -6,6 +6,21 @@ block append vars
 block append main-body
   section.o-Runner.o-Runner--highlight: div.o-ContentWrapper
     h1 Thank You to Our Sponsors
-    +sponsor-content-full()
+    mixin sponsor-block(level, classes, spons)
+      //- TODO: remove `spons` param and get them from `level`
+      section.c-SponsorBlock(class=classes)
+        h1.c-SponsorBlock__Hn= level.name
+        ul.o-ListBare.o-GridFlex.o-ListStacked
+          each item in spons
+            li.o-GridFlex__Item.o-ListStacked__Item
+              unless (level === sponsorlevel.bronze) || (level === sponsorlevel.copper)
+                a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+level.size href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
+              else
+                a.o-Block.c-SponsorBlock__Text(href=item.href)= item.name
+    +sponsor-block(sponsorlevel.platinum , 'c-SponsorBlock--separate', [sponsor.asce_foundation, sponsor.bentley])
+    +sponsor-block(sponsorlevel.corporate, 'c-SponsorBlock--separate', [sponsor.bank_america, sponsor.geico, sponsor.pearl, sponsor.ups, sponsor.keller])
+    +sponsor-block(sponsorlevel.silver   , 'c-SponsorBlock--separate', [sponsor.pennoni, sponsor.innovyze])
+    +sponsor-block(sponsorlevel.bronze   , 'c-SponsorBlock--separate', [sponsor.fasten, sponsor.david_evans, sponsor.kci, sponsor.mccormick_taylor])
+    +sponsor-block(sponsorlevel.copper   , ''                        , [sponsor.rutgers, sponsor.kimley_horn, sponsor.cbb])
 
 block sponsors

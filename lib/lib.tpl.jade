@@ -1,7 +1,8 @@
 doctype html
 html(lang="en")
-  include includes/_data.jade
-  include includes/_mixins.jade
+  include ../includes/_data-global.jade
+  include includes/_data-lib.jade
+  include includes/_mixins-lib.jade
   head
     - var titles = ['ASCE Conferences Styleguide', 'Pattern Library']
     block vars

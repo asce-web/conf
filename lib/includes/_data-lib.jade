@@ -1,3 +1,13 @@
+
+//- ///////////////////////////////////////////////////////////////////////////////
+//- //
+//- // This file holds data and functions for the styleguide pattern library.
+//- //
+//- ///////////////////////////////////////////////////////////////////////////////
+
+- function title(arr) { return arr.reduceRight(function (a, b) { return a + ' | ' + b }) }
+- function mainH1(arr) { return arr.reduce(function (a, b) { return a + ' — ' + b }) }
+
 //- -
   var pages = {
     index: {

@@ -50,9 +50,9 @@ html(lang="en")
         span.o-GridFloat__Item.c-SiteTitle__Logo
         h1.o-GridFloat__Item.c-SiteTitle__Name= site.title
         p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
-      nav.o-GridFlex__Item.-w-a
+      nav#top-menu.o-GridFlex__Item.-w-a.js-universalmenubox
         h1.-d-n Top Menu
-        ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal.js-universalmenu
+        ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
           each page in [sitemap.universal.about, sitemap.universal.sponsor, sitemap.universal.exhibit, sitemap.universal.contact]
             li.o-GridFlex__Item.c-MenuUniversal__Item
               a.o-Block.c-MenuUniversal__Link(href=page.href)
@@ -63,9 +63,8 @@ html(lang="en")
             a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href=page.href)
               i.material-icons= page.icon.content
               span ASCE 2016
-      //- div.js-menubuttons
-        button(type="button" name="open"  title="top menu").c-Btn.c-Btn--flat.c-Btn--drawer: i.material-icons menu
-        button(type="button" name="close" title="close").c-Btn.c-Btn--dominant.c-Btn--drawer.c-Btn--drawer--close: i.material-icons close
+        //- button.c-Btn.c-Btn--dominant.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close"): i.material-icons close
+      //- button.c-Btn.c-Btn--flat.c-Btn--drawer.js-menubutton(type="button" name="open" title="top menu"): i.material-icons menu
     block standard-menu
     main
       block main
@@ -125,28 +124,25 @@ html(lang="en")
           &copy; #[time 1996]&ndash;#[time 2016] American Society of Civil Engineers
     script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
     script.
-      var menubuttons          = $('<div>').addClass('js-menubuttons')
-        , button_open          = $('<button>').addClass('c-Btn c-Btn--flat c-Btn--drawer')
-        , button_close         = $('<button>').addClass('c-Btn c-Btn--dominant c-Btn--drawer c-Btn--drawer--close')
-      button_open
+      var button_open  = $('<button>').addClass('c-Btn c-Btn--flat c-Btn--drawer js-menubutton')
         .attr('type','button')
         .attr('name','open')
         .attr('title','top menu')
         .append($('<i>').addClass('material-icons').text('menu'))
-      button_close
+      var button_close = $('<button>').addClass('c-Btn c-Btn--dominant c-Btn--drawer c-Btn--drawer--close js-menubutton')
         .attr('type','button')
         .attr('name','close')
         .attr('title','close')
         .append($('<i>').addClass('material-icons').text('close'))
-      $('.o-SiteHead').append(menubuttons.append(button_open))
+      $('.o-SiteHead').append(button_open)
+      $('#top-menu').append(button_close)
       button_open.click(function () {
-        $('.c-MenuUniversal').removeClass('js-universalmenu')
-        $(this).after(button_close)
+        $('#top-menu').removeClass('js-universalmenubox')
       })
       button_close.click(function () {
-        $('.c-MenuUniversal').addClass('js-universalmenu')
-        $(this).detach()
+        $('#top-menu').addClass('js-universalmenubox')
       })
+    script.
       //- $('.c-Speaker__Body').addClass('-h-z')
       //- $('.c-Speaker__Img').height(function () { return $(this).width() })
       //-   .click(function () { $(this).siblings('.c-Speaker__Body').removeClass('-h-z') })

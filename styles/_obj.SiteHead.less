@@ -5,8 +5,10 @@
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
 
 
-// Object in the top-most Masthead containing site title and universal menu
+// Object in the top-most Masthead containing site title and navigation menu
 //
+// ^subcomponents
+// __Nav - pull-out navigation menu drawer
 // ^author
 // Chris Harvey
 // ^updated
@@ -15,4 +17,19 @@
   .flex-wrap(nowrap); // override `.o-GridFlex`
   .flex-justify-content(space-between);
   .flex-align-items(center);
+}
+
+.o-SiteHead__Nav {
+  width: auto;
+  z-index: 2; // over hero and sub menus
+  @media screen and (max-width: 51.999em) {
+    position: fixed;
+    right: 0; top: 0;
+    width: 12rem;
+    height: 100%;
+  }
+  .c-MenuUniversal {
+    // HACK dependent styles
+    height: 100%;
+  }
 }

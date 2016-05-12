@@ -50,7 +50,7 @@ html(lang="en")
         span.o-GridFloat__Item.c-SiteTitle__Logo
         h1.o-GridFloat__Item.c-SiteTitle__Name= site.title
         p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
-      nav#top-menu.o-GridFlex__Item.-w-a.js-universalmenubox
+      nav#top-menu.o-GridFlex__Item.o-SiteHead__Nav.js-universalnav
         h1.-d-n Top Menu
         ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
           each page in [sitemap.universal.about, sitemap.universal.sponsor, sitemap.universal.exhibit, sitemap.universal.contact]
@@ -124,24 +124,24 @@ html(lang="en")
           &copy; #[time 1996]&ndash;#[time 2016] American Society of Civil Engineers
     script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
     script.
-      var button_open  = $('<button>').addClass('c-Btn c-Btn--flat c-Btn--drawer js-menubutton')
+      var button_open = $('<button>').addClass('c-Btn c-Btn--flat c-Btn--drawer js-menubutton')
         .attr('type','button')
         .attr('name','open')
         .attr('title','top menu')
         .append($('<i>').addClass('material-icons').text('menu'))
+        .click(function () {
+          $('#top-menu').removeClass('js-universalnav')
+        })
       var button_close = $('<button>').addClass('c-Btn c-Btn--dominant c-Btn--drawer c-Btn--drawer--close js-menubutton')
         .attr('type','button')
         .attr('name','close')
         .attr('title','close')
         .append($('<i>').addClass('material-icons').text('close'))
+        .click(function () {
+          $('#top-menu').addClass('js-universalnav')
+        })
       $('.o-SiteHead').append(button_open)
       $('#top-menu').append(button_close)
-      button_open.click(function () {
-        $('#top-menu').removeClass('js-universalmenubox')
-      })
-      button_close.click(function () {
-        $('#top-menu').addClass('js-universalmenubox')
-      })
     script.
       //- $('.c-Speaker__Body').addClass('-h-z')
       //- $('.c-Speaker__Img').height(function () { return $(this).width() })

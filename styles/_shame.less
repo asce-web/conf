@@ -9,6 +9,17 @@
 // ALL THE STYLES IN THIS FILE MUST BE MOVED TO ITS PROPER STYLESHEET
 // AT SOME POINT IN TIME.
 
+.js-universalmenu {
+  @media screen and (max-width: 51.999em) {
+    display: none;
+  }
+}
+.js-menubuttons {
+  @media screen and (min-width: 52em) {
+    display: none;
+  }
+}
+
 // TODO move these to component files
 .c-TableStripe {
   tr:nth-child(even) {
@@ -43,6 +54,6 @@
   font-size: 0.75em;
   line-height: 0;
   white-space: nowrap;
-  background-color: @g-color_asce_label_bg;
-  color: @g-color_asce_label_txt;
+  // background-color: @g-color_asce_label_bg;
+  // color: @g-color_asce_label_txt;
 }

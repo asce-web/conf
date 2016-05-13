@@ -1,11 +1,11 @@
 mixin menulist(args)
-  - var structure = args.structure || {}
+  - var pages     = args.pages     || []
   - var class_obj = args.class_obj || {}
   - var depth     = +args.depth
   ol(class=class_obj.listclasses)
-    each value in structure
+    each item in pages
       li(class=class_obj.itemclasses)
-        a(class=class_obj.linkclasses href=value.href)= value.name
-        if value.sub && depth > 0
+        a(class=class_obj.linkclasses href=item.href)= item.name
+        if item.sub && depth > 0
           - class_obj.sub = class_obj.sub || {}
-          +menulist({structure: value.sub, class_obj: class_obj.sub, depth: depth-1})
+          +menulist({pages: item.sub, class_obj: class_obj.sub, depth: depth-1})

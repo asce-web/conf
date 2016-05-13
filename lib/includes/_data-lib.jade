@@ -9,136 +9,136 @@
 - function mainH1(arr) { return arr.reduce(function (a, b) { return a + ' — ' + b }) }
 
 //- -
-  var pages = {
-    index: {
+  var lib = [
+    {
       name: 'Pattern Library Home', href: 'index.html'
     }
-  , visual: {
+  , {
       name: 'Visual Design', href: 'visual.html'
     }
-  , base: {
+  , {
       name: 'Base', href: 'base.html'
-    , sub: {
-        toc         : { name: 'Table of Contents'    , href: 'base.html#table-contents' }
-      , hn_p        : { name: 'Headings & Paragraphs', href: 'base.html#headings-paragraphs' }
-      , lists       : { name: 'Lists'                , href: 'base.html#lists' }
-      , tables      : { name: 'Tables'               , href: 'base.html#tables' }
-      , text: {
+    , sub: [
+        { name: 'Table of Contents'    , href: 'base.html#table-contents' }
+      , { name: 'Headings & Paragraphs', href: 'base.html#headings-paragraphs' }
+      , { name: 'Lists'                , href: 'base.html#lists' }
+      , { name: 'Tables'               , href: 'base.html#tables' }
+      , {
           name: 'Text-Level Elements', href: '#text-level-elements'
-        , sub: {
-            links  : { name: 'Links'        , href: 'base.html#links' }
-          , stress : { name: 'Stress'       , href: 'base.html#stress' }
-          , doc    : { name: 'Documentation', href: 'base.html#documentation' }
-          , data   : { name: 'Data'         , href: 'base.html#data' }
-          }
+        , sub: [
+            { name: 'Links'        , href: 'base.html#links' }
+          , { name: 'Stress'       , href: 'base.html#stress' }
+          , { name: 'Documentation', href: 'base.html#documentation' }
+          , { name: 'Data'         , href: 'base.html#data' }
+          ]
         }
-      , embeded     : { name: 'Embedded Elements'    , href: 'base.html#embedded-elements' }
-      , forms       : { name: 'Forms'                , href: 'base.html#forms' }
-      , interactive : { name: 'Interactive Elements' , href: 'base.html#interactive-elements' }
-      }
+      , { name: 'Embedded Elements'    , href: 'base.html#embedded-elements' }
+      , { name: 'Forms'                , href: 'base.html#forms' }
+      , { name: 'Interactive Elements' , href: 'base.html#interactive-elements' }
+      ]
     }
-  , obj: {
+  , {
       name: 'Objects', href: 'obj.html'
-    , sub: {
-        toc            : { name: 'Table of Contents'  , href: 'obj.html#table-contents' }
-      , blocks         : { name: 'The Block Object'   , href: 'obj.html#block-object' }
-      , inline         : { name: 'The Inline Object'  , href: 'obj.html#inline-object' }
-      , listbare       : { name: 'The Bare List'      , href: 'obj.html#bare-list' }
-      , gridflex       : { name: 'The Flex Grid'      , href: 'obj.html#flex-grid' }
-      , gridfloat      : { name: 'The Float Grid'     , href: 'obj.html#float-grid' }
-      , runner         : { name: 'The Runner Object'  , href: 'obj.html#runner-object' }
-      , contentwrapper : { name: 'The Content Wrapper', href: 'obj.html#content-wrapper' }
-      , listaction     : { name: 'The Action List'    , href: 'obj.html#action-list' }
-      , liststacked    : { name: 'The Stacked List'   , href: 'obj.html#stacked-list' }
-      , sitehead       : { name: 'The Site Head'      , href: 'obj.html#site-head' }
-      }
+    , sub: [
+        { name: 'Table of Contents'  , href: 'obj.html#table-contents' }
+      , { name: 'The Block Object'   , href: 'obj.html#block-object' }
+      , { name: 'The Inline Object'  , href: 'obj.html#inline-object' }
+      , { name: 'The Bare List'      , href: 'obj.html#bare-list' }
+      , { name: 'The Flex Grid'      , href: 'obj.html#flex-grid' }
+      , { name: 'The Float Grid'     , href: 'obj.html#float-grid' }
+      , { name: 'The Runner Object'  , href: 'obj.html#runner-object' }
+      , { name: 'The Content Wrapper', href: 'obj.html#content-wrapper' }
+      , { name: 'The Action List'    , href: 'obj.html#action-list' }
+      , { name: 'The Stacked List'   , href: 'obj.html#stacked-list' }
+      , { name: 'The Site Head'      , href: 'obj.html#site-head' }
+      ]
     }
-  , comp: {
+  , {
       name: 'Components', href: 'comp.html'
-    , sub: {
-        toc           : { name: 'Table of Contents'        , href: 'comp.html#table-contents' }
-      , mast          : { name: 'The Masthead and Mastfoot', href: 'comp.html#masthead-mastfoot' }
-      , sitetitle     : { name: 'The Site Title'           , href: 'comp.html#site-title' }
-      , menuuniversal : { name: 'The Universal Menu'       , href: 'comp.html#universal-menu' }
-      , menustandard  : { name: 'The Standard Menu'        , href: 'comp.html#standard-menu' }
-      , menusub       : { name: 'The Sub Menu'             , href: 'comp.html#sub-menu' }
-      , sitemap       : { name: 'The Sitemap Component'    , href: 'comp.html#sitemap-component' }
-      , pagetitle     : { name: 'The Page Title'           , href: 'comp.html#page-title' }
-      , banner        : { name: 'The Banner Component'     , href: 'comp.html#banner-component' }
-      , hero          : { name: 'The Hero Block'           , href: 'comp.html#hero-block' }
-      , otheryear     : { name: 'The Other Year Block'     , href: 'comp.html#other-year-block' }
-      , overlay       : { name: 'The Overlay Component'    , href: 'comp.html#overlay-component' }
-      , sponsorblock  : { name: 'The Sponsor Block'        , href: 'comp.html#sponsor-block' }
-      , dateblock     : { name: 'The Date Block'           , href: 'comp.html#date-block' }
-      , pass          : { name: 'The Pass Component'       , href: 'comp.html#pass-component' }
-      , program       : { name: 'The Program Component'    , href: 'comp.html#program-component' }
-      , timeblock     : { name: 'The Time Block'           , href: 'comp.html#time-block' }
-      , speaker       : { name: 'The Speaker Component'    , href: 'comp.html#speaker-component' }
-      , sociallist    : { name: 'The Social List'          , href: 'comp.html#social-list' }
-      , callout       : { name: 'The Callout Component'    , href: 'comp.html#callout-component' }
-      , btn           : { name: 'Buttons'                  , href: 'comp.html#buttons' }
-      }
+    , sub: [
+        { name: 'Table of Contents'        , href: 'comp.html#table-contents' }
+      , { name: 'The Masthead and Mastfoot', href: 'comp.html#masthead-mastfoot' }
+      , { name: 'The Site Title'           , href: 'comp.html#site-title' }
+      , { name: 'The Universal Menu'       , href: 'comp.html#universal-menu' }
+      , { name: 'The Standard Menu'        , href: 'comp.html#standard-menu' }
+      , { name: 'The Sub Menu'             , href: 'comp.html#sub-menu' }
+      , { name: 'The Sitemap Component'    , href: 'comp.html#sitemap-component' }
+      , { name: 'The Page Title'           , href: 'comp.html#page-title' }
+      , { name: 'The Banner Component'     , href: 'comp.html#banner-component' }
+      , { name: 'The Hero Block'           , href: 'comp.html#hero-block' }
+      , { name: 'The Other Year Block'     , href: 'comp.html#other-year-block' }
+      , { name: 'The Overlay Component'    , href: 'comp.html#overlay-component' }
+      , { name: 'The Sponsor Block'        , href: 'comp.html#sponsor-block' }
+      , { name: 'The Date Block'           , href: 'comp.html#date-block' }
+      , { name: 'The Pass Component'       , href: 'comp.html#pass-component' }
+      , { name: 'The Program Component'    , href: 'comp.html#program-component' }
+      , { name: 'The Time Block'           , href: 'comp.html#time-block' }
+      , { name: 'The Speaker Component'    , href: 'comp.html#speaker-component' }
+      , { name: 'The Social List'          , href: 'comp.html#social-list' }
+      , { name: 'The Callout Component'    , href: 'comp.html#callout-component' }
+      , { name: 'Buttons'                  , href: 'comp.html#buttons' }
+      ]
     }
-  , helpers: {
+  , {
       name: 'Helpers', href: 'helpers.html'
     }
-  , atoms: {
+  , {
       name: 'Atoms', href: 'atoms.html'
     }
-  }
-- var pages = {}
-- pages.index    = { name: 'Pattern Library Home', href: 'index.html' }
-- pages.visual   = { name: 'Visual Design'       , href: 'visual.html' }
-- pages.base     = { name: 'Base'                , href: 'base.html' }
-- pages.obj      = { name: 'Objects'             , href: 'obj.html' }
-- pages.comp     = { name: 'Components'          , href: 'comp.html' }
-- pages.helpers  = { name: 'Helpers'             , href: 'helpers.html' }
-- pages.atoms    = { name: 'Atoms'               , href: 'atoms.html' }
-- pages.base.sub = {}
-- pages.base.sub.toc         = { name: 'Table of Contents'    , href: 'base.html#table-contents' }
-- pages.base.sub.hn_p        = { name: 'Headings & Paragraphs', href: 'base.html#headings-paragraphs' }
-- pages.base.sub.lists       = { name: 'Lists'                , href: 'base.html#lists' }
-- pages.base.sub.tables      = { name: 'Tables'               , href: 'base.html#tables' }
-- pages.base.sub.text        = { name: 'Text-Level Elements'  , href: 'base.html#text-level-elements' }
-- pages.base.sub.embeded     = { name: 'Embedded Elements'    , href: 'base.html#embedded-elements' }
-- pages.base.sub.forms       = { name: 'Forms'                , href: 'base.html#forms' }
-- pages.base.sub.interactive = { name: 'Interactive Elements' , href: 'base.html#interactive-elements' }
-- pages.base.sub.text.sub = {}
-- pages.base.sub.text.sub.links  = { name: 'Links'        , href: 'base.html#links' }
-- pages.base.sub.text.sub.stress = { name: 'Stress'       , href: 'base.html#stress' }
-- pages.base.sub.text.sub.doc    = { name: 'Documentation', href: 'base.html#documentation' }
-- pages.base.sub.text.sub.data   = { name: 'Data'         , href: 'base.html#data' }
-- pages.obj.sub = {}
-- pages.obj.sub.toc            = { name: 'Table of Contents'  , href: 'obj.html#table-contents' }
-- pages.obj.sub.blocks         = { name: 'The Block Object'   , href: 'obj.html#block-object' }
-- pages.obj.sub.inline         = { name: 'The Inline Object'  , href: 'obj.html#inline-object' }
-- pages.obj.sub.listbare       = { name: 'The Bare List'      , href: 'obj.html#bare-list' }
-- pages.obj.sub.gridflex       = { name: 'The Flex Grid'      , href: 'obj.html#flex-grid' }
-- pages.obj.sub.gridfloat      = { name: 'The Float Grid'     , href: 'obj.html#float-grid' }
-- pages.obj.sub.runner         = { name: 'The Runner Object'  , href: 'obj.html#runner-object' }
-- pages.obj.sub.contentwrapper = { name: 'The Content Wrapper', href: 'obj.html#content-wrapper' }
-- pages.obj.sub.listaction     = { name: 'The Action List'    , href: 'obj.html#action-list' }
-- pages.obj.sub.liststacked    = { name: 'The Stacked List'   , href: 'obj.html#stacked-list' }
-- pages.obj.sub.sitehead       = { name: 'The Site Head'      , href: 'obj.html#site-head' }
-- pages.comp.sub = {}
-- pages.comp.sub.toc           = { name: 'Table of Contents'        , href: 'comp.html#table-contents' }
-- pages.comp.sub.mast          = { name: 'The Masthead and Mastfoot', href: 'comp.html#masthead-mastfoot' }
-- pages.comp.sub.sitetitle     = { name: 'The Site Title'           , href: 'comp.html#site-title' }
-- pages.comp.sub.menuuniversal = { name: 'The Universal Menu'       , href: 'comp.html#universal-menu' }
-- pages.comp.sub.menustandard  = { name: 'The Standard Menu'        , href: 'comp.html#standard-menu' }
-- pages.comp.sub.menusub       = { name: 'The Sub Menu'             , href: 'comp.html#sub-menu' }
-- pages.comp.sub.sitemap       = { name: 'The Sitemap Component'    , href: 'comp.html#sitemap-component' }
-- pages.comp.sub.pagetitle     = { name: 'The Page Title'           , href: 'comp.html#page-title' }
-- pages.comp.sub.banner        = { name: 'The Banner Component'     , href: 'comp.html#banner-component' }
-- pages.comp.sub.hero          = { name: 'The Hero Block'           , href: 'comp.html#hero-block' }
-- pages.comp.sub.otheryear     = { name: 'The Other Year Block'     , href: 'comp.html#other-year-block' }
-- pages.comp.sub.overlay       = { name: 'The Overlay Component'    , href: 'comp.html#overlay-component' }
-- pages.comp.sub.sponsorblock  = { name: 'The Sponsor Block'        , href: 'comp.html#sponsor-block' }
-- pages.comp.sub.dateblock     = { name: 'The Date Block'           , href: 'comp.html#date-block' }
-- pages.comp.sub.pass          = { name: 'The Pass Component'       , href: 'comp.html#pass-component' }
-- pages.comp.sub.program       = { name: 'The Program Component'    , href: 'comp.html#program-component' }
-- pages.comp.sub.timeblock     = { name: 'The Time Block'           , href: 'comp.html#time-block' }
-- pages.comp.sub.speaker       = { name: 'The Speaker Component'    , href: 'comp.html#speaker-component' }
-- pages.comp.sub.sociallist    = { name: 'The Social List'          , href: 'comp.html#social-list' }
-- pages.comp.sub.callout       = { name: 'The Callout Component'    , href: 'comp.html#callout-component' }
-- pages.comp.sub.btn           = { name: 'Buttons'                  , href: 'comp.html#buttons' }
+  ]
+- var lib = []
+- lib.push({name:'Pattern Library Home', href:'index.html'})
+- lib.push({name:'Visual Design'       , href:'visual.html'})
+- lib.push({name:'Base'                , href:'base.html'})
+- lib.push({name:'Objects'             , href:'obj.html'})
+- lib.push({name:'Components'          , href:'comp.html'})
+- lib.push({name:'Helpers'             , href:'helpers.html'})
+- lib.push({name:'Atoms'               , href:'atoms.html'})
+- lib[2].sub = []
+- lib[2].sub.push({name:'Table of Contents'    , href:'base.html#table-contents'})
+- lib[2].sub.push({name:'Headings & Paragraphs', href:'base.html#headings-paragraphs'})
+- lib[2].sub.push({name:'Lists'                , href:'base.html#lists'})
+- lib[2].sub.push({name:'Tables'               , href:'base.html#tables'})
+- lib[2].sub.push({name:'Text-Level Elements'  , href:'base.html#text-level-elements'})
+- lib[2].sub.push({name:'Embedded Elements'    , href:'base.html#embedded-elements'})
+- lib[2].sub.push({name:'Forms'                , href:'base.html#forms'})
+- lib[2].sub.push({name:'Interactive Elements' , href:'base.html#interactive-elements'})
+- lib[2].sub[4].sub = []
+- lib[2].sub[4].sub.push({name:'Links'        , href:'base.html#links'})
+- lib[2].sub[4].sub.push({name:'Stress'       , href:'base.html#stress'})
+- lib[2].sub[4].sub.push({name:'Documentation', href:'base.html#documentation'})
+- lib[2].sub[4].sub.push({name:'Data'         , href:'base.html#data'})
+- lib[3].sub = []
+- lib[3].sub.push({name:'Table of Contents'  , href:'obj.html#table-contents'})
+- lib[3].sub.push({name:'The Block Object'   , href:'obj.html#block-object'})
+- lib[3].sub.push({name:'The Inline Object'  , href:'obj.html#inline-object'})
+- lib[3].sub.push({name:'The Bare List'      , href:'obj.html#bare-list'})
+- lib[3].sub.push({name:'The Flex Grid'      , href:'obj.html#flex-grid'})
+- lib[3].sub.push({name:'The Float Grid'     , href:'obj.html#float-grid'})
+- lib[3].sub.push({name:'The Runner Object'  , href:'obj.html#runner-object'})
+- lib[3].sub.push({name:'The Content Wrapper', href:'obj.html#content-wrapper'})
+- lib[3].sub.push({name:'The Action List'    , href:'obj.html#action-list'})
+- lib[3].sub.push({name:'The Stacked List'   , href:'obj.html#stacked-list'})
+- lib[3].sub.push({name:'The Site Head'      , href:'obj.html#site-head'})
+- lib[4].sub = []
+- lib[4].sub.push({name:'Table of Contents'        , href:'comp.html#table-contents'})
+- lib[4].sub.push({name:'The Masthead and Mastfoot', href:'comp.html#masthead-mastfoot'})
+- lib[4].sub.push({name:'The Site Title'           , href:'comp.html#site-title'})
+- lib[4].sub.push({name:'The Universal Menu'       , href:'comp.html#universal-menu'})
+- lib[4].sub.push({name:'The Standard Menu'        , href:'comp.html#standard-menu'})
+- lib[4].sub.push({name:'The Sub Menu'             , href:'comp.html#sub-menu'})
+- lib[4].sub.push({name:'The Sitemap Component'    , href:'comp.html#sitemap-component'})
+- lib[4].sub.push({name:'The Page Title'           , href:'comp.html#page-title'})
+- lib[4].sub.push({name:'The Banner Component'     , href:'comp.html#banner-component'})
+- lib[4].sub.push({name:'The Hero Block'           , href:'comp.html#hero-block'})
+- lib[4].sub.push({name:'The Other Year Block'     , href:'comp.html#other-year-block'})
+- lib[4].sub.push({name:'The Overlay Component'    , href:'comp.html#overlay-component'})
+- lib[4].sub.push({name:'The Sponsor Block'        , href:'comp.html#sponsor-block'})
+- lib[4].sub.push({name:'The Date Block'           , href:'comp.html#date-block'})
+- lib[4].sub.push({name:'The Pass Component'       , href:'comp.html#pass-component'})
+- lib[4].sub.push({name:'The Program Component'    , href:'comp.html#program-component'})
+- lib[4].sub.push({name:'The Time Block'           , href:'comp.html#time-block'})
+- lib[4].sub.push({name:'The Speaker Component'    , href:'comp.html#speaker-component'})
+- lib[4].sub.push({name:'The Social List'          , href:'comp.html#social-list'})
+- lib[4].sub.push({name:'The Callout Component'    , href:'comp.html#callout-component'})
+- lib[4].sub.push({name:'Buttons'                  , href:'comp.html#buttons'})

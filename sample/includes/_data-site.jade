@@ -63,121 +63,138 @@
 
 //- -
   var sitemap = {
-    universal: {
-      index: {
+    universal: [
+      {
         name: 'ASCE Convention', href: 'index.html'
       , description: site.tagline
       }
-    , about: {
+    , {
         name: 'About', href: 'about.html'
       , description: 'About the ASCE Convention.'
       , icon: { content: 'info_outline', fallback: '&#xE88F;' }
-      , sub: {
-          'coop-orgs' : { name: 'Cooperating Orgs' , href: '' }
-        , 'part-orgs' : { name: 'Partnering Orgs'  , href: '' }
-        , 'volunteer' : { name: 'Volunteer'        , href: '' }
-        , 'why-attend': { name: 'Why Attend'       , href: '' }
-        }
+      , sub: [
+          { name: 'Cooperating Orgs' , href: '' }
+        , { name: 'Partnering Orgs'  , href: '' }
+        , { name: 'Volunteer'        , href: '' }
+        , { name: 'Why Attend'       , href: '' }
+        ]
       }
-    , sponsor: {
+    , {
         name: 'Sponsor', href: 'sponsor.html'
       , description: 'Sponsors of the ASCE Convention.'
       , icon: { content: 'people', fallback: '&#xE7FB;' }
       }
-    , exhibit: {
+    , {
         name: 'Exhibit', href: 'exhibit.html'
       , description: 'Exhibitors at the ASCE Convention.'
       , icon: { content: 'work', fallback: '&#xE8F9;' }
-      , sub: {
-          'exhibitor-list': { name:'Exhibitor List', href:'' }
-        }
+      , sub: [
+          { name:'Exhibitor List', href:'' }
+        ]
       }
-    , contact: {
+    , {
         name: 'Contact', href: 'contact.html'
       , description: 'Contact us for questions and comments about the ASCE Convention.'
       , icon: { content: 'email', fallback: '&#xE0BE;' }
       }
-    }
-  , internal: {
-      home: {
+    ]
+  , internal: [
+      {
         name: 'Home', href: 'home.html'
       , description: conference.current.theme
       , icon: { content: 'home', fallback: '&#xE88A;' }
       }
-    , registration: {
+    , {
         name: 'Registration', href: 'registration.html'
       , description: 'Register for the ASCE 2016 conference here.'
       , icon: { content: 'shopping_cart', fallback: '&#xE8CC;' }
-      , sub: {
-          'why-attend'     : { name: 'Why Attend'      , href: '' }
-        , 'short-courses'  : { name: 'Short Courses'   , href: '' }
-        , 'technical-tours': { name: 'Technical Tours' , href: '' }
-        , 'optional-tours' : { name: 'Optional Tours'  , href: '' }
-        }
+      , sub: [
+          { name: 'Why Attend'      , href: '' }
+        , { name: 'Short Courses'   , href: '' }
+        , { name: 'Technical Tours' , href: '' }
+        , { name: 'Optional Tours'  , href: '' }
+        ]
       }
-    , program: {
+    , {
         name: 'Program', href: 'program.html'
       , description: 'Program and Agenda of the ASCE 2016 conference.'
       , icon: { content: 'event', fallback: '&#xE878;' }
-      , sub: {
-          events: { name: 'Events', href: '' }
-        }
+      , sub: [
+          { name: 'Events', href: '' }
+        ]
       }
-    , location: {
+    , {
         name: 'Hotel & Travel', href: 'location.html'
       , description: 'Get information about the location of the conference and where to stay.'
       , icon: { content: 'flight', fallback: '&#xE539;' }
-      , sub: {
-          'international-travel': { name: 'International Travel', href: '' }
-        }
+      , sub: [
+          { name: 'International Travel', href: '' }
+        ]
       }
-    , speakers: {
+    , {
         name: 'Speakers', href: 'speakers.html'
       , description: 'Get information about current and prospective speakers at ASCE 2016.'
       , icon: { content: 'account_box', fallback: '&#xE851;' }
-      , sub: {
-          'distinguished-lecture-series': { name: 'Distinguished Lecture Series', href: '' }
-        }
+      , sub: [
+          { name: 'Distinguished Lecture Series', href: '' }
+        ]
       }
-    }
+    ]
   }
 - var sitemap = {}
-- sitemap.universal = {}
-- sitemap.universal.index   = {name:'ASCE Convention', href:'index.html'  , description:site.tagline}
-- sitemap.universal.about   = {name:'About'          , href:'about.html'  , description:'About the ASCE Convention.'}
-- sitemap.universal.sponsor = {name:'Sponsor'        , href:'sponsor.html', description:'Sponsors of the ASCE Convention.'}
-- sitemap.universal.exhibit = {name:'Exhibit'        , href:'exhibit.html', description:'Exhibitors at the ASCE Convention.'}
-- sitemap.universal.contact = {name:'Contact'        , href:'contact.html', description:'Contact us for questions and comments about the ASCE Convention.'}
-- sitemap.universal.about.icon   = { content: 'info_outline' , fallback: '&#xE88F;'}
-- sitemap.universal.sponsor.icon = { content: 'people'       , fallback: '&#xE7FB;'}
-- sitemap.universal.exhibit.icon = { content: 'work'         , fallback: '&#xE8F9;'}
-- sitemap.universal.contact.icon = { content: 'email'        , fallback: '&#xE0BE;'}
-- sitemap.universal.about.sub = {}
-- sitemap.universal.about.sub['coop-orgs']  = {name:'Cooperating Orgs', href:''}
-- sitemap.universal.about.sub['part-orgs']  = {name:'Partnering Orgs' , href:''}
-- sitemap.universal.about.sub['volunteer']  = {name:'Volunteer'       , href:''}
-- sitemap.universal.about.sub['why-attend'] = {name:'Why Attend'      , href:''}
-- sitemap.universal.exhibit.sub = {'exhibitor-list': {name:'Exhibitor List', href:''}}
-- sitemap.internal = {}
-- sitemap.internal.home         = {name:'Home'          , href:'home.html'        , description:conference.current.theme}
-- sitemap.internal.registration = {name:'Registration'  , href:'registration.html', description:'Register for the ASCE 2016 conference here.'}
-- sitemap.internal.program      = {name:'Program'       , href:'program.html'     , description:'Program and Agenda of the ASCE 2016 conference.'}
-- sitemap.internal.location     = {name:'Hotel & Travel', href:'location.html'    , description:'Get information about the location of the conference and where to stay.'}
-- sitemap.internal.speakers     = {name:'Speakers'      , href:'speakers.html'    , description:'Get information about current and prospective speakers at ASCE 2016.'}
-- sitemap.internal.home.icon         = { content: 'home'         , fallback: '&#xE88A;'}
-- sitemap.internal.registration.icon = { content: 'shopping_cart', fallback: '&#xE8CC;'}
-- sitemap.internal.program.icon      = { content: 'event'        , fallback: '&#xE878;'}
-- sitemap.internal.location.icon     = { content: 'flight'       , fallback: '&#xE539;'}
-- sitemap.internal.speakers.icon     = { content: 'account_box'  , fallback: '&#xE851;'}
-- sitemap.internal.registration.sub = {}
-- sitemap.internal.registration.sub['why-attend']      = {name:'Why Attend'     , href:''}
-- sitemap.internal.registration.sub['short-courses']   = {name:'Short Courses'  , href:''}
-- sitemap.internal.registration.sub['technical-tours'] = {name:'Technical Tours', href:''}
-- sitemap.internal.registration.sub['optional-tours']  = {name:'Optional Tours' , href:''}
-- sitemap.internal.program.sub =  {events                        : {name:'Events'                      , href:''}}
-- sitemap.internal.location.sub = {'international-travel'        : {name:'International Travel'        , href:''}}
-- sitemap.internal.speakers.sub = {'distinguished-lecture-series': {name:'Distinguished Lecture Series', href:''}}
+- sitemap.universal = []
+- sitemap.universal.push({name:'ASCE Convention', href:'index.html'  , description:site.tagline})
+- sitemap.universal.push({name:'About'          , href:'about.html'  , description:'About the ASCE Convention.'})
+- sitemap.universal.push({name:'Sponsor'        , href:'sponsor.html', description:'Sponsors of the ASCE Convention.'})
+- sitemap.universal.push({name:'Exhibit'        , href:'exhibit.html', description:'Exhibitors at the ASCE Convention.'})
+- sitemap.universal.push({name:'Contact'        , href:'contact.html', description:'Contact us for questions and comments about the ASCE Convention.'})
+- sitemap.universal[1].icon = {content:'info_outline' , fallback:'&#xE88F;'}
+- sitemap.universal[2].icon = {content:'people'       , fallback:'&#xE7FB;'}
+- sitemap.universal[3].icon = {content:'work'         , fallback:'&#xE8F9;'}
+- sitemap.universal[4].icon = {content:'email'        , fallback:'&#xE0BE;'}
+- sitemap.universal[1].sub = []
+- sitemap.universal[1].sub.push({name:'Cooperating Orgs', href:''})
+- sitemap.universal[1].sub.push({name:'Partnering Orgs' , href:''})
+- sitemap.universal[1].sub.push({name:'Volunteer'       , href:''})
+- sitemap.universal[1].sub.push({name:'Why Attend'      , href:''})
+- sitemap.universal[3].sub = [{name:'Exhibitor List', href:''}]
+- sitemap.internal = []
+- sitemap.internal.push({name:'Home'          , href:'home.html'        , description:conference.current.theme})
+- sitemap.internal.push({name:'Registration'  , href:'registration.html', description:'Register for the ASCE 2016 conference here.'})
+- sitemap.internal.push({name:'Program'       , href:'program.html'     , description:'Program and Agenda of the ASCE 2016 conference.'})
+- sitemap.internal.push({name:'Hotel & Travel', href:'location.html'    , description:'Get information about the location of the conference and where to stay.'})
+- sitemap.internal.push({name:'Speakers'      , href:'speakers.html'    , description:'Get information about current and prospective speakers at ASCE 2016.'})
+- sitemap.internal[0].icon = {content:'home'         , fallback:'&#xE88A;'}
+- sitemap.internal[1].icon = {content:'shopping_cart', fallback:'&#xE8CC;'}
+- sitemap.internal[2].icon = {content:'event'        , fallback:'&#xE878;'}
+- sitemap.internal[3].icon = {content:'flight'       , fallback:'&#xE539;'}
+- sitemap.internal[4].icon = {content:'account_box'  , fallback:'&#xE851;'}
+- sitemap.internal[1].sub = []
+- sitemap.internal[1].sub.push({name:'Why Attend'     , href:''})
+- sitemap.internal[1].sub.push({name:'Short Courses'  , href:''})
+- sitemap.internal[1].sub.push({name:'Technical Tours', href:''})
+- sitemap.internal[1].sub.push({name:'Optional Tours' , href:''})
+- sitemap.internal[2].sub = [{name:'Events'                      , href:''}]
+- sitemap.internal[3].sub = [{name:'International Travel'        , href:''}]
+- sitemap.internal[4].sub = [{name:'Distinguished Lecture Series', href:''}]
 
+//- -
+  var sitemap_class_obj = {
+    listclasses : 'o-ListBare o-GridFlex c-Sitemap'
+  , itemclasses : 'o-GridFlex__Item c-Sitemap__Item'
+  , sub: {
+    , listclasses : 'o-ListBare c-Sitemap__SubList'
+    , itemclasses : 'c-Sitemap__SubItem'
+    }
+  }
+//- unbuffered block code isn’t fucking supported,
+//- so I have to do this:
+- var sitemap_class_obj = {}
+- sitemap_class_obj.listclasses = 'o-ListBare o-GridFlex c-Sitemap'
+- sitemap_class_obj.itemclasses = 'o-GridFlex__Item c-Sitemap__Item'
+- sitemap_class_obj.sub = {}
+- sitemap_class_obj.sub.listclasses = 'o-ListBare c-Sitemap__SubList'
+- sitemap_class_obj.sub.itemclasses = 'c-Sitemap__SubItem'
 
 
 //- -
@@ -201,24 +218,6 @@
 - standard_menu_class_obj.sub.listclasses = 'o-ListBare c-MenuSub'
 - standard_menu_class_obj.sub.itemclasses = 'c-MenuSub__Item'
 - standard_menu_class_obj.sub.linkclasses = 'o-Block c-MenuSub__Link'
-
-//- -
-  var sitemap_class_obj = {
-    listclasses : 'o-ListBare o-GridFlex c-Sitemap'
-  , itemclasses : 'o-GridFlex__Item c-Sitemap__Item'
-  , sub: {
-    , listclasses : 'o-ListBare c-Sitemap__SubList'
-    , itemclasses : 'c-Sitemap__SubItem'
-    }
-  }
-//- unbuffered block code isn’t fucking supported,
-//- so I have to do this:
-- var sitemap_class_obj = {}
-- sitemap_class_obj.listclasses = 'o-ListBare o-GridFlex c-Sitemap'
-- sitemap_class_obj.itemclasses = 'o-GridFlex__Item c-Sitemap__Item'
-- sitemap_class_obj.sub = {}
-- sitemap_class_obj.sub.listclasses = 'o-ListBare c-Sitemap__SubList'
-- sitemap_class_obj.sub.itemclasses = 'c-Sitemap__SubItem'
 
 
 - var pass = {}
@@ -365,13 +364,13 @@
   , copper    : { name: 'Copper'             , size: ''    }
   }
 - var sponsorlevel = {}
-- sponsorlevel.premier   = { name: 'Premier'            , size: 'lrg' }
-- sponsorlevel.platinum  = { name: 'Platinum'           , size: 'lrg' }
-- sponsorlevel.gold      = { name: 'Gold'               , size: 'med' }
-- sponsorlevel.corporate = { name: 'Corporate Sponsors' , size: 'sml' }
-- sponsorlevel.silver    = { name: 'Silver'             , size: 'sml' }
-- sponsorlevel.bronze    = { name: 'Bronze'             , size: ''    }
-- sponsorlevel.copper    = { name: 'Copper'             , size: ''    }
+- sponsorlevel.premier   = {name:'Premier'            , size:'lrg'}
+- sponsorlevel.platinum  = {name:'Platinum'           , size:'lrg'}
+- sponsorlevel.gold      = {name:'Gold'               , size:'med'}
+- sponsorlevel.corporate = {name:'Corporate Sponsors' , size:'sml'}
+- sponsorlevel.silver    = {name:'Silver'             , size:'sml'}
+- sponsorlevel.bronze    = {name:'Bronze'             , size:''}
+- sponsorlevel.copper    = {name:'Copper'             , size:''}
 
 //- -
   var sponsor = {

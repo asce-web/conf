@@ -53,13 +53,13 @@ html(lang="en")
       nav#top-menu.o-GridFlex__Item.o-SiteHead__Nav.js-universalnav
         h1.-d-n Top Menu
         ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
-          each page in [sitemap.universal.about, sitemap.universal.sponsor, sitemap.universal.exhibit, sitemap.universal.contact]
+          each page in sitemap.universal.slice(1)
             li.o-GridFlex__Item.c-MenuUniversal__Item
               a.o-Block.c-MenuUniversal__Link(href=page.href)
                 i.material-icons= page.icon.content
                 span= page.name
           li.o-GridFlex__Item.c-MenuUniversal__Item
-            - var page = sitemap.internal.home
+            - var page = sitemap.internal[0]
             a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href=page.href)
               i.material-icons= page.icon.content
               span ASCE 2016

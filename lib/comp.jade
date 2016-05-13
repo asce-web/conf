@@ -12,7 +12,6 @@ block append main__header
 block append main
   section.sg-sect#masthead-mastfoot
     h2 The Masthead and Mastfoot
-    p #[strong Note:] #[b Menu] button will be visible when screen is smaller than 720px.
     figure.sg-c-Fig
       header.c-Mast
         h1 mast heading
@@ -541,34 +540,23 @@ block append main
       pre.
         &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;highlight button&lt;/a&gt;
     h3 Inline Buttons
-    p Inline buttons, for buttons inline with text.
+    p Inline buttons, for buttons in line with text.
     figure.sg-c-Fig
       p.
         The following button,
         #[a.c-Btn.c-Btn--inline inline button],
-        is inline with the text in this paragraph.
+        is in line with the text in this paragraph.
       pre.
         &lt;p&gt;The following button,
           &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
-          is inline with the text in this paragraph.&lt;/p&gt;
+          is in line with the text in this paragraph.&lt;/p&gt;
     h3 Hero Buttons
-    p Hero button, for action button(s) in hero section.
+    p Hero button, for action button(s) in hero section. Combine with Highlight button to make bigger.
     figure.sg-c-Fig
       div(style="margin-bottom: 1.5rem;")
         a.c-Btn.c-Btn--hero hero button
-        a.c-Btn.c-Btn--hero2 hero2 button
-      div.o-Highlight.c-Banner(style="margin-bottom:1.5rem; z-index:1;")
-        a.c-Btn.c-Btn--hero hero button inside a banner
-        a.c-Btn.c-Btn--hero2 hero2 button inside a banner
       pre.
-        &lt;div&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button&lt;/a&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--hero2]"&gt;hero2 button&lt;/a&gt;
-        &lt;/div&gt;
-        &lt;div class="c-Banner"&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button inside a banner&lt;/a&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--hero2]"&gt;hero2 button inside a banner&lt;/a&gt;
-        &lt;/div&gt;
+        &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button&lt;/a&gt;
     h3 Dominant Buttons
     p Dominant button, for emphasizing a button when it is near other not-as-important buttons.
     figure.sg-c-Fig
@@ -580,6 +568,22 @@ block append main
         &lt;a class="#[u c-Btn]"&gt;regular button&lt;/a&gt;
         &lt;a class="#[u c-Btn]  #[u c-Btn--dominant]"&gt;dominant button!&lt;/a&gt;
         &lt;a class="#[u c-Btn]"&gt;regular button&lt;/a&gt;
+    h3 Ghost Buttons
+    p.
+      Ghost buttons can be used on a colored or image background.
+      Obviously, choose a background and a button color that won&rsquo;t clash.
+    figure.sg-c-Fig
+      div(style="margin-bottom: 1.5rem;")
+        a.c-Btn.c-Btn--ghost ghost button
+      div.o-Highlight.c-Banner(style="margin-bottom:1.5rem; z-index:1;")
+        a.c-Btn.c-Btn--ghost ghost button inside a banner
+      pre.
+        &lt;div&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--ghost]"&gt;ghost button&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="c-Banner"&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--ghost]"&gt;ghost button inside a banner&lt;/a&gt;
+        &lt;/div&gt;
     h3 Flat Buttons
     p Flat button, for making a #[code button] element look like a link.
     figure.sg-c-Fig
@@ -588,17 +592,10 @@ block append main
       pre.
         &lt;#[u button] class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/#[u button]&gt;
     h3 Drawer Buttons
-    p Drawer buttons for pull-out menu.
-    p: small.
-      #[strong Note:]
-      Class #[code .js-hamburgerbutton] is a scripting hook for drawer functionality.
-      It must be on a container for both buttons.
+    p Drawer buttons for pull-out menu. #[i Close] button is fixed to the top right.
     figure.sg-c-Fig
-      div.o-GridFlex__Item.-w-a.js-hamburgerbutton(style="margin-bottom: 1.5rem;")
-        button.c-Btn.c-Btn--drawer menu
-        button.c-Btn.c-Btn--drawer.c-Btn--drawer--close close
+      button.c-Btn.c-Btn--drawer menu
+      button.c-Btn.c-Btn--drawer.c-Btn--drawer--close close
       pre.
-        &lt;div class="#[u js-hamburgerbutton]"&gt;
-          &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]"&gt;menu&lt;/button&gt;
-          &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]  #[u c-Btn--drawer--close]"&gt;close&lt;/button&gt;
-        &lt;/div&gt;
+        &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]"&gt;menu&lt;/button&gt;
+        &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]  #[u c-Btn--drawer--close]"&gt;close&lt;/button&gt;

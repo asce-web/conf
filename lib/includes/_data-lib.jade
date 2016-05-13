@@ -15,6 +15,10 @@
     }
   , {
       name: 'Visual Design', href: 'visual.html'
+    , sub: [
+        { name: 'ASCE'     , href: 'visual.html#asce' }
+      , { name: 'ASCE 2016', href: 'visual.html#asce2016' }
+      ]
     }
   , {
       name: 'Base', href: 'base.html'
@@ -94,6 +98,9 @@
 - lib.push({name:'Components'          , href:'comp.html'   , description:'Patterns of look-and-feel that are each only used for one purpose.'})
 - lib.push({name:'Helpers'             , href:'helpers.html', description:'Somewhat explicit classes used for enhancing default styles.'})
 - lib.push({name:'Atoms'               , href:'atoms.html'  , description:'Very specific classes used for creating anomalies or fixing broken styles.'})
+- lib[1].sub = []
+- lib[1].sub.push({name:'ASCE'     , href:'visual.html#asce'})
+- lib[1].sub.push({name:'ASCE 2016', href:'visual.html#asce2016'})
 - lib[2].sub = []
 - lib[2].sub.push({name:'Table of Contents'    , href:'base.html#table-contents'})
 - lib[2].sub.push({name:'Headings & Paragraphs', href:'base.html#headings-paragraphs'})

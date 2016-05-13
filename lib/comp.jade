@@ -556,19 +556,8 @@ block append main
     figure.sg-c-Fig
       div(style="margin-bottom: 1.5rem;")
         a.c-Btn.c-Btn--hero hero button
-        a.c-Btn.c-Btn--hero2 hero2 button
-      div.o-Highlight.c-Banner(style="margin-bottom:1.5rem; z-index:1;")
-        a.c-Btn.c-Btn--hero hero button inside a banner
-        a.c-Btn.c-Btn--hero2 hero2 button inside a banner
       pre.
-        &lt;div&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button&lt;/a&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--hero2]"&gt;hero2 button&lt;/a&gt;
-        &lt;/div&gt;
-        &lt;div class="c-Banner"&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button inside a banner&lt;/a&gt;
-          &lt;a class="#[u c-Btn]  #[u c-Btn--hero2]"&gt;hero2 button inside a banner&lt;/a&gt;
-        &lt;/div&gt;
+        &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button&lt;/a&gt;
     h3 Dominant Buttons
     p Dominant button, for emphasizing a button when it is near other not-as-important buttons.
     figure.sg-c-Fig
@@ -580,6 +569,22 @@ block append main
         &lt;a class="#[u c-Btn]"&gt;regular button&lt;/a&gt;
         &lt;a class="#[u c-Btn]  #[u c-Btn--dominant]"&gt;dominant button!&lt;/a&gt;
         &lt;a class="#[u c-Btn]"&gt;regular button&lt;/a&gt;
+    h3 Ghost Buttons
+    p.
+      Ghost buttons can be used on a colored background.
+      Obviously, choose a background and a button color that won&rsquo;t clash.
+    figure.sg-c-Fig
+      div(style="margin-bottom: 1.5rem;")
+        a.c-Btn.c-Btn--ghost ghost button
+      div.o-Highlight.c-Banner(style="margin-bottom:1.5rem; z-index:1;")
+        a.c-Btn.c-Btn--ghost ghost button inside a banner
+      pre.
+        &lt;div&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--ghost]"&gt;ghost button&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="c-Banner"&gt;
+          &lt;a class="#[u c-Btn]  #[u c-Btn--ghost]"&gt;ghost button inside a banner&lt;/a&gt;
+        &lt;/div&gt;
     h3 Flat Buttons
     p Flat button, for making a #[code button] element look like a link.
     figure.sg-c-Fig

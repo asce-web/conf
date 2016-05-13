@@ -6,8 +6,46 @@
 @import (reference) url('__tool.module.menubar.less');
 
 
+// mixin for accent-colored buttons.
+// used on hero (primary color) and dominant (secondary color)
+.p-accentcolor {
+  &,
+  &:hover,
+  &:focus,
+  &:active,
+  &._hover,
+  &._active {
+    color: @g-color_asce_white;
+  }
+  &:active,
+  &._active {
+    background-color: @g-color_site_gray_dk;
+  }
+}
+
+// A mixin for link-like buttons.
+// used on ghost buttons and flat buttons.
+.p-linklike() {
+  &,
+  &:hover,
+  &:focus,
+  &:active,
+  &._hover,
+  &._active {
+    background: none;
+  }
+  &:hover,
+  &:focus,
+  &._hover {
+    color: @g-color_site_gray_lt; // same as normal link
+  }
+  &:active,
+  &._active {
+    color: inherit; // same as normal link
+  }
+}
+
 // Buttons.
-// (e.g. Student, Speaker, Standard, etc.)
 //
 // ^subclasses
 // --hilite   - singular button in highlight block
@@ -83,70 +121,27 @@
 }
 
 .c-Btn--hero {
+  .p-accentcolor();
   border: 0;
   background-color: @g-color_site_primary;
-  color: @g-color_asce_white;
 }
 
 .c-Btn--dominant {
+  .p-accentcolor();
   font-style: italic;
   background-color: @g-color_site_secondary;
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    color: @g-color_asce_white;
-  }
-  &:active,
-  &._active {
-    background-color: @g-color_site_gray_dk;
-  }
 }
 
 .c-Btn--ghost {
+  .p-linklike();
   border-width: 2px;
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    background: none;
-  }
-  &:hover,
-  &:focus,
-  &._hover {
-    color: @g-color_site_gray_lt; // same as normal link
-  }
-  &:active,
-  &._active {
-    color: inherit; // same as normal link
-  }
 }
 
 .c-Btn--flat {
+  .p-linklike();
   .menubar();
   font-size: (14em/16); // same as Mast
   border: 0;
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    background: none;
-  }
-  &:hover,
-  &:focus,
-  &._hover {
-    color: @g-color_site_gray_lt; // same as normal link
-  }
-  &:active,
-  &._active {
-    color: inherit; // same as normal link
-  }
 }
 
 .c-Btn--drawer {

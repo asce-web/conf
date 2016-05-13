@@ -1,5 +1,10 @@
 extends lib.tpl.jade
 
+block append vars
+  - var page_id = lib[0]
+  - titles.pop()
+  - titles.push(page_id.name)
+
 block append main
   p.
     This pattern library contains demos of components
@@ -11,26 +16,8 @@ block append main
     placed in #[code &lt;figure&gt;] elements to separate them from the surrounding documentation.
   nav
     h2 Table of Contents
-    section
-      h3: a(href="visual.html") Visual Design
-      p Color and font schemes, look-and-feel, overall mood and tone.
-    section
-      h3: a(href="base.html") Base Typography
-      p Bare, unstyled HTML elements. No classes.
-      +menulist({pages: lib[2].sub, depth: Infinity})
-    section
-      h3: a(href="obj.html") Objects
-      p Patterns of structure that can be reused many times for many different purposes.
-      +menulist({pages: lib[3].sub, depth: Infinity})
-    section
-      h3: a(href="comp.html") Components
-      p Patterns of look-and-feel that are each only used for one purpose.
-      +menulist({pages: lib[4].sub, depth: Infinity})
-    section
-      h3: a(href="helpers.html") Helpers
-      p Somewhat explicit classes used for enhancing default styles.
-      +menulist({pages: lib[5].sub, depth: Infinity})
-    section
-      h3: a(href="atoms.html") Atoms
-      p Very specific classes used for creating anomalies or fixing broken styles.
-      +menulist({pages: lib[6].sub, depth: Infinity})
+    each page in lib.slice(1)
+      section
+        h3: a(href=page.href)= page.name
+        p= page.description
+        +menulist({pages: page.sub, depth: Infinity})

@@ -535,13 +535,13 @@ block append main
       to look like Button Components.
     p Every Button Component must have styles available for each of the following states:
     dl
-      dt default
+      dt.-fw-7 default
       dd the button does something or the link goes somewhere, but the user is not interacting with the component
-      dt hover
-      dd the user&rsquo;s cursor is hovering over the component
-      dt active
+      dt.-fw-7 hover/focus
+      dd the user&rsquo;s cursor is hovering over the component, or the user agent is focusing on the component
+      dt.-fw-7 active
       dd the user is in the process of clicking the component
-      dt disabled
+      dt.-fw-7 disabled
       dd.
         the element is a #[code button] with the #[code disabled] attribute or
         is an #[code a] with no #[code href] attribute.
@@ -556,20 +556,20 @@ block append main
     h3 Generic Buttons
     p Generic, general purpose buttons.
     figure.sg-c-Fig
-      div(style="margin-bottom:1.5rem;"): a.c-Btn generic button
+      div(style="margin-bottom:1.5rem;"): a.c-Btn(href="#0") generic button
       div(style="margin-bottom:1.5rem;")
-        a.c-Btn generic button hover
-        a.c-Btn generic button active
+        a.c-Btn(href="#0")._hover generic button hover
+        a.c-Btn(href="#0")._active generic button active
         a.c-Btn generic button disabled
       pre.
         &lt;a class="#[u c-Btn]"&gt;generic button&lt;/a&gt;
     h3 Highlight Buttons
     p Highlight buttons, for large buttons in highlight block.
     figure.sg-c-Fig
-      div(style="margin-bottom:1.5rem;"): a.c-Btn.c-Btn--hilite highlight button
+      div(style="margin-bottom:1.5rem;"): a.c-Btn.c-Btn--hilite(href="#0") highlight button
       div(style="margin-bottom:1.5rem;")
-        a.c-Btn.c-Btn--hilite highlight button hover
-        a.c-Btn.c-Btn--hilite highlight button active
+        a.c-Btn.c-Btn--hilite(href="#0")._hover highlight button hover
+        a.c-Btn.c-Btn--hilite(href="#0")._active highlight button active
         a.c-Btn.c-Btn--hilite highlight button disabled
       pre.
         &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;highlight button&lt;/a&gt;
@@ -578,10 +578,10 @@ block append main
     figure.sg-c-Fig
       p.
         The following button,
-        #[a.c-Btn.c-Btn--inline inline button],
+        #[a.c-Btn.c-Btn--inline(href="#0") inline button],
         is in line with the text in this paragraph.
-      p Lorem ipsum #[a.c-Btn.c-Btn--inline inline button hover] dolor.
-      p Lorem ipsum #[a.c-Btn.c-Btn--inline inline button active] dolor.
+      p Lorem ipsum #[a.c-Btn.c-Btn--inline(href="#0")._hover inline button hover] dolor.
+      p Lorem ipsum #[a.c-Btn.c-Btn--inline(href="#0")._active inline button active] dolor.
       p Lorem ipsum #[a.c-Btn.c-Btn--inline inline button disabled] dolor.
       pre.
         &lt;p&gt;The following button,
@@ -590,57 +590,59 @@ block append main
     h3 Hero Buttons
     p Hero button, for action button(s) in hero section. Combine with Highlight button to make bigger.
     figure.sg-c-Fig
-      div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--hero hero button
+      div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--hero(href="#0") hero button
       div(style="margin-bottom: 1.5rem;")
-        a.c-Btn.c-Btn--hero hero button hover
-        a.c-Btn.c-Btn--hero hero button active
+        a.c-Btn.c-Btn--hero(href="#0")._hover hero button hover
+        a.c-Btn.c-Btn--hero(href="#0")._active hero button active
         a.c-Btn.c-Btn--hero hero button disabled
       pre.
         &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button&lt;/a&gt;
     h3 Dominant Buttons
     p Dominant button, for emphasizing a button when it is near other not-as-important buttons.
     figure.sg-c-Fig
+      div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--dominant(href="#0") dominant button
       div(style="margin-bottom: 1.5rem;")
-        a.c-Btn regular button
-        a.c-Btn.c-Btn--dominant dominant button!
-        a.c-Btn regular button
-      div(style="margin-bottom: 1.5rem;")
-        a.c-Btn.c-Btn--dominant dominant button hover
-        a.c-Btn.c-Btn--dominant dominant button active
+        a.c-Btn.c-Btn--dominant(href="#0")._hover dominant button hover
+        a.c-Btn.c-Btn--dominant(href="#0")._active dominant button active
         a.c-Btn.c-Btn--dominant dominant button disabled
       pre.
-        &lt;a class="#[u c-Btn]"&gt;regular button&lt;/a&gt;
         &lt;a class="#[u c-Btn]  #[u c-Btn--dominant]"&gt;dominant button!&lt;/a&gt;
-        &lt;a class="#[u c-Btn]"&gt;regular button&lt;/a&gt;
     h3 Ghost Buttons
     p.
       Ghost buttons can be used on a colored or image background.
       Obviously, choose a background and a button color that won&rsquo;t clash.
     figure.sg-c-Fig
-      div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--ghost ghost button
+      div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--ghost(href="#0") ghost button
       div(style="margin-bottom: 1.5rem;")
-        a.c-Btn.c-Btn--ghost ghost button hover
-        a.c-Btn.c-Btn--ghost ghost button active
+        a.c-Btn.c-Btn--ghost(href="#0")._hover ghost button hover
+        a.c-Btn.c-Btn--ghost(href="#0")._active ghost button active
         a.c-Btn.c-Btn--ghost ghost button disabled
       div.o-Highlight.c-Banner(style="margin-bottom:1.5rem; z-index:1;")
-        a.c-Btn.c-Btn--ghost ghost button inside a banner
-        a.c-Btn.c-Btn--ghost ghost button hover inside a banner
-        a.c-Btn.c-Btn--ghost ghost button active inside a banner
+        a.c-Btn.c-Btn--ghost(href="#0") ghost button inside a banner
+        a.c-Btn.c-Btn--ghost(href="#0")._hover ghost button hover inside a banner
+        a.c-Btn.c-Btn--ghost(href="#0")._active ghost button active inside a banner
         a.c-Btn.c-Btn--ghost ghost button disabled inside a banner
       pre.
         &lt;a class="#[u c-Btn]  #[u c-Btn--ghost]"&gt;ghost button&lt;/a&gt;
     h3 Flat Buttons
-    p Flat button, for making a #[code button] element look like a link.
+    p Flat, link-ish buttons.
     figure.sg-c-Fig
       div(style="margin-bottom: 1.5rem;"): button.c-Btn.c-Btn--flat flat button
       div(style="margin-bottom: 1.5rem;")
-        button.c-Btn.c-Btn--flat flat button hover
-        button.c-Btn.c-Btn--flat flat button active
-        button.c-Btn.c-Btn--flat flat button disabled
+        a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover
+        a.c-Btn.c-Btn--flat(href="#0")._active flat button active
+        a.c-Btn.c-Btn--flat flat button disabled
+      div.o-Highlight.c-Banner(style="margin-bottom:1.5rem; z-index:1;")
+        a.c-Btn.c-Btn--flat(href="#0") flat button inside a banner
+        a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover inside a banner
+        a.c-Btn.c-Btn--flat(href="#0")._active flat button active inside a banner
+        a.c-Btn.c-Btn--flat flat button disabled inside a banner
       pre.
-        &lt;#[u button] class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/#[u button]&gt;
+        &lt;button class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/button&gt;
+        &lt;a class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat link&lt;/a&gt;
     h3 Drawer Buttons
-    p Drawer buttons for pull-out menu. #[i Close] button is fixed to the top right.
+    p Drawer buttons for pull-out menu.
+    p These are actually #[code button] elements. #[i Close] button is fixed to the top right.
     figure.sg-c-Fig
       div(style="margin-bottom: 1.5rem;")
         button.c-Btn.c-Btn--drawer open
@@ -648,6 +650,6 @@ block append main
       pre.
         &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]"&gt;open&lt;/button&gt;
         &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]  #[u c-Btn--drawer--close]"&gt;close&lt;/button&gt;
-      button.c-Btn.c-Btn--drawer drawer hover
-      button.c-Btn.c-Btn--drawer drawer active
-      button.c-Btn.c-Btn--drawer drawer disabled
+      button.c-Btn.c-Btn--drawer._hover drawer hover
+      button.c-Btn.c-Btn--drawer._active drawer active
+      button.c-Btn.c-Btn--drawer(disabled) drawer disabled

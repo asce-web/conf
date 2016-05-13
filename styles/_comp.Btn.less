@@ -26,7 +26,7 @@
   padding: @g-boxpadd_mill;
   margin: 0; // override margin-top from xmeter
   font-weight: 700;
-  border: 1px outset;
+  border: 1px solid;
   cursor: pointer;
   a& {
     opacity: 1; // HACK specificity
@@ -34,17 +34,14 @@
 }
 .c-Btn {
   color: @g-color_site_secondary;
-  border-color: currentColor;
-  background-color: @g-color_asce_white;
   &:hover,
   &:focus {
     color: @g-color_site_gray_dk;
-    background-color: mix(@g-color_asce_white, @g-color_site_gray_lt);
-  }
-  &:active {
-    color: @g-color_asce_black;
     background-color: @g-color_site_gray_lt;
-    border-style: inset;
+  }
+  &,
+  &:active {
+    background-color: @g-color_asce_white;
   }
 }
 
@@ -70,11 +67,15 @@
 }
 
 .c-Btn--dominant {
-  color: @g-color_asce_white;
-  background-color: @g-color_site_secondary;
   font-style: italic;
-  &:hover {
-    border-color: @g-color_asce_white;
+  background-color: @g-color_site_secondary;
+  &,
+  &:hover,
+  &:focus {
+    color: @g-color_asce_white;
+  }
+  &:active {
+    background-color: @g-color_site_gray_dk;
   }
 }
 
@@ -83,7 +84,14 @@
   &:hover,
   &:focus,
   &:active {
-    background-color: transparent;
+    background: none;
+  }
+  &:hover,
+  &:focus {
+    color: @g-color_site_gray_lt;
+  }
+  &:active {
+    color: @g-color_asce_white;
   }
 }
 
@@ -104,7 +112,7 @@
     color: @g-color_site_gray_lt;
   }
   &:active {
-    color: inherit; // override `.c-Btn:active black`
+    color: inherit;
   }
 }
 

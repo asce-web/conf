@@ -26,40 +26,40 @@
     , theme           : ''
     , addressLocality : 'Portland'
     , addressRegion   : {name: 'Oregon', abbr: 'OR'}
-    , startDate       : new Date('2016-09-28')
-    , endDate         : new Date('2016-10-01')
+    , startDate       : '2016-09-28'
+    , endDate         : '2016-10-01'
     }
   , prev: {
       name            : 'ASCE 2015'
     , addressLocality : 'New York'
     , addressRegion   : {name: 'New York', abbr: 'NY'}
-    , startDate       : new Date('2015-10-11')
+    , startDate       : '2015-10-11'
     }
   , next: {
       name            : 'ASCE 2017'
     , addressLocality : 'Chicago'
     , addressRegion   : {name: 'Illinois', abbr: 'IL'}
-    , startDate       : new Date('2017-10-04')
+    , startDate       : '2017-10-04'
     }
   }
 - var conference = {}
 - conference.current = {}
 - conference.prev = {}
 - conference.next = {}
-- conference.current.name = 'ASCE 2016'
-- conference.current.theme = ''
+- conference.current.name            = 'ASCE 2016'
+- conference.current.theme           = ''
 - conference.current.addressLocality = 'Portland'
-- conference.current.addressRegion = {name: 'Oregon', abbr: 'OR'}
-- conference.current.startDate = new Date('2016-09-28')
-- conference.current.endDate = new Date('2016-10-01')
-- conference.prev.name = 'ASCE 2015'
+- conference.current.addressRegion   = {name: 'Oregon', abbr: 'OR'}
+- conference.current.startDate       = '2016-09-28'
+- conference.current.endDate         = '2016-10-01'
+- conference.prev.name            = 'ASCE 2015'
 - conference.prev.addressLocality = 'New York'
-- conference.prev.addressRegion = {name: 'New York', abbr: 'NY'}
-- conference.prev.startDate = new Date('2015-10-11')
-- conference.next.name = 'ASCE 2017'
+- conference.prev.addressRegion   = {name: 'New York', abbr: 'NY'}
+- conference.prev.startDate       = '2015-10-11'
+- conference.next.name            = 'ASCE 2017'
 - conference.next.addressLocality = 'Chicago'
-- conference.next.addressRegion = {name: 'Illinois', abbr: 'IL'}
-- conference.next.startDate = new Date('2017-10-04')
+- conference.next.addressRegion   = {name: 'Illinois', abbr: 'IL'}
+- conference.next.startDate       = '2017-10-04'
 
 //- -
   var sitemap = {
@@ -310,46 +310,46 @@
 
 
 - var program_events = [[], [], [], []]
-- program_events[0].push({startDate:new Date('2016-09-28 10:00'), endDate:new Date('2016-09-28 19:00'), name:'Registration'})
-- program_events[0].push({startDate:new Date('2016-09-28 10:30'), endDate:new Date('2016-09-28 16:30'), name:'Technical Tours', href:'', starred:true})
-- program_events[0].push({startDate:new Date('2016-09-28 13:00'), endDate:new Date('2016-09-28 17:00'), name:'Short Courses', href:'', starred:true})
-- program_events[0].push({startDate:new Date('2016-09-28 12:00'), endDate:new Date('2016-09-28 17:00'), name:'Optional Tours', href:'', starred:true})
-- program_events[0].push({startDate:new Date('2016-09-28 17:30'), endDate:new Date('2016-09-28 19:30'), name:'Opening Welcome Reception'})
-- program_events[0].push({startDate:new Date('2016-09-28 13:00'), endDate:new Date('2016-09-28 17:00'), name:'Community Service Project', starred:true})
-- program_events[1].push({startDate:new Date('2016-09-29 07:00'), endDate:new Date('2016-09-29 16:30'), name:'Registration'})
-- program_events[1].push({startDate:new Date('2016-09-29 07:30'), endDate:new Date('2016-09-29 08:30'), name:'Student & Emerging Leaders Welcome Breakfast and Orientation'})
-- program_events[1].push({startDate:new Date('2016-09-29 08:30'), endDate:new Date('2016-09-29 10:00'), name:'Opening Plenary Session', starred:true})
-- program_events[1].push({startDate:new Date('2016-09-29 09:30'), endDate:new Date('2016-09-29 15:30'), name:'Guest Program Orientation & Tour', starred:true})
-- program_events[1].push({startDate:new Date('2016-09-29 10:00'), endDate:new Date('2016-09-29 10:30'), name:'Beverage Break'})
-- program_events[1].push({startDate:new Date('2016-09-29 10:30'), endDate:new Date('2016-09-29 11:30'), name:'Concurrent Sessions'})
-- program_events[1].push({startDate:new Date('2016-09-29 11:45'), endDate:new Date('2016-09-29 13:45'), name:'Celebration of Leaders Luncheon', starred:true})
-- program_events[1].push({startDate:new Date('2016-09-29 14:00'), endDate:new Date('2016-09-29 15:30'), name:'Concurrent Sessions'})
-- program_events[1].push({startDate:new Date('2016-09-29 14:00'), endDate:new Date('2016-09-29 18:00'), name:'Communities and Pavilion'})
-- program_events[1].push({startDate:new Date('2016-09-29 15:30'), endDate:new Date('2016-09-29 16:00'), name:'Beverage Break'})
-- program_events[1].push({startDate:new Date('2016-09-29 16:00'), endDate:new Date('2016-09-29 17:30'), name:'Concurrent Sessions'})
-- program_events[1].push({startDate:new Date('2016-09-29 18:45'), endDate:new Date('2016-09-29 21:45'), name:'Optional Tour', href:'', starred:true})
-- program_events[2].push({startDate:new Date('2016-09-30 07:00'), endDate:new Date('2016-09-30 16:30'), name:'Registration'})
-- program_events[2].push({startDate:new Date('2016-09-30 07:30'), endDate:new Date('2016-09-30 08:30'), name:'Leadership & Society Awards Breakfast'})
-- program_events[2].push({startDate:new Date('2016-09-30 08:30'), endDate:new Date('2016-09-30 17:00'), name:'Communities and Pavilion'})
-- program_events[2].push({startDate:new Date('2016-09-30 08:45'), endDate:new Date('2016-09-30 09:45'), name:'ASCE Annual Business Meeting', starred:true})
-- program_events[2].push({startDate:new Date('2016-09-30 09:45'), endDate:new Date('2016-09-30 10:15'), name:'Beverage Break'})
-- program_events[2].push({startDate:new Date('2016-09-30 10:15'), endDate:new Date('2016-09-30 11:45'), name:'Concurrent Sessions'})
-- program_events[2].push({startDate:new Date('2016-09-30 11:45'), endDate:new Date('2016-09-30 13:15'), name:'Lunch on Your Own'})
-- program_events[2].push({startDate:new Date('2016-09-30 11:45'), endDate:new Date('2016-09-30 13:15'), name:'International Luncheon (ticketed)'})
-- program_events[2].push({startDate:new Date('2016-09-30 13:15'), endDate:new Date('2016-09-30 14:15'), name:'Concurrent Sessions'})
-- program_events[2].push({startDate:new Date('2016-09-30 13:00'), endDate:new Date('2016-09-30 17:15'), name:'Optional Tour', href:'', starred:true})
-- program_events[2].push({startDate:new Date('2016-09-30 14:30'), endDate:new Date('2016-09-30 16:00'), name:'Industry Leaders Forum', starred:true})
-- program_events[2].push({startDate:new Date('2016-09-30 16:00'), endDate:new Date('2016-09-30 16:30'), name:'Beverage Break'})
-- program_events[2].push({startDate:new Date('2016-09-30 16:30'), endDate:new Date('2016-09-30 17:30'), name:'Concurrent Sessions'})
-- program_events[2].push({startDate:new Date('2016-09-30 18:30'), endDate:new Date('2016-09-30 21:30'), name:'Theater Night Out', starred:true})
-- program_events[3].push({startDate:new Date('2016-10-01 07:00'), endDate:new Date('2016-10-01 14:30'), name:'Registration'})
-- program_events[3].push({startDate:new Date('2016-10-01 07:30'), endDate:new Date('2016-10-01 08:15'), name:'Order of the Engineer Ceremony', starred:true})
-- program_events[3].push({startDate:new Date('2016-10-01 08:45'), endDate:new Date('2016-10-01 11:45'), name:'Optional Tour', href:''})
-- program_events[3].push({startDate:new Date('2016-10-01 08:30'), endDate:new Date('2016-10-01 10:00'), name:'Concurrent Sessions'})
-- program_events[3].push({startDate:new Date('2016-10-01 08:30'), endDate:new Date('2016-10-01 14:00'), name:'Communities and Pavilion'})
-- program_events[3].push({startDate:new Date('2016-10-01 10:15'), endDate:new Date('2016-10-01 11:45'), name:'Concurrent Sessions'})
-- program_events[3].push({startDate:new Date('2016-10-01 12:00'), endDate:new Date('2016-10-01 14:00'), name:'ASCE Luncheon & Closing General Session', starred:true})
-- program_events[3].push({startDate:new Date('2016-10-01 14:30'), endDate:new Date('2016-10-01 17:30'), name:'Technical Tours', href:''})
+- program_events[0].push({startDate:'2016-09-28 10:00', endDate:'2016-09-28 19:00', name:'Registration'})
+- program_events[0].push({startDate:'2016-09-28 10:30', endDate:'2016-09-28 16:30', name:'Technical Tours', href:'', starred:true})
+- program_events[0].push({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Short Courses', href:'', starred:true})
+- program_events[0].push({startDate:'2016-09-28 12:00', endDate:'2016-09-28 17:00', name:'Optional Tours', href:'', starred:true})
+- program_events[0].push({startDate:'2016-09-28 17:30', endDate:'2016-09-28 19:30', name:'Opening Welcome Reception'})
+- program_events[0].push({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Community Service Project', starred:true})
+- program_events[1].push({startDate:'2016-09-29 07:00', endDate:'2016-09-29 16:30', name:'Registration'})
+- program_events[1].push({startDate:'2016-09-29 07:30', endDate:'2016-09-29 08:30', name:'Student & Emerging Leaders Welcome Breakfast and Orientation'})
+- program_events[1].push({startDate:'2016-09-29 08:30', endDate:'2016-09-29 10:00', name:'Opening Plenary Session', starred:true})
+- program_events[1].push({startDate:'2016-09-29 09:30', endDate:'2016-09-29 15:30', name:'Guest Program Orientation & Tour', starred:true})
+- program_events[1].push({startDate:'2016-09-29 10:00', endDate:'2016-09-29 10:30', name:'Beverage Break'})
+- program_events[1].push({startDate:'2016-09-29 10:30', endDate:'2016-09-29 11:30', name:'Concurrent Sessions'})
+- program_events[1].push({startDate:'2016-09-29 11:45', endDate:'2016-09-29 13:45', name:'Celebration of Leaders Luncheon', starred:true})
+- program_events[1].push({startDate:'2016-09-29 14:00', endDate:'2016-09-29 15:30', name:'Concurrent Sessions'})
+- program_events[1].push({startDate:'2016-09-29 14:00', endDate:'2016-09-29 18:00', name:'Communities and Pavilion'})
+- program_events[1].push({startDate:'2016-09-29 15:30', endDate:'2016-09-29 16:00', name:'Beverage Break'})
+- program_events[1].push({startDate:'2016-09-29 16:00', endDate:'2016-09-29 17:30', name:'Concurrent Sessions'})
+- program_events[1].push({startDate:'2016-09-29 18:45', endDate:'2016-09-29 21:45', name:'Optional Tour', href:'', starred:true})
+- program_events[2].push({startDate:'2016-09-30 07:00', endDate:'2016-09-30 16:30', name:'Registration'})
+- program_events[2].push({startDate:'2016-09-30 07:30', endDate:'2016-09-30 08:30', name:'Leadership & Society Awards Breakfast'})
+- program_events[2].push({startDate:'2016-09-30 08:30', endDate:'2016-09-30 17:00', name:'Communities and Pavilion'})
+- program_events[2].push({startDate:'2016-09-30 08:45', endDate:'2016-09-30 09:45', name:'ASCE Annual Business Meeting', starred:true})
+- program_events[2].push({startDate:'2016-09-30 09:45', endDate:'2016-09-30 10:15', name:'Beverage Break'})
+- program_events[2].push({startDate:'2016-09-30 10:15', endDate:'2016-09-30 11:45', name:'Concurrent Sessions'})
+- program_events[2].push({startDate:'2016-09-30 11:45', endDate:'2016-09-30 13:15', name:'Lunch on Your Own'})
+- program_events[2].push({startDate:'2016-09-30 11:45', endDate:'2016-09-30 13:15', name:'International Luncheon (ticketed)'})
+- program_events[2].push({startDate:'2016-09-30 13:15', endDate:'2016-09-30 14:15', name:'Concurrent Sessions'})
+- program_events[2].push({startDate:'2016-09-30 13:00', endDate:'2016-09-30 17:15', name:'Optional Tour', href:'', starred:true})
+- program_events[2].push({startDate:'2016-09-30 14:30', endDate:'2016-09-30 16:00', name:'Industry Leaders Forum', starred:true})
+- program_events[2].push({startDate:'2016-09-30 16:00', endDate:'2016-09-30 16:30', name:'Beverage Break'})
+- program_events[2].push({startDate:'2016-09-30 16:30', endDate:'2016-09-30 17:30', name:'Concurrent Sessions'})
+- program_events[2].push({startDate:'2016-09-30 18:30', endDate:'2016-09-30 21:30', name:'Theater Night Out', starred:true})
+- program_events[3].push({startDate:'2016-10-01 07:00', endDate:'2016-10-01 14:30', name:'Registration'})
+- program_events[3].push({startDate:'2016-10-01 07:30', endDate:'2016-10-01 08:15', name:'Order of the Engineer Ceremony', starred:true})
+- program_events[3].push({startDate:'2016-10-01 08:45', endDate:'2016-10-01 11:45', name:'Optional Tour', href:''})
+- program_events[3].push({startDate:'2016-10-01 08:30', endDate:'2016-10-01 10:00', name:'Concurrent Sessions'})
+- program_events[3].push({startDate:'2016-10-01 08:30', endDate:'2016-10-01 14:00', name:'Communities and Pavilion'})
+- program_events[3].push({startDate:'2016-10-01 10:15', endDate:'2016-10-01 11:45', name:'Concurrent Sessions'})
+- program_events[3].push({startDate:'2016-10-01 12:00', endDate:'2016-10-01 14:00', name:'ASCE Luncheon & Closing General Session', starred:true})
+- program_events[3].push({startDate:'2016-10-01 14:30', endDate:'2016-10-01 17:30', name:'Technical Tours', href:''})
 
 
 

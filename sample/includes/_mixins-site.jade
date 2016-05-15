@@ -51,9 +51,9 @@ mixin pass(type, body_period)
             +period-details(regperiod)
 
 mixin programAgenda(events, index, show_all)
-  - var date = events[0].startDate
-  input.c-Program__Check(id='date'+index type="radio" name="program" value=date.toISOString().slice(0,10))&attributes((index===0) ? {checked:''} : {})
-  h1.o-GridFlex__Item.c-Program__Hn: label(for='date'+index): time(datetime=date.toISOString().slice(0,10))
+  input.c-Program__Check(id='date'+index type="radio" name="program" value=events[0].startDate)&attributes((index===0) ? {checked:''} : {})
+  h1.o-GridFlex__Item.c-Program__Hn: label(for='date'+index): time(datetime=events[0].startDate)
+    - var date = new Date(events[0].startDate)
     = day_names[date.getUTCDay()] + ','
     br
     = month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
@@ -61,9 +61,9 @@ mixin programAgenda(events, index, show_all)
     each event0 in events
       if show_all || event0.starred
         dt.o-GridFlex__Item.c-TimeBlock__Times
-          time(datetime=event0.startDate.toISOString())= hourTime12(event0.startDate)
+          time(datetime=event0.startDate)= hourTime12(new Date(event0.startDate))
           | &ndash;
-          time(datetime=event0.endDate.toISOString())= hourTime12(event0.endDate)
+          time(datetime=event0.endDate)= hourTime12(new Date(event0.endDate))
         dd.o-GridFlex__Item.c-TimeBlock__Desc
           if event0.href || event0.href === ''
             a.o-Block.c-TimeBlock__Link(href=event0.href)

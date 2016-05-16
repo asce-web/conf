@@ -1,7 +1,7 @@
 
 //- ///////////////////////////////////////////////////////////////////////////////
 //- //
-//- // This file holds all data and functions reusable from site to site.
+//- // This file holds all data reusable from site to site.
 //- //
 //- ///////////////////////////////////////////////////////////////////////////////
 
@@ -30,19 +30,6 @@
   , 'Friday'
   , 'Saturday'
   ]
-  function hourTime12(date) {
-    var hour = '' + ((date.getHours() - 1)%12 + 1)
-    var minute = ((date.getMinutes() < 10) ? '0' : '') + date.getMinutes()
-    var meridiem = (date.getHours() < 12) ? 'am' : 'pm'
-    return hour + ':' + minute + ' ' + meridiem
-  }
-  function hourTime24(date) {
-    var hour =   ((date.getHours()   < 10) ? '0' : '') + date.getHours()
-    var minute = ((date.getMinutes() < 10) ? '0' : '') + date.getMinutes()
-    return hour + ':' + minute
-  }
 
 - var month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 - var day_names = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-- function hourTime12(date) {var hour = '' + ((date.getHours() - 1)%12 + 1); var minute = ((date.getMinutes() < 10) ? '0' : '') + date.getMinutes(); var meridiem = (date.getHours() < 12) ? 'am' : 'pm'; return hour + ':' + minute + ' ' + meridiem; }
-- function hourTime24(date) {var hour =   ((date.getHours()   < 10) ? '0' : '') + date.getHours(); var minute = ((date.getMinutes() < 10) ? '0' : '') + date.getMinutes(); return hour + ':' + minute; }

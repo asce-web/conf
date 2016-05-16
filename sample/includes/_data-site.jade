@@ -221,13 +221,13 @@
 
 
 - var pass = {}
-- pass.standard  = {name:'Standard Pass' , period:{}}
-- pass.speaker   = {name:'Speaker Pass'  , period:{}}
-- pass.moderator = {name:'Moderator Pass', period:{}}
-- pass.ym        = {name:'Younger Member', period:{}}
-- pass.student   = {name:'Student Pass'  , period:{}}
-- pass.guest     = {name:'Guest Pass'    , period:{}}
-- pass.daily     = {name:'Daily Pass'    , period:{}}
+- pass.standard  = {name:'Standard Pass' , periods:[]}
+- pass.speaker   = {name:'Speaker Pass'  , periods:[]}
+- pass.moderator = {name:'Moderator Pass', periods:[]}
+- pass.ym        = {name:'Younger Member', periods:[]}
+- pass.student   = {name:'Student Pass'  , periods:[]}
+- pass.guest     = {name:'Guest Pass'    , periods:[]}
+- pass.daily     = {name:'Daily Pass'    , periods:[]}
 
 - pass.standard.description  = 'Members & Non-Members'
 - pass.speaker.description   = 'Speakers and Presenters'
@@ -239,74 +239,74 @@
 
 - pass.student.fineprint = 'Full-time students must show valid ID onsite at the registration desk when picking up name badge.'
 
-- pass.standard.period.earlybird = {name:'Early Bird', membership:{}}
-- pass.standard.period.advance   = {name:'Advance'   , membership:{}}
-- pass.standard.period.onsite    = {name:'Onsite'    , membership:{}}
+- pass.standard.periods.push({name:'Early Bird', memberships:[]})
+- pass.standard.periods.push({name:'Advance'   , memberships:[]})
+- pass.standard.periods.push({name:'Onsite'    , memberships:[]})
 
-- pass.speaker.period.earlybird = {name:'Early Bird', membership:{}}
-- pass.speaker.period.advance   = {name:'Advance'   , membership:{}}
-- pass.speaker.period.onsite    = {name:'Onsite'    , membership:{}}
+- pass.speaker.periods.push({name:'Early Bird', memberships:[]})
+- pass.speaker.periods.push({name:'Advance'   , memberships:[]})
+- pass.speaker.periods.push({name:'Onsite'    , memberships:[]})
 
-- pass.moderator.period.earlybird = {name:'Early Bird', membership:{}}
-- pass.moderator.period.advance   = {name:'Advance'   , membership:{}}
-- pass.moderator.period.onsite    = {name:'Onsite'    , membership:{}}
+- pass.moderator.periods.push({name:'Early Bird', memberships:[]})
+- pass.moderator.periods.push({name:'Advance'   , memberships:[]})
+- pass.moderator.periods.push({name:'Onsite'    , memberships:[]})
 
-- pass.ym.period.earlybird = {name:'Early Bird', membership:{}}
-- pass.ym.period.advance   = {name:'Advance'   , membership:{}}
-- pass.ym.period.onsite    = {name:'Onsite'    , membership:{}}
+- pass.ym.periods.push({name:'Early Bird', memberships:[]})
+- pass.ym.periods.push({name:'Advance'   , memberships:[]})
+- pass.ym.periods.push({name:'Onsite'    , memberships:[]})
 
-- pass.student.period.earlybird = {name:'Early Bird', membership:{}}
-- pass.student.period.advance   = {name:'Advance'   , membership:{}}
-- pass.student.period.onsite    = {name:'Onsite'    , membership:{}}
+- pass.student.periods.push({name:'Early Bird', memberships:[]})
+- pass.student.periods.push({name:'Advance'   , memberships:[]})
+- pass.student.periods.push({name:'Onsite'    , memberships:[]})
 
-- pass.guest.period.earlybird = {name:'Early Bird', membership:{}}
-- pass.guest.period.advance   = {name:'Advance'   , membership:{}}
-- pass.guest.period.onsite    = {name:'Onsite'    , membership:{}}
+- pass.guest.periods.push({name:'Early Bird', memberships:[]})
+- pass.guest.periods.push({name:'Advance'   , memberships:[]})
+- pass.guest.periods.push({name:'Onsite'    , memberships:[]})
 
-- pass.daily.period.earlybird = {name:'Early Bird', membership:{}}
-- pass.daily.period.advance   = {name:'Advance'   , membership:{}}
-- pass.daily.period.onsite    = {name:'Onsite'    , membership:{}}
+- pass.daily.periods.push({name:'Early Bird', memberships:[]})
+- pass.daily.periods.push({name:'Advance'   , memberships:[]})
+- pass.daily.periods.push({name:'Onsite'    , memberships:[]})
 
 
-- pass.standard.period.earlybird.membership.member    = {name:'Member'    , price:745, is_featured:true}
-- pass.standard.period.earlybird.membership.nonmember = {name:'Non-Member', price:845}
-- pass.standard.period.advance.membership.member      = {name:'Member'    , price:845, is_featured:true}
-- pass.standard.period.advance.membership.nonmember   = {name:'Non-Member', price:945}
-- pass.standard.period.onsite.membership.member       = {name:'Member'    , price:945, is_featured:true}
-- pass.standard.period.onsite.membership.nonmember    = {name:'Non-Member', price:1045}
+- pass.standard.periods[0].memberships.push({name:'Member'    , price:745, is_featured:true})
+- pass.standard.periods[0].memberships.push({name:'Non-Member', price:845})
+- pass.standard.periods[1].memberships.push({name:'Member'    , price:845, is_featured:true})
+- pass.standard.periods[1].memberships.push({name:'Non-Member', price:945})
+- pass.standard.periods[2].memberships.push({name:'Member'    , price:945, is_featured:true})
+- pass.standard.periods[2].memberships.push({name:'Non-Member', price:1045})
 
-- pass.speaker.period.earlybird.membership.member    = {name:'Member'    , price:645, is_featured:true}
-- pass.speaker.period.earlybird.membership.nonmember = {name:'Non-Member', price:745}
-- pass.speaker.period.advance.membership.member      = {name:'Member'    , price:745, is_featured:true}
-- pass.speaker.period.advance.membership.nonmember   = {name:'Non-Member', price:845}
-- pass.speaker.period.onsite.membership.member       = {name:'Member'    , price:945, is_featured:true}
-- pass.speaker.period.onsite.membership.nonmember    = {name:'Non-Member', price:945}
+- pass.speaker.periods[0].memberships.push({name:'Member'    , price:645, is_featured:true})
+- pass.speaker.periods[0].memberships.push({name:'Non-Member', price:745})
+- pass.speaker.periods[1].memberships.push({name:'Member'    , price:745, is_featured:true})
+- pass.speaker.periods[1].memberships.push({name:'Non-Member', price:845})
+- pass.speaker.periods[2].memberships.push({name:'Member'    , price:945, is_featured:true})
+- pass.speaker.periods[2].memberships.push({name:'Non-Member', price:945})
 
-- pass.moderator.period.earlybird.membership.member    = {name:'Member'    , price:645, is_featured:true}
-- pass.moderator.period.earlybird.membership.nonmember = {name:'Non-Member', price:745}
-- pass.moderator.period.advance.membership.member      = {name:'Member'    , price:745, is_featured:true}
-- pass.moderator.period.advance.membership.nonmember   = {name:'Non-Member', price:845}
-- pass.moderator.period.onsite.membership.member       = {name:'Member'    , price:845, is_featured:true}
-- pass.moderator.period.onsite.membership.nonmember    = {name:'Non-Member', price:945}
+- pass.moderator.periods[0].memberships.push({name:'Member'    , price:645, is_featured:true})
+- pass.moderator.periods[0].memberships.push({name:'Non-Member', price:745})
+- pass.moderator.periods[1].memberships.push({name:'Member'    , price:745, is_featured:true})
+- pass.moderator.periods[1].memberships.push({name:'Non-Member', price:845})
+- pass.moderator.periods[2].memberships.push({name:'Member'    , price:845, is_featured:true})
+- pass.moderator.periods[2].memberships.push({name:'Non-Member', price:945})
 
-- pass.ym.period.earlybird.membership.all = {name:'Member/Non-Member', price:645, is_featured:true}
-- pass.ym.period.advance.membership.all   = {name:'Member/Non-Member', price:745, is_featured:true}
-- pass.ym.period.onsite.membership.all    = {name:'Member/Non-Member', price:845, is_featured:true}
+- pass.ym.periods[0].memberships.push({name:'Member/Non-Member', price:645, is_featured:true})
+- pass.ym.periods[1].memberships.push({name:'Member/Non-Member', price:745, is_featured:true})
+- pass.ym.periods[2].memberships.push({name:'Member/Non-Member', price:845, is_featured:true})
 
-- pass.student.period.earlybird.membership.all = {name:'Member/Non-Member', price:295, is_featured:true}
-- pass.student.period.advance.membership.all   = {name:'Member/Non-Member', price:295, is_featured:true}
-- pass.student.period.onsite.membership.all    = {name:'Member/Non-Member', price:395, is_featured:true}
+- pass.student.periods[0].memberships.push({name:'Member/Non-Member', price:295, is_featured:true})
+- pass.student.periods[1].memberships.push({name:'Member/Non-Member', price:295, is_featured:true})
+- pass.student.periods[2].memberships.push({name:'Member/Non-Member', price:395, is_featured:true})
 
-- pass.guest.period.earlybird.membership.all = {name:'Member/Non-Member', price:295, is_featured:true}
-- pass.guest.period.advance.membership.all   = {name:'Member/Non-Member', price:320, is_featured:true}
-- pass.guest.period.onsite.membership.all    = {name:'Member/Non-Member', price:395, is_featured:true}
+- pass.guest.periods[0].memberships.push({name:'Member/Non-Member', price:295, is_featured:true})
+- pass.guest.periods[1].memberships.push({name:'Member/Non-Member', price:320, is_featured:true})
+- pass.guest.periods[2].memberships.push({name:'Member/Non-Member', price:395, is_featured:true})
 
-- pass.daily.period.earlybird.membership.member    = {name:'Member'    , price:495, is_featured:true}
-- pass.daily.period.earlybird.membership.nonmember = {name:'Non-Member', price:595}
-- pass.daily.period.advance.membership.member      = {name:'Member'    , price:545, is_featured:true}
-- pass.daily.period.advance.membership.nonmember   = {name:'Non-Member', price:645}
-- pass.daily.period.onsite.membership.member       = {name:'Member'    , price:645, is_featured:true}
-- pass.daily.period.onsite.membership.nonmember    = {name:'Non-Member', price:745}
+- pass.daily.periods[0].memberships.push({name:'Member'    , price:495, is_featured:true})
+- pass.daily.periods[0].memberships.push({name:'Non-Member', price:595})
+- pass.daily.periods[1].memberships.push({name:'Member'    , price:545, is_featured:true})
+- pass.daily.periods[1].memberships.push({name:'Non-Member', price:645})
+- pass.daily.periods[2].memberships.push({name:'Member'    , price:645, is_featured:true})
+- pass.daily.periods[2].memberships.push({name:'Non-Member', price:745})
 
 
 - var program_events = [[], [], [], []]

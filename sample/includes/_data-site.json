@@ -127,183 +127,183 @@
     "standard": {
       "name": "Standard Pass"
     , "description": "Members & Non-Members"
-    , "period": {
-        "earlybird": {
+    , "periods": [
+        {
           "name": "Early Bird"
-        , "membership": {
-            "member": { "name": "Member", "price": 745, "is_featured": true }
-          , "nonmbmber": { "name": "Non-Member", "price": 845 }
-          }
+        , "memberships": [
+            { "name": "Member", "price": 745, "is_featured": true }
+          , { "name": "Non-Member", "price": 845 }
+          ]
         }
-      , "advance": {
+      , {
           "name": "Advance"
-        , "membership": {
-            "member": { "name": "Member", "price": 845, "is_featured": true }
-          , "nonmbmber": { "name": "Non-Member", "price": 945 }
-          }
+        , "memberships": [
+            { "name": "Member", "price": 845, "is_featured": true }
+          , { "name": "Non-Member", "price": 945 }
+          ]
         }
-      , "onsite": {
+      , {
           "name": "Onsite"
-        , "membership": {
-            "member": { "name": "Member", "price": 945, "is_featured": true }
-          , "nonmbmber": { "name": "Non-Member", "price": 1045 }
-          }
+        , "memberships": [
+            { "name": "Member", "price": 945, "is_featured": true }
+          , { "name": "Non-Member", "price": 1045 }
+          ]
         }
-      }
+      ]
     }
   , "speaker": {
       "name": "Speaker Pass"
     , "description": "Speakers and Presenters"
-    , "period": {
-        "earlybird": {
+    , "periods": [
+        {
           "name": "Early Bird"
-        , "membership": {
-            "member": { "name":"Member", "price": 645, "is_featured": true }
-          , "nonmember": { "name": "Non-Member", "price": 745 }
-          }
+        , "memberships": [
+            { "name":"Member", "price": 645, "is_featured": true }
+          , { "name": "Non-Member", "price": 745 }
+          ]
         }
-      , "advance": {
+      , {
           "name": "Advance"
-        , "membership": {
-            "member": { "name":"Member", "price": 745, "is_featured": true }
-          , "nonmember": { "name": "Non-Member", "price": 845 }
-          }
+        , "memberships": [
+            { "name":"Member", "price": 745, "is_featured": true }
+          , { "name": "Non-Member", "price": 845 }
+          ]
         }
-      , "onsite": {
+      , {
           "name": "Onsite"
-        , "membership": {
-            "member": { "name":"Member", "price": 945, "is_featured": true }
-          , "nonmember": { "name": "Non-Member", "price": 945 }
-          }
+        , "memberships": [
+            { "name":"Member", "price": 945, "is_featured": true }
+          , { "name": "Non-Member", "price": 945 }
+          ]
         }
-      }
+      ]
     }
   , "moderator": {
       "name": "Moderator Pass"
     , "description": "Moderators"
-    , "period": {
-        "earlybird": {
+    , "periods": [
+        {
           "name": "Early Bird"
-        , "membership": {
-            "member": { "name": "Member", "price": 645, "is_featured": true }
-          , "nonmember": { "name": "Non-Member", "price": 745 }
-          }
+        , "memberships": [
+            { "name": "Member", "price": 645, "is_featured": true }
+          , { "name": "Non-Member", "price": 745 }
+          ]
         }
-      , "advance": {
+      , {
           "name": "Advance"
-        , "membership": {
-            "member": { "name": "Member", "price": 745, "is_featured": true }
-          , "nonmember": { "name": "Non-Member", "price": 845 }
-          }
+        , "memberships": [
+            { "name": "Member", "price": 745, "is_featured": true }
+          , { "name": "Non-Member", "price": 845 }
+          ]
         }
-      , "onsite": {
+      , {
           "name": "Onsite"
-        , "membership": {
-            "member": { "name": "Member", "price": 845, "is_featured": true }
-          , "nonmember": { "name": "Non-Member", "price": 945 }
-          }
+        , "memberships": [
+            { "name": "Member", "price": 845, "is_featured": true }
+          , { "name": "Non-Member", "price": 945 }
+          ]
         }
-      }
+      ]
     }
   , "ym": {
       "name": "Younger Member"
     , "description": "Members 18–35"
-    , "period": {
-        "earlybird": {
+    , "periods": [
+        {
           "name": "Early Bird"
-        , "membership": {
-            "all": { "name": "Member/Non-Member", "price": 645, "is_featured": true }
-          }
+        , "memberships": [
+            { "name": "Member/Non-Member", "price": 645, "is_featured": true }
+          ]
         }
-      , "advance": {
+      , {
           "name": "Advance"
-        , "membership": {
-            "all": { "name": "Member/Non-Member", "price": 745, "is_featured": true }
-          }
+        , "memberships": [
+            { "name": "Member/Non-Member", "price": 745, "is_featured": true }
+          ]
         }
-      , "onsite": {
+      , {
           "name": "Onsite"
-        , "membership": {
-            "all": { "name": "Member/Non-Member", "price": 845, "is_featured": true }
-          }
+        , "memberships": [
+            { "name": "Member/Non-Member", "price": 845, "is_featured": true }
+          ]
         }
-      }
+      ]
     }
   , "student": {
       "name": "Student Pass"
     , "description": "Undergraduates 18–24"
     , "fineprint": "Full-time students must show valid ID onsite at the registration desk when picking up name badge."
-    , "period": {
-        "earlybird": {
+    , "periods": [
+        {
           "name": "Early Bird"
-        , "membership": {
-            "all": { "name": "Member/Non-Member", "price": 295, "is_featured": true }
-          }
+        , "memberships": [
+            { "name": "Member/Non-Member", "price": 295, "is_featured": true }
+          ]
         }
-      , "advance": {
+      , {
           "name": "Advance"
-        , "membership": {
-            "all": { "name": "Member/Non-Member", "price": 295, "is_featured": true }
-          }
+        , "memberships": [
+            { "name": "Member/Non-Member", "price": 295, "is_featured": true }
+          ]
         }
-      , "onsite": {
+      , {
           "name": "Onsite"
-        , "membership": {
-            "all": { "name": "Member/Non-Member", "price": 395, "is_featured": true }
-          }
+        , "memberships": [
+            { "name": "Member/Non-Member", "price": 395, "is_featured": true }
+          ]
         }
-      }
+      ]
     }
   , "guest": {
       "name": "Guest Pass"
     , "description": "Speaker and Moderator Guests"
-    , "period": {
-        "earlybird": {
+    , "periods": [
+        {
           "name": "Early Bird"
-        , "membership": {
-            "all": { "name": "Member/Non-Member", "price": 295, "is_featured": true }
-          }
+        , "memberships": [
+            { "name": "Member/Non-Member", "price": 295, "is_featured": true }
+          ]
         }
-      , "advance": {
+      , {
           "name": "Advance"
-        , "membership": {
-            "all": { "name": "Member/Non-Member", "price": 320, "is_featured": true }
-          }
+        , "memberships": [
+            { "name": "Member/Non-Member", "price": 320, "is_featured": true }
+          ]
         }
-      , "onsite": {
+      , {
           "name": "Onsite"
-        , "membership": {
-            "all": { "name": "Member/Non-Member", "price": 395, "is_featured": true }
-          }
+        , "memberships": [
+            { "name": "Member/Non-Member", "price": 395, "is_featured": true }
+          ]
         }
-      }
+      ]
     }
   , "daily": {
       "name": "Daily Pass"
     , "description": "For One Day Only"
-    , "period": {
-        "earlybird": {
+    , "periods": [
+        {
           "name": "Early Bird"
-        , "membership": {
-            "member": { "name": "Member", "price": 495, "is_featured": true }
-          , "nonmember": { "name": "Non-Member", "price": 595 }
-          }
+        , "memberships": [
+            { "name": "Member", "price": 495, "is_featured": true }
+          , { "name": "Non-Member", "price": 595 }
+          ]
         }
-      , "advance": {
+      , {
           "name": "Advance"
-        , "membership": {
-            "member": { "name": "Member", "price": 545, "is_featured": true }
-          , "nonmember": { "name": "Non-Member", "price": 645 }
-          }
+        , "memberships": [
+            { "name": "Member", "price": 545, "is_featured": true }
+          , { "name": "Non-Member", "price": 645 }
+          ]
         }
-      , "onsite": {
+      , {
           "name": "Onsite"
-        , "membership": {
-            "member": { "name": "Member", "price": 645, "is_featured": true }
-          , "nonmember": { "name": "Non-Member", "price": 745 }
-          }
+        , "memberships": [
+            { "name": "Member", "price": 645, "is_featured": true }
+          , { "name": "Non-Member", "price": 745 }
+          ]
         }
-      }
+      ]
     }
   }
 , "program_events": [

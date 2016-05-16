@@ -57,10 +57,9 @@ mixin important-date-content()
 mixin registration-content()
   h1 Registration
   ul.o-ListBare.o-GridFlex.o-ListStacked
-    - var thisperiod = 'advance'
-    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student , thisperiod)
-    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard, thisperiod)
-    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym      , thisperiod)
+    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student , 0)
+    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard, 0)
+    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym      , 0)
   +actionchoices([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
 
 mixin program-content()

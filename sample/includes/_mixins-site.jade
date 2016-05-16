@@ -37,26 +37,26 @@ mixin pass(type, body_period)
     mixin period-details(regperiod, is_body)
       h1.c-Pass__Period__Hn= regperiod.name
       dl
-        each attendee in regperiod.membership
-          dt.c-Pass__Period__Attendee= attendee.name
-          dd.c-Pass__Period__Price(class=(is_body && attendee.is_featured)?'c-Pass__Price--featured':'')
-            = attendee.price.toLocaleString('en', {style:'currency', currency:'USD'})
+        each item in regperiod.memberships
+          dt.c-Pass__Period__Attendee= item.name
+          dd.c-Pass__Period__Price(class=(is_body && item.is_featured)?'c-Pass__Price--featured':'')
+            = item.price.toLocaleString('en', {style:'currency', currency:'USD'})
     header.c-Pass__Head
       h1.c-Pass__Hn= type.name
       p.c-Pass__Desc
         = type.description
         if type.fineprint
           br
-          small.c-Pass__Fine!= type.fineprint
+          small.c-Pass__Fine= type.fineprint
     div.c-Pass__Body
       section.c-Pass__Period
-        if type.period[body_period]
-          +period-details(type.period[body_period], true)
+        if type.periods[body_period]
+          +period-details(type.periods[body_period], true)
     footer.o-GridFlex.c-Pass__Foot
-      each regperiod in type.period
-        unless regperiod === type.period[body_period]
+      each item in type.periods
+        unless item === type.periods[body_period]
           section.o-GridFlex__Item.-w-1o2.c-Pass__Period
-            +period-details(regperiod)
+            +period-details(item)
 
 mixin programAgenda(events, index, show_all)
   input.c-Program__Check(id='date'+index type="radio" name="program" value=events[0].startDate)&attributes((index===0) ? {checked:''} : {})

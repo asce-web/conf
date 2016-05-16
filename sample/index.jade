@@ -3,6 +3,7 @@ extends universal.tpl.jade
 block append vars
   - var page_subtype = 'landing'
   - var page_id = sitemap.universal[0]
+  - page_id.description = site.tagline
 
 block main
   section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing.c-Hero(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper

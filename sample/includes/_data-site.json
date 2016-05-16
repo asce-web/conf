@@ -30,7 +30,7 @@
     "universal": [
       {
         "name": "ASCE Convention", "href": "index.html"
-      , "description": site.tagline
+      , "description": ""
       }
     , {
         "name": "About", "href": "about.html"
@@ -65,7 +65,7 @@
   , "internal": [
       {
         "name": "Home", "href": "home.html"
-      , "description": conference.current.theme
+      , "description": ""
       , "icon": { "content": "home", "fallback": "&#xE88A;" }
       }
     , {

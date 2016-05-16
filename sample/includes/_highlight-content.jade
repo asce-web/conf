@@ -129,11 +129,5 @@ mixin contact-content()
     button submit
 
 mixin sponsor-content()
-  mixin sponsor-carousel(spons)
-    div.c-SponsorBlock: ul.o-ListBare.o-GridFlex.o-ListStacked
-      each item in spons
-        li.o-GridFlex__Item.o-ListStacked__Item
-          a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
-          small.c-SponsorBlock__Label= item.level.name
   +sponsor-carousel([sponsor.asce_foundation, sponsor.bentley, sponsor.pennoni])
   +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')

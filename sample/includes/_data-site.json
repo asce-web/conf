@@ -30,11 +30,9 @@
     "universal": [
       {
         "name": "", "href": "index.html"
-      , "description": ""
       }
     , {
         "name": "About", "href": "about.html"
-      , "description": "About An ASCE Event."
       , "icon": { "content": "info_outline", "fallback": "&#xE88F;" }
       , "sub": [
           { "name": "Cooperating Orgs", "href": "" }
@@ -45,12 +43,10 @@
       }
     , {
         "name": "Sponsor", "href": "sponsor.html"
-      , "description": "Sponsors of An ASCE Event."
       , "icon": { "content": "people", "fallback": "&#xE7FB;" }
       }
     , {
         "name": "Exhibit", "href": "exhibit.html"
-      , "description": "Exhibitors at An ASCE Event."
       , "icon": { "content": "work", "fallback": "&#xE8F9;" }
       , "sub": [
           { "name": "Exhibitor List", "href": "" }
@@ -58,19 +54,16 @@
       }
     , {
         "name": "Contact", "href": "contact.html"
-      , "description": "Contact us for questions and comments about An ASCE Event."
       , "icon": { "content": "email", "fallback": "&#xE0BE;" }
       }
     ]
   , "internal": [
       {
         "name": "Home", "href": "home.html"
-      , "description": ""
       , "icon": { "content": "home", "fallback": "&#xE88A;" }
       }
     , {
         "name": "Registration", "href": "registration.html"
-      , "description": "Register for A 2016 Event here."
       , "icon": { "content": "shopping_cart", "fallback": "&#xE8CC;" }
       , "sub": [
           { "name": "Why Attend"     , "href": "" }
@@ -81,7 +74,6 @@
       }
     , {
         "name": "Program", "href": "program.html"
-      , "description": "Program and Agenda of A 2016 Event."
       , "icon": { "content": "event", "fallback": "&#xE878;" }
       , "sub": [
           { "name": "Events", "href": "" }
@@ -89,7 +81,6 @@
       }
     , {
         "name": "Hotel & Travel", "href": "location.html"
-      , "description": "Location and where to stay for A 2016 Event."
       , "icon": { "content": "flight", "fallback": "&#xE539;" }
       , "sub": [
           { "name": "International Travel", "href": "" }
@@ -97,7 +88,6 @@
       }
     , {
         "name": "Speakers", "href": "speakers.html"
-      , "description": "Current and prospective speakers at A 2016 Event."
       , "icon": { "content": "account_box", "fallback": "&#xE851;" }
       , "sub": [
           { "name": "Distinguished Lecture Series", "href": "" }

@@ -26,6 +26,11 @@
   a:not(:hover):not(:focus):not(:active) {
     color: inherit;
   }
+  .c-SiteTitle:hover,
+  .c-SiteTitle:focus {
+    // HACK override `.c-Mast >> a`
+    color: inherit;
+  }
   .c-MenuUniversal,
   .c-MenuStandard,
   .c-MenuSub,

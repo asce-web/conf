@@ -18,13 +18,15 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-04-19
+// 2016-05-16
+@p-mobilebp: 45em;
 .c-MenuUniversal {
   .menubar();
   .flex-align-content(flex-start); // override 'stretch' // for mobile drawer menu
-  // max-width: 25rem; // 52 rems == 25 (the width) * 2 + 2 (Runner padding in the sM space)
+  .flex-justify-content(flex-end);
+  height: 100%; // HACK height dependent on fixed parent
   margin-bottom: 0; // override `ul`
-  @media screen and (max-width: 51.999em) {
+  @media screen and (max-width: (@p-mobilebp - 0.001em)) {
     background-color: @g-color_site_gray_lt;
     border-left: 1px solid currentColor;
     a {
@@ -36,25 +38,32 @@
       }
     }
   }
+  @media screen and (min-width: @p-mobilebp) {
+    .flex-wrap(nowrap);
+    white-space: nowrap;
+  }
   .material-icons {
     margin-right: 1rem;
-    @media screen and (min-width: 52em) {
+    @media screen and (min-width: @p-mobilebp) {
       display: none;
     }
   }
 }
+
 .c-MenuUniversal__Item {
-  @media screen and (min-width: 52em) {
+  @media screen and (min-width: @p-mobilebp) {
     width: auto;
   }
 }
+
 .c-MenuUniversal__Link {
   padding: @g-boxpadd_norm;
-  @media screen and (min-width: 52em) {
+  @media screen and (min-width: @p-mobilebp) {
     padding: @g-boxpadd_mill;
   }
 }
-a.c-MenuUniversal__Link--current {
+
+.c-MenuUniversal__Link--current {
   background-color: @g-color_site_primary;
   &:hover,
   &:focus {

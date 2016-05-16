@@ -47,13 +47,13 @@ html(lang="en")
         }
   body
     header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-GridFlex.o-SiteHead
-      a.o-GridFlex__Item.o-Block.o-GridFloat.c-SiteTitle(href="index.html")
-        span.o-GridFloat__Item.c-SiteTitle__Logo
+      a.o-GridFlex__Item.o-Block.o-GridFloat.o-SiteHead__Title.c-SiteTitle(href="index.html")
+        span.o-GridFloat__Item.c-SiteTitle__Logo(style="background-image: url('img/site-logo-white.png');")
         h1.o-GridFloat__Item.c-SiteTitle__Name= site.title
         p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
       nav#top-menu.o-GridFlex__Item.o-SiteHead__Nav.js-universalnav
         h1.-d-n Top Menu
-        ul.o-GridFlex__Item.o-ListBare.o-GridFlex.c-MenuUniversal
+        ul.o-ListBare.o-GridFlex.c-MenuUniversal
           each page in sitemap.universal.slice(1)
             li.o-GridFlex__Item.c-MenuUniversal__Item
               a.o-Block.c-MenuUniversal__Link(href=page.href)
@@ -131,7 +131,7 @@ html(lang="en")
         .attr('title','top menu')
         .append($('<i>').addClass('material-icons').text('menu'))
         .click(function () {
-          $('#top-menu').removeClass('js-universalnav')
+          $('.o-SiteHead__Nav').removeClass('js-universalnav')
         })
       var button_close = $('<button>').addClass('c-Btn c-Btn--dominant c-Btn--drawer c-Btn--drawer--close js-menubutton')
         .attr('type','button')
@@ -139,10 +139,10 @@ html(lang="en")
         .attr('title','close')
         .append($('<i>').addClass('material-icons').text('close'))
         .click(function () {
-          $('#top-menu').addClass('js-universalnav')
+          $('.o-SiteHead__Nav').addClass('js-universalnav')
         })
       $('.o-SiteHead').append(button_open)
-      $('#top-menu').append(button_close)
+      $('.o-SiteHead__Nav').append(button_close)
     script.
       //- $('.c-Speaker__Body').addClass('-h-z')
       //- $('.c-Speaker__Img').height(function () { return $(this).width() })

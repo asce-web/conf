@@ -11,7 +11,7 @@ html(lang="en")
       title
     meta(charset="utf-8")
     meta(name="description" content=page_id.description)
-    meta(name="keywords" content=['ASCE', 'civil engineering', 'convention'])
+    meta(name="keywords" content=site.keywords)
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic")
@@ -63,7 +63,7 @@ html(lang="en")
             - var page = sitemap.internal[0]
             a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href=page.href)
               i.material-icons= page.icon.content
-              span ASCE 2016
+              span= conference.current.name
         //- button.c-Btn.c-Btn--dominant.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close"): i.material-icons close
       //- button.c-Btn.c-Btn--flat.c-Btn--drawer.js-menubutton(type="button" name="open" title="top menu"): i.material-icons menu
     block standard-menu

@@ -1,3 +1,14 @@
+
+//- ///////////////////////////////////////////////////////////////////////////////
+//- //
+//- // This file holds functions & mixins for the styleguide pattern library.
+//- //
+//- ///////////////////////////////////////////////////////////////////////////////
+
+
+- function title(arr) { return arr.reduceRight(function (a, b) { return a + ' | ' + b }) }
+- function mainH1(arr) { return arr.reduce(function (a, b) { return a + ' — ' + b }) }
+
 mixin menulist(args)
   - var pages     = args.pages     || []
   - var class_obj = args.class_obj || {}

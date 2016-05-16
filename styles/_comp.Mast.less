@@ -26,11 +26,11 @@
   a:not(:hover):not(:focus):not(:active) {
     color: inherit;
   }
-  .c-SiteTitle__Name {
-    // HACK need local vars
-    padding-bottom: @l-vru;
+  .c-SiteTitle:hover,
+  .c-SiteTitle:focus {
+    // HACK override `.c-Mast >> a`
+    color: inherit;
   }
-  .c-SiteTitle__Name,
   .c-MenuUniversal,
   .c-MenuStandard,
   .c-MenuSub,

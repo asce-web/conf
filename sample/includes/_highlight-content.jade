@@ -10,11 +10,13 @@ mixin hero-content(event0)
         else
           span(itemprop="addressRegion")= event0.addressRegion
     span.c-Hero__Dates
-      time(datetime=event0.startDate.toISOString().slice(0,10) itemprop="startDate")
-        = month_names[event0.startDate.getUTCMonth()].slice(0,3) + ' ' + event0.startDate.getUTCDate()
+      time(datetime=event0.startDate itemprop="startDate")
+        - var start = new Date(event0.startDate)
+        = month_names[start.getUTCMonth()].slice(0,3) + ' ' + start.getUTCDate()
       | &ndash;
-      time(datetime=event0.endDate.toISOString().slice(0,10) itemprop="endDate")
-        = month_names[event0.endDate.getUTCMonth()].slice(0,3) + ' ' + event0.endDate.getUTCDate()
+      time(datetime=event0.endDate itemprop="endDate")
+        - var end = new Date(event0.endDate)
+        = month_names[end.getUTCMonth()].slice(0,3) + ' ' + end.getUTCDate()
   p.c-Hero__Theme(itemprop="description")
     if event0.theme
       = event0.theme
@@ -24,7 +26,7 @@ mixin hero-content(event0)
 mixin otheryear-content(event0)
   - event0 = event0 || {}
   h1.c-OtherYear__Name(itemprop="name")= event0.name
-  meta(content=event0.startDate.toString().slice(0,10) itemprop="startDate")
+  meta(content=event0.startDate itemprop="startDate")
   p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
     span(itemprop="name")
       span(itemprop="addressLocality")= event0.addressLocality + ', '
@@ -55,10 +57,9 @@ mixin important-date-content()
 mixin registration-content()
   h1 Registration
   ul.o-ListBare.o-GridFlex.o-ListStacked
-    - var thisperiod = 'advance'
-    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student , thisperiod)
-    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard, thisperiod)
-    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym      , thisperiod)
+    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student , 0)
+    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard, 0)
+    li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym      , 0)
   +actionchoices([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
 
 mixin program-content()
@@ -127,11 +128,5 @@ mixin contact-content()
     button submit
 
 mixin sponsor-content()
-  mixin sponsor-carousel(spons)
-    div.c-SponsorBlock: ul.o-ListBare.o-GridFlex.o-ListStacked
-      each item in spons
-        li.o-GridFlex__Item.o-ListStacked__Item
-          a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
-          small.c-SponsorBlock__Label= item.level.name
   +sponsor-carousel([sponsor.asce_foundation, sponsor.bentley, sponsor.pennoni])
   +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')

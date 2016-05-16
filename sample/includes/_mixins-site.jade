@@ -1,3 +1,39 @@
+
+//- ///////////////////////////////////////////////////////////////////////////////
+//- //
+//- // This file holds all functions & mixins for the sample site.
+//- //
+//- ///////////////////////////////////////////////////////////////////////////////
+
+
+//- -
+  function description(page) {
+    var page_index = -1
+      , page_desc = []
+    if (sitemap.universal.indexOf(page) >= 0) {
+      index_of_page_id = sitemap.universal.indexOf(page)
+      page_desc = [
+        site.tagline
+      , 'About ' + site.title + '.'
+      , 'Sponsors of ' + site.title + '.'
+      , 'Exhibitors at ' + site.title + '.'
+      , 'Contact us for questions and comments about ' + site.title + '.'
+      ]
+    } else if (sitemap.internal.indexOf(page) >= 0) {
+      page_index = sitemap.internal.indexOf(page)
+      page_desc = [
+        conference.current.theme
+      , 'Register for ' + conference.current.name + ' here.'
+      , 'Program and Agenda of ' + conference.current.name + '.'
+      , 'Location and where to stay for ' + conference.current.name + '.'
+      , 'Current and prospective speakers at ' + conference.current.name + '.'
+      ]
+    }
+    return page_desc[page_index]
+  }
+-  function description(page) {    var page_index = -1      , page_desc = [];    if (sitemap.universal.indexOf(page) >= 0) {      index_of_page_id = sitemap.universal.indexOf(page);      page_desc = [        site.tagline      , 'About ' + site.title + '.'      , 'Sponsors of ' + site.title + '.'      , 'Exhibitors at ' + site.title + '.'      , 'Contact us for questions and comments about ' + site.title + '.'      ]    } else if (sitemap.internal.indexOf(page) >= 0) {      page_index = sitemap.internal.indexOf(page);      page_desc = [        conference.current.theme      , 'Register for ' + conference.current.name + ' here.'      , 'Program and Agenda of ' + conference.current.name + '.'      , 'Location and where to stay for ' + conference.current.name + '.'      , 'Current and prospective speakers at ' + conference.current.name + '.'      ]    }    return page_desc[page_index]  }
+
+
 mixin menulist(args)
   //- copied (almost) directly from ../../lib/includes/_mixins-lib.jade
   - var pages     = args.pages     || []
@@ -29,31 +65,31 @@ mixin pass(type, body_period)
     mixin period-details(regperiod, is_body)
       h1.c-Pass__Period__Hn= regperiod.name
       dl
-        each attendee in regperiod.membership
-          dt.c-Pass__Period__Attendee= attendee.name
-          dd.c-Pass__Period__Price(class=(is_body && attendee.is_featured)?'c-Pass__Price--featured':'')
-            = attendee.price.toLocaleString('en', {style:'currency', currency:'USD'})
+        each item in regperiod.memberships
+          dt.c-Pass__Period__Attendee= item.name
+          dd.c-Pass__Period__Price(class=(is_body && item.is_featured)?'c-Pass__Price--featured':'')
+            = item.price.toLocaleString('en', {style:'currency', currency:'USD'})
     header.c-Pass__Head
       h1.c-Pass__Hn= type.name
       p.c-Pass__Desc
         = type.description
         if type.fineprint
           br
-          small.c-Pass__Fine!= type.fineprint
+          small.c-Pass__Fine= type.fineprint
     div.c-Pass__Body
       section.c-Pass__Period
-        if type.period[body_period]
-          +period-details(type.period[body_period], true)
+        if type.periods[body_period]
+          +period-details(type.periods[body_period], true)
     footer.o-GridFlex.c-Pass__Foot
-      each regperiod in type.period
-        unless regperiod === type.period[body_period]
+      each item in type.periods
+        unless item === type.periods[body_period]
           section.o-GridFlex__Item.-w-1o2.c-Pass__Period
-            +period-details(regperiod)
+            +period-details(item)
 
 mixin programAgenda(events, index, show_all)
-  - var date = events[0].startDate
-  input.c-Program__Check(id='date'+index type="radio" name="program" value=date.toISOString().slice(0,10))&attributes((index===0) ? {checked:''} : {})
-  h1.o-GridFlex__Item.c-Program__Hn: label(for='date'+index): time(datetime=date.toISOString().slice(0,10))
+  input.c-Program__Check(id='date'+index type="radio" name="program" value=events[0].startDate)&attributes((index===0) ? {checked:''} : {})
+  h1.o-GridFlex__Item.c-Program__Hn: label(for='date'+index): time(datetime=events[0].startDate)
+    - var date = new Date(events[0].startDate)
     = day_names[date.getUTCDay()] + ','
     br
     = month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
@@ -61,9 +97,9 @@ mixin programAgenda(events, index, show_all)
     each event0 in events
       if show_all || event0.starred
         dt.o-GridFlex__Item.c-TimeBlock__Times
-          time(datetime=event0.startDate.toISOString())= hourTime12(event0.startDate)
+          time(datetime=event0.startDate)= hourTime12(new Date(event0.startDate))
           | &ndash;
-          time(datetime=event0.endDate.toISOString())= hourTime12(event0.endDate)
+          time(datetime=event0.endDate)= hourTime12(new Date(event0.endDate))
         dd.o-GridFlex__Item.c-TimeBlock__Desc
           if event0.href || event0.href === ''
             a.o-Block.c-TimeBlock__Link(href=event0.href)
@@ -86,6 +122,25 @@ mixin speaker()
         li.o-Inline: a.c-Speaker__Link(href="") Email
         li.o-Inline: a.c-Speaker__Link(href="") LinkedIn
         li.o-Inline: a.c-Speaker__Link(href="") Twitter
+
+mixin sponsor-carousel(spons)
+  div.c-SponsorBlock: ul.o-ListBare.o-GridFlex.o-ListStacked
+    each item in spons
+      li.o-GridFlex__Item.o-ListStacked__Item
+        a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
+        small.c-SponsorBlock__Label= sponsorlevel[item.level].name
+
+mixin sponsor-block(sponsor_level, classes, spons)
+  //- TODO: remove `spons` param and get them from `sponsor_level`
+  section.c-SponsorBlock(class=classes)
+    h1.c-SponsorBlock__Hn= sponsor_level.name
+    ul.o-ListBare.o-GridFlex.o-ListStacked
+      each item in spons
+        li.o-GridFlex__Item.o-ListStacked__Item
+          unless (sponsor_level === sponsorlevel.bronze) || (sponsor_level === sponsorlevel.copper)
+            a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+sponsor_level.size href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
+          else
+            a.o-Block.c-SponsorBlock__Text(href=item.href)= item.name
 
 mixin minimal-text-block()
   div.o-Runner.o-Runner--highlight.minimal-text: div.o-ContentWrapper

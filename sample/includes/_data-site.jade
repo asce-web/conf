@@ -1,153 +1,42 @@
 
 //- ///////////////////////////////////////////////////////////////////////////////
 //- //
-//- // This file holds data and functions for the sample site (ASCE Convention prototype).
+//- // This file holds all data for the sample site.
 //- //
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
-//- -
-  var site = {
-    title       : 'ASCE Convention'
-  , tagline     : 'Engineering > Innovating > Leading'
-  , tagline_old : 'The Flagship Event of ASCE'
-  }
-//- unbuffered block code isn’t fucking supported,
-//- so I have to do this:
-- var site = {}
-- site.title = 'ASCE Convention'
-- site.tagline = 'Engineering > Innovating > Leading'
-- site.tagline_old = 'The Flagship Event of ASCE'
+- var site         = {}
+- site.title       = 'An ASCE Event'
+- site.tagline     = 'Optional Brand Tagline'
+- site.keywords    = ['ASCE', 'civil engineering', 'convention']
 
-//- -
-  var conference = {
-    current: {
-      name            : 'ASCE 2016'
-    , theme           : ''
-    , addressLocality : 'Portland'
-    , addressRegion   : {name: 'Oregon', abbr: 'OR'}
-    , startDate       : new Date('2016-09-28')
-    , endDate         : new Date('2016-10-01')
-    }
-  , prev: {
-      name            : 'ASCE 2015'
-    , addressLocality : 'New York'
-    , addressRegion   : {name: 'New York', abbr: 'NY'}
-    , startDate       : new Date('2015-10-11')
-    }
-  , next: {
-      name            : 'ASCE 2017'
-    , addressLocality : 'Chicago'
-    , addressRegion   : {name: 'Illinois', abbr: 'IL'}
-    , startDate       : new Date('2017-10-04')
-    }
-  }
 - var conference = {}
 - conference.current = {}
 - conference.prev = {}
 - conference.next = {}
-- conference.current.name = 'ASCE 2016'
-- conference.current.theme = ''
+- conference.current.name            = 'A 2016 Event'
+- conference.current.theme           = 'Theme for the conference is optional.'
 - conference.current.addressLocality = 'Portland'
-- conference.current.addressRegion = {name: 'Oregon', abbr: 'OR'}
-- conference.current.startDate = new Date('2016-09-28')
-- conference.current.endDate = new Date('2016-10-01')
-- conference.prev.name = 'ASCE 2015'
+- conference.current.addressRegion   = {name: 'Oregon', abbr: 'OR'}
+- conference.current.startDate       = '2016-09-28'
+- conference.current.endDate         = '2016-10-01'
+- conference.prev.name            = 'A 2015 Event'
 - conference.prev.addressLocality = 'New York'
-- conference.prev.addressRegion = {name: 'New York', abbr: 'NY'}
-- conference.prev.startDate = new Date('2015-10-11')
-- conference.next.name = 'ASCE 2017'
+- conference.prev.addressRegion   = {name: 'New York', abbr: 'NY'}
+- conference.prev.startDate       = '2015-10-11'
+- conference.next.name            = 'A 2017 Event'
 - conference.next.addressLocality = 'Chicago'
-- conference.next.addressRegion = {name: 'Illinois', abbr: 'IL'}
-- conference.next.startDate = new Date('2017-10-04')
+- conference.next.addressRegion   = {name: 'Illinois', abbr: 'IL'}
+- conference.next.startDate       = '2017-10-04'
 
-//- -
-  var sitemap = {
-    universal: [
-      {
-        name: 'ASCE Convention', href: 'index.html'
-      , description: site.tagline
-      }
-    , {
-        name: 'About', href: 'about.html'
-      , description: 'About the ASCE Convention.'
-      , icon: { content: 'info_outline', fallback: '&#xE88F;' }
-      , sub: [
-          { name: 'Cooperating Orgs' , href: '' }
-        , { name: 'Partnering Orgs'  , href: '' }
-        , { name: 'Volunteer'        , href: '' }
-        , { name: 'Why Attend'       , href: '' }
-        ]
-      }
-    , {
-        name: 'Sponsor', href: 'sponsor.html'
-      , description: 'Sponsors of the ASCE Convention.'
-      , icon: { content: 'people', fallback: '&#xE7FB;' }
-      }
-    , {
-        name: 'Exhibit', href: 'exhibit.html'
-      , description: 'Exhibitors at the ASCE Convention.'
-      , icon: { content: 'work', fallback: '&#xE8F9;' }
-      , sub: [
-          { name:'Exhibitor List', href:'' }
-        ]
-      }
-    , {
-        name: 'Contact', href: 'contact.html'
-      , description: 'Contact us for questions and comments about the ASCE Convention.'
-      , icon: { content: 'email', fallback: '&#xE0BE;' }
-      }
-    ]
-  , internal: [
-      {
-        name: 'Home', href: 'home.html'
-      , description: conference.current.theme
-      , icon: { content: 'home', fallback: '&#xE88A;' }
-      }
-    , {
-        name: 'Registration', href: 'registration.html'
-      , description: 'Register for the ASCE 2016 conference here.'
-      , icon: { content: 'shopping_cart', fallback: '&#xE8CC;' }
-      , sub: [
-          { name: 'Why Attend'      , href: '' }
-        , { name: 'Short Courses'   , href: '' }
-        , { name: 'Technical Tours' , href: '' }
-        , { name: 'Optional Tours'  , href: '' }
-        ]
-      }
-    , {
-        name: 'Program', href: 'program.html'
-      , description: 'Program and Agenda of the ASCE 2016 conference.'
-      , icon: { content: 'event', fallback: '&#xE878;' }
-      , sub: [
-          { name: 'Events', href: '' }
-        ]
-      }
-    , {
-        name: 'Hotel & Travel', href: 'location.html'
-      , description: 'Get information about the location of the conference and where to stay.'
-      , icon: { content: 'flight', fallback: '&#xE539;' }
-      , sub: [
-          { name: 'International Travel', href: '' }
-        ]
-      }
-    , {
-        name: 'Speakers', href: 'speakers.html'
-      , description: 'Get information about current and prospective speakers at ASCE 2016.'
-      , icon: { content: 'account_box', fallback: '&#xE851;' }
-      , sub: [
-          { name: 'Distinguished Lecture Series', href: '' }
-        ]
-      }
-    ]
-  }
 - var sitemap = {}
 - sitemap.universal = []
-- sitemap.universal.push({name:'ASCE Convention', href:'index.html'  , description:site.tagline})
-- sitemap.universal.push({name:'About'          , href:'about.html'  , description:'About the ASCE Convention.'})
-- sitemap.universal.push({name:'Sponsor'        , href:'sponsor.html', description:'Sponsors of the ASCE Convention.'})
-- sitemap.universal.push({name:'Exhibit'        , href:'exhibit.html', description:'Exhibitors at the ASCE Convention.'})
-- sitemap.universal.push({name:'Contact'        , href:'contact.html', description:'Contact us for questions and comments about the ASCE Convention.'})
+- sitemap.universal.push({name:''       , href:'index.html'   })
+- sitemap.universal.push({name:'About'  , href:'about.html'   })
+- sitemap.universal.push({name:'Sponsor', href:'sponsor.html' })
+- sitemap.universal.push({name:'Exhibit', href:'exhibit.html' })
+- sitemap.universal.push({name:'Contact', href:'contact.html' })
 - sitemap.universal[1].icon = {content:'info_outline' , fallback:'&#xE88F;'}
 - sitemap.universal[2].icon = {content:'people'       , fallback:'&#xE7FB;'}
 - sitemap.universal[3].icon = {content:'work'         , fallback:'&#xE8F9;'}
@@ -159,11 +48,11 @@
 - sitemap.universal[1].sub.push({name:'Why Attend'      , href:''})
 - sitemap.universal[3].sub = [{name:'Exhibitor List', href:''}]
 - sitemap.internal = []
-- sitemap.internal.push({name:'Home'          , href:'home.html'        , description:conference.current.theme})
-- sitemap.internal.push({name:'Registration'  , href:'registration.html', description:'Register for the ASCE 2016 conference here.'})
-- sitemap.internal.push({name:'Program'       , href:'program.html'     , description:'Program and Agenda of the ASCE 2016 conference.'})
-- sitemap.internal.push({name:'Hotel & Travel', href:'location.html'    , description:'Get information about the location of the conference and where to stay.'})
-- sitemap.internal.push({name:'Speakers'      , href:'speakers.html'    , description:'Get information about current and prospective speakers at ASCE 2016.'})
+- sitemap.internal.push({name:'Home'          , href:'home.html'        })
+- sitemap.internal.push({name:'Registration'  , href:'registration.html'})
+- sitemap.internal.push({name:'Program'       , href:'program.html'     })
+- sitemap.internal.push({name:'Hotel & Travel', href:'location.html'    })
+- sitemap.internal.push({name:'Speakers'      , href:'speakers.html'    })
 - sitemap.internal[0].icon = {content:'home'         , fallback:'&#xE88A;'}
 - sitemap.internal[1].icon = {content:'shopping_cart', fallback:'&#xE8CC;'}
 - sitemap.internal[2].icon = {content:'event'        , fallback:'&#xE878;'}
@@ -183,7 +72,7 @@
     listclasses : 'o-ListBare o-GridFlex c-Sitemap'
   , itemclasses : 'o-GridFlex__Item c-Sitemap__Item'
   , sub: {
-    , listclasses : 'o-ListBare c-Sitemap__SubList'
+      listclasses : 'o-ListBare c-Sitemap__SubList'
     , itemclasses : 'c-Sitemap__SubItem'
     }
   }
@@ -203,7 +92,7 @@
   , itemclasses : 'o-GridFlex__Item c-MenuStandard__Item'
   , linkclasses : 'o-Block c-MenuStandard__Link'
   , sub: {
-    , listclasses : 'o-ListBare c-MenuSub'
+      listclasses : 'o-ListBare c-MenuSub'
     , itemclasses : 'c-MenuSub__Item'
     , linkclasses : 'o-Block c-MenuSub__Link'
     }
@@ -221,13 +110,13 @@
 
 
 - var pass = {}
-- pass.standard  = {name:'Standard Pass' , period:{}}
-- pass.speaker   = {name:'Speaker Pass'  , period:{}}
-- pass.moderator = {name:'Moderator Pass', period:{}}
-- pass.ym        = {name:'Younger Member', period:{}}
-- pass.student   = {name:'Student Pass'  , period:{}}
-- pass.guest     = {name:'Guest Pass'    , period:{}}
-- pass.daily     = {name:'Daily Pass'    , period:{}}
+- pass.standard  = {name:'Standard Pass' , periods:[]}
+- pass.speaker   = {name:'Speaker Pass'  , periods:[]}
+- pass.moderator = {name:'Moderator Pass', periods:[]}
+- pass.ym        = {name:'Younger Member', periods:[]}
+- pass.student   = {name:'Student Pass'  , periods:[]}
+- pass.guest     = {name:'Guest Pass'    , periods:[]}
+- pass.daily     = {name:'Daily Pass'    , periods:[]}
 
 - pass.standard.description  = 'Members & Non-Members'
 - pass.speaker.description   = 'Speakers and Presenters'
@@ -239,117 +128,117 @@
 
 - pass.student.fineprint = 'Full-time students must show valid ID onsite at the registration desk when picking up name badge.'
 
-- pass.standard.period.earlybird = {name:'Early Bird', membership:{}}
-- pass.standard.period.advance   = {name:'Advance'   , membership:{}}
-- pass.standard.period.onsite    = {name:'Onsite'    , membership:{}}
+- pass.standard.periods.push({name:'Early Bird', memberships:[]})
+- pass.standard.periods.push({name:'Advance'   , memberships:[]})
+- pass.standard.periods.push({name:'Onsite'    , memberships:[]})
 
-- pass.speaker.period.earlybird = {name:'Early Bird', membership:{}}
-- pass.speaker.period.advance   = {name:'Advance'   , membership:{}}
-- pass.speaker.period.onsite    = {name:'Onsite'    , membership:{}}
+- pass.speaker.periods.push({name:'Early Bird', memberships:[]})
+- pass.speaker.periods.push({name:'Advance'   , memberships:[]})
+- pass.speaker.periods.push({name:'Onsite'    , memberships:[]})
 
-- pass.moderator.period.earlybird = {name:'Early Bird', membership:{}}
-- pass.moderator.period.advance   = {name:'Advance'   , membership:{}}
-- pass.moderator.period.onsite    = {name:'Onsite'    , membership:{}}
+- pass.moderator.periods.push({name:'Early Bird', memberships:[]})
+- pass.moderator.periods.push({name:'Advance'   , memberships:[]})
+- pass.moderator.periods.push({name:'Onsite'    , memberships:[]})
 
-- pass.ym.period.earlybird = {name:'Early Bird', membership:{}}
-- pass.ym.period.advance   = {name:'Advance'   , membership:{}}
-- pass.ym.period.onsite    = {name:'Onsite'    , membership:{}}
+- pass.ym.periods.push({name:'Early Bird', memberships:[]})
+- pass.ym.periods.push({name:'Advance'   , memberships:[]})
+- pass.ym.periods.push({name:'Onsite'    , memberships:[]})
 
-- pass.student.period.earlybird = {name:'Early Bird', membership:{}}
-- pass.student.period.advance   = {name:'Advance'   , membership:{}}
-- pass.student.period.onsite    = {name:'Onsite'    , membership:{}}
+- pass.student.periods.push({name:'Early Bird', memberships:[]})
+- pass.student.periods.push({name:'Advance'   , memberships:[]})
+- pass.student.periods.push({name:'Onsite'    , memberships:[]})
 
-- pass.guest.period.earlybird = {name:'Early Bird', membership:{}}
-- pass.guest.period.advance   = {name:'Advance'   , membership:{}}
-- pass.guest.period.onsite    = {name:'Onsite'    , membership:{}}
+- pass.guest.periods.push({name:'Early Bird', memberships:[]})
+- pass.guest.periods.push({name:'Advance'   , memberships:[]})
+- pass.guest.periods.push({name:'Onsite'    , memberships:[]})
 
-- pass.daily.period.earlybird = {name:'Early Bird', membership:{}}
-- pass.daily.period.advance   = {name:'Advance'   , membership:{}}
-- pass.daily.period.onsite    = {name:'Onsite'    , membership:{}}
+- pass.daily.periods.push({name:'Early Bird', memberships:[]})
+- pass.daily.periods.push({name:'Advance'   , memberships:[]})
+- pass.daily.periods.push({name:'Onsite'    , memberships:[]})
 
 
-- pass.standard.period.earlybird.membership.member    = {name:'Member'    , price:745, is_featured: true}
-- pass.standard.period.earlybird.membership.nonmember = {name:'Non-Member', price:845}
-- pass.standard.period.advance.membership.member      = {name:'Member'    , price:845, is_featured: true}
-- pass.standard.period.advance.membership.nonmember   = {name:'Non-Member', price:945}
-- pass.standard.period.onsite.membership.member       = {name:'Member'    , price:945, is_featured: true}
-- pass.standard.period.onsite.membership.nonmember    = {name:'Non-Member', price:1045}
+- pass.standard.periods[0].memberships.push({name:'Member'    , price:745, is_featured:true})
+- pass.standard.periods[0].memberships.push({name:'Non-Member', price:845})
+- pass.standard.periods[1].memberships.push({name:'Member'    , price:845, is_featured:true})
+- pass.standard.periods[1].memberships.push({name:'Non-Member', price:945})
+- pass.standard.periods[2].memberships.push({name:'Member'    , price:945, is_featured:true})
+- pass.standard.periods[2].memberships.push({name:'Non-Member', price:1045})
 
-- pass.speaker.period.earlybird.membership.member    = {name:'Member'    , price:645, is_featured: true}
-- pass.speaker.period.earlybird.membership.nonmember = {name:'Non-Member', price:745}
-- pass.speaker.period.advance.membership.member      = {name:'Member'    , price:745, is_featured: true}
-- pass.speaker.period.advance.membership.nonmember   = {name:'Non-Member', price:845}
-- pass.speaker.period.onsite.membership.member       = {name:'Member'    , price:945, is_featured: true}
-- pass.speaker.period.onsite.membership.nonmember    = {name:'Non-Member', price:945}
+- pass.speaker.periods[0].memberships.push({name:'Member'    , price:645, is_featured:true})
+- pass.speaker.periods[0].memberships.push({name:'Non-Member', price:745})
+- pass.speaker.periods[1].memberships.push({name:'Member'    , price:745, is_featured:true})
+- pass.speaker.periods[1].memberships.push({name:'Non-Member', price:845})
+- pass.speaker.periods[2].memberships.push({name:'Member'    , price:945, is_featured:true})
+- pass.speaker.periods[2].memberships.push({name:'Non-Member', price:945})
 
-- pass.moderator.period.earlybird.membership.member    = {name:'Member'    , price:645, is_featured: true}
-- pass.moderator.period.earlybird.membership.nonmember = {name:'Non-Member', price:745}
-- pass.moderator.period.advance.membership.member      = {name:'Member'    , price:745, is_featured: true}
-- pass.moderator.period.advance.membership.nonmember   = {name:'Non-Member', price:845}
-- pass.moderator.period.onsite.membership.member       = {name:'Member'    , price:845, is_featured: true}
-- pass.moderator.period.onsite.membership.nonmember    = {name:'Non-Member', price:945}
+- pass.moderator.periods[0].memberships.push({name:'Member'    , price:645, is_featured:true})
+- pass.moderator.periods[0].memberships.push({name:'Non-Member', price:745})
+- pass.moderator.periods[1].memberships.push({name:'Member'    , price:745, is_featured:true})
+- pass.moderator.periods[1].memberships.push({name:'Non-Member', price:845})
+- pass.moderator.periods[2].memberships.push({name:'Member'    , price:845, is_featured:true})
+- pass.moderator.periods[2].memberships.push({name:'Non-Member', price:945})
 
-- pass.ym.period.earlybird.membership.all = {name:'Member/Non-Member', price:645, is_featured: true}
-- pass.ym.period.advance.membership.all   = {name:'Member/Non-Member', price:745, is_featured: true}
-- pass.ym.period.onsite.membership.all    = {name:'Member/Non-Member', price:845, is_featured: true}
+- pass.ym.periods[0].memberships.push({name:'Member/Non-Member', price:645, is_featured:true})
+- pass.ym.periods[1].memberships.push({name:'Member/Non-Member', price:745, is_featured:true})
+- pass.ym.periods[2].memberships.push({name:'Member/Non-Member', price:845, is_featured:true})
 
-- pass.student.period.earlybird.membership.all = {name:'Member/Non-Member', price:295, is_featured: true}
-- pass.student.period.advance.membership.all   = {name:'Member/Non-Member', price:295, is_featured: true}
-- pass.student.period.onsite.membership.all    = {name:'Member/Non-Member', price:395, is_featured: true}
+- pass.student.periods[0].memberships.push({name:'Member/Non-Member', price:295, is_featured:true})
+- pass.student.periods[1].memberships.push({name:'Member/Non-Member', price:295, is_featured:true})
+- pass.student.periods[2].memberships.push({name:'Member/Non-Member', price:395, is_featured:true})
 
-- pass.guest.period.earlybird.membership.all = {name:'Member/Non-Member', price:295, is_featured: true}
-- pass.guest.period.advance.membership.all   = {name:'Member/Non-Member', price:320, is_featured: true}
-- pass.guest.period.onsite.membership.all    = {name:'Member/Non-Member', price:395, is_featured: true}
+- pass.guest.periods[0].memberships.push({name:'Member/Non-Member', price:295, is_featured:true})
+- pass.guest.periods[1].memberships.push({name:'Member/Non-Member', price:320, is_featured:true})
+- pass.guest.periods[2].memberships.push({name:'Member/Non-Member', price:395, is_featured:true})
 
-- pass.daily.period.earlybird.membership.member    = {name:'Member'    , price:495, is_featured: true}
-- pass.daily.period.earlybird.membership.nonmember = {name:'Non-Member', price:595}
-- pass.daily.period.advance.membership.member      = {name:'Member'    , price:545, is_featured: true}
-- pass.daily.period.advance.membership.nonmember   = {name:'Non-Member', price:645}
-- pass.daily.period.onsite.membership.member       = {name:'Member'    , price:645, is_featured: true}
-- pass.daily.period.onsite.membership.nonmember    = {name:'Non-Member', price:745}
+- pass.daily.periods[0].memberships.push({name:'Member'    , price:495, is_featured:true})
+- pass.daily.periods[0].memberships.push({name:'Non-Member', price:595})
+- pass.daily.periods[1].memberships.push({name:'Member'    , price:545, is_featured:true})
+- pass.daily.periods[1].memberships.push({name:'Non-Member', price:645})
+- pass.daily.periods[2].memberships.push({name:'Member'    , price:645, is_featured:true})
+- pass.daily.periods[2].memberships.push({name:'Non-Member', price:745})
 
 
 - var program_events = [[], [], [], []]
-- program_events[0].push({startDate:new Date('2016-09-28 10:00'), endDate:new Date('2016-09-28 19:00'), name:'Registration'})
-- program_events[0].push({startDate:new Date('2016-09-28 10:30'), endDate:new Date('2016-09-28 16:30'), name:'Technical Tours', href:'', starred:true})
-- program_events[0].push({startDate:new Date('2016-09-28 13:00'), endDate:new Date('2016-09-28 17:00'), name:'Short Courses', href:'', starred:true})
-- program_events[0].push({startDate:new Date('2016-09-28 12:00'), endDate:new Date('2016-09-28 17:00'), name:'Optional Tours', href:'', starred:true})
-- program_events[0].push({startDate:new Date('2016-09-28 17:30'), endDate:new Date('2016-09-28 19:30'), name:'Opening Welcome Reception'})
-- program_events[0].push({startDate:new Date('2016-09-28 13:00'), endDate:new Date('2016-09-28 17:00'), name:'Community Service Project', starred:true})
-- program_events[1].push({startDate:new Date('2016-09-29 07:00'), endDate:new Date('2016-09-29 16:30'), name:'Registration'})
-- program_events[1].push({startDate:new Date('2016-09-29 07:30'), endDate:new Date('2016-09-29 08:30'), name:'Student & Emerging Leaders Welcome Breakfast and Orientation'})
-- program_events[1].push({startDate:new Date('2016-09-29 08:30'), endDate:new Date('2016-09-29 10:00'), name:'Opening Plenary Session', starred:true})
-- program_events[1].push({startDate:new Date('2016-09-29 09:30'), endDate:new Date('2016-09-29 15:30'), name:'Guest Program Orientation & Tour', starred:true})
-- program_events[1].push({startDate:new Date('2016-09-29 10:00'), endDate:new Date('2016-09-29 10:30'), name:'Beverage Break'})
-- program_events[1].push({startDate:new Date('2016-09-29 10:30'), endDate:new Date('2016-09-29 11:30'), name:'Concurrent Sessions'})
-- program_events[1].push({startDate:new Date('2016-09-29 11:45'), endDate:new Date('2016-09-29 13:45'), name:'Celebration of Leaders Luncheon', starred:true})
-- program_events[1].push({startDate:new Date('2016-09-29 14:00'), endDate:new Date('2016-09-29 15:30'), name:'Concurrent Sessions'})
-- program_events[1].push({startDate:new Date('2016-09-29 14:00'), endDate:new Date('2016-09-29 18:00'), name:'Communities and Pavilion'})
-- program_events[1].push({startDate:new Date('2016-09-29 15:30'), endDate:new Date('2016-09-29 16:00'), name:'Beverage Break'})
-- program_events[1].push({startDate:new Date('2016-09-29 16:00'), endDate:new Date('2016-09-29 17:30'), name:'Concurrent Sessions'})
-- program_events[1].push({startDate:new Date('2016-09-29 18:45'), endDate:new Date('2016-09-29 21:45'), name:'Optional Tour', href:'', starred:true})
-- program_events[2].push({startDate:new Date('2016-09-30 07:00'), endDate:new Date('2016-09-30 16:30'), name:'Registration'})
-- program_events[2].push({startDate:new Date('2016-09-30 07:30'), endDate:new Date('2016-09-30 08:30'), name:'Leadership & Society Awards Breakfast'})
-- program_events[2].push({startDate:new Date('2016-09-30 08:30'), endDate:new Date('2016-09-30 17:00'), name:'Communities and Pavilion'})
-- program_events[2].push({startDate:new Date('2016-09-30 08:45'), endDate:new Date('2016-09-30 09:45'), name:'ASCE Annual Business Meeting', starred:true})
-- program_events[2].push({startDate:new Date('2016-09-30 09:45'), endDate:new Date('2016-09-30 10:15'), name:'Beverage Break'})
-- program_events[2].push({startDate:new Date('2016-09-30 10:15'), endDate:new Date('2016-09-30 11:45'), name:'Concurrent Sessions'})
-- program_events[2].push({startDate:new Date('2016-09-30 11:45'), endDate:new Date('2016-09-30 13:15'), name:'Lunch on Your Own'})
-- program_events[2].push({startDate:new Date('2016-09-30 11:45'), endDate:new Date('2016-09-30 13:15'), name:'International Luncheon (ticketed)'})
-- program_events[2].push({startDate:new Date('2016-09-30 13:15'), endDate:new Date('2016-09-30 14:15'), name:'Concurrent Sessions'})
-- program_events[2].push({startDate:new Date('2016-09-30 13:00'), endDate:new Date('2016-09-30 17:15'), name:'Optional Tour', href:'', starred:true})
-- program_events[2].push({startDate:new Date('2016-09-30 14:30'), endDate:new Date('2016-09-30 16:00'), name:'Industry Leaders Forum', starred:true})
-- program_events[2].push({startDate:new Date('2016-09-30 16:00'), endDate:new Date('2016-09-30 16:30'), name:'Beverage Break'})
-- program_events[2].push({startDate:new Date('2016-09-30 16:30'), endDate:new Date('2016-09-30 17:30'), name:'Concurrent Sessions'})
-- program_events[2].push({startDate:new Date('2016-09-30 18:30'), endDate:new Date('2016-09-30 21:30'), name:'Theater Night Out', starred:true})
-- program_events[3].push({startDate:new Date('2016-10-01 07:00'), endDate:new Date('2016-10-01 14:30'), name:'Registration'})
-- program_events[3].push({startDate:new Date('2016-10-01 07:30'), endDate:new Date('2016-10-01 08:15'), name:'Order of the Engineer Ceremony', starred:true})
-- program_events[3].push({startDate:new Date('2016-10-01 08:45'), endDate:new Date('2016-10-01 11:45'), name:'Optional Tour', href:''})
-- program_events[3].push({startDate:new Date('2016-10-01 08:30'), endDate:new Date('2016-10-01 10:00'), name:'Concurrent Sessions'})
-- program_events[3].push({startDate:new Date('2016-10-01 08:30'), endDate:new Date('2016-10-01 14:00'), name:'Communities and Pavilion'})
-- program_events[3].push({startDate:new Date('2016-10-01 10:15'), endDate:new Date('2016-10-01 11:45'), name:'Concurrent Sessions'})
-- program_events[3].push({startDate:new Date('2016-10-01 12:00'), endDate:new Date('2016-10-01 14:00'), name:'ASCE Luncheon & Closing General Session', starred:true})
-- program_events[3].push({startDate:new Date('2016-10-01 14:30'), endDate:new Date('2016-10-01 17:30'), name:'Technical Tours', href:''})
+- program_events[0].push({startDate:'2016-09-28 10:00', endDate:'2016-09-28 19:00', name:'Registration'})
+- program_events[0].push({startDate:'2016-09-28 10:30', endDate:'2016-09-28 16:30', name:'Technical Tours', href:'', starred:true})
+- program_events[0].push({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Short Courses', href:'', starred:true})
+- program_events[0].push({startDate:'2016-09-28 12:00', endDate:'2016-09-28 17:00', name:'Optional Tours', href:'', starred:true})
+- program_events[0].push({startDate:'2016-09-28 17:30', endDate:'2016-09-28 19:30', name:'Opening Welcome Reception'})
+- program_events[0].push({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Community Service Project', starred:true})
+- program_events[1].push({startDate:'2016-09-29 07:00', endDate:'2016-09-29 16:30', name:'Registration'})
+- program_events[1].push({startDate:'2016-09-29 07:30', endDate:'2016-09-29 08:30', name:'Student & Emerging Leaders Welcome Breakfast and Orientation'})
+- program_events[1].push({startDate:'2016-09-29 08:30', endDate:'2016-09-29 10:00', name:'Opening Plenary Session', starred:true})
+- program_events[1].push({startDate:'2016-09-29 09:30', endDate:'2016-09-29 15:30', name:'Guest Program Orientation & Tour', starred:true})
+- program_events[1].push({startDate:'2016-09-29 10:00', endDate:'2016-09-29 10:30', name:'Beverage Break'})
+- program_events[1].push({startDate:'2016-09-29 10:30', endDate:'2016-09-29 11:30', name:'Concurrent Sessions'})
+- program_events[1].push({startDate:'2016-09-29 11:45', endDate:'2016-09-29 13:45', name:'Celebration of Leaders Luncheon', starred:true})
+- program_events[1].push({startDate:'2016-09-29 14:00', endDate:'2016-09-29 15:30', name:'Concurrent Sessions'})
+- program_events[1].push({startDate:'2016-09-29 14:00', endDate:'2016-09-29 18:00', name:'Communities and Pavilion'})
+- program_events[1].push({startDate:'2016-09-29 15:30', endDate:'2016-09-29 16:00', name:'Beverage Break'})
+- program_events[1].push({startDate:'2016-09-29 16:00', endDate:'2016-09-29 17:30', name:'Concurrent Sessions'})
+- program_events[1].push({startDate:'2016-09-29 18:45', endDate:'2016-09-29 21:45', name:'Optional Tour', href:'', starred:true})
+- program_events[2].push({startDate:'2016-09-30 07:00', endDate:'2016-09-30 16:30', name:'Registration'})
+- program_events[2].push({startDate:'2016-09-30 07:30', endDate:'2016-09-30 08:30', name:'Leadership & Society Awards Breakfast'})
+- program_events[2].push({startDate:'2016-09-30 08:30', endDate:'2016-09-30 17:00', name:'Communities and Pavilion'})
+- program_events[2].push({startDate:'2016-09-30 08:45', endDate:'2016-09-30 09:45', name:'ASCE Annual Business Meeting', starred:true})
+- program_events[2].push({startDate:'2016-09-30 09:45', endDate:'2016-09-30 10:15', name:'Beverage Break'})
+- program_events[2].push({startDate:'2016-09-30 10:15', endDate:'2016-09-30 11:45', name:'Concurrent Sessions'})
+- program_events[2].push({startDate:'2016-09-30 11:45', endDate:'2016-09-30 13:15', name:'Lunch on Your Own'})
+- program_events[2].push({startDate:'2016-09-30 11:45', endDate:'2016-09-30 13:15', name:'International Luncheon (ticketed)'})
+- program_events[2].push({startDate:'2016-09-30 13:15', endDate:'2016-09-30 14:15', name:'Concurrent Sessions'})
+- program_events[2].push({startDate:'2016-09-30 13:00', endDate:'2016-09-30 17:15', name:'Optional Tour', href:'', starred:true})
+- program_events[2].push({startDate:'2016-09-30 14:30', endDate:'2016-09-30 16:00', name:'Industry Leaders Forum', starred:true})
+- program_events[2].push({startDate:'2016-09-30 16:00', endDate:'2016-09-30 16:30', name:'Beverage Break'})
+- program_events[2].push({startDate:'2016-09-30 16:30', endDate:'2016-09-30 17:30', name:'Concurrent Sessions'})
+- program_events[2].push({startDate:'2016-09-30 18:30', endDate:'2016-09-30 21:30', name:'Theater Night Out', starred:true})
+- program_events[3].push({startDate:'2016-10-01 07:00', endDate:'2016-10-01 14:30', name:'Registration'})
+- program_events[3].push({startDate:'2016-10-01 07:30', endDate:'2016-10-01 08:15', name:'Order of the Engineer Ceremony', starred:true})
+- program_events[3].push({startDate:'2016-10-01 08:45', endDate:'2016-10-01 11:45', name:'Optional Tour', href:''})
+- program_events[3].push({startDate:'2016-10-01 08:30', endDate:'2016-10-01 10:00', name:'Concurrent Sessions'})
+- program_events[3].push({startDate:'2016-10-01 08:30', endDate:'2016-10-01 14:00', name:'Communities and Pavilion'})
+- program_events[3].push({startDate:'2016-10-01 10:15', endDate:'2016-10-01 11:45', name:'Concurrent Sessions'})
+- program_events[3].push({startDate:'2016-10-01 12:00', endDate:'2016-10-01 14:00', name:'ASCE Luncheon & Closing General Session', starred:true})
+- program_events[3].push({startDate:'2016-10-01 14:30', endDate:'2016-10-01 17:30', name:'Technical Tours', href:''})
 
 
 
@@ -378,97 +267,97 @@
       name  : 'ASCE Foundation'
     , src   : 'http://2016.asceconvention.org/sites/default/files/asce-foundation-logo.png'
     , href  : 'http://www.ascefoundation.org/'
-    , level : sponsorlevel.platinum
+    , level : 'platinum'
     }
   , bentley: {
       name  : 'Bentley'
     , src   : 'http://2016.asceconvention.org/sites/default/files/bentley-logo.png'
     , href  : 'https://www.bentley.com/'
-    , level : sponsorlevel.platinum
+    , level : 'platinum'
     }
   , pennoni: {
       name  : 'Pennoni'
     , src   : 'http://2016.asceconvention.org/sites/default/files/pennoni-50th-anniversary-logo.png'
     , href  : 'https://www.pennoni.com/'
-    , level : sponsorlevel.silver
+    , level : 'silver'
     }
   , innovyze: {
       name  : 'Innovyze'
     , src   : 'http://2016.asceconvention.org/sites/default/files/innovyze-logo.png'
     , href  : 'http://www.innovyze.com/'
-    , level : sponsorlevel.silver
+    , level : 'silver'
     }
   , fasten: {
       name  : 'Fasten Group'
     , src   : 'http://2016.asceconvention.org/sites/default/files/fasten-group-logo.png'
     , href  : 'http://www.chinafasten.com/'
-    , level : sponsorlevel.bronze
+    , level : 'bronze'
     }
   , david_evans: {
       name  : 'David Evans and Associates, Inc.'
     , src   : 'http://2016.asceconvention.org/sites/default/files/david-evans-associates-logo.png'
     , href  : 'http://www.deainc.com/'
-    , level : sponsorlevel.bronze
+    , level : 'bronze'
     }
   , kci: {
       name  : 'KCI Technologies'
     , src   : 'http://2016.asceconvention.org/sites/default/files/kci-technologies-logo.png'
     , href  : 'http://www.kci.com/'
-    , level : sponsorlevel.bronze
+    , level : 'bronze'
     }
   , mccormick_taylor: {
       name  : 'McCormick & Taylor'
     , src   : 'http://2016.asceconvention.org/sites/default/files/mccormick-taylor-logo.png'
     , href  : 'http://www.mccormicktaylor.com/'
-    , level : sponsorlevel.bronze
+    , level : 'bronze'
     }
   , rutgers: {
       name  : 'Rutgers Center for Advanced Infrastructure and Transportation'
     , src   : 'http://2016.asceconvention.org/sites/default/files/rutgers-cait-logo.png'
     , href  : 'http://cait.rutgers.edu/'
-    , level : sponsorlevel.copper
+    , level : 'copper'
     }
   , kimley_horn: {
       name  : 'Kimley-Horn'
     , src   : 'http://2016.asceconvention.org/sites/default/files/kimley-horn-logo.png'
     , href  : 'http://www.kimley-horn.com/'
-    , level : sponsorlevel.copper
+    , level : 'copper'
     }
   , cbb: {
       name  : 'Christopher B. Burke Engineering, Ltd.'
     , src   : 'http://2016.asceconvention.org/sites/default/files/christopher-b-burke-engineering-logo.png'
     , href  : 'http://cbbel.com/'
-    , level : sponsorlevel.copper
+    , level : 'copper'
     }
   , bank_america: {
       name  : 'Bank of America'
     , src   : 'http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg'
     , href  : 'http://www.asce.org/member_advantages/#b'
-    , level : sponsorlevel.corporate
+    , level : 'corporate'
     }
   , geico: {
       name  : 'Geico'
     , src   : 'http://2016.asceconvention.org/sites/default/files/geico-logo.gif'
     , href  : 'https://www.geico.com/landingpage/member-discount/?logo=00774'
-    , level : sponsorlevel.corporate
+    , level : 'corporate'
     }
   , pearl: {
       name  : 'Pearl Insurance'
     , src   : 'http://2016.asceconvention.org/sites/default/files/pearl-insurance-logo.jpg'
     , href  : 'http://asceinsurance.com/'
-    , level : sponsorlevel.corporate
+    , level : 'corporate'
     }
   , ups: {
       name  : 'UPS'
     , src   : 'http://2016.asceconvention.org/sites/default/files/ups-logo.jpg'
     , href  : 'http://savewithups.com/asce/'
-    , level : sponsorlevel.corporate
+    , level : 'corporate'
     }
   , keller: {
       name  : 'Keller North America'
     , src   : 'http://2016.asceconvention.org/sites/default/files/keller-na-logo.png'
     , href  : 'http://www.keller.co.uk/'
-    , level : sponsorlevel.corporate
+    , level : 'corporate'
     }
   }
 - var sponsor = {}
@@ -476,94 +365,94 @@
 - sponsor.asce_foundation.name  = 'ASCE Foundation'
 - sponsor.asce_foundation.src   = 'http://2016.asceconvention.org/sites/default/files/asce-foundation-logo.png'
 - sponsor.asce_foundation.href  = 'http://www.ascefoundation.org/'
-- sponsor.asce_foundation.level = sponsorlevel.platinum
+- sponsor.asce_foundation.level = 'platinum'
 
 - sponsor.bentley = {}
 - sponsor.bentley.name  = 'Bentley'
 - sponsor.bentley.src   = 'http://2016.asceconvention.org/sites/default/files/bentley-logo.png'
 - sponsor.bentley.href  = 'https://www.bentley.com/'
-- sponsor.bentley.level = sponsorlevel.platinum
+- sponsor.bentley.level = 'platinum'
 
 - sponsor.pennoni = {}
 - sponsor.pennoni.name  = 'Pennoni'
 - sponsor.pennoni.src   = 'http://2016.asceconvention.org/sites/default/files/pennoni-50th-anniversary-logo.png'
 - sponsor.pennoni.href  = 'https://www.pennoni.com/'
-- sponsor.pennoni.level = sponsorlevel.silver
+- sponsor.pennoni.level = 'silver'
 
 - sponsor.innovyze = {}
 - sponsor.innovyze.name  = 'Innovyze'
 - sponsor.innovyze.src   = 'http://2016.asceconvention.org/sites/default/files/innovyze-logo.png'
 - sponsor.innovyze.href  = 'http://www.innovyze.com/'
-- sponsor.innovyze.level = sponsorlevel.silver
+- sponsor.innovyze.level = 'silver'
 
 - sponsor.fasten = {}
 - sponsor.fasten.name  = 'Fasten Group'
 - sponsor.fasten.src   = 'http://2016.asceconvention.org/sites/default/files/fasten-group-logo.png'
 - sponsor.fasten.href  = 'http://www.chinafasten.com/'
-- sponsor.fasten.level = sponsorlevel.bronze
+- sponsor.fasten.level = 'bronze'
 
 - sponsor.david_evans = {}
 - sponsor.david_evans.name  = 'David Evans and Associates, Inc.'
 - sponsor.david_evans.src   = 'http://2016.asceconvention.org/sites/default/files/david-evans-associates-logo.png'
 - sponsor.david_evans.href  = 'http://www.deainc.com/'
-- sponsor.david_evans.level = sponsorlevel.bronze
+- sponsor.david_evans.level = 'bronze'
 
 - sponsor.kci = {}
 - sponsor.kci.name  = 'KCI Technologies'
 - sponsor.kci.src   = 'http://2016.asceconvention.org/sites/default/files/kci-technologies-logo.png'
 - sponsor.kci.href  = 'http://www.kci.com/'
-- sponsor.kci.level = sponsorlevel.bronze
+- sponsor.kci.level = 'bronze'
 
 - sponsor.mccormick_taylor = {}
 - sponsor.mccormick_taylor.name  = 'McCormick & Taylor'
 - sponsor.mccormick_taylor.src   = 'http://2016.asceconvention.org/sites/default/files/mccormick-taylor-logo.png'
 - sponsor.mccormick_taylor.href  = 'http://www.mccormicktaylor.com/'
-- sponsor.mccormick_taylor.level = sponsorlevel.bronze
+- sponsor.mccormick_taylor.level = 'bronze'
 
 - sponsor.rutgers = {}
 - sponsor.rutgers.name  = 'Rutgers Center for Advanced Infrastructure and Transportation'
 - sponsor.rutgers.src   = 'http://2016.asceconvention.org/sites/default/files/rutgers-cait-logo.png'
 - sponsor.rutgers.href  = 'http://cait.rutgers.edu/'
-- sponsor.rutgers.level = sponsorlevel.copper
+- sponsor.rutgers.level = 'copper'
 
 - sponsor.kimley_horn = {}
 - sponsor.kimley_horn.name  = 'Kimley-Horn'
 - sponsor.kimley_horn.src   = 'http://2016.asceconvention.org/sites/default/files/kimley-horn-logo.png'
 - sponsor.kimley_horn.href  = 'http://www.kimley-horn.com/'
-- sponsor.kimley_horn.level = sponsorlevel.copper
+- sponsor.kimley_horn.level = 'copper'
 
 - sponsor.cbb = {}
 - sponsor.cbb.name  = 'Christopher B. Burke Engineering, Ltd.'
 - sponsor.cbb.src   = 'http://2016.asceconvention.org/sites/default/files/christopher-b-burke-engineering-logo.png'
 - sponsor.cbb.href  = 'http://cbbel.com/'
-- sponsor.cbb.level = sponsorlevel.copper
+- sponsor.cbb.level = 'copper'
 
 - sponsor.bank_america = {}
 - sponsor.bank_america.name  = 'Bank of America'
 - sponsor.bank_america.src   = 'http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg'
 - sponsor.bank_america.href  = 'http://www.asce.org/member_advantages/#b'
-- sponsor.bank_america.level = sponsorlevel.corporate
+- sponsor.bank_america.level = 'corporate'
 
 - sponsor.geico = {}
 - sponsor.geico.name  = 'Geico'
 - sponsor.geico.src   = 'http://2016.asceconvention.org/sites/default/files/geico-logo.gif'
 - sponsor.geico.href  = 'https://www.geico.com/landingpage/member-discount/?logo=00774'
-- sponsor.geico.level = sponsorlevel.corporate
+- sponsor.geico.level = 'corporate'
 
 - sponsor.pearl = {}
 - sponsor.pearl.name  = 'Pearl Insurance'
 - sponsor.pearl.src   = 'http://2016.asceconvention.org/sites/default/files/pearl-insurance-logo.jpg'
 - sponsor.pearl.href  = 'http://asceinsurance.com/'
-- sponsor.pearl.level = sponsorlevel.corporate
+- sponsor.pearl.level = 'corporate'
 
 - sponsor.ups = {}
 - sponsor.ups.name  = 'UPS'
 - sponsor.ups.src   = 'http://2016.asceconvention.org/sites/default/files/ups-logo.jpg'
 - sponsor.ups.href  = 'http://savewithups.com/asce/'
-- sponsor.ups.level = sponsorlevel.corporate
+- sponsor.ups.level = 'corporate'
 
 - sponsor.keller = {}
 - sponsor.keller.name  = 'Keller North America'
 - sponsor.keller.src   = 'http://2016.asceconvention.org/sites/default/files/keller-na-logo.png'
 - sponsor.keller.href  = 'http://www.keller.co.uk/'
-- sponsor.keller.level = sponsorlevel.corporate
+- sponsor.keller.level = 'corporate'

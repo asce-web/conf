@@ -1,20 +1,20 @@
 
 //- ///////////////////////////////////////////////////////////////////////////////
 //- //
-//- // This file holds data and functions for the styleguide pattern library.
+//- // This file holds all data for the styleguide pattern library.
 //- //
 //- ///////////////////////////////////////////////////////////////////////////////
 
-- function title(arr) { return arr.reduceRight(function (a, b) { return a + ' | ' + b }) }
-- function mainH1(arr) { return arr.reduce(function (a, b) { return a + ' — ' + b }) }
 
 //- -
   var lib = [
     {
       name: 'Pattern Library Home', href: 'index.html'
+    , 'description': ''
     }
   , {
       name: 'Visual Design', href: 'visual.html'
+    , 'description': 'Color and font schemes, look-and-feel, overall mood and tone.'
     , sub: [
         { name: 'ASCE'     , href: 'visual.html#asce' }
       , { name: 'ASCE 2016', href: 'visual.html#asce2016' }
@@ -22,6 +22,7 @@
     }
   , {
       name: 'Base', href: 'base.html'
+    , 'description': 'Bare, unstyled HTML elements. No classes.'
     , sub: [
         { name: 'Table of Contents'    , href: 'base.html#table-contents' }
       , { name: 'Headings & Paragraphs', href: 'base.html#headings-paragraphs' }
@@ -43,6 +44,7 @@
     }
   , {
       name: 'Objects', href: 'obj.html'
+    , 'description': 'Patterns of structure that can be reused many times for many different purposes.'
     , sub: [
         { name: 'Table of Contents'  , href: 'obj.html#table-contents' }
       , { name: 'The Block Object'   , href: 'obj.html#block-object' }
@@ -59,6 +61,7 @@
     }
   , {
       name: 'Components', href: 'comp.html'
+    , 'description': 'Patterns of look-and-feel that are each only used for one purpose.'
     , sub: [
         { name: 'Table of Contents'        , href: 'comp.html#table-contents' }
       , { name: 'The Masthead and Mastfoot', href: 'comp.html#masthead-mastfoot' }
@@ -85,9 +88,11 @@
     }
   , {
       name: 'Helpers', href: 'helpers.html'
+    , 'description': 'Somewhat explicit classes used for enhancing default styles.'
     }
   , {
       name: 'Atoms', href: 'atoms.html'
+    , 'description': 'Very specific classes used for creating anomalies or fixing broken styles.'
     }
   ]
 - var lib = []

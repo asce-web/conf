@@ -3,6 +3,7 @@
     conf  |  _obj.SiteHead.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
 
 
 // Object in the top-most Masthead containing site title and navigation menu
@@ -19,6 +20,11 @@
   .flex-wrap(nowrap); // override `.o-GridFlex`
   .flex-justify-content(space-between);
   .flex-align-items(center);
+  .js-menubutton { // specificity HACK override .c-Btn
+    @media screen and (min-width: @p-mobilebp) {
+      display: none;
+    }
+  }
 }
 
 .o-SiteHead__Title,
@@ -32,26 +38,19 @@
 }
 
 .o-SiteHead__Nav {
+  @width: 12rem;
   z-index: 2; // over hero and sub menus
-  width: 12rem;
+  width: @width;
   @media screen and (max-width: (@p-mobilebp - 0.001em)) {
     position: fixed;
     right: 0; top: 0;
     height: 100%;
+    .transition(right; 250ms);
+    &.js-universalnav { // specificity HACK
+      right: -@width;
+    }
   }
   @media screen and (min-width: @p-mobilebp) {
     width: auto;
-  }
-}
-
-
-.o-SiteHead .js-menubutton { // HACK override .c-Btn
-  @media screen and (min-width: @p-mobilebp) {
-    display: none;
-  }
-}
-.o-SiteHead__Nav.js-universalnav {
-  @media screen and (max-width: (@p-mobilebp - 0.001em)) {
-    display: none;
   }
 }

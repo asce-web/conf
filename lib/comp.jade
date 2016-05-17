@@ -627,7 +627,7 @@ block append main
     h3 Flat Buttons
     p Flat, link-ish buttons.
     figure.sg-c-Fig
-      div(style="margin-bottom: 1.5rem;"): button.c-Btn.c-Btn--flat flat button
+      div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--flat(href="#0") flat button
       div(style="margin-bottom: 1.5rem;")
         a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover
         a.c-Btn.c-Btn--flat(href="#0")._active flat button active
@@ -638,8 +638,7 @@ block append main
         a.c-Btn.c-Btn--flat(href="#0")._active flat button active inside a banner
         a.c-Btn.c-Btn--flat flat button disabled inside a banner
       pre.
-        &lt;button class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/button&gt;
-        &lt;a class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat link&lt;/a&gt;
+        &lt;a class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/a&gt;
     h3 Drawer Buttons
     p Drawer buttons for pull-out menu.
     p These are actually #[code button] elements. #[i Close] button is fixed to the top right.
@@ -653,3 +652,26 @@ block append main
       button.c-Btn.c-Btn--drawer._hover drawer hover
       button.c-Btn.c-Btn--drawer._active drawer active
       button.c-Btn.c-Btn--drawer(disabled) drawer disabled
+  section.sg-sect#text-level-components
+    h2 Text-Level Components
+    h3 Camo Links
+    p.
+      A Camo Link is a link that blends with its surrounding text.
+      It unsets the default styles assigned to unclassed #[code a] elements
+      (also known as anchors).
+      Essentially, use it for when you need a link but don&rsquo;t
+      want to expose it to the user.
+      In fact, this class can be used on any element, not just anchors.
+    figure.sg-c-Fig
+      p Inside this paragraph is a #[a.c-Camo(href="") camouflaged link]. See where you can find it.
+      pre.
+        &lt;p&gt;Inside this paragraph is a
+          &lt;a class="#[u c-Camo]"&gt;camouflaged link&lt;/a&gt;.
+          See where you can find it.&lt;p&gt;
+    p.
+      #[strong Note to developers:] the #[code .c-Camo] class uses #[code !important] on
+      all its styles, so use only when necessary. And if possible, use on the
+      innermost element. E.g.:
+    pre.
+      &lt;span&gt;&lt;a class="c-Camo"&gt;correct&lt;/a&gt;&lt;/span&gt;
+      #[small!= '&lt;!-- a class="c-Camo"&gt;&lt;span&gt;incorrect&lt;/span&gt;&lt;/a --&gt;']

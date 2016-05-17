@@ -76,6 +76,7 @@
       , { "name": "The Social List"          , "href": "comp.html#social-list" }
       , { "name": "The Callout Component"    , "href": "comp.html#callout-component" }
       , { "name": "Buttons"                  , "href": "comp.html#buttons" }
+      , { "name": "Text-Level Components"    , "href": "comp.html#text-level-components"}
       ]
     }
   , {

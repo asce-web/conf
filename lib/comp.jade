@@ -627,7 +627,7 @@ block append main
     h3 Flat Buttons
     p Flat, link-ish buttons.
     figure.sg-c-Fig
-      div(style="margin-bottom: 1.5rem;"): button.c-Btn.c-Btn--flat flat button
+      div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--flat(href="#0") flat button
       div(style="margin-bottom: 1.5rem;")
         a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover
         a.c-Btn.c-Btn--flat(href="#0")._active flat button active
@@ -638,8 +638,7 @@ block append main
         a.c-Btn.c-Btn--flat(href="#0")._active flat button active inside a banner
         a.c-Btn.c-Btn--flat flat button disabled inside a banner
       pre.
-        &lt;button class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/button&gt;
-        &lt;a class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat link&lt;/a&gt;
+        &lt;a class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/a&gt;
     h3 Drawer Buttons
     p Drawer buttons for pull-out menu.
     p These are actually #[code button] elements. #[i Close] button is fixed to the top right.

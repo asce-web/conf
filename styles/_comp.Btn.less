@@ -73,7 +73,7 @@
   border: 1px solid;
   cursor: pointer;
   a&:not([href]),
-  button&[disabled] {
+  button&:disabled {
     opacity: 0.75; // override xmeter
     cursor: not-allowed;
   }
@@ -95,7 +95,7 @@
     background-color: @g-color_asce_white;
   }
   a&:not([href]),
-  button&[disabled] {
+  button&:disabled {
     &,
     &:hover,
     &:focus,

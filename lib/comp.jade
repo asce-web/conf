@@ -652,3 +652,26 @@ block append main
       button.c-Btn.c-Btn--drawer._hover drawer hover
       button.c-Btn.c-Btn--drawer._active drawer active
       button.c-Btn.c-Btn--drawer(disabled) drawer disabled
+  section.sg-sect#text-level-components
+    h2 Text-Level Components
+    h3 Camo Links
+    p.
+      A Camo Link is a link that blends with its surrounding text.
+      It unsets the default styles assigned to unclassed #[code a] elements
+      (also known as anchors).
+      Essentially, use it for when you need a link but don&rsquo;t
+      want to expose it to the user.
+      In fact, this class can be used on any element, not just anchors.
+    figure.sg-c-Fig
+      p Inside this paragraph is a #[a.c-Camo(href="") camouflaged link]. See where you can find it.
+      pre.
+        &lt;p&gt;Inside this paragraph is a
+          &lt;a class="#[u c-Camo]"&gt;camouflaged link&lt;/a&gt;.
+          See where you can find it.&lt;p&gt;
+    p.
+      #[strong Note to developers:] the #[code .c-Camo] class uses #[code !important] on
+      all its styles, so use only when necessary. And if possible, use on the
+      innermost element. E.g.:
+    pre.
+      &lt;span&gt;&lt;a class="c-Camo"&gt;correct&lt;/a&gt;&lt;/span&gt;
+      #[small!= '&lt;!-- a class="c-Camo"&gt;&lt;span&gt;incorrect&lt;/span&gt;&lt;/a --&gt;']

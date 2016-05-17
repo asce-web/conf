@@ -41,14 +41,15 @@ mixin menulist(args)
   - var depth     = +args.depth
   ul(class=class_obj.listclasses)
     each item in pages
-      li(class=class_obj.itemclasses)
-        a(class=class_obj.linkclasses href=item.href)
-          if item.icon && args.icons
-            i.material-icons= item.icon.content
-          span= item.name
-        if item.sub && depth > 0
-          - class_obj.sub = class_obj.sub || {}
-          +menulist({pages: item.sub, class_obj: class_obj.sub, depth: depth-1})
+      unless item.is_hidden
+        li(class=class_obj.itemclasses)
+          a(class=class_obj.linkclasses href=item.href)
+            if item.icon && args.icons
+              i.material-icons= item.icon.content
+            span= item.name
+          if item.sub && depth > 0
+            - class_obj.sub = class_obj.sub || {}
+            +menulist({pages: item.sub, class_obj: class_obj.sub, depth: depth-1})
 
 mixin actionchoices(items, classes, list_attr)
   - list_attr = list_attr || {}

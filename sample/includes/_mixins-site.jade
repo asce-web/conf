@@ -95,7 +95,7 @@ mixin programAgenda(events, index, show_all)
     = month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
   dl.o-GridFlex__Item.o-GridFlex.c-Program__Schedule.c-TimeBlock
     each event0 in events
-      if show_all || event0.starred
+      if show_all || event0.is_starred
         dt.o-GridFlex__Item.c-TimeBlock__Times
           time(datetime=event0.startDate)= hourTime12(new Date(event0.startDate))
           | &ndash;

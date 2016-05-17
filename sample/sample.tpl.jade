@@ -64,8 +64,8 @@ html(lang="en")
             a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href=page.href)
               i.material-icons= page.icon.content
               span= conference.current.name
-        //- button.c-Btn.c-Btn--dominant.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close"): i.material-icons close
-      //- button.c-Btn.c-Btn--flat.c-Btn--drawer.js-menubutton(type="button" name="open" title="top menu"): i.material-icons menu
+        //- button.c-Btn.c-Btn--dominant.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close top menu"): i.material-icons close
+      //- button.c-Btn.c-Btn--flat.c-Btn--drawer.js-menubutton(type="button" name="open" title="open top menu"): i.material-icons menu
     block standard-menu
     main
       block main
@@ -128,7 +128,7 @@ html(lang="en")
       var button_open = $('<button>').addClass('c-Btn c-Btn--flat c-Btn--drawer js-menubutton')
         .attr('type','button')
         .attr('name','open')
-        .attr('title','top menu')
+        .attr('title','open top menu')
         .append($('<i>').addClass('material-icons').text('menu'))
         .click(function () {
           $('.o-SiteHead__Nav').removeClass('js-universalnav')
@@ -136,7 +136,7 @@ html(lang="en")
       var button_close = $('<button>').addClass('c-Btn c-Btn--dominant c-Btn--drawer c-Btn--drawer--close js-menubutton')
         .attr('type','button')
         .attr('name','close')
-        .attr('title','close')
+        .attr('title','close top menu')
         .append($('<i>').addClass('material-icons').text('close'))
         .click(function () {
           $('.o-SiteHead__Nav').addClass('js-universalnav')

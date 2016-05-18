@@ -33,3 +33,30 @@ html(lang="en")
           li: a(href="../index.html") Home
           li: a(href="index.html") Pattern Library
           li: a(href="../sample/index.html") Sample Site
+    //- SCRIPTS COPIED DIRECTLY FROM SAMPLE.TPL.JADE. TODO put in a separate js file
+    script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
+    script.
+      function resizeProgram() {
+        $('.c-Program').height(function () {
+          return $(this).find('.c-Program__Schedule--shown').height()
+                 + $(this).find('.c-Program__Schedule--shown').prev('h1').height()
+                 + parseInt($(this).find('.c-Program__Schedule--shown').prev('h1').css('margin-bottom'))
+        })
+      }
+      function updateProgram() {
+        $(this).siblings('.c-Program__Schedule').removeClass('c-Program__Schedule--hiddenBefore c-Program__Schedule--shown c-Program__Schedule--hiddenAfter')
+        $(this).prevAll('.c-Program__Schedule').addClass('c-Program__Schedule--hiddenBefore')
+        $(this).nextAll('.c-Program__Schedule').first().addClass('c-Program__Schedule--shown')
+        $('.c-Program__Schedule--shown').nextAll('.c-Program__Schedule').addClass('c-Program__Schedule--hiddenAfter')
+        resizeProgram()
+      }
+      $(window).resize(resizeProgram)
+      $('.c-Program').addClass('-xz-c')
+      $('.c-Program__Hn').width(100/$('.c-Program__Hn').length + '%')
+      $('.c-Program__Schedule').addClass('-xo-1 -ps-a').css('left', 0).css('top', function () {
+        return $(this).prev('h1').height()
+               + parseInt($(this).prev('h1').css('margin-bottom'))
+               + parseInt($(this).parents('.c-Program').css('padding-top'))
+      })
+      $('.c-Program__Check:checked').each(updateProgram)
+      $('.c-Program__Check').change(updateProgram)

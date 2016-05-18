@@ -23,12 +23,7 @@
   background-color: @g-color_site_gray_dk;
   color: @g-color_asce_white;
   h1,
-  a:not(:hover):not(:focus):not(:active) {
-    color: inherit;
-  }
-  .c-SiteTitle:hover,
-  .c-SiteTitle:focus {
-    // HACK override `.c-Mast >> a`
+  a:not(:hover):not(:focus):not(._hover) {
     color: inherit;
   }
   .c-MenuUniversal,
@@ -36,8 +31,7 @@
   .c-MenuSub,
   .c-Sitemap,
   .c-Sitemap__SubList {
-    // HACK override `.font-size-mod() >> h1` and `.font-size-mod() >> ul`
-    margin-bottom: 0;
+    margin-bottom: 0; // override `.font-size-mod() >> h1` and `.font-size-mod() >> ul`
   }
 }
 
@@ -62,9 +56,10 @@
 // 2016-04-24
 .c-Mast--internal {
   background-color: @g-color_site_primary;
-  a:not(:active) {
+  a:not(:active):not(._active) {
     &:hover,
-    &:focus {
+    &:focus,
+    &._hover {
       color: @g-color_site_gray_dk;
     }
   }

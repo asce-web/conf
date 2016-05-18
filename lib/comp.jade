@@ -16,7 +16,11 @@ block append main
       header.c-Mast
         h1 mast heading
         p mast content
-        p: a(href="") mast link
+        ul
+          li: a(href="") mast link
+          li: a(href="")._hover mast link hover
+          li: a(href="")._active mast link active
+          li: a mast link disabled
       pre.
         &lt;header class="#[u c-Mast]"&gt;
           &lt;h1&gt;mast heading&lt;/h1&gt;
@@ -25,27 +29,36 @@ block append main
         &lt;/header&gt;
     figure.sg-c-Fig
       footer.c-Mast.c-Mast--copyright
-        p: a(href="") &copy; 1996&ndash;2016 American Society of Civil Engineers
+        ul
+          li: a(href="") mast link
+          li: a(href="")._hover mast link hover
+          li: a(href="")._active mast link active
+          li: a mast link disabled
       pre.
         &lt;footer class="#[u c-Mast]  #[u c-Mast--copyright]"&gt;
           &lt;p&gt;&lt;a&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;&lt;/p&gt;
         &lt;/footer&gt;
     figure.sg-c-Fig
       footer.c-Mast.c-Mast--internal
-        p: a(href="") &copy; 1996&ndash;2016 American Society of Civil Engineers
+        ul
+          li: a(href="") mast link
+          li: a(href="")._hover mast link hover
+          li: a(href="")._active mast link active
+          li: a mast link disabled
       pre.
         &lt;footer class="#[u c-Mast]  #[u c-Mast--internal]"&gt;
           &lt;p&gt;&lt;a&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;&lt;/p&gt;
         &lt;/footer&gt;
   section.sg-sect#site-title
     h2 The Site Title
+    p Use with #[code .c-Camo].
     figure.sg-c-Fig
-      a.o-Block.o-GridFloat.c-SiteTitle(href="" style="margin-bottom: 1.5rem;")
+      a.o-Block.o-GridFloat.c-SiteTitle.c-Camo(href="" style="margin-bottom: 1.5rem;")
         span.o-GridFloat__Item.c-SiteTitle__Logo
         h1.o-GridFloat__Item.c-SiteTitle__Name ASCE Convention
         p.o-GridFloat__Item.c-SiteTitle__Tagline The Flagship Event of ASCE
       pre.
-        &lt;a class="o-Block  o-GridFloat  #[u c-SiteTitle]"&gt;
+        &lt;a class="o-Block  o-GridFloat  #[u c-SiteTitle]  c-Camo"&gt;
           &lt;span class="o-GridFloat__Item  #[u c-SiteTitle__Logo]"&gt;&lt;/span&gt;
           &lt;h1 class="o-GridFloat__Item  #[u c-SiteTitle__Name]"&gt;ASCE Convention&lt;/h1&gt;
           &lt;p class="o-GridFloat__Item  #[u c-SiteTitle__Tagline]"&gt;The Flagship Event of ASCE&lt;/p&gt;

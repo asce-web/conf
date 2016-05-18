@@ -3,6 +3,8 @@
     conf  |  _comp.Program.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 
 
@@ -16,31 +18,33 @@
 // Chris Harvey
 // ^updated
 // 2016-05-05
+@p-transdura: 500ms;
 .c-Program {
+  position: relative;
+  .flex-align-items(flex-start); // push Hn and Schedule to top
   margin-bottom: @g-vru;
   .font-size-mod(14/16);
-  .flex-align-items(flex-start);
+  overflow: hidden;
+  .transition(height; @p-transdura);
   h1 {
     padding-top: 0;
     font-family: inherit;
     color: inherit;
   }
   dl {
-    margin-bottom: 0; // HACK override `.c-Program >> dl`
+    margin-bottom: 0; // HACK override `.font-size-mod() >> dl`
   }
 }
 
-@p-transdura: 250ms;
 .c-Program__Hn,
 .c-Program__Schedule {
+  .transition(@g-prefix_transform; @p-transdura);
 }
 .c-Program__Hn {
   .font-size-el(1);
   white-space: nowrap;
   cursor: pointer;
-  .transition(font-size, line-height; @p-transdura);
   @media screen and (min-width: 45em) {
-    width: 25%; // FIXME depends on how many !!!
     .font-size-el(1.25);
   }
   label {
@@ -50,23 +54,23 @@
 }
 
 .c-Program__Schedule {
-  height: 100%;
-  overflow: hidden;
-  .flex-order(1);
-  .transition(width, height, font-size; @p-transdura);
+  transform-origin: center top;
+}
+.c-Program__Schedule--hiddenBefore {
+  .transform(translateX(-100%) scale(0,0));
+}
+.c-Program__Schedule--hiddenAfter {
+  .transform(translateX(100%) scale(0,0));
+}
+.c-Program__Schedule--shown {
 }
 
 .c-Program__Check {
   display: none;
   &:checked + .c-Program__Hn {
-    .font-size-el(1.5);
+    .transform(scale(1.2,1.2));
   }
   &:not(:checked) + .c-Program__Hn {
-    opacity: 0.5;
-    & + .c-Program__Schedule {
-      width: 0;
-      height: 0;
-      font-size: 0;
-    }
+    color: @g-color_site_gray_lt;
   }
 }

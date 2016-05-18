@@ -52,15 +52,15 @@
   .transition(background-color; @trans_dura);
   &:hover,
   &._hover,
-  & .c-MenuSub {
+  .c-MenuSub {
     background-color: @g-color_site_gray_lt;
   }
-  & .c-MenuSub {
-    .transition(font-size, background-color; @trans_dura);
+  .c-MenuSub {
+    transform-origin: left top;
+    .transition(@g-prefix_transform; @trans_dura);
   }
   &:not(:hover) .c-MenuSub {
-    font-size: 0;
-    background-color: transparent;
+    .transform(scale(0,0));
   }
 }
 

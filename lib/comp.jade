@@ -16,7 +16,11 @@ block append main
       header.c-Mast
         h1 mast heading
         p mast content
-        p: a(href="") mast link
+        ul
+          li: a(href="") mast link
+          li: a(href="")._hover mast link hover
+          li: a(href="")._active mast link active
+          li: a mast link disabled
       pre.
         &lt;header class="#[u c-Mast]"&gt;
           &lt;h1&gt;mast heading&lt;/h1&gt;
@@ -25,27 +29,36 @@ block append main
         &lt;/header&gt;
     figure.sg-c-Fig
       footer.c-Mast.c-Mast--copyright
-        p: a(href="") &copy; 1996&ndash;2016 American Society of Civil Engineers
+        ul
+          li: a(href="") mast link
+          li: a(href="")._hover mast link hover
+          li: a(href="")._active mast link active
+          li: a mast link disabled
       pre.
         &lt;footer class="#[u c-Mast]  #[u c-Mast--copyright]"&gt;
           &lt;p&gt;&lt;a&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;&lt;/p&gt;
         &lt;/footer&gt;
     figure.sg-c-Fig
       footer.c-Mast.c-Mast--internal
-        p: a(href="") &copy; 1996&ndash;2016 American Society of Civil Engineers
+        ul
+          li: a(href="") mast link
+          li: a(href="")._hover mast link hover
+          li: a(href="")._active mast link active
+          li: a mast link disabled
       pre.
         &lt;footer class="#[u c-Mast]  #[u c-Mast--internal]"&gt;
           &lt;p&gt;&lt;a&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;&lt;/p&gt;
         &lt;/footer&gt;
   section.sg-sect#site-title
     h2 The Site Title
+    p Use with #[code .c-Camo].
     figure.sg-c-Fig
-      a.o-Block.o-GridFloat.c-SiteTitle(href="" style="margin-bottom: 1.5rem;")
+      a.o-Block.o-GridFloat.c-SiteTitle.c-Camo(href="" style="margin-bottom: 1.5rem;")
         span.o-GridFloat__Item.c-SiteTitle__Logo
         h1.o-GridFloat__Item.c-SiteTitle__Name ASCE Convention
         p.o-GridFloat__Item.c-SiteTitle__Tagline The Flagship Event of ASCE
       pre.
-        &lt;a class="o-Block  o-GridFloat  #[u c-SiteTitle]"&gt;
+        &lt;a class="o-Block  o-GridFloat  #[u c-SiteTitle]  c-Camo"&gt;
           &lt;span class="o-GridFloat__Item  #[u c-SiteTitle__Logo]"&gt;&lt;/span&gt;
           &lt;h1 class="o-GridFloat__Item  #[u c-SiteTitle__Name]"&gt;ASCE Convention&lt;/h1&gt;
           &lt;p class="o-GridFloat__Item  #[u c-SiteTitle__Tagline]"&gt;The Flagship Event of ASCE&lt;/p&gt;
@@ -53,6 +66,7 @@ block append main
   section.sg-sect#universal-menu
     h2 The Universal Menu
     p #[strong Note:] Universal Menu will convert to pull-out drawer when screen is smaller than 720px.
+    p Current Year menu item will appear exactly the same as Hero Button, but will not have that class.
     figure.sg-c-Fig
       ul.o-ListBare.o-GridFlex.c-MenuUniversal(style="margin-bottom: 1.5rem;")
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") About
@@ -60,6 +74,12 @@ block append main
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Exhibit
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Contact
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="") ASCE 2016
+      ul.o-ListBare.o-GridFlex.c-MenuUniversal(style="margin-bottom: 1.5rem;")
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="")._hover menu item hover
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="")._active menu item active
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link menu item disabled
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="")._hover current year hover
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="")._active current year active
       pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuUniversal]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuUniversal__Item]"&gt;
@@ -79,6 +99,10 @@ block append main
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Program
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Hotel &amp; Travel
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Speakers
+      ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
+        li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._hover menu item hover
+        li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._active menu item active
+        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link menu item disabled
       pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuStandard]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuStandard__Item]"&gt;
@@ -93,6 +117,10 @@ block append main
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Registration Submenu Item 2
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Registration Submenu Item 3
+      ul.o-ListBare.c-MenuSub(style="position: initial;")
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._hover menu item hover
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._active menu item active
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link menu item disabled
       pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuSub]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuSub__Item]"&gt;
@@ -474,6 +502,9 @@ block append main
         &lt;/article&gt;
   section.sg-sect#social-list
     h2 The Social List
+    p.
+      There are two Social List styles: one is a normal list, placeable anywhere,
+      and the second is inside a #[code footer] element.
     figure.sg-c-Fig
       ul.o-ListBare.o-GridFlex.c-SocialList
         li.o-GridFlex__Item.c-SocialList__Item
@@ -482,7 +513,15 @@ block append main
           a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" title="Follow #ASCE2016 on Google+")
         li.o-GridFlex__Item.c-SocialList__Item
           a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" title="Follow #ASCE2016 on Facebook")
+      ul.o-ListBare.o-GridFlex.c-SocialList
+        li.o-GridFlex__Item.c-SocialList__Item
+          span menu item hover:
+          a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")._hover
+        li.o-GridFlex__Item.c-SocialList__Item
+          span menu item active:
+          a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")._active
       footer
+        p This is a #[code footer] element.
         ul.o-ListBare.o-GridFlex.c-SocialList
           li.o-GridFlex__Item.c-SocialList__Item
             a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" itemprop="sameAs" title="Follow ASCE on Twitter")
@@ -494,6 +533,13 @@ block append main
             a.o-Block.c-SocialList__Link.c-SocialList__Link--linkedin(href="" itemprop="sameAs" title="Follow ASCE on LinkedIn")
           li.o-GridFlex__Item.c-SocialList__Item
             a.o-Block.c-SocialList__Link.c-SocialList__Link--youtube(href="" itemprop="sameAs" title="Follow ASCE on YouTube")
+        ul.o-ListBare.o-GridFlex.c-SocialList
+          li.o-GridFlex__Item.c-SocialList__Item
+            span in footer menu item hover:
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")._hover
+          li.o-GridFlex__Item.c-SocialList__Item
+            span in footer menu item active:
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")._active
       pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-SocialList]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-SocialList__Item]"&gt;
@@ -501,7 +547,9 @@ block append main
           &lt;/li&gt;
           ...
         &lt;/ul&gt;
-        #[small &lt;!-- second social list same structure but inside a #[code footer] element --&gt;]
+        &lt;footer&gt;
+          #[small &lt;!-- second social list exactly the same structure as above --&gt;]
+        &lt;/footer&gt;
   section.sg-sect#callout-component
     h2 The Callout Component
     figure.sg-c-Fig

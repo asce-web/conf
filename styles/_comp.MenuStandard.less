@@ -20,7 +20,6 @@
 // 2016-03-01
 .c-MenuStandard {
   .menubar();
-  position: relative; // for the NavSubmenu positioning
   margin-bottom: 0; // override `ul`
   text-align: center;
   @iconbreakpoint: 487px;
@@ -46,11 +45,13 @@
     }
   }
 }
+
 .c-MenuStandard__Item {
   @trans_dura: 125ms;
   width: auto;
   .transition(background-color; @trans_dura);
   &:hover,
+  &._hover,
   & .c-MenuSub {
     background-color: @g-color_site_gray_lt;
   }
@@ -62,6 +63,7 @@
     background-color: transparent;
   }
 }
+
 .c-MenuStandard__Link {
   padding: @g-boxpadd_mill;
 }

@@ -64,11 +64,24 @@
 }
 
 .c-MenuUniversal__Link--current {
+  // colors copied directly from `.c-Btn.c-Btn--hero`
+  // (can’t use that component because of padding and dislay issues)
   background-color: @g-color_site_primary;
+  &,
   &:hover,
-  &:focus {
-    &:not(:active) {
-      color: @g-color_site_gray_dk;
-    }
+  &:focus,
+  &:active,
+  &._hover,
+  &._active {
+    color: @g-color_asce_white;
+  }
+  &:hover,
+  &:focus,
+  &._hover {
+    background-color: @g-color_site_gray_lt;
+  }
+  &:active,
+  &._active {
+    background-color: @g-color_site_gray_dk;
   }
 }

@@ -3,6 +3,7 @@
     conf  |  _obj.SiteHead.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
 
 
@@ -40,17 +41,21 @@
 .o-SiteHead__Nav {
   @width: 12rem;
   z-index: 2; // over hero and sub menus
+  transform-origin: right top;
   width: @width;
+  .transition(@g-prefix_transform; 250ms);
   @media screen and (max-width: (@p-mobilebp - 0.001em)) {
     position: fixed;
     right: 0; top: 0;
     height: 100%;
-    .transition(right; 250ms);
     &.js-universalnav { // specificity HACK
-      right: -@width;
+      .transform(translateX(@width) scale(0, 0));
     }
   }
   @media screen and (min-width: @p-mobilebp) {
     width: auto;
+  }
+  .c-MenuUniversal {
+    height: 100%; // HACK height dependent on fixed parent
   }
 }

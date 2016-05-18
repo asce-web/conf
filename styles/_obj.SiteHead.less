@@ -18,9 +18,9 @@
 // 2016-05-16
 @p-mobilebp: 45em;
 .o-SiteHead {
-  .flex-wrap(nowrap); // override `.o-GridFlex`
+  .flex-wrap(nowrap); // override `.o-GridFlex wrap`
   .flex-justify-content(space-between);
-  .flex-align-items(center);
+  .flex-align-items(center); // override `stretch` // for vertical alignment
   .js-menubutton { // specificity HACK override .c-Btn
     @media screen and (min-width: @p-mobilebp) {
       display: none;

@@ -49,7 +49,7 @@
 .c-MenuStandard__Item {
   @trans_dura: 125ms;
   width: auto;
-  .transition(background-color; @trans_dura);
+  .transition-multi(background-color @trans_dura);
   &:hover,
   &._hover,
   .c-MenuSub {
@@ -57,7 +57,7 @@
   }
   .c-MenuSub {
     transform-origin: left top;
-    .transition(@g-prefix_transform; @trans_dura);
+    .transitions(@g-prefix_transform; @trans_dura);
   }
   &:not(:hover) .c-MenuSub {
     .transform(scale(0,0));

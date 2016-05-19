@@ -1,6 +1,6 @@
 mixin hero-content(event0)
   - event0 = event0 || {}
-  h1.c-PageTitle.c-Hero__Name(itemprop="name")= event0.name
+  h1.c-PageTitle.c-Hero__Name(id=urlify(event0.name) itemprop="name")= event0.name
   p.c-Hero__Detail
     span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
       span(itemprop="name")
@@ -8,7 +8,7 @@ mixin hero-content(event0)
         if event0.addressRegion.name && event0.addressRegion.abbr
           abbr(itemprop="addressRegion" title=event0.addressRegion.name)= event0.addressRegion.abbr
         else
-          span(itemprop="addressRegion")= event0.addressRegion
+          span(itemprop="addressRegion")= event0.addressRegion.name || event0.addressRegion
     span.c-Hero__Dates
       time(datetime=event0.startDate itemprop="startDate")
         - var start = new Date(event0.startDate)
@@ -25,7 +25,7 @@ mixin hero-content(event0)
 
 mixin otheryear-content(event0)
   - event0 = event0 || {}
-  h1.c-OtherYear__Name(itemprop="name")= event0.name
+  h1.c-OtherYear__Name(id=urlify(event0.name) itemprop="name")= event0.name
   meta(content=event0.startDate itemprop="startDate")
   p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
     span(itemprop="name")
@@ -36,7 +36,7 @@ mixin otheryear-content(event0)
           span(itemprop="addressRegion")= event0.addressRegion
 
 mixin important-date-content()
-  h1 Important Dates
+  h1#important-dates Important Dates
   dl.c-DateBlock
     mixin row(event0)
       dt.c-DateBlock__Date
@@ -55,7 +55,7 @@ mixin important-date-content()
     +row({date:new Date('2016-06-12'), name:'Convention Begins'})
 
 mixin registration-content()
-  h1 Registration
+  h1#registration Registration
   ul.o-ListBare.o-GridFlex.o-ListStacked
     li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student , 0)
     li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard, 0)
@@ -63,14 +63,14 @@ mixin registration-content()
   +actionchoices([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
 
 mixin program-content()
-  h1 Program Highlights
+  h1#program-highlights Program Highlights
   section.o-GridFlex.c-Overlay.c-Program
     each events, index in program_events
       +programAgenda(events, index, false)
   +actionchoices([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
 
 mixin speakers-content()
-  h1 Speakers
+  h1#speakers Speakers
   ul.o-ListBare.o-GridFlex.o-ListStacked
     li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
     li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
@@ -78,25 +78,27 @@ mixin speakers-content()
   +actionchoices([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
 
 mixin cochairs-content()
-  h1 Conference Co-Chairs
+  h1#conference-co-chairs Conference Co-Chairs
   ul.o-ListBare
     li #[b Thomas J. McCollough], P.E., M.ASCE
     li #[b Stephen E. Dickenson], Ph.D., P.E., D.PE, M.ASCE
 
 mixin mobile-content()
-  h1 Plan, Engage, Connect
+  h1#plan-engage-connect Plan, Engage, Connect
   p.-ta-c Enhance your conference experience with our mobile app.
   +actionchoices([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
 
-mixin location-content(heading)
-  //- heading is moved into inner div
+mixin location-content()
+  - var city  = conference.current.addressLocality
+  - var state = conference.current.addressRegion.abbr || conference.current.addressRegion.name || conference.current.addressRegion
+  - var heading = city + ', ' + state
   div.c-Overlay.c-Overlay--callout
-    h1= heading
+    h1(id=urlify(heading))= heading
     p With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
     +actionchoices([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--ghost')
 
 mixin social-content()
-  h1 Join the Conversation
+  h1#join-the-conversation Join the Conversation
   p.-ta-c Follow ASCE on social media for real-time conversation.
   // p: mark.
     #[strong Note:]
@@ -115,6 +117,7 @@ mixin social-content()
       a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" title="Follow #ASCE2016 on Facebook")
 
 mixin contact-content()
+  h1#contact Contact
   form
     label
       | name

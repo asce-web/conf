@@ -5,7 +5,7 @@ block append vars
 
 block main-header
   header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--location.c-Hero(style="height: 13.5rem;"): div.o-ContentWrapper
-    h1.c-PageTitle.c-PageTitle--special= page_id.name
+    h1.c-PageTitle.c-PageTitle--special(id=urlify(page_id.name))= page_id.name
 
 block main-rich
   div.o-Runner.o-Runner--highlight.rich-text: div.o-ContentWrapper
@@ -62,5 +62,4 @@ block callouts
   aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     +important-date-content()
   aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
-    h1 Contact
     +contact-content()

@@ -7,6 +7,7 @@
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('__settings.less');
 @import (reference) url('__tool.module.menubar.less');
+@import (reference) url('_dev.less');
 
 
 // Top-level navigation for current year site.
@@ -49,15 +50,15 @@
 .c-MenuStandard__Item {
   @trans_dura: 125ms;
   width: auto;
-  .transition(background-color; @trans_dura);
+  .transition-multi(background-color @trans_dura);
   &:hover,
   &._hover,
   .c-MenuSub {
     background-color: @g-color_site_gray_lt;
   }
   .c-MenuSub {
-    transform-origin: left top;
-    .transition(@g-prefix_transform; @trans_dura);
+    .transform-origin(left top);
+    .transitions(@g-prefix_transform; @trans_dura);
   }
   &:not(:hover) .c-MenuSub {
     .transform(scale(0,0));

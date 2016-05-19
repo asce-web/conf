@@ -18,16 +18,14 @@
   &:active,
   &._hover,
   &._active {
-    // !important specificity HACK override a:not([href]) from xmeter
-
-    // fallbacks (for IE)                    // initial values (for non-IE)
-    text-decoration: none        !important; text-decoration: initial !important;
-    background:      transparent !important; background:      initial !important;
-    border:          0           !important; border:          initial !important;
-    opacity:         1           !important; opacity:         initial !important;
-    .filter(none)                !important; .filter(initial)         !important; // TODO on xmeter v4.2.0 remove `none` param (which is default)
+    // fallbacks (for IE)    // initial values (for non-IE)
+    text-decoration: none;   text-decoration: initial;
+    background: transparent; background:      initial;
+    border: 0;               border:          initial;
+    .filter();               .filter(initial);
+    opacity: 1 !important;   opacity: initial !important; // specificity HACK override a:not([href]) from xmeter
 
     // inherited values
-    color: inherit !important;
+    color: inherit;
   }
 }

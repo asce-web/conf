@@ -6,6 +6,7 @@
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+@import (reference) url('_dev.less');
 
 
 // A block containing the entire program.
@@ -25,7 +26,7 @@
   margin-bottom: @g-vru;
   .font-size-mod(14/16);
   overflow: hidden;
-  .transition(height; @p-transdura);
+  .transition-multi(height @p-transdura);
   h1 {
     padding-top: 0;
     font-family: inherit;
@@ -38,7 +39,7 @@
 
 .c-Program__Hn,
 .c-Program__Schedule {
-  .transition(@g-prefix_transform; @p-transdura);
+  .transitions(@g-prefix_transform; @p-transdura);
 }
 .c-Program__Hn {
   .font-size-el(1);
@@ -60,7 +61,7 @@
 }
 
 .c-Program__Schedule {
-  transform-origin: center top;
+  .transform-origin(center top);
 }
 .c-Program__Schedule--hiddenBefore {
   .transform(translateX(-100%) scale(0,0));

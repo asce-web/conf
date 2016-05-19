@@ -152,10 +152,13 @@ html(lang="en")
         })
       }
       function updateProgram() {
-        $(this).parents('.c-Program__Hn').siblings('.c-Program__Schedule').removeClass('c-Program__Schedule--hiddenBefore c-Program__Schedule--shown c-Program__Schedule--hiddenAfter')
+        $('.c-Program__Hn').removeClass('c-Program__Hn--selected')
+        $('.c-Program__Schedule').removeClass('c-Program__Schedule--hiddenBefore c-Program__Schedule--shown c-Program__Schedule--hiddenAfter')
+        $(this).parents('.c-Program__Hn')
+          .addClass('c-Program__Hn--selected')
+          .next('.c-Program__Schedule').addClass('c-Program__Schedule--shown')
         $(this).parents('.c-Program__Hn').prevAll('.c-Program__Hn').next('.c-Program__Schedule').addClass('c-Program__Schedule--hiddenBefore')
         $(this).parents('.c-Program__Hn').nextAll('.c-Program__Hn').next('.c-Program__Schedule').addClass('c-Program__Schedule--hiddenAfter')
-        $(this).parents('.c-Program__Hn').next('.c-Program__Schedule').addClass('c-Program__Schedule--shown')
         resizeProgram()
       }
       $(window).resize(resizeProgram)

@@ -51,6 +51,12 @@
     line-height: 0;
     cursor: inherit;
   }
+  &:not(.c-Program__Hn--selected) {
+    color: @g-color_site_gray_lt;
+  }
+}
+.c-Program__Hn--selected {
+  .transform(scale(1.2,1.2));
 }
 
 .c-Program__Schedule {
@@ -68,10 +74,4 @@
 .c-Program__Check {
   position: absolute;
   opacity: 0;
-  &:checked + .c-Program__Hn {
-    .transform(scale(1.2,1.2));
-  }
-  &:not(:checked) + .c-Program__Hn {
-    color: @g-color_site_gray_lt;
-  }
 }

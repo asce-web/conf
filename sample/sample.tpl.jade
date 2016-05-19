@@ -49,10 +49,10 @@ html(lang="en")
     header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-GridFlex.o-SiteHead
       a.o-GridFlex__Item.o-Block.o-GridFloat.o-SiteHead__Title.c-SiteTitle.c-Camo(href="index.html")
         span.o-GridFloat__Item.c-SiteTitle__Logo(style="background-image: url('img/site-logo-white.png');")
-        h1.o-GridFloat__Item.c-SiteTitle__Name= site.title
+        h1.o-GridFloat__Item.c-SiteTitle__Name(id=urlify(site.title))= site.title
         p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
-      nav#top-menu.o-GridFlex__Item.o-SiteHead__Nav.js-universalnav
-        h1.-d-n Top Menu
+      nav.o-GridFlex__Item.o-SiteHead__Nav.js-universalnav
+        h1.-d-n#top-menu Top Menu
         ul.o-ListBare.o-GridFlex.c-MenuUniversal
           each page in sitemap.universal.slice(1)
             li.o-GridFlex__Item.c-MenuUniversal__Item
@@ -72,7 +72,8 @@ html(lang="en")
         article&attributes((page_type === 'internal') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
           block main-header
             header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
-              h1.c-PageTitle= page_id.name
+              block main-heading
+                h1.c-PageTitle(id=urlify(page_id.name))= page_id.name
           block main-body
             block main-minimal
             block main-reference
@@ -81,11 +82,11 @@ html(lang="en")
           block callouts
           block sponsors
             aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
-              h1 Sponsors
+              h1#sponsors Sponsors
               +sponsor-content()
     block site-map
     footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-ContentWrapper
-      h1.-d-n Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
+      h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
         p
           span.o-Block(itemprop="name") American Society of Civil Engineers

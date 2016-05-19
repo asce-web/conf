@@ -412,17 +412,21 @@ block append main
     p Enable Javascript to experience visual effects.
     figure.sg-c-Fig
       section.o-GridFlex.c-Program
-        input.c-Program__Check#date1(type="radio" name="program" value="2016-09-28" checked="")
-        h1.o-GridFlex__Item.c-Program__Hn: label(for="date1") Wednesday,#[br]Sep&nbsp;28
+        h1.o-GridFlex__Item.c-Program__Hn: label
+          input.c-Program__Check(type="radio" name="program" value="2016-09-28" checked="")
+          time(datetime="2016-09-28") Wednesday,#[br]Sep 28
         p.o-GridFlex__Item.c-Program__Schedule program schedule content 1
-        input.c-Program__Check#date2(type="radio" name="program" value="2016-09-29")
-        h1.o-GridFlex__Item.c-Program__Hn: label(for="date2") Thursday,#[br]Sep&nbsp;29
+        h1.o-GridFlex__Item.c-Program__Hn: label
+          input.c-Program__Check(type="radio" name="program" value="2016-09-29")
+          time(datetime="2016-09-29") Thursday,#[br]Sep 29
         p.o-GridFlex__Item.c-Program__Schedule program schedule content 2
-        input.c-Program__Check#date3(type="radio" name="program" value="2016-09-30")
-        h1.o-GridFlex__Item.c-Program__Hn: label(for="date3") Friday,#[br]Sep&nbsp;30
+        h1.o-GridFlex__Item.c-Program__Hn: label
+          input.c-Program__Check(type="radio" name="program" value="2016-09-30")
+          time(datetime="2016-09-30") Friday,#[br]Sep 30
         p.o-GridFlex__Item.c-Program__Schedule program schedule content 3
-        input.c-Program__Check#date4(type="radio" name="program" value="2016-10-01")
-        h1.o-GridFlex__Item.c-Program__Hn: label(for="date4") Saturday,#[br]Oct&nbsp;1
+        h1.o-GridFlex__Item.c-Program__Hn: label
+          input.c-Program__Check(type="radio" name="program" value="2016-10-01")
+          time(datetime="2016-10-01") Saturday,#[br]Oct 1
         p.o-GridFlex__Item.c-Program__Schedule program schedule content 4
       pre.
         &lt;section class="o-GridFlex  #[u c-Program]"&gt;

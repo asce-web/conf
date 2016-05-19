@@ -44,10 +44,10 @@ html(lang="en")
         })
       }
       function updateProgram() {
-        $(this).siblings('.c-Program__Schedule').removeClass('c-Program__Schedule--hiddenBefore c-Program__Schedule--shown c-Program__Schedule--hiddenAfter')
-        $(this).prevAll('.c-Program__Schedule').addClass('c-Program__Schedule--hiddenBefore')
-        $(this).nextAll('.c-Program__Schedule').first().addClass('c-Program__Schedule--shown')
-        $('.c-Program__Schedule--shown').nextAll('.c-Program__Schedule').addClass('c-Program__Schedule--hiddenAfter')
+        $(this).parents('.c-Program__Hn').siblings('.c-Program__Schedule').removeClass('c-Program__Schedule--hiddenBefore c-Program__Schedule--shown c-Program__Schedule--hiddenAfter')
+        $(this).parents('.c-Program__Hn').prevAll('.c-Program__Hn').next('.c-Program__Schedule').addClass('c-Program__Schedule--hiddenBefore')
+        $(this).parents('.c-Program__Hn').nextAll('.c-Program__Hn').next('.c-Program__Schedule').addClass('c-Program__Schedule--hiddenAfter')
+        $(this).parents('.c-Program__Hn').next('.c-Program__Schedule').addClass('c-Program__Schedule--shown')
         resizeProgram()
       }
       $(window).resize(resizeProgram)

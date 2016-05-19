@@ -110,6 +110,11 @@ mixin programAgenda(events, index, show_all)
           else
             = event0.name
 
+mixin programs(all_events, show_all)
+  section.o-GridFlex.c-Overlay.c-Program
+    each events, index in all_events
+      +programAgenda(events, index, show_all)
+
 mixin speaker()
   article.c-Speaker
     div.c-Speaker__Img(style="background-image:url('img/headshot1.jpg');")

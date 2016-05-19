@@ -64,9 +64,7 @@ mixin registration-content()
 
 mixin program-content()
   h1 Program Highlights
-  section.o-GridFlex.c-Overlay.c-Program
-    each events, index in program_events
-      +programAgenda(events, index, false)
+  +programs(program_events, false)
   +actionchoices([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
 
 mixin speakers-content()

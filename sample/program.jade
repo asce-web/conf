@@ -9,7 +9,5 @@ block main-minimal
 block main-reference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n Full Program
-    section.o-GridFlex.c-Overlay.c-Program
-      each events, index in program_events
-        +programAgenda(events, index, true)
+    +programs(program_events, true)
     p: small Program subject to change.

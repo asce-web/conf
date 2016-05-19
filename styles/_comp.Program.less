@@ -6,6 +6,7 @@
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+@import (reference) url('_dev.less');
 
 
 // A block containing the entire program.
@@ -54,7 +55,7 @@
 }
 
 .c-Program__Schedule {
-  transform-origin: center top;
+  .transform-origin(center top);
 }
 .c-Program__Schedule--hiddenBefore {
   .transform(translateX(-100%) scale(0,0));

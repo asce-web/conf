@@ -5,6 +5,7 @@
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
+@import (reference) url('_dev.less');
 
 
 // Object in the top-most Masthead containing site title and navigation menu
@@ -41,7 +42,7 @@
 .o-SiteHead__Nav {
   @width: 12rem;
   z-index: 2; // over hero and sub menus
-  transform-origin: right top;
+  .transform-origin(right top);
   width: @width;
   .transitions(@g-prefix_transform; 250ms);
   @media screen and (max-width: (@p-mobilebp - 0.001em)) {

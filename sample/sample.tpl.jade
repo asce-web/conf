@@ -72,7 +72,8 @@ html(lang="en")
         article&attributes((page_type === 'internal') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
           block main-header
             header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
-              h1.c-PageTitle(id=urlify(page_id.name))= page_id.name
+              block main-heading
+                h1.c-PageTitle(id=urlify(page_id.name))= page_id.name
           block main-body
             block main-minimal
             block main-reference

@@ -2,7 +2,10 @@ extends internal.tpl.jade
 
 block append vars
   - var page_id = sitemap.internal[1]
-  - page_id.name = 'Registra' + '\u00ad' + 'tion' // soft hyphen (U+00ad, `&shy;`)
+  //- - page_id.name = 'Registra' + '\u00ad' + 'tion' // soft hyphen (U+00ad, `&shy;`)
+
+block main-heading
+  h1.c-PageTitle#registration Registra&shy;tion
 
 block main-minimal
   +minimal-text-block()

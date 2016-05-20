@@ -6,10 +6,10 @@ block append vars
 block append main-body
   section.o-Runner.o-Runner--highlight: div.o-ContentWrapper
     h1#thank-you-sponsors Thank You to Our Sponsors
-    +sponsor-block(sponsorlevel.platinum , 'c-SponsorBlock--separate', [sponsor.asce_foundation, sponsor.bentley])
-    +sponsor-block(sponsorlevel.corporate, 'c-SponsorBlock--separate', [sponsor.bank_america, sponsor.geico, sponsor.pearl, sponsor.ups, sponsor.keller])
-    +sponsor-block(sponsorlevel.silver   , 'c-SponsorBlock--separate', [sponsor.pennoni, sponsor.innovyze])
-    +sponsor-block(sponsorlevel.bronze   , 'c-SponsorBlock--separate', [sponsor.fasten, sponsor.david_evans, sponsor.kci, sponsor.mccormick_taylor])
-    +sponsor-block(sponsorlevel.copper   , ''                        , [sponsor.rutgers, sponsor.kimley_horn, sponsor.cbb])
+    +sponsor-block(sponsorlevel.platinum , 'c-SponsorBlock--separate', [sponsors[0], sponsors[1]])
+    +sponsor-block(sponsorlevel.corporate, 'c-SponsorBlock--separate', [sponsors[11], sponsors[12], sponsors[13], sponsors[14], sponsors[15]])
+    +sponsor-block(sponsorlevel.silver   , 'c-SponsorBlock--separate', [sponsors[2], sponsors[3]])
+    +sponsor-block(sponsorlevel.bronze   , 'c-SponsorBlock--separate', [sponsors[4], sponsors[5], sponsors[6], sponsors[7]])
+    +sponsor-block(sponsorlevel.copper   , ''                        , [sponsors[8], sponsors[9], sponsors[10]])
 
 block sponsors

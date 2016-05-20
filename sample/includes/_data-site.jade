@@ -242,16 +242,6 @@
 
 
 
-//- -
-  var sponsorlevel = {
-    premier   : { name: 'Premier'            , size: 'lrg' }
-  , platinum  : { name: 'Platinum'           , size: 'lrg' }
-  , gold      : { name: 'Gold'               , size: 'med' }
-  , corporate : { name: 'Corporate Sponsors' , size: 'sml' }
-  , silver    : { name: 'Silver'             , size: 'sml' }
-  , bronze    : { name: 'Bronze'             , size: ''    }
-  , copper    : { name: 'Copper'             , size: ''    }
-  }
 - var sponsorlevel = {}
 - sponsorlevel.premier   = {name:'Premier'            , size:'lrg'}
 - sponsorlevel.platinum  = {name:'Platinum'           , size:'lrg'}
@@ -261,198 +251,99 @@
 - sponsorlevel.bronze    = {name:'Bronze'             , size:''}
 - sponsorlevel.copper    = {name:'Copper'             , size:''}
 
-//- -
-  var sponsor = {
-    asce_foundation: {
-      name  : 'ASCE Foundation'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/asce-foundation-logo.png'
-    , href  : 'http://www.ascefoundation.org/'
-    , level : 'platinum'
-    }
-  , bentley: {
-      name  : 'Bentley'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/bentley-logo.png'
-    , href  : 'https://www.bentley.com/'
-    , level : 'platinum'
-    }
-  , pennoni: {
-      name  : 'Pennoni'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/pennoni-50th-anniversary-logo.png'
-    , href  : 'https://www.pennoni.com/'
-    , level : 'silver'
-    }
-  , innovyze: {
-      name  : 'Innovyze'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/innovyze-logo.png'
-    , href  : 'http://www.innovyze.com/'
-    , level : 'silver'
-    }
-  , fasten: {
-      name  : 'Fasten Group'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/fasten-group-logo.png'
-    , href  : 'http://www.chinafasten.com/'
-    , level : 'bronze'
-    }
-  , david_evans: {
-      name  : 'David Evans and Associates, Inc.'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/david-evans-associates-logo.png'
-    , href  : 'http://www.deainc.com/'
-    , level : 'bronze'
-    }
-  , kci: {
-      name  : 'KCI Technologies'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/kci-technologies-logo.png'
-    , href  : 'http://www.kci.com/'
-    , level : 'bronze'
-    }
-  , mccormick_taylor: {
-      name  : 'McCormick & Taylor'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/mccormick-taylor-logo.png'
-    , href  : 'http://www.mccormicktaylor.com/'
-    , level : 'bronze'
-    }
-  , rutgers: {
-      name  : 'Rutgers Center for Advanced Infrastructure and Transportation'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/rutgers-cait-logo.png'
-    , href  : 'http://cait.rutgers.edu/'
-    , level : 'copper'
-    }
-  , kimley_horn: {
-      name  : 'Kimley-Horn'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/kimley-horn-logo.png'
-    , href  : 'http://www.kimley-horn.com/'
-    , level : 'copper'
-    }
-  , cbb: {
-      name  : 'Christopher B. Burke Engineering, Ltd.'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/christopher-b-burke-engineering-logo.png'
-    , href  : 'http://cbbel.com/'
-    , level : 'copper'
-    }
-  , bank_america: {
-      name  : 'Bank of America'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg'
-    , href  : 'http://www.asce.org/member_advantages/#b'
-    , level : 'corporate'
-    }
-  , geico: {
-      name  : 'Geico'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/geico-logo.gif'
-    , href  : 'https://www.geico.com/landingpage/member-discount/?logo=00774'
-    , level : 'corporate'
-    }
-  , pearl: {
-      name  : 'Pearl Insurance'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/pearl-insurance-logo.jpg'
-    , href  : 'http://asceinsurance.com/'
-    , level : 'corporate'
-    }
-  , ups: {
-      name  : 'UPS'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/ups-logo.jpg'
-    , href  : 'http://savewithups.com/asce/'
-    , level : 'corporate'
-    }
-  , keller: {
-      name  : 'Keller North America'
-    , src   : 'http://2016.asceconvention.org/sites/default/files/keller-na-logo.png'
-    , href  : 'http://www.keller.co.uk/'
-    , level : 'corporate'
-    }
-  }
-- var sponsor = {}
-- sponsor.asce_foundation = {}
-- sponsor.asce_foundation.name  = 'ASCE Foundation'
-- sponsor.asce_foundation.src   = 'http://2016.asceconvention.org/sites/default/files/asce-foundation-logo.png'
-- sponsor.asce_foundation.href  = 'http://www.ascefoundation.org/'
-- sponsor.asce_foundation.level = 'platinum'
+- var sponsors = []
+- sponsors.push({})
+- sponsors[0].name  = 'ASCE Foundation'
+- sponsors[0].src   = 'http://2016.asceconvention.org/sites/default/files/asce-foundation-logo.png'
+- sponsors[0].href  = 'http://www.ascefoundation.org/'
+- sponsors[0].level = 'platinum'
 
-- sponsor.bentley = {}
-- sponsor.bentley.name  = 'Bentley'
-- sponsor.bentley.src   = 'http://2016.asceconvention.org/sites/default/files/bentley-logo.png'
-- sponsor.bentley.href  = 'https://www.bentley.com/'
-- sponsor.bentley.level = 'platinum'
+- sponsors.push({})
+- sponsors[1].name  = 'Bentley'
+- sponsors[1].src   = 'http://2016.asceconvention.org/sites/default/files/bentley-logo.png'
+- sponsors[1].href  = 'https://www.bentley.com/'
+- sponsors[1].level = 'platinum'
 
-- sponsor.pennoni = {}
-- sponsor.pennoni.name  = 'Pennoni'
-- sponsor.pennoni.src   = 'http://2016.asceconvention.org/sites/default/files/pennoni-50th-anniversary-logo.png'
-- sponsor.pennoni.href  = 'https://www.pennoni.com/'
-- sponsor.pennoni.level = 'silver'
+- sponsors.push({})
+- sponsors[2].name  = 'Pennoni'
+- sponsors[2].src   = 'http://2016.asceconvention.org/sites/default/files/pennoni-50th-anniversary-logo.png'
+- sponsors[2].href  = 'https://www.pennoni.com/'
+- sponsors[2].level = 'silver'
 
-- sponsor.innovyze = {}
-- sponsor.innovyze.name  = 'Innovyze'
-- sponsor.innovyze.src   = 'http://2016.asceconvention.org/sites/default/files/innovyze-logo.png'
-- sponsor.innovyze.href  = 'http://www.innovyze.com/'
-- sponsor.innovyze.level = 'silver'
+- sponsors.push({})
+- sponsors[3].name  = 'Innovyze'
+- sponsors[3].src   = 'http://2016.asceconvention.org/sites/default/files/innovyze-logo.png'
+- sponsors[3].href  = 'http://www.innovyze.com/'
+- sponsors[3].level = 'silver'
 
-- sponsor.fasten = {}
-- sponsor.fasten.name  = 'Fasten Group'
-- sponsor.fasten.src   = 'http://2016.asceconvention.org/sites/default/files/fasten-group-logo.png'
-- sponsor.fasten.href  = 'http://www.chinafasten.com/'
-- sponsor.fasten.level = 'bronze'
+- sponsors.push({})
+- sponsors[4].name  = 'Fasten Group'
+- sponsors[4].src   = 'http://2016.asceconvention.org/sites/default/files/fasten-group-logo.png'
+- sponsors[4].href  = 'http://www.chinafasten.com/'
+- sponsors[4].level = 'bronze'
 
-- sponsor.david_evans = {}
-- sponsor.david_evans.name  = 'David Evans and Associates, Inc.'
-- sponsor.david_evans.src   = 'http://2016.asceconvention.org/sites/default/files/david-evans-associates-logo.png'
-- sponsor.david_evans.href  = 'http://www.deainc.com/'
-- sponsor.david_evans.level = 'bronze'
+- sponsors.push({})
+- sponsors[5].name  = 'David Evans and Associates, Inc.'
+- sponsors[5].src   = 'http://2016.asceconvention.org/sites/default/files/david-evans-associates-logo.png'
+- sponsors[5].href  = 'http://www.deainc.com/'
+- sponsors[5].level = 'bronze'
 
-- sponsor.kci = {}
-- sponsor.kci.name  = 'KCI Technologies'
-- sponsor.kci.src   = 'http://2016.asceconvention.org/sites/default/files/kci-technologies-logo.png'
-- sponsor.kci.href  = 'http://www.kci.com/'
-- sponsor.kci.level = 'bronze'
+- sponsors.push({})
+- sponsors[6].name  = 'KCI Technologies'
+- sponsors[6].src   = 'http://2016.asceconvention.org/sites/default/files/kci-technologies-logo.png'
+- sponsors[6].href  = 'http://www.kci.com/'
+- sponsors[6].level = 'bronze'
 
-- sponsor.mccormick_taylor = {}
-- sponsor.mccormick_taylor.name  = 'McCormick & Taylor'
-- sponsor.mccormick_taylor.src   = 'http://2016.asceconvention.org/sites/default/files/mccormick-taylor-logo.png'
-- sponsor.mccormick_taylor.href  = 'http://www.mccormicktaylor.com/'
-- sponsor.mccormick_taylor.level = 'bronze'
+- sponsors.push({})
+- sponsors[7].name  = 'McCormick & Taylor'
+- sponsors[7].src   = 'http://2016.asceconvention.org/sites/default/files/mccormick-taylor-logo.png'
+- sponsors[7].href  = 'http://www.mccormicktaylor.com/'
+- sponsors[7].level = 'bronze'
 
-- sponsor.rutgers = {}
-- sponsor.rutgers.name  = 'Rutgers Center for Advanced Infrastructure and Transportation'
-- sponsor.rutgers.src   = 'http://2016.asceconvention.org/sites/default/files/rutgers-cait-logo.png'
-- sponsor.rutgers.href  = 'http://cait.rutgers.edu/'
-- sponsor.rutgers.level = 'copper'
+- sponsors.push({})
+- sponsors[8].name  = 'Rutgers Center for Advanced Infrastructure and Transportation'
+- sponsors[8].src   = 'http://2016.asceconvention.org/sites/default/files/rutgers-cait-logo.png'
+- sponsors[8].href  = 'http://cait.rutgers.edu/'
+- sponsors[8].level = 'copper'
 
-- sponsor.kimley_horn = {}
-- sponsor.kimley_horn.name  = 'Kimley-Horn'
-- sponsor.kimley_horn.src   = 'http://2016.asceconvention.org/sites/default/files/kimley-horn-logo.png'
-- sponsor.kimley_horn.href  = 'http://www.kimley-horn.com/'
-- sponsor.kimley_horn.level = 'copper'
+- sponsors.push({})
+- sponsors[9].name  = 'Kimley-Horn'
+- sponsors[9].src   = 'http://2016.asceconvention.org/sites/default/files/kimley-horn-logo.png'
+- sponsors[9].href  = 'http://www.kimley-horn.com/'
+- sponsors[9].level = 'copper'
 
-- sponsor.cbb = {}
-- sponsor.cbb.name  = 'Christopher B. Burke Engineering, Ltd.'
-- sponsor.cbb.src   = 'http://2016.asceconvention.org/sites/default/files/christopher-b-burke-engineering-logo.png'
-- sponsor.cbb.href  = 'http://cbbel.com/'
-- sponsor.cbb.level = 'copper'
+- sponsors.push({})
+- sponsors[10].name  = 'Christopher B. Burke Engineering, Ltd.'
+- sponsors[10].src   = 'http://2016.asceconvention.org/sites/default/files/christopher-b-burke-engineering-logo.png'
+- sponsors[10].href  = 'http://cbbel.com/'
+- sponsors[10].level = 'copper'
 
-- sponsor.bank_america = {}
-- sponsor.bank_america.name  = 'Bank of America'
-- sponsor.bank_america.src   = 'http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg'
-- sponsor.bank_america.href  = 'http://www.asce.org/member_advantages/#b'
-- sponsor.bank_america.level = 'corporate'
+- sponsors.push({})
+- sponsors[11].name  = 'Bank of America'
+- sponsors[11].src   = 'http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg'
+- sponsors[11].href  = 'http://www.asce.org/member_advantages/#b'
+- sponsors[11].level = 'corporate'
 
-- sponsor.geico = {}
-- sponsor.geico.name  = 'Geico'
-- sponsor.geico.src   = 'http://2016.asceconvention.org/sites/default/files/geico-logo.gif'
-- sponsor.geico.href  = 'https://www.geico.com/landingpage/member-discount/?logo=00774'
-- sponsor.geico.level = 'corporate'
+- sponsors.push({})
+- sponsors[12].name  = 'Geico'
+- sponsors[12].src   = 'http://2016.asceconvention.org/sites/default/files/geico-logo.gif'
+- sponsors[12].href  = 'https://www.geico.com/landingpage/member-discount/?logo=00774'
+- sponsors[12].level = 'corporate'
 
-- sponsor.pearl = {}
-- sponsor.pearl.name  = 'Pearl Insurance'
-- sponsor.pearl.src   = 'http://2016.asceconvention.org/sites/default/files/pearl-insurance-logo.jpg'
-- sponsor.pearl.href  = 'http://asceinsurance.com/'
-- sponsor.pearl.level = 'corporate'
+- sponsors.push({})
+- sponsors[13].name  = 'Pearl Insurance'
+- sponsors[13].src   = 'http://2016.asceconvention.org/sites/default/files/pearl-insurance-logo.jpg'
+- sponsors[13].href  = 'http://asceinsurance.com/'
+- sponsors[13].level = 'corporate'
 
-- sponsor.ups = {}
-- sponsor.ups.name  = 'UPS'
-- sponsor.ups.src   = 'http://2016.asceconvention.org/sites/default/files/ups-logo.jpg'
-- sponsor.ups.href  = 'http://savewithups.com/asce/'
-- sponsor.ups.level = 'corporate'
+- sponsors.push({})
+- sponsors[14].name  = 'UPS'
+- sponsors[14].src   = 'http://2016.asceconvention.org/sites/default/files/ups-logo.jpg'
+- sponsors[14].href  = 'http://savewithups.com/asce/'
+- sponsors[14].level = 'corporate'
 
-- sponsor.keller = {}
-- sponsor.keller.name  = 'Keller North America'
-- sponsor.keller.src   = 'http://2016.asceconvention.org/sites/default/files/keller-na-logo.png'
-- sponsor.keller.href  = 'http://www.keller.co.uk/'
-- sponsor.keller.level = 'corporate'
+- sponsors.push({})
+- sponsors[15].name  = 'Keller North America'
+- sponsors[15].src   = 'http://2016.asceconvention.org/sites/default/files/keller-na-logo.png'
+- sponsors[15].href  = 'http://www.keller.co.uk/'
+- sponsors[15].level = 'corporate'

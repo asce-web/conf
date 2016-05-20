@@ -1,9 +1,7 @@
 extends universal.tpl.jade
 
 block append vars
-  - var page_subtype = 'landing'
-  - var page_id = site_pages.universal[0]
-  - page_id.name = site.title
+  - var page = getPage('universal','index.html')
 
 block main-header
   header: h1.-d-n#home Home

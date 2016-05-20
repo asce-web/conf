@@ -1,11 +1,11 @@
 extends internal.tpl.jade
 
 block append vars
-  - var page_id = site_pages.internal[3]
+  - var page = getPage('internal','location.html')
 
 block main-header
-  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--location.c-Hero(style="height: 13.5rem;"): div.o-ContentWrapper
-    h1.c-PageTitle.c-PageTitle--special(id=urlify(page_id.name))= page_id.name
+  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--location(style="height: 13.5rem;"): div.o-ContentWrapper
+    h1.c-PageTitle.c-PageTitle--special= page.name
 
 block main-rich
   div.o-Runner.o-Runner--highlight.rich-text: div.o-ContentWrapper

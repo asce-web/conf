@@ -7,10 +7,22 @@ html(lang="en")
   include includes/_highlight-content.jade
   head
     block vars
+      - getPage('universal','index.html').name = site.title
+      - getPage('universal','index.html').description   = site.tagline
+      - getPage('universal','about.html').description   = 'About ' + site.title + '.'
+      - getPage('universal','sponsor.html').description = 'Sponsors of ' + site.title + '.'
+      - getPage('universal','exhibit.html').description = 'Exhibitors at ' + site.title + '.'
+      - getPage('universal','contact.html').description = 'Contact us for questions and comments about ' + site.title + '.'
+      - getPage('internal' ,'home.html').description         = conference.current.theme
+      - getPage('internal' ,'registration.html').description = 'Register for ' + conference.current.name + ' here.'
+      - getPage('internal' ,'program.html').description      = 'Program and agenda of ' + conference.current.name + '.'
+      - getPage('internal' ,'location.html').description     = 'Location and where to stay for ' + conference.current.name + '.'
+      - getPage('internal' ,'speakers.html').description     = 'Current and prospective speakers at ' + conference.current.name + '.'
+      - var page = {}
     block title
       title
     meta(charset="utf-8")
-    meta(name="description" content=description(page_id))
+    meta(name="description" content=page.description)
     meta(name="keywords" content=site.keywords)
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
@@ -49,21 +61,21 @@ html(lang="en")
     header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-GridFlex.o-SiteHead
       a.o-GridFlex__Item.o-Block.o-GridFloat.o-SiteHead__Title.c-SiteTitle.c-Camo(href="index.html")
         span.o-GridFloat__Item.c-SiteTitle__Logo(style="background-image: url('img/site-logo-white.png');")
-        h1.o-GridFloat__Item.c-SiteTitle__Name(id=urlify(site.title))= site.title
+        h1.o-GridFloat__Item.c-SiteTitle__Name= site.title
         p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
       nav.o-GridFlex__Item.o-SiteHead__Nav.js-universalnav
         h1.-d-n#top-menu Top Menu
         ul.o-ListBare.o-GridFlex.c-MenuUniversal
-          each page in site_pages.universal.slice(1)
+          mixin univ_item(page0, linkclasses, text)
             li.o-GridFlex__Item.c-MenuUniversal__Item
-              a.o-Block.c-MenuUniversal__Link(href=page.href)
-                i.material-icons= page.icon.content
-                span= page.name
-          li.o-GridFlex__Item.c-MenuUniversal__Item
-            - var page = site_pages.internal[0]
-            a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href=page.href)
-              i.material-icons= page.icon.content
-              span= conference.current.name
+              a.o-Block.c-MenuUniversal__Link(class=linkclasses href=page0.href)
+                if page0.icon
+                  i.material-icons= page0.icon.content
+                span= text
+          each page0 in site_pages.universal.slice(1)
+            +univ_item(page0, '', page0.name)
+          each page0 in site_pages.internal.slice(0,1)
+            +univ_item(page0, 'c-MenuUniversal__Link--current', conference.current.name)
         //- button.c-Btn.c-Btn--dominant.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close top menu"): i.material-icons close
       //- button.c-Btn.c-Btn--flat.c-Btn--drawer.js-menubutton(type="button" name="open" title="open top menu"): i.material-icons menu
     block standard-menu
@@ -73,7 +85,7 @@ html(lang="en")
           block main-header
             header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
               block main-heading
-                h1.c-PageTitle(id=urlify(page_id.name))= page_id.name
+                h1.c-PageTitle= page.name
           block main-body
             block main-minimal
             block main-reference

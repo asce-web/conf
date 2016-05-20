@@ -1,7 +1,7 @@
 extends internal.tpl.jade
 
 block append vars
-  - var page_id = site_pages.internal[2]
+  - var page = getPage('internal','program.html')
 
 block main-minimal
   +minimal-text-block()

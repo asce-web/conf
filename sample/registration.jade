@@ -1,7 +1,7 @@
 extends internal.tpl.jade
 
 block append vars
-  - var page_id = site_pages.internal[1]
+  - var page = getPage('internal','registration.html')
 
 block main-heading
   //- soft hyphen (U+00ad, `&shy;`)

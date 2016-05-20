@@ -6,12 +6,12 @@ block append vars
 block title
   title= ((page_subtype === 'home') ? '' : page_id.name + ' | ') + conference.current.name
 
-block append standard-menu
+block standard-menu
   header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
     h1.-d-n#main-menu Main Menu
-    +menulist({pages: sitemap.internal, class_obj: standard_menu_class_obj, depth: 1, icons: true})
+    +menulist({pages: site_pages.internal, class_obj: standard_menu_class_obj, depth: 1, icons: true})
 
-block append site-map
+block site-map
   footer.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
     h1.-d-n#site-map Site Map
-    +menulist({pages: sitemap.internal, class_obj: sitemap_class_obj, depth: 1})
+    +menulist({pages: site_pages.internal, class_obj: sitemap_class_obj, depth: 1})

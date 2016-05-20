@@ -26,7 +26,7 @@
     , "startDate"       : "2017-10-04"
     }
   }
-, "sitemap": {
+, "site_pages": {
     "universal": [
       {
         "name": "", "href": "index.html"

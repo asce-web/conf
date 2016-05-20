@@ -11,8 +11,8 @@
   function description(page) {
     var page_index = -1
       , page_desc = []
-    if (sitemap.universal.indexOf(page) >= 0) {
-      index_of_page_id = sitemap.universal.indexOf(page)
+    if (site_pages.universal.indexOf(page) >= 0) {
+      index_of_page_id = site_pages.universal.indexOf(page)
       page_desc = [
         site.tagline
       , 'About ' + site.title + '.'
@@ -20,8 +20,8 @@
       , 'Exhibitors at ' + site.title + '.'
       , 'Contact us for questions and comments about ' + site.title + '.'
       ]
-    } else if (sitemap.internal.indexOf(page) >= 0) {
-      page_index = sitemap.internal.indexOf(page)
+    } else if (site_pages.internal.indexOf(page) >= 0) {
+      page_index = site_pages.internal.indexOf(page)
       page_desc = [
         conference.current.theme
       , 'Register for ' + conference.current.name + ' here.'
@@ -32,7 +32,7 @@
     }
     return page_desc[page_index]
   }
--  function description(page) {    var page_index = -1      , page_desc = [];    if (sitemap.universal.indexOf(page) >= 0) {      index_of_page_id = sitemap.universal.indexOf(page);      page_desc = [        site.tagline      , 'About ' + site.title + '.'      , 'Sponsors of ' + site.title + '.'      , 'Exhibitors at ' + site.title + '.'      , 'Contact us for questions and comments about ' + site.title + '.'      ]    } else if (sitemap.internal.indexOf(page) >= 0) {      page_index = sitemap.internal.indexOf(page);      page_desc = [        conference.current.theme      , 'Register for ' + conference.current.name + ' here.'      , 'Program and Agenda of ' + conference.current.name + '.'      , 'Location and where to stay for ' + conference.current.name + '.'      , 'Current and prospective speakers at ' + conference.current.name + '.'      ]    }    return page_desc[page_index]  }
+-  function description(page) {    var page_index = -1      , page_desc = [];    if (site_pages.universal.indexOf(page) >= 0) {      index_of_page_id = site_pages.universal.indexOf(page);      page_desc = [        site.tagline      , 'About ' + site.title + '.'      , 'Sponsors of ' + site.title + '.'      , 'Exhibitors at ' + site.title + '.'      , 'Contact us for questions and comments about ' + site.title + '.'      ]    } else if (site_pages.internal.indexOf(page) >= 0) {      page_index = site_pages.internal.indexOf(page);      page_desc = [        conference.current.theme      , 'Register for ' + conference.current.name + ' here.'      , 'Program and Agenda of ' + conference.current.name + '.'      , 'Location and where to stay for ' + conference.current.name + '.'      , 'Current and prospective speakers at ' + conference.current.name + '.'      ]    }    return page_desc[page_index]  }
 - function urlify(str) { return encodeURIComponent(str.toLowerCase().replace(/[\W]+/g, '-')) }
 - function getSponsor(name) { return arrayFind(sponsors, 'name', name) }
 

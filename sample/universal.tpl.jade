@@ -6,7 +6,7 @@ block append vars
 block title
   title= ((page_subtype === 'landing') ? '' : page_id.name + ' | ') + site.title
 
-block append site-map
+block site-map
   footer.o-Runner.c-Mast: nav.o-ContentWrapper
     h1.-d-n#site-map Site Map
-    +menulist({pages: sitemap.universal, class_obj: sitemap_class_obj, depth: 1})
+    +menulist({pages: site_pages.universal, class_obj: sitemap_class_obj, depth: 1})

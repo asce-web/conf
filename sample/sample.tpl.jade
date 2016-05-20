@@ -54,13 +54,13 @@ html(lang="en")
       nav.o-GridFlex__Item.o-SiteHead__Nav.js-universalnav
         h1.-d-n#top-menu Top Menu
         ul.o-ListBare.o-GridFlex.c-MenuUniversal
-          each page in sitemap.universal.slice(1)
+          each page in site_pages.universal.slice(1)
             li.o-GridFlex__Item.c-MenuUniversal__Item
               a.o-Block.c-MenuUniversal__Link(href=page.href)
                 i.material-icons= page.icon.content
                 span= page.name
           li.o-GridFlex__Item.c-MenuUniversal__Item
-            - var page = sitemap.internal[0]
+            - var page = site_pages.internal[0]
             a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href=page.href)
               i.material-icons= page.icon.content
               span= conference.current.name

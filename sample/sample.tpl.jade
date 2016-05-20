@@ -56,18 +56,16 @@ html(lang="en")
       nav.o-GridFlex__Item.o-SiteHead__Nav.js-universalnav
         h1.-d-n#top-menu Top Menu
         ul.o-ListBare.o-GridFlex.c-MenuUniversal
-          each page in site_pages.universal.slice(1)
+          mixin univ_item(page0, linkclasses, text)
             li.o-GridFlex__Item.c-MenuUniversal__Item
-              a.o-Block.c-MenuUniversal__Link(href=page.href)
-                if page.icon
-                  i.material-icons= page.icon.content
-                span= page.name
-          each page in site_pages.internal.slice(0,1)
-            li.o-GridFlex__Item.c-MenuUniversal__Item
-              a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href=page.href)
-                if page.icon
-                  i.material-icons= page.icon.content
-                span= conference.current.name
+              a.o-Block.c-MenuUniversal__Link(class=linkclasses href=page0.href)
+                if page0.icon
+                  i.material-icons= page0.icon.content
+                span= text
+          each page0 in site_pages.universal.slice(1)
+            +univ_item(page0, '', page0.name)
+          each page0 in site_pages.internal.slice(0,1)
+            +univ_item(page0, 'c-MenuUniversal__Link--current', conference.current.name)
         //- button.c-Btn.c-Btn--dominant.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close top menu"): i.material-icons close
       //- button.c-Btn.c-Btn--flat.c-Btn--drawer.js-menubutton(type="button" name="open" title="open top menu"): i.material-icons menu
     block standard-menu

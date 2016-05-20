@@ -34,6 +34,7 @@
   }
 -  function description(page) {    var page_index = -1      , page_desc = [];    if (sitemap.universal.indexOf(page) >= 0) {      index_of_page_id = sitemap.universal.indexOf(page);      page_desc = [        site.tagline      , 'About ' + site.title + '.'      , 'Sponsors of ' + site.title + '.'      , 'Exhibitors at ' + site.title + '.'      , 'Contact us for questions and comments about ' + site.title + '.'      ]    } else if (sitemap.internal.indexOf(page) >= 0) {      page_index = sitemap.internal.indexOf(page);      page_desc = [        conference.current.theme      , 'Register for ' + conference.current.name + ' here.'      , 'Program and Agenda of ' + conference.current.name + '.'      , 'Location and where to stay for ' + conference.current.name + '.'      , 'Current and prospective speakers at ' + conference.current.name + '.'      ]    }    return page_desc[page_index]  }
 - function urlify(str) { return encodeURIComponent(str.toLowerCase().replace(/[\W]+/g, '-')) }
+- function getSponsor(name) { return arrayFind(sponsors, 'name', name) }
 
 
 mixin menulist(args)
@@ -152,12 +153,11 @@ mixin sponsor-carousel(spons)
         a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
         small.c-SponsorBlock__Label= sponsorlevel[item.level].name
 
-mixin sponsor-block(sponsor_level, classes, spons)
-  //- TODO: remove `spons` param and get them from `sponsor_level`
+mixin sponsor-block(sponsor_level, classes)
   section.c-SponsorBlock(class=classes)
     h1.c-SponsorBlock__Hn= sponsor_level.name
     ul.o-ListBare.o-GridFlex.o-ListStacked
-      each item in spons
+      each item in sponsors.filter(function (item) { return sponsorlevel[item.level] === sponsor_level })
         li.o-GridFlex__Item.o-ListStacked__Item
           unless (sponsor_level === sponsorlevel.bronze) || (sponsor_level === sponsorlevel.copper)
             a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+sponsor_level.size href=item.href style='background-image: url(\'' + item.src + '\');')= item.name

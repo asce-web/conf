@@ -5,7 +5,10 @@ block append vars
   - var page_id = sitemap.universal[0]
   - page_id.name = site.title
 
-block main
+block main-header
+  header: h1.-d-n#home Home
+
+block main-body
   section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing.c-Hero(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
     +hero-content(conference.current)
     +actionchoices([{text:'Find Out More', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
@@ -25,6 +28,3 @@ block main
         Plan ahead to attend, sponsor, or exhibit at the
         annual convention for civil engineering professionals.
       +actionchoices([{text:'Event Details', href:'//2017.asceconvention.org/', attrs:{itemprop:'url'}}], 'c-Btn c-Btn--hilite c-Btn--ghost')
-  aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
-    h1#sponsors Sponsors
-    +sponsor-content()

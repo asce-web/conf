@@ -354,102 +354,102 @@
   , "bronze"    : { "name": "Bronze"             , "size": ""    }
   , "copper"    : { "name": "Copper"             , "size": ""    }
   }
-, "sponsor": {
-    "asce_foundation": {
+, "sponsors": [
+    {
       "name"  : "ASCE Foundation"
     , "src"   : "http://2016.asceconvention.org/sites/default/files/asce-foundation-logo.png"
     , "href"  : "http://www.ascefoundation.org/"
     , "level" : "platinum"
     }
-  , "bentley": {
+  , {
       "name"  : "Bentley"
     , "src"   : "http://2016.asceconvention.org/sites/default/files/bentley-logo.png"
     , "href"  : "https://www.bentley.com/"
     , "level" : "platinum"
     }
-  , "pennoni": {
+  , {
       "name"  : "Pennoni"
     , "src"   : "http://2016.asceconvention.org/sites/default/files/pennoni-50th-anniversary-logo.png"
     , "href"  : "https://www.pennoni.com/"
     , "level" : "silver"
     }
-  , "innovyze": {
+  , {
       "name"  : "Innovyze"
     , "src"   : "http://2016.asceconvention.org/sites/default/files/innovyze-logo.png"
     , "href"  : "http://www.innovyze.com/"
     , "level" : "silver"
     }
-  , "fasten": {
+  , {
       "name"  : "Fasten Group"
     , "src"   : "http://2016.asceconvention.org/sites/default/files/fasten-group-logo.png"
     , "href"  : "http://www.chinafasten.com/"
     , "level" : "bronze"
     }
-  , "david_evans": {
+  , {
       "name"  : "David Evans and Associates, Inc."
     , "src"   : "http://2016.asceconvention.org/sites/default/files/david-evans-associates-logo.png"
     , "href"  : "http://www.deainc.com/"
     , "level" : "bronze"
     }
-  , "kci": {
+  , {
       "name"  : "KCI Technologies"
     , "src"   : "http://2016.asceconvention.org/sites/default/files/kci-technologies-logo.png"
     , "href"  : "http://www.kci.com/"
     , "level" : "bronze"
     }
-  , "mccormick_taylor": {
+  , {
       "name"  : "McCormick & Taylor"
     , "src"   : "http://2016.asceconvention.org/sites/default/files/mccormick-taylor-logo.png"
     , "href"  : "http://www.mccormicktaylor.com/"
     , "level" : "bronze"
     }
-  , "rutgers": {
+  , {
       "name"  : "Rutgers Center for Advanced Infrastructure and Transportation"
     , "src"   : "http://2016.asceconvention.org/sites/default/files/rutgers-cait-logo.png"
     , "href"  : "http://cait.rutgers.edu/"
     , "level" : "copper"
     }
-  , "kimley_horn": {
+  , {
       "name"  : "Kimley-Horn"
     , "src"   : "http://2016.asceconvention.org/sites/default/files/kimley-horn-logo.png"
     , "href"  : "http://www.kimley-horn.com/"
     , "level" : "copper"
     }
-  , "cbb": {
+  , {
       "name"  : "Christopher B. Burke Engineering, Ltd."
     , "src"   : "http://2016.asceconvention.org/sites/default/files/christopher-b-burke-engineering-logo.png"
     , "href"  : "http://cbbel.com/"
     , "level" : "copper"
     }
-  , "bank_america": {
+  , {
       "name"  : "Bank of America"
     , "src"   : "http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg"
     , "href"  : "http://www.asce.org/member_advantages/#b"
     , "level" : "corporate"
     }
-  , "geico": {
+  , {
       "name"  : "Geico"
     , "src"   : "http://2016.asceconvention.org/sites/default/files/geico-logo.gif"
     , "href"  : "https://www.geico.com/landingpage/member-discount/?logo=00774"
     , "level" : "corporate"
     }
-  , "pearl": {
+  , {
       "name"  : "Pearl Insurance"
     , "src"   : "http://2016.asceconvention.org/sites/default/files/pearl-insurance-logo.jpg"
     , "href"  : "http://asceinsurance.com/"
     , "level" : "corporate"
     }
-  , "ups": {
+  , {
       "name"  : "UPS"
     , "src"   : "http://2016.asceconvention.org/sites/default/files/ups-logo.jpg"
     , "href"  : "http://savewithups.com/asce/"
     , "level" : "corporate"
     }
-  , "keller": {
+  , {
       "name"  : "Keller North America"
     , "src"   : "http://2016.asceconvention.org/sites/default/files/keller-na-logo.png"
     , "href"  : "http://www.keller.co.uk/"
     , "level" : "corporate"
     }
-  }
+  ]
 }

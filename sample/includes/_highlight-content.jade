@@ -119,5 +119,5 @@ mixin contact-content()
   +contact-form()
 
 mixin sponsor-content()
-  +sponsor-carousel([sponsor.asce_foundation, sponsor.bentley, sponsor.pennoni])
+  +sponsor-carousel([getSponsor('ASCE Foundation'), getSponsor('Bentley'), getSponsor('Pennoni')])
   +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')

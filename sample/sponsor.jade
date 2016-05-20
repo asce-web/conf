@@ -6,10 +6,10 @@ block append vars
 block append main-body
   section.o-Runner.o-Runner--highlight: div.o-ContentWrapper
     h1#thank-you-sponsors Thank You to Our Sponsors
-    +sponsor-block(sponsorlevel.platinum , 'c-SponsorBlock--separate', [sponsors[0], sponsors[1]])
-    +sponsor-block(sponsorlevel.corporate, 'c-SponsorBlock--separate', [sponsors[11], sponsors[12], sponsors[13], sponsors[14], sponsors[15]])
-    +sponsor-block(sponsorlevel.silver   , 'c-SponsorBlock--separate', [sponsors[2], sponsors[3]])
-    +sponsor-block(sponsorlevel.bronze   , 'c-SponsorBlock--separate', [sponsors[4], sponsors[5], sponsors[6], sponsors[7]])
-    +sponsor-block(sponsorlevel.copper   , ''                        , [sponsors[8], sponsors[9], sponsors[10]])
+    +sponsor-block(sponsorlevel.platinum , 'c-SponsorBlock--separate', [getSponsor('ASCE Foundation'), getSponsor('Bentley')])
+    +sponsor-block(sponsorlevel.corporate, 'c-SponsorBlock--separate', [getSponsor('Bank of America'), getSponsor('Geico'), getSponsor('Pearl Insurance'), getSponsor('UPS'), getSponsor('Keller North America')])
+    +sponsor-block(sponsorlevel.silver   , 'c-SponsorBlock--separate', [getSponsor('Pennoni'), getSponsor('Innovyze')])
+    +sponsor-block(sponsorlevel.bronze   , 'c-SponsorBlock--separate', [getSponsor('Fasten Group'), getSponsor('David Evans and Associates, Inc.'), getSponsor('KCI Technologies'), getSponsor('McCormick & Taylor')])
+    +sponsor-block(sponsorlevel.copper   , ''                        , [getSponsor('Rutgers Center for Advanced Infrastructure and Transportation'), getSponsor('Kimley-Horn'), getSponsor('Christopher B. Burke Engineering, Ltd.')])
 
 block sponsors

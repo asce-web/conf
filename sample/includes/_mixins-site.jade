@@ -47,12 +47,11 @@ mixin menulist(args)
       unless item.is_hidden
         li(class=class_obj.itemclasses)
           a(class=class_obj.linkclasses href=item.href)
-            if item.icon && args.icons
+            if args.icons && item.icon
               i.material-icons= item.icon.content
             span= item.name
           if item.sub && depth > 0
-            - class_obj.sub = class_obj.sub || {}
-            +menulist({pages: item.sub, class_obj: class_obj.sub, depth: depth-1})
+            +menulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})
 
 mixin actionchoices(items, classes, list_attr)
   - list_attr = list_attr || {}

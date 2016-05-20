@@ -18,5 +18,4 @@ mixin menulist(args)
       li(class=class_obj.itemclasses)
         a(class=class_obj.linkclasses href=item.href)= item.name
         if item.sub && depth > 0
-          - class_obj.sub = class_obj.sub || {}
-          +menulist({pages: item.sub, class_obj: class_obj.sub, depth: depth-1})
+          +menulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})

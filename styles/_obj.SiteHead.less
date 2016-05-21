@@ -5,6 +5,7 @@
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
+@import (reference) url('__settings.less');
 @import (reference) url('_dev.less');
 
 
@@ -43,13 +44,27 @@
   z-index: 2; // over hero and sub menus
   .transform-origin(right top);
   width: 12rem;
-  .transitions(@g-prefix_transform; 250ms);
+  .transitions(right, top, @g-prefix_transform, opacity; 125ms);
+  .transition-timing-function(@google-decel);
+  // .transition-timing-function(@g-decel_hard);
+  // .transition-timing-function(@g-decel_dram);
+  // .transition-timing-function(@g-accel_extm);
+
   @media screen and (max-width: (@p-mobilebp - 0.001em)) {
     position: fixed;
     right: 0; top: 0;
     height: 100%;
     &.js-universalnav { // specificity HACK
-      .transform(scale(0));
+      .transform(translateX(100%));
+      & {
+        right: 20px; top: 26px; // FIXME fine-tuning: lined up with "open menu" button
+        .transform(scale(0));
+      }
+      opacity: 0;
+      .transition-timing-function(@google-accel);
+      // .transition-timing-function(@g-accel_hard);
+      // .transition-timing-function(@g-accel_dram);
+      // .transition-timing-function(@g-decel_extm);
     }
   }
   @media screen and (min-width: @p-mobilebp) {

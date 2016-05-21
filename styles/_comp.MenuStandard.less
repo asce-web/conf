@@ -48,7 +48,7 @@
 }
 
 .c-MenuStandard__Item {
-  @trans_dura: 125ms;
+  @trans_dura: 250ms;
   width: auto;
   .transition-multi(background-color @trans_dura);
   &:hover,
@@ -58,10 +58,11 @@
   }
   .c-MenuSub {
     .transform-origin(left top);
-    .transitions(@g-prefix_transform; @trans_dura);
+    .transitions(@g-prefix_transform, opacity; @trans_dura);
   }
   &:not(:hover) .c-MenuSub {
     .transform(scale(0));
+    opacity: 0;
   }
 }
 

@@ -9,6 +9,21 @@
 //    # VARIABLES
 //++++++++++++++++++++++++++++++++//
 @g-prefix_transform: -webkit-transform, -moz-transform, -ms-transform, -o-transform, transform;
+
+// Google’s Natural Easing Curves
+// <https://www.google.com/design/spec/motion/duration-easing.html#duration-easing-natural-easing-curves>
+@google-standard: cubic-bezier(0.4,  0,  0.2,  1); // css keyword `ease        == cubic-bezier(0.25,  0.1,  0.25,  1)`
+@google-decel:    cubic-bezier(0,    0,  0.2,  1); // css keyword `ease-out    == cubic-bezier(0,     0,    0.58,  1)`
+@google-accel:    cubic-bezier(0.4,  0,  1,    1); // css keyword `ease-in     == cubic-bezier(0.42,  0,    1,     1)`
+@google-sharp:    cubic-bezier(0.4,  0,  0.6,  1); // css keyword `ease-in-out == cubic-bezier(0.42,  0,    0.58,  1)`
+
+@g-decel_hard: cubic-bezier(0,0,0,1);
+@g-accel_hard: cubic-bezier(1,0,1,1);
+@g-decel_dram: cubic-bezier(0,1,0,1);
+@g-accel_dram: cubic-bezier(1,0,1,0);
+@g-decel_extm: cubic-bezier(1,-1,0,1);
+@g-accel_extm: cubic-bezier(1,0,0,2);
+
 //++++ end # VARIABLES ++++ //
 
 

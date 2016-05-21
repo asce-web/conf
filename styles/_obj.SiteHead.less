@@ -40,17 +40,16 @@
 }
 
 .o-SiteHead__Nav {
-  @width: 12rem;
   z-index: 2; // over hero and sub menus
   .transform-origin(right top);
-  width: @width;
+  width: 12rem;
   .transitions(@g-prefix_transform; 250ms);
   @media screen and (max-width: (@p-mobilebp - 0.001em)) {
     position: fixed;
     right: 0; top: 0;
     height: 100%;
     &.js-universalnav { // specificity HACK
-      .transform(translateX(@width) scale(0, 0));
+      .transform(scale(0));
     }
   }
   @media screen and (min-width: @p-mobilebp) {

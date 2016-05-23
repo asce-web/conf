@@ -415,31 +415,35 @@ block append main
         h1.o-GridFlex__Item.c-Program__Hn: label
           input.c-Program__Check(type="radio" name="program" value="2016-09-28" checked="")
           time(datetime="2016-09-28") Wednesday,#[br]Sep 28
-        p.o-GridFlex__Item.c-Program__Schedule program schedule content 1
+        div.o-GridFlex__Item.c-Program__Schedule program schedule content 1
         h1.o-GridFlex__Item.c-Program__Hn: label
           input.c-Program__Check(type="radio" name="program" value="2016-09-29")
           time(datetime="2016-09-29") Thursday,#[br]Sep 29
-        p.o-GridFlex__Item.c-Program__Schedule program schedule content 2
+        div.o-GridFlex__Item.c-Program__Schedule program schedule content 2
         h1.o-GridFlex__Item.c-Program__Hn: label
           input.c-Program__Check(type="radio" name="program" value="2016-09-30")
           time(datetime="2016-09-30") Friday,#[br]Sep 30
-        p.o-GridFlex__Item.c-Program__Schedule program schedule content 3
+        div.o-GridFlex__Item.c-Program__Schedule program schedule content 3
         h1.o-GridFlex__Item.c-Program__Hn: label
           input.c-Program__Check(type="radio" name="program" value="2016-10-01")
           time(datetime="2016-10-01") Saturday,#[br]Oct 1
-        p.o-GridFlex__Item.c-Program__Schedule program schedule content 4
+        div.o-GridFlex__Item.c-Program__Schedule program schedule content 4
       pre.
         &lt;section class="o-GridFlex  #[u c-Program]"&gt;
-          #[small &lt;!-- NOTE: this structure is not final --&gt;]
-          &lt;input class="#[u c-Program__Check]" id="date1" type="radio" name="program"/&gt;
           &lt;h1 class="o-GridFlex__Item  #[u c-Program__Hn]"&gt;
-            &lt;label for="date1"&gt;Wednesday, Sep 28&lt;/label&gt;
+            &lt;label&gt;
+              &lt;input class="#[u c-Program__Check]" type="radio" name="program" value="2016-09-28"/&gt;
+              &lt;time datetime="2016-09-28"&gt;Wednesday, Sep 28&lt;/time&gt;
+            &lt;/label&gt;
           &lt;/h1&gt;
-          &lt;p class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;program schedule ...&lt;/p&gt;
+          &lt;div class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;program schedule ...&lt;/p&gt;
 
-          &lt;input class="#[u c-Program__Check]" .../&gt;
-          &lt;h1 class="o-GridFlex__Item  #[u c-Program__Hn]"&gt;...&lt;/h1&gt;
-          &lt;p class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;...&lt;/p&gt;
+          &lt;h1 class="o-GridFlex__Item  #[u c-Program__Hn]"&gt;
+            ...
+            &lt;input class="#[u c-Program__Check]" .../&gt;
+            ...
+          &lt;/h1&gt;
+          &lt;div class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;...&lt;/p&gt;
 
           ...
         &lt;/section&gt;

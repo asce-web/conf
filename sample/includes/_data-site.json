@@ -96,15 +96,7 @@
     ]
   }
 , "menu_class": {
-    "sitemap": {
-      "listclasses" : "o-ListBare o-GridFlex c-Sitemap"
-    , "itemclasses" : "o-GridFlex__Item c-Sitemap__Item"
-    , "sub": {
-        "listclasses" : "o-ListBare c-Sitemap__SubList"
-      , "itemclasses" : "c-Sitemap__SubItem"
-      }
-    }
-  , "standard": {
+    "standard": {
       "listclasses" : "o-ListBare o-GridFlex c-MenuStandard"
     , "itemclasses" : "o-GridFlex__Item c-MenuStandard__Item"
     , "linkclasses" : "o-Block c-MenuStandard__Link"
@@ -114,7 +106,15 @@
       , "linkclasses" : "o-Block c-MenuSub__Link"
       }
     }
-}
+  , "sitemap": {
+      "listclasses" : "o-ListBare o-GridFlex c-Sitemap"
+    , "itemclasses" : "o-GridFlex__Item c-Sitemap__Item"
+    , "sub": {
+        "listclasses" : "o-ListBare c-Sitemap__SubList"
+      , "itemclasses" : "c-Sitemap__SubItem"
+      }
+    }
+  }
 , "pass": {
     "standard": {
       "name": "Standard Pass"

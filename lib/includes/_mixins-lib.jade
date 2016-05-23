@@ -6,8 +6,13 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
-- function title(arr) { return arr.reduceRight(function (a, b) { return a + ' | ' + b }) }
-- function mainH1(arr) { return arr.reduce(function (a, b) { return a + ' — ' + b }) }
+-
+  function title(arr) {
+    return arr.reduceRight(function (a, b) { return a + ' | ' + b })
+  }
+  function mainH1(arr) {
+    return arr.reduce(function (a, b) { return a + ' — ' + b })
+  }
 
 mixin menulist(args)
   - var pages     = args.pages     || []

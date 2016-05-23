@@ -6,9 +6,16 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
-- function urlify(str) { return encodeURIComponent(str.toLowerCase().replace(/[\W]+/g, '-')) }
-- function getSponsor(name) { return arrayFind(sponsors, 'name', name) }
-- function getPage(type, url) { return arrayFind(site_pages[type], 'href', url) }
+-
+  function urlify(str) {
+    return encodeURIComponent(str.toLowerCase().replace(/[\W]+/g, '-'))
+  }
+  function getSponsor(name) {
+    return arrayFind(sponsors, 'name', name)
+  }
+  function getPage(type, url) {
+    return arrayFind(site_pages[type], 'href', url)
+  }
 
 
 mixin menulist(args)

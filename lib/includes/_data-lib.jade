@@ -6,63 +6,93 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
-- var lib = []
-- lib.push({name:'Pattern Library Home', href:'index.html'  , description:''})
-- lib.push({name:'Visual Design'       , href:'visual.html' , description:'Color and font schemes, look-and-feel, overall mood and tone.'})
-- lib.push({name:'Base'                , href:'base.html'   , description:'Bare, unstyled HTML elements. No classes.'})
-- lib.push({name:'Objects'             , href:'obj.html'    , description:'Patterns of structure that can be reused many times for many different purposes.'})
-- lib.push({name:'Components'          , href:'comp.html'   , description:'Patterns of look-and-feel that are each only used for one purpose.'})
-- lib.push({name:'Helpers'             , href:'helpers.html', description:'Somewhat explicit classes used for enhancing default styles.'})
-- lib.push({name:'Atoms'               , href:'atoms.html'  , description:'Very specific classes used for creating anomalies or fixing broken styles.'})
-- lib[1].sub = []
-- lib[1].sub.push({name:'ASCE'     , href:'visual.html#asce'})
-- lib[1].sub.push({name:'ASCE 2016', href:'visual.html#asce2016'})
-- lib[2].sub = []
-- lib[2].sub.push({name:'Table of Contents'    , href:'base.html#table-contents'})
-- lib[2].sub.push({name:'Headings & Paragraphs', href:'base.html#headings-paragraphs'})
-- lib[2].sub.push({name:'Lists'                , href:'base.html#lists'})
-- lib[2].sub.push({name:'Tables'               , href:'base.html#tables'})
-- lib[2].sub.push({name:'Text-Level Elements'  , href:'base.html#text-level-elements'})
-- lib[2].sub.push({name:'Embedded Elements'    , href:'base.html#embedded-elements'})
-- lib[2].sub.push({name:'Forms'                , href:'base.html#forms'})
-- lib[2].sub.push({name:'Interactive Elements' , href:'base.html#interactive-elements'})
-- lib[2].sub[4].sub = []
-- lib[2].sub[4].sub.push({name:'Links'        , href:'base.html#links'})
-- lib[2].sub[4].sub.push({name:'Stress'       , href:'base.html#stress'})
-- lib[2].sub[4].sub.push({name:'Documentation', href:'base.html#documentation'})
-- lib[2].sub[4].sub.push({name:'Data'         , href:'base.html#data'})
-- lib[3].sub = []
-- lib[3].sub.push({name:'Table of Contents'  , href:'obj.html#table-contents'})
-- lib[3].sub.push({name:'The Block Object'   , href:'obj.html#block-object'})
-- lib[3].sub.push({name:'The Inline Object'  , href:'obj.html#inline-object'})
-- lib[3].sub.push({name:'The Bare List'      , href:'obj.html#bare-list'})
-- lib[3].sub.push({name:'The Flex Grid'      , href:'obj.html#flex-grid'})
-- lib[3].sub.push({name:'The Float Grid'     , href:'obj.html#float-grid'})
-- lib[3].sub.push({name:'The Runner Object'  , href:'obj.html#runner-object'})
-- lib[3].sub.push({name:'The Content Wrapper', href:'obj.html#content-wrapper'})
-- lib[3].sub.push({name:'The Action List'    , href:'obj.html#action-list'})
-- lib[3].sub.push({name:'The Stacked List'   , href:'obj.html#stacked-list'})
-- lib[3].sub.push({name:'The Site Head'      , href:'obj.html#site-head'})
-- lib[4].sub = []
-- lib[4].sub.push({name:'Table of Contents'        , href:'comp.html#table-contents'})
-- lib[4].sub.push({name:'The Masthead and Mastfoot', href:'comp.html#masthead-mastfoot'})
-- lib[4].sub.push({name:'The Site Title'           , href:'comp.html#site-title'})
-- lib[4].sub.push({name:'The Universal Menu'       , href:'comp.html#universal-menu'})
-- lib[4].sub.push({name:'The Standard Menu'        , href:'comp.html#standard-menu'})
-- lib[4].sub.push({name:'The Sub Menu'             , href:'comp.html#sub-menu'})
-- lib[4].sub.push({name:'The Sitemap Component'    , href:'comp.html#sitemap-component'})
-- lib[4].sub.push({name:'The Page Title'           , href:'comp.html#page-title'})
-- lib[4].sub.push({name:'The Banner Component'     , href:'comp.html#banner-component'})
-- lib[4].sub.push({name:'The Hero Block'           , href:'comp.html#hero-block'})
-- lib[4].sub.push({name:'The Other Year Block'     , href:'comp.html#other-year-block'})
-- lib[4].sub.push({name:'The Overlay Component'    , href:'comp.html#overlay-component'})
-- lib[4].sub.push({name:'The Sponsor Block'        , href:'comp.html#sponsor-block'})
-- lib[4].sub.push({name:'The Date Block'           , href:'comp.html#date-block'})
-- lib[4].sub.push({name:'The Pass Component'       , href:'comp.html#pass-component'})
-- lib[4].sub.push({name:'The Program Component'    , href:'comp.html#program-component'})
-- lib[4].sub.push({name:'The Time Block'           , href:'comp.html#time-block'})
-- lib[4].sub.push({name:'The Speaker Component'    , href:'comp.html#speaker-component'})
-- lib[4].sub.push({name:'The Social List'          , href:'comp.html#social-list'})
-- lib[4].sub.push({name:'The Callout Component'    , href:'comp.html#callout-component'})
-- lib[4].sub.push({name:'Buttons'                  , href:'comp.html#buttons'})
-- lib[4].sub.push({name:'Text-Level Components'    , href:'comp.html#text-level-components'})
+-
+  var lib = [
+    {
+      name: 'Pattern Library Home', href: 'index.html'
+    , description: ''
+    }
+  , {
+      name: 'Visual Design', href: 'visual.html'
+    , description: 'Color and font schemes, look-and-feel, overall mood and tone.'
+    , sub: [
+        { name: 'ASCE'     , href: 'visual.html#asce' }
+      , { name: 'ASCE 2016', href: 'visual.html#asce2016' }
+      ]
+    }
+  , {
+      name: 'Base', href: 'base.html'
+    , description: 'Bare, unstyled HTML elements. No classes.'
+    , sub: [
+        { name: 'Table of Contents'    , href: 'base.html#table-contents' }
+      , { name: 'Headings & Paragraphs', href: 'base.html#headings-paragraphs' }
+      , { name: 'Lists'                , href: 'base.html#lists' }
+      , { name: 'Tables'               , href: 'base.html#tables' }
+      , {
+          name: 'Text-Level Elements', href: '#text-level-elements'
+        , sub: [
+            { name: 'Links'        , href: 'base.html#links' }
+          , { name: 'Stress'       , href: 'base.html#stress' }
+          , { name: 'Documentation', href: 'base.html#documentation' }
+          , { name: 'Data'         , href: 'base.html#data' }
+          ]
+        }
+      , { name: 'Embedded Elements'    , href: 'base.html#embedded-elements' }
+      , { name: 'Forms'                , href: 'base.html#forms' }
+      , { name: 'Interactive Elements' , href: 'base.html#interactive-elements' }
+      ]
+    }
+  , {
+      name: 'Objects', href: 'obj.html'
+    , description: 'Patterns of structure that can be reused many times for many different purposes.'
+    , sub: [
+        { name: 'Table of Contents'  , href: 'obj.html#table-contents' }
+      , { name: 'The Block Object'   , href: 'obj.html#block-object' }
+      , { name: 'The Inline Object'  , href: 'obj.html#inline-object' }
+      , { name: 'The Bare List'      , href: 'obj.html#bare-list' }
+      , { name: 'The Flex Grid'      , href: 'obj.html#flex-grid' }
+      , { name: 'The Float Grid'     , href: 'obj.html#float-grid' }
+      , { name: 'The Runner Object'  , href: 'obj.html#runner-object' }
+      , { name: 'The Content Wrapper', href: 'obj.html#content-wrapper' }
+      , { name: 'The Action List'    , href: 'obj.html#action-list' }
+      , { name: 'The Stacked List'   , href: 'obj.html#stacked-list' }
+      , { name: 'The Site Head'      , href: 'obj.html#site-head' }
+      ]
+    }
+  , {
+      name: 'Components', href: 'comp.html'
+    , description: 'Patterns of look-and-feel that are each only used for one purpose.'
+    , sub: [
+        { name: 'Table of Contents'        , href: 'comp.html#table-contents' }
+      , { name: 'The Masthead and Mastfoot', href: 'comp.html#masthead-mastfoot' }
+      , { name: 'The Site Title'           , href: 'comp.html#site-title' }
+      , { name: 'The Universal Menu'       , href: 'comp.html#universal-menu' }
+      , { name: 'The Standard Menu'        , href: 'comp.html#standard-menu' }
+      , { name: 'The Sub Menu'             , href: 'comp.html#sub-menu' }
+      , { name: 'The Sitemap Component'    , href: 'comp.html#sitemap-component' }
+      , { name: 'The Page Title'           , href: 'comp.html#page-title' }
+      , { name: 'The Banner Component'     , href: 'comp.html#banner-component' }
+      , { name: 'The Hero Block'           , href: 'comp.html#hero-block' }
+      , { name: 'The Other Year Block'     , href: 'comp.html#other-year-block' }
+      , { name: 'The Overlay Component'    , href: 'comp.html#overlay-component' }
+      , { name: 'The Sponsor Block'        , href: 'comp.html#sponsor-block' }
+      , { name: 'The Date Block'           , href: 'comp.html#date-block' }
+      , { name: 'The Pass Component'       , href: 'comp.html#pass-component' }
+      , { name: 'The Program Component'    , href: 'comp.html#program-component' }
+      , { name: 'The Time Block'           , href: 'comp.html#time-block' }
+      , { name: 'The Speaker Component'    , href: 'comp.html#speaker-component' }
+      , { name: 'The Social List'          , href: 'comp.html#social-list' }
+      , { name: 'The Callout Component'    , href: 'comp.html#callout-component' }
+      , { name: 'Buttons'                  , href: 'comp.html#buttons' }
+      , { name: 'Text-Level Components'    , href: 'comp.html#text-level-components'}
+      ]
+    }
+  , {
+      name: 'Helpers', href: 'helpers.html'
+    , description: 'Somewhat explicit classes used for enhancing default styles.'
+    }
+  , {
+      name: 'Atoms', href: 'atoms.html'
+    , description: 'Very specific classes used for creating anomalies or fixing broken styles.'
+    }
+  ]

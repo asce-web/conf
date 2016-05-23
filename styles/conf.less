@@ -61,7 +61,7 @@
  * Pass.....................................a listing of prices for one Pass Type
  * Program..................................block containing all program info
  * TimeBlock................................list of program events for a single day
- * Speaker...................................keynote) speaker profile
+ * Speaker..................................(keynote) speaker profile
  * SocialList...............................list of social media icons
  * Callout..................................textual block standing out from normal prose
  * Btn......................................buttons
@@ -70,13 +70,11 @@
  *   ## Typographical Components--------------[description]
  *   ## User-Interactive Components-----------[description]
  *
- * # OVERRIDES------------------------------HELPERS, ATOMS, & HACKS
- * _atom.less................................all uncategorized atoms
- * _shame.less...............................hacks
+ * # THEMES & HELPERS-----------------------LOCATION-DEPENDENT STYLES
  *
- * # DRAFT----------------------------------UNFINALIZED CSS
- *
- * # DEBUGGING MICRODATA STYLES-------------[DESCRIPTION]
+ * # OVERRIDES------------------------------ATOMS & HACKS
+ * _atom.less...............................all uncategorized atoms
+ * _shame.less..............................hacks
  */
 
 //++++++++++++++++++++++++++++++++//
@@ -151,34 +149,7 @@
 
 
 //++++++++++++++++++++++++++++++++//
-//    # OVERRIDES
-//++++++++++++++++++++++++++++++++//
-@import url('_atom.less');
-@import url('_shame.less');
-//++++ end # OVERRIDES ++++//
-
-
-//++++++++++++++++++++++++++++++++//
-//    # DRAFT
-//++++++++++++++++++++++++++++++++//
-// .asce-logo {
-//   display: inline-block;
-//   width: 73px;  // magic nummmmmmmbers
-//   height: 23px; // magic nummmmmmmbers
-//   margin-right: 10px;
-//   vertical-align: middle;
-//   background-image: url('../img/asce-logo-footer-small.png');
-//   @media screen and (min-width: 45em) {
-//     width: 233px; // magic numberrrrrrrrrs
-//     height: 30px; // magic numberrrrrrrrrs
-//     background-image: url('../img/asce-logo-footer.png');
-//   }
-// }
-//++++ end # DRAFT ++++//
-
-
-//++++++++++++++++++++++++++++++++//
-//    # DEBUGGING MICRODATA STYLES
+//    # THEMES & HELPERS
 //++++++++++++++++++++++++++++++++//
 .t-md {
   [itemscope] {
@@ -213,4 +184,12 @@
     border-color: #9c0;
   }
 }
-//++++ end # DEBUGGING MICRODATA STYLES ++++//
+//++++ end # THEMES & HELPERS ++++//
+
+
+//++++++++++++++++++++++++++++++++//
+//    # OVERRIDES
+//++++++++++++++++++++++++++++++++//
+@import url('_atom.less');
+@import url('_shame.less');
+//++++ end # OVERRIDES ++++//

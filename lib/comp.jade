@@ -452,26 +452,28 @@ block append main
     figure.sg-c-Fig
       dl.o-GridFlex.c-TimeBlock
         dt.o-GridFlex__Item.c-TimeBlock__Times
-          time 10:30 am
+          time= hourTime12(new Date(new Date().setHours(10, 30)))
           | &ndash;
-          time 4:30 pm
+          time= hourTime12(new Date(new Date().setHours(17, 0)))
         dd.o-GridFlex__Item.c-TimeBlock__Desc
           a.o-Block.c-TimeBlock__Link(href="")
             | Technical Tours
             i.material-icons arrow_forward
         dt.o-GridFlex__Item.c-TimeBlock__Times
-          time 1:00 pm
+          time= hourTime12(new Date(new Date().setHours(13, 0)))
           | &ndash;
-          time 5:00 pm
+          time= hourTime12(new Date(new Date().setHours(16, 30)))
         dd.o-GridFlex__Item.c-TimeBlock__Desc Short Courses
       pre.
         &lt;dl class="o-GridFlex  #[u c-TimeBlock]"&gt;
           &lt;dt class="o-GridFlex__Item  #[u c-TimeBlock__Times]"&gt;
-            &lt;time&gt;10:30 am&lt;/time&gt;&ndash;&lt;time&gt;4:30 pm&lt;/time&gt;
+            &lt;time&gt;10:30am&lt;/time&gt;&ndash;&lt;time&gt;5pm&lt;/time&gt;
           &lt;/dt&gt;
           &lt;dd class="o-GridFlex__Item  #[u c-TimeBlock__Desc]"&gt;
             &lt;a class="o-Block  #[u c-TimeBlock__Link]"&gt;Technical Tours&lt;/a&gt;
           &lt;/dd&gt;
+          &lt;dt class="o-GridFlex__Item  #[u c-TimeBlock__Times]"&gt;...&lt;/dt&gt;
+          &lt;dd class="o-GridFlex__Item  #[u c-TimeBlock__Desc]"&gt;...&lt;/dd&gt;
           ...
         &lt;/dl&gt;
   section.sg-sect#speaker-component

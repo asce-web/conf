@@ -11,7 +11,7 @@
     var hour = '' + ((date.getHours() - 1)%12 + 1)
     var minute = ((date.getMinutes() < 10) ? '0' : '') + date.getMinutes()
     var meridiem = (date.getHours() < 12) ? 'am' : 'pm'
-    return hour + ':' + minute + ' ' + meridiem
+    return hour + ((minute !== '00') ? ':' + minute : '') + meridiem
   }
   function hourTime24(date) {
     var hour =   ((date.getHours()   < 10) ? '0' : '') + date.getHours()
@@ -19,7 +19,5 @@
     return hour + ':' + minute
   }
   function arrayFind(array, prop, val) {
-    return array.find(function (item) {
-      return item[prop] === val
-    })
+    return array.find(function (item) { return item[prop] === val })
   }

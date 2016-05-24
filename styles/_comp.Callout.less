@@ -2,6 +2,7 @@
 /*################################*\
     conf  |  _comp.Callout.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.module.borders.less');
 @import (reference) url('__settings.less');
 
 
@@ -19,8 +20,8 @@
 // ^updated
 // 2016-05-06
 .c-Callout {
+  .border-vert(topbot; 1px);
   border-style: solid;
-  border-width: 1px 0;
   padding: @g-boxpadd_mill;
 }
 

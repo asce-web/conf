@@ -21,93 +21,135 @@
 // styles such as colors.
 
 
-//++++++++++++++++++++++++++++++++//
-//    # TABLE OF CONTENTS
-//++++++++++++++++++++++++++++++++//
-  //--------------------------------//
-  //    ## Settings, Tools, Dev, and Base
-  //--------------------------------//
-  @import url('__settings.less'); //.......................variables
-  @import url('__tool.module.border-radius.less'); //......useful mixins for grouping border-radii
-  @import url('_dev.less'); //.............................development code
-  @import url('_base.less'); //............................bare, unclassed elements
-  //---- end ## Settings, Tools, Dev, and Base ----//
-
-  //--------------------------------//
-  //    ## Objects
-  //--------------------------------//
-  @import url('_obj.Block.less'); //.......................a simple block object
-  @import url('_obj.Inline.less'); //......................a simple inline object
-  @import url('_obj.ListBare.less'); //....................plain, unstyled, blocky list
-  @import url('_obj.GridFlex.less'); //....................grid of items
-  @import url('_obj.GridFloat.less'); //...................grid of items; legacy support
-  @import url('_obj.Runner.less'); //......................header and footer
-  @import url('_obj.ContentWrapper.less'); //..............keeps content at max width
-  @import url('_obj.ListAction.less'); //..................list of actionable choices
-  @import url('_obj.ListStacked.less'); //.................row of stackable items (Sponsors, Passes, Speakers, etc.)
-  @import url('_obj.SiteHead.less'); //....................container for SiteTitle and MenuUniversal components
-  //---- end ## Objects ----//
-
-  //--------------------------------//
-  //    ## Components
-  //--------------------------------//
-  @import url('_comp.Mast.less'); //.......................masthead for the site
-  @import url('_comp.SiteTitle.less'); //..................area containg logo and site title and tagline
-  @import url('_comp.MenuUniversal.less'); //..............universal main navigation
-  @import url('_comp.MenuStandard.less'); //...............top-level navigation for a conference
-  @import url('_comp.MenuSub.less'); //....................secondary-level navigation for a conference
-  @import url('_comp.Sitemap.less'); //....................sitemap for universal or internal sites
-  @import url('_comp.PageTitle.less'); //..................title of entire page
-  @import url('_comp.Banner.less'); //.....................full-width block with a background image
-  @import url('_comp.Hero.less'); //.......................advertisment for current year conference
-  @import url('_comp.OtherYear.less'); //..................advertisment for other year conference
-  @import url('_comp.Overlay.less'); //....................a translucent slide inside a banner
-  @import url('_comp.SponsorBlock.less'); //...............block containing one level of sponsors
-  @import url('_comp.DateBlock.less'); //..................list of important dates
-  @import url('_comp.Pass.less'); //.......................a listing of prices for one Pass Type
-  @import url('_comp.Program.less'); //....................block containing all program info
-  @import url('_comp.TimeBlock.less'); //..................list of program events for a single day
-  @import url('_comp.Speaker.less'); //....................(keynote) speaker profile
-  @import url('_comp.SocialList.less'); //.................list of social media icons
-  @import url('_comp.Callout.less'); //....................textual block standing out from normal prose
-  @import url('_comp.Btn.less'); //........................buttons
-  @import url('_comp.Camo.less'); //.......................camouflaged elements
-  // ### Block Section-y Components
-  // ### Typographical Components
-  // ### User-Interactive Components
-  //---- end ## Components ----//
-
-  //--------------------------------//
-  //    ## Helpers, Atoms, and Shame
-  //--------------------------------//
-  @import url('_atom.less'); //............................all uncategorized atoms
-  @import url('_shame.less'); //...........................hacks
-  //---- end ## Helpers, Atoms, and Shame ----//
-//++++ end # TABLE OF CONTENTS ++++//
-
+/*
+ * Table Of Contents
+ *
+ * # SETTINGS & TOOLS-----------------------PROJECT SETTINGS & MIXINS
+ * __settings.less..........................variables
+ * __tool.module.border-radius.less.........useful mixins for grouping border-radii
+ *
+ * # BASE-----------------------------------BARE UNCLASSED ELEMENTS
+ * _dev.less................................development code
+ * _base.less...............................bare, unclassed elements
+ *
+ * # OBJECTS--------------------------------REUSABLE STRUCTURAL PATTERNS
+ * Block....................................a simple block object
+ * Inline...................................a simple inline object
+ * ListBare.................................plain, unstyled, blocky list
+ * GridFlex.................................grid of items
+ * GridFloat................................grid of items; legacy support
+ * Runner...................................header and footer
+ * ContentWrapper...........................keeps content at max width
+ * ListAction...............................list of actionable choices
+ * ListStacked..............................row of stackable items (Sponsors, Passes, Speakers, etc.)
+ * SiteHead.................................container for SiteTitle and MenuUniversal components
+ *
+ * # COMPONENTS-----------------------------SPECIFIC STYLE PATTERNS
+ * Mast.....................................masthead for the site
+ * SiteTitle................................area containg logo and site title and tagline
+ * MenuUniversal............................universal main navigation
+ * MenuStandard.............................top-level navigation for a conference
+ * MenuSub..................................secondary-level navigation for a conference
+ * Sitemap..................................sitemap for universal or internal sites
+ * PageTitle................................title of entire page
+ * Banner...................................full-width block with a background image
+ * Hero.....................................advertisment for current year conference
+ * OtherYear................................advertisment for other year conference
+ * Overlay..................................a translucent slide inside a banner
+ * SponsorBlock.............................block containing one level of sponsors
+ * DateBlock................................list of important dates
+ * Pass.....................................a listing of prices for one Pass Type
+ * Program..................................block containing all program info
+ * TimeBlock................................list of program events for a single day
+ * Speaker..................................(keynote) speaker profile
+ * SocialList...............................list of social media icons
+ * Callout..................................textual block standing out from normal prose
+ * Btn......................................buttons
+ * Camo.....................................camouflaged elements
+ *   ## Block Section-y Components------------[description]
+ *   ## Typographical Components--------------[description]
+ *   ## User-Interactive Components-----------[description]
+ *
+ * # THEMES & HELPERS-----------------------LOCATION-DEPENDENT STYLES
+ *
+ * # OVERRIDES------------------------------ATOMS & HACKS
+ * _atom.less...............................all uncategorized atoms
+ * _shame.less..............................hacks
+ */
 
 //++++++++++++++++++++++++++++++++//
-//    # DRAFT
+//    # SETTINGS & TOOLS
 //++++++++++++++++++++++++++++++++//
-
-// .asce-logo {
-//   display: inline-block;
-//   width: 73px;  // magic nummmmmmmbers
-//   height: 23px; // magic nummmmmmmbers
-//   margin-right: 10px;
-//   vertical-align: middle;
-//   background-image: url('../img/asce-logo-footer-small.png');
-//   @media screen and (min-width: 45em) {
-//     width: 233px; // magic numberrrrrrrrrs
-//     height: 30px; // magic numberrrrrrrrrs
-//     background-image: url('../img/asce-logo-footer.png');
-//   }
-// }
-//++++ end # DRAFT ++++//
+@import url('__settings.less');
+@import url('__tool.module.border-radius.less');
+//++++ end # SETTINGS & TOOLS ++++//
 
 
 //++++++++++++++++++++++++++++++++//
-//    # DEBUGGING MICRODATA STYLES
+//    # BASE
+//++++++++++++++++++++++++++++++++//
+@import url('_dev.less');
+@import url('_base.less');
+//++++ end # BASE ++++//
+
+
+//++++++++++++++++++++++++++++++++//
+//    # OBJECTS
+//++++++++++++++++++++++++++++++++//
+@import url('_obj.Block.less');
+@import url('_obj.Inline.less');
+@import url('_obj.ListBare.less');
+@import url('_obj.GridFlex.less');
+@import url('_obj.GridFloat.less');
+@import url('_obj.Runner.less');
+@import url('_obj.ContentWrapper.less');
+@import url('_obj.ListAction.less');
+@import url('_obj.ListStacked.less');
+@import url('_obj.SiteHead.less');
+//++++ end # OBJECTS ++++//
+
+
+//++++++++++++++++++++++++++++++++//
+//    # COMPONENTS
+//++++++++++++++++++++++++++++++++//
+@import url('_comp.Mast.less');
+@import url('_comp.SiteTitle.less');
+@import url('_comp.MenuUniversal.less');
+@import url('_comp.MenuStandard.less');
+@import url('_comp.MenuSub.less');
+@import url('_comp.Sitemap.less');
+@import url('_comp.PageTitle.less');
+@import url('_comp.Banner.less');
+@import url('_comp.Hero.less');
+@import url('_comp.OtherYear.less');
+@import url('_comp.Overlay.less');
+@import url('_comp.SponsorBlock.less');
+@import url('_comp.DateBlock.less');
+@import url('_comp.Pass.less');
+@import url('_comp.Program.less');
+@import url('_comp.TimeBlock.less');
+@import url('_comp.Speaker.less');
+@import url('_comp.SocialList.less');
+@import url('_comp.Callout.less');
+@import url('_comp.Btn.less');
+@import url('_comp.Camo.less');
+  //--------------------------------//
+  //    ## Block Section-y Components
+  //--------------------------------//
+  //---- end ## Block Section-y Components ----//
+  //--------------------------------//
+  //    ## Typographical Components
+  //--------------------------------//
+  //---- end ## Typographical Components ----//
+  //--------------------------------//
+  //    ## User-Interactive Components
+  //--------------------------------//
+  //---- end ## User-Interactive Components ----//
+//++++ end # COMPONENTS ++++//
+
+
+//++++++++++++++++++++++++++++++++//
+//    # THEMES & HELPERS
 //++++++++++++++++++++++++++++++++//
 .t-md {
   [itemscope] {
@@ -142,4 +184,12 @@
     border-color: #9c0;
   }
 }
-//++++ end # DEBUGGING MICRODATA STYLES ++++//
+//++++ end # THEMES & HELPERS ++++//
+
+
+//++++++++++++++++++++++++++++++++//
+//    # OVERRIDES
+//++++++++++++++++++++++++++++++++//
+@import url('_atom.less');
+@import url('_shame.less');
+//++++ end # OVERRIDES ++++//

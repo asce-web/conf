@@ -10,8 +10,16 @@
 // ^author
 // : Chris Harvey
 // ^updated
-// : 2016-02-8
+// : 2016-02-08
 .o-Inline {
   display: inline;
   line-height: 0;
 }
+
+@media screen                       { .o-Inline-s  { .o-Inline; } }
+@media print                        { .o-Inline-p  { .o-Inline; } }
+@media screen and (min-width: 30em) { .o-Inline-sK { .o-Inline; } }
+@media screen and (min-width: 45em) { .o-Inline-sM { .o-Inline; } }
+@media screen and (min-width: 60em) { .o-Inline-sG { .o-Inline; } }
+@media screen and (min-width: 75em) { .o-Inline-sT { .o-Inline; } }
+@media screen and (min-width: 90em) { .o-Inline-sP { .o-Inline; } }

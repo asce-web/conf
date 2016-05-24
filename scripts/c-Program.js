@@ -3,8 +3,9 @@ function resizeProgram() {
     n = n || 1
     $('.c-Program').height(function () {
       var heading = $(this).find('.c-Program__Schedule--shown').prev('.c-Program__Hn')
+      var heading_total_height = heading.height() + parseInt(heading.css('padding-top')) + parseInt(heading.css('margin-bottom'))
       return $(this).find('.c-Program__Schedule--shown').height()
-             + n * (heading.height() + parseInt(heading.css('margin-bottom')))
+             + n * heading_total_height
     })
   }
   $('.c-Program__Schedule').css('bottom', function () {
@@ -29,6 +30,10 @@ function updateProgram() {
   resizeProgram()
 }
 $(window).resize(resizeProgram)
+$('.c-Program__Hn')
+  .find('label').addClass('o-Block-sK')
+  .find('time' ).addClass('o-Block-sK')
+  .find('span' ).addClass('o-Block-sK')
 $('.c-Program__Schedule').addClass('-xo-1') // fallback `order: 1;`
   .css('position','absolute').css('left', 0)
 $('.c-Program__Check:checked').each(updateProgram)

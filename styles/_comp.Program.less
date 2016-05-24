@@ -7,6 +7,8 @@
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('_dev.less');
+@import (reference) url('_obj.Block.less');
+@import (reference) url('_obj.Inline.less');
 
 
 // A block containing the entire program.
@@ -30,7 +32,6 @@
   overflow: hidden;
   .transition-multi(height @p-transdura);
   h1 {
-    padding-top: 0;
     font-family: inherit;
     color: inherit;
   }
@@ -54,8 +55,7 @@
     .font-size-el(1.25);
   }
   label {
-    line-height: 0;
-    cursor: inherit;
+    cursor: inherit; // override browser default `default`
   }
 }
 .c-Program__Hn--selected {

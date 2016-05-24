@@ -7,6 +7,8 @@
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('_dev.less');
+@import (reference) url('_obj.Block.less');
+@import (reference) url('_obj.Inline.less');
 
 
 // A block containing the entire program.
@@ -22,13 +24,14 @@
 @p-transdura: 500ms;
 .c-Program {
   position: relative;
-  .flex-align-items(flex-start); // push Hn and Schedule to top
+  .flex-justify-content(center);
+  .flex-align-content(flex-start); // push flex items to top
+  .flex-align-items(flex-start); // minimize height of flex items
   margin-bottom: @g-vru;
   .font-size-mod(14/16);
   overflow: hidden;
   .transition-multi(height @p-transdura);
   h1 {
-    padding-top: 0;
     font-family: inherit;
     color: inherit;
   }
@@ -45,15 +48,14 @@
   .font-size-el(1);
   white-space: nowrap;
   cursor: pointer;
+  &:not(.c-Program__Hn--selected) {
+    color: @g-color_site_gray_lt;
+  }
   @media screen and (min-width: 45em) {
     .font-size-el(1.25);
   }
   label {
-    line-height: 0;
-    cursor: inherit;
-  }
-  &:not(.c-Program__Hn--selected) {
-    color: @g-color_site_gray_lt;
+    cursor: inherit; // override browser default `default`
   }
 }
 .c-Program__Hn--selected {
@@ -61,7 +63,6 @@
 }
 
 .c-Program__Schedule {
-  .transform-origin(center top);
 }
 .c-Program__Schedule--hiddenBefore {
   .transform(translateX(-100%) scale(0));

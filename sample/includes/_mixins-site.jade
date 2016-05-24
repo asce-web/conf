@@ -75,9 +75,8 @@ mixin programAgenda(events, index, show_all)
     input.c-Program__Check(type="radio" name="program" value=events[0].startDate)&attributes((index===0) ? {checked:''} : {})
     time(datetime=events[0].startDate)
       - var date = new Date(events[0].startDate)
-      = day_names[date.getUTCDay()] + ','
-      br
-      = month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
+      span= day_names[date.getUTCDay()] + ', '
+      span= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
   dl.o-GridFlex__Item.o-GridFlex.c-Program__Schedule.c-TimeBlock
     each event0 in events
       if show_all || event0.is_starred

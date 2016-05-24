@@ -22,7 +22,9 @@
 @p-transdura: 500ms;
 .c-Program {
   position: relative;
-  .flex-align-items(flex-start); // push Hn and Schedule to top
+  .flex-justify-content(center);
+  .flex-align-content(flex-start); // push flex items to top
+  .flex-align-items(flex-start); // minimize height of flex items
   margin-bottom: @g-vru;
   .font-size-mod(14/16);
   overflow: hidden;
@@ -45,6 +47,9 @@
   .font-size-el(1);
   white-space: nowrap;
   cursor: pointer;
+  &:not(.c-Program__Hn--selected) {
+    color: @g-color_site_gray_lt;
+  }
   @media screen and (min-width: 45em) {
     .font-size-el(1.25);
   }
@@ -52,16 +57,12 @@
     line-height: 0;
     cursor: inherit;
   }
-  &:not(.c-Program__Hn--selected) {
-    color: @g-color_site_gray_lt;
-  }
 }
 .c-Program__Hn--selected {
   .transform(scale(1.2,1.2));
 }
 
 .c-Program__Schedule {
-  .transform-origin(center top);
 }
 .c-Program__Schedule--hiddenBefore {
   .transform(translateX(-100%) scale(0));

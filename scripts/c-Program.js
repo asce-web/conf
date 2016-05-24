@@ -1,9 +1,22 @@
 function resizeProgram() {
-  $('.c-Program').height(function () {
-    return $(this).find('.c-Program__Schedule--shown').height()
-           + $(this).find('.c-Program__Schedule--shown').prev('.c-Program__Hn').height()
-           + parseInt($(this).find('.c-Program__Schedule--shown').prev('.c-Program__Hn').css('margin-bottom'))
+  function setProgramHeight(n) {
+    n = n || 1
+    $('.c-Program').height(function () {
+      var heading = $(this).find('.c-Program__Schedule--shown').prev('.c-Program__Hn')
+      return $(this).find('.c-Program__Schedule--shown').height()
+             + n * (heading.height() + parseInt(heading.css('margin-bottom')))
+    })
+  }
+  $('.c-Program__Schedule').css('bottom', function () {
+    return parseInt($(this).parents('.c-Program').css('padding-bottom'))
   })
+  if ($(window).width() < 480) {
+    $('.c-Program__Hn').css('width','')
+    setProgramHeight($('.c-Program__Hn').length)
+  } else {
+    $('.c-Program__Hn').width((100/$('.c-Program__Hn').length) + '%')
+    setProgramHeight(1)
+  }
 }
 function updateProgram() {
   $('.c-Program__Hn').removeClass('c-Program__Hn--selected')
@@ -16,13 +29,7 @@ function updateProgram() {
   resizeProgram()
 }
 $(window).resize(resizeProgram)
-// $('.c-Program').addClass('-xz-c') // fallback `box-sizing: content-box;`
-$('.c-Program__Hn').css('width', (100/$('.c-Program__Hn').length) + '%') // HACK don’t use `.width()` : unpredictable behavior
 $('.c-Program__Schedule').addClass('-xo-1') // fallback `order: 1;`
-  .css('position','absolute').css('left', 0).css('top', function () {
-    return $(this).prev('.c-Program__Hn').height()
-           + parseInt($(this).prev('.c-Program__Hn').css('margin-bottom'))
-           + parseInt($(this).parents('.c-Program').css('padding-top'))
-  })
+  .css('position','absolute').css('left', 0)
 $('.c-Program__Check:checked').each(updateProgram)
 $('.c-Program__Check').change(updateProgram)

@@ -224,7 +224,7 @@
   , "student": {
       "name": "Student Pass"
     , "description": "Undergraduates 18–24"
-    , "fineprint": "Full-time students must show valid ID onsite at the registration desk when picking up name badge."
+    , "fineprint": true
     , "periods": [
         {
           "name": "Early Bird"

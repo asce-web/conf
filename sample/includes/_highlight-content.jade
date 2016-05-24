@@ -93,7 +93,7 @@ mixin location-content()
   - var heading = city + ', ' + state
   div.c-Overlay.c-Overlay--callout
     h1(id=urlify(heading))= heading
-    p With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
+    p: +location_callout_description()
     +actionchoices([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--ghost')
 
 mixin social-content()

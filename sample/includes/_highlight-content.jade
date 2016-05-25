@@ -58,7 +58,7 @@ mixin registration-content()
 mixin program-content()
   h1#program-highlights Program Highlights
   include _c-Program.jade
-  +program(program_events, false)
+  +program(false)
   include _o-ListAction.jade
   +listAction([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
 

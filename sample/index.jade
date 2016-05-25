@@ -8,7 +8,7 @@ block main-header
 
 block main-body
   section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing.c-Hero(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
-    +hero-content(conference.current)
+    include includes/content/_hero.jade
     +actionchoices([{text:'Find Out More', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
     meta(content="http://2016.asceconvention.org/" itemprop="url")
   +minimal-text-block()

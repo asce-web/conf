@@ -1,0 +1,27 @@
+mixin program(all_events, show_all)
+  section.o-GridFlex.c-Overlay.c-Program
+    each events,index in all_events
+      +programAgenda(events, index, show_all)
+
+
+mixin programAgenda(events, index, show_all)
+  h1.o-GridFlex__Item.c-Program__Hn: label
+    input.c-Program__Check(type="radio" name="program" value=events[0].startDate)&attributes((index===0) ? {checked:''} : {})
+    time(datetime=events[0].startDate)
+      - var date = new Date(events[0].startDate)
+      span= day_names[date.getUTCDay()] + ', '
+      span= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
+  dl.o-GridFlex__Item.c-Program__Schedule.o-GridFlex.c-TimeBlock
+    each event0 in events
+      if show_all || event0.is_starred
+        dt.o-GridFlex__Item.c-TimeBlock__Times
+          time(datetime=event0.startDate)= hourTime12(new Date(event0.startDate))
+          | &ndash;
+          time(datetime=event0.endDate)= hourTime12(new Date(event0.endDate))
+        dd.o-GridFlex__Item.c-TimeBlock__Desc
+          if event0.href || event0.href === ''
+            a.o-Block.c-TimeBlock__Link(href=event0.href)
+              = event0.name
+              i.material-icons arrow_forward
+          else
+            = event0.name

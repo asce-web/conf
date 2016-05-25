@@ -9,5 +9,6 @@ block main-minimal
 block main-reference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n#full-program Full Program
-    +programs(program_events, true)
+    include includes/_c-Program.jade
+    +program(program_events, true)
     p: small Program subject to change.

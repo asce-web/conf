@@ -6,8 +6,7 @@ block append vars
 block main-header
   header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--home.c-Hero: div.o-ContentWrapper
     +hero-content(conference.current)
-    include includes/_o-ListAction.jade
-    +listAction([{text:'Register', href:'registration.html'}, {text:'Sponsor', href:'sponsor.html'}, {text:'Submit a Paper'}], 'c-Btn c-Btn--hilite c-Btn--hero')
+    +actionchoices([{text:'Register', href:'registration.html'}, {text:'Sponsor', href:'sponsor.html'}, {text:'Submit a Paper'}], 'c-Btn c-Btn--hilite c-Btn--hero')
 
 block main-minimal
   +minimal-text-block()

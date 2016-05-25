@@ -11,7 +11,7 @@ function resizeProgram() {
   $('.c-Program__Schedule').css('bottom', function () {
     return parseInt($(this).parents('.c-Program').css('padding-bottom'))
   })
-  if ($(window).width() < 480) {
+  if ($(window).width() < 480) { // @media screen and (min-width: 30em)
     $('.c-Program__Hn').css('width','')
     setProgramHeight($('.c-Program__Hn').length)
   } else {

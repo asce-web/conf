@@ -1,0 +1,14 @@
+dl.c-DateBlock
+  each event0 in important_dates
+    unless event0.is_hidden
+      dt.c-DateBlock__Date
+        time(datetime=event0.startDate)
+          - var date = new Date(event0.startDate)
+          = month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate() + ', ' + date.getFullYear()
+      dd.c-DateBlock__Desc
+        if event0.href || event0.href === ''
+          a.o-Block.c-DateBlock__Link(href=event0.href)
+            = event0.name
+            i.material-icons arrow_forward
+        else
+          = event0.name

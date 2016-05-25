@@ -28,42 +28,27 @@
 .c-DateBlock__Date,
 .c-DateBlock__Desc {
   background-color: lighten(@g-color_site_gray_lt, 50%, relative);
-  padding: 0 @g-boxpadd_micr_h;
   border-width: 0 @p-rw;
   border-style: solid;
   border-color: @g-color_asce_black;
-  @media screen and (min-width: 30em) {
-    padding: 0 @g-boxpadd_mill_h;
-  }
-  @media screen and (min-width: 45em) {
-    padding: 0 @g-boxpadd_norm_h;
-  }
+  @media screen                       { padding: @g-boxpadd_micr; }
+  @media screen and (min-width: 30em) { padding: @g-boxpadd_mill; }
+  @media screen and (min-width: 45em) { padding: @g-boxpadd_norm; }
 }
 
 .c-DateBlock__Date {
-  padding-top: @g-boxpadd_micr_v;
+  padding-bottom: 0;
   white-space: nowrap;
   .border-vert(top, @p-rw);
-  @media screen and (min-width: 30em) {
-    padding-top: @g-boxpadd_mill_v;
-  }
-  @media screen and (min-width: 45em) {
-    padding-top: @g-boxpadd_norm_v;
-  }
+  font-weight: 300;
 }
 
 .c-DateBlock__Desc {
-  padding-bottom: @g-boxpadd_micr_v;
+  padding-top: 0;
   .border-vert(bottom, @p-rw);
-  .font-size-block(1.25);
+  .font-size-el(1.25);
   font-weight: 600;
   margin-bottom: @g-vru;
-  @media screen and (min-width: 30em) {
-    padding-bottom: @g-boxpadd_mill_v;
-  }
-  @media screen and (min-width: 45em) {
-    padding-bottom: @g-boxpadd_norm_v;
-  }
 }
 
 .c-DateBlock__Link {

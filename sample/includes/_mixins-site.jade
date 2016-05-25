@@ -77,7 +77,7 @@ mixin programAgenda(events, index, show_all)
       - var date = new Date(events[0].startDate)
       span= day_names[date.getUTCDay()] + ', '
       span= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
-  dl.o-GridFlex__Item.o-GridFlex.c-Program__Schedule.c-TimeBlock
+  dl.o-GridFlex__Item.c-Program__Schedule.o-GridFlex.c-TimeBlock
     each event0 in events
       if show_all || event0.is_starred
         dt.o-GridFlex__Item.c-TimeBlock__Times

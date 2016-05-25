@@ -27,29 +27,25 @@
 
 .c-TimeBlock__Times,
 .c-TimeBlock__Desc {
-  position: relative;
   @media screen and (min-width: 30em) {
-    // width: 50%;
+    width: 50%;
   }
-  @media screen                       { padding: 0 @g-boxpadd_micr_h; }
-  @media screen and (min-width: 30em) { padding: 0 @g-boxpadd_mill_h; }
-  @media screen and (min-width: 45em) { padding: 0 @g-boxpadd_norm_h; }
+  @media screen                       { padding: 0 @g-boxpadd_micr_h (2*@l-vru); }
+  @media screen and (min-width: 30em) { padding: 0 @g-boxpadd_mill_h (2*@l-vru); }
+  @media screen and (min-width: 45em) { padding: 0 @g-boxpadd_norm_h (2*@l-vru); }
 }
 .c-TimeBlock__Times {
-  padding-bottom: 0;
-  font-weight: 300;
   @media screen and (max-width: 29.999em) {
+    font-weight: 300;
+    padding-bottom: 0;
   }
   @media screen and (min-width: 30em) {
-    // text-align: right;
+    text-align: right;
   }
 }
 .c-TimeBlock__Desc {
-  padding-top: 0;
-  padding-bottom: (@p-font_size_mod * @g-vru);
-  font-weight: 600;
-  .font-size-el(1.25);
   @media screen and (max-width: 29.999em) {
+    .font-size-el(1.25);
   }
 }
 
@@ -57,7 +53,9 @@
 @media screen {
   .c-TimeBlock__Times,
   .c-TimeBlock__Desc {
-    padding-left: @g-boxpadd_kilo_h;
+    position: relative; // for psuedo-elements
+    padding-left:  @g-boxpadd_kilo_h;
+    padding-right: @g-boxpadd_kilo_h;
   }
   .c-TimeBlock__Times::before,
   .c-TimeBlock__Desc:not(:last-of-type)::before {
@@ -68,20 +66,27 @@
     color: @g-color_site_primary;
   }
   .c-TimeBlock__Times::before {
-    // This is the line on the viz
+    // This is the disc on the viz
     @width: @l-mem;
     left: (-0.5 * @width);
     top: (-0.5*@width + 0.5*@l-vru);
     width:  @width;
     height: @width;
     border-radius: 100%;
+    @media (min-width: 30em) {
+      left: auto;
+      right: (-0.5 * @width);
+    }
   }
   .c-TimeBlock__Desc:not(:last-of-type)::before {
-    // This is the disc on the viz
+    // This is the line on the viz
     left: 0;
     top: (-0.5 * @l-vru);
     bottom: (-0.5 * @l-vru);
     border-left: 1px solid;
+    @media (min-width: 30em) {
+      top: (0.5 * @l-vru);
+    }
   }
 }
 

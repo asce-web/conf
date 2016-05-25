@@ -16,52 +16,83 @@
 // Chris Harvey
 // ^updated
 // 2016-05-18
+@p-font_size_mod: (14/16); // NOTE taken from `Program.less`
+@l-mem: @p-font_size_mod * 1rem; // module em (like root em if the module were the root)
+@l-vru: @p-font_size_mod * @g-vru; // module vru
 .c-TimeBlock {
-  .flex-align-content(flex-start); // override `stretch`
+  // .flex-align-content(flex-start); // override `stretch`
+  padding: 0 @g-boxpadd_norm_h;
 }
 
-@p-padd_v: @g-line_height*1em;
+
 .c-TimeBlock__Times,
 .c-TimeBlock__Desc {
   position: relative;
-  width: 50%;
-  padding: 0.5em 2em;
-  padding: @p-padd_v 2em;
+  @media screen and (min-width: 30em) {
+    // width: 50%;
+  }
+  @media screen {
+    padding: (@p-font_size_mod * @g-boxpadd_micr_v) @g-boxpadd_micr_h;
+    padding: 0 @g-boxpadd_micr_h;
+  }
+  @media screen and (min-width: 30em) {
+    padding: (@p-font_size_mod * @g-boxpadd_mill_v) @g-boxpadd_mill_h;
+    padding: 0 @g-boxpadd_mill_h;
+  }
+  @media screen and (min-width: 45em) {
+    padding: (@p-font_size_mod * @g-boxpadd_norm_v) @g-boxpadd_norm_h;
+    padding: 0 @g-boxpadd_norm_h;
+  }
 }
-
 .c-TimeBlock__Times {
-  text-align: right;
+  padding-bottom: 0;
+  font-weight: 300;
+  @media screen and (max-width: 29.999em) {
+  }
+  @media screen and (min-width: 30em) {
+    // text-align: right;
+  }
 }
-
 .c-TimeBlock__Desc {
+  padding-top: 0;
+  padding-bottom: (@p-font_size_mod * @g-vru);
+  font-weight: 600;
+  .font-size-el(1.25);
+  @media screen and (max-width: 29.999em) {
+  }
 }
 
-@p-top: (@p-padd_v + @g-line_height*0.5em);
-.c-TimeBlock__Times:not(:last-of-type)::after,
-.c-TimeBlock__Desc::before {
-  content: '';
-  display: block;
-  position: absolute;
-  box-shadow: 0 0 0 1em currentColor inset, 0 0 1em 0 currentColor;
-  color: @g-color_site_primary;
+// Timeline Visualization
+@media screen {
+  .c-TimeBlock__Times,
+  .c-TimeBlock__Desc {
+    padding-left: 2rem;
+  }
+  .c-TimeBlock__Times::before,
+  .c-TimeBlock__Desc:not(:last-of-type)::before {
+    content: '';
+    display: block;
+    position: absolute;
+    box-shadow: 0 0 0 1em currentColor inset, 0 0 1em 0 currentColor;
+    color: @g-color_site_primary;
+  }
+  .c-TimeBlock__Times::before {
+    // This is the line on the viz
+    @width: @l-mem;
+    left: (-0.5 * @width);
+    top: (-0.5*@width + 0.5*@l-vru);
+    width:  @width;
+    height: @width;
+    border-radius: 100%;
+  }
+  .c-TimeBlock__Desc:not(:last-of-type)::before {
+    // This is the disc on the viz
+    left: 0;
+    top: (-0.5 * @l-vru);
+    bottom: (-0.5 * @l-vru);
+    border-left: 1px solid;
+  }
 }
-.c-TimeBlock__Times:not(:last-of-type)::after {
-  right: 0;
-  top: @p-top;
-  width: 0;
-  height: 100%;
-  border-right: 1px solid;
-}
-
-.c-TimeBlock__Desc::before {
-  @width: 1em;
-  left: (-@width/2);
-  top: (@p-top - @width/2);
-  width:  @width;
-  height: @width;
-  border-radius: 100%;
-}
-
 
 .c-TimeBlock__Link {
   position: relative; // for icon in link

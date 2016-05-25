@@ -14,14 +14,22 @@ block main-reference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n#full-registration Full Registration
     ul.o-ListBare.o-GridFlex.o-ListStacked
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard , 0)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.speaker  , 0)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.moderator, 0)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym       , 0)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student  , 0)
-        +pass_student_fineprint()
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.guest    , 0)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.daily    , 0)
+      include includes/components/_c-Pass.jade
+      li.o-GridFlex__Item.o-ListStacked__Item
+        +pass(pass.standard, 0)
+      li.o-GridFlex__Item.o-ListStacked__Item
+        +pass(pass.speaker, 0)
+      li.o-GridFlex__Item.o-ListStacked__Item
+        +pass(pass.moderator, 0)
+      li.o-GridFlex__Item.o-ListStacked__Item
+        +pass(pass.ym, 0)
+      li.o-GridFlex__Item.o-ListStacked__Item
+        +pass(pass.student, 0)
+          +content_pass_student_fineprint()
+      li.o-GridFlex__Item.o-ListStacked__Item
+        +pass(pass.guest, 0)
+      li.o-GridFlex__Item.o-ListStacked__Item
+        +pass(pass.daily, 0)
     ul.o-ListBare.o-GridFlex.o-ListAction.c-Callout
       li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item
         i.material-icons(style="display: block; font-size: 2.25em;") stars
@@ -83,3 +91,7 @@ block main-rich
     p Cancellations must be received by ASCE in writing. A refund will be issued, minus a $65 processing fee, if the cancellation notice is received by ASCE by September 16, 2015. No refunds will be made for cancellations received after September 16, 2015. Send cancellations to  registrations@asce.org or fax to 703-295-6144.
     h4 PROGRAM AND SESSION CANCELLATION
     p ASCE reserves the right to cancel programs and/or sessions because of low registration. In the unlikely event of a cancellation, all registrants will be notified and will receive a full refund, if applicable. Programs and Sessions are subject to change, and ASCE reserves the right to substitute a program, session, and/or speaker of equal caliber to fulfill the educational requirements.
+
+block callouts
+  aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
+    include includes/highlights/_volunteer.jade

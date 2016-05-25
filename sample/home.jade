@@ -15,18 +15,22 @@ block main-rich
 
 block callouts
   aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
-    +important-date-content()
+    include includes/highlights/_important-dates.jade
   aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
-    +registration-content()
+    include includes/highlights/_registration.jade
   aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
-    +program-content()
+    include includes/highlights/_program.jade
   aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
-    +speakers-content()
+    include includes/highlights/_speakers.jade
   aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
-    +cochairs-content()
+    include includes/highlights/_co-chairs.jade
   aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
-    +mobile-content()
+    include includes/highlights/_mobile.jade
   aside.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--location: div.o-ContentWrapper
-    +location-content()
+    include includes/highlights/_location.jade
   aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
-    +social-content()
+    include includes/highlights/_social.jade
+  aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
+    include includes/highlights/_contact.jade
+  aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
+    include includes/highlights/_volunteer.jade

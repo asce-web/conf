@@ -4,7 +4,6 @@ html(lang="en")
   include ../includes/_mixins-global.jade
   include includes/_data-site.jade
   include includes/_mixins-site.jade
-  include includes/_highlight-content.jade
   head
     block vars
       - getPage('universal','index.html').name = site.title
@@ -94,8 +93,7 @@ html(lang="en")
           block callouts
           block sponsors
             aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
-              h1#sponsors Sponsors
-              +sponsor-content()
+              include includes/highlights/_sponsors.jade
     block site-map
     footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-ContentWrapper
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]

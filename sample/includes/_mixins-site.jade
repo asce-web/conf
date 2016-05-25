@@ -44,108 +44,51 @@ mixin actionchoices(items, classes, list_attr)
           = obj.text
           block
 
-mixin pass_student_fineprint()
+mixin content_pass_student_fineprint()
   | Full-time students must show valid #[abbr(title="identification") ID] onsite at the registration desk when picking up name badge.
 
 mixin location_callout_description()
   | With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
 
-mixin pass(type, body_period)
-  article.c-Pass
-    mixin period-details(regperiod, is_body)
-      h1.c-Pass__Period__Hn= regperiod.name
-      dl
-        each item in regperiod.memberships
-          dt.c-Pass__Period__Attendee= item.name
-          dd.c-Pass__Period__Price(class=(is_body && item.is_featured)?'c-Pass__Price--featured':'')
-            = item.price.toLocaleString('en', {style:'currency', currency:'USD'})
-    header.c-Pass__Head
-      h1.c-Pass__Hn= type.name
-      p.c-Pass__Desc
-        = type.description
-        small.o-Block.c-Pass__Fine: block
-    div.c-Pass__Body
-      section.c-Pass__Period
-        if type.periods[body_period]
-          +period-details(type.periods[body_period], true)
-    footer.o-GridFlex.c-Pass__Foot
-      each item in type.periods
-        unless item === type.periods[body_period]
-          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
-            +period-details(item)
+mixin volunteer_callout_description()
+  | We will need volunteers to act as greeters, direct people to various venues within the hotel, collect tickets, travel with tour buses, provide head counts, and serve as a point of contact with ASCE staff.
 
-mixin programAgenda(events, index, show_all)
-  h1.o-GridFlex__Item.c-Program__Hn: label
-    input.c-Program__Check(type="radio" name="program" value=events[0].startDate)&attributes((index===0) ? {checked:''} : {})
-    time(datetime=events[0].startDate)
-      - var date = new Date(events[0].startDate)
-      span= day_names[date.getUTCDay()] + ', '
-      span= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
-  dl.o-GridFlex__Item.c-Program__Schedule.o-GridFlex.c-TimeBlock
-    each event0 in events
-      if show_all || event0.is_starred
-        dt.o-GridFlex__Item.c-TimeBlock__Times
-          time(datetime=event0.startDate)= hourTime12(new Date(event0.startDate))
-          | &ndash;
-          time(datetime=event0.endDate)= hourTime12(new Date(event0.endDate))
-        dd.o-GridFlex__Item.c-TimeBlock__Desc
-          if event0.href || event0.href === ''
-            a.o-Block.c-TimeBlock__Link(href=event0.href)
-              = event0.name
-              i.material-icons arrow_forward
-          else
-            = event0.name
+mixin hero-content(event0)
+  - event0 = event0 || {}
+  h1.c-PageTitle.c-Hero__Name(id=urlify(event0.name) itemprop="name")= event0.name
+  p.c-Hero__Detail
+    span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+      span(itemprop="name")
+        span(itemprop="addressLocality")= event0.addressLocality + ', '
+        if event0.addressRegion.name && event0.addressRegion.abbr
+          abbr(itemprop="addressRegion" title=event0.addressRegion.name)= event0.addressRegion.abbr
+        else
+          span(itemprop="addressRegion")= event0.addressRegion.name || event0.addressRegion
+    span.c-Hero__Dates
+      time(datetime=event0.startDate itemprop="startDate")
+        - var start = new Date(event0.startDate)
+        = month_names[start.getUTCMonth()].slice(0,3) + ' ' + start.getUTCDate()
+      | &ndash;
+      time(datetime=event0.endDate itemprop="endDate")
+        - var end = new Date(event0.endDate)
+        = month_names[end.getUTCMonth()].slice(0,3) + ' ' + end.getUTCDate()
+  p.c-Hero__Theme(itemprop="description")
+    if event0.theme
+      = event0.theme
+    else
+      | &nbsp;
 
-mixin programs(all_events, show_all)
-  section.o-GridFlex.c-Overlay.c-Program
-    each events, index in all_events
-      +programAgenda(events, index, show_all)
-
-mixin speaker()
-  article.c-Speaker
-    div.c-Speaker__Img(style="background-image:url('img/headshot1.jpg');")
-      header.c-Speaker__Head
-        h1.c-Speaker__Name Donna Fulman, P.ASCE
-        p.c-Speaker__JobTitle Interior Engineering Administration
-    div.c-Speaker__Body
-      div.c-Speaker__Bio.minimal-text
-        p Tobias van Schneider is an award-winning, German designer raised in Austria and currently living in New York City.
-        p Former Lead Product Designer and Art Director at Spotify, he recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
-      footer: ul.o-ListBare
-        li.o-Inline: a.c-Speaker__Link(href="") Email
-        li.o-Inline: a.c-Speaker__Link(href="") LinkedIn
-        li.o-Inline: a.c-Speaker__Link(href="") Twitter
-
-mixin contact-form()
-  form
-    label
-      | name
-      input(type="text")
-    label
-      | email
-      input(type="email")
-    label
-      | message
-      textarea
-    button submit
-
-mixin sponsor-carousel(spons)
-  div.c-SponsorBlock: ul.o-ListBare.o-GridFlex.o-ListStacked
-    each item in spons
-      li.o-GridFlex__Item.o-ListStacked__Item
-        a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
-        small.c-SponsorBlock__Label= sponsorlevel[item.level].name
-
-mixin sponsor-block(sponsor_level, classes)
-  section.c-SponsorBlock(class=classes)
-    h1.c-SponsorBlock__Hn= sponsor_level.name
-    ul.o-ListBare.o-GridFlex.o-ListStacked
-      each item in sponsors.filter(function (item) { return sponsorlevel[item.level] === sponsor_level })
-        li.o-GridFlex__Item.o-ListStacked__Item
-          unless (sponsor_level === sponsorlevel.bronze) || (sponsor_level === sponsorlevel.copper)
-            a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+sponsor_level.size href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
-          else
-            a.o-Block.c-SponsorBlock__Text(href=item.href)= item.name
+mixin otheryear-content(event0)
+  - event0 = event0 || {}
+  meta(content=event0.startDate itemprop="startDate")
+  h1.c-OtherYear__Name(id=urlify(event0.name) itemprop="name")= event0.name
+  p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+    span(itemprop="name")
+      span(itemprop="addressLocality")= event0.addressLocality + ', '
+        if event0.addressRegion.name && event0.addressRegion.abbr
+          abbr(itemprop="addressRegion" title=event0.addressRegion.name)= event0.addressRegion.abbr
+        else
+          span(itemprop="addressRegion")= event0.addressRegion
 
 mixin minimal-text-block()
   div.o-Runner.o-Runner--highlight.minimal-text: div.o-ContentWrapper

@@ -20,21 +20,23 @@
   .flex-align-content(flex-start); // override `stretch`
 }
 
+@p-padd_v: @g-line_height*1em;
 .c-TimeBlock__Times,
 .c-TimeBlock__Desc {
   position: relative;
   width: 50%;
   padding: 0.5em 2em;
+  padding: @p-padd_v 2em;
 }
 
 .c-TimeBlock__Times {
   text-align: right;
-  white-space: nowrap;
 }
 
 .c-TimeBlock__Desc {
 }
 
+@p-top: (@p-padd_v + @g-line_height*0.5em);
 .c-TimeBlock__Times:not(:last-of-type)::after,
 .c-TimeBlock__Desc::before {
   content: '';
@@ -45,7 +47,7 @@
 }
 .c-TimeBlock__Times:not(:last-of-type)::after {
   right: 0;
-  top: 1.5em;
+  top: @p-top;
   width: 0;
   height: 100%;
   border-right: 1px solid;
@@ -54,7 +56,7 @@
 .c-TimeBlock__Desc::before {
   @width: 1em;
   left: (-@width/2);
-  top: (1.5em - @width/2);
+  top: (@p-top - @width/2);
   width:  @width;
   height: @width;
   border-radius: 100%;

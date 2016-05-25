@@ -44,6 +44,12 @@ mixin actionchoices(items, classes, list_attr)
           = obj.text
           block
 
+mixin pass_student_fineprint()
+  | Full-time students must show valid #[abbr(title="identification") ID] onsite at the registration desk when picking up name badge.
+
+mixin location_callout_description()
+  | With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
+
 mixin pass(type, body_period)
   article.c-Pass
     mixin period-details(regperiod, is_body)
@@ -57,9 +63,7 @@ mixin pass(type, body_period)
       h1.c-Pass__Hn= type.name
       p.c-Pass__Desc
         = type.description
-        if type.fineprint
-          br
-          small.c-Pass__Fine= type.fineprint
+        small.o-Block.c-Pass__Fine: block
     div.c-Pass__Body
       section.c-Pass__Period
         if type.periods[body_period]

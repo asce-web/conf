@@ -32,10 +32,12 @@ block main-reference
       li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item
         i.material-icons(style="display: block; font-size: 2.25em;") account_balance
         small Onsite begins Aug 26
-    +actionchoices([{text:'Register Today!'}], 'c-Btn c-Btn--hilite c-Btn--dominant', {style:'padding: 1.5rem 0;'})
+    include includes/_o-ListAction.jade
+    +listAction([{text:'Register Today!'}], 'c-Btn c-Btn--hilite c-Btn--dominant', {style:'padding: 1.5rem 0;'})
     div.c-Overlay
       h1 Additional Events and Pricing
-      +actionchoices([{text:'Short Courses', href:''}, {text:'Technical Tours', href:''}, {text:'Optional Tours', href:''}])
+      include includes/_o-ListAction.jade
+      +listAction([{text:'Short Courses', href:''}, {text:'Technical Tours', href:''}, {text:'Optional Tours', href:''}])
         i.material-icons arrow_forward
 
 block main-rich

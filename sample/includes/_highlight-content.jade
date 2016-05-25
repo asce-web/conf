@@ -61,12 +61,14 @@ mixin registration-content()
       +pass_student_fineprint()
     li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard, 0)
     li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym      , 0)
-  +actionchoices([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
+  include _o-ListAction.jade
+  +listAction([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
 
 mixin program-content()
   h1#program-highlights Program Highlights
   +programs(program_events, false)
-  +actionchoices([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
+  include _o-ListAction.jade
+  +listAction([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
 
 mixin speakers-content()
   h1#speakers Speakers
@@ -74,7 +76,8 @@ mixin speakers-content()
     li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
     li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
     li.o-GridFlex__Item.o-ListStacked__Item: +speaker()
-  +actionchoices([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
+  include _o-ListAction.jade
+  +listAction([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
 
 mixin cochairs-content()
   h1#conference-co-chairs Conference Co-Chairs
@@ -85,7 +88,8 @@ mixin cochairs-content()
 mixin mobile-content()
   h1#plan-engage-connect Plan, Engage, Connect
   p.-ta-c Enhance your conference experience with our mobile app.
-  +actionchoices([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
+  include _o-ListAction.jade
+  +listAction([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
 
 mixin location-content()
   - var city  = conference.current.addressLocality
@@ -94,7 +98,8 @@ mixin location-content()
   div.c-Overlay.c-Overlay--callout
     h1(id=urlify(heading))= heading
     p: +location_callout_description()
-    +actionchoices([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--ghost')
+    include _o-ListAction.jade
+    +listAction([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--ghost')
 
 mixin social-content()
   h1#join-the-conversation Join the Conversation
@@ -121,4 +126,5 @@ mixin contact-content()
 
 mixin sponsor-content()
   +sponsor-carousel([getSponsor('ASCE Foundation'), getSponsor('Bentley'), getSponsor('Pennoni')])
-  +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
+  include _o-ListAction.jade
+  +listAction([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')

@@ -47,19 +47,6 @@ mixin actionchoices(items, classes, list_attr)
 mixin content_pass_student_fineprint()
   | Full-time students must show valid #[abbr(title="identification") ID] onsite at the registration desk when picking up name badge.
 
-mixin contact-form()
-  form
-    label
-      | name
-      input(type="text")
-    label
-      | email
-      input(type="email")
-    label
-      | message
-      textarea
-    button submit
-
 mixin minimal-text-block()
   div.o-Runner.o-Runner--highlight.minimal-text: div.o-ContentWrapper
     p.

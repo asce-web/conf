@@ -9,7 +9,3 @@ mixin otheryear-content(event0)
           abbr(itemprop="addressRegion" title=event0.addressRegion.name)= event0.addressRegion.abbr
         else
           span(itemprop="addressRegion")= event0.addressRegion
-
-mixin contact-content()
-  h1#contact-us Contact Us
-  +contact-form()

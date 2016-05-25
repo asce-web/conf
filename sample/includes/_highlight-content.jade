@@ -10,15 +10,6 @@ mixin otheryear-content(event0)
         else
           span(itemprop="addressRegion")= event0.addressRegion
 
-mixin location-content()
-  - var city  = conference.current.addressLocality
-  - var state = conference.current.addressRegion.abbr || conference.current.addressRegion.name || conference.current.addressRegion
-  - var heading = city + ', ' + state
-  div.c-Overlay.c-Overlay--callout
-    h1(id=urlify(heading))= heading
-    p: +location_callout_description()
-    +actionchoices([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--ghost')
-
 mixin social-content()
   h1#join-the-conversation Join the Conversation
   p.-ta-c Follow ASCE on social media for real-time conversation.

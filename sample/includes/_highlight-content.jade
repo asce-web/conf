@@ -10,12 +10,6 @@ mixin otheryear-content(event0)
         else
           span(itemprop="addressRegion")= event0.addressRegion
 
-mixin program-content()
-  h1#program-highlights Program Highlights
-  include _c-Program.jade
-  +program(false)
-  +actionchoices([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
-
 mixin speakers-content()
   h1#speakers Speakers
   ul.o-ListBare.o-GridFlex.o-ListStacked

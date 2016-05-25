@@ -31,15 +31,9 @@
   border-width: 0 @p-rw;
   border-style: solid;
   border-color: @g-color_asce_black;
-  @media screen {
-    padding: @g-boxpadd_micr;
-  }
-  @media screen and (min-width: 30em) {
-    padding: @g-boxpadd_mill;
-  }
-  @media screen and (min-width: 45em) {
-    padding: @g-boxpadd_norm;
-  }
+  @media screen                       { padding: @g-boxpadd_micr; }
+  @media screen and (min-width: 30em) { padding: @g-boxpadd_mill; }
+  @media screen and (min-width: 45em) { padding: @g-boxpadd_norm; }
 }
 
 .c-DateBlock__Date {

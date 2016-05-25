@@ -21,7 +21,7 @@
 @l-vru: @p-font_size_mod * @g-vru; // module vru
 .c-TimeBlock {
   // .flex-align-content(flex-start); // override `stretch`
-  padding: 0 @g-boxpadd_norm_h;
+  padding: 0 @g-boxpadd_kilo_h;
 }
 
 
@@ -31,18 +31,9 @@
   @media screen and (min-width: 30em) {
     // width: 50%;
   }
-  @media screen {
-    padding: (@p-font_size_mod * @g-boxpadd_micr_v) @g-boxpadd_micr_h;
-    padding: 0 @g-boxpadd_micr_h;
-  }
-  @media screen and (min-width: 30em) {
-    padding: (@p-font_size_mod * @g-boxpadd_mill_v) @g-boxpadd_mill_h;
-    padding: 0 @g-boxpadd_mill_h;
-  }
-  @media screen and (min-width: 45em) {
-    padding: (@p-font_size_mod * @g-boxpadd_norm_v) @g-boxpadd_norm_h;
-    padding: 0 @g-boxpadd_norm_h;
-  }
+  @media screen                       { padding: 0 @g-boxpadd_micr_h; }
+  @media screen and (min-width: 30em) { padding: 0 @g-boxpadd_mill_h; }
+  @media screen and (min-width: 45em) { padding: 0 @g-boxpadd_norm_h; }
 }
 .c-TimeBlock__Times {
   padding-bottom: 0;
@@ -66,7 +57,7 @@
 @media screen {
   .c-TimeBlock__Times,
   .c-TimeBlock__Desc {
-    padding-left: 2rem;
+    padding-left: @g-boxpadd_kilo_h;
   }
   .c-TimeBlock__Times::before,
   .c-TimeBlock__Desc:not(:last-of-type)::before {

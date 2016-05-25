@@ -2,10 +2,11 @@ function resizeProgram() {
   function setProgramHeight(n) {
     n = n || 1
     $('.c-Program').height(function () {
-      var heading = $(this).find('.c-Program__Schedule--shown').prev('.c-Program__Hn')
+      var program = $(this).find('.c-Program__Schedule--shown')
+      var program_total_height = program.height() + parseInt(program.css('margin-bottom'))
+      var heading = program.prev('.c-Program__Hn')
       var heading_total_height = heading.height() + parseInt(heading.css('padding-top')) + parseInt(heading.css('margin-bottom'))
-      return $(this).find('.c-Program__Schedule--shown').height()
-             + n * heading_total_height
+      return program_total_height + (n * heading_total_height)
     })
   }
   $('.c-Program__Schedule').css('bottom', function () {

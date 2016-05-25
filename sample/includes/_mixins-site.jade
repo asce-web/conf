@@ -80,24 +80,6 @@ mixin contact-form()
       textarea
     button submit
 
-mixin sponsor-carousel(spons)
-  div.c-SponsorBlock: ul.o-ListBare.o-GridFlex.o-ListStacked
-    each item in spons
-      li.o-GridFlex__Item.o-ListStacked__Item
-        a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
-        small.c-SponsorBlock__Label= sponsorlevel[item.level].name
-
-mixin sponsor-block(sponsor_level, classes)
-  section.c-SponsorBlock(class=classes)
-    h1.c-SponsorBlock__Hn= sponsor_level.name
-    ul.o-ListBare.o-GridFlex.o-ListStacked
-      each item in sponsors.filter(function (item) { return sponsorlevel[item.level] === sponsor_level })
-        li.o-GridFlex__Item.o-ListStacked__Item
-          unless (sponsor_level === sponsorlevel.bronze) || (sponsor_level === sponsorlevel.copper)
-            a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+sponsor_level.size href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
-          else
-            a.o-Block.c-SponsorBlock__Text(href=item.href)= item.name
-
 mixin minimal-text-block()
   div.o-Runner.o-Runner--highlight.minimal-text: div.o-ContentWrapper
     p.

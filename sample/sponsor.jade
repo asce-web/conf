@@ -6,10 +6,11 @@ block append vars
 block append main-body
   section.o-Runner.o-Runner--highlight: div.o-ContentWrapper
     h1#thank-you-sponsors Thank You to Our Sponsors
-    +sponsor-block(sponsorlevel.platinum , 'c-SponsorBlock--separate')
-    +sponsor-block(sponsorlevel.corporate, 'c-SponsorBlock--separate')
-    +sponsor-block(sponsorlevel.silver   , 'c-SponsorBlock--separate')
-    +sponsor-block(sponsorlevel.bronze   , 'c-SponsorBlock--separate')
-    +sponsor-block(sponsorlevel.copper   , ''                        )
+    include includes/_c-SponsorBlock.jade
+    +sponsorBlock(sponsorlevel.platinum , 'c-SponsorBlock--separate')
+    +sponsorBlock(sponsorlevel.corporate, 'c-SponsorBlock--separate')
+    +sponsorBlock(sponsorlevel.silver   , 'c-SponsorBlock--separate')
+    +sponsorBlock(sponsorlevel.bronze   , 'c-SponsorBlock--separate')
+    +sponsorBlock(sponsorlevel.copper   , ''                        )
 
 block sponsors

@@ -10,17 +10,6 @@ mixin otheryear-content(event0)
         else
           span(itemprop="addressRegion")= event0.addressRegion
 
-mixin speakers-content()
-  h1#speakers Speakers
-  ul.o-ListBare.o-GridFlex.o-ListStacked
-    li.o-GridFlex__Item.o-ListStacked__Item
-      include _c-Speaker.jade
-    li.o-GridFlex__Item.o-ListStacked__Item
-      include _c-Speaker.jade
-    li.o-GridFlex__Item.o-ListStacked__Item
-      include _c-Speaker.jade
-  +actionchoices([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
-
 mixin cochairs-content()
   h1#conference-co-chairs Conference Co-Chairs
   ul.o-ListBare

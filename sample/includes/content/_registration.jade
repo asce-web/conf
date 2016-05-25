@@ -1,0 +1,13 @@
+h1#registration Registration
+ul.o-ListBare.o-GridFlex.o-ListStacked
+  li.o-GridFlex__Item.o-ListStacked__Item
+    include _c-Pass.jade
+    +pass(pass.student, 0)
+      +content_pass_student_fineprint()
+  li.o-GridFlex__Item.o-ListStacked__Item
+    include _c-Pass.jade
+    +pass(pass.standard, 0)
+  li.o-GridFlex__Item.o-ListStacked__Item
+    include _c-Pass.jade
+    +pass(pass.ym, 0)
++actionchoices([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')

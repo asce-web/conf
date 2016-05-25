@@ -10,11 +10,6 @@ mixin otheryear-content(event0)
         else
           span(itemprop="addressRegion")= event0.addressRegion
 
-mixin mobile-content()
-  h1#plan-engage-connect Plan, Engage, Connect
-  p.-ta-c Enhance your conference experience with our mobile app.
-  +actionchoices([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
-
 mixin location-content()
   - var city  = conference.current.addressLocality
   - var state = conference.current.addressRegion.abbr || conference.current.addressRegion.name || conference.current.addressRegion

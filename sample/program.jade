@@ -9,6 +9,10 @@ block main-minimal
 block main-reference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n#full-program Full Program
-    include includes/_c-Program.jade
+    include includes/components/_c-Program.jade
     +program(true)
     p: small Program subject to change.
+
+block callouts
+  aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
+    include includes/highlights/_volunteer.jade

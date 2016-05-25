@@ -1,0 +1,11 @@
+mixin otheryear-content(event0)
+  - event0 = event0 || {}
+  h1.c-OtherYear__Name(id=urlify(event0.name) itemprop="name")= event0.name
+  meta(content=event0.startDate itemprop="startDate")
+  p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+    span(itemprop="name")
+      span(itemprop="addressLocality")= event0.addressLocality + ', '
+        if event0.addressRegion.name && event0.addressRegion.abbr
+          abbr(itemprop="addressRegion" title=event0.addressRegion.name)= event0.addressRegion.abbr
+        else
+          span(itemprop="addressRegion")= event0.addressRegion

@@ -34,6 +34,16 @@ mixin menulist(args)
           if item.sub && depth > 0
             +menulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})
 
+mixin actionchoices(items, classes, list_attr)
+  - list_attr = list_attr || {}
+  ul.o-ListBare.o-GridFlex.o-ListAction&attributes(list_attr)
+    each obj in items
+      - obj.attr = obj.attr || {}
+      li.o-GridFlex__Item.o-ListAction__Item
+        a(class=classes href=obj.href)&attributes(obj.attr)
+          = obj.text
+          block
+
 mixin content_pass_student_fineprint()
   | Full-time students must show valid #[abbr(title="identification") ID] onsite at the registration desk when picking up name badge.
 

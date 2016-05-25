@@ -52,15 +52,13 @@ mixin registration-content()
     li.o-GridFlex__Item.o-ListStacked__Item
       include _c-Pass.jade
       +pass(pass.ym, 0)
-  include _o-ListAction.jade
-  +listAction([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
+  +actionchoices([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
 
 mixin program-content()
   h1#program-highlights Program Highlights
   include _c-Program.jade
   +program(false)
-  include _o-ListAction.jade
-  +listAction([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
+  +actionchoices([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')
 
 mixin speakers-content()
   h1#speakers Speakers
@@ -71,8 +69,7 @@ mixin speakers-content()
       include _c-Speaker.jade
     li.o-GridFlex__Item.o-ListStacked__Item
       include _c-Speaker.jade
-  include _o-ListAction.jade
-  +listAction([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
+  +actionchoices([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
 
 mixin cochairs-content()
   h1#conference-co-chairs Conference Co-Chairs
@@ -83,8 +80,7 @@ mixin cochairs-content()
 mixin mobile-content()
   h1#plan-engage-connect Plan, Engage, Connect
   p.-ta-c Enhance your conference experience with our mobile app.
-  include _o-ListAction.jade
-  +listAction([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
+  +actionchoices([{text:'Download Mobile App', href:''}], 'c-Btn c-Btn--hilite')
 
 mixin location-content()
   - var city  = conference.current.addressLocality
@@ -93,8 +89,7 @@ mixin location-content()
   div.c-Overlay.c-Overlay--callout
     h1(id=urlify(heading))= heading
     p: +location_callout_description()
-    include _o-ListAction.jade
-    +listAction([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--ghost')
+    +actionchoices([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--ghost')
 
 mixin social-content()
   h1#join-the-conversation Join the Conversation
@@ -125,5 +120,4 @@ mixin sponsor-content()
       li.o-GridFlex__Item.o-ListStacked__Item
         a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
         small.c-SponsorBlock__Label= sponsorlevel[item.level].name
-  include _o-ListAction.jade
-  +listAction([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
+  +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')

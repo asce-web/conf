@@ -14,14 +14,28 @@ block main-reference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n#full-registration Full Registration
     ul.o-ListBare.o-GridFlex.o-ListStacked
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.standard , 0)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.speaker  , 0)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.moderator, 0)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.ym       , 0)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.student  , 0)
-        +pass_student_fineprint()
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.guest    , 0)
-      li.o-GridFlex__Item.o-ListStacked__Item: +pass(pass.daily    , 0)
+      li.o-GridFlex__Item.o-ListStacked__Item
+        include includes/_c-Pass.jade
+        +pass(pass.standard, 0)
+      li.o-GridFlex__Item.o-ListStacked__Item
+        include includes/_c-Pass.jade
+        +pass(pass.speaker, 0)
+      li.o-GridFlex__Item.o-ListStacked__Item
+        include includes/_c-Pass.jade
+        +pass(pass.moderator, 0)
+      li.o-GridFlex__Item.o-ListStacked__Item
+        include includes/_c-Pass.jade
+        +pass(pass.ym, 0)
+      li.o-GridFlex__Item.o-ListStacked__Item
+        include includes/_c-Pass.jade
+        +pass(pass.student, 0)
+          +content_pass_student_fineprint()
+      li.o-GridFlex__Item.o-ListStacked__Item
+        include includes/_c-Pass.jade
+        +pass(pass.guest, 0)
+      li.o-GridFlex__Item.o-ListStacked__Item
+        include includes/_c-Pass.jade
+        +pass(pass.daily, 0)
     ul.o-ListBare.o-GridFlex.o-ListAction.c-Callout
       li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item
         i.material-icons(style="display: block; font-size: 2.25em;") stars

@@ -41,7 +41,7 @@
   }
   // HACK using variables
   .c-Pass__Foot .c-Pass__Period:first-child::after {
-    margin: @l-vru 0;
+    margin: @l-vru 0; // FIXME IE10 does not support rems on pseudo-elements!!!
   }
   .c-Pass__Price--featured {
     padding: (0.5*@l-vru) 0;

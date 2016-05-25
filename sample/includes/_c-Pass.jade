@@ -1,0 +1,23 @@
+mixin pass(type, body_period)
+  article.c-Pass
+    mixin period-details(regperiod, is_body)
+      h1.c-Pass__Period__Hn= regperiod.name
+      dl
+        each item in regperiod.memberships
+          dt.c-Pass__Period__Attendee= item.name
+          dd.c-Pass__Period__Price(class=(is_body && item.is_featured)?'c-Pass__Price--featured':'')
+            = item.price.toLocaleString('en', {style:'currency', currency:'USD'})
+    header.c-Pass__Head
+      h1.c-Pass__Hn= type.name
+      p.c-Pass__Desc
+        = type.description
+        small.o-Block.c-Pass__Fine: block
+    div.c-Pass__Body
+      section.c-Pass__Period
+        if type.periods[body_period]
+          +period-details(type.periods[body_period], true)
+    footer.o-GridFlex.c-Pass__Foot
+      each item in type.periods
+        unless item === type.periods[body_period]
+          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
+            +period-details(item)

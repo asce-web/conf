@@ -47,6 +47,12 @@ mixin actionchoices(items, classes, list_attr)
 mixin content_pass_student_fineprint()
   | Full-time students must show valid #[abbr(title="identification") ID] onsite at the registration desk when picking up name badge.
 
+mixin location_callout_description()
+  | With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
+
+mixin volunteer_callout_description()
+  | We will need volunteers to act as greeters, direct people to various venues within the hotel, collect tickets, travel with tour buses, provide head counts, and serve as a point of contact with ASCE staff.
+
 mixin hero-content(event0)
   - event0 = event0 || {}
   h1.c-PageTitle.c-Hero__Name(id=urlify(event0.name) itemprop="name")= event0.name

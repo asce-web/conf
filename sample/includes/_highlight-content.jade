@@ -10,25 +10,6 @@ mixin otheryear-content(event0)
         else
           span(itemprop="addressRegion")= event0.addressRegion
 
-mixin social-content()
-  h1#join-the-conversation Join the Conversation
-  p.-ta-c Follow ASCE on social media for real-time conversation.
-  // p: mark.
-    #[strong Note:]
-    Each social icon will be a white logo inside a transparent circle, all in
-    a white "circle-in-square" thing.
-    #[code background-color] will be dark gray, and secondary color on hover.
-    (Use conference color scheme.)
-  // p: mark.
-    #[strong Question:] size of logos? how far spaced apart?
-  ul.o-ListBare.o-GridFlex.c-SocialList
-    li.o-GridFlex__Item.c-SocialList__Item
-      a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")
-    li.o-GridFlex__Item.c-SocialList__Item
-      a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" title="Follow #ASCE2016 on Google+")
-    li.o-GridFlex__Item.c-SocialList__Item
-      a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" title="Follow #ASCE2016 on Facebook")
-
 mixin contact-content()
   h1#contact-us Contact Us
   +contact-form()

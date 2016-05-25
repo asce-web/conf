@@ -13,11 +13,3 @@ mixin otheryear-content(event0)
 mixin contact-content()
   h1#contact-us Contact Us
   +contact-form()
-
-mixin sponsor-content()
-  div.c-SponsorBlock: ul.o-ListBare.o-GridFlex.o-ListStacked
-    each item in [getSponsor('ASCE Foundation'), getSponsor('Bentley'), getSponsor('Pennoni')]
-      li.o-GridFlex__Item.o-ListStacked__Item
-        a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
-        small.c-SponsorBlock__Label= sponsorlevel[item.level].name
-  +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')

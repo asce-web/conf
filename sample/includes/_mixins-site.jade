@@ -1,15 +1,12 @@
 
 //- ///////////////////////////////////////////////////////////////////////////////
 //- //
-//- // This file holds all functions & mixins for all microsites including the sample site.
+//- // This file holds all functions & mixins for one specific microsite.
 //- //
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
 -
-  function urlify(str) {
-    return encodeURIComponent(str.toLowerCase().replace(/[\W]+/g, '-'))
-  }
   function getSponsor(name) {
     return arrayFind(sponsors, 'name', name)
   }
@@ -19,7 +16,7 @@
 
 
 mixin menulist(args)
-  //- copied (almost) directly from ../../lib/includes/_mixins-lib.jade
+  //- copied (almost) directly from /lib/includes/_mixins-lib.jade
   - var pages     = args.pages     || []
   - var class_obj = args.class_obj || {}
   - var depth     = +args.depth
@@ -52,43 +49,6 @@ mixin location_callout_description()
 
 mixin volunteer_callout_description()
   | We will need volunteers to act as greeters, direct people to various venues within the hotel, collect tickets, travel with tour buses, provide head counts, and serve as a point of contact with ASCE staff.
-
-mixin hero-content(event0)
-  - event0 = event0 || {}
-  h1.c-PageTitle.c-Hero__Name(id=urlify(event0.name) itemprop="name")= event0.name
-  p.c-Hero__Detail
-    span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-      span(itemprop="name")
-        span(itemprop="addressLocality")= event0.addressLocality + ', '
-        if event0.addressRegion.name && event0.addressRegion.abbr
-          abbr(itemprop="addressRegion" title=event0.addressRegion.name)= event0.addressRegion.abbr
-        else
-          span(itemprop="addressRegion")= event0.addressRegion.name || event0.addressRegion
-    span.c-Hero__Dates
-      time(datetime=event0.startDate itemprop="startDate")
-        - var start = new Date(event0.startDate)
-        = month_names[start.getUTCMonth()].slice(0,3) + ' ' + start.getUTCDate()
-      | &ndash;
-      time(datetime=event0.endDate itemprop="endDate")
-        - var end = new Date(event0.endDate)
-        = month_names[end.getUTCMonth()].slice(0,3) + ' ' + end.getUTCDate()
-  p.c-Hero__Theme(itemprop="description")
-    if event0.theme
-      = event0.theme
-    else
-      | &nbsp;
-
-mixin otheryear-content(event0)
-  - event0 = event0 || {}
-  meta(content=event0.startDate itemprop="startDate")
-  h1.c-OtherYear__Name(id=urlify(event0.name) itemprop="name")= event0.name
-  p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-    span(itemprop="name")
-      span(itemprop="addressLocality")= event0.addressLocality + ', '
-        if event0.addressRegion.name && event0.addressRegion.abbr
-          abbr(itemprop="addressRegion" title=event0.addressRegion.name)= event0.addressRegion.abbr
-        else
-          span(itemprop="addressRegion")= event0.addressRegion
 
 mixin minimal-text-block()
   div.o-Runner.o-Runner--highlight.minimal-text: div.o-ContentWrapper

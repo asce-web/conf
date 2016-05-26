@@ -145,28 +145,40 @@ block append main
   section.sg-sect#sitemap-component
     h2 The Sitemap Component
     figure.sg-c-Fig
-      ul.o-ListBare.o-GridFlex.c-Sitemap
-        li.o-GridFlex__Item.c-Sitemap__Item
-          a(href="") Home
-        li.o-GridFlex__Item.c-Sitemap__Item
-          a(href="") Registration
-          ul.o-ListBare.c-Sitemap__SubList
-            li.c-Sitemap__SubItem: a(href="") Why Attend
-            li.c-Sitemap__SubItem: a(href="") Short Courses
-            li.c-Sitemap__SubItem: a(href="") Technical Tours
-            li.c-Sitemap__SubItem: a(href="") Optional Tours
-        li.o-GridFlex__Item.c-Sitemap__Item
-          a(href="") Program
-          ul.o-ListBare.c-Sitemap__SubList
-            li.c-Sitemap__SubItem: a(href="") Events
-        li.o-GridFlex__Item.c-Sitemap__Item
-          a(href="") Hotel &amp; Travel
-          ul.o-ListBare.c-Sitemap__SubList
-            li.c-Sitemap__SubItem: a(href="") International Travel
-        li.o-GridFlex__Item.c-Sitemap__Item
-          a(href="") Speakers
-          ul.o-ListBare.c-Sitemap__SubList
-            li.c-Sitemap__SubItem: a(href="") Distinguished Lecture Series
+      -
+        var pages = [
+            {
+              name: 'Home', href: 'home.html'
+            }
+          , {
+              name: 'Registration', href: 'registration.html'
+            , sub: [
+                { name: 'Why Attend'     , href: '' }
+              ]
+            }
+          , {
+              name: 'Program', href: 'program.html'
+            , sub: [
+                { name: 'Events', href: '' }
+              , { name: 'Short Courses'  , href: '' }
+              , { name: 'Technical Tours', href: '' }
+              , { name: 'Optional Tours' , href: '' }
+              ]
+            }
+          , {
+              name: 'Hotel & Travel', href: 'location.html'
+            , sub: [
+                { name: 'International Travel', href: '' }
+              ]
+            }
+          , {
+              name: 'Speakers', href: 'speakers.html'
+            , sub: [
+                { name: 'Distinguished Lecture Series', href: '' }
+              ]
+            }
+          ]
+      +sitemenulist({pages: pages, class_obj: menu_class.sitemap, depth: Infinity})
       pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-Sitemap]"&gt;
           &lt;li class="#[u c-Sitemap__Item]"&gt;

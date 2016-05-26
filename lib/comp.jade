@@ -100,12 +100,15 @@ block append main
   section.sg-sect#standard-menu
     h2 The Standard Menu
     figure.sg-c-Fig
-      ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
-        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Home
-        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Registration
-        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Program
-        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Hotel &amp; Travel
-        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Speakers
+      -
+        var pages = [
+          { name: 'Home'          , href: '' }
+        , { name: 'Registration'  , href: '' }
+        , { name: 'Program'       , href: '' }
+        , { name: 'Hotel & Travel', href: '' }
+        , { name: 'Speakers'      , href: '' }
+        ]
+      +sitemenulist({pages: pages, class_obj: menu_class.standard, depth: 0})
       ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
         li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._hover menu item hover
         li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._active menu item active
@@ -120,11 +123,15 @@ block append main
   section.sg-sect#sub-menu
     h2 The Sub Menu
     figure.sg-c-Fig
-      ul.o-ListBare.c-MenuSub(style="position: initial;")
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Registration Submenu Item 2
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Registration Submenu Item 3
-      ul.o-ListBare.c-MenuSub(style="position: initial;")
+      -
+        var pages = [
+          { name: 'Why Attend'                  , href: '' }
+        , { name: 'Registration Submenu Item 2' , href: '' }
+        , { name: 'Registration Submenu Item 3' , href: '' }
+        ]
+      div(style="height: 100px;")
+        +sitemenulist({pages: pages, class_obj: menu_class.standard.sub, depth: 0})
+      div(style="height: 100px;"): ul.o-ListBare.c-MenuSub
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._hover menu item hover
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._active menu item active
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link menu item disabled

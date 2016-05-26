@@ -74,8 +74,8 @@ mixin hero-content(event0)
 
 mixin otheryear-content(event0)
   - event0 = event0 || {}
-  meta(content=event0.startDate itemprop="startDate")
   h1.c-OtherYear__Name(id=urlify(event0.name) itemprop="name")= event0.name
+  meta(content=event0.startDate itemprop="startDate")
   p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
     +event-location-name(event0.location)
   block

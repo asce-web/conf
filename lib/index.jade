@@ -20,4 +20,4 @@ block append main
       section
         h3: a(href=page.href)= page.name
         p= page.description
-        +menulist({pages: page.sub, depth: Infinity})
+        +libtoc({pages: page.sub, depth: Infinity})

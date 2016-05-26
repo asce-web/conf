@@ -7,7 +7,7 @@ block append vars
 block append main__header
   nav#table-contents
     h2 Table of Contents
-    +menulist({pages: page_id.sub, depth: Infinity})
+    +libtoc({pages: page_id.sub, depth: Infinity})
 
 block append main
   section.sg-sect#block-object

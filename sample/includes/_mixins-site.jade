@@ -15,22 +15,6 @@
   }
 
 
-mixin menulist(args)
-  //- copied (almost) directly from /lib/includes/_mixins-lib.jade
-  - var pages     = args.pages     || []
-  - var class_obj = args.class_obj || {}
-  - var depth     = +args.depth
-  ul(class=class_obj.listclasses)
-    each item in pages
-      unless item.is_hidden
-        li(class=class_obj.itemclasses)
-          a(class=class_obj.linkclasses href=item.href)
-            if args.icons && item.icon
-              i.material-icons= item.icon.content
-            span= item.name
-          if item.sub && depth > 0
-            +menulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})
-
 mixin actionchoices(items, classes, list_attr)
   - list_attr = list_attr || {}
   ul.o-ListBare.o-GridFlex.o-ListAction&attributes(list_attr)

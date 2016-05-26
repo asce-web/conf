@@ -68,12 +68,19 @@ block append main
     p #[strong Note:] Universal Menu will convert to pull-out drawer when screen is smaller than 720px.
     p Current Year menu item will appear exactly the same as Hero Button, but will not have that class.
     figure.sg-c-Fig
-      ul.o-ListBare.o-GridFlex.c-MenuUniversal(style="margin-bottom: 1.5rem;")
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") About
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Sponsor
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Exhibit
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Contact
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="") ASCE 2016
+      -
+        var pages1 = [
+          { name: 'About'  , href: '' }
+        , { name: 'Sponsor', href: '' }
+        , { name: 'Exhibit', href: '' }
+        , { name: 'Contact', href: '' }
+        ]
+        var pages2 = [
+          { name: 'Home', href: '' }
+        ]
+      div(style="margin-bottom: 1.5rem;")
+        include /includes/components/_c-MenuUniversal.jade
+        +menuUniversal(pages1, pages2, 'ASCE 2016')
       ul.o-ListBare.o-GridFlex.c-MenuUniversal(style="margin-bottom: 1.5rem;")
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="")._hover menu item hover
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="")._active menu item active

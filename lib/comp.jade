@@ -224,20 +224,29 @@ block append main
   section.sg-sect#hero-block
     h2 The Hero Block
     figure.sg-c-Fig
+      -
+        var demoevent = {
+          name      : 'Geo-Risk 2017'
+        , theme     : 'Geotechincal risk from theory to practice.'
+        , startDate : '2017-06-04'
+        , endDate   : '2017-06-07'
+        , url       : 'http://2016.georiskconference.org/'
+        , location  : {
+            addressLocality     : 'Denver'
+          , addressRegion       : 'CO'
+          , addressRegion_title : 'Colorado'
+          }
+        }
       div.c-Hero
-        h1.c-Hero__Name Geo-Risk 2016
-        p.c-Hero__Detail
-          span.c-Hero__Place Portland, OR
-          span.c-Hero__Dates Sep 28&ndash;Oct 1
-        p.c-Hero__Theme Geotechincal Risk From Theory to Practice
+        +hero-content(demoevent)
       pre.
         &lt;div class="#[u c-Hero]"&gt;
-          &lt;h1 class="#[u c-Hero__Name]"&gt;Geo-Risk 2016&lt;/h1&gt;
+          &lt;h1 class="c-PageTitle #[u c-Hero__Name]"&gt;Geo-Risk 2017&lt;/h1&gt;
           &lt;p class="#[u c-Hero__Detail]"&gt;
-            &lt;span class="#[u c-Hero__Place]"&gt;Portland, OR&lt;/span&gt;
-            &lt;span class="#[u c-Hero__Dates]"&gt;Sep 28&ndash;Oct 1&lt;/span&gt;
+            &lt;span class="#[u c-Hero__Place]"&gt;Denver, CO&lt;/span&gt;
+            &lt;span class="#[u c-Hero__Dates]"&gt;Jun 4&ndash;Jun 7&lt;/span&gt;
           &lt;/p&gt;
-          &lt;p class="#[u c-Hero__Theme]"&gt;Geotechincal Risk ...&lt;/p&gt;
+          &lt;p class="#[u c-Hero__Theme]"&gt;Geotechincal risk ...&lt;/p&gt;
         &lt;/div&gt;
   section.sg-sect#other-year-block
     h2 An Other Year Block

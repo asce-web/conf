@@ -11,7 +11,8 @@ mixin pass(type, body_period)
       h1.c-Pass__Hn= type.name
       p.c-Pass__Desc
         = type.description
-        small.o-Block.c-Pass__Fine: block
+        small.o-Block.c-Pass__Fine
+          block
     div.c-Pass__Body
       section.c-Pass__Period
         if type.periods[body_period]

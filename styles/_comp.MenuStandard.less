@@ -29,20 +29,18 @@
   }
   .material-icons {
     display: block;
-    @media screen and (max-width: (@iconbreakpoint - 1)) {
-      & + span {
+    @media screen and (min-width: @iconbreakpoint) {
+      display: none;
+    }
+    & + span {
+      @media screen and (max-width: (@iconbreakpoint - 1)) {
         display: block;
         .font-size-el(0.75);
         font-weight: 400;
       }
-    }
-    @media screen and (max-width: 381px) {
-      & + span {
+      @media screen and (max-width: 381px) {
         display: none;
       }
-    }
-    @media screen and (min-width: @iconbreakpoint) {
-      display: none;
     }
   }
 }

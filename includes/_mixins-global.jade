@@ -25,6 +25,7 @@
     return encodeURIComponent(str.toLowerCase().replace(/[\W]+/g, '-'))
   }
 
+
 mixin sitemenulist(args)
   - var pages     = args.pages     || []
   - var class_obj = args.class_obj || {}
@@ -42,17 +43,20 @@ mixin sitemenulist(args)
             +sitemenulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})
 
 
+mixin event-location-name(loc)
+  span(itemprop="name")
+    span(itemprop="addressLocality")= loc.addressLocality + ', '
+      abbr(itemprop="addressRegion" title=loc.addressRegion_title)
+        = loc.addressRegion
+
+
 mixin hero-content(event0)
   - event0 = event0 || {}
   h1.c-PageTitle.c-Hero__Name(id=urlify(event0.name) itemprop="name")= event0.name
+  meta(content=event0.url itemprop="url")
   p.c-Hero__Detail
     span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-      span(itemprop="name")
-        span(itemprop="addressLocality")= event0.addressLocality + ', '
-        if event0.addressRegion.name && event0.addressRegion.abbr
-          abbr(itemprop="addressRegion" title=event0.addressRegion.name)= event0.addressRegion.abbr
-        else
-          span(itemprop="addressRegion")= event0.addressRegion.name || event0.addressRegion
+      +event-location-name(event0.location)
     span.c-Hero__Dates
       time(datetime=event0.startDate itemprop="startDate")
         - var start = new Date(event0.startDate)
@@ -67,14 +71,14 @@ mixin hero-content(event0)
     else
       | &nbsp;
 
+
 mixin otheryear-content(event0)
   - event0 = event0 || {}
   meta(content=event0.startDate itemprop="startDate")
   h1.c-OtherYear__Name(id=urlify(event0.name) itemprop="name")= event0.name
   p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-    span(itemprop="name")
-      span(itemprop="addressLocality")= event0.addressLocality + ', '
-        if event0.addressRegion.name && event0.addressRegion.abbr
-          abbr(itemprop="addressRegion" title=event0.addressRegion.name)= event0.addressRegion.abbr
-        else
-          span(itemprop="addressRegion")= event0.addressRegion
+    +event-location-name(event0.location)
+  block
+  ul.o-ListBare.o-GridFlex.o-ListAction
+    li.o-GridFlex__Item.o-ListAction__Item
+      a.c-Btn.c-Btn--hilite.c-Btn--ghost(href=event0.url itemprop="url") Event Details

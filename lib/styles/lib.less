@@ -38,21 +38,34 @@
 //++++++++++++++++++++++++++++++++//
 @p-color_asce_primary: #0c5fa8;
 main {
-  margin: 0 1rem 1.5rem;
+  margin: 0 1rem @g-vru;
 }
 pre {
   .font-size-block(0.75);
   padding: (@g-vru*0.50) 1.00rem;
   .border-vert(all; 1px);
   border-radius: 4px;
-  border-color: @p-color_asce_primary;
-  background-color: lighten(desaturate(@p-color_asce_primary, 25%), 50%);
   color: #000;
   overflow: auto;
-  & u { color: #050; }
-  & small {
+  small {
     font-size: inherit;
     color: #666;
+  }
+}
+pre {
+  // color themes
+  @rc: @p-color_asce_primary;
+  @bc: lighten(desaturate(@p-color_asce_primary, 25%), 50%);
+  @uc: #050;
+  & {
+    border-color:     @rc;
+    background-color: @bc;
+    u { color:        @uc; }
+  }
+  &.is-md {
+    border-color:     spin(@rc, 240);
+    background-color: spin(@bc, 240);
+    u { color:        spin(@uc, 120); }
   }
 }
 code {

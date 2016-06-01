@@ -237,8 +237,23 @@ block append main
           , addressRegion_title : 'Colorado'
           }
         }
-      div.c-Hero
+      //- div.c-Hero
         +hero-content(demoevent)
+      div.c-Hero.
+        <h1 class="c-PageTitle c-Hero__Name" id="geo-risk-2017" itemprop="name">Geo-Risk 2017</h1>
+        <meta content="http://2017.georiskconference.org/" itemprop="url"/>
+        <p class="c-Hero__Detail">
+          <span class="c-Hero__Place" itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress">
+            <span itemprop="name">
+              <span itemprop="addressLocality">Denver, </span>
+              <abbr title="Colorado" itemprop="addressRegion">CO</abbr>
+            </span>
+          </span>
+          <span class="c-Hero__Dates">
+            <time datetime="2017-06-04" itemprop="startDate">Jun 4</time>–<time datetime="2017-06-07" itemprop="endDate">Jun 7</time>
+          </span>
+        </p>
+        <p class="c-Hero__Theme" itemprop="description">Geotechincal risk from theory to practice.</p>
       p Classes:
       pre.
         &lt;div class="#[u c-Hero]"&gt;
@@ -285,18 +300,27 @@ block append main
           , addressRegion_title : 'Illinois'
           }
         }
-      div.c-OtherYear
+      //- div.c-OtherYear
         +otheryear-content(demoevent)
           p.c-OtherYear__Desc.
             Access the 2016 program to see which sessions qualify for
             PDHs and other documentation.
+      div.c-OtherYear.
+        <h1 class="c-OtherYear__Name" id="geo-chicago-2016" itemprop="name">Geo-Chicago 2016</h1>
+        <meta content="2016-08-14" itemprop="startDate"/>
+        <p class="c-OtherYear__Detail" itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress">
+          <span itemprop="name">
+            <span itemprop="addressLocality">Chicago, </span>
+            <abbr title="Illinois" itemprop="addressRegion">IL</abbr>
+          </span>
+        </p>
+        <p class="c-OtherYear__Desc">Access the 2016 program to see which sessions qualify for PDHs and other documentation.</p>
       p Classes:
       pre.
         &lt;div class="#[u c-OtherYear]"&gt;
           &lt;h1 class="#[u c-OtherYear__Name]"&gt;Geo-Chicago 2016&lt;/h1&gt;
           &lt;p class="#[u c-OtherYear__Detail]"&gt;Chicago, IL&lt;/p&gt;
           &lt;p class="#[u c-OtherYear__Desc]"&gt;Access the ...&lt;/p&gt;
-          &lt;a&gt;Event Details&lt;/a&gt;
         &lt;/div&gt;
       p Microdata:
       pre.is-md.
@@ -310,7 +334,6 @@ block append main
             &lt;/span&gt;
           &lt;/p&gt;
           &lt;p&gt;Access the ...&lt;/p&gt;
-          &lt;a href="http://2016.geoenvironmentconference.org/" #[u itemprop="url"]&gt;Event Details&lt;/a&gt;
         &lt;/div&gt;
   section.sg-sect#overlay-component
     h2 The Overlay Component

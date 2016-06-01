@@ -254,36 +254,28 @@ block append main
           </span>
         </p>
         <p class="c-Hero__Theme" itemprop="description">Geotechincal risk from theory to practice.</p>
-      p Classes:
-      pre.
-        &lt;div class="#[u c-Hero]"&gt;
-          &lt;h1 class="c-PageTitle #[u c-Hero__Name]"&gt;Geo-Risk 2017&lt;/h1&gt;
-          &lt;p class="#[u c-Hero__Detail]"&gt;
-            &lt;span class="#[u c-Hero__Place]"&gt;Denver, CO&lt;/span&gt;
-            &lt;span class="#[u c-Hero__Dates]"&gt;Jun 4&ndash;Jun 7&lt;/span&gt;
-          &lt;/p&gt;
-          &lt;p class="#[u c-Hero__Theme]"&gt;Geotechincal risk ...&lt;/p&gt;
-        &lt;/div&gt;
-      p Microdata:
-      pre.is-md.
-        &lt;div #[u itemscope="" itemtype="http://schema.org/Event"]&gt;
-          &lt;h1 id="geo-risk-2017" #[u itemprop="name"]&gt;Geo-Risk 2017&lt;/h1&gt;
-          &lt;meta content="http://2017.georiskconference.org/" #[u itemprop="url"]/&gt;
-          &lt;p&gt;
-            &lt;span #[u itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress"]&gt;
-              &lt;span #[u itemprop="name"]&gt;
-                &lt;span #[u itemprop="addressLocality"]&gt;Denver, &lt;/span&gt;
-                &lt;abbr title="Colorado" #[u itemprop="addressRegion"]&gt;CO&lt;/abbr&gt;
+      div
+        input.show-md#show-md-hero(type="checkbox" value="hero-md-true")
+        label(for="show-md-hero") show microdata
+        pre.has-md.
+          &lt;div class="#[u c-Hero]"#[mark  itemscope="" itemtype="http://schema.org/Event"]&gt;
+            &lt;h1 class="c-PageTitle #[u c-Hero__Name]"#[mark  id="geo-risk-2017" itemprop="name"]&gt;Geo-Risk 2017&lt;/h1&gt;
+            #[mark!= '&lt;meta content="http://2017.georiskconference.org/" itemprop="url"/&gt;']
+            &lt;p class="#[u c-Hero__Detail]"&gt;
+              &lt;span class="#[u c-Hero__Place]"#[mark  itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress"]&gt;
+                #[mark &lt;span itemprop="name"&gt;]
+                  #[mark &lt;span itemprop="addressLocality"&gt;]Denver, #[mark!= '&lt;/span&gt;']
+                  #[mark &lt;abbr title="Colorado" itemprop="addressRegion"&gt;]CO#[mark!= '&lt;/abbr&gt;']
+                #[mark!= '&lt;/span&gt;']
               &lt;/span&gt;
-            &lt;/span&gt;
-            &lt;span&gt;
-              &lt;time datetime="2017-06-04" #[u itemprop="startDate"]&gt;Jun 4&lt;/time&gt;
-              &ndash;
-              &lt;time datetime="2017-06-07" #[u itemprop="endDate"]&gt;Jun 7&lt;/time&gt;
-            &lt;/span&gt;
-          &lt;/p&gt;
-          &lt;p itemprop="#[u description]"&gt;Geotechincal risk ...&lt;/p&gt;
-        &lt;/div&gt;
+              &lt;span class="#[u c-Hero__Dates]"&gt;
+                #[mark &lt;time datetime="2017-06-04" itemprop="startDate"&gt;]Jun 4#[mark!= '&lt;/time&gt;']
+                &ndash;
+                #[mark &lt;time datetime="2017-06-07" itemprop="endDate"&gt;]Jun 7#[mark!= '&lt;/time&gt;']
+              &lt;/span&gt;
+            &lt;/p&gt;
+            &lt;p class="#[u c-Hero__Theme]"#[mark  itemprop="description"]&gt;Geotechincal risk ...&lt;/p&gt;
+          &lt;/div&gt;
   section.sg-sect#other-year-block
     h2 An Other Year Block
     figure.sg-c-Fig
@@ -315,26 +307,21 @@ block append main
           </span>
         </p>
         <p class="c-OtherYear__Desc">Access the 2016 program to see which sessions qualify for PDHs and other documentation.</p>
-      p Classes:
-      pre.
-        &lt;div class="#[u c-OtherYear]"&gt;
-          &lt;h1 class="#[u c-OtherYear__Name]"&gt;Geo-Chicago 2016&lt;/h1&gt;
-          &lt;p class="#[u c-OtherYear__Detail]"&gt;Chicago, IL&lt;/p&gt;
-          &lt;p class="#[u c-OtherYear__Desc]"&gt;Access the ...&lt;/p&gt;
-        &lt;/div&gt;
-      p Microdata:
-      pre.is-md.
-        &lt;div #[u itemscope="" itemtype="http://schema.org/Event"]&gt;
-          &lt;h1 id="geo-chicago-2016" #[u itemprop="name"]&gt;Geo-Chicago 2016&lt;/h1&gt;
-          &lt;meta content="2016-08-14" #[u itemprop="startDate"]/&gt;
-          &lt;p #[u itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress"]&gt;
-            &lt;span #[u itemprop="name"]&gt;
-              &lt;span #[u itemprop="addressLocality"]&gt;Chicago, &lt;/span&gt;
-              &lt;abbr title="Illinois" #[u itemprop="addressRegion"]&gt;IL&lt;/abbr&gt;
-            &lt;/span&gt;
-          &lt;/p&gt;
-          &lt;p&gt;Access the ...&lt;/p&gt;
-        &lt;/div&gt;
+      div
+        input.show-md#show-md-otheryear(type="checkbox" value="otheryear-md-true")
+        label(for="show-md-otheryear") show microdata
+        pre.has-md.
+          &lt;div class="#[u c-OtherYear]"#[mark  itemscope="" itemtype="http://schema.org/Event"]&gt;
+            &lt;h1 class="#[u c-OtherYear__Name]"#[mark  id="geo-chicago-2016" itemprop="name"]&gt;Geo-Chicago 2016&lt;/h1&gt;
+            #[mark!= '&lt;meta content="2016-08-14" itemprop="startDate"/&gt;']
+            &lt;p class="#[u c-OtherYear__Detail]"#[mark  itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress"]&gt;
+              #[mark &lt;span itemprop="name"&gt;]
+                #[mark &lt;span itemprop="addressLocality"&gt;]Chicago, #[mark!= '&lt;/span&gt;']
+                #[mark &lt;abbr title="Illinois" itemprop="addressRegion"&gt;]IL#[mark!= '&lt;/abbr&gt;']
+              #[mark!= '&lt;/span&gt;']
+            &lt;/p&gt;
+            &lt;p class="#[u c-OtherYear__Desc]"&gt;Access the ...&lt;/p&gt;
+          &lt;/div&gt;
   section.sg-sect#overlay-component
     h2 The Overlay Component
     p Use the Overlay Component over a Banner.

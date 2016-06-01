@@ -51,21 +51,27 @@ pre {
     font-size: inherit;
     color: #666;
   }
+  mark {
+    background: none;
+  }
 }
 pre {
   // color themes
   @rc: @p-color_asce_primary;
   @bc: lighten(desaturate(@p-color_asce_primary, 25%), 50%);
   @uc: #050;
+  @mc: #b00;
   & {
     border-color:     @rc;
     background-color: @bc;
-    u { color:        @uc; }
+    u {    color:     @uc; }
+    mark { color:     @mc; }
   }
-  &.is-md {
+  &.has-md {
     border-color:     spin(@rc, 240);
     background-color: spin(@bc, 240);
-    u { color:        spin(@uc, 120); }
+    u {    color:     spin(@uc, 120); }
+    mark { color:     spin(@mc,   0); }
   }
 }
 code {
@@ -108,5 +114,13 @@ code {
 //++++++++++++++++++++++++++++++++//
 ._docmeta dt {
   font-weight: 700;
+}
+.show-md { display: inline-block; margin: 0.25rem; }
+.has-md mark {
+  display: inline-block;
+  transition: text-indent 500ms;
+  .show-md:not(:checked) ~ & {
+    text-indent: -200%;
+  }
 }
 //++++ end # HACKS ++++ //

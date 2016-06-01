@@ -1,15 +1,12 @@
 
 //- ///////////////////////////////////////////////////////////////////////////////
 //- //
-//- // This file holds all functions & mixins for all microsites including the sample site.
+//- // This file holds all functions & mixins for one specific microsite.
 //- //
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
 -
-  function urlify(str) {
-    return encodeURIComponent(str.toLowerCase().replace(/[\W]+/g, '-'))
-  }
   function getSponsor(name) {
     return arrayFind(sponsors, 'name', name)
   }
@@ -17,22 +14,6 @@
     return arrayFind(site_pages[type], 'href', url)
   }
 
-
-mixin menulist(args)
-  //- copied (almost) directly from ../../lib/includes/_mixins-lib.jade
-  - var pages     = args.pages     || []
-  - var class_obj = args.class_obj || {}
-  - var depth     = +args.depth
-  ul(class=class_obj.listclasses)
-    each item in pages
-      unless item.is_hidden
-        li(class=class_obj.itemclasses)
-          a(class=class_obj.linkclasses href=item.href)
-            if args.icons && item.icon
-              i.material-icons= item.icon.content
-            span= item.name
-          if item.sub && depth > 0
-            +menulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})
 
 mixin actionchoices(items, classes, list_attr)
   - list_attr = list_attr || {}
@@ -44,6 +25,13 @@ mixin actionchoices(items, classes, list_attr)
           = obj.text
           block
 
+mixin content_otheryear_prev_desc()
+  | Access the 2015 program to see which sessions qualify for
+  |  #[abbr(title="professional development hours") PDH]s and other documentation.
+
+mixin content_otheryear_next_desc()
+  | Plan ahead to attend, sponsor, or exhibit at the annual convention for civil engineering professionals.
+
 mixin content_pass_student_fineprint()
   | Full-time students must show valid #[abbr(title="identification") ID] onsite at the registration desk when picking up name badge.
 
@@ -52,43 +40,6 @@ mixin location_callout_description()
 
 mixin volunteer_callout_description()
   | We will need volunteers to act as greeters, direct people to various venues within the hotel, collect tickets, travel with tour buses, provide head counts, and serve as a point of contact with ASCE staff.
-
-mixin hero-content(event0)
-  - event0 = event0 || {}
-  h1.c-PageTitle.c-Hero__Name(id=urlify(event0.name) itemprop="name")= event0.name
-  p.c-Hero__Detail
-    span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-      span(itemprop="name")
-        span(itemprop="addressLocality")= event0.addressLocality + ', '
-        if event0.addressRegion.name && event0.addressRegion.abbr
-          abbr(itemprop="addressRegion" title=event0.addressRegion.name)= event0.addressRegion.abbr
-        else
-          span(itemprop="addressRegion")= event0.addressRegion.name || event0.addressRegion
-    span.c-Hero__Dates
-      time(datetime=event0.startDate itemprop="startDate")
-        - var start = new Date(event0.startDate)
-        = month_names[start.getUTCMonth()].slice(0,3) + ' ' + start.getUTCDate()
-      | &ndash;
-      time(datetime=event0.endDate itemprop="endDate")
-        - var end = new Date(event0.endDate)
-        = month_names[end.getUTCMonth()].slice(0,3) + ' ' + end.getUTCDate()
-  p.c-Hero__Theme(itemprop="description")
-    if event0.theme
-      = event0.theme
-    else
-      | &nbsp;
-
-mixin otheryear-content(event0)
-  - event0 = event0 || {}
-  meta(content=event0.startDate itemprop="startDate")
-  h1.c-OtherYear__Name(id=urlify(event0.name) itemprop="name")= event0.name
-  p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-    span(itemprop="name")
-      span(itemprop="addressLocality")= event0.addressLocality + ', '
-        if event0.addressRegion.name && event0.addressRegion.abbr
-          abbr(itemprop="addressRegion" title=event0.addressRegion.name)= event0.addressRegion.abbr
-        else
-          span(itemprop="addressRegion")= event0.addressRegion
 
 mixin minimal-text-block()
   div.o-Runner.o-Runner--highlight.minimal-text: div.o-ContentWrapper

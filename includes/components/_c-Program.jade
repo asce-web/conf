@@ -1,6 +1,6 @@
-mixin program(show_all)
+mixin program(all_events, show_all)
   section.o-GridFlex.c-Overlay.c-Program
-    each events,index in program_events
+    each events,index in all_events
       h1.o-GridFlex__Item.c-Program__Hn: label
         input.c-Program__Check(type="radio" name="program" value=events[0].startDate)&attributes((index===0) ? {checked:''} : {})
         time(datetime=events[0].startDate)

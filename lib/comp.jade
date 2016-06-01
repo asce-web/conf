@@ -7,7 +7,7 @@ block append vars
 block append main__header
   nav#table-contents
     h2 Table of Contents
-    +menulist({pages: page_id.sub, depth: Infinity})
+    +libtoc({pages: page_id.sub, depth: Infinity})
 
 block append main
   section.sg-sect#masthead-mastfoot
@@ -68,12 +68,19 @@ block append main
     p #[strong Note:] Universal Menu will convert to pull-out drawer when screen is smaller than 720px.
     p Current Year menu item will appear exactly the same as Hero Button, but will not have that class.
     figure.sg-c-Fig
-      ul.o-ListBare.o-GridFlex.c-MenuUniversal(style="margin-bottom: 1.5rem;")
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") About
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Sponsor
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Exhibit
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="") Contact
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="") ASCE 2016
+      -
+        var pages1 = [
+          { name: 'About'  , href: '' }
+        , { name: 'Sponsor', href: '' }
+        , { name: 'Exhibit', href: '' }
+        , { name: 'Contact', href: '' }
+        ]
+        var pages2 = [
+          { name: 'Home', href: '' }
+        ]
+      div(style="margin-bottom: 1.5rem;")
+        include /includes/components/_c-MenuUniversal.jade
+        +menuUniversal(pages1, pages2, 'ASCE 2016')
       ul.o-ListBare.o-GridFlex.c-MenuUniversal(style="margin-bottom: 1.5rem;")
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="")._hover menu item hover
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="")._active menu item active
@@ -93,12 +100,15 @@ block append main
   section.sg-sect#standard-menu
     h2 The Standard Menu
     figure.sg-c-Fig
-      ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
-        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Home
-        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Registration
-        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Program
-        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Hotel &amp; Travel
-        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link(href="") Speakers
+      -
+        var pages = [
+          { name: 'Home'          , href: '' }
+        , { name: 'Registration'  , href: '' }
+        , { name: 'Program'       , href: '' }
+        , { name: 'Hotel & Travel', href: '' }
+        , { name: 'Speakers'      , href: '' }
+        ]
+      +sitemenulist({pages: pages, class_obj: menu_class.standard, depth: 0})
       ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
         li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._hover menu item hover
         li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._active menu item active
@@ -113,11 +123,15 @@ block append main
   section.sg-sect#sub-menu
     h2 The Sub Menu
     figure.sg-c-Fig
-      ul.o-ListBare.c-MenuSub(style="position: initial;")
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Why Attend
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Registration Submenu Item 2
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="") Registration Submenu Item 3
-      ul.o-ListBare.c-MenuSub(style="position: initial;")
+      -
+        var pages = [
+          { name: 'Why Attend'                  , href: '' }
+        , { name: 'Registration Submenu Item 2' , href: '' }
+        , { name: 'Registration Submenu Item 3' , href: '' }
+        ]
+      div(style="height: 100px;")
+        +sitemenulist({pages: pages, class_obj: menu_class.standard.sub, depth: 0})
+      div(style="height: 100px;"): ul.o-ListBare.c-MenuSub
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._hover menu item hover
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._active menu item active
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link menu item disabled
@@ -131,28 +145,40 @@ block append main
   section.sg-sect#sitemap-component
     h2 The Sitemap Component
     figure.sg-c-Fig
-      ul.o-ListBare.o-GridFlex.c-Sitemap
-        li.o-GridFlex__Item.c-Sitemap__Item
-          a(href="") Home
-        li.o-GridFlex__Item.c-Sitemap__Item
-          a(href="") Registration
-          ul.o-ListBare.c-Sitemap__SubList
-            li.c-Sitemap__SubItem: a(href="") Why Attend
-            li.c-Sitemap__SubItem: a(href="") Short Courses
-            li.c-Sitemap__SubItem: a(href="") Technical Tours
-            li.c-Sitemap__SubItem: a(href="") Optional Tours
-        li.o-GridFlex__Item.c-Sitemap__Item
-          a(href="") Program
-          ul.o-ListBare.c-Sitemap__SubList
-            li.c-Sitemap__SubItem: a(href="") Events
-        li.o-GridFlex__Item.c-Sitemap__Item
-          a(href="") Hotel &amp; Travel
-          ul.o-ListBare.c-Sitemap__SubList
-            li.c-Sitemap__SubItem: a(href="") International Travel
-        li.o-GridFlex__Item.c-Sitemap__Item
-          a(href="") Speakers
-          ul.o-ListBare.c-Sitemap__SubList
-            li.c-Sitemap__SubItem: a(href="") Distinguished Lecture Series
+      -
+        var pages = [
+            {
+              name: 'Home', href: 'home.html'
+            }
+          , {
+              name: 'Registration', href: 'registration.html'
+            , sub: [
+                { name: 'Why Attend'     , href: '' }
+              ]
+            }
+          , {
+              name: 'Program', href: 'program.html'
+            , sub: [
+                { name: 'Events', href: '' }
+              , { name: 'Short Courses'  , href: '' }
+              , { name: 'Technical Tours', href: '' }
+              , { name: 'Optional Tours' , href: '' }
+              ]
+            }
+          , {
+              name: 'Hotel & Travel', href: 'location.html'
+            , sub: [
+                { name: 'International Travel', href: '' }
+              ]
+            }
+          , {
+              name: 'Speakers', href: 'speakers.html'
+            , sub: [
+                { name: 'Distinguished Lecture Series', href: '' }
+              ]
+            }
+          ]
+      +sitemenulist({pages: pages, class_obj: menu_class.sitemap, depth: Infinity})
       pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-Sitemap]"&gt;
           &lt;li class="#[u c-Sitemap__Item]"&gt;
@@ -198,36 +224,104 @@ block append main
   section.sg-sect#hero-block
     h2 The Hero Block
     figure.sg-c-Fig
-      div.c-Hero
-        h1.c-Hero__Name Geo-Risk 2016
-        p.c-Hero__Detail
-          span.c-Hero__Place Portland, OR
-          span.c-Hero__Dates Sep 28&ndash;Oct 1
-        p.c-Hero__Theme Geotechincal Risk From Theory to Practice
-      pre.
-        &lt;div class="#[u c-Hero]"&gt;
-          &lt;h1 class="#[u c-Hero__Name]"&gt;Geo-Risk 2016&lt;/h1&gt;
-          &lt;p class="#[u c-Hero__Detail]"&gt;
-            &lt;span class="#[u c-Hero__Place]"&gt;Portland, OR&lt;/span&gt;
-            &lt;span class="#[u c-Hero__Dates]"&gt;Sep 28&ndash;Oct 1&lt;/span&gt;
-          &lt;/p&gt;
-          &lt;p class="#[u c-Hero__Theme]"&gt;Geotechincal Risk ...&lt;/p&gt;
-        &lt;/div&gt;
+      -
+        var demoevent = {
+          name      : 'Geo-Risk 2017'
+        , theme     : 'Geotechincal risk from theory to practice.'
+        , startDate : '2017-06-04'
+        , endDate   : '2017-06-07'
+        , url       : 'http://2017.georiskconference.org/'
+        , location  : {
+            addressLocality     : 'Denver'
+          , addressRegion       : 'CO'
+          , addressRegion_title : 'Colorado'
+          }
+        }
+      //- div.c-Hero
+        +hero-content(demoevent)
+      div.c-Hero.
+        <h1 class="c-PageTitle c-Hero__Name" id="geo-risk-2017" itemprop="name">Geo-Risk 2017</h1>
+        <meta content="http://2017.georiskconference.org/" itemprop="url"/>
+        <p class="c-Hero__Detail">
+          <span class="c-Hero__Place" itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress">
+            <span itemprop="name">
+              <span itemprop="addressLocality">Denver, </span>
+              <abbr title="Colorado" itemprop="addressRegion">CO</abbr>
+            </span>
+          </span>
+          <span class="c-Hero__Dates">
+            <time datetime="2017-06-04" itemprop="startDate">Jun 4</time>–<time datetime="2017-06-07" itemprop="endDate">Jun 7</time>
+          </span>
+        </p>
+        <p class="c-Hero__Theme" itemprop="description">Geotechincal risk from theory to practice.</p>
+      div
+        input.show-md#show-md-hero(type="checkbox" value="hero-md-true")
+        label(for="show-md-hero") show microdata
+        pre.has-md.
+          &lt;div class="#[u c-Hero]"#[mark  itemscope="" itemtype="http://schema.org/Event"]&gt;
+            &lt;h1 class="c-PageTitle #[u c-Hero__Name]"#[mark  id="geo-risk-2017" itemprop="name"]&gt;Geo-Risk 2017&lt;/h1&gt;
+            #[mark!= '&lt;meta content="http://2017.georiskconference.org/" itemprop="url"/&gt;']
+            &lt;p class="#[u c-Hero__Detail]"&gt;
+              &lt;span class="#[u c-Hero__Place]"#[mark  itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress"]&gt;
+                #[mark &lt;span itemprop="name"&gt;]
+                  #[mark &lt;span itemprop="addressLocality"&gt;]Denver, #[mark!= '&lt;/span&gt;']
+                  #[mark &lt;abbr title="Colorado" itemprop="addressRegion"&gt;]CO#[mark!= '&lt;/abbr&gt;']
+                #[mark!= '&lt;/span&gt;']
+              &lt;/span&gt;
+              &lt;span class="#[u c-Hero__Dates]"&gt;
+                #[mark &lt;time datetime="2017-06-04" itemprop="startDate"&gt;]Jun 4#[mark!= '&lt;/time&gt;']
+                &ndash;
+                #[mark &lt;time datetime="2017-06-07" itemprop="endDate"&gt;]Jun 7#[mark!= '&lt;/time&gt;']
+              &lt;/span&gt;
+            &lt;/p&gt;
+            &lt;p class="#[u c-Hero__Theme]"#[mark  itemprop="description"]&gt;Geotechincal risk ...&lt;/p&gt;
+          &lt;/div&gt;
   section.sg-sect#other-year-block
     h2 An Other Year Block
     figure.sg-c-Fig
-      div.c-OtherYear
-        h1.c-OtherYear__Name ASCE 2015
-        p.c-OtherYear__Detail New York, NY
-        p.c-OtherYear__Desc.
-          Access the 2015 program to see which sessions qualify for
-          PDHs and other documentation.
-      pre.
-        &lt;div class="#[u c-OtherYear]"&gt;
-          &lt;h1 class="#[u c-OtherYear__Name]"&gt;ASCE 2015&lt;/h1&gt;
-          &lt;p class="#[u c-OtherYear__Detail]"&gt;New York, NY&lt;/p&gt;
-          &lt;p class="#[u c-OtherYear__Desc]"&gt;Access the 2015 ...&lt;/p&gt;
-        &lt;/div&gt;
+      -
+        var demoevent = {
+          name      : 'Geo-Chicago 2016'
+        , theme     : 'Sustainability, energy, and the geoenvironment.'
+        , startDate : '2016-08-14'
+        , endDate   : '2016-08-18'
+        , url       : 'http://2016.geoenvironmentconference.org/'
+        , location  : {
+            addressLocality     : 'Chicago'
+          , addressRegion       : 'IL'
+          , addressRegion_title : 'Illinois'
+          }
+        }
+      //- div.c-OtherYear
+        +otheryear-content(demoevent)
+          p.c-OtherYear__Desc.
+            Access the 2016 program to see which sessions qualify for
+            PDHs and other documentation.
+      div.c-OtherYear.
+        <h1 class="c-OtherYear__Name" id="geo-chicago-2016" itemprop="name">Geo-Chicago 2016</h1>
+        <meta content="2016-08-14" itemprop="startDate"/>
+        <p class="c-OtherYear__Detail" itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress">
+          <span itemprop="name">
+            <span itemprop="addressLocality">Chicago, </span>
+            <abbr title="Illinois" itemprop="addressRegion">IL</abbr>
+          </span>
+        </p>
+        <p class="c-OtherYear__Desc">Access the 2016 program to see which sessions qualify for PDHs and other documentation.</p>
+      div
+        input.show-md#show-md-otheryear(type="checkbox" value="otheryear-md-true")
+        label(for="show-md-otheryear") show microdata
+        pre.has-md.
+          &lt;div class="#[u c-OtherYear]"#[mark  itemscope="" itemtype="http://schema.org/Event"]&gt;
+            &lt;h1 class="#[u c-OtherYear__Name]"#[mark  id="geo-chicago-2016" itemprop="name"]&gt;Geo-Chicago 2016&lt;/h1&gt;
+            #[mark!= '&lt;meta content="2016-08-14" itemprop="startDate"/&gt;']
+            &lt;p class="#[u c-OtherYear__Detail]"#[mark  itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress"]&gt;
+              #[mark &lt;span itemprop="name"&gt;]
+                #[mark &lt;span itemprop="addressLocality"&gt;]Chicago, #[mark!= '&lt;/span&gt;']
+                #[mark &lt;abbr title="Illinois" itemprop="addressRegion"&gt;]IL#[mark!= '&lt;/abbr&gt;']
+              #[mark!= '&lt;/span&gt;']
+            &lt;/p&gt;
+            &lt;p class="#[u c-OtherYear__Desc]"&gt;Access the ...&lt;/p&gt;
+          &lt;/div&gt;
   section.sg-sect#overlay-component
     h2 The Overlay Component
     p Use the Overlay Component over a Banner.

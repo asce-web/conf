@@ -21,3 +21,64 @@
   function arrayFind(array, prop, val) {
     return array.find(function (item) { return item[prop] === val })
   }
+  function urlify(str) {
+    return encodeURIComponent(str.toLowerCase().replace(/[\W]+/g, '-'))
+  }
+
+
+mixin sitemenulist(args)
+  - var pages     = args.pages     || []
+  - var class_obj = args.class_obj || {}
+  - var depth     = +args.depth    || 0
+  - var icons     = !!args.icons
+  ul(class=class_obj.listclasses)
+    each item in pages
+      unless item.is_hidden
+        li(class=class_obj.itemclasses)
+          a(class=class_obj.linkclasses href=item.href)
+            if args.icons && item.icon
+              i.material-icons= item.icon.content
+            span= item.name
+          if item.sub && depth > 0
+            +sitemenulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})
+
+
+mixin event-location-name(loc)
+  span(itemprop="name")
+    span(itemprop="addressLocality")= loc.addressLocality + ', '
+    abbr(itemprop="addressRegion" title=loc.addressRegion_title)
+      = loc.addressRegion
+
+
+mixin hero-content(event0)
+  - event0 = event0 || {}
+  h1.c-PageTitle.c-Hero__Name(id=urlify(event0.name) itemprop="name")= event0.name
+  meta(content=event0.url itemprop="url")
+  p.c-Hero__Detail
+    span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+      +event-location-name(event0.location)
+    span.c-Hero__Dates
+      time(datetime=event0.startDate itemprop="startDate")
+        - var start = new Date(event0.startDate)
+        = month_names[start.getUTCMonth()].slice(0,3) + ' ' + start.getUTCDate()
+      | &ndash;
+      time(datetime=event0.endDate itemprop="endDate")
+        - var end = new Date(event0.endDate)
+        = month_names[end.getUTCMonth()].slice(0,3) + ' ' + end.getUTCDate()
+  p.c-Hero__Theme(itemprop="description")
+    if event0.theme
+      = event0.theme
+    else
+      | &nbsp;
+
+
+mixin otheryear-content(event0)
+  - event0 = event0 || {}
+  h1.c-OtherYear__Name(id=urlify(event0.name) itemprop="name")= event0.name
+  meta(content=event0.startDate itemprop="startDate")
+  p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+    +event-location-name(event0.location)
+  block
+  ul.o-ListBare.o-GridFlex.o-ListAction
+    li.o-GridFlex__Item.o-ListAction__Item
+      a.c-Btn.c-Btn--hilite.c-Btn--ghost(href=event0.url itemprop="url") Event Details

@@ -4,7 +4,4 @@ mixin sponsorBlock(sponsor_level, classes)
     ul.o-ListBare.o-GridFlex.o-ListStacked
       each item in sponsors.filter(function (item) { return sponsorlevel[item.level] === sponsor_level })
         li.o-GridFlex__Item.o-ListStacked__Item
-          unless (sponsor_level === sponsorlevel.bronze) || (sponsor_level === sponsorlevel.copper)
-            a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+sponsor_level.size href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
-          else
-            a.o-Block.c-SponsorBlock__Text(href=item.href)= item.name
+          a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+sponsor_level.size href=item.href style='background-image: url(\'' + item.src + '\');')= item.name

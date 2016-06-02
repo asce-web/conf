@@ -8,6 +8,13 @@
 @import (reference) url('__settings.less');
 
 
+// mixin for setting the `max-width` and `height` of sponsor logos.
+// `width` should be intrinsically `auto`
+.p-dimensions(@x; @y) {
+  max-width: @x;
+  height: @y;
+}
+
 // A section containing one level of sponsor.
 //
 // ^subclasses
@@ -32,7 +39,7 @@
 // @p-color_coop_bg:   #e8eaeb; // bgcolor for coop orgs
 
 .c-SponsorBlock {
-  text-align: center;
+  // text-align: center;
 }
 .c-SponsorBlock--separate {
   .border-vert(bottom; 1px);
@@ -47,56 +54,49 @@
 }
 
 .c-SponsorBlock__Logo {
+  margin: auto;
+  text-indent: -999999px;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
-
-.mx-dimensions(@x; @y) {
-  max-width: @x;
-  height: @y;
-}
-.c-SponsorBlock__Logo {
-  margin: auto;
-  text-indent: -999999px;
-}
 .c-SponsorBlock__Logo--sml {
-  .mx-dimensions(68px; 36px);
+  .p-dimensions(68px; 36px);
   @media screen and (min-width: 45em) {
-    .mx-dimensions(140px; 62px);
+    .p-dimensions(140px; 62px);
   }
   @media screen and (min-width: 60em) {
-    .mx-dimensions(202px; 90px);
+    .p-dimensions(202px; 90px);
   }
 }
 .c-SponsorBlock__Logo--med {
-  .mx-dimensions(90px; 48px);
+  .p-dimensions(90px; 48px);
   @media screen and (min-width: 45em) {
-    .mx-dimensions(188px; 82px);
+    .p-dimensions(188px; 82px);
   }
   @media screen and (min-width: 60em) {
-    .mx-dimensions(270px; 120px);
+    .p-dimensions(270px; 120px);
   }
 }
 .c-SponsorBlock__Logo--lrg {
-  .mx-dimensions(120px; 65px);
+  .p-dimensions(120px; 65px);
   @media screen and (min-width: 45em) {
-    .mx-dimensions(250px; 110px);
+    .p-dimensions(250px; 110px);
   }
   @media screen and (min-width: 60em) {
-    .mx-dimensions(360px; 160px);
+    .p-dimensions(360px; 160px);
   }
 }
 
-.c-SponsorBlock__Text {
-  .font-size-el(0.875);
-  // &:not(:last-child)::after {
-  //   content: '';
-  //   padding-right: 1rem;
-  //   border-right: 1px solid @color_asce_primary; // so no change on hover
-  //   margin-right: 1re,;
-  // }
-}
+// .c-SponsorBlock__Text {
+//   .font-size-el(0.875);
+//   // &:not(:last-child)::after {
+//   //   content: '';
+//   //   padding-right: 1rem;
+//   //   border-right: 1px solid @color_asce_primary; // so no change on hover
+//   //   margin-right: 1rem;
+//   // }
+// }
 
 .c-SponsorBlock__Label {
   font-weight: 800;

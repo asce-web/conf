@@ -2,7 +2,6 @@
 /*################################*\
     conf  |  _shame.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
 @import (reference) url('__settings.less');
 
 
@@ -46,14 +45,4 @@
   white-space: nowrap;
   // background-color: @g-color_asce_label_bg;
   // color: @g-color_asce_label_txt;
-}
-
-
-// sponsor carousel will always show 3 sponsor logos at a time
-// TODO use object `.o-FLex > .o-Flex__Item` after install xmeter@v5
-#sponsors ~ .c-SponsorBlock > .o-ListBare.o-GridFlex > .o-GridFlex__Item {
-  .flex(1); // more elegant than `width:33%;`
-  &:not(:last-child) {
-    padding-right: 1rem;
-  }
 }

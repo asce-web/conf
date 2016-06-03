@@ -1,7 +1,7 @@
 h1#sponsors Sponsors
-div.c-SponsorBlock: ul.o-ListBare.o-GridFlex.o-ListStacked
+div.c-SponsorBlock: ul.o-ListBare.o-GridFlex
   each item in [getSponsor('ASCE Foundation'), getSponsor('Bentley'), getSponsor('Pennoni')]
-    li.o-GridFlex__Item.o-ListStacked__Item
+    li.o-GridFlex__Item
       a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
       small.c-SponsorBlock__Label= sponsorlevel[item.level].name
 +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')

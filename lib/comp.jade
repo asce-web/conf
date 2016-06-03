@@ -239,21 +239,19 @@ block append main
         }
       //- div.c-Hero
         +hero-content(demoevent)
-      div.c-Hero.
-        <h1 class="c-PageTitle c-Hero__Name" id="geo-risk-2017" itemprop="name">Geo-Risk 2017</h1>
-        <meta content="http://2017.georiskconference.org/" itemprop="url"/>
-        <p class="c-Hero__Detail">
-          <span class="c-Hero__Place" itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress">
-            <span itemprop="name">
-              <span itemprop="addressLocality">Denver, </span>
-              <abbr title="Colorado" itemprop="addressRegion">CO</abbr>
-            </span>
-          </span>
-          <span class="c-Hero__Dates">
-            <time datetime="2017-06-04" itemprop="startDate">Jun 4</time>–<time datetime="2017-06-07" itemprop="endDate">Jun 7</time>
-          </span>
-        </p>
-        <p class="c-Hero__Theme" itemprop="description">Geotechincal risk from theory to practice.</p>
+      div.c-Hero
+        h1.c-PageTitle.c-Hero__Name#geo-risk-2017(itemprop="name") Geo-Risk 2017
+        meta(content="http://2017.georiskconference.org/" itemprop="url")
+        p.c-Hero__Detail
+          span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+            span(itemprop="name")
+              span(itemprop="addressLocality") Denver,#{' '}
+              abbr(title="Colorado" itemprop="addressRegion") CO
+          span.c-Hero__Dates
+            time(datetime="2017-06-04" itemprop="startDate") Jun 4
+            | &ndash;
+            time(datetime="2017-06-07" itemprop="endDate") Jun 7
+        p.c-Hero__Theme(itemprop="description") Geotechincal risk from theory to practice.
       div
         input.show-md#show-md-hero(type="checkbox" value="hero-md-true")
         label(for="show-md-hero") show microdata
@@ -297,16 +295,14 @@ block append main
           p.c-OtherYear__Desc.
             Access the 2016 program to see which sessions qualify for
             PDHs and other documentation.
-      div.c-OtherYear.
-        <h1 class="c-OtherYear__Name" id="geo-chicago-2016" itemprop="name">Geo-Chicago 2016</h1>
-        <meta content="2016-08-14" itemprop="startDate"/>
-        <p class="c-OtherYear__Detail" itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress">
-          <span itemprop="name">
-            <span itemprop="addressLocality">Chicago, </span>
-            <abbr title="Illinois" itemprop="addressRegion">IL</abbr>
-          </span>
-        </p>
-        <p class="c-OtherYear__Desc">Access the 2016 program to see which sessions qualify for PDHs and other documentation.</p>
+      div.c-OtherYear
+        h1.c-OtherYear__Name#geo-chicago-2016(itemprop="name") Geo-Chicago 2016
+        meta(content="2016-08-14" itemprop="startDate")
+        p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+          span(itemprop="name")
+            span(itemprop="addressLocality") Chicago,#{' '}
+            abbr(title="Illinois" itemprop="addressRegion") IL
+        p.c-OtherYear__Desc Access the 2016 program to see which sessions qualify for PDHs and other documentation.
       div
         input.show-md#show-md-otheryear(type="checkbox" value="otheryear-md-true")
         label(for="show-md-otheryear") show microdata

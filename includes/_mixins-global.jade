@@ -46,7 +46,7 @@ mixin sitemenulist(args)
 mixin event-location-name(loc)
   span(itemprop="name")
     span(itemprop="addressLocality")= loc.addressLocality + ', '
-    abbr(itemprop="addressRegion" title=loc.addressRegion_title)
+    abbr(title=loc.addressRegion_title itemprop="addressRegion")
       = loc.addressRegion
 
 

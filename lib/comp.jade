@@ -240,7 +240,7 @@ block append main
       //- div.c-Hero
         +hero-content(demoevent)
       div.c-Hero
-        h1.c-PageTitle.c-Hero__Name#geo-risk-2017(itemprop="name") Geo-Risk 2017
+        h1.c-PageTitle.c-Hero__Name(itemprop="name") Geo-Risk 2017
         meta(content="http://2017.georiskconference.org/" itemprop="url")
         p.c-Hero__Detail
           span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
@@ -257,7 +257,7 @@ block append main
         label(for="show-md-hero") show microdata
         pre.has-md.
           &lt;div class="#[u c-Hero]"#[mark  itemscope="" itemtype="http://schema.org/Event"]&gt;
-            &lt;h1 class="c-PageTitle #[u c-Hero__Name]"#[mark  id="geo-risk-2017" itemprop="name"]&gt;Geo-Risk 2017&lt;/h1&gt;
+            &lt;h1 class="c-PageTitle #[u c-Hero__Name]"#[mark  itemprop="name"]&gt;Geo-Risk 2017&lt;/h1&gt;
             #[mark!= '&lt;meta content="http://2017.georiskconference.org/" itemprop="url"/&gt;']
             &lt;p class="#[u c-Hero__Detail]"&gt;
               &lt;span class="#[u c-Hero__Place]"#[mark  itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress"]&gt;
@@ -296,7 +296,7 @@ block append main
             Access the 2016 program to see which sessions qualify for
             PDHs and other documentation.
       div.c-OtherYear
-        h1.c-OtherYear__Name#geo-chicago-2016(itemprop="name") Geo-Chicago 2016
+        h1.c-OtherYear__Name(itemprop="name") Geo-Chicago 2016
         meta(content="2016-08-14" itemprop="startDate")
         p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
           span(itemprop="name")
@@ -308,7 +308,7 @@ block append main
         label(for="show-md-otheryear") show microdata
         pre.has-md.
           &lt;div class="#[u c-OtherYear]"#[mark  itemscope="" itemtype="http://schema.org/Event"]&gt;
-            &lt;h1 class="#[u c-OtherYear__Name]"#[mark  id="geo-chicago-2016" itemprop="name"]&gt;Geo-Chicago 2016&lt;/h1&gt;
+            &lt;h1 class="#[u c-OtherYear__Name]"#[mark  itemprop="name"]&gt;Geo-Chicago 2016&lt;/h1&gt;
             #[mark!= '&lt;meta content="2016-08-14" itemprop="startDate"/&gt;']
             &lt;p class="#[u c-OtherYear__Detail]"#[mark  itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress"]&gt;
               #[mark &lt;span itemprop="name"&gt;]

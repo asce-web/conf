@@ -350,62 +350,97 @@ block append main
   section.sg-sect#sponsor-block
     h2 The Sponsor Block
     p A Sponsor Block holds one group of sponsors.
+    h3 Sponsor Page
+    p.
+      On the Sponsor page, each Sponsor Block corresponds to one level,
+      e.g., Platinum, Gold, or Corporate.
+      This block is a #[code section] containing a heading
+      (the name of the sponsor level)
+      followed by an unordered list of sponsor logo items.
+    p.
+      To separate multiple sponsor blocks, add class #[code .c-SponsorBlock--separate]
+      for a thin bottom border.
     figure.sg-c-Fig
-      section.c-SponsorBlock
-        h1.c-SponsorBlock__Hn Large Sponsors
+      section.c-SponsorBlock.c-SponsorBlock--separate
+        h1.c-SponsorBlock__Hn Titanium Sponsors
         ul.o-ListBare.o-GridFlex.o-ListStacked
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" title="Bank of America" style="background-position: center; background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');")
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" title="UPS"             style="background-position: center; background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');")
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" title="Geico"           style="background-position: center; background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');")
-      section.c-SponsorBlock
-        h1.c-SponsorBlock__Hn Medium Sponsors
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
+      section.c-SponsorBlock.c-SponsorBlock--separate
+        h1.c-SponsorBlock__Hn Platinum Sponsors
         ul.o-ListBare.o-GridFlex.o-ListStacked
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" title="Bank of America" style="background-position: center; background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');")
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" title="UPS"             style="background-position: center; background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');")
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" title="Geico"           style="background-position: center; background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');")
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
       section.c-SponsorBlock
-        h1.c-SponsorBlock__Hn Small Sponsors
+        h1.c-SponsorBlock__Hn Gold Sponsors
         ul.o-ListBare.o-GridFlex.o-ListStacked
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" title="Bank of America" style="background-position: center; background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');")
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" title="UPS"             style="background-position: center; background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');")
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" title="Geico"           style="background-position: center; background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');")
-      section.c-SponsorBlock
-        h1.c-SponsorBlock__Hn Text Sponsors
-        ul.o-ListBare.o-GridFlex.o-ListStacked
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.c-SponsorBlock__Text(href="") Bank of America
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.c-SponsorBlock__Text(href="") UPS
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.c-SponsorBlock__Text(href="") Geico
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
       pre.
-        &lt;div class="#[u c-SponsorBlock]"&gt;
-          &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Large Sponsors&lt;/h1&gt;
+        &lt;section class="#[u c-SponsorBlock]  #[u c-SponsorBlock--separate]"&gt;
+          &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Titanium Sponsors&lt;/h1&gt;
           &lt;ul class="o-ListBare  o-GridFlex  o-ListStacked"&gt;
             &lt;li class="o-GridFlex__Item  o-ListStacked__Item"&gt;
-              &lt;a class="o-Block  #[u c-SponsorBlock__Logo]  #[u c-SponsorBlock__Logo--lrg]"&gt;&lt;/a&gt;
+              &lt;a class="o-Block  #[u c-SponsorBlock__Logo]  #[u c-SponsorBlock__Logo--lrg]"&gt;Bank of America&lt;/a&gt;
             &lt;/li&gt;
             ...
           &lt;/ul&gt;
-        &lt;/div&gt;
+        &lt;/section&gt;
+        &lt;section class="#[u c-SponsorBlock]"&gt;
+          &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Platinum Sponsors&lt;/h1&gt;
+          ...
+        &lt;/section&gt;
         ...
-        &lt;div class="#[u c-SponsorBlock]"&gt;
-          &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Text Sponsors&lt;/h1&gt;
-          &lt;ul class="o-ListBare  o-GridFlex  o-ListStacked"&gt;
-            &lt;li class="o-GridFlex__Item  o-ListStacked__Item"&gt;
-              &lt;a class="#[u c-SponsorBlock__Text]"&gt;Bank of America&lt;/a&gt;
+    h3 All Site Pages
+    p.
+      On every page other than the Sponsor page, the Sponsor Block should be used
+      for the entire list of sponsors (in order by rank) displayed in a rotating
+      carousel. This block has no heading, and as such, is not a #[code section].
+      Instead, it&rsquo;s a #[code div] containing a back button,
+      followed by an #[em ordered] list of sponsor logo items, followed by
+      a forward button. The list should be ordered because the sponsors are
+      displayed by rank (highest ranking sponsors first).
+    figure.sg-c-Fig
+      div.o-GridFlex.c-SponsorBlock
+        button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--back #[i.material-icons chevron_left] #[span.-d-n &laquo;]
+        ol.o-GridFlex__Item.o-ListBare.o-GridFlex.c-Sponsor__Carousel
+          li.o-GridFlex__Item.c-Sponsor__Carousel__Item
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
+            small.c-SponsorBlock__Label Platinum
+          li.o-GridFlex__Item.c-Sponsor__Carousel__Item
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
+            small.c-SponsorBlock__Label Platinum
+          li.o-GridFlex__Item.c-Sponsor__Carousel__Item
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
+            small.c-SponsorBlock__Label Silver
+        button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--fwrd #[i.material-icons chevron_right] #[span.-d-n &raquo;]
+      pre.
+        &lt;div class="o-GridFlex  #[u c-SponsorBlock]"&gt;
+          &lt;button class="o-GridFlex__Item  c-Btn  c-Btn--inline  c-Btn--flat  #[u c-SponsorBlock__Btn]  #[u c-SponsorBlock__Btn--back]"&gt;
+            &lt;i class="material-icons"&gt;chevron_left&lt;/i&gt;
+          &lt;/button&gt;
+          &lt;ol class="o-GridFlex__Item  o-ListBare  o-GridFlex  #[u c-Sponsor__Carousel]"&gt;
+            &lt;li class="o-GridFlex__Item"  #[u c-Sponsor__Carousel__Item]&gt;
+              &lt;a class="o-Block  #[u c-SponsorBlock__Logo]  #[u c-SponsorBlock__Logo--lrg]"&gt;Bank of America&lt;/a&gt;
+              &lt;small class="#[u c-SponsorBlock__Label]"&gt;Platinum&lt;/small&gt;
             &lt;/li&gt;
             ...
-          &lt;/ul&gt;
+          &lt;/ol&gt;
+          &lt;button class="o-GridFlex__Item  c-Btn  c-Btn--inline  c-Btn--flat  #[u c-SponsorBlock__Btn]  #[u c-SponsorBlock__Btn--fwrd]"&gt;
+            &lt;i class="material-icons"&gt;chevron_right&lt;/i&gt;
+          &lt;/button&gt;
         &lt;/div&gt;
   section.sg-sect#date-block
     h2 The Date Block

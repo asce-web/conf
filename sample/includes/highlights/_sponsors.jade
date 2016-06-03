@@ -1,7 +1,10 @@
 h1#sponsors Sponsors
-div.c-SponsorBlock: ul.o-ListBare.o-GridFlex.o-ListStacked
-  each item in [getSponsor('ASCE Foundation'), getSponsor('Bentley'), getSponsor('Pennoni')]
-    li.o-GridFlex__Item.o-ListStacked__Item
-      a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
-      small.c-SponsorBlock__Label= sponsorlevel[item.level].name
+div.o-GridFlex.c-SponsorBlock
+  button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--back #[i.material-icons chevron_left]
+  ol.o-GridFlex__Item.o-ListBare.o-GridFlex.c-Sponsor__Carousel
+    each item in [getSponsor('ASCE Foundation'), getSponsor('Bentley'), getSponsor('Pennoni')]
+      li.o-GridFlex__Item.c-Sponsor__Carousel__Item
+        a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
+        small.c-SponsorBlock__Label= sponsorlevel[item.level].name
+  button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--fwrd #[i.material-icons chevron_right]
 +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')

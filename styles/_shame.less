@@ -51,7 +51,7 @@
 
 // sponsor carousel will always show 3 sponsor logos at a time
 // TODO use object `.o-FLex > .o-Flex__Item` after install xmeter@v5
-#sponsors ~ .c-SponsorBlock .o-GridFlex__Item {
+#sponsors ~ .c-SponsorBlock > .o-ListBare.o-GridFlex > .o-GridFlex__Item {
   .flex(1); // more elegant than `width:33%;`
   &:not(:last-child) {
     padding-right: 1rem;

@@ -1,7 +1,25 @@
 h1#sponsors Sponsors
-div.c-SponsorBlock: ul.o-ListBare.o-GridFlex
-  each item in [getSponsor('ASCE Foundation'), getSponsor('Bentley'), getSponsor('Pennoni')]
-    li.o-GridFlex__Item
-      a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
-      small.c-SponsorBlock__Label= sponsorlevel[item.level].name
+style.
+  .c-SponsorBlock {
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .c-SponsorBlock__Btn {
+    flex: none;
+    flex: 0; /* TODO remove this after xmeter@v5 */
+  }
+  .c-SponsorBlock__Btn--back {
+    margin-right: 1rem;
+  }
+  .c-SponsorBlock__Btn--fwrd {
+    margin-left: 1rem;
+  }
+div.o-GridFlex.c-SponsorBlock
+  button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--back #[i.material-icons chevron_left] #[span.-d-n &laquo;]
+  ul.o-GridFlex__Item.o-ListBare.o-GridFlex
+    each item in [getSponsor('ASCE Foundation'), getSponsor('Bentley'), getSponsor('Pennoni')]
+      li.o-GridFlex__Item
+        a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
+        small.c-SponsorBlock__Label= sponsorlevel[item.level].name
+  button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--fwrd #[i.material-icons chevron_right] #[span.-d-n &raquo;]
 +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')

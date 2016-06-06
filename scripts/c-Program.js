@@ -3,7 +3,7 @@ function resizeProgram() {
     n = n || 1
     $('.c-Program').height(function () {
       var program = $(this).find('.c-Program__Schedule--shown')
-      var program_total_height = program.height() + parseInt(program.css('margin-bottom'))
+      var program_total_height = program.height() + parseInt(program.css('padding-top')) + parseInt(program.css('margin-bottom'))
       var heading = program.prev('.c-Program__Hn')
       var heading_total_height = heading.height() + parseInt(heading.css('padding-top')) + parseInt(heading.css('margin-bottom'))
       return program_total_height + (n * heading_total_height)

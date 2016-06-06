@@ -5,7 +5,7 @@ mixin program(all_events, show_all)
         input.c-Program__Check(type="radio" name="program" value=events[0].startDate)&attributes((index===0) ? {checked:''} : {})
         time(datetime=events[0].startDate)
           - var date = new Date(events[0].startDate)
-          span= day_names[date.getUTCDay()] + ', '
-          span= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
+          span.js-= day_names[date.getUTCDay()] + ', '
+          span.js-= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
       include _c-TimeBlock.jade
       +timeBlock(events, show_all)

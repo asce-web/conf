@@ -539,6 +539,23 @@ block append main
       Enable Javascript to experience visual effects.
       Elements with class #[code .js-*] are required for Javascript.
     figure.sg-c-Fig
+      -
+        var demoprog = [
+          [
+            { startDate: '2016-09-28 10:00', endDate: '2016-09-28 19:00', name: 'Registration' }
+          ]
+        , [
+            { startDate: '2016-09-29 07:00', endDate: '2016-09-29 16:30', name: 'Registration' }
+          ]
+        , [
+            { startDate: '2016-09-30 07:00', endDate: '2016-09-30 16:30', name: 'Registration' }
+          ]
+        , [
+            { startDate: '2016-10-01 07:00', endDate: '2016-10-01 14:30', name: 'Registration' }
+          ]
+        ]
+      include /includes/components/_c-Program.jade
+      //- +program(demoprog, true)
       section.o-GridFlex.c-Program
         h1.o-GridFlex__Item.c-Program__Hn: label
           input.c-Program__Check(type="radio" name="programbeta" value="2016-09-28" checked="")

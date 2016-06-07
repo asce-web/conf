@@ -2,8 +2,7 @@
 /*################################*\
     conf  |  _comp.TimeBlock.less
 \*################################*/
-// @import (reference) url('../node_modules/xmeter/src/__tool.module.borders.less');
-// @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 
 
 // A list of program events for a single day.
@@ -20,8 +19,7 @@
 @l-mem: @p-font_size_mod * 1rem; // module em (like root em if the module were the root)
 @l-vru: @p-font_size_mod * @g-vru; // module vru
 .c-TimeBlock {
-  // .flex-align-content(flex-start); // override `stretch`
-  padding: 0 @g-boxpadd_kilo_h;
+  padding: @l-vru @g-boxpadd_kilo_h 0;
 }
 
 

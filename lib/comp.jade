@@ -542,7 +542,7 @@ block append main
       -
         var demoprog = [
           [
-            { startDate: '2016-09-28 10:00', endDate: '2016-09-28 19:00', name: 'Registration' }
+            { startDate: '2016-09-28 10:10', endDate: '2016-09-28 19:00', name: 'Registration' }
           ]
         , [
             { startDate: '2016-09-29 07:00', endDate: '2016-09-29 16:30', name: 'Registration' }
@@ -555,8 +555,8 @@ block append main
           ]
         ]
       include /includes/components/_c-Program.jade
-      //- +program(demoprog, true)
-      section.o-GridFlex.c-Program
+      +program(demoprog, true)
+      //- section.o-GridFlex.c-Program
         h1.o-GridFlex__Item.c-Program__Hn: label
           input.c-Program__Check(type="radio" name="programbeta" value="2016-09-28" checked="")
           time(datetime="2016-09-28")
@@ -587,8 +587,8 @@ block append main
             &lt;label&gt;
               &lt;input class="#[u c-Program__Check]" type="radio" name="program" value="2016-09-28"/&gt;
               &lt;time datetime="2016-09-28"&gt;
-                &lt;span class="js-"&gt;Wednesday, &lt;/span&gt;
-                &lt;span class="js-"&gt;Sep 28&lt;/span&gt;
+                &lt;span class="#[u js-]"&gt;Wednesday, &lt;/span&gt;
+                &lt;span class="#[u js-]"&gt;Sep 28&lt;/span&gt;
               &lt;/time&gt;
             &lt;/label&gt;
           &lt;/h1&gt;

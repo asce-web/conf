@@ -1,4 +1,8 @@
 h1#program-highlights Program Highlights
 include /includes/components/_c-Program.jade
-+program(program_events, false, 'c-Overlay')
++program(program_events.length, 'program-highlights-block', 'c-Overlay')
+  mixin heading(i)
+    +programHeading(i, program_events)
+  mixin content(i)
+    +programContent(i, program_events, false)
 +actionchoices([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')

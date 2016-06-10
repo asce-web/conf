@@ -10,7 +10,11 @@ block main-reference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n#full-program Full Program
     include /includes/components/_c-Program.jade
-    +program(program_events, true, 'c-Overlay')
+    +program(program_events.length, 'full-program-block', 'c-Overlay')
+      mixin heading(i)
+        +programHeading(i, program_events)
+      mixin content(i)
+        +programContent(i, program_events, true)
     p: small Program subject to change.
 
 block callouts

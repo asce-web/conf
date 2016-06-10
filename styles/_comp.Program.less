@@ -6,7 +6,6 @@
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
-@import (reference) url('_dev.less');
 
 
 // A block containing the entire program.
@@ -25,7 +24,6 @@
   .flex-justify-content(center);
   .flex-align-content(flex-start); // push flex items to top
   .flex-align-items(flex-start); // minimize height of flex items
-  margin-bottom: @g-vru;
   .font-size-mod(14/16); // NOTE this value is used in `TimeBlock.less`
   overflow: hidden;
   .transition-multi(height @p-transdura);
@@ -41,7 +39,6 @@
 }
 .c-Program__Hn {
   .font-size-el(1);
-  white-space: nowrap;
   cursor: pointer;
   &:not(.c-Program__Hn--selected) {
     color: @g-color_site_gray_lt;
@@ -54,7 +51,7 @@
   }
 }
 .c-Program__Hn--selected {
-  .transform(scale(1.2,1.2));
+  .transform(scale(1.2));
 }
 
 .c-Program__Schedule {

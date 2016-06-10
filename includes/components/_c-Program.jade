@@ -17,5 +17,5 @@ mixin programHeading(i, all_events)
   - var event0 = all_events[i][0]
   time(datetime=event0.startDate)
     - var date = new Date(event0.startDate)
-    span.js-= day_names[date.getUTCDay()] + ', '
-    span.js-= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
+    span.js-o-Block-sK= day_names[date.getUTCDay()] + ', '
+    span.js-o-Block-sK= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()

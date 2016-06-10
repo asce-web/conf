@@ -554,29 +554,26 @@ block append main
           &lt;div class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;content 1&lt;/div&gt;
           ...
         &lt;/section&gt;
-  //- section.sg-sect#_
-    h2 ?
     p.
-      Enable Javascript to experience visual effects.
+      Since the Program Component will be used to display program event information,
+      the headings will be dates. Each heading should have the following structure
+      and include similar data.
       Elements with class #[code .js-*] are required for Javascript.
     figure.sg-c-Fig
+      h1.o-GridFlex__Item.c-Program__Hn: label
+        time(datetime="2016-09-28")
+          span.js- Wednesday,#{' '}
+          span.js- Sep 28
       pre.
-        &lt;section class="o-GridFlex  #[u c-Program]"&gt;
-          &lt;h1 class="o-GridFlex__Item  #[u c-Program__Hn]"&gt;
-            &lt;label&gt;
-              &lt;input class="#[u c-Program__Check]" type="radio" name="program" value="2016-09-28"/&gt;
-              &lt;time datetime="2016-09-28"&gt;
-                &lt;span class="#[u js-]"&gt;Wednesday, &lt;/span&gt;
-                &lt;span class="#[u js-]"&gt;Sep 28&lt;/span&gt;
-              &lt;/time&gt;
-            &lt;/label&gt;
-          &lt;/h1&gt;
-          &lt;div class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;program schedule ...&lt;/div&gt;
-
-          &lt;h1 class="o-GridFlex__Item  #[u c-Program__Hn]"&gt;...&lt;/h1&gt;
-          &lt;div class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;...&lt;/div&gt;
-          ...
-        &lt;/section&gt;
+        &lt;h1 class="#[u c-Program__Hn]"&gt;
+          &lt;label&gt;
+            &lt;input class="#[u c-Program__Check]" .../&gt;
+            &lt;time datetime="2016-09-28"&gt;
+              &lt;span class="#[u js-]"&gt;Wednesday, &lt;/span&gt;
+              &lt;span class="#[u js-]"&gt;Sep 28&lt;/span&gt;
+            &lt;/time&gt;
+          &lt;/label&gt;
+        &lt;/h1&gt;
   section.sg-sect#time-block
     h2 The Time Block
     figure.sg-c-Fig

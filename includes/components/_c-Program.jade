@@ -19,7 +19,3 @@ mixin programHeading(i, all_events)
     - var date = new Date(event0.startDate)
     span.js-= day_names[date.getUTCDay()] + ', '
     span.js-= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
-
-mixin programContent(i, all_events, show_all)
-  include _c-TimeBlock.jade
-  +timeBlock(all_events[i], show_all)

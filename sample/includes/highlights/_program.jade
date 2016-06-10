@@ -4,5 +4,6 @@ include /includes/components/_c-Program.jade
   mixin heading(i)
     +programHeading(i, program_events)
   mixin content(i)
-    +programContent(i, program_events, false)
+    include /includes/components/_c-TimeBlock.jade
+    +timeBlock(program_events[i], false)
 +actionchoices([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')

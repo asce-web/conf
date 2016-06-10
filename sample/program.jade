@@ -14,7 +14,8 @@ block main-reference
       mixin heading(i)
         +programHeading(i, program_events)
       mixin content(i)
-        +programContent(i, program_events, true)
+        include /includes/components/_c-TimeBlock.jade
+        +timeBlock(program_events[i], true)
     p: small Program subject to change.
 
 block callouts

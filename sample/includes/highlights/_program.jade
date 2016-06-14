@@ -1,6 +1,6 @@
 h1#program-highlights Program Highlights
 include /includes/components/_c-Program.jade
-+program(program_events.length, 'program-highlights-block', 'c-Overlay')
++program(program_events.length, {id:'program-highlights-block', class:'c-Overlay', style:'margin-bottom: 1.5rem;'})
   mixin heading(i)
     +programHeading(program_events[i][0])
   mixin content(i)

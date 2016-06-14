@@ -12,7 +12,7 @@ block main-reference
     include /includes/components/_c-Program.jade
     +program(program_events.length, 'full-program-block', 'c-Overlay')
       mixin heading(i)
-        +programHeading(i, program_events)
+        +programHeading(program_events[i][0])
       mixin content(i)
         include /includes/components/_c-TimeBlock.jade
         +timeBlock(program_events[i], true)

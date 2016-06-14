@@ -560,10 +560,10 @@ block append main
       and include similar data.
       Elements with class #[code .js-*] are required for Javascript.
     figure.sg-c-Fig
+      - var sampevent = { startDate: '2016-09-28 10:10', endDate: '2016-09-28 19:00', name: 'Registration' }
       h1.o-GridFlex__Item.c-Program__Hn: label
-        time(datetime="2016-09-28")
-          span.js-o-Block-sK Wednesday,#{' '}
-          span.js-o-Block-sK Sep 28
+        include /includes/components/_c-Program.jade
+        +programHeading(sampevent)
       pre.
         &lt;h1 class="#[u c-Program__Hn]"&gt;
           &lt;label&gt;

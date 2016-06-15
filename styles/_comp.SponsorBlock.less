@@ -67,6 +67,9 @@
   .flex(1); // more elegant than `width:33%;`
   &:not(:last-child) {
     padding-right: 1rem;
+    @media screen and (min-width: 45em) {
+      padding-right: 2rem;
+    }
   }
 }
 

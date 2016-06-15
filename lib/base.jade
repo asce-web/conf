@@ -3,6 +3,10 @@ extends lib.tpl.jade
 block append vars
   - var page_id = lib[2]
   - titles.push(page_id.name)
+  -
+    var classname = {
+      figure : 'sg-c-Fig'
+    }
 
 block append main__header
   nav#table-contents
@@ -11,8 +15,4 @@ block append main__header
 
 
 block append main
-  -
-    var classname = {
-      figure : 'sg-c-Fig'
-    }
   include includes/_base-extension.jade

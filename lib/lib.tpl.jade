@@ -27,8 +27,10 @@ html(lang="en")
     main
       block main
         header
-          block main__header
-            h1= mainH1(titles)
+          h1= mainH1(titles)
+          nav#table-contents
+            h2 Table of Contents
+            block toc
     footer
       nav
         h1 Subsitemap

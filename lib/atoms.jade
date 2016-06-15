@@ -4,9 +4,7 @@ block append vars
   - var page_id = lib[6]
   - titles.push(page_id.name)
 
-block append main__header
-  nav#table-contents
-    h2 Table of Contents
+block toc
     +libtoc({pages: page_id.sub, depth: Infinity})
 
 //- block append main

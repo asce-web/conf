@@ -5,7 +5,9 @@ block append vars
   - titles.pop()
   - titles.push(page_id.name)
 
-block append main
+block main
+  header
+    h1= mainH1(titles)
   p.
     This pattern library contains demos of components
     that live on conference website pages. These components are shown out of context,
@@ -14,7 +16,7 @@ block append main
   p.
     #[strong Note:] On these pages, component demos and example code will be
     placed in #[code &lt;figure&gt;] elements to separate them from the surrounding documentation.
-  nav
+  nav#table-contents
     h2 Table of Contents
     each page in lib.slice(1)
       section

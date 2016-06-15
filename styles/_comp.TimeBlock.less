@@ -25,12 +25,11 @@
 
 .c-TimeBlock__Times,
 .c-TimeBlock__Desc {
+  position: relative; // for psuedo-elements in viz
+  padding: 0 @g-boxpadd_kilo_h (2*@l-vru);
   @media screen and (min-width: 30em) {
     width: 50%;
   }
-  @media screen                       { padding: 0 @g-boxpadd_micr_h (2*@l-vru); }
-  @media screen and (min-width: 30em) { padding: 0 @g-boxpadd_mill_h (2*@l-vru); }
-  @media screen and (min-width: 45em) { padding: 0 @g-boxpadd_norm_h (2*@l-vru); }
 }
 .c-TimeBlock__Times {
   @media screen and (max-width: 29.999em) {
@@ -49,12 +48,6 @@
 
 // Timeline Visualization
 @media screen {
-  .c-TimeBlock__Times,
-  .c-TimeBlock__Desc {
-    position: relative; // for psuedo-elements
-    padding-left:  @g-boxpadd_kilo_h;
-    padding-right: @g-boxpadd_kilo_h;
-  }
   .c-TimeBlock__Times::before,
   .c-TimeBlock__Desc:not(:last-of-type)::before {
     content: '';

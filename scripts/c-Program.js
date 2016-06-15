@@ -37,10 +37,8 @@ function updateProgram() {
   resizeProgram()
 }
 $(window).resize(resizeProgram)
-$('.c-Program__Hn')
-  .find('label'   ).addClass('o-Block-sK')
-  .find('time'    ).addClass('o-Block-sK')
-  .find('span.js-').addClass('o-Block-sK')
+$('.js-o-Block-sK').addClass('o-Block-sK')
+  .parentsUntil('.c-Program__Hn').addClass('o-Block-sK')
 $('.c-Program__Hn').addClass('-z-1') // over .c-Program__Schedule
 $('.c-Program__Schedule').addClass('-xo-1') // fallback `order: 1;`
   .css('position','absolute').css('left', 0)

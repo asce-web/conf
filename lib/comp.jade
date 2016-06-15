@@ -416,14 +416,14 @@ block append main
     figure.sg-c-Fig
       div.o-GridFlex.c-SponsorBlock
         button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--back #[i.material-icons chevron_left] #[span.-d-n &laquo;]
-        ol.o-GridFlex__Item.o-ListBare.o-GridFlex.c-Sponsor__Carousel
-          li.o-GridFlex__Item.c-Sponsor__Carousel__Item
+        ol.o-GridFlex__Item.o-ListBare.o-GridFlex.c-SponsorBlock__Carousel
+          li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
             a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
             small.c-SponsorBlock__Label Platinum
-          li.o-GridFlex__Item.c-Sponsor__Carousel__Item
+          li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
             a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
             small.c-SponsorBlock__Label Platinum
-          li.o-GridFlex__Item.c-Sponsor__Carousel__Item
+          li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
             a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
             small.c-SponsorBlock__Label Silver
         button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--fwrd #[i.material-icons chevron_right] #[span.-d-n &raquo;]
@@ -432,8 +432,8 @@ block append main
           &lt;button class="o-GridFlex__Item  c-Btn  c-Btn--inline  c-Btn--flat  #[u c-SponsorBlock__Btn]  #[u c-SponsorBlock__Btn--back]"&gt;
             &lt;i class="material-icons"&gt;chevron_left&lt;/i&gt;
           &lt;/button&gt;
-          &lt;ol class="o-GridFlex__Item  o-ListBare  o-GridFlex  #[u c-Sponsor__Carousel]"&gt;
-            &lt;li class="o-GridFlex__Item"  #[u c-Sponsor__Carousel__Item]&gt;
+          &lt;ol class="o-GridFlex__Item  o-ListBare  o-GridFlex  #[u c-SponsorBlock__Carousel]"&gt;
+            &lt;li class="o-GridFlex__Item"  #[u c-SponsorBlock__Carousel__Item]&gt;
               &lt;a class="o-Block  #[u c-SponsorBlock__Logo]  #[u c-SponsorBlock__Logo--lrg]"&gt;Bank of America&lt;/a&gt;
               &lt;small class="#[u c-SponsorBlock__Label]"&gt;Platinum&lt;/small&gt;
             &lt;/li&gt;
@@ -537,67 +537,43 @@ block append main
     h2 The Program Component
     p.
       Enable Javascript to experience visual effects.
-      Elements with class #[code .js-*] are required for Javascript.
     figure.sg-c-Fig
-      -
-        var demoprog = [
-          [
-            { startDate: '2016-09-28 10:00', endDate: '2016-09-28 19:00', name: 'Registration' }
-          ]
-        , [
-            { startDate: '2016-09-29 07:00', endDate: '2016-09-29 16:30', name: 'Registration' }
-          ]
-        , [
-            { startDate: '2016-09-30 07:00', endDate: '2016-09-30 16:30', name: 'Registration' }
-          ]
-        , [
-            { startDate: '2016-10-01 07:00', endDate: '2016-10-01 14:30', name: 'Registration' }
-          ]
-        ]
       include /includes/components/_c-Program.jade
-      //- +program(demoprog, true)
-      section.o-GridFlex.c-Program
-        h1.o-GridFlex__Item.c-Program__Hn: label
-          input.c-Program__Check(type="radio" name="programbeta" value="2016-09-28" checked="")
-          time(datetime="2016-09-28")
-            span.js- Wednesday,#{' '}
-            span.js- Sep 28
-        div.o-GridFlex__Item.c-Program__Schedule program schedule content 1
-        h1.o-GridFlex__Item.c-Program__Hn: label
-          input.c-Program__Check(type="radio" name="programbeta" value="2016-09-29")
-          time(datetime="2016-09-29")
-            span.js- Thursday,#{' '}
-            span.js- Sep 29
-        div.o-GridFlex__Item.c-Program__Schedule program schedule content 2
-        h1.o-GridFlex__Item.c-Program__Hn: label
-          input.c-Program__Check(type="radio" name="programbeta" value="2016-09-30")
-          time(datetime="2016-09-30")
-            span.js- Friday,#{' '}
-            span.js- Sep 30
-        div.o-GridFlex__Item.c-Program__Schedule program schedule content 3
-        h1.o-GridFlex__Item.c-Program__Hn: label
-          input.c-Program__Check(type="radio" name="programbeta" value="2016-10-01")
-          time(datetime="2016-10-01")
-            span.js- Saturday,#{' '}
-            span.js- Oct 1
-        div.o-GridFlex__Item.c-Program__Schedule program schedule content 4
+      +program(3, {id:'demoprog'})
       pre.
-        &lt;section class="o-GridFlex  #[u c-Program]"&gt;
+        &lt;section class="o-GridFlex  #[u c-Program]" id="demoprog"&gt;
           &lt;h1 class="o-GridFlex__Item  #[u c-Program__Hn]"&gt;
             &lt;label&gt;
-              &lt;input class="#[u c-Program__Check]" type="radio" name="program" value="2016-09-28"/&gt;
-              &lt;time datetime="2016-09-28"&gt;
-                &lt;span class="js-"&gt;Wednesday, &lt;/span&gt;
-                &lt;span class="js-"&gt;Sep 28&lt;/span&gt;
-              &lt;/time&gt;
+              &lt;input class="#[u c-Program__Check]" type="radio" name="program-demoprog" value="0" checked=""/&gt;
+              heading 0
             &lt;/label&gt;
           &lt;/h1&gt;
-          &lt;div class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;program schedule ...&lt;/div&gt;
+          &lt;div class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;content 0&lt;/div&gt;
 
-          &lt;h1 class="o-GridFlex__Item  #[u c-Program__Hn]"&gt;...&lt;/h1&gt;
-          &lt;div class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;...&lt;/div&gt;
+          &lt;h1 class="o-GridFlex__Item  #[u c-Program__Hn]"&gt;... heading 1 ...&lt;/h1&gt;
+          &lt;div class="o-GridFlex__Item  #[u c-Program__Schedule]"&gt;content 1&lt;/div&gt;
           ...
         &lt;/section&gt;
+    p.
+      Since the Program Component will be used to display program event information,
+      the headings will be dates. Each heading should have the following structure
+      and include similar data.
+      Elements with class #[code .js-*] are required for Javascript.
+    figure.sg-c-Fig
+      - var sampevent = { startDate: '2016-09-28 10:10', endDate: '2016-09-28 19:00', name: 'Registration' }
+      h1.o-GridFlex__Item.c-Program__Hn: label
+        include /includes/components/_c-Program.jade
+        +programHeading(sampevent)
+      pre.
+        &lt;h1 class="#[u c-Program__Hn]"&gt;
+          &lt;label&gt;
+            &lt;input class="#[u c-Program__Check]" .../&gt;
+            &lt;time datetime="2016-09-28"&gt;
+              &lt;span class="#[u js-o-Block-sK]"&gt;Wednesday, &lt;/span&gt;
+              &lt;span class="#[u js-o-Block-sK]"&gt;Sep 28&lt;/span&gt;
+            &lt;/time&gt;
+          &lt;/label&gt;
+        &lt;/h1&gt;
   section.sg-sect#time-block
     h2 The Time Block
     figure.sg-c-Fig

@@ -1,11 +1,21 @@
-mixin program(all_events, show_all, classes)
-  section.o-GridFlex.c-Program(class=classes)
-    each events,index in all_events
+mixin program(n, attrs)
+  - attrs = attrs || {id: 'id'+n}
+  section.o-GridFlex.c-Program&attributes(attrs)
+    mixin heading(i)
+      | heading #{i}
+    mixin content(i)
+      | content #{i}
+    block
+    - for (var i = 0; i < n; i++)
       h1.o-GridFlex__Item.c-Program__Hn: label
-        input.c-Program__Check(type="radio" name="program" value=events[0].startDate)&attributes((index===0) ? {checked:''} : {})
-        time(datetime=events[0].startDate)
-          - var date = new Date(events[0].startDate)
-          span.js-= day_names[date.getUTCDay()] + ', '
-          span.js-= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
-      include _c-TimeBlock.jade
-      +timeBlock(events, show_all)
+        input.c-Program__Check(type="radio" name='program-'+attrs.id value=i)&attributes((i===0) ? {checked:''} : {})
+        +heading(i)
+      div.o-GridFlex__Item.c-Program__Schedule
+        +content(i)
+
+//- Use the following mixin as default definition for +heading(i) above.
+mixin programHeading(event0)
+  time(datetime=event0.startDate)
+    - var date = new Date(event0.startDate)
+    span.js-o-Block-sK= day_names[date.getUTCDay()] + ', '
+    span.js-o-Block-sK= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()

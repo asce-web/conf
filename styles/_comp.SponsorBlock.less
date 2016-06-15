@@ -58,15 +58,18 @@
   color: @g-color_site_gray_dk;
 }
 
-.c-Sponsor__Carousel {
+.c-SponsorBlock__Carousel {
   .flex-justify-content(space-around);
 }
 // sponsor carousel will always show 3 sponsor logos at a time
 // TODO use object `.o-FLex > .o-Flex__Item` after install xmeter@v5
-.c-Sponsor__Carousel__Item {
+.c-SponsorBlock__Carousel__Item {
   .flex(1); // more elegant than `width:33%;`
   &:not(:last-child) {
     padding-right: 1rem;
+    @media screen and (min-width: 45em) {
+      padding-right: 2rem;
+    }
   }
 }
 

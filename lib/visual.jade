@@ -37,10 +37,11 @@ block append main
   mixin colorsample(color)
     - var boxwidth = '96px'
     li.o-GridFlex__Item.-mr-1(style={width:boxwidth})
-      div.sg-c-ColorBox(class=color.bg_class style={height:boxwidth})
+      div.docs-ColorBox(class=color.bg_class style={height:boxwidth})
         p
           each foreground in [scheme.asce.black.code, scheme.asce.white.code]
-            code.o-Block(style={color:foreground})= color.code
+            code(style={color:foreground})= color.code
+            br
       p(style="font-size: 0.8rem; line-height:1.875;")
         span.o-Block= color.name
   section.sg-sect#asce

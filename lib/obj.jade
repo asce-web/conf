@@ -12,12 +12,12 @@ block append main__header
 block append main
   section.sg-sect#block-object
     h2 The Block Object
-    figure.sg-c-Fig
+    figure.docs-figure
       div.
         A simple block object. Use this class to display an element as a
         #[span.o-Block block element,]
         with an inherited line-height to maintain vertical rhythm.
-      pre.
+      pre.docs-pre.
         ... to display an element as a &lt;span class="#[u o-Block]"&gt;block element,&lt;/span&gt; with ...
   section.sg-sect#inline-object
     h2 The Inline Object
@@ -28,7 +28,7 @@ block append main
     p.
       This class is useful for creating inline lists, that is,
       lists whose items are each displayed one right after another, inline.
-    figure.sg-c-Fig
+    figure.docs-figure
       ul
         li.o-Inline Burns &amp; McDonnell Engineering
         li.o-Inline DIS-TRAN Steel, LLC
@@ -36,7 +36,7 @@ block append main
         li.o-Inline Electrical Consultants, Inc.
         li.o-Inline Fabrimet Inc.
         li.o-Inline Falcon Steel Company
-      pre.
+      pre.docs-pre.
         &lt;ul&gt;
           &lt;li class="#[u o-Inline]"&gt;Burns &amp; McDonnell Engineering&lt;/li&gt;
           &lt;li class="#[u o-Inline]"&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
@@ -48,7 +48,7 @@ block append main
       Use the Bare List object to remove the usual padding and list item markers accompanied by
       (un)ordered lists. The result is a list of items, each on its own line.
       Combine this class with other classes to create a variety of styles.
-    figure.sg-c-Fig
+    figure.docs-figure
       ul.o-ListBare
         li Burns &amp; McDonnell Engineering
         li DIS-TRAN Steel, LLC
@@ -56,7 +56,7 @@ block append main
         li Electrical Consultants, Inc.
         li Fabrimet Inc.
         li Falcon Steel Company
-      pre.
+      pre.docs-pre.
         &lt;ul class="#[u o-ListBare]"&gt;
           &lt;li&gt;Burns &amp; McDonnell Engineering&lt;/li&gt;
           &lt;li&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
@@ -81,7 +81,7 @@ block append main
       add class #[code .o-ListBare] to the container.
       If the items are normally inline elements, remember to add class
       #[code .o-Block] to each one.
-    figure.sg-c-Fig
+    figure.docs-figure
       ul.o-ListBare.o-GridFlex
         li.o-GridFlex__Item Burns &amp; McDonnell Engineering
         li.o-GridFlex__Item DIS-TRAN Steel, LLC
@@ -103,7 +103,7 @@ block append main
         li.o-GridFlex__Item TRC Engineers
         li.o-GridFlex__Item Underground Devices
         li.o-GridFlex__Item Valmont Newmark
-      pre.
+      pre.docs-pre.
         &lt;ul class="o-ListBare  #[u o-GridFlex]"&gt;
           &lt;li class="#[u o-GridFlex__Item]"&gt;Burns &amp; McDonnell Engineering&lt;/li&gt;
           &lt;li class="#[u o-GridFlex__Item]"&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
@@ -119,7 +119,7 @@ block append main
       each item must have the #[code .o-GridFloat__Item] class.
       To remove normal list styles (padding, bullets, etc.),
       add class #[code .o-ListBare] to the container.
-    figure.sg-c-Fig
+    figure.docs-figure
       ul.o-ListBare.o-GridFloat
         li.o-GridFloat__Item Burns &amp; McDonnell Engineering
         li.o-GridFloat__Item DIS-TRAN Steel, LLC
@@ -141,7 +141,7 @@ block append main
         li.o-GridFloat__Item TRC Engineers
         li.o-GridFloat__Item Underground Devices
         li.o-GridFloat__Item Valmont Newmark
-      pre.
+      pre.docs-pre.
         &lt;ul class="o-ListBare  #[u o-GridFloat]"&gt;
           &lt;li class="#[u o-GridFloat__Item]"&gt;Burns &amp; McDonnell Engineering&lt;/li&gt;
           &lt;li class="#[u o-GridFloat__Item]"&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
@@ -154,11 +154,11 @@ block append main
       It can be used for headers, footers, heros, highlight blocks, etc.,
       really, anything that looks like a “row” of a page.
       Change the window size and watch what happens to the padding.
-    figure.sg-c-Fig
+    figure.docs-figure
       div.o-Runner
         h1 runner heading
         p runner content
-      pre.
+      pre.docs-pre.
         &lt;div class="#[u o-Runner]"&gt;
           &lt;h1&gt;runner heading&lt;/h1&gt;
           &lt;p&gt;runner content&lt;/p&gt;
@@ -167,19 +167,19 @@ block append main
     p.
       Use #[code .o-Runner--pageHeader] for headers of pages,
       whether they be generic pages or special pages with hero banner headers.
-    figure.sg-c-Fig
+    figure.docs-figure
       div.o-Runner.o-Runner--pageHeader
         h1.o-Runner--pageHeader__Hn page heading
-      pre.
+      pre.docs-pre.
         &lt;div class="#[u o-Runner]  #[u o-Runner--pageHeader]"&gt;
           &lt;h1&gt;page heading&lt;/h1&gt;
         &lt;/div&gt;
     p Use #[code .o-Runner--highlight] for highlighted content callouts.
-    figure.sg-c-Fig
+    figure.docs-figure
       div.o-Runner.o-Runner--highlight
         h1 highlight block heading
         p highlight content
-      pre.
+      pre.docs-pre.
         &lt;div class="#[u o-Runner]  #[u o-Runner--highlight]"&gt;
           &lt;h1&gt;highlight block heading&lt;/h1&gt;
           &lt;p&gt;highlight content&lt;/p&gt;
@@ -189,12 +189,12 @@ block append main
       remove all padding on x-small screens. This will make the inner #[code :only-child]
       cover the entire Runner.
       Combine with other subclasses if necessary.
-    figure.sg-c-Fig
+    figure.docs-figure
       aside.o-Runner.o-Runner--wrappedInner
         div
           h1 runner with inner wrapper
           p runner content
-      pre.
+      pre.docs-pre.
         &lt;div class="#[u o-Runner]  #[u o-Runner--wrappedInner]"&gt;
           #[u &lt;div&gt;]
             &lt;h1&gt;Wrapper&lt;/h1&gt;
@@ -207,12 +207,12 @@ block append main
       This object wraps content, limiting its maximum width.
       Use it to wrap content directly inside a Runner
       (though it may not necessarily be a child of Runner).
-    figure.sg-c-Fig
+    figure.docs-figure
       div.o-Runner
         div.o-ContentWrapper
           h1 content heading
           p content
-      pre.
+      pre.docs-pre.
         &lt;div class="#[u o-Runner]"&gt;
           &lt;div class="#[u o-ContentWrapper]"&gt;
             &lt;h1&gt;content heading&lt;/h1&gt;
@@ -222,10 +222,10 @@ block append main
     //- p.
     //-   This Object also may not necessarily be a wrapper #[i(lang="la") per se];
     //-   it may be applied to a single element like a heading.
-    //- figure.sg-c-Fig
+    //- figure.docs-figure
     //-   div.o-Runner
     //-     h1.o-ContentWrapper heading with a max-width
-    //-   pre.
+    //-   pre.docs-pre.
     //-     &lt;div class="#[u o-Runner]"&gt;
     //-       &lt;h1 class="#[u o-ContentWrapper]"&gt;heading with a max-width&lt;/h1&gt;
     //-     &lt;/div&gt;
@@ -235,12 +235,12 @@ block append main
       An action list is a list of (typically 3 or less) choices of actions a user can make.
       This list is likely to contain buttons, but that is a styling choice.
       The structure of this list is less complicated than that of a Stacked List (below).
-    figure.sg-c-Fig
+    figure.docs-figure
       ul.o-ListBare.o-GridFlex.o-ListAction
         li.o-GridFlex__Item.o-ListAction__Item action item 1
         li.o-GridFlex__Item.o-ListAction__Item action item 2
         li.o-GridFlex__Item.o-ListAction__Item action item 3
-      pre.
+      pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u o-ListAction]"&gt;
           &lt;li class="o-GridFlex__Item  #[u o-ListAction__Item]"&gt;action item 1&lt;/li&gt;
           &lt;li class="o-GridFlex__Item  #[u o-ListAction__Item]"&gt;action item 2&lt;/li&gt;
@@ -252,14 +252,14 @@ block append main
       The Stacked List Object is usually an unordered list (though it can be ordered) of blocky items.
       These items may be sponsor logos, passes, speakers, and more. This Object is responsive,
       adjusting its items&rsquo; widths at different breakpoints.
-    figure.sg-c-Fig
+    figure.docs-figure
       ul.o-ListBare.o-GridFlex.o-ListStacked
         each val in [1,2,3]
           li.o-GridFlex__Item.o-ListStacked__Item
             article
               h1 a blocky heading
               p blocky content
-      pre.
+      pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u o-ListStacked]"&gt;
           &lt;li class="o-GridFlex__Item  #[u o-ListStacked__Item]"&gt;
             &lt;article&gt;
@@ -283,11 +283,11 @@ block append main
     p.
       #[strong Note:] The #[b SiteHead__Nav] subcomponent (#[i universal menu])
       will be fixed to the top right when screen is smaller than 720px.
-    figure.sg-c-Fig
+    figure.docs-figure
       div.o-GridFlex.o-SiteHead
         div.o-SiteHead__Title site title
         div.o-SiteHead__Nav universal menu
-      pre.
+      pre.docs-pre.
         &lt;div class="o-GridFlex  #[u o-SiteHead]"&gt;
           &lt;div class="#[u o-SiteHead__Title]"&gt;site title&lt;/div&gt;
           &lt;div class="#[u o-SiteHead__Nav]"&gt;universal menu&lt;/div&gt;

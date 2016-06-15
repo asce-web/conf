@@ -51,7 +51,7 @@ block append main
         &lt;/footer&gt;
   section.sg-sect#site-title
     h2 The Site Title
-    p Use with #[code .c-Camo].
+    p Use with #[a(href="#text-level-components") the Camo Link].
     figure.docs-figure
       a.o-Block.o-GridFloat.c-SiteTitle.c-Camo(href="" style="margin-bottom: 1.5rem;")
         span.o-GridFloat__Item.c-SiteTitle__Logo
@@ -197,12 +197,12 @@ block append main
         &lt;/ul&gt;
   section.sg-sect#page-title
     h2 The Page Title
-    p Use #[code .c-PageTitle] for the top-level heading of a page.
+    p Use #[code(class=classname.code) .c-PageTitle] for the top-level heading of a page.
     figure.docs-figure
       h1.c-PageTitle A Page Title
       pre.docs-pre.
         &lt;h1 class="#[u c-PageTitle]"&gt;A Page Title&lt;/h1&gt;
-    p Use #[code .c-PageTitle--special] if you want a special page title inside a banner.
+    p Use #[code(class=classname.code) .c-PageTitle--special] if you want a special page title inside a banner.
     figure.docs-figure
       div.c-Banner(style="height: 13.5rem; margin-bottom: 1.5rem; z-index:1;")
         h1.c-PageTitle.c-PageTitle--special special page title
@@ -354,11 +354,11 @@ block append main
     p.
       On the Sponsor page, each Sponsor Block corresponds to one level,
       e.g., Platinum, Gold, or Corporate.
-      This block is a #[code section] containing a heading
+      This block is a #[code(class=classname.code) section] containing a heading
       (the name of the sponsor level)
       followed by an unordered list of sponsor logo items.
     p.
-      To separate multiple sponsor blocks, add class #[code .c-SponsorBlock--separate]
+      To separate multiple sponsor blocks, add class #[code(class=classname.code) .c-SponsorBlock--separate]
       for a thin bottom border.
     figure.docs-figure
       section.c-SponsorBlock.c-SponsorBlock--separate
@@ -408,8 +408,8 @@ block append main
     p.
       On every page other than the Sponsor page, the Sponsor Block should be used
       for the entire list of sponsors (in order by rank) displayed in a rotating
-      carousel. This block has no heading, and as such, is not a #[code section].
-      Instead, it&rsquo;s a #[code div] containing a back button,
+      carousel. This block has no heading, and as such, is not a #[code(class=classname.code) section].
+      Instead, it&rsquo;s a #[code(class=classname.code) div] containing a back button,
       followed by an #[em ordered] list of sponsor logo items, followed by
       a forward button. The list should be ordered because the sponsors are
       displayed by rank (highest ranking sponsors first).
@@ -477,7 +477,7 @@ block append main
         &lt;/dl&gt;
   section.sg-sect#pass-component
     h2 The Pass Component
-    p The Pass Component should be an #[code article] element.
+    p The Pass Component should be an #[code(class=classname.code) article] element.
     p.
       Remember that this is not a demonstration of an entire Pass Component.
       This simply demonstrates the Component&rsquo;s styles and the styles
@@ -558,7 +558,7 @@ block append main
       Since the Program Component will be used to display program event information,
       the headings will be dates. Each heading should have the following structure
       and include similar data.
-      Elements with class #[code .js-*] are required for Javascript.
+      Elements with class #[code(class=classname.code) .js-*] are required for Javascript.
     figure.sg-c-Fig
       - var sampevent = { startDate: '2016-09-28 10:10', endDate: '2016-09-28 19:00', name: 'Registration' }
       h1.o-GridFlex__Item.c-Program__Hn: label
@@ -642,7 +642,7 @@ block append main
     h2 The Social List
     p.
       There are two Social List styles: one is a normal list, placeable anywhere,
-      and the second is inside a #[code footer] element.
+      and the second is inside a #[code(class=classname.code) footer] element.
     figure.docs-figure
       ul.o-ListBare.o-GridFlex.c-SocialList
         li.o-GridFlex__Item.c-SocialList__Item
@@ -659,7 +659,7 @@ block append main
           span menu item active:
           a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")._active
       footer
-        p This is a #[code footer] element.
+        p This is a #[code(class=classname.code) footer] element.
         ul.o-ListBare.o-GridFlex.c-SocialList
           li.o-GridFlex__Item.c-SocialList__Item
             a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" itemprop="sameAs" title="Follow ASCE on Twitter")
@@ -691,7 +691,7 @@ block append main
   section.sg-sect#callout-component
     h2 The Callout Component
     figure.docs-figure
-      p.c-Callout A callout! Use whatever the heck element you want, even a #[code &lt;figure&gt;]!
+      p.c-Callout A callout! Use whatever the heck element you want, even a #[code(class=classname.code) &lt;figure&gt;]!
       pre.docs-pre.
         &lt;p class="#[u c-Callout]"&gt;A callout! ...&lt;/p&gt;
     figure.docs-figure
@@ -711,13 +711,13 @@ block append main
       vertical rhythm, be sure to contain them in typographical block-level elements
       such as paragraphs or lists.
     p.
-      Button Components may be in the form of #[code a] elements (links or anchors) or
-      #[code button] elements.
-      Keep in mind these button usage guidelines: #[code button]s should
-      indicate action and be worded actionably. Use an #[code a] instead of a #[code button]
+      Button Components may be in the form of #[code(class=classname.code) a] elements (links or anchors) or
+      #[code(class=classname.code) button] elements.
+      Keep in mind these button usage guidelines: #[code(class=classname.code) button]s should
+      indicate action and be worded actionably. Use an #[code(class=classname.code) a] instead of a #[code(class=classname.code) button]
       if there is a
-      meaningful target href or url. Of course, #[code a] elements
-      as well as #[code button] elements may be styled
+      meaningful target href or url. Of course, #[code(class=classname.code) a] elements
+      as well as #[code(class=classname.code) button] elements may be styled
       to look like Button Components.
     p Every Button Component must have styles available for each of the following states:
     dl
@@ -729,8 +729,8 @@ block append main
       dd the user is in the process of clicking the component
       dt.-fw-7 disabled
       dd.
-        the element is a #[code button] with the #[code disabled] attribute or
-        is an #[code a] with no #[code href] attribute.
+        the element is a #[code(class=classname.code) button] with the #[code(class=classname.code) disabled] attribute or
+        is an #[code(class=classname.code) a] with no #[code(class=classname.code) href] attribute.
         the component is inaccessable and/or does nothing, and the user
         may not interact with it
     p.
@@ -827,7 +827,7 @@ block append main
         &lt;a class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/a&gt;
     h3 Drawer Buttons
     p Drawer buttons for pull-out menu.
-    p These are actually #[code button] elements. #[i Close] button is fixed to the top right.
+    p These are actually #[code(class=classname.code) button] elements. #[i Close] button is fixed to the top right.
     figure.docs-figure
       div(style="margin-bottom: 1.5rem;")
         button.c-Btn.c-Btn--drawer open
@@ -843,7 +843,7 @@ block append main
     h3 Camo Links
     p.
       A Camo Link is a link that blends with its surrounding text.
-      It unsets the default styles assigned to unclassed #[code a] elements
+      It unsets the default styles assigned to unclassed #[code(class=classname.code) a] elements
       (also known as anchors).
       Essentially, use it for when you need a link but don&rsquo;t
       want to expose it to the user.
@@ -855,7 +855,8 @@ block append main
           &lt;a class="#[u c-Camo]"&gt;camouflaged link&lt;/a&gt;.
           See where you can find it.&lt;p&gt;
     p.
-      #[strong Note to developers:] the #[code .c-Camo] class uses #[code !important] on
+      #[strong Note to developers:] the #[code(class=classname.code) .c-Camo]
+      class uses #[code(class=classname.code) !important] on
       all its styles, so use only when necessary. And if possible, use on the
       innermost element. E.g.:
     pre.docs-pre.

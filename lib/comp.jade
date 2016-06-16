@@ -4,15 +4,13 @@ block append vars
   - var page_id = lib[4]
   - titles.push(page_id.name)
 
-block append main__header
-  nav#table-contents
-    h2 Table of Contents
+block toc
     +libtoc({pages: page_id.sub, depth: Infinity})
 
 block append main
   section.sg-sect#masthead-mastfoot
     h2 The Masthead and Mastfoot
-    figure.sg-c-Fig
+    figure.docs-figure
       header.c-Mast
         h1 mast heading
         p mast content
@@ -21,43 +19,43 @@ block append main
           li: a(href="")._hover mast link hover
           li: a(href="")._active mast link active
           li: a mast link disabled
-      pre.
+      pre.docs-pre.
         &lt;header class="#[u c-Mast]"&gt;
           &lt;h1&gt;mast heading&lt;/h1&gt;
           &lt;p&gt;mast content&lt;/p&gt;
           &lt;p&gt;&lt;a&gt;mast link&lt;/a&gt;&lt;/p&gt;
         &lt;/header&gt;
-    figure.sg-c-Fig
+    figure.docs-figure
       footer.c-Mast.c-Mast--copyright
         ul
           li: a(href="") mast link
           li: a(href="")._hover mast link hover
           li: a(href="")._active mast link active
           li: a mast link disabled
-      pre.
+      pre.docs-pre.
         &lt;footer class="#[u c-Mast]  #[u c-Mast--copyright]"&gt;
           &lt;p&gt;&lt;a&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;&lt;/p&gt;
         &lt;/footer&gt;
-    figure.sg-c-Fig
+    figure.docs-figure
       footer.c-Mast.c-Mast--internal
         ul
           li: a(href="") mast link
           li: a(href="")._hover mast link hover
           li: a(href="")._active mast link active
           li: a mast link disabled
-      pre.
+      pre.docs-pre.
         &lt;footer class="#[u c-Mast]  #[u c-Mast--internal]"&gt;
           &lt;p&gt;&lt;a&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;&lt;/p&gt;
         &lt;/footer&gt;
   section.sg-sect#site-title
     h2 The Site Title
-    p Use with #[code .c-Camo].
-    figure.sg-c-Fig
+    p Use with #[a(href="#text-level-components") the Camo Link].
+    figure.docs-figure
       a.o-Block.o-GridFloat.c-SiteTitle.c-Camo(href="" style="margin-bottom: 1.5rem;")
         span.o-GridFloat__Item.c-SiteTitle__Logo
         h1.o-GridFloat__Item.c-SiteTitle__Name ASCE Convention
         p.o-GridFloat__Item.c-SiteTitle__Tagline The Flagship Event of ASCE
-      pre.
+      pre.docs-pre.
         &lt;a class="o-Block  o-GridFloat  #[u c-SiteTitle]  c-Camo"&gt;
           &lt;span class="o-GridFloat__Item  #[u c-SiteTitle__Logo]"&gt;&lt;/span&gt;
           &lt;h1 class="o-GridFloat__Item  #[u c-SiteTitle__Name]"&gt;ASCE Convention&lt;/h1&gt;
@@ -67,7 +65,7 @@ block append main
     h2 The Universal Menu
     p #[strong Note:] Universal Menu will convert to pull-out drawer when screen is smaller than 720px.
     p Current Year menu item will appear exactly the same as Hero Button, but will not have that class.
-    figure.sg-c-Fig
+    figure.docs-figure
       -
         var pages1 = [
           { name: 'About'  , href: '' }
@@ -87,7 +85,7 @@ block append main
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link menu item disabled
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="")._hover current year hover
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="")._active current year active
-      pre.
+      pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuUniversal]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuUniversal__Item]"&gt;
             &lt;a class="o-Block  #[u c-MenuUniversal__Link]"&gt;About&lt;/a&gt;
@@ -99,7 +97,7 @@ block append main
         &lt;/ul&gt;
   section.sg-sect#standard-menu
     h2 The Standard Menu
-    figure.sg-c-Fig
+    figure.docs-figure
       -
         var pages = [
           { name: 'Home'          , href: '' }
@@ -113,7 +111,7 @@ block append main
         li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._hover menu item hover
         li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._active menu item active
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link menu item disabled
-      pre.
+      pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuStandard]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuStandard__Item]"&gt;
             &lt;a class="o-Block  #[u c-MenuStandard__Link]"&gt;Home&lt;/a&gt;
@@ -122,7 +120,7 @@ block append main
         &lt;/ul&gt;
   section.sg-sect#sub-menu
     h2 The Sub Menu
-    figure.sg-c-Fig
+    figure.docs-figure
       -
         var pages = [
           { name: 'Why Attend'                  , href: '' }
@@ -135,7 +133,7 @@ block append main
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._hover menu item hover
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._active menu item active
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link menu item disabled
-      pre.
+      pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuSub]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuSub__Item]"&gt;
             &lt;a class="o-Block  #[u c-MenuSub__Link]"&gt;Why Attend&lt;/a&gt;
@@ -144,7 +142,7 @@ block append main
         &lt;/ul&gt;
   section.sg-sect#sitemap-component
     h2 The Sitemap Component
-    figure.sg-c-Fig
+    figure.docs-figure
       -
         var pages = [
             {
@@ -179,7 +177,7 @@ block append main
             }
           ]
       +sitemenulist({pages: pages, class_obj: menu_class.sitemap, depth: Infinity})
-      pre.
+      pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-Sitemap]"&gt;
           &lt;li class="#[u c-Sitemap__Item]"&gt;
             &lt;a&gt;Home&lt;/a&gt;
@@ -197,33 +195,33 @@ block append main
         &lt;/ul&gt;
   section.sg-sect#page-title
     h2 The Page Title
-    p Use #[code .c-PageTitle] for the top-level heading of a page.
-    figure.sg-c-Fig
+    p Use #[code(class=classname.code) .c-PageTitle] for the top-level heading of a page.
+    figure.docs-figure
       h1.c-PageTitle A Page Title
-      pre.
+      pre.docs-pre.
         &lt;h1 class="#[u c-PageTitle]"&gt;A Page Title&lt;/h1&gt;
-    p Use #[code .c-PageTitle--special] if you want a special page title inside a banner.
-    figure.sg-c-Fig
+    p Use #[code(class=classname.code) .c-PageTitle--special] if you want a special page title inside a banner.
+    figure.docs-figure
       div.c-Banner(style="height: 13.5rem; margin-bottom: 1.5rem; z-index:1;")
         h1.c-PageTitle.c-PageTitle--special special page title
-      pre.
+      pre.docs-pre.
         &lt;div class="c-Banner"&gt;
           &lt;h1 class="#[u c-PageTitle]  #[u c-PageTitle--special]"&gt;special page title&lt;/h1&gt;
         &lt;/div&gt;
   section.sg-sect#banner-component
     h2 The Banner Component
-    figure.sg-c-Fig
+    figure.docs-figure
       div.c-Banner(style="margin-bottom: 1.5rem; z-index:1;")
         h1 banner heading
         p banner content
-      pre.
+      pre.docs-pre.
         &lt;div class="#[u c-Banner]"&gt;
           &lt;h1&gt;banner heading&lt;/h1&gt;
           &lt;p&gt;banner content&lt;/p&gt;
         &lt;/div&gt;
   section.sg-sect#hero-block
     h2 The Hero Block
-    figure.sg-c-Fig
+    figure.docs-figure
       -
         var demoevent = {
           name      : 'Geo-Risk 2017'
@@ -253,9 +251,9 @@ block append main
             time(datetime="2017-06-07" itemprop="endDate") Jun 7
         p.c-Hero__Theme(itemprop="description") Geotechincal risk from theory to practice.
       div
-        input.show-md#show-md-hero(type="checkbox" value="hero-md-true")
-        label(for="show-md-hero") show microdata
-        pre.has-md.
+        input.docs-btn--md#docs-btn--md-hero(type="checkbox" value="hero-md-true")
+        label(for="docs-btn--md-hero") show microdata
+        pre.docs-pre.docs-pre--has-md.
           &lt;div class="#[u c-Hero]"#[mark  itemscope="" itemtype="http://schema.org/Event"]&gt;
             &lt;h1 class="c-PageTitle #[u c-Hero__Name]"#[mark  itemprop="name"]&gt;Geo-Risk 2017&lt;/h1&gt;
             #[mark!= '&lt;meta content="http://2017.georiskconference.org/" itemprop="url"/&gt;']
@@ -276,7 +274,7 @@ block append main
           &lt;/div&gt;
   section.sg-sect#other-year-block
     h2 The Other Year Block
-    figure.sg-c-Fig
+    figure.docs-figure
       -
         var demoevent = {
           name      : 'Geo-Chicago 2016'
@@ -304,9 +302,9 @@ block append main
             abbr(title="Illinois" itemprop="addressRegion") IL
         p.c-OtherYear__Desc Access the 2016 program to see which sessions qualify for PDHs and other documentation.
       div
-        input.show-md#show-md-otheryear(type="checkbox" value="otheryear-md-true")
-        label(for="show-md-otheryear") show microdata
-        pre.has-md.
+        input.docs-btn--md#docs-btn--md-otheryear(type="checkbox" value="otheryear-md-true")
+        label(for="docs-btn--md-otheryear") show microdata
+        pre.docs-pre.docs-pre--has-md.
           &lt;div class="#[u c-OtherYear]"#[mark  itemscope="" itemtype="http://schema.org/Event"]&gt;
             &lt;h1 class="#[u c-OtherYear__Name]"#[mark  itemprop="name"]&gt;Geo-Chicago 2016&lt;/h1&gt;
             #[mark!= '&lt;meta content="2016-08-14" itemprop="startDate"/&gt;']
@@ -321,7 +319,7 @@ block append main
   section.sg-sect#overlay-component
     h2 The Overlay Component
     p Use the Overlay Component over a Banner.
-    figure.sg-c-Fig
+    figure.docs-figure
       div.c-Banner(style="margin-bottom: 1.5rem; padding: 1.5rem; z-index:1;")
         div.c-Overlay(style="margin-bottom:1.5rem;")
           h1 overlay heading
@@ -332,7 +330,7 @@ block append main
         div.c-Overlay.c-Overlay--inv(style="margin-bottom:1.5rem;")
           h1 inverted overlay heading
           p inverted overlay content
-      pre.
+      pre.docs-pre.
         &lt;div class="c-Banner"&gt;
           &lt;div class="#[u c-Overlay]"&gt;
             &lt;h1&gt;overlay heading&lt;/h1&gt;
@@ -354,13 +352,13 @@ block append main
     p.
       On the Sponsor page, each Sponsor Block corresponds to one level,
       e.g., Platinum, Gold, or Corporate.
-      This block is a #[code section] containing a heading
+      This block is a #[code(class=classname.code) section] containing a heading
       (the name of the sponsor level)
       followed by an unordered list of sponsor logo items.
     p.
-      To separate multiple sponsor blocks, add class #[code .c-SponsorBlock--separate]
+      To separate multiple sponsor blocks, add class #[code(class=classname.code) .c-SponsorBlock--separate]
       for a thin bottom border.
-    figure.sg-c-Fig
+    figure.docs-figure
       section.c-SponsorBlock.c-SponsorBlock--separate
         h1.c-SponsorBlock__Hn Titanium Sponsors
         ul.o-ListBare.o-GridFlex.o-ListStacked
@@ -388,7 +386,7 @@ block append main
             a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
           li.o-GridFlex__Item.o-ListStacked__Item
             a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
-      pre.
+      pre.docs-pre.
         &lt;section class="#[u c-SponsorBlock]  #[u c-SponsorBlock--separate]"&gt;
           &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Titanium Sponsors&lt;/h1&gt;
           &lt;ul class="o-ListBare  o-GridFlex  o-ListStacked"&gt;
@@ -408,12 +406,12 @@ block append main
     p.
       On every page other than the Sponsor page, the Sponsor Block should be used
       for the entire list of sponsors (in order by rank) displayed in a rotating
-      carousel. This block has no heading, and as such, is not a #[code section].
-      Instead, it&rsquo;s a #[code div] containing a back button,
+      carousel. This block has no heading, and as such, is not a #[code(class=classname.code) section].
+      Instead, it&rsquo;s a #[code(class=classname.code) div] containing a back button,
       followed by an #[em ordered] list of sponsor logo items, followed by
       a forward button. The list should be ordered because the sponsors are
       displayed by rank (highest ranking sponsors first).
-    figure.sg-c-Fig
+    figure.docs-figure
       div.o-GridFlex.c-SponsorBlock
         button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--back #[i.material-icons chevron_left] #[span.-d-n &laquo;]
         ol.o-GridFlex__Item.o-ListBare.o-GridFlex.c-SponsorBlock__Carousel
@@ -427,7 +425,7 @@ block append main
             a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
             small.c-SponsorBlock__Label Silver
         button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--fwrd #[i.material-icons chevron_right] #[span.-d-n &raquo;]
-      pre.
+      pre.docs-pre.
         &lt;div class="o-GridFlex  #[u c-SponsorBlock]"&gt;
           &lt;button class="o-GridFlex__Item  c-Btn  c-Btn--inline  c-Btn--flat  #[u c-SponsorBlock__Btn]  #[u c-SponsorBlock__Btn--back]"&gt;
             &lt;i class="material-icons"&gt;chevron_left&lt;/i&gt;
@@ -445,7 +443,7 @@ block append main
         &lt;/div&gt;
   section.sg-sect#date-block
     h2 The Date Block
-    figure.sg-c-Fig
+    figure.docs-figure
       dl.c-DateBlock
         dt.c-DateBlock__Date
           time(datetime="2015-10-12") Oct 12, 2015
@@ -457,7 +455,7 @@ block append main
           a.o-Block.c-DateBlock__Link(href="")
             | Early-Bird Registration Closes
             i.material-icons arrow_forward
-      pre.
+      pre.docs-pre.
         &lt;dl class="#[u c-DateBlock]"&gt;
           &lt;dt class="#[u c-DateBlock__Date]"&gt;
             &lt;time datetime="2015-10-12"&gt;Oct 12, 2015&lt;/time&gt;
@@ -477,12 +475,12 @@ block append main
         &lt;/dl&gt;
   section.sg-sect#pass-component
     h2 The Pass Component
-    p The Pass Component should be an #[code article] element.
+    p The Pass Component should be an #[code(class=classname.code) article] element.
     p.
       Remember that this is not a demonstration of an entire Pass Component.
       This simply demonstrates the Component&rsquo;s styles and the styles
       of its subcomponents. For a full demonstration, see the sample page.
-    figure.sg-c-Fig
+    figure.docs-figure
       article.c-Pass(style="margin-bottom: 1.5rem;")
         header.c-Pass__Head
           h1.c-Pass__Hn Speaker Pass
@@ -509,7 +507,7 @@ block append main
               dd.c-Pass__Period__Price $945
               dt.c-Pass__Period__Attendee Member
               dd.c-Pass__Period__Price $845
-      pre.
+      pre.docs-pre.
         &lt;article class="#[u c-Pass]"&gt;
           &lt;header class="#[u c-Pass__Head]"&gt;
             &lt;h1 class="#[u c-Pass__Hn]"&gt;Speaker Pass&lt;/h1&gt;
@@ -537,10 +535,10 @@ block append main
     h2 The Program Component
     p.
       Enable Javascript to experience visual effects.
-    figure.sg-c-Fig
+    figure.docs-figure
       include /includes/components/_c-Program.jade
       +program(3, {id:'demoprog'})
-      pre.
+      pre.docs-pre.
         &lt;section class="o-GridFlex  #[u c-Program]" id="demoprog"&gt;
           &lt;h1 class="o-GridFlex__Item  #[u c-Program__Hn]"&gt;
             &lt;label&gt;
@@ -558,7 +556,7 @@ block append main
       Since the Program Component will be used to display program event information,
       the headings will be dates. Each heading should have the following structure
       and include similar data.
-      Elements with class #[code .js-*] are required for Javascript.
+      Elements with class #[code(class=classname.code) .js-*] are required for Javascript.
     figure.sg-c-Fig
       - var sampevent = { startDate: '2016-09-28 10:10', endDate: '2016-09-28 19:00', name: 'Registration' }
       h1.o-GridFlex__Item.c-Program__Hn: label
@@ -576,7 +574,7 @@ block append main
         &lt;/h1&gt;
   section.sg-sect#time-block
     h2 The Time Block
-    figure.sg-c-Fig
+    figure.docs-figure
       dl.o-GridFlex.c-TimeBlock
         dt.o-GridFlex__Item.c-TimeBlock__Times
           time= hourTime12(new Date(new Date().setHours(10, 30)))
@@ -591,7 +589,7 @@ block append main
           | &ndash;
           time= hourTime12(new Date(new Date().setHours(16, 30)))
         dd.o-GridFlex__Item.c-TimeBlock__Desc Short Courses
-      pre.
+      pre.docs-pre.
         &lt;dl class="o-GridFlex  #[u c-TimeBlock]"&gt;
           &lt;dt class="o-GridFlex__Item  #[u c-TimeBlock__Times]"&gt;
             &lt;time&gt;10:30am&lt;/time&gt;&ndash;&lt;time&gt;5pm&lt;/time&gt;
@@ -605,7 +603,7 @@ block append main
         &lt;/dl&gt;
   section.sg-sect#speaker-component
     h2 The Speaker Component
-    figure.sg-c-Fig
+    figure.docs-figure
       article.c-Speaker(style="margin-bottom: 1.5rem;")
         div.c-Speaker__Img(style="background-image: url(../sample/img/headshot1.jpg)")
           header.c-Speaker__Head
@@ -619,7 +617,7 @@ block append main
             li.o-Inline: a.c-Speaker__Link(href="") Email
             li.o-Inline: a.c-Speaker__Link(href="") LinkedIn
             li.o-Inline: a.c-Speaker__Link(href="") Twitter
-      pre.
+      pre.docs-pre.
         &lt;article class="#[u c-Speaker]"&gt;
           &lt;div class="#[u c-Speaker__Img]" #[u style="background-image: url('#[var= '/path-to-img-src/']');"]&gt;
             &lt;header class="#[u c-Speaker__Head]"&gt;
@@ -642,8 +640,8 @@ block append main
     h2 The Social List
     p.
       There are two Social List styles: one is a normal list, placeable anywhere,
-      and the second is inside a #[code footer] element.
-    figure.sg-c-Fig
+      and the second is inside a #[code(class=classname.code) footer] element.
+    figure.docs-figure
       ul.o-ListBare.o-GridFlex.c-SocialList
         li.o-GridFlex__Item.c-SocialList__Item
           a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")
@@ -659,7 +657,7 @@ block append main
           span menu item active:
           a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")._active
       footer
-        p This is a #[code footer] element.
+        p This is a #[code(class=classname.code) footer] element.
         ul.o-ListBare.o-GridFlex.c-SocialList
           li.o-GridFlex__Item.c-SocialList__Item
             a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" itemprop="sameAs" title="Follow ASCE on Twitter")
@@ -678,7 +676,7 @@ block append main
           li.o-GridFlex__Item.c-SocialList__Item
             span in footer menu item active:
             a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")._active
-      pre.
+      pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-SocialList]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-SocialList__Item]"&gt;
             &lt;a class="o-Block  #[u c-SocialList__Link]  #[u c-SocialList__Link--twitter]"&gt;&lt;/a&gt;
@@ -690,16 +688,16 @@ block append main
         &lt;/footer&gt;
   section.sg-sect#callout-component
     h2 The Callout Component
-    figure.sg-c-Fig
-      p.c-Callout A callout! Use whatever the heck element you want, even a #[code &lt;figure&gt;]!
-      pre.
+    figure.docs-figure
+      p.c-Callout A callout! Use whatever the heck element you want, even a #[code(class=classname.code) &lt;figure&gt;]!
+      pre.docs-pre.
         &lt;p class="#[u c-Callout]"&gt;A callout! ...&lt;/p&gt;
-    figure.sg-c-Fig
+    figure.docs-figure
       ul.o-ListBare.o-GridFlex.c-Callout
         li.c-Callout__Item An item in a callout list!
         li.c-Callout__Item Another item in a callout list!
         li.c-Callout__Item Note the padding!
-      pre.
+      pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-Callout]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-Callout__Item]"&gt;...&lt;/li&gt;
           ...
@@ -711,13 +709,13 @@ block append main
       vertical rhythm, be sure to contain them in typographical block-level elements
       such as paragraphs or lists.
     p.
-      Button Components may be in the form of #[code a] elements (links or anchors) or
-      #[code button] elements.
-      Keep in mind these button usage guidelines: #[code button]s should
-      indicate action and be worded actionably. Use an #[code a] instead of a #[code button]
+      Button Components may be in the form of #[code(class=classname.code) a] elements (links or anchors) or
+      #[code(class=classname.code) button] elements.
+      Keep in mind these button usage guidelines: #[code(class=classname.code) button]s should
+      indicate action and be worded actionably. Use an #[code(class=classname.code) a] instead of a #[code(class=classname.code) button]
       if there is a
-      meaningful target href or url. Of course, #[code a] elements
-      as well as #[code button] elements may be styled
+      meaningful target href or url. Of course, #[code(class=classname.code) a] elements
+      as well as #[code(class=classname.code) button] elements may be styled
       to look like Button Components.
     p Every Button Component must have styles available for each of the following states:
     dl
@@ -729,8 +727,8 @@ block append main
       dd the user is in the process of clicking the component
       dt.-fw-7 disabled
       dd.
-        the element is a #[code button] with the #[code disabled] attribute or
-        is an #[code a] with no #[code href] attribute.
+        the element is a #[code(class=classname.code) button] with the #[code(class=classname.code) disabled] attribute or
+        is an #[code(class=classname.code) a] with no #[code(class=classname.code) href] attribute.
         the component is inaccessable and/or does nothing, and the user
         may not interact with it
     p.
@@ -741,27 +739,27 @@ block append main
       #[a(href="visual.html") ASCE 2016].
     h3 Generic Buttons
     p Generic, general purpose buttons.
-    figure.sg-c-Fig
+    figure.docs-figure
       div(style="margin-bottom:1.5rem;"): a.c-Btn(href="#0") generic button
       div(style="margin-bottom:1.5rem;")
         a.c-Btn(href="#0")._hover generic button hover
         a.c-Btn(href="#0")._active generic button active
         a.c-Btn generic button disabled
-      pre.
+      pre.docs-pre.
         &lt;a class="#[u c-Btn]"&gt;generic button&lt;/a&gt;
     h3 Highlight Buttons
     p Highlight buttons, for large buttons in highlight block.
-    figure.sg-c-Fig
+    figure.docs-figure
       div(style="margin-bottom:1.5rem;"): a.c-Btn.c-Btn--hilite(href="#0") highlight button
       div(style="margin-bottom:1.5rem;")
         a.c-Btn.c-Btn--hilite(href="#0")._hover highlight button hover
         a.c-Btn.c-Btn--hilite(href="#0")._active highlight button active
         a.c-Btn.c-Btn--hilite highlight button disabled
-      pre.
+      pre.docs-pre.
         &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;highlight button&lt;/a&gt;
     h3 Inline Buttons
     p Inline buttons, for buttons in line with text.
-    figure.sg-c-Fig
+    figure.docs-figure
       p.
         The following button,
         #[a.c-Btn.c-Btn--inline(href="#0") inline button],
@@ -769,35 +767,35 @@ block append main
       p Lorem ipsum #[a.c-Btn.c-Btn--inline(href="#0")._hover inline button hover] dolor.
       p Lorem ipsum #[a.c-Btn.c-Btn--inline(href="#0")._active inline button active] dolor.
       p Lorem ipsum #[a.c-Btn.c-Btn--inline inline button disabled] dolor.
-      pre.
+      pre.docs-pre.
         &lt;p&gt;The following button,
           &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
           is in line with the text in this paragraph.&lt;/p&gt;
     h3 Hero Buttons
     p Hero button, for action button(s) in hero section. Combine with Highlight button to make bigger.
-    figure.sg-c-Fig
+    figure.docs-figure
       div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--hero(href="#0") hero button
       div(style="margin-bottom: 1.5rem;")
         a.c-Btn.c-Btn--hero(href="#0")._hover hero button hover
         a.c-Btn.c-Btn--hero(href="#0")._active hero button active
         a.c-Btn.c-Btn--hero hero button disabled
-      pre.
+      pre.docs-pre.
         &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button&lt;/a&gt;
     h3 Dominant Buttons
     p Dominant button, for emphasizing a button when it is near other not-as-important buttons.
-    figure.sg-c-Fig
+    figure.docs-figure
       div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--dominant(href="#0") dominant button
       div(style="margin-bottom: 1.5rem;")
         a.c-Btn.c-Btn--dominant(href="#0")._hover dominant button hover
         a.c-Btn.c-Btn--dominant(href="#0")._active dominant button active
         a.c-Btn.c-Btn--dominant dominant button disabled
-      pre.
+      pre.docs-pre.
         &lt;a class="#[u c-Btn]  #[u c-Btn--dominant]"&gt;dominant button!&lt;/a&gt;
     h3 Ghost Buttons
     p.
       Ghost buttons can be used on a colored or image background.
       Obviously, choose a background and a button color that won&rsquo;t clash.
-    figure.sg-c-Fig
+    figure.docs-figure
       div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--ghost(href="#0") ghost button
       div(style="margin-bottom: 1.5rem;")
         a.c-Btn.c-Btn--ghost(href="#0")._hover ghost button hover
@@ -808,11 +806,11 @@ block append main
         a.c-Btn.c-Btn--ghost(href="#0")._hover ghost button hover inside a banner
         a.c-Btn.c-Btn--ghost(href="#0")._active ghost button active inside a banner
         a.c-Btn.c-Btn--ghost ghost button disabled inside a banner
-      pre.
+      pre.docs-pre.
         &lt;a class="#[u c-Btn]  #[u c-Btn--ghost]"&gt;ghost button&lt;/a&gt;
     h3 Flat Buttons
     p Flat, link-ish buttons.
-    figure.sg-c-Fig
+    figure.docs-figure
       div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--flat(href="#0") flat button
       div(style="margin-bottom: 1.5rem;")
         a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover
@@ -823,16 +821,16 @@ block append main
         a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover inside a banner
         a.c-Btn.c-Btn--flat(href="#0")._active flat button active inside a banner
         a.c-Btn.c-Btn--flat flat button disabled inside a banner
-      pre.
+      pre.docs-pre.
         &lt;a class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/a&gt;
     h3 Drawer Buttons
     p Drawer buttons for pull-out menu.
-    p These are actually #[code button] elements. #[i Close] button is fixed to the top right.
-    figure.sg-c-Fig
+    p These are actually #[code(class=classname.code) button] elements. #[i Close] button is fixed to the top right.
+    figure.docs-figure
       div(style="margin-bottom: 1.5rem;")
         button.c-Btn.c-Btn--drawer open
         button.c-Btn.c-Btn--drawer.c-Btn--drawer--close close
-      pre.
+      pre.docs-pre.
         &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]"&gt;open&lt;/button&gt;
         &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]  #[u c-Btn--drawer--close]"&gt;close&lt;/button&gt;
       button.c-Btn.c-Btn--drawer._hover drawer hover
@@ -843,21 +841,22 @@ block append main
     h3 Camo Links
     p.
       A Camo Link is a link that blends with its surrounding text.
-      It unsets the default styles assigned to unclassed #[code a] elements
+      It unsets the default styles assigned to unclassed #[code(class=classname.code) a] elements
       (also known as anchors).
       Essentially, use it for when you need a link but don&rsquo;t
       want to expose it to the user.
       In fact, this class can be used on any element, not just anchors.
-    figure.sg-c-Fig
+    figure.docs-figure
       p Inside this paragraph is a #[a.c-Camo(href="") camouflaged link]. See where you can find it.
-      pre.
+      pre.docs-pre.
         &lt;p&gt;Inside this paragraph is a
           &lt;a class="#[u c-Camo]"&gt;camouflaged link&lt;/a&gt;.
           See where you can find it.&lt;p&gt;
     p.
-      #[strong Note to developers:] the #[code .c-Camo] class uses #[code !important] on
+      #[strong Note to developers:] the #[code(class=classname.code) .c-Camo]
+      class uses #[code(class=classname.code) !important] on
       all its styles, so use only when necessary. And if possible, use on the
       innermost element. E.g.:
-    pre.
+    pre.docs-pre.
       &lt;span&gt;&lt;a class="c-Camo"&gt;correct&lt;/a&gt;&lt;/span&gt;
       #[small!= '&lt;!-- a class="c-Camo"&gt;&lt;span&gt;incorrect&lt;/span&gt;&lt;/a --&gt;']

@@ -6,6 +6,12 @@ html(lang="en")
   include includes/_mixins-lib.jade
   head
     - var titles = ['ASCE Conferences Styleguide', 'Pattern Library']
+    -
+      var classname = {
+        figure : 'docs-figure'
+      , pre    : 'docs-pre'
+      , code   : 'docs-code'
+      }
     block vars
     title= title(titles)
     meta(charset="utf-8")
@@ -13,7 +19,7 @@ html(lang="en")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,400italic,700")
     link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
-    link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v4.2.0/xmeter.min.css")
+    link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v4.3.0/xmeter.min.css")
     link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.8.0/bangs.min.css")
     link(rel="stylesheet" href="../styles/conf.css")
     link(rel="stylesheet" href="styles/lib.css")
@@ -21,8 +27,10 @@ html(lang="en")
     main
       block main
         header
-          block main__header
-            h1= mainH1(titles)
+          h1= mainH1(titles)
+          nav#table-contents
+            h2 Table of Contents
+            block toc
     footer
       nav
         h1 Subsitemap

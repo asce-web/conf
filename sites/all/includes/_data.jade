@@ -149,9 +149,10 @@ script.
       , addressRegion       : $confinfo.state
       , addressRegion_title : state_data.find(function (item) { return item.index === $confinfo.state }).name
       }
-      self.pass_periods = []
-      self.passes       = []
-      self.registration = {}
+      self.pass_periods  = []
+      self.passes        = []
+      self.registration  = {}
+      self.programevents = []
     }
 
     //- SETTER FUNCTIONS
@@ -172,6 +173,14 @@ script.
       spliceFromArray(this.passes, this.getPass(pass_name))
       return this
     }
+    Conference.prototype.addProgramEvent = function addProgramEvent(program_event) {
+      this.programevents.push(program_event)
+      return this
+    }
+    Conference.prototype.removeProgramEvent = function removeProgramEvent(program_event_name) {
+      spliceFromArray(this.programevents, this.getProgramEvent(program_event_name))
+      return this
+    }
 
     //- GETTER FUNCTIONS
     Conference.prototype.getPassPeriod = function getPassPeriod(pass_period_name) {
@@ -179,6 +188,9 @@ script.
     }
     Conference.prototype.getPass = function getPass(pass_name) {
       return this.passes.find(function (item) { return item.name === pass_name })
+    }
+    Conference.prototype.getProgramEvent = function getProgramEvent(program_event_name) {
+      return this.programevents.find(function (item) { return item.name === program_event_name })
     }
 
     //- MORE PROTO FUNCTIONS
@@ -235,6 +247,18 @@ script.
       self.is_featured = is_featured
     }
     return Membership
+  })()
+
+  var ProgramEvent = (function () {
+    function ProgramEvent($eventinfo) {
+      var self = this
+      self.name       = $eventinfo.name
+      self.startDate  = $eventinfo.startDate
+      self.endDate    = $eventinfo.endDate
+      self.url        = $eventinfo.url
+      self.is_starred = $eventinfo.is_starred
+    }
+    return ProgramEvent
   })()
 
 mixin sitemenulist(args)

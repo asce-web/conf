@@ -177,16 +177,20 @@ script.
     //- SETTER FUNCTIONS
     Conference.prototype.addPassPeriod = function addPassPeriod(pass_period) {
       this.pass_periods.push(pass_period)
+      return this
     }
     Conference.prototype.removePassPeriod = function removePassPeriod(pass_period_name) {
       //- this.pass_periods.splice(this.pass_periods.indexOf(this.getPassPeriod(pass_period_name)), 1)
       spliceFromArray(this.pass_periods, this.getPassPeriod(pass_period_name))
+      return this
     }
     Conference.prototype.addPass = function addPass(pass) {
       this.passes.push(pass)
+      return this
     }
     Conference.prototype.removePass = function removePass(pass_name) {
       spliceFromArray(this.passes, this.getPass(pass_name))
+      return this
     }
 
     //- GETTER FUNCTIONS
@@ -220,9 +224,11 @@ script.
     //- SETTER FUNCTIONS
     Pass.prototype.addMembership = function addMembership(membership) {
       this.memberships.push(membership)
+      return this
     }
     Pass.prototype.removeMembership = function removeMembership(membership_name) {
       spliceFromArray(this.memberships, this.getMembership(membership_name))
+      return this
     }
 
     //- GETTER FUNCTIONS

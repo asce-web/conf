@@ -172,6 +172,7 @@ script.
       }
       self.pass_periods = []
       self.passes       = []
+      self.registration = {}
     }
 
     //- SETTER FUNCTIONS
@@ -199,6 +200,15 @@ script.
     }
     Conference.prototype.getPass = function getPass(pass_name) {
       return this.passes.find(function (item) { return item.name === pass_name })
+    }
+
+    //- MORE PROTO FUNCTIONS
+    Conference.prototype.setPrice = function setPrice(pass_period, pass, membership, price) {
+      pass_period = pass_period.name || pass_period
+      pass        = pass.name        || pass
+      membership  = membership.name  || membership
+      this.registration[pass_period][pass][membership] = price
+      return this
     }
 
     return Conference

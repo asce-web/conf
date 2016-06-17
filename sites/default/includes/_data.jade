@@ -92,6 +92,47 @@ script.
     .addMembership(new Membership('Member', true))
     .addMembership(new Membership('Non-Member'))
   )
+  default.site.getCurrentConference
+    .setPrice('Early Bird', 'Standard Pass' , 'Member'    ,  745)
+    .setPrice('Early Bird', 'Standard Pass' , 'Non-Member',  845)
+    .setPrice('Advance'   , 'Standard Pass' , 'Member'    ,  845)
+    .setPrice('Advance'   , 'Standard Pass' , 'Non-Member',  945)
+    .setPrice('Onsite'    , 'Standard Pass' , 'Member'    ,  945)
+    .setPrice('Onsite'    , 'Standard Pass' , 'Non-Member', 1045)
+
+    .setPrice('Early Bird', 'Speaker Pass'  , 'Member'    ,  645)
+    .setPrice('Early Bird', 'Speaker Pass'  , 'Non-Member',  745)
+    .setPrice('Advance'   , 'Speaker Pass'  , 'Member'    ,  745)
+    .setPrice('Advance'   , 'Speaker Pass'  , 'Non-Member',  845)
+    .setPrice('Onsite'    , 'Speaker Pass'  , 'Member'    ,  945)
+    .setPrice('Onsite'    , 'Speaker Pass'  , 'Non-Member',  945)
+
+    .setPrice('Early Bird', 'Moderator Pass', 'Member'    ,  645)
+    .setPrice('Early Bird', 'Moderator Pass', 'Non-Member',  745)
+    .setPrice('Advance'   , 'Moderator Pass', 'Member'    ,  745)
+    .setPrice('Advance'   , 'Moderator Pass', 'Non-Member',  845)
+    .setPrice('Onsite'    , 'Moderator Pass', 'Member'    ,  945)
+    .setPrice('Onsite'    , 'Moderator Pass', 'Non-Member',  945)
+
+    .setPrice('Early Bird', 'Younger Member', 'Member/Non-Member',  645)
+    .setPrice('Advance'   , 'Younger Member', 'Member/Non-Member',  745)
+    .setPrice('Onsite'    , 'Younger Member', 'Member/Non-Member',  845)
+
+    .setPrice('Early Bird', 'Student Pass'  , 'Member/Non-Member',  295)
+    .setPrice('Advance'   , 'Student Pass'  , 'Member/Non-Member',  295)
+    .setPrice('Onsite'    , 'Student Pass'  , 'Member/Non-Member',  395)
+
+    .setPrice('Early Bird', 'Guest Pass'    , 'Member/Non-Member',  295)
+    .setPrice('Advance'   , 'Guest Pass'    , 'Member/Non-Member',  320)
+    .setPrice('Onsite'    , 'Guest Pass'    , 'Member/Non-Member',  395)
+
+    .setPrice('Early Bird', 'Daily Pass'    , 'Member'    ,  495)
+    .setPrice('Early Bird', 'Daily Pass'    , 'Non-Member',  595)
+    .setPrice('Advance'   , 'Daily Pass'    , 'Member'    ,  545)
+    .setPrice('Advance'   , 'Daily Pass'    , 'Non-Member',  645)
+    .setPrice('Onsite'    , 'Daily Pass'    , 'Member'    ,  645)
+    .setPrice('Onsite'    , 'Daily Pass'    , 'Non-Member',  745)
+
 
   var Default = {
   , pass: {

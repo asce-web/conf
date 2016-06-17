@@ -273,6 +273,22 @@ script.
     return ProgramEvent
   })()
 
+  var ImportantDate = (function () {
+    function ImportantDate($eventinfo) {
+      var self = this
+      self.name       = $eventinfo.name
+      self.startDate  = $eventinfo.startDate
+    }
+    ImportantDate.prototype.setURL = function setURL(url0) {
+      this.url = url0
+      return this
+    }
+    ImportantDate.prototype.getURL = function getURL() {
+      return this.url
+    }
+    return ImportantDate
+  })()
+
 mixin sitemenulist(args)
   - var pages     = args.pages     || []
   - var class_obj = args.class_obj || {}

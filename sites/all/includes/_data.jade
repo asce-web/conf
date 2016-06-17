@@ -8,77 +8,100 @@
 
 
 -
-  var Conf = {
-    pages: {
-      universal: [
-        {
-          name: '', href: 'index.html'
-        }
-      , {
-          name: 'About', href: 'about.html'
-        , icon: { content: 'info_outline', fallback: '&#xE88F;' }
-        , sub: [
-            { name: 'Cooperating Orgs', href: '' }
-          , { name: 'Partnering Orgs ', href: '' }
-          , { name: 'Volunteer       ', href: '' }
-          , { name: 'Why Attend      ', href: '' }
-          ]
-        }
-      , {
-          name: 'Sponsor', href: 'sponsor.html'
-        , icon: { content: 'people', fallback: '&#xE7FB;' }
-        }
-      , {
-          name: 'Exhibit', href: 'exhibit.html'
-        , icon: { content: 'work', fallback: '&#xE8F9;' }
-        , sub: [
-            { name: 'Exhibitor List', href: '' }
-          ]
-        }
-      , {
-          name: 'Contact', href: 'contact.html'
-        , icon: { content: 'email', fallback: '&#xE0BE;' }
-        }
-      ]
-    , internal: [
-        {
-          name: 'Home', href: 'home.html'
-        , icon: { content: 'home', fallback: '&#xE88A;' }
-        }
-      , {
-          name: 'Registration', href: 'registration.html'
-        , icon: { content: 'shopping_cart', fallback: '&#xE8CC;' }
-        , sub: [
-            { name: 'Why Attend'     , href: '' }
-          , { name: 'Short Courses'  , href: '' }
-          , { name: 'Technical Tours', href: '' }
-          , { name: 'Optional Tours' , href: '' }
-          ]
-        }
-      , {
-          name: 'Program', href: 'program.html'
-        , icon: { content: 'event', fallback: '&#xE878;' }
-        , sub: [
-            { name: 'Events', href: '' }
-          ]
-        }
-      , {
-          name: 'Hotel & Travel', href: 'location.html'
-        , icon: { content: 'flight', fallback: '&#xE539;' }
-        , sub: [
-            { name: 'International Travel', href: '' }
-          ]
-        }
-      , {
-          name: 'Speakers', href: 'speakers.html'
-        , icon: { content: 'account_box', fallback: '&#xE851;' }
-        , sub: [
-            { name: 'Distinguished Lecture Series', href: '' }
-          ]
-        }
-      ]
+  var Site = (function () {
+    function Site($siteinfo) {
+      var self = this
+      self.title   : $siteinfo.title
+      self.tagline : $siteinfo.tagline
+      self.keywords: $siteinfo.keywords
+      self.conference = {current: {}, prev: {}, next: {}}
+      self.pages = {
+        universal: [
+          {
+            name: '', url: 'index.html'
+          }
+        , {
+            name: 'About', url: 'about.html'
+          , icon: { content: 'info_outline', fallback: '&#xE88F;' }
+          , sub: [
+              { name: 'Cooperating Orgs', url: '' }
+            , { name: 'Partnering Orgs ', url: '' }
+            , { name: 'Volunteer       ', url: '' }
+            , { name: 'Why Attend      ', url: '' }
+            ]
+          }
+        , {
+            name: 'Sponsor', url: 'sponsor.html'
+          , icon: { content: 'people', fallback: '&#xE7FB;' }
+          }
+        , {
+            name: 'Exhibit', url: 'exhibit.html'
+          , icon: { content: 'work', fallback: '&#xE8F9;' }
+          , sub: [
+              { name: 'Exhibitor List', url: '' }
+            ]
+          }
+        , {
+            name: 'Contact', url: 'contact.html'
+          , icon: { content: 'email', fallback: '&#xE0BE;' }
+          }
+        ]
+        internal: [
+          {
+            name: 'Home', url: 'home.html'
+          , icon: { content: 'home', fallback: '&#xE88A;' }
+          }
+        , {
+            name: 'Registration', url: 'registration.html'
+          , icon: { content: 'shopping_cart', fallback: '&#xE8CC;' }
+          , sub: [
+              { name: 'Why Attend'     , url: '' }
+            , { name: 'Short Courses'  , url: '' }
+            , { name: 'Technical Tours', url: '' }
+            , { name: 'Optional Tours' , url: '' }
+            ]
+          }
+        , {
+            name: 'Program', url: 'program.html'
+          , icon: { content: 'event', fallback: '&#xE878;' }
+          , sub: [
+              { name: 'Events', url: '' }
+            ]
+          }
+        , {
+            name: 'Hotel & Travel', url: 'location.html'
+          , icon: { content: 'flight', fallback: '&#xE539;' }
+          , sub: [
+              { name: 'International Travel', url: '' }
+            ]
+          }
+        , {
+            name: 'Speakers', url: 'speakers.html'
+          , icon: { content: 'account_box', fallback: '&#xE851;' }
+          , sub: [
+              { name: 'Distinguished Lecture Series', url: '' }
+            ]
+          }
+        ]
+      }
     }
-  , menu_class: {
+    Site.prototype.getPage = function getPage(type, url0) {
+      return this.pages[type].find(function (item) { return item.url === url0 })
+    }
+    //- Site.prototype.setConference = function setConference(period, conference) {
+    //-   if (period === 'current' || period === 'prev' || period === 'next')
+    //-     this.conference[period] = conference
+    //- }
+    Site.prototype.setCurrentConference = function setCurrentConference(conference) {
+      this.conference.current = conference
+    }
+    Site.prototype.setPrevConference = function setPrevConference(conference) {
+      this.conference.prev = conference
+    }
+    Site.prototype.setNextConference = function setNextConference(conference) {
+      this.conference.next = conference
+    }
+    Site.MENU_CLASS: {
       standard: {
         listclasses : 'o-ListBare o-GridFlex c-MenuStandard'
       , itemclasses : 'o-GridFlex__Item c-MenuStandard__Item'
@@ -98,10 +121,25 @@
         }
       }
     }
-  }
-  Conf.getPage = function getPage(type, url) {
-    return this.site_pages[type].find(function (item) { return item.href === url })
-  }
+    return Site
+  })()
+
+  var Conference = (function () {
+    function Conference($confinfo) {
+      var self = this
+      self.name = $confinfo.name
+      self.theme = $confinfo.theme
+      self.startDate = $confinfo.startDate
+      self.endDate = $confinfo.endDate
+      self.url = $confinfo.url
+      self.location = {
+        addressLocality     : $confinfo.city
+      , addressRegion       : $confinfo.state
+      , addressRegion_title : state_data.find(function (item) { return item.index === $confinfo.state }).name
+      }
+    }
+    return Conference
+  })()
 
 mixin sitemenulist(args)
   - var pages     = args.pages     || []
@@ -112,7 +150,7 @@ mixin sitemenulist(args)
     each item in pages
       unless item.is_hidden
         li(class=class_obj.itemclasses)
-          a(class=class_obj.linkclasses href=item.href)
+          a(class=class_obj.linkclasses href=item.url)
             if args.icons && item.icon
               i.material-icons= item.icon.content
             span= item.name

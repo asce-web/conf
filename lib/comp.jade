@@ -106,7 +106,7 @@ block append main
         , { name: 'Hotel & Travel', href: '' }
         , { name: 'Speakers'      , href: '' }
         ]
-      +sitemenulist({pages: pages, class_obj: Conf.menu_class.standard, depth: 0})
+      +sitemenulist({pages: pages, class_obj: Conf.MENU_CLASS.standard, depth: 0})
       ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
         li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._hover menu item hover
         li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._active menu item active
@@ -129,7 +129,7 @@ block append main
         , { name: 'Registration Submenu Item 3' , href: '' }
         ]
       div(style="height: 100px;")
-        +sitemenulist({pages: pages, class_obj: Conf.menu_class.standard.sub, depth: 0})
+        +sitemenulist({pages: pages, class_obj: Conf.MENU_CLASS.standard.sub, depth: 0})
       div(style="height: 100px;"): ul.o-ListBare.c-MenuSub
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._hover menu item hover
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._active menu item active
@@ -178,7 +178,7 @@ block append main
               ]
             }
           ]
-      +sitemenulist({pages: pages, class_obj: Conf.menu_class.sitemap, depth: Infinity})
+      +sitemenulist({pages: pages, class_obj: Conf.MENU_CLASS.sitemap, depth: Infinity})
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-Sitemap]"&gt;
           &lt;li class="#[u c-Sitemap__Item]"&gt;

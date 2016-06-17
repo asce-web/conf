@@ -7,7 +7,7 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
--
+script.
   var defaultsite = new Site({
     title    : 'An ASCE Event'
   , tagline  : 'Optional Brand Tagline'
@@ -40,6 +40,7 @@
   , city      : 'Chicago'
   , state     : 'IL'
   }))
+
   defaultsite.addPassPeriod(new PassPeriod({
     name      : 'Early Bird'
   , endDate   : '2016-07-28'
@@ -52,34 +53,46 @@
     name      : 'Onsite'
   , startDate : '2016-08-26'
   }))
+
   defaultsite.addPass(new Pass({
     name        : 'Standard Pass'
   , description : 'Members & Non-Members'
   }))
+  defaultsite.getPass('Standard Pass').addMembership(new Membership('Member', true))
+  defaultsite.getPass('Standard Pass').addMembership(new Membership('Non-Member'))
   defaultsite.addPass(new Pass({
     name        : 'Speaker Pass'
   , description : 'Speakers and Presenters'
   }))
+  defaultsite.getPass('Speaker Pass').addMembership(new Membership('Member', true))
+  defaultsite.getPass('Speaker Pass').addMembership(new Membership('Non-Member'))
   defaultsite.addPass(new Pass({
     name        : 'Moderator Pass'
   , description : 'Moderators'
   }))
+  defaultsite.getPass('Moderator Pass').addMembership(new Membership('Member', true))
+  defaultsite.getPass('Moderator Pass').addMembership(new Membership('Non-Member'))
   defaultsite.addPass(new Pass({
     name        : 'Younger Member'
   , description : 'Members 18–35'
   }))
+  defaultsite.getPass('Younger Member').addMembership(new Membership('Member/Non-Member'))
   defaultsite.addPass(new Pass({
     name        : 'Student Pass'
   , description : 'Undergraduates 18–24'
   }))
+  defaultsite.getPass('Student Pass').addMembership(new Membership('Member/Non-Member'))
   defaultsite.addPass(new Pass({
     name        : 'Guest Pass'
   , description : 'Speaker and Moderator Guests'
   }))
+  defaultsite.getPass('Guest Pass').addMembership(new Membership('Member/Non-Member'))
   defaultsite.addPass(new Pass({
     name        : 'Daily Pass'
   , description : 'For One Day Only'
   }))
+  defaultsite.getPass('Daily Pass').addMembership(new Membership('Member', true))
+  defaultsite.getPass('Daily Pass').addMembership(new Membership('Non-Member'))
 
   var Default = {
   , pass: {

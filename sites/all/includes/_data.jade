@@ -7,7 +7,7 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
--
+script.
   var Site = (function () {
     //- CONSTRUCTOR
     function Site($siteinfo) {
@@ -89,7 +89,6 @@
       }
     }
 
-
     //- SETTER FUNCTIONS
     Site.prototype.setPage = function setPage() {
     }
@@ -107,10 +106,8 @@
       this.passes.push(pass)
     }
     Site.prototype.removePass = function removePass(pass_name) {
-      //- this.passes.splice(this.passes.indexOf(this.getPass(pass_name)), 1)
       spliceFromArray(this.passes, this.getPass(pass_name))
     }
-
 
     //- GETTER FUNCTIONS
     Site.prototype.getPage = function getPage(type, url0) {
@@ -125,6 +122,8 @@
     Site.prototype.getPass = function getPass(pass_name) {
       return this.passes.find(function (item) { return item.name === pass_name })
     }
+
+    //- STATIC FIELDS
     Site.MENU_CLASS: {
       standard: {
         listclasses : 'o-ListBare o-GridFlex c-MenuStandard'
@@ -145,6 +144,7 @@
         }
       }
     }
+
     return Site
   })()
 
@@ -180,9 +180,31 @@
       var self = this
       self.name        = $passinfo.name
       self.description = $passinfo.description
-      self.memberships = $periodinfo.memberships
+      self.memberships = []
     }
+    //- SETTER FUNCTIONS
+    Pass.prototype.addMembership = function addMembership(membership) {
+      this.memberships.push(membership)
+    }
+    Pass.prototype.removeMembership = function removeMembership(membership_name) {
+      spliceFromArray(this.memberships, this.getMembership(membership_name))
+    }
+
+    //- GETTER FUNCTIONS
+    Pass.prototype.getMembership = function getMembership(membership_name) {
+      return this.memberships.find(function (item) { return item.name === membership_name })
+    }
+
     return Pass
+  })()
+
+  var Membership = (function () {
+    function Membership(name, is_featured) {
+      var self = this
+      self.name        = name
+      self.is_featured = is_featured
+    }
+    return Membership
   })()
 
 mixin sitemenulist(args)

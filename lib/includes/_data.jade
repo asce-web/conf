@@ -7,8 +7,9 @@
 
 
 -
-  var Lib = {
-    pages: [
+  var Lib = (function () {
+    function Lib() {}
+    Lib.PAGES = [
       {
         name: 'Pattern Library', url: 'index.html'
       , description: ''
@@ -97,10 +98,11 @@
       , description: 'Very specific classes used for creating anomalies or fixing broken styles.'
       }
     ]
-  }
-  Lib.getPage = function getPage(url0) {
-    return this.pages.find(function (item) { return item.url === url0 })
-  }
+    Lib.getPage = function getPage(url0) {
+      return Lib.PAGES.find(function (item) { return item.url === url0 })
+    }
+    return Lib
+  })()
 
 mixin libtoc(args)
   - var pages     = args.pages     || []

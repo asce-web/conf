@@ -16,7 +16,7 @@ block main
     placed in #[code &lt;figure&gt;] elements to separate them from the surrounding documentation.
   nav#table-contents
     h2 Table of Contents
-    each page in Lib.pages.slice(1)
+    each page in Lib.PAGES.slice(1)
       section
         h3: a(href=page.url)= page.name
         p= page.description

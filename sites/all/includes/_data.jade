@@ -94,6 +94,7 @@ script.
       this.conference[year] = conference
       if (is_current)
         this.setCurrentConference(year)
+      return this
     }
     Site.prototype.setCurrentConference = function setCurrentConference(year) {
       this.conference.current = this.conference[year]
@@ -130,28 +131,6 @@ script.
         , itemclasses : 'c-Sitemap__SubItem'
         }
       }
-    }
-
-    //- convenience functions:
-    //- Sometimes it’s easier to think of it as adding directly to the site
-    //- instead of the current conference.
-    Site.prototype.addPassPeriod = function addPassPeriod(pass_period) {
-      this.getCurrentConference().addPassPeriod(pass_period)
-    }
-    Site.prototype.removePassPeriod = function removePassPeriod(pass_period_name) {
-      this.getCurrentConference().removePassPeriod(pass_period_name)
-    }
-    Site.prototype.addPass = function addPass(pass) {
-      this.getCurrentConference().addPass(pass)
-    }
-    Site.prototype.removePass = function removePass(pass_name) {
-      this.getCurrentConference().removePass(pass_name)
-    }
-    Site.prototype.getPassPeriod = function getPassPeriod(pass_period_name) {
-      this.getCurrentConference().getPassPeriod(pass_period_name)
-    }
-    Site.prototype.getPass = function getPass(pass_name) {
-      this.getCurrentConference().getPass(pass_name)
     }
 
     return Site

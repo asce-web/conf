@@ -21,8 +21,7 @@ script.
   , url       : 'http://2016.asceconvention.org/'
   , city      : 'Portland'
   , state     : 'OR'
-  }), true)
-  defaultsite.setConference('prev', new Conference({
+  }), true).setConference('prev', new Conference({
     name      : 'A 2015 Event'
   , theme     : ''
   , startDate : '2015-10-11'
@@ -30,8 +29,7 @@ script.
   , url       : 'http://2015.asceconvention.org/'
   , city      : 'New York'
   , state     : 'NY'
-  }))
-  defaultsite.setConference('next', new Conference({
+  })).setConference('next', new Conference({
     name      : 'A 2017 Event'
   , theme     : ''
   , startDate : '2017-10-04'
@@ -41,58 +39,61 @@ script.
   , state     : 'IL'
   }))
 
-  defaultsite.addPassPeriod(new PassPeriod({
-    name      : 'Early Bird'
-  , endDate   : '2016-07-28'
-  })).addPassPeriod(new PassPeriod({
-    name      : 'Advance'
-  , endDate   : '2016-08-25'
-  })).addPassPeriod(new PassPeriod({
-    name      : 'Onsite'
-  , startDate : '2016-08-26'
-  }))
+  defaultsite.getCurrentConference
+    .addPassPeriod(new PassPeriod({
+      name      : 'Early Bird'
+    , endDate   : '2016-07-28'
+    })).addPassPeriod(new PassPeriod({
+      name      : 'Advance'
+    , endDate   : '2016-08-25'
+    })).addPassPeriod(new PassPeriod({
+      name      : 'Onsite'
+    , startDate : '2016-08-26'
+    }))
 
-  defaultsite.addPass(new Pass({
-    name        : 'Standard Pass'
-  , description : 'Members & Non-Members'
-  })
-    .addMembership(new Membership('Member', true))
-    .addMembership(new Membership('Non-Member'))
-  )
-  defaultsite.addPass(new Pass({
-    name        : 'Speaker Pass'
-  , description : 'Speakers and Presenters'
-  })
-    .addMembership(new Membership('Member', true))
-    .addMembership(new Membership('Non-Member'))
-  )
-  defaultsite.addPass(new Pass({
-    name        : 'Moderator Pass'
-  , description : 'Moderators'
-  })
-    .addMembership(new Membership('Member', true))
-    .addMembership(new Membership('Non-Member'))
-  )
-  defaultsite.addPass(new Pass({
-    name        : 'Younger Member'
-  , description : 'Members 18–35'
-  }).addMembership(new Membership('Member/Non-Member')))
-  defaultsite.addPass(new Pass({
-    name        : 'Student Pass'
-  , description : 'Undergraduates 18–24'
-  }).addMembership(new Membership('Member/Non-Member')))
-  defaultsite.addPass(new Pass({
-    name        : 'Guest Pass'
-  , description : 'Speaker and Moderator Guests'
-  }).addMembership(new Membership('Member/Non-Member')))
-  defaultsite.addPass(new Pass({
-    name        : 'Daily Pass'
-  , description : 'For One Day Only'
-  })
-    .addMembership(new Membership('Member', true))
-    .addMembership(new Membership('Non-Member'))
-  )
-  default.site.getCurrentConference
+  defaultsite.getCurrentConference
+    .addPass(new Pass({
+      name        : 'Standard Pass'
+    , description : 'Members & Non-Members'
+    })
+      .addMembership(new Membership('Member', true))
+      .addMembership(new Membership('Non-Member'))
+    ).addPass(new Pass({
+      name        : 'Speaker Pass'
+    , description : 'Speakers and Presenters'
+    })
+      .addMembership(new Membership('Member', true))
+      .addMembership(new Membership('Non-Member'))
+    ).addPass(new Pass({
+      name        : 'Moderator Pass'
+    , description : 'Moderators'
+    })
+      .addMembership(new Membership('Member', true))
+      .addMembership(new Membership('Non-Member'))
+    ).addPass(new Pass({
+      name        : 'Younger Member'
+    , description : 'Members 18–35'
+    })
+      .addMembership(new Membership('Member/Non-Member'))
+    ).addPass(new Pass({
+      name        : 'Student Pass'
+    , description : 'Undergraduates 18–24'
+    })
+      .addMembership(new Membership('Member/Non-Member'))
+    ).addPass(new Pass({
+      name        : 'Guest Pass'
+    , description : 'Speaker and Moderator Guests'
+    })
+      .addMembership(new Membership('Member/Non-Member'))
+    ).addPass(new Pass({
+      name        : 'Daily Pass'
+    , description : 'For One Day Only'
+    })
+      .addMembership(new Membership('Member', true))
+      .addMembership(new Membership('Non-Member'))
+    )
+
+  defaultsite.getCurrentConference
     .setPrice('Early Bird', 'Standard Pass' , 'Member'    ,  745)
     .setPrice('Early Bird', 'Standard Pass' , 'Non-Member',  845)
     .setPrice('Advance'   , 'Standard Pass' , 'Member'    ,  845)

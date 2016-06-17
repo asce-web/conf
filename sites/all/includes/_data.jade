@@ -9,12 +9,15 @@
 
 -
   var Site = (function () {
+    //- CONSTRUCTOR
     function Site($siteinfo) {
       var self = this
-      self.title   : $siteinfo.title
-      self.tagline : $siteinfo.tagline
-      self.keywords: $siteinfo.keywords
-      self.conference = {current: {}, prev: {}, next: {}}
+      self.title        = $siteinfo.title
+      self.tagline      = $siteinfo.tagline
+      self.keywords     = $siteinfo.keywords
+      self.conference   = {}
+      self.pass_periods = []
+      self.passes       = []
       self.pages = {
         universal: [
           {
@@ -85,21 +88,42 @@
         ]
       }
     }
+
+
+    //- SETTER FUNCTIONS
+    Site.prototype.setPage = function setPage() {
+    }
+    Site.prototype.setConference = function setConference(period, conference) {
+      this.conference[period] = conference
+    }
+    Site.prototype.addPassPeriod = function addPassPeriod(pass_period) {
+      this.pass_periods.push(pass_period)
+    }
+    Site.prototype.removePassPeriod = function removePassPeriod(pass_period_name) {
+      //- this.pass_periods.splice(this.pass_periods.indexOf(this.getPassPeriod(pass_period_name)), 1)
+      spliceFromArray(this.pass_periods, this.getPassPeriod(pass_period_name))
+    }
+    Site.prototype.addPass = function addPass(pass) {
+      this.passes.push(pass)
+    }
+    Site.prototype.removePass = function removePass(pass_name) {
+      //- this.passes.splice(this.passes.indexOf(this.getPass(pass_name)), 1)
+      spliceFromArray(this.passes, this.getPass(pass_name))
+    }
+
+
+    //- GETTER FUNCTIONS
     Site.prototype.getPage = function getPage(type, url0) {
       return this.pages[type].find(function (item) { return item.url === url0 })
     }
-    //- Site.prototype.setConference = function setConference(period, conference) {
-    //-   if (period === 'current' || period === 'prev' || period === 'next')
-    //-     this.conference[period] = conference
-    //- }
-    Site.prototype.setCurrentConference = function setCurrentConference(conference) {
-      this.conference.current = conference
+    Site.prototype.getConference = function getConference(period) {
+      return this.conference[period]
     }
-    Site.prototype.setPrevConference = function setPrevConference(conference) {
-      this.conference.prev = conference
+    Site.prototype.getPassPeriod = function getPassPeriod(pass_period_name) {
+      return this.pass_periods.find(function (item) { return item.name === pass_period_name })
     }
-    Site.prototype.setNextConference = function setNextConference(conference) {
-      this.conference.next = conference
+    Site.prototype.getPass = function getPass(pass_name) {
+      return this.passes.find(function (item) { return item.name === pass_name })
     }
     Site.MENU_CLASS: {
       standard: {
@@ -127,11 +151,11 @@
   var Conference = (function () {
     function Conference($confinfo) {
       var self = this
-      self.name = $confinfo.name
-      self.theme = $confinfo.theme
+      self.name      = $confinfo.name
+      self.theme     = $confinfo.theme
       self.startDate = $confinfo.startDate
-      self.endDate = $confinfo.endDate
-      self.url = $confinfo.url
+      self.endDate   = $confinfo.endDate
+      self.url       = $confinfo.url
       self.location = {
         addressLocality     : $confinfo.city
       , addressRegion       : $confinfo.state
@@ -139,6 +163,26 @@
       }
     }
     return Conference
+  })()
+
+  var PassPeriod = (function () {
+    function PassPeriod($periodinfo) {
+      var self = this
+      self.name        = $periodinfo.name
+      self.startDate   = $periodinfo.startDate
+      self.endDate     = $periodinfo.endDate
+    }
+    return PassPeriod
+  })()
+
+  var Pass = (function () {
+    function Pass($passinfo) {
+      var self = this
+      self.name        = $passinfo.name
+      self.description = $passinfo.description
+      self.memberships = $periodinfo.memberships
+    }
+    return Pass
   })()
 
 mixin sitemenulist(args)

@@ -9,11 +9,11 @@
 
 -
   var defaultsite = new Site({
-    title   : 'An ASCE Event'
-  , tagline : 'Optional Brand Tagline'
-  , keywords: ['ASCE', 'civil engineering', 'convention']
+    title    : 'An ASCE Event'
+  , tagline  : 'Optional Brand Tagline'
+  , keywords : ['ASCE', 'civil engineering', 'convention']
   })
-  defaultsite.setCurrentConference(new Conference({
+  defaultsite.setConference('current', new Conference({
     name      : 'A 2016 Event'
   , theme     : 'Theme for the conference is optional.'
   , startDate : '2016-09-28'
@@ -22,7 +22,7 @@
   , city      : 'Portland'
   , state     : 'OR'
   }))
-  defaultsite.setPrevConference(new Conference({
+  defaultsite.setConference('prev', new Conference({
     name      : 'A 2015 Event'
   , theme     : ''
   , startDate : '2015-10-11'
@@ -31,7 +31,7 @@
   , city      : 'New York'
   , state     : 'NY'
   }))
-  defaultsite.setNextConference(new Conference({
+  defaultsite.setConference('next', new Conference({
     name      : 'A 2017 Event'
   , theme     : ''
   , startDate : '2017-10-04'
@@ -40,6 +40,47 @@
   , city      : 'Chicago'
   , state     : 'IL'
   }))
+  defaultsite.addPassPeriod(new PassPeriod({
+    name      : 'Early Bird'
+  , endDate   : '2016-07-28'
+  }))
+  defaultsite.addPassPeriod(new PassPeriod({
+    name      : 'Advance'
+  , endDate   : '2016-08-25'
+  }))
+  defaultsite.addPassPeriod(new PassPeriod({
+    name      : 'Onsite'
+  , startDate : '2016-08-26'
+  }))
+  defaultsite.addPass(new Pass({
+    name        : 'Standard Pass'
+  , description : 'Members & Non-Members'
+  }))
+  defaultsite.addPass(new Pass({
+    name        : 'Speaker Pass'
+  , description : 'Speakers and Presenters'
+  }))
+  defaultsite.addPass(new Pass({
+    name        : 'Moderator Pass'
+  , description : 'Moderators'
+  }))
+  defaultsite.addPass(new Pass({
+    name        : 'Younger Member'
+  , description : 'Members 18–35'
+  }))
+  defaultsite.addPass(new Pass({
+    name        : 'Student Pass'
+  , description : 'Undergraduates 18–24'
+  }))
+  defaultsite.addPass(new Pass({
+    name        : 'Guest Pass'
+  , description : 'Speaker and Moderator Guests'
+  }))
+  defaultsite.addPass(new Pass({
+    name        : 'Daily Pass'
+  , description : 'For One Day Only'
+  }))
+
   var Default = {
   , pass: {
       standard: {
@@ -76,21 +117,21 @@
           {
             name: 'Early Bird'
           , memberships: [
-              { name:'Member', price: 645, is_featured: true }
+              { name: 'Member', price: 645, is_featured: true }
             , { name: 'Non-Member', price: 745 }
             ]
           }
         , {
             name: 'Advance'
           , memberships: [
-              { name:'Member', price: 745, is_featured: true }
+              { name: 'Member', price: 745, is_featured: true }
             , { name: 'Non-Member', price: 845 }
             ]
           }
         , {
             name: 'Onsite'
           , memberships: [
-              { name:'Member', price: 945, is_featured: true }
+              { name: 'Member', price: 945, is_featured: true }
             , { name: 'Non-Member', price: 945 }
             ]
           }

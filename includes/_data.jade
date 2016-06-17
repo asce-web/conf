@@ -97,6 +97,9 @@
   function urlify(str) {
     return encodeURIComponent(str.toLowerCase().replace(/[\W]+/g, '-'))
   }
+  function spliceFromArray(array, item) {
+    array.splice(array.indexOf(item), 1)
+  }
   //- function arrayFind(array, prop, val) {
   //-   return array.find(function (item) { return item[prop] === val })
   //- }

@@ -1,0 +1,50 @@
+
+//- ///////////////////////////////////////////////////////////////////////////////
+//- //
+//- // This file holds 'global' data for all files in this project,
+//- // including the pattern library and the sample sites.
+//- //
+//- ///////////////////////////////////////////////////////////////////////////////
+
+
+-
+  var month_names = [
+    'January'
+  , 'February'
+  , 'March'
+  , 'April'
+  , 'May'
+  , 'June'
+  , 'July'
+  , 'August'
+  , 'September'
+  , 'October'
+  , 'November'
+  , 'December'
+  ]
+  var day_names = [
+    'Sunday'
+  , 'Monday'
+  , 'Tuesday'
+  , 'Wednesday'
+  , 'Thursday'
+  , 'Friday'
+  , 'Saturday'
+  ]
+  function hourTime12(date) {
+    var hour = '' + ((date.getHours() - 1)%12 + 1)
+    var minute = ((date.getMinutes() < 10) ? '0' : '') + date.getMinutes()
+    var meridiem = (date.getHours() < 12) ? 'am' : 'pm'
+    return hour + ((minute !== '00') ? ':' + minute : '') + meridiem
+  }
+  function hourTime24(date) {
+    var hour =   ((date.getHours()   < 10) ? '0' : '') + date.getHours()
+    var minute = ((date.getMinutes() < 10) ? '0' : '') + date.getMinutes()
+    return hour + ':' + minute
+  }
+  function urlify(str) {
+    return encodeURIComponent(str.toLowerCase().replace(/[\W]+/g, '-'))
+  }
+  //- function arrayFind(array, prop, val) {
+  //-   return array.find(function (item) { return item[prop] === val })
+  //- }

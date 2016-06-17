@@ -2,7 +2,7 @@ h1#sponsors Sponsors
 div.o-GridFlex.c-SponsorBlock
   button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--back #[i.material-icons chevron_left]
   ol.o-GridFlex__Item.o-ListBare.o-GridFlex.c-SponsorBlock__Carousel
-    each item in [getSponsor('ASCE Foundation'), getSponsor('Bentley'), getSponsor('Pennoni')]
+    each item in Default.sponsors.slice(0,3)
       li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
         a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
         small.c-SponsorBlock__Label= sponsorlevel[item.level].name

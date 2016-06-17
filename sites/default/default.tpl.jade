@@ -1,9 +1,7 @@
 doctype html
 html(lang="en")
-  include ../includes/_data-global.jade
-  include ../includes/_mixins-global.jade
-  include includes/_data-site.jade
-  include includes/_mixins-site.jade
+  include /includes/_data.jade
+  include includes/_data.jade
   head
     block vars
       - getPage('universal','index.html').name = site.title

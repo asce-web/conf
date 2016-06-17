@@ -1,0 +1,197 @@
+
+//- ///////////////////////////////////////////////////////////////////////////////
+//- //
+//- // This file holds 'public' data for all microsites.
+//- // It should only be changed when all microsites need changing.
+//- //
+//- ///////////////////////////////////////////////////////////////////////////////
+
+
+-
+  var Conf = {
+    site_pages: {
+      universal: [
+        {
+          name: '', href: 'index.html'
+        }
+      , {
+          name: 'About', href: 'about.html'
+        , icon: { content: 'info_outline', fallback: '&#xE88F;' }
+        , sub: [
+            { name: 'Cooperating Orgs', href: '' }
+          , { name: 'Partnering Orgs ', href: '' }
+          , { name: 'Volunteer       ', href: '' }
+          , { name: 'Why Attend      ', href: '' }
+          ]
+        }
+      , {
+          name: 'Sponsor', href: 'sponsor.html'
+        , icon: { content: 'people', fallback: '&#xE7FB;' }
+        }
+      , {
+          name: 'Exhibit', href: 'exhibit.html'
+        , icon: { content: 'work', fallback: '&#xE8F9;' }
+        , sub: [
+            { name: 'Exhibitor List', href: '' }
+          ]
+        }
+      , {
+          name: 'Contact', href: 'contact.html'
+        , icon: { content: 'email', fallback: '&#xE0BE;' }
+        }
+      ]
+    , internal: [
+        {
+          name: 'Home', href: 'home.html'
+        , icon: { content: 'home', fallback: '&#xE88A;' }
+        }
+      , {
+          name: 'Registration', href: 'registration.html'
+        , icon: { content: 'shopping_cart', fallback: '&#xE8CC;' }
+        , sub: [
+            { name: 'Why Attend'     , href: '' }
+          , { name: 'Short Courses'  , href: '' }
+          , { name: 'Technical Tours', href: '' }
+          , { name: 'Optional Tours' , href: '' }
+          ]
+        }
+      , {
+          name: 'Program', href: 'program.html'
+        , icon: { content: 'event', fallback: '&#xE878;' }
+        , sub: [
+            { name: 'Events', href: '' }
+          ]
+        }
+      , {
+          name: 'Hotel & Travel', href: 'location.html'
+        , icon: { content: 'flight', fallback: '&#xE539;' }
+        , sub: [
+            { name: 'International Travel', href: '' }
+          ]
+        }
+      , {
+          name: 'Speakers', href: 'speakers.html'
+        , icon: { content: 'account_box', fallback: '&#xE851;' }
+        , sub: [
+            { name: 'Distinguished Lecture Series', href: '' }
+          ]
+        }
+      ]
+    }
+  , menu_class: {
+      standard: {
+        listclasses : 'o-ListBare o-GridFlex c-MenuStandard'
+      , itemclasses : 'o-GridFlex__Item c-MenuStandard__Item'
+      , linkclasses : 'o-Block c-MenuStandard__Link'
+      , sub: {
+          listclasses : 'o-ListBare c-MenuSub'
+        , itemclasses : 'c-MenuSub__Item'
+        , linkclasses : 'o-Block c-MenuSub__Link'
+        }
+      }
+    , sitemap: {
+        listclasses : 'o-ListBare o-GridFlex c-Sitemap'
+      , itemclasses : 'o-GridFlex__Item c-Sitemap__Item'
+      , sub: {
+          listclasses : 'o-ListBare c-Sitemap__SubList'
+        , itemclasses : 'c-Sitemap__SubItem'
+        }
+      }
+    }
+  }
+  Conf.getPage = function getPage(type, url) {
+    return this.site_pages[type].find(function (item) { return item.href === url })
+  }
+
+mixin sitemenulist(args)
+  - var pages     = args.pages     || []
+  - var class_obj = args.class_obj || {}
+  - var depth     = +args.depth    || 0
+  - var icons     = !!args.icons
+  ul(class=class_obj.listclasses)
+    each item in pages
+      unless item.is_hidden
+        li(class=class_obj.itemclasses)
+          a(class=class_obj.linkclasses href=item.href)
+            if args.icons && item.icon
+              i.material-icons= item.icon.content
+            span= item.name
+          if item.sub && depth > 0
+            +sitemenulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})
+
+mixin event-location-name(loc)
+  span(itemprop="name")
+    span(itemprop="addressLocality")= loc.addressLocality + ', '
+    abbr(title=loc.addressRegion_title itemprop="addressRegion")
+      = loc.addressRegion
+
+mixin hero-content(event0)
+  - event0 = event0 || {}
+  h1.c-PageTitle.c-Hero__Name(itemprop="name")= event0.name
+  meta(content=event0.url itemprop="url")
+  p.c-Hero__Detail
+    span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+      +event-location-name(event0.location)
+    span.c-Hero__Dates
+      time(datetime=event0.startDate itemprop="startDate")
+        - var start = new Date(event0.startDate)
+        = month_names[start.getUTCMonth()].slice(0,3) + ' ' + start.getUTCDate()
+      | &ndash;
+      time(datetime=event0.endDate itemprop="endDate")
+        - var end = new Date(event0.endDate)
+        = month_names[end.getUTCMonth()].slice(0,3) + ' ' + end.getUTCDate()
+  p.c-Hero__Theme(itemprop="description")
+    if event0.theme
+      = event0.theme
+    else
+      | &nbsp;
+
+mixin otheryear-content(event0)
+  - event0 = event0 || {}
+  h1.c-OtherYear__Name(itemprop="name")= event0.name
+  meta(content=event0.startDate itemprop="startDate")
+  p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+    +event-location-name(event0.location)
+  block
+  ul.o-ListBare.o-GridFlex.o-ListAction
+    li.o-GridFlex__Item.o-ListAction__Item
+      a.c-Btn.c-Btn--hilite.c-Btn--ghost(href=event0.url itemprop="url") Event Details
+
+mixin actionchoices(items, classes, list_attr)
+  - list_attr = list_attr || {}
+  ul.o-ListBare.o-GridFlex.o-ListAction&attributes(list_attr)
+    each obj in items
+      - obj.attr = obj.attr || {}
+      li.o-GridFlex__Item.o-ListAction__Item
+        a(class=classes href=obj.href)&attributes(obj.attr)
+          = obj.text
+          block
+
+mixin minimal-text-block()
+  div.o-Runner.o-Runner--highlight.minimal-text: div.o-ContentWrapper
+    p.
+      Join civil engineering professionals from around the world at
+      this ASCE flagship event. Network with peers, earn PDHs, and
+      expand your knowledge base.
+    p #[a(href="") Lorem ipsum dolor sit amet], consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    ul
+      li 3&frac12; days of premier educational and networking events
+      li 15 tracks and 6 plenary sessions focusing on ...
+      li Prestigious awards and keynote lecture presentations
+      li Lively programs for studdnts and young professionals
+
+mixin rich-text-block()
+  div.o-Runner.o-Runner--highlight.rich-text: div.o-ContentWrapper
+    h2 a heading
+    p #[a(href="") Lorem ipsum dolor sit amet], consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    h3 another heading
+    blockquote #[a(href="") Aenean euismod bibendum laoreet]. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
+    ul
+      li 3&frac12; days of premier educational and networking events
+      li 15 tracks and 6 plenary sessions focusing on ...
+      li Prestigious awards and keynote lecture presentations
+      li Lively programs for studdnts and young professionals
+    h2 a heading
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+    h3 another heading
+    blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.

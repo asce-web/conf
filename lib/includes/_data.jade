@@ -8,9 +8,9 @@
 
 -
   var Lib = {
-    var lib_pages: [
+    pages: [
       {
-        name: 'Pattern Library Home', href: 'index.html'
+        name: 'Pattern Library', href: 'index.html'
       , description: ''
       }
     , {
@@ -22,7 +22,7 @@
         ]
       }
     , {
-        name: 'Base', href: 'base.html'
+        name: 'Base Typography', href: 'base.html'
       , description: 'Bare, unstyled HTML elements. No classes.'
       , sub: [
           { name: 'Table of Contents'    , href: 'base.html#table-contents' }
@@ -98,14 +98,8 @@
       }
     ]
   }
-  Lib.title = function title(arr) {
-    return arr.reduceRight(function (a, b) { return a + ' | ' + b })
-  }
-  Lib.mainH1 = function mainH1(arr) {
-    return arr.reduce(function (a, b) { return a + ' — ' + b })
-  }
-  Lib.getPage = function getPage(type, url) {
-    return this.lib_pages.find(function (item) { return item.href === url })
+  Lib.getPage = function getPage(url) {
+    return this.pages.find(function (item) { return item.href === url })
   }
 
 mixin libtoc(args)

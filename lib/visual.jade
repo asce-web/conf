@@ -1,14 +1,13 @@
 extends lib.tpl.jade
 
 block append vars
-  - var page_id = lib[1]
-  - titles.push(page_id.name)
+  - var page = Lib.getPage('visual.html')
 
 block toc
-    +libtoc({pages: page_id.sub, depth: Infinity})
+  +libtoc({pages: page.sub, depth: Infinity})
 
 block append main
-  //- -
+  -
     var scheme = {
       asce: {
         black : { code: '#222222', bg_class: '-bc-asce_black', name: 'ASCE Black' }
@@ -17,21 +16,11 @@ block append main
       }
     , asce2016: {
         primary   : { code: '#3fae2a', bg_class: '-bc-site_primary'  , name: 'ASCE 2016 Primary' }
-        secondary : { code: '#00a1e1', bg_class: '-bc-site_secondary', name: 'ASCE 2016 Secondary' }
-        gray_dk   : { code: '#373c36', bg_class: '-bc-site_gray_dk'  , name: 'ASCE 2016 Dark Gray' }
-        gray_lt   : { code: '#9fa5a8', bg_class: '-bc-site_gray_lt'  , name: 'ASCE 2016 Light Gray' }
+      , secondary : { code: '#00a1e1', bg_class: '-bc-site_secondary', name: 'ASCE 2016 Secondary' }
+      , gray_dk   : { code: '#373c36', bg_class: '-bc-site_gray_dk'  , name: 'ASCE 2016 Dark Gray' }
+      , gray_lt   : { code: '#9fa5a8', bg_class: '-bc-site_gray_lt'  , name: 'ASCE 2016 Light Gray' }
       }
     }
-  - var scheme = {}
-  - scheme.asce = {}
-  - scheme.asce.black = {code:'#222222', bg_class:'-bc-asce_black', name:'ASCE Black'}
-  - scheme.asce.white = {code:'#ffffff', bg_class:'-bc-asce_white', name:'ASCE White'}
-  - scheme.asce.blue  = {code:'#0c5fa8', bg_class:'-bc-asce_blue' , name:'ASCE Blue'}
-  - scheme.site = {}
-  - scheme.site.primary   = {code:'#3fae2a', bg_class:'-bc-site_primary'  , name:'ASCE 2016 Primary'}
-  - scheme.site.secondary = {code:'#00a1e1', bg_class:'-bc-site_secondary', name:'ASCE 2016 Secondary'}
-  - scheme.site.gray_dk   = {code:'#373c36', bg_class:'-bc-site_gray_dk'  , name:'ASCE 2016 Dark Gray'}
-  - scheme.site.gray_lt   = {code:'#9aa7ad', bg_class:'-bc-site_gray_lt'  , name:'ASCE 2016 Light Gray'}
   mixin colorsample(color)
     - var boxwidth = '96px'
     li.o-GridFlex__Item.-mr-1(style={width:boxwidth})
@@ -53,7 +42,7 @@ block append main
     h2 ASCE 2016
     h3 Colors
     ul.o-ListBare.o-GridFlex
-      +colorsample(scheme.site.primary)
-      +colorsample(scheme.site.secondary)
-      +colorsample(scheme.site.gray_dk)
-      +colorsample(scheme.site.gray_lt)
+      +colorsample(scheme.asce2016.primary)
+      +colorsample(scheme.asce2016.secondary)
+      +colorsample(scheme.asce2016.gray_dk)
+      +colorsample(scheme.asce2016.gray_lt)

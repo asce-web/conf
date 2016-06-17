@@ -1,11 +1,10 @@
 extends lib.tpl.jade
 
 block append vars
-  - var page_id = lib[3]
-  - titles.push(page_id.name)
+  - var page = Lib.getPage('obj.html')
 
 block toc
-    +libtoc({pages: page_id.sub, depth: Infinity})
+  +libtoc({pages: page.sub, depth: Infinity})
 
 block append main
   div.docs-t-Xmeter

@@ -114,9 +114,7 @@
   }
   &:hover,
   &:focus,
-  &:active,
-  &._hover,
-  &._active {
+  &._hover {
     background-color: @g-color_site_gray_lt;
   }
   &:active,
@@ -148,6 +146,27 @@
   line-height: 0;
   white-space: nowrap;
   border-radius: 0.25em;
+}
+
+.c-Btn--dark {
+  background-color: darken(@g-color_site_gray_dk, 25%, relative);
+  &,
+  &:hover,
+  &:focus,
+  &:active,
+  &._hover,
+  &._active {
+    color: @g-color_asce_white;
+  }
+  &:hover,
+  &:focus,
+  &._hover {
+    background-color: @g-color_site_gray_dk;
+  }
+  &:active,
+  &._active {
+    background-color: lighten(@g-color_site_gray_dk, 25%, relative);
+  }
 }
 
 .c-Btn--hero {

@@ -85,7 +85,6 @@
 
 .c-Btn--hilite {
   padding: @g-boxpadd_mill_v @g-boxpadd_kilo_h;
-  border-width: 2px;
   font-size: 1.5em;
 }
 
@@ -202,7 +201,8 @@
 .c-Btn--drawer {
   padding: @g-boxpadd_micr;
   margin: @g-boxpadd_mill;
-  color: inherit; // override `.c-Btn`
+  border: 0; // override `button`
+  color: inherit; // override `.c-Btn` // in dark mast
 }
 
 .c-Btn--drawer--close {

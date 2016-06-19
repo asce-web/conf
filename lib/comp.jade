@@ -852,16 +852,19 @@ block append main
           li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat flat button disabled inside a banner
       pre.docs-pre.
         &lt;a class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/a&gt;
-    h3 Drawer Buttons
+    h3 Drawer Button Structure
     p Drawer buttons for pull-out menu.
-    p These are actually #[code(class=classname.code) button] elements. #[i Close] button is fixed to the top right.
+    p.
+      These are actually #[code(class=classname.code) button] elements.
+      #[i Close] button is fixed to the top right.
+      Use with Flat Button styles when inside the masthead.
     figure.docs-figure
       div(style="margin-bottom: 1.5rem;")
-        button.c-Btn.c-Btn--drawer open
-        button.c-Btn.c-Btn--drawer.c-Btn--drawer--close close
+        button.c-Btn.c-Btn--flat.c-Btn--drawer open
+        button.c-Btn.c-Btn--flat.c-Btn--drawer.c-Btn--drawer--close close
       pre.docs-pre.
-        &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]"&gt;open&lt;/button&gt;
-        &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]  #[u c-Btn--drawer--close]"&gt;close&lt;/button&gt;
+        &lt;button class="#[u c-Btn]  u c-Btn--flat  #[u c-Btn--drawer]"&gt;open&lt;/button&gt;
+        &lt;button class="#[u c-Btn]  u c-Btn--flat  #[u c-Btn--drawer]  #[u c-Btn--drawer--close]"&gt;close&lt;/button&gt;
       ul.o-ListBare
         li(style="margin-bottom:0.375rem;"): button.c-Btn.c-Btn--drawer drawer button
         li(style="margin-bottom:0.375rem;"): button.c-Btn.c-Btn--drawer._hover drawer button hover

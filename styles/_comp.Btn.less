@@ -8,23 +8,6 @@
 @import (reference) url('__tool.module.menubar.less');
 
 
-// mixin for accent-colored buttons.
-// used on hero (primary color) and dominant (secondary color)
-.p-accentcolor() {
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    color: @g-color_asce_white;
-  }
-  &:active,
-  &._active {
-    background-color: @g-color_site_gray_dk;
-  }
-}
-
 // A mixin for link-like buttons.
 // used on ghost buttons and flat buttons.
 .p-linklike() {
@@ -80,26 +63,17 @@
     opacity: 0.75; // override xmeter
     cursor: not-allowed;
   }
-  &:not(.c-Btn--flat) {
-    &,
-    &:hover,
-    &:focus,
-    &:active,
-    &._hover,
-    &._active {
+  // resets
+  &,
+  &:hover,
+  &:focus,
+  &:active,
+  &._hover,
+  &._active {
+    &:not(.c-Btn--flat) {
       .filter();
     }
   }
-  // &,
-  // &:hover,
-  // &:focus,
-  // &:active,
-  // &._hover,
-  // &._active {
-  //   &:not(.c-Btn--flat) {
-  //     .filter();
-  //   }
-  // }
 }
 .c-Btn {
   // generic button color styles
@@ -110,7 +84,7 @@
   &:active,
   &._hover,
   &._active {
-    color: @g-color_asce_black;
+    color: #000;
   }
   &:hover,
   &:focus,
@@ -156,7 +130,7 @@
   &:active,
   &._hover,
   &._active {
-    color: @g-color_asce_white;
+    color: #fff;
   }
   &:hover,
   &:focus,

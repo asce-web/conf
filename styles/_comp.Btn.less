@@ -8,6 +8,12 @@
 @import (reference) url('__tool.module.menubar.less');
 
 
+// Table of Contents
+// # ALL BUTTON STYLES (.c-Btn)
+// # BUTTON COLOR STYLES
+// # BUTTON STRUCTURE STYLES
+
+
 // Buttons.
 //
 // ^subclasses
@@ -51,6 +57,11 @@
     .filter();
   }
 }
+
+
+//++++++++++++++++++++++++++++++++//
+//    # BUTTON COLOR STYLES
+//++++++++++++++++++++++++++++++++//
 .c-Btn {
   // generic button color styles
   background-color: lighten(@g-color_site_gray_lt, 25%, relative);
@@ -183,7 +194,12 @@
     color: @g-color_site_gray_dk;
   }
 }
+//++++ end # BUTTON COLOR STYLES ++++//
 
+
+//++++++++++++++++++++++++++++++++//
+//    # BUTTON STRUCTURE STYLES
+//++++++++++++++++++++++++++++++++//
 .c-Btn--hilite {
   padding: @g-boxpadd_mill_v @g-boxpadd_kilo_h;
   font-size: 1.5em;
@@ -210,3 +226,4 @@
   top: 0; right: 0;
   z-index: 2; // over MenuUniversal
 }
+//++++ end # BUTTON STRUCTURE STYLES ++++//

@@ -8,28 +8,6 @@
 @import (reference) url('__tool.module.menubar.less');
 
 
-// A mixin for link-like buttons.
-// used on ghost buttons and flat buttons.
-.p-linklike() {
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    background: none;
-  }
-  &:hover,
-  &:focus,
-  &._hover {
-    color: @g-color_site_gray_lt; // same as normal link
-  }
-  &:active,
-  &._active {
-    color: inherit; // same as normal link
-  }
-}
-
 // Buttons.
 //
 // ^subclasses
@@ -70,9 +48,7 @@
   &:active,
   &._hover,
   &._active {
-    &:not(.c-Btn--flat) {
-      .filter();
-    }
+    .filter();
   }
 }
 .c-Btn {
@@ -167,10 +143,23 @@
   background-color: @g-color_site_secondary;
 }
 
+.c-Btn--ghost,
+.c-Btn--ghostDark,
+.c-Btn--flat {
+  .menubar();
+  font-size: (14em/16); // same as Mast
+  letter-spacing: 1px;
+}
+
+.c-Btn--ghost,
+.c-Btn--ghostDark {
+  border: 2px solid;
+  background-color: transparent;
+}
 
 .l-ghost(@color; @hovercolor; @hoverbgcolor) {
   color: @color;
-  border: 2px solid @color;
+  border-color: @color;
   &:hover,
   &:focus,
   &:active,
@@ -181,11 +170,6 @@
   }
 }
 
-.c-Btn--ghost,
-.c-Btn--ghostDark {
-  background-color: transparent;
-}
-
 .c-Btn--ghost {
   .l-ghost(@g-color_site_gray_dk; @g-color_asce_white; @g-color_site_gray_dk);
 }
@@ -194,6 +178,26 @@
   .l-ghost(@g-color_asce_white; @g-color_site_gray_dk; @g-color_asce_white);
 }
 
+.c-Btn--flat {
+  &,
+  &:hover,
+  &:focus,
+  &:active,
+  &._hover,
+  &._active {
+    color: @g-color_site_secondary; // same as link
+    background-color: transparent;
+  }
+  &:hover,
+  &:focus,
+  &._hover {
+    color: @g-color_site_gray_lt; // same as link
+  }
+  &:active,
+  &._active {
+    color: @g-color_site_gray_dk;
+  }
+}
 
 .c-Btn--drawer {
   padding: @g-boxpadd_micr;

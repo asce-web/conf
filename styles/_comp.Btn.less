@@ -169,10 +169,23 @@
   }
 }
 
-.c-Btn--hero {
-  border: 0;
+.c-Btn--primary {
+  &,
+  &:hover,
+  &:focus,
+  &:active,
+  &._hover,
+  &._active {
+    color: #fff;
+  }
+  &:active,
+  &._active {
+    background-color: @g-color_site_gray_dk;
+  }
+}
+
+.c-Btn--primary {
   background-color: @g-color_site_primary;
-  .p-accentcolor();
 }
 
 .c-Btn--dominant {

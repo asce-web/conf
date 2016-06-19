@@ -171,14 +171,27 @@
   @c: @g-color_site_gray_dk;
   color: @c;
   border: 2px solid @c;
-  background-color: transparent;
   &:hover,
   &:focus,
   &:active,
   &._hover,
   &._active {
-    color: #fff;
+    color: @g-color_asce_white;
     background-color: @g-color_site_gray_dk;
+  }
+}
+
+.c-Btn--ghostDark {
+  @c: @g-color_asce_white;
+  color: @c;
+  border: 2px solid @c;
+  &:hover,
+  &:focus,
+  &:active,
+  &._hover,
+  &._active {
+    color: @g-color_site_gray_dk;
+    background-color: @g-color_asce_white;
   }
 }
 

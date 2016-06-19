@@ -90,22 +90,39 @@
       .filter();
     }
   }
+  // &,
+  // &:hover,
+  // &:focus,
+  // &:active,
+  // &._hover,
+  // &._active {
+  //   &:not(.c-Btn--flat) {
+  //     .filter();
+  //   }
+  // }
 }
 .c-Btn {
   // generic button color styles
-  color: @g-color_site_secondary;
+  background-color: lighten(@g-color_site_gray_lt, 25%, relative);
+  border-color: transparent;
+  &,
   &:hover,
   &:focus,
   &:active,
   &._hover,
   &._active {
-    color: @g-color_site_gray_dk;
+    color: @g-color_asce_black;
+  }
+  &:hover,
+  &:focus,
+  &:active,
+  &._hover,
+  &._active {
     background-color: @g-color_site_gray_lt;
   }
-  &,
   &:active,
   &._active {
-    background-color: @g-color_asce_white;
+    background-color: darken(@g-color_site_gray_lt, 25%, relative);
   }
   a&:not([href]),
   button&:disabled {

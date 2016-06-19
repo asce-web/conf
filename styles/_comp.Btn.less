@@ -167,40 +167,33 @@
   background-color: @g-color_site_secondary;
 }
 
-.c-Btn--ghost {
-  @c: @g-color_site_gray_dk;
-  color: @c;
-  border: 2px solid @c;
+
+.l-ghost(@color; @hovercolor; @hoverbgcolor) {
+  color: @color;
+  border: 2px solid @color;
   &:hover,
   &:focus,
   &:active,
   &._hover,
   &._active {
-    color: @g-color_asce_white;
-    background-color: @g-color_site_gray_dk;
+    color: @hovercolor;
+    background-color: @hoverbgcolor;
   }
+}
+
+.c-Btn--ghost,
+.c-Btn--ghostDark {
+  background-color: transparent;
+}
+
+.c-Btn--ghost {
+  .l-ghost(@g-color_site_gray_dk; @g-color_asce_white; @g-color_site_gray_dk);
 }
 
 .c-Btn--ghostDark {
-  @c: @g-color_asce_white;
-  color: @c;
-  border: 2px solid @c;
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    color: @g-color_site_gray_dk;
-    background-color: @g-color_asce_white;
-  }
+  .l-ghost(@g-color_asce_white; @g-color_site_gray_dk; @g-color_asce_white);
 }
 
-.c-Btn--flat {
-  .menubar();
-  font-size: (14em/16); // same as Mast
-  border: 0;
-  .p-linklike();
-}
 
 .c-Btn--drawer {
   padding: @g-boxpadd_micr;

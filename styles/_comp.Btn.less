@@ -8,45 +8,6 @@
 @import (reference) url('__tool.module.menubar.less');
 
 
-// mixin for accent-colored buttons.
-// used on hero (primary color) and dominant (secondary color)
-.p-accentcolor() {
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    color: @g-color_asce_white;
-  }
-  &:active,
-  &._active {
-    background-color: @g-color_site_gray_dk;
-  }
-}
-
-// A mixin for link-like buttons.
-// used on ghost buttons and flat buttons.
-.p-linklike() {
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    background: none;
-  }
-  &:hover,
-  &:focus,
-  &._hover {
-    color: @g-color_site_gray_lt; // same as normal link
-  }
-  &:active,
-  &._active {
-    color: inherit; // same as normal link
-  }
-}
-
 // Buttons.
 //
 // ^subclasses
@@ -72,7 +33,7 @@
   padding: @g-boxpadd_mill;
   margin-top: 0; // FIXME override negative margin-top from xmeter
   font-weight: 700;
-  border: 1px solid;
+  border-radius: 0.25rem;
   cursor: pointer;
   .transition-duration(250ms);
   a&:not([href]),
@@ -80,32 +41,35 @@
     opacity: 0.75; // override xmeter
     cursor: not-allowed;
   }
-  &:not(.c-Btn--flat) {
-    &,
-    &:hover,
-    &:focus,
-    &:active,
-    &._hover,
-    &._active {
-      .filter();
-    }
-  }
-}
-.c-Btn {
-  // generic button color styles
-  color: @g-color_site_secondary;
+  // resets
+  &,
   &:hover,
   &:focus,
   &:active,
   &._hover,
   &._active {
-    color: @g-color_site_gray_dk;
+    .filter();
+  }
+}
+.c-Btn {
+  // generic button color styles
+  background-color: lighten(@g-color_site_gray_lt, 25%, relative);
+  &,
+  &:hover,
+  &:focus,
+  &:active,
+  &._hover,
+  &._active {
+    color: #000;
+  }
+  &:hover,
+  &:focus,
+  &._hover {
     background-color: @g-color_site_gray_lt;
   }
-  &,
   &:active,
   &._active {
-    background-color: @g-color_asce_white;
+    background-color: darken(@g-color_site_gray_lt, 25%, relative);
   }
   a&:not([href]),
   button&:disabled {
@@ -119,9 +83,109 @@
   }
 }
 
+.c-Btn--dark {
+  background-color: darken(@g-color_site_gray_dk, 25%, relative);
+  &,
+  &:hover,
+  &:focus,
+  &:active,
+  &._hover,
+  &._active {
+    color: #fff;
+  }
+  &:hover,
+  &:focus,
+  &._hover {
+    background-color: @g-color_site_gray_dk;
+  }
+  &:active,
+  &._active {
+    background-color: lighten(@g-color_site_gray_dk, 25%, relative);
+  }
+}
+
+.c-Btn--primary,
+.c-Btn--secondary {
+  &,
+  &:hover,
+  &:focus,
+  &:active,
+  &._hover,
+  &._active {
+    color: #fff;
+  }
+  &:active,
+  &._active {
+    background-color: @g-color_site_gray_dk;
+  }
+}
+
+.c-Btn--primary {
+  background-color: @g-color_site_primary;
+}
+
+.c-Btn--secondary {
+  background-color: @g-color_site_secondary;
+}
+
+.c-Btn--ghost,
+.c-Btn--ghostDark,
+.c-Btn--flat {
+  .menubar();
+  font-size: (14em/16); // same as Mast
+  letter-spacing: 1px;
+}
+
+.c-Btn--ghost,
+.c-Btn--ghostDark {
+  border: 2px solid;
+  background-color: transparent;
+}
+
+.l-ghost(@color; @hovercolor; @hoverbgcolor) {
+  color: @color;
+  border-color: @color;
+  &:hover,
+  &:focus,
+  &:active,
+  &._hover,
+  &._active {
+    color: @hovercolor;
+    background-color: @hoverbgcolor;
+  }
+}
+
+.c-Btn--ghost {
+  .l-ghost(@g-color_site_gray_dk; @g-color_asce_white; @g-color_site_gray_dk);
+}
+
+.c-Btn--ghostDark {
+  .l-ghost(@g-color_asce_white; @g-color_site_gray_dk; @g-color_asce_white);
+}
+
+.c-Btn--flat {
+  &,
+  &:hover,
+  &:focus,
+  &:active,
+  &._hover,
+  &._active {
+    color: @g-color_site_secondary; // same as link
+    background-color: transparent;
+  }
+  &:hover,
+  &:focus,
+  &._hover {
+    color: @g-color_site_gray_lt; // same as link
+  }
+  &:active,
+  &._active {
+    color: @g-color_site_gray_dk;
+  }
+}
+
 .c-Btn--hilite {
   padding: @g-boxpadd_mill_v @g-boxpadd_kilo_h;
-  border-width: 2px;
   font-size: 1.5em;
 }
 
@@ -130,37 +194,15 @@
   padding: 0 @g-boxpadd_micr_h;
   font-size: 0.75em;
   line-height: 0;
+  white-space: nowrap;
   border-radius: 0.25em;
-}
-
-.c-Btn--hero {
-  border: 0;
-  background-color: @g-color_site_primary;
-  .p-accentcolor();
-}
-
-.c-Btn--dominant {
-  font-style: italic;
-  background-color: @g-color_site_secondary;
-  .p-accentcolor();
-}
-
-.c-Btn--ghost {
-  border-width: 2px;
-  .p-linklike();
-}
-
-.c-Btn--flat {
-  .menubar();
-  font-size: (14em/16); // same as Mast
-  border: 0;
-  .p-linklike();
 }
 
 .c-Btn--drawer {
   padding: @g-boxpadd_micr;
   margin: @g-boxpadd_mill;
-  color: inherit; // override `.c-Btn`
+  border: 0; // override `button`
+  color: inherit; // override `.c-Btn` // in dark mast
 }
 
 .c-Btn--drawer--close {

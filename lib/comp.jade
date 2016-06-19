@@ -738,106 +738,246 @@ block append main
       only the code for the default state is shown.
     p.
       #[strong Important:] colors will vary by site. Colors shown here are
-      #[a(href="visual.html") ASCE 2016].
+      #[a(href="visual.html#asce2016") ASCE 2016].
     h3 Generic Buttons
     p Generic, general purpose buttons.
     figure.docs-figure
-      div(style="margin-bottom:1.5rem;"): a.c-Btn(href="#0") generic button
-      div(style="margin-bottom:1.5rem;")
-        a.c-Btn(href="#0")._hover generic button hover
-        a.c-Btn(href="#0")._active generic button active
-        a.c-Btn generic button disabled
+      ul.o-ListBare
+        li(style="margin-bottom:0.375rem;"): a.c-Btn(href="#0") generic button
+        li(style="margin-bottom:0.375rem;"): a.c-Btn(href="#0")._hover generic button hover
+        li(style="margin-bottom:0.375rem;"): a.c-Btn(href="#0")._active generic button active
+        li(style="margin-bottom:0.375rem;"): a.c-Btn generic button disabled
       pre.docs-pre.
         &lt;a class="#[u c-Btn]"&gt;generic button&lt;/a&gt;
-    h3 Highlight Buttons
+    h3 Highlight Button Structure
     p Highlight buttons, for large buttons in highlight block.
     figure.docs-figure
-      div(style="margin-bottom:1.5rem;"): a.c-Btn.c-Btn--hilite(href="#0") highlight button
-      div(style="margin-bottom:1.5rem;")
-        a.c-Btn.c-Btn--hilite(href="#0")._hover highlight button hover
-        a.c-Btn.c-Btn--hilite(href="#0")._active highlight button active
-        a.c-Btn.c-Btn--hilite highlight button disabled
+      ul.o-ListBare
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--hilite(href="#0") highlight button
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--hilite(href="#0")._hover highlight button hover
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--hilite(href="#0")._active highlight button active
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--hilite highlight button disabled
       pre.docs-pre.
         &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;highlight button&lt;/a&gt;
-    h3 Inline Buttons
+    h3 Inline Buttons Structure
     p Inline buttons, for buttons in line with text.
     figure.docs-figure
       p.
         The following button,
         #[a.c-Btn.c-Btn--inline(href="#0") inline button],
         is in line with the text in this paragraph.
-      p Lorem ipsum #[a.c-Btn.c-Btn--inline(href="#0")._hover inline button hover] dolor.
-      p Lorem ipsum #[a.c-Btn.c-Btn--inline(href="#0")._active inline button active] dolor.
-      p Lorem ipsum #[a.c-Btn.c-Btn--inline inline button disabled] dolor.
+        Lorem ipsum #[a.c-Btn.c-Btn--inline(href="#0")._hover inline button hover] dolor.
+        Consectetur #[a.c-Btn.c-Btn--inline(href="#0")._active inline button active] adipiscing elit
+        aliquam sagittis #[a.c-Btn.c-Btn--inline inline button disabled] suscipit nunc.
       pre.docs-pre.
         &lt;p&gt;The following button,
           &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
-          is in line with the text in this paragraph.&lt;/p&gt;
-    h3 Hero Buttons
-    p Hero button, for action button(s) in hero section. Combine with Highlight button to make bigger.
+          is in line with the text in this paragraph. ...&lt;/p&gt;
+    h3 Dark Button Color
+    p Same as generic button but darker.
     figure.docs-figure
-      div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--hero(href="#0") hero button
-      div(style="margin-bottom: 1.5rem;")
-        a.c-Btn.c-Btn--hero(href="#0")._hover hero button hover
-        a.c-Btn.c-Btn--hero(href="#0")._active hero button active
-        a.c-Btn.c-Btn--hero hero button disabled
+      ul.o-ListBare
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--dark(href="#0") generic dark button
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--dark(href="#0")._hover generic dark button hover
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--dark(href="#0")._active generic dark button active
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--dark generic dark button disabled
       pre.docs-pre.
-        &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button&lt;/a&gt;
-    h3 Dominant Buttons
-    p Dominant button, for emphasizing a button when it is near other not-as-important buttons.
+        &lt;a class="#[u c-Btn]  #[u c-Btn--dark]"&gt;generic dark button&lt;/a&gt;
+    h3 Primary Button Color
+    p Button with site primary color.
     figure.docs-figure
-      div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--dominant(href="#0") dominant button
-      div(style="margin-bottom: 1.5rem;")
-        a.c-Btn.c-Btn--dominant(href="#0")._hover dominant button hover
-        a.c-Btn.c-Btn--dominant(href="#0")._active dominant button active
-        a.c-Btn.c-Btn--dominant dominant button disabled
+      ul.o-ListBare
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--primary(href="#0") primary button
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--primary(href="#0")._hover primary button hover
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--primary(href="#0")._active primary button active
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--primary primary button disabled
       pre.docs-pre.
-        &lt;a class="#[u c-Btn]  #[u c-Btn--dominant]"&gt;dominant button!&lt;/a&gt;
-    h3 Ghost Buttons
+        &lt;a class="#[u c-Btn]  #[u c-Btn--primary]"&gt;primary button&lt;/a&gt;
+    h3 Secondary Button Color
+    p Button with site secondary color.
+    figure.docs-figure
+      ul.o-ListBare
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--secondary(href="#0") secondary button
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--secondary(href="#0")._hover secondary button hover
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--secondary(href="#0")._active secondary button active
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--secondary secondary button disabled
+      pre.docs-pre.
+        &lt;a class="#[u c-Btn]  #[u c-Btn--secondary]"&gt;secondary button&lt;/a&gt;
+    h3 Ghost Button Color
     p.
       Ghost buttons can be used on a colored or image background.
       Obviously, choose a background and a button color that won&rsquo;t clash.
     figure.docs-figure
-      div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--ghost(href="#0") ghost button
-      div(style="margin-bottom: 1.5rem;")
-        a.c-Btn.c-Btn--ghost(href="#0")._hover ghost button hover
-        a.c-Btn.c-Btn--ghost(href="#0")._active ghost button active
-        a.c-Btn.c-Btn--ghost ghost button disabled
-      div.o-Highlight.c-Banner(style="margin-bottom:1.5rem; z-index:1;")
-        a.c-Btn.c-Btn--ghost(href="#0") ghost button inside a banner
-        a.c-Btn.c-Btn--ghost(href="#0")._hover ghost button hover inside a banner
-        a.c-Btn.c-Btn--ghost(href="#0")._active ghost button active inside a banner
-        a.c-Btn.c-Btn--ghost ghost button disabled inside a banner
+      ul.o-ListBare
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost(href="#0") ghost button
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost(href="#0")._hover ghost button hover
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost(href="#0")._active ghost button active
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost ghost button disabled
+      div.o-Highlight.c-Banner(style="z-index:1;")
+        ul.o-ListBare
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost(href="#0") ghost button inside a banner
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost(href="#0")._hover ghost button hover inside a banner
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost(href="#0")._active ghost button active inside a banner
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost ghost button disabled inside a banner
       pre.docs-pre.
         &lt;a class="#[u c-Btn]  #[u c-Btn--ghost]"&gt;ghost button&lt;/a&gt;
+    h3 Dark Ghost Button Color
+    p.
+      Same as Ghost buttons but for use on darker background.
+    figure.docs-figure
+      ul.o-ListBare
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghostDark(href="#0") ghost dark button
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghostDark(href="#0")._hover ghost dark button hover
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghostDark(href="#0")._active ghost dark button active
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghostDark ghost dark button disabled
+      div.o-Highlight.c-Banner(style="z-index:1;")
+        ul.o-ListBare
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghostDark(href="#0") ghost dark button inside a banner
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghostDark(href="#0")._hover ghost dark button hover inside a banner
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghostDark(href="#0")._active ghost dark button active inside a banner
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghostDark ghost dark button disabled inside a banner
+      pre.docs-pre.
+        &lt;a class="#[u c-Btn]  #[u c-Btn--ghostDark]"&gt;ghost dark button&lt;/a&gt;
     h3 Flat Buttons
     p Flat, link-ish buttons.
     figure.docs-figure
-      div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--flat(href="#0") flat button
-      div(style="margin-bottom: 1.5rem;")
-        a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover
-        a.c-Btn.c-Btn--flat(href="#0")._active flat button active
-        a.c-Btn.c-Btn--flat flat button disabled
-      div.o-Highlight.c-Banner(style="margin-bottom:1.5rem; z-index:1;")
-        a.c-Btn.c-Btn--flat(href="#0") flat button inside a banner
-        a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover inside a banner
-        a.c-Btn.c-Btn--flat(href="#0")._active flat button active inside a banner
-        a.c-Btn.c-Btn--flat flat button disabled inside a banner
+      ul.o-ListBare
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0") flat button
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0")._active flat button active
+        li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat flat button disabled
+      div.o-Highlight.c-Banner(style="z-index:1;")
+        ul.o-ListBare
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0") flat button inside a banner
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover inside a banner
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0")._active flat button active inside a banner
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat flat button disabled inside a banner
       pre.docs-pre.
         &lt;a class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/a&gt;
-    h3 Drawer Buttons
+    h3 Drawer Button Structure
     p Drawer buttons for pull-out menu.
-    p These are actually #[code.docs-code button] elements. #[i Close] button is fixed to the top right.
+    p.
+      These are actually #[code.docs-code button] elements.
+      #[i Close] button is fixed to the top right.
+      Use with Flat Button styles when inside the masthead.
     figure.docs-figure
       div(style="margin-bottom: 1.5rem;")
-        button.c-Btn.c-Btn--drawer open
-        button.c-Btn.c-Btn--drawer.c-Btn--drawer--close close
+        button.c-Btn.c-Btn--flat.c-Btn--drawer open
+        button.c-Btn.c-Btn--flat.c-Btn--drawer.c-Btn--drawer--close close
       pre.docs-pre.
-        &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]"&gt;open&lt;/button&gt;
-        &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]  #[u c-Btn--drawer--close]"&gt;close&lt;/button&gt;
-      button.c-Btn.c-Btn--drawer._hover drawer hover
-      button.c-Btn.c-Btn--drawer._active drawer active
-      button.c-Btn.c-Btn--drawer(disabled) drawer disabled
+        &lt;button class="#[u c-Btn]  u c-Btn--flat  #[u c-Btn--drawer]"&gt;open&lt;/button&gt;
+        &lt;button class="#[u c-Btn]  u c-Btn--flat  #[u c-Btn--drawer]  #[u c-Btn--drawer--close]"&gt;close&lt;/button&gt;
+      ul.o-ListBare
+        li(style="margin-bottom:0.375rem;"): button.c-Btn.c-Btn--drawer drawer button
+        li(style="margin-bottom:0.375rem;"): button.c-Btn.c-Btn--drawer._hover drawer button hover
+        li(style="margin-bottom:0.375rem;"): button.c-Btn.c-Btn--drawer._active drawer button active
+        li(style="margin-bottom:0.375rem;"): button.c-Btn.c-Btn--drawer(disabled) drawer button disabled
+    h3 Button Summary Table
+    table
+      thead: tr
+        th Button Style
+        th Default Size
+        th Highlight Size
+        th Inline Size
+      tbody
+        tr
+          th Generic
+          td
+            a.c-Btn(href="#0") Generic Default
+            br
+            span .c-Btn
+          td
+            a.c-Btn.c-Btn--hilite(href="#0") Generic Highlight
+            br
+            span .c-Btn.c-Btn--hilite
+          td
+            a.c-Btn.c-Btn--inline(href="#0") Generic Inline
+            br
+            span .c-Btn.c-Btn--inline
+        tr
+          th Generic Dark
+          td
+            a.c-Btn.c-Btn--dark(href="#0") Generic Dark Default
+            br
+            span .c-Btn.c-Btn--dark
+          td
+            a.c-Btn.c-Btn--dark.c-Btn--hilite(href="#0") Generic Dark Highlight
+            br
+            span .c-Btn.c-Btn--dark.c-Btn--hilite
+          td
+            a.c-Btn.c-Btn--dark.c-Btn--inline(href="#0") Generic Dark Inline
+            br
+            span .c-Btn.c-Btn--dark.c-Btn--inline
+        tr
+          th Primary
+          td
+            a.c-Btn.c-Btn--primary(href="#0") Primary Default
+            br
+            span .c-Btn.c-Btn--primary
+          td
+            a.c-Btn.c-Btn--primary.c-Btn--hilite(href="#0") Primary Highlight
+            br
+            span .c-Btn.c-Btn--primary.c-Btn--hilite
+          td
+            a.c-Btn.c-Btn--primary.c-Btn--inline(href="#0") Primary Inline
+            br
+            span .c-Btn.c-Btn--primary.c-Btn--inline
+        tr
+          th Secondary
+          td
+            a.c-Btn.c-Btn--secondary(href="#0") Secondary Default
+            br
+            span .c-Btn.c-Btn--secondary
+          td
+            a.c-Btn.c-Btn--secondary.c-Btn--hilite(href="#0") Secondary Highlight
+            br
+            span .c-Btn.c-Btn--secondary.c-Btn--hilite
+          td
+            a.c-Btn.c-Btn--secondary.c-Btn--inline(href="#0") Secondary Inline
+            br
+            span .c-Btn.c-Btn--secondary.c-Btn--inline
+        tr
+          th Ghost
+          td
+            a.c-Btn.c-Btn--ghost(href="#0") Ghost Default
+            br
+            span .c-Btn.c-Btn--ghost
+          td
+            a.c-Btn.c-Btn--ghost.c-Btn--hilite(href="#0") Ghost Highlight
+            br
+            span .c-Btn.c-Btn--ghost.c-Btn--hilite
+          td
+            a.c-Btn.c-Btn--ghost.c-Btn--inline(href="#0") Ghost Inline
+            br
+            span .c-Btn.c-Btn--ghost.c-Btn--inline
+        tr(style="background-color: #555;")
+          th Ghost Dark
+          td
+            a.c-Btn.c-Btn--ghostDark(href="#0") Ghost Dark Default
+            br
+            span .c-Btn.c-Btn--ghostDark
+          td
+            a.c-Btn.c-Btn--ghostDark.c-Btn--hilite(href="#0") Ghost Dark Highlight
+            br
+            span .c-Btn.c-Btn--ghostDark.c-Btn--hilite
+          td
+            a.c-Btn.c-Btn--ghostDark.c-Btn--inline(href="#0") Ghost Dark Inline
+            br
+            span .c-Btn.c-Btn--ghostDark.c-Btn--inline
+        tr
+          th Flat
+          td
+            a.c-Btn.c-Btn--flat(href="#0") Flat Default
+            br
+            span .c-Btn.c-Btn--flat
+          td
+            a.c-Btn.c-Btn--flat.c-Btn--hilite(href="#0") Flat Highlight
+            br
+            span .c-Btn.c-Btn--flat.c-Btn--hilite
+          td
+            a.c-Btn.c-Btn--flat.c-Btn--inline(href="#0") Flat Inline
+            br
+            span .c-Btn.c-Btn--flat.c-Btn--inline
   section.sg-sect#text-level-components
     h2 Text-Level Components
     h3 Camo Links

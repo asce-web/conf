@@ -65,41 +65,34 @@ script.
     .addPass(new Pass({
       name        : 'Standard Pass'
     , description : 'Members & Non-Members'
-    })
-      .addMembership(new Membership('Member', true))
+    }).addMembership(new Membership('Member', true))
       .addMembership(new Membership('Non-Member'))
     ).addPass(new Pass({
       name        : 'Speaker Pass'
     , description : 'Speakers and Presenters'
-    })
-      .addMembership(new Membership('Member', true))
+    }).addMembership(new Membership('Member', true))
       .addMembership(new Membership('Non-Member'))
     ).addPass(new Pass({
       name        : 'Moderator Pass'
     , description : 'Moderators'
-    })
-      .addMembership(new Membership('Member', true))
+    }).addMembership(new Membership('Member', true))
       .addMembership(new Membership('Non-Member'))
     ).addPass(new Pass({
       name        : 'Younger Member'
     , description : 'Members 18–35'
-    })
-      .addMembership(new Membership('Member/Non-Member'))
+    }).addMembership(new Membership('Member/Non-Member'))
     ).addPass(new Pass({
       name        : 'Student Pass'
     , description : 'Undergraduates 18–24'
-    })
-      .addMembership(new Membership('Member/Non-Member'))
+    }).addMembership(new Membership('Member/Non-Member'))
     ).addPass(new Pass({
       name        : 'Guest Pass'
     , description : 'Speaker and Moderator Guests'
-    })
-      .addMembership(new Membership('Member/Non-Member'))
+    }).addMembership(new Membership('Member/Non-Member'))
     ).addPass(new Pass({
       name        : 'Daily Pass'
     , description : 'For One Day Only'
-    })
-      .addMembership(new Membership('Member', true))
+    }).addMembership(new Membership('Member', true))
       .addMembership(new Membership('Non-Member'))
     )
 
@@ -151,6 +144,7 @@ script.
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 12:00', endDate:'2016-09-28 17:00', name:'Optional Tours'                                              }).setURL('').setStar(true))
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 17:30', endDate:'2016-09-28 19:30', name:'Opening Welcome Reception'                                   }))
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Community Service Project'                                   }).setStar(true))
+
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 07:00', endDate:'2016-09-29 16:30', name:'Registration'                                                }))
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 07:30', endDate:'2016-09-29 08:30', name:'Student & Emerging Leaders Welcome Breakfast and Orientation'}))
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 08:30', endDate:'2016-09-29 10:00', name:'Opening Plenary Session'                                     }).setStar(true))
@@ -163,6 +157,7 @@ script.
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 15:30', endDate:'2016-09-29 16:00', name:'Beverage Break'                                              }))
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 16:00', endDate:'2016-09-29 17:30', name:'Concurrent Sessions'                                         }))
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 18:45', endDate:'2016-09-29 21:45', name:'Optional Tour'                                               }).setURL('').setStar(true))
+
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 07:00', endDate:'2016-09-30 16:30', name:'Registration'                                                }))
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 07:30', endDate:'2016-09-30 08:30', name:'Leadership & Society Awards Breakfast'                       }))
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 08:30', endDate:'2016-09-30 17:00', name:'Communities and Pavilion'                                    }))
@@ -177,6 +172,7 @@ script.
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 16:00', endDate:'2016-09-30 16:30', name:'Beverage Break'                                              }))
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 16:30', endDate:'2016-09-30 17:30', name:'Concurrent Sessions'                                         }))
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 18:30', endDate:'2016-09-30 21:30', name:'Theater Night Out'                                           }).setStar(true))
+
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 07:00', endDate:'2016-10-01 14:30', name:'Registration'                                                }))
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 07:30', endDate:'2016-10-01 08:15', name:'Order of the Engineer Ceremony'                              }).setStar(true))
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 08:45', endDate:'2016-10-01 11:45', name:'Optional Tour'                                               }).setURL(''))

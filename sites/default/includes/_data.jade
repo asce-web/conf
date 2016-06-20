@@ -13,31 +13,32 @@ script.
   , tagline  : 'Optional Brand Tagline'
   , keywords : ['ASCE', 'civil engineering', 'convention']
   })
-  defaultsite.setConference('current', new Conference({
-    name      : 'A 2016 Event'
-  , theme     : 'Theme for the conference is optional.'
-  , startDate : '2016-09-28'
-  , endDate   : '2016-10-01'
-  , url       : 'http://2016.asceconvention.org/'
-  , city      : 'Portland'
-  , state     : 'OR'
-  }), true).setConference('prev', new Conference({
-    name      : 'A 2015 Event'
-  , theme     : ''
-  , startDate : '2015-10-11'
-  , endDate   : ''
-  , url       : 'http://2015.asceconvention.org/'
-  , city      : 'New York'
-  , state     : 'NY'
-  })).setConference('next', new Conference({
-    name      : 'A 2017 Event'
-  , theme     : ''
-  , startDate : '2017-10-04'
-  , endDate   : ''
-  , url       : 'http://2017.asceconvention.org/'
-  , city      : 'Chicago'
-  , state     : 'IL'
-  }))
+  defaultsite
+    .setConference('2016', new Conference({
+      name      : 'A 2016 Event'
+    , theme     : 'Theme for the conference is optional.'
+    , startDate : '2016-09-28'
+    , endDate   : '2016-10-01'
+    , url       : 'http://2016.asceconvention.org/'
+    , city      : 'Portland'
+    , state     : 'OR'
+    })).setConference('2015', new Conference({
+      name      : 'A 2015 Event'
+    , theme     : ''
+    , startDate : '2015-10-11'
+    , endDate   : ''
+    , url       : 'http://2015.asceconvention.org/'
+    , city      : 'New York'
+    , state     : 'NY'
+    })).setConference('2017', new Conference({
+      name      : 'A 2017 Event'
+    , theme     : ''
+    , startDate : '2017-10-04'
+    , endDate   : ''
+    , url       : 'http://2017.asceconvention.org/'
+    , city      : 'Chicago'
+    , state     : 'IL'
+    })).setCurrentConference('2016')
 
   defaultsite
     .addSupporterLevel(new SupporterLevel('Premier'  ,'x-lrg'))

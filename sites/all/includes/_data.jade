@@ -91,14 +91,20 @@ script.
     //- SETTER FUNCTIONS
     Site.prototype.setPage = function setPage() {
     }
-    Site.prototype.setConference = function setConference(year, conference, is_current) {
+    Site.prototype.setConference = function setConference(year, conference) {
       this.conference[year] = conference
-      if (is_current)
-        this.setCurrentConference(year)
       return this
     }
-    Site.prototype.setCurrentConference = function setCurrentConference(year) {
-      this.conference.current = this.conference[year]
+    Site.prototype.setCurrentConference = function setCurrentConference(conference) {
+      if (typeof conference === 'function') {
+        var callback = conference
+        this.conference.current = callback.call(this)
+      } else if (typeof conference === 'string') {
+        var year = conference
+        this.conference.current = this.getConference(year)
+      } else {
+      this.conference.current = conference
+      }
       return this
     }
     Site.prototype.addSupporterLevel = function addSupporterLevel(supporter_level) {

@@ -39,6 +39,15 @@ script.
   , state     : 'IL'
   }))
 
+  defaultsite
+    .addSupporterLevel(new SupporterLevel('Premier'  ,'x-lrg'))
+    .addSupporterLevel(new SupporterLevel('Platinum' ,'lrg'))
+    .addSupporterLevel(new SupporterLevel('Gold'     ,'lrg'))
+    .addSupporterLevel(new SupporterLevel('Corporate','med'))
+    .addSupporterLevel(new SupporterLevel('Silver'   ,'sml'))
+    .addSupporterLevel(new SupporterLevel('Bronze'   ,'sml'))
+    .addSupporterLevel(new SupporterLevel('Copper'   ,'x-sml'))
+
   defaultsite.getCurrentConference
     .addPassPeriod(new PassPeriod({
       name      : 'Early Bird'

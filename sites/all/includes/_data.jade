@@ -47,7 +47,7 @@ script.
           , icon: { content: 'email', fallback: '&#xE0BE;' }
           }
         ]
-        internal: [
+      , internal: [
           {
             name: 'Home', url: 'home.html'
           , icon: { content: 'home', fallback: '&#xE88A;' }
@@ -85,6 +85,7 @@ script.
           }
         ]
       }
+      self.supporter_levels = []
     }
 
     //- SETTER FUNCTIONS
@@ -98,6 +99,15 @@ script.
     }
     Site.prototype.setCurrentConference = function setCurrentConference(year) {
       this.conference.current = this.conference[year]
+      return this
+    }
+    Site.prototype.addSupporterLevel = function addSupporterLevel(supporter_level) {
+      this.supporter_levels.push(supporter_level)
+      return this
+    }
+    Site.prototype.removeSupporterLevel = function removeSupporterLevel(supporter_level_name) {
+      spliceFromArray(this.supporter_levels, this.getSupporterLevel(supporter_level_name))
+      return this
     }
 
     //- GETTER FUNCTIONS
@@ -109,6 +119,9 @@ script.
     }
     Site.prototype.getCurrentConference = function getCurrentConference() {
       return this.conference.current
+    }
+    Site.prototype.getSupporterLevel = function getSupporterLevel(supporter_level_name) {
+      return this.supporter_levels.find(function (item) { return item.name === supporter_level_name })
     }
 
     //- STATIC FIELDS
@@ -134,6 +147,22 @@ script.
     }
 
     return Site
+  })()
+
+  var SupporterLevel = (function () {
+    function SupporterLevel(name, classname) {
+      var self = this
+      self.name = name
+      self.classname = classname
+    }
+    SupporterLevel.prototype.setClassname = function setClassname(newname) {
+      this.classname = newname
+      return this
+    }
+    SupporterLevel.prototype.getClassname = function getClassname() {
+      return this.classname
+    }
+    return SupporterLevel
   })()
 
   var Conference = (function () {

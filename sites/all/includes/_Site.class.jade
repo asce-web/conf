@@ -8,47 +8,58 @@
       self.keywords = $siteinfo.keywords
       self.pages = {
         top: [
-          {
-            name: '', url: 'index.html'
-          }
-        , {
-            name: 'About', url: 'about.html'
-          , icon: { content: 'info_outline', fallback: '&#xE88F;' }
-          }
-        , {
-            name: 'Sponsor', url: 'sponsor.html'
-          , icon: { content: 'people', fallback: '&#xE7FB;' }
-          }
-        , {
-            name: 'Exhibit', url: 'exhibit.html'
-          , icon: { content: 'work', fallback: '&#xE8F9;' }
-          }
-        , {
-            name: 'Contact', url: 'contact.html'
-          , icon: { content: 'email', fallback: '&#xE0BE;' }
-          }
+          new Page({
+            name: ''
+          , url: 'index.html'
+          , icon: ''
+          }}
+        , new Page({
+            name: 'About'
+          , url:  'about.html'
+          , icon: 'info_outline'
+          }}
+        , new Page({
+            name: 'Sponsor'
+          , url:  'sponsor.html'
+          , icon: 'people'
+          }}
+        , new Page({
+            name: 'Exhibit'
+          , url:  'exhibit.html'
+          , icon: 'work'
+          }}
+        , new Page({
+            name: 'Contact'
+          , url:  'contact.html'
+          , icon: 'email'
+          }}
         ]
       , main: [
-          {
-            name: 'Home', url: 'home.html'
-          , icon: { content: 'home', fallback: '&#xE88A;' }
-          }
-        , {
-            name: 'Registration', url: 'registration.html'
-          , icon: { content: 'shopping_cart', fallback: '&#xE8CC;' }
-          }
-        , {
-            name: 'Program', url: 'program.html'
-          , icon: { content: 'event', fallback: '&#xE878;' }
-          }
-        , {
-            name: 'Hotel & Travel', url: 'location.html'
-          , icon: { content: 'flight', fallback: '&#xE539;' }
-          }
-        , {
-            name: 'Speakers', url: 'speakers.html'
-          , icon: { content: 'account_box', fallback: '&#xE851;' }
-          }
+          new Page({
+            name: 'Home'
+          , url:  'home.html'
+          , icon: 'home'
+          }}
+        , new Page({
+            name: 'Registration'
+          , url:  'registration.html'
+          , icon: 'shopping_cart'
+          }}
+        , new Page({
+            name: 'Program'
+          , url:  'program.html'
+          , icon: 'event'
+          }}
+        , new Page({
+            name: 'Hotel & Travel'
+          , url:  'location.html'
+          , icon: 'flight'
+          }}
+        , new Page({
+            name: 'Speakers'
+          , url:  'speakers.html'
+          , icon: 'account_box'
+          }}
         ]
       }
       self.conference;

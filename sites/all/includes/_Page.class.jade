@@ -1,0 +1,30 @@
+-
+  var Page = (function () {
+    function Page($pageinfo) {
+      var self = this
+      self.name = $pageinfo.name
+      self.url  = $pageinfo.url
+      self.icon  = {
+        content  : $pageinfo.icon
+      , fallback : icon_data.find(function (item) { return item.content === $pageinfo.icon }).fallback
+      }
+      self.description;
+      self.is_hidden;
+    }
+    Page.prototype.setDescription = function setDescription(text) {
+      this.description = text
+      return this
+    }
+    ProgramEvent.prototype.hide = function hide(bool) {
+      if (bool === undefined) bool = true // NOTE param defaults to true
+      this.is_hidden = bool
+      return this
+    }
+    Page.prototype.getDescription = function getDescription() {
+      return this.description
+    }
+    ProgramEvent.prototype.isHidden = function isHidden() {
+      return this.is_hidden
+    }
+    return Page
+  })()

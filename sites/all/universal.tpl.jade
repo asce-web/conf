@@ -3,10 +3,7 @@ extends all.tpl.jade
 block append vars
   - var page_type = 'universal'
 
-block title
-  title= ((page.href === 'index.html') ? '' : page.name + ' | ') + site.title
-
-block site-map
+//- block site-map
   footer.o-Runner.c-Mast: nav.o-ContentWrapper
     h1.-d-n#site-map Site Map
     +sitemenulist({pages: site_pages.universal, class_obj: Conf.MENU_CLASS.sitemap, depth: Infinity})

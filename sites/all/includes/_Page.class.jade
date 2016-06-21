@@ -5,12 +5,17 @@
       var self = this
       self.name = $pageinfo.name
       self.url  = $pageinfo.url
+      self.title;
       self.description;
       self.is_hidden;
       self.icon;
     }
 
     //- SETTER FUNCTIONS
+    Page.prototype.setTitle = function setTitle(text) {
+      this.title = text
+      return this
+    }
     Page.prototype.setDescription = function setDescription(text) {
       this.description = text
       return this
@@ -26,6 +31,9 @@
     }
 
     //- GETTER FUNCTIONS
+    Page.prototype.getTitle = function getTitle() {
+      return this.title
+    }
     Page.prototype.getDescription = function getDescription() {
       return this.description
     }

@@ -3,9 +3,6 @@ extends all.tpl.jade
 block append vars
   - var page_type = 'internal'
 
-block title
-  title= ((page.href === 'home.html') ? '' : page.name + ' | ') + conference.current.name
-
 block standard-menu
   header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
     h1.-d-n#main-menu Main Menu

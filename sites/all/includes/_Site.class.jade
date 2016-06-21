@@ -3,53 +3,41 @@
     //- CONSTRUCTOR
     function Site($siteinfo) {
       var self = this
-      self.title    = $siteinfo.title
+      self.name     = $siteinfo.name
       self.tagline  = $siteinfo.tagline
       self.keywords = $siteinfo.keywords
       self.pages = {
         top: [
           new Page({
-            name: self.title
+            name: self.name
           , url:  'index.html'
           }).setIcon('')
+            .setTitle(self.name)
+            .setDescription(self.tagline)
         , new Page({
             name: 'About'
           , url:  'about.html'
           }).setIcon('info_outline')
+            .setTitle('About' + ' | ' + self.name)
+            .setDescription('About ' + self.name + '.')
         , new Page({
             name: 'Sponsor'
           , url:  'sponsor.html'
           }).setIcon('people')
+            .setTitle('Sponsor' + ' | ' + self.name)
+            .setDescription('Sponsors of ' + self.name + '.')
         , new Page({
             name: 'Exhibit'
           , url:  'exhibit.html'
           }).setIcon('work')
+            .setTitle('Exhibit' + ' | ' + self.name)
+            .setDescription('Exhibitors at ' + self.name + '.')
         , new Page({
             name: 'Contact'
           , url:  'contact.html'
           }).setIcon('email')
-        ]
-      , main: [
-          new Page({
-            name: 'Home'
-          , url:  'home.html'
-          }).setIcon('home')
-        , new Page({
-            name: 'Registration'
-          , url:  'registration.html'
-          }).setIcon('shopping_cart')
-        , new Page({
-            name: 'Program'
-          , url:  'program.html'
-          }).setIcon('event')
-        , new Page({
-            name: 'Hotel & Travel'
-          , url:  'location.html'
-          }).setIcon('flight')
-        , new Page({
-            name: 'Speakers'
-          , url:  'speakers.html'
-          }).setIcon('account_box')
+            .setTitle('Contact' + ' | ' + self.name)
+            .setDescription('Contact us for questions and comments about ' + self.name + '.')
         ]
       }
       self.conference;
@@ -77,7 +65,9 @@
       return this
     }
     Site.prototype.setCurrentConference = function setCurrentConference(year) {
-      return this.setConference('current', this.getConference(year))
+      this.setConference('current', this.getConference(year))
+      this.initializeMainPages()
+      return this
     }
     Site.prototype.addSupporterLevel = function addSupporterLevel(supporter_level) {
       this.supporter_levels = this.supporter_levels || []
@@ -128,6 +118,43 @@
     }
     Site.prototype.getSupporter = function getSupporter(supporter_name) {
       return this.supporters.find(function (item) { return item.name === supporter_name })
+    }
+
+    //- MORE PROTO FUNCTIONS
+    Site.prototype.initializeMainPages = function initializeMainPages() {
+      this.pages.main = [
+        new Page({
+          name: 'Home'
+        , url:  'home.html'
+        }).setIcon('home')
+          .setTitle(this.getCurrentConference().name)
+          .setDescription(this.getCurrentConference().theme)
+      , new Page({
+          name: 'Registration'
+        , url:  'registration.html'
+        }).setIcon('shopping_cart')
+          .setTitle('Registration' + ' | ' + this.getCurrentConference().name)
+          .setDescription('Register for ' + this.getCurrentConference().name + ' here.')
+      , new Page({
+          name: 'Program'
+        , url:  'program.html'
+        }).setIcon('event')
+          .setTitle('Program' + ' | ' + this.getCurrentConference().name)
+          .setDescription('Program and agenda of ' + this.getCurrentConference().name + '.')
+      , new Page({
+          name: 'Hotel & Travel'
+        , url:  'location.html'
+        }).setIcon('flight')
+          .setTitle('Hotel & Travel' + ' | ' + this.getCurrentConference().name)
+          .setDescription('Location and where to stay for ' + this.getCurrentConference().name + '.')
+      , new Page({
+          name: 'Speakers'
+        , url:  'speakers.html'
+        }).setIcon('account_box')
+          .setTitle('Speakers' + ' | ' + this.getCurrentConference().name)
+          .setDescription('Current and prospective speakers at ' + this.getCurrentConference().name + '.')
+      ]
+      return this
     }
 
     //- STATIC FIELDS

@@ -7,8 +7,8 @@ html(lang="en")
     block vars
       - var site = defaultsite
       - var page = {}
-    block title
-      title
+    block vars
+    title= page.getTitle()
     block metas
       meta(charset="utf-8")
       meta(name="description" content=page.getDescription())

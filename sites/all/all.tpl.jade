@@ -1,25 +1,16 @@
 doctype html
 html(lang="en")
   include /includes/_data.jade
+  include /sites/all/includes/_data.jade
   include includes/_data.jade
   head
     block vars
-      - getPage('universal','index.html').name = site.title
-      - getPage('universal','index.html').description   = site.tagline
-      - getPage('universal','about.html').description   = 'About ' + site.title + '.'
-      - getPage('universal','sponsor.html').description = 'Sponsors of ' + site.title + '.'
-      - getPage('universal','exhibit.html').description = 'Exhibitors at ' + site.title + '.'
-      - getPage('universal','contact.html').description = 'Contact us for questions and comments about ' + site.title + '.'
-      - getPage('internal' ,'home.html').description         = conference.current.theme
-      - getPage('internal' ,'registration.html').description = 'Register for ' + conference.current.name + ' here.'
-      - getPage('internal' ,'program.html').description      = 'Program and agenda of ' + conference.current.name + '.'
-      - getPage('internal' ,'location.html').description     = 'Location and where to stay for ' + conference.current.name + '.'
-      - getPage('internal' ,'speakers.html').description     = 'Current and prospective speakers at ' + conference.current.name + '.'
+      - var site = defaultsite
       - var page = {}
     block title
       title
     meta(charset="utf-8")
-    meta(name="description" content=page.description)
+    meta(name="description" content=page.getDescription())
     meta(name="keywords" content=site.keywords)
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")

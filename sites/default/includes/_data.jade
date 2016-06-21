@@ -14,6 +14,12 @@
   , keywords : ['ASCE', 'civil engineering', 'convention']
   })
 
+  defaultsite.getPage('top',  'index.html').setDescription(defaultsite.tagline)
+  defaultsite.getPage('top',  'about.html').setDescription('About ' + defaultsite.title + '.')
+  defaultsite.getPage('top',  'sponsor.html').setDescription('Sponsors of ' + defaultsite.title + '.')
+  defaultsite.getPage('top',  'exhibit.html').setDescription('Exhibitors at ' + defaultsite.title + '.')
+  defaultsite.getPage('top',  'contact.html').setDescription('Contact us for questions and comments about ' + defaultsite.title + '.')
+
   defaultsite
     .addSubpage('about.html'       , new Page({name:'Cooperating Orgs'            , url:''}))
     .addSubpage('about.html'       , new Page({name:'Partnering Orgs '            , url:''}))
@@ -54,6 +60,12 @@
     , city      : 'Chicago'
     , state     : 'IL'
     })).setCurrentConference('2016')
+
+  defaultsite.getPage('main', 'home.html').setDescription(defaultsite.getCurrentConference().theme)
+  defaultsite.getPage('main', 'registration.html').setDescription('Register for ' + defaultsite.getCurrentConference().name + ' here.')
+  defaultsite.getPage('main', 'program.html').setDescription('Program and agenda of ' + defaultsite.getCurrentConference().name + '.')
+  defaultsite.getPage('main', 'location.html').setDescription('Location and where to stay for ' + defaultsite.getCurrentConference().name + '.')
+  defaultsite.getPage('main', 'speakers.html').setDescription('Current and prospective speakers at ' + defaultsite.getCurrentConference().name + '.')
 
   defaultsite
     .addSupporterLevel(new SupporterLevel('Premier').setClassname('x-lrg'))

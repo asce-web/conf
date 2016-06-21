@@ -17,19 +17,13 @@ script.
       self.keywords   = $siteinfo.keywords
       self.conference = {}
       self.pages = {
-        universal: [
+        top: [
           {
             name: '', url: 'index.html'
           }
         , {
             name: 'About', url: 'about.html'
           , icon: { content: 'info_outline', fallback: '&#xE88F;' }
-          , sub: [
-              { name: 'Cooperating Orgs', url: '' }
-            , { name: 'Partnering Orgs ', url: '' }
-            , { name: 'Volunteer       ', url: '' }
-            , { name: 'Why Attend      ', url: '' }
-            ]
           }
         , {
             name: 'Sponsor', url: 'sponsor.html'
@@ -38,16 +32,13 @@ script.
         , {
             name: 'Exhibit', url: 'exhibit.html'
           , icon: { content: 'work', fallback: '&#xE8F9;' }
-          , sub: [
-              { name: 'Exhibitor List', url: '' }
-            ]
           }
         , {
             name: 'Contact', url: 'contact.html'
           , icon: { content: 'email', fallback: '&#xE0BE;' }
           }
         ]
-      , internal: [
+      , main: [
           {
             name: 'Home', url: 'home.html'
           , icon: { content: 'home', fallback: '&#xE88A;' }
@@ -55,33 +46,18 @@ script.
         , {
             name: 'Registration', url: 'registration.html'
           , icon: { content: 'shopping_cart', fallback: '&#xE8CC;' }
-          , sub: [
-              { name: 'Why Attend'     , url: '' }
-            , { name: 'Short Courses'  , url: '' }
-            , { name: 'Technical Tours', url: '' }
-            , { name: 'Optional Tours' , url: '' }
-            ]
           }
         , {
             name: 'Program', url: 'program.html'
           , icon: { content: 'event', fallback: '&#xE878;' }
-          , sub: [
-              { name: 'Events', url: '' }
-            ]
           }
         , {
             name: 'Hotel & Travel', url: 'location.html'
           , icon: { content: 'flight', fallback: '&#xE539;' }
-          , sub: [
-              { name: 'International Travel', url: '' }
-            ]
           }
         , {
             name: 'Speakers', url: 'speakers.html'
           , icon: { content: 'account_box', fallback: '&#xE851;' }
-          , sub: [
-              { name: 'Distinguished Lecture Series', url: '' }
-            ]
           }
         ]
       }
@@ -90,7 +66,18 @@ script.
     }
 
     //- SETTER FUNCTIONS
-    Site.prototype.setPage = function setPage() {
+    Site.prototype.addSubpage = function addSubpage(parent_url, subpage0) {
+      var parent_page = this.getPage('main', parent_url)
+      parent_page.sub = parent_page.sub || []
+      parent_page.sub.push(subpage0)
+      return this
+    }
+    Site.prototype.removeSubpage = function removeSubpage(url0) {
+      var parent_page = this.pages.main.find(function (main_page) {
+        return (main_page.sub && main_page.sub.find(function (sub_page) { return sub_page.url === url0 }))
+      })
+      spliceFromArray(parent_page.sub, this.getSubpage(url0))
+      return this
     }
     Site.prototype.setConference = function setConference(year, conference0) {
       this.conference[year] = conference0
@@ -120,6 +107,20 @@ script.
     //- GETTER FUNCTIONS
     Site.prototype.getPage = function getPage(type, url0) {
       return this.pages[type].find(function (item) { return item.url === url0 })
+    }
+    Site.prototype.getSubpage = function getSubpage(url0) {
+      var parent_page = this.pages.main.find(function (main_page) {
+        return (main_page.sub && main_page.sub.find(function (sub_page) { return sub_page.url === url0 }))
+      })
+      return parent_page.sub.find(function (sub_page) { return sub_page.url === url0 })
+      //- var returned
+      //- for (var page of this.pages.main) {
+      //-   returned = page.sub.find(function (item) { return item.url === url0 })
+      //-   if (returned) {
+      //-     break
+      //-   }
+      //- }
+      //- return returned
     }
     Site.prototype.getConference = function getConference(year) {
       return this.conference[year]

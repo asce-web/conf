@@ -13,6 +13,7 @@ script.
   , tagline  : 'Optional Brand Tagline'
   , keywords : ['ASCE', 'civil engineering', 'convention']
   })
+
   defaultsite
     .setConference('2016', new Conference({
       name      : 'A 2016 Event'
@@ -115,7 +116,7 @@ script.
       .setURL('http://www.keller.co.uk/')
       .setLevel(defaultsite.getSupporterLevel('Corporate'))
 
-  defaultsite.getCurrentConference
+  defaultsite.getCurrentConference()
     .addPassPeriod(new PassPeriod({
       name      : 'Early Bird'
     , endDate   : '2016-07-28'
@@ -127,7 +128,7 @@ script.
     , startDate : '2016-08-26'
     }))
 
-  defaultsite.getCurrentConference
+  defaultsite.getCurrentConference()
     .addPass(new Pass({
       name        : 'Standard Pass'
     , description : 'Members & Non-Members'
@@ -162,7 +163,7 @@ script.
       .addMembership(new Membership('Non-Member'))
     )
 
-  defaultsite.getCurrentConference
+  defaultsite.getCurrentConference()
     .setPrice('Early Bird', 'Standard Pass' , 'Member'    ,  745)
     .setPrice('Early Bird', 'Standard Pass' , 'Non-Member',  845)
     .setPrice('Advance'   , 'Standard Pass' , 'Member'    ,  845)
@@ -203,7 +204,7 @@ script.
     .setPrice('Onsite'    , 'Daily Pass'    , 'Member'    ,  645)
     .setPrice('Onsite'    , 'Daily Pass'    , 'Non-Member',  745)
 
-  defaultsite.getCurrentConference
+  defaultsite.getCurrentConference()
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 10:00', endDate:'2016-09-28 19:00', name:'Registration'                                                }))
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 10:30', endDate:'2016-09-28 16:30', name:'Technical Tours'                                             }).setURL('').setStar(true))
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Short Courses'                                               }).setURL('').setStar(true))
@@ -248,15 +249,14 @@ script.
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 12:00', endDate:'2016-10-01 14:00', name:'ASCE Luncheon & Closing General Session'                     }).setStar(true))
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 14:30', endDate:'2016-10-01 17:30', name:'Technical Tours'                                             }).setURL(''))
 
-  defaultsite.getCurrentConference
+  defaultsite.getCurrentConference()
     .addImportantDate(new ImportantDate({startTime:'2015-10-12', name:'Optional Final Papers Due'     }))
     .addImportantDate(new ImportantDate({startTime:'2015-12-17', name:'Early-Bird Registration Closes'}).setURL('registration.html'))
     .addImportantDate(new ImportantDate({startTime:'2016-01-12', name:'Advance Registration Closes'   }).setURL('registration.html'))
     .addImportantDate(new ImportantDate({startTime:'2016-06-12', name:'Convention Begins'             }))
 
-
-
-  var Default = {
+  defaultsite.rawdata = {
+    comment: 'this is draft data that I don’t want to delete yet'
   , pass: {
       standard: {
         name: 'Standard Pass'
@@ -440,169 +440,6 @@ script.
         ]
       }
     }
-  , program_events: [
-      [
-        { startDate: '2016-09-28 10:00', endDate: '2016-09-28 19:00', name: 'Registration' }
-      , { startDate: '2016-09-28 10:30', endDate: '2016-09-28 16:30', name: 'Technical Tours', href:' ', is_starred: true }
-      , { startDate: '2016-09-28 13:00', endDate: '2016-09-28 17:00', name: 'Short Courses', href:' ', is_starred: true }
-      , { startDate: '2016-09-28 12:00', endDate: '2016-09-28 17:00', name: 'Optional Tours', href:' ', is_starred: true }
-      , { startDate: '2016-09-28 17:30', endDate: '2016-09-28 19:30', name: 'Opening Welcome Reception' }
-      , { startDate: '2016-09-28 13:00', endDate: '2016-09-28 17:00', name: 'Community Service Project', is_starred: true }
-      ]
-    , [
-        { startDate: '2016-09-29 07:00', endDate: '2016-09-29 16:30', name: 'Registration' }
-      , { startDate: '2016-09-29 07:30', endDate: '2016-09-29 08:30', name: 'Student & Emerging Leaders Welcome Breakfast and Orientation' }
-      , { startDate: '2016-09-29 08:30', endDate: '2016-09-29 10:00', name: 'Opening Plenary Session', is_starred: true }
-      , { startDate: '2016-09-29 09:30', endDate: '2016-09-29 15:30', name: 'Guest Program Orientation & Tour', is_starred: true }
-      , { startDate: '2016-09-29 10:00', endDate: '2016-09-29 10:30', name: 'Beverage Break' }
-      , { startDate: '2016-09-29 10:30', endDate: '2016-09-29 11:30', name: 'Concurrent Sessions' }
-      , { startDate: '2016-09-29 11:45', endDate: '2016-09-29 13:45', name: 'Celebration of Leaders Luncheon', is_starred: true }
-      , { startDate: '2016-09-29 14:00', endDate: '2016-09-29 15:30', name: 'Concurrent Sessions' }
-      , { startDate: '2016-09-29 14:00', endDate: '2016-09-29 18:00', name: 'Communities and Pavilion' }
-      , { startDate: '2016-09-29 15:30', endDate: '2016-09-29 16:00', name: 'Beverage Break' }
-      , { startDate: '2016-09-29 16:00', endDate: '2016-09-29 17:30', name: 'Concurrent Sessions' }
-      , { startDate: '2016-09-29 18:45', endDate: '2016-09-29 21:45', name: 'Optional Tour', href: '', is_starred: true}
-      ]
-    , [
-        { startDate: '2016-09-30 07:00', endDate: '2016-09-30 16:30', name: 'Registration' }
-      , { startDate: '2016-09-30 07:30', endDate: '2016-09-30 08:30', name: 'Leadership & Society Awards Breakfast' }
-      , { startDate: '2016-09-30 08:30', endDate: '2016-09-30 17:00', name: 'Communities and Pavilion' }
-      , { startDate: '2016-09-30 08:45', endDate: '2016-09-30 09:45', name: 'ASCE Annual Business Meeting', is_starred: true }
-      , { startDate: '2016-09-30 09:45', endDate: '2016-09-30 10:15', name: 'Beverage Break' }
-      , { startDate: '2016-09-30 10:15', endDate: '2016-09-30 11:45', name: 'Concurrent Sessions' }
-      , { startDate: '2016-09-30 11:45', endDate: '2016-09-30 13:15', name: 'Lunch on Your Own' }
-      , { startDate: '2016-09-30 11:45', endDate: '2016-09-30 13:15', name: 'International Luncheon (ticketed)' }
-      , { startDate: '2016-09-30 13:15', endDate: '2016-09-30 14:15', name: 'Concurrent Sessions' }
-      , { startDate: '2016-09-30 13:00', endDate: '2016-09-30 17:15', name: 'Optional Tour', href: '', is_starred: true }
-      , { startDate: '2016-09-30 14:30', endDate: '2016-09-30 16:00', name: 'Industry Leaders Forum', is_starred: true }
-      , { startDate: '2016-09-30 16:00', endDate: '2016-09-30 16:30', name: 'Beverage Break' }
-      , { startDate: '2016-09-30 16:30', endDate: '2016-09-30 17:30', name: 'Concurrent Sessions' }
-      , { startDate: '2016-09-30 18:30', endDate: '2016-09-30 21:30', name: 'Theater Night Out', is_starred: true }
-      ]
-    , [
-        { startDate: '2016-10-01 07:00', endDate: '2016-10-01 14:30', name: 'Registration' }
-      , { startDate: '2016-10-01 07:30', endDate: '2016-10-01 08:15', name: 'Order of the Engineer Ceremony', is_starred: true }
-      , { startDate: '2016-10-01 08:45', endDate: '2016-10-01 11:45', name: 'Optional Tour', href: '' }
-      , { startDate: '2016-10-01 08:30', endDate: '2016-10-01 10:00', name: 'Concurrent Sessions' }
-      , { startDate: '2016-10-01 08:30', endDate: '2016-10-01 14:00', name: 'Communities and Pavilion' }
-      , { startDate: '2016-10-01 10:15', endDate: '2016-10-01 11:45', name: 'Concurrent Sessions' }
-      , { startDate: '2016-10-01 12:00', endDate: '2016-10-01 14:00', name: 'ASCE Luncheon & Closing General Session', is_starred: true }
-      , { startDate: '2016-10-01 14:30', endDate: '2016-10-01 17:30', name: 'Technical Tours', href: '' }
-      ]
-    ]
-  , sponsorlevel: {
-      premier   : {name:'Premier'            , size:'lrg'}
-    , platinum  : {name:'Platinum'           , size:'lrg'}
-    , gold      : {name:'Gold'               , size:'med'}
-    , corporate : {name:'Corporate Sponsors' , size:'sml'}
-    , silver    : {name:'Silver'             , size:'sml'}
-    , bronze    : {name:'Bronze'             , size:''}
-    , copper    : {name:'Copper'             , size:''}
-    }
-  , sponsors: [
-      {
-        name  : 'ASCE Foundation'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/asce-foundation-logo.png'
-      , href  : 'http://www.ascefoundation.org/'
-      , level : 'platinum'
-      }
-    , {
-        name  : 'Bentley'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/bentley-logo.png'
-      , href  : 'https://www.bentley.com/'
-      , level : 'platinum'
-      }
-    , {
-        name  : 'Pennoni'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/pennoni-50th-anniversary-logo.png'
-      , href  : 'https://www.pennoni.com/'
-      , level : 'silver'
-      }
-    , {
-        name  : 'Innovyze'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/innovyze-logo.png'
-      , href  : 'http://www.innovyze.com/'
-      , level : 'silver'
-      }
-    , {
-        name  : 'Fasten Group'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/fasten-group-logo.png'
-      , href  : 'http://www.chinafasten.com/'
-      , level : 'bronze'
-      }
-    , {
-        name  : 'David Evans and Associates, Inc.'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/david-evans-associates-logo.png'
-      , href  : 'http://www.deainc.com/'
-      , level : 'bronze'
-      }
-    , {
-        name  : 'KCI Technologies'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/kci-technologies-logo.png'
-      , href  : 'http://www.kci.com/'
-      , level : 'bronze'
-      }
-    , {
-        name  : 'McCormick & Taylor'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/mccormick-taylor-logo.png'
-      , href  : 'http://www.mccormicktaylor.com/'
-      , level : 'bronze'
-      }
-    , {
-        name  : 'Rutgers Center for Advanced Infrastructure and Transportation'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/rutgers-cait-logo.png'
-      , href  : 'http://cait.rutgers.edu/'
-      , level : 'copper'
-      }
-    , {
-        name  : 'Kimley-Horn'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/kimley-horn-logo.png'
-      , href  : 'http://www.kimley-horn.com/'
-      , level : 'copper'
-      }
-    , {
-        name  : 'Christopher B. Burke Engineering, Ltd.'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/christopher-b-burke-engineering-logo.png'
-      , href  : 'http://cbbel.com/'
-      , level : 'copper'
-      }
-    , {
-        name  : 'Bank of America'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg'
-      , href  : 'http://www.asce.org/member_advantages/#b'
-      , level : 'corporate'
-      }
-    , {
-        name  : 'Geico'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/geico-logo.gif'
-      , href  : 'https://www.geico.com/landingpage/member-discount/?logo=00774'
-      , level : 'corporate'
-      }
-    , {
-        name  : 'Pearl Insurance'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/pearl-insurance-logo.jpg'
-      , href  : 'http://asceinsurance.com/'
-      , level : 'corporate'
-      }
-    , {
-        name  : 'UPS'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/ups-logo.jpg'
-      , href  : 'http://savewithups.com/asce/'
-      , level : 'corporate'
-      }
-    , {
-        name  : 'Keller North America'
-      , src   : 'http://2016.asceconvention.org/sites/default/files/keller-na-logo.png'
-      , href  : 'http://www.keller.co.uk/'
-      , level : 'corporate'
-      }
-    ]
-  , important_dates: [
-      { startDate: '2015-10-12', name: 'Optional Final Papers Due' }
-    , { startDate: '2015-12-17', name: 'Early-Bird Registration Closes', href:'registration.html' }
-    , { startDate: '2016-01-12', name: 'Advance Registration Closes'   , href:'registration.html' }
-    , { startDate: '2016-06-12', name: 'Convention Begins' }
-    ]
   , co_chairs: [
       { name: 'Thomas J. McCollough', suffix: 'P.E., M.ASCE' }
     , { name: 'Stephen E. Dickenson', suffix: 'Ph.D., P.E., D.PE, M.ASCE' }

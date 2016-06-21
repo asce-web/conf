@@ -3,9 +3,9 @@
     //- CONSTRUCTOR
     function Site($siteinfo) {
       var self = this
-      self.title      = $siteinfo.title
-      self.tagline    = $siteinfo.tagline
-      self.keywords   = $siteinfo.keywords
+      self.title    = $siteinfo.title
+      self.tagline  = $siteinfo.tagline
+      self.keywords = $siteinfo.keywords
       self.pages = {
         top: [
           {
@@ -51,9 +51,9 @@
           }
         ]
       }
-      self.conference       = {}
-      self.supporter_levels = []
-      self.supporters       = []
+      self.conference;
+      self.supporter_levels;
+      self.supporters;
     }
 
     //- SETTER FUNCTIONS
@@ -71,14 +71,15 @@
       return this
     }
     Site.prototype.setConference = function setConference(year, conference0) {
+      this.conference = this.conference || {}
       this.conference[year] = conference0
       return this
     }
     Site.prototype.setCurrentConference = function setCurrentConference(year) {
-      this.conference.current = this.getConference(year)
-      return this
+      return this.setConference('current', this.getConference(year))
     }
     Site.prototype.addSupporterLevel = function addSupporterLevel(supporter_level) {
+      this.supporter_levels = this.supporter_levels || []
       this.supporter_levels.push(supporter_level)
       return this
     }
@@ -87,6 +88,7 @@
       return this
     }
     Site.prototype.addSupporter = function addSupporter(supporter) {
+      this.supporters = this.supporters || []
       this.supporters.push(supporter)
       return this
     }

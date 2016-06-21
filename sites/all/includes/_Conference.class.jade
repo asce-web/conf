@@ -12,24 +12,24 @@
       , addressRegion       : $confinfo.state
       , addressRegion_title : state_data.find(function (item) { return item.index === $confinfo.state }).name
       }
-      self.pass_periods    = []
-      self.passes          = []
-      self.registration    = {}
-      self.program_events  = []
-      self.important_dates = []
+      self.pass_periods;
+      self.passes;
+      self.program_events;
+      self.important_dates;
     }
 
     //- SETTER FUNCTIONS
     Conference.prototype.addPassPeriod = function addPassPeriod(pass_period) {
+      this.pass_periods = this.pass_periods || []
       this.pass_periods.push(pass_period)
       return this
     }
     Conference.prototype.removePassPeriod = function removePassPeriod(pass_period_name) {
-      //- this.pass_periods.splice(this.pass_periods.indexOf(this.getPassPeriod(pass_period_name)), 1)
       spliceFromArray(this.pass_periods, this.getPassPeriod(pass_period_name))
       return this
     }
     Conference.prototype.addPass = function addPass(pass) {
+      this.passes = this.passes || []
       this.passes.push(pass)
       return this
     }
@@ -38,6 +38,7 @@
       return this
     }
     Conference.prototype.addProgramEvent = function addProgramEvent(program_event) {
+      this.program_events = this.program_events || []
       this.program_events.push(program_event)
       return this
     }
@@ -46,6 +47,7 @@
       return this
     }
     Conference.prototype.addImportantDate = function addImportantDate(important_date) {
+      this.important_dates = this.important_dates || []
       this.important_dates.push(program_event)
       return this
     }
@@ -70,10 +72,11 @@
 
     //- MORE PROTO FUNCTIONS
     Conference.prototype.setPrice = function setPrice(pass_period, pass, membership, price) {
-      pass_period = pass_period.name || pass_period
-      pass        = pass.name        || pass
-      membership  = membership.name  || membership
-      this.registration[pass_period][pass][membership] = price
+      //- pass_period = pass_period.name || pass_period
+      //- pass        = pass.name        || pass
+      //- membership  = membership.name  || membership
+      //- this.registration = this.registration || {}
+      //- this.registration[pass_period][pass][membership] = price
       return this
     }
 

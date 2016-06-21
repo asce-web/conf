@@ -13,7 +13,10 @@
 
     //- SETTER FUNCTIONS
     Page.prototype.setTitle = function setTitle(text) {
-      this.title = text
+      if (typeof text === 'function') {
+        var callback = text
+        this.title = callback.call(this)
+      } else this.title = text
       return this
     }
     Page.prototype.setDescription = function setDescription(text) {

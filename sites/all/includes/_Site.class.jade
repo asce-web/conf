@@ -18,25 +18,25 @@
             name: 'About'
           , url:  'about.html'
           }).setIcon('info_outline')
-            .setTitle('About' + ' | ' + self.name)
+            .setTitle(function () { return this.name + ' | ' + self.name })
             .setDescription('About ' + self.name + '.')
         , new Page({
             name: 'Sponsor'
           , url:  'sponsor.html'
           }).setIcon('people')
-            .setTitle('Sponsor' + ' | ' + self.name)
+            .setTitle(function () { return this.name + ' | ' + self.name })
             .setDescription('Sponsors of ' + self.name + '.')
         , new Page({
             name: 'Exhibit'
           , url:  'exhibit.html'
           }).setIcon('work')
-            .setTitle('Exhibit' + ' | ' + self.name)
+            .setTitle(function () { return this.name + ' | ' + self.name })
             .setDescription('Exhibitors at ' + self.name + '.')
         , new Page({
             name: 'Contact'
           , url:  'contact.html'
           }).setIcon('email')
-            .setTitle('Contact' + ' | ' + self.name)
+            .setTitle(function () { return this.name + ' | ' + self.name })
             .setDescription('Contact us for questions and comments about ' + self.name + '.')
         ]
       }
@@ -122,37 +122,38 @@
 
     //- MORE PROTO FUNCTIONS
     Site.prototype.initializeMainPages = function initializeMainPages() {
-      this.pages.main = [
+      var self = this
+      self.pages.main = [
         new Page({
           name: 'Home'
         , url:  'home.html'
         }).setIcon('home')
-          .setTitle(this.getCurrentConference().name)
-          .setDescription(this.getCurrentConference().theme)
+          .setTitle(self.getCurrentConference().name)
+          .setDescription(self.getCurrentConference().theme)
       , new Page({
           name: 'Registration'
         , url:  'registration.html'
         }).setIcon('shopping_cart')
-          .setTitle('Registration' + ' | ' + this.getCurrentConference().name)
-          .setDescription('Register for ' + this.getCurrentConference().name + ' here.')
+          .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
+          .setDescription('Register for ' + self.getCurrentConference().name + ' here.')
       , new Page({
           name: 'Program'
         , url:  'program.html'
         }).setIcon('event')
-          .setTitle('Program' + ' | ' + this.getCurrentConference().name)
-          .setDescription('Program and agenda of ' + this.getCurrentConference().name + '.')
+          .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
+          .setDescription('Program and agenda of ' + self.getCurrentConference().name + '.')
       , new Page({
           name: 'Hotel & Travel'
         , url:  'location.html'
         }).setIcon('flight')
-          .setTitle('Hotel & Travel' + ' | ' + this.getCurrentConference().name)
-          .setDescription('Location and where to stay for ' + this.getCurrentConference().name + '.')
+          .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
+          .setDescription('Location and where to stay for ' + self.getCurrentConference().name + '.')
       , new Page({
           name: 'Speakers'
         , url:  'speakers.html'
         }).setIcon('account_box')
-          .setTitle('Speakers' + ' | ' + this.getCurrentConference().name)
-          .setDescription('Current and prospective speakers at ' + this.getCurrentConference().name + '.')
+          .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
+          .setDescription('Current and prospective speakers at ' + self.getCurrentConference().name + '.')
       ]
       return this
     }

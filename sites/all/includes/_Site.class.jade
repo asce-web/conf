@@ -100,6 +100,7 @@
 
     //- GETTER FUNCTIONS
     Site.prototype.getPage = function getPage(type, url0) {
+      this.pages[type] = this.pages[type] || []
       return this.pages[type].find(function (item) { return item.url === url0 })
     }
     Site.prototype.getSubpage = function getSubpage(url0) {
@@ -130,23 +131,23 @@
     }
 
     //- STATIC FIELDS
-    Site.MENU_CLASS: {
+    Site.MENU_CLASS = {
       standard: {
-        listclasses : 'o-ListBare o-GridFlex c-MenuStandard'
-      , itemclasses : 'o-GridFlex__Item c-MenuStandard__Item'
-      , linkclasses : 'o-Block c-MenuStandard__Link'
+        listclasses: 'o-ListBare o-GridFlex c-MenuStandard'
+      , itemclasses: 'o-GridFlex__Item c-MenuStandard__Item'
+      , linkclasses: 'o-Block c-MenuStandard__Link'
       , sub: {
-          listclasses : 'o-ListBare c-MenuSub'
-        , itemclasses : 'c-MenuSub__Item'
-        , linkclasses : 'o-Block c-MenuSub__Link'
+          listclasses: 'o-ListBare c-MenuSub'
+        , itemclasses: 'c-MenuSub__Item'
+        , linkclasses: 'o-Block c-MenuSub__Link'
         }
       }
     , sitemap: {
-        listclasses : 'o-ListBare o-GridFlex c-Sitemap'
-      , itemclasses : 'o-GridFlex__Item c-Sitemap__Item'
+        listclasses: 'o-ListBare o-GridFlex c-Sitemap'
+      , itemclasses: 'o-GridFlex__Item c-Sitemap__Item'
       , sub: {
-          listclasses : 'o-ListBare c-Sitemap__SubList'
-        , itemclasses : 'c-Sitemap__SubItem'
+          listclasses: 'o-ListBare c-Sitemap__SubList'
+        , itemclasses: 'c-Sitemap__SubItem'
         }
       }
     }

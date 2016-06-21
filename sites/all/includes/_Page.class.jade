@@ -15,7 +15,7 @@
       this.description = text
       return this
     }
-    ProgramEvent.prototype.hide = function hide(bool) {
+    Page.prototype.hide = function hide(bool) {
       if (bool === undefined) bool = true // NOTE param defaults to true
       this.is_hidden = bool
       return this
@@ -29,7 +29,7 @@
     Page.prototype.getDescription = function getDescription() {
       return this.description
     }
-    ProgramEvent.prototype.isHidden = function isHidden() {
+    Page.prototype.isHidden = function isHidden() {
       return this.is_hidden
     }
     Page.prototype.getIcon = function getIcon() {

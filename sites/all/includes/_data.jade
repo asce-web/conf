@@ -231,7 +231,8 @@ script.
       self.pass_periods  = []
       self.passes        = []
       self.registration  = {}
-      self.programevents = []
+      self.program_events = []
+      self.important_dates = []
     }
 
     //- SETTER FUNCTIONS
@@ -253,11 +254,19 @@ script.
       return this
     }
     Conference.prototype.addProgramEvent = function addProgramEvent(program_event) {
-      this.programevents.push(program_event)
+      this.program_events.push(program_event)
       return this
     }
     Conference.prototype.removeProgramEvent = function removeProgramEvent(program_event_name) {
-      spliceFromArray(this.programevents, this.getProgramEvent(program_event_name))
+      spliceFromArray(this.program_events, this.getProgramEvent(program_event_name))
+      return this
+    }
+    Conference.prototype.addImportantDate = function addImportantDate(important_date) {
+      this.important_dates.push(program_event)
+      return this
+    }
+    Conference.prototype.removeImportantDate = function removeImportantDate(important_date_name) {
+      spliceFromArray(this.important_dates, this.getImportantDate(important_date_name))
       return this
     }
 
@@ -269,7 +278,10 @@ script.
       return this.passes.find(function (item) { return item.name === pass_name })
     }
     Conference.prototype.getProgramEvent = function getProgramEvent(program_event_name) {
-      return this.programevents.find(function (item) { return item.name === program_event_name })
+      return this.program_events.find(function (item) { return item.name === program_event_name })
+    }
+    Conference.prototype.getImportantDate = function getImportantDate(important_date_name) {
+      return this.important_dates.find(function (item) { return item.name === important_date_name })
     }
 
     //- MORE PROTO FUNCTIONS
@@ -353,10 +365,10 @@ script.
   })()
 
   var ImportantDate = (function () {
-    function ImportantDate($eventinfo) {
+    function ImportantDate($actioninfo) {
       var self = this
-      self.name       = $eventinfo.name
-      self.startDate  = $eventinfo.startDate
+      self.name       = $actioninfo.name
+      self.startTime  = $actioninfo.startTime
       self.url = ''
     }
     ImportantDate.prototype.setURL = function setURL(url0) {

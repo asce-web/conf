@@ -75,6 +75,7 @@
       return this
     }
     Site.prototype.removeSupporterLevel = function removeSupporterLevel(supporter_level_name) {
+      this.supporter_levels = this.supporter_levels || []
       spliceFromArray(this.supporter_levels, this.getSupporterLevel(supporter_level_name))
       return this
     }
@@ -84,6 +85,7 @@
       return this
     }
     Site.prototype.removeSupporter = function removeSupporter(supporter_name) {
+      this.supporters = this.supporters || []
       spliceFromArray(this.supporters, this.getSupporter(supporter_name))
       return this
     }
@@ -114,9 +116,11 @@
       return this.conference.current
     }
     Site.prototype.getSupporterLevel = function getSupporterLevel(supporter_level_name) {
+      this.supporter_levels = this.supporter_levels || []
       return this.supporter_levels.find(function (item) { return item.name === supporter_level_name })
     }
     Site.prototype.getSupporter = function getSupporter(supporter_name) {
+      this.supporters = this.supporters || []
       return this.supporters.find(function (item) { return item.name === supporter_name })
     }
 

@@ -15,12 +15,14 @@
       return this
     }
     Pass.prototype.removeMembership = function removeMembership(membership_name) {
+      this.memberships = this.memberships || []
       spliceFromArray(this.memberships, this.getMembership(membership_name))
       return this
     }
 
     //- GETTER FUNCTIONS
     Pass.prototype.getMembership = function getMembership(membership_name) {
+      this.memberships = this.memberships || []
       return this.memberships.find(function (item) { return item.name === membership_name })
     }
 

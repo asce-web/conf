@@ -1,0 +1,17 @@
+-
+  var ImportantDate = (function () {
+    function ImportantDate($actioninfo) {
+      var self = this
+      self.name       = $actioninfo.name
+      self.startTime  = $actioninfo.startTime
+      self.url = ''
+    }
+    ImportantDate.prototype.setURL = function setURL(url0) {
+      this.url = url0
+      return this
+    }
+    ImportantDate.prototype.getURL = function getURL() {
+      return this.url
+    }
+    return ImportantDate
+  })()

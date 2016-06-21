@@ -41,13 +41,13 @@ script.
     })).setCurrentConference('2016')
 
   defaultsite
-    .addSupporterLevel(new SupporterLevel('Premier'  ,'x-lrg'))
-    .addSupporterLevel(new SupporterLevel('Platinum' ,'lrg'))
-    .addSupporterLevel(new SupporterLevel('Gold'     ,'lrg'))
-    .addSupporterLevel(new SupporterLevel('Corporate','med'))
-    .addSupporterLevel(new SupporterLevel('Silver'   ,'sml'))
-    .addSupporterLevel(new SupporterLevel('Bronze'   ,'sml'))
-    .addSupporterLevel(new SupporterLevel('Copper'   ,'x-sml'))
+    .addSupporterLevel(new SupporterLevel('Premier').setClassname('x-lrg'))
+    .addSupporterLevel(new SupporterLevel('Platinum').setClassname('lrg'))
+    .addSupporterLevel(new SupporterLevel('Gold').setClassname('lrg'))
+    .addSupporterLevel(new SupporterLevel('Corporate').setClassname('med'))
+    .addSupporterLevel(new SupporterLevel('Silver').setClassname('sml'))
+    .addSupporterLevel(new SupporterLevel('Bronze').setClassname('sml'))
+    .addSupporterLevel(new SupporterLevel('Copper').setClassname('x-sml'))
 
   defaultsite.getCurrentConference
     .addPassPeriod(new PassPeriod({

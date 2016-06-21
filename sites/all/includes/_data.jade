@@ -156,10 +156,10 @@ script.
   })()
 
   var SupporterLevel = (function () {
-    function SupporterLevel(name, classname) {
+    function SupporterLevel(name) {
       var self = this
-      self.name = name
-      self.classname = classname
+      self.name      = name
+      self.classname = ''
     }
     SupporterLevel.prototype.setClassname = function setClassname(newname) {
       this.classname = newname

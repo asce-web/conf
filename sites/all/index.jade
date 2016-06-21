@@ -7,17 +7,26 @@ block main-header
   header: h1.-d-n#home Home
 
 block main-body
+  mixin otherYearContent(event0)
+    - event0 = event0 || {}
+    h1.c-OtherYear__Name(itemprop="name")= event0.name
+    meta(content=event0.startDate itemprop="startDate")
+    p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+      +event-location-name(event0.location)
+    p.c-OtherYear__Desc
+      block
+    ul.o-ListBare.o-GridFlex.o-ListAction
+      li.o-GridFlex__Item.o-ListAction__Item
+        a.c-Btn.c-Btn--hilite.c-Btn--ghost(href=event0.url itemprop="url") Event Details
   section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing.c-Hero(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
-    +hero-content(conference.current)
+    +hero-content(site.getCurrentConference())
     +actionchoices([{text:'Find Out More', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
   +minimal-text-block()
   section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--prev.c-OtherYear(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
     div.c-Overlay.c-Overlay--callout
-      +otheryear-content(conference.prev)
-        p.c-OtherYear__Desc
-          +content_otheryear_prev_desc()
+      +otherYearContent(site.getPrevConference())
+        block content_otherYearDesc_prev
   section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--next.c-OtherYear(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
     div.c-Overlay.c-Overlay--callout
-      +otheryear-content(conference.next)
-        p.c-OtherYear__Desc
-          +content_otheryear_next_desc()
+      +otherYearContent(site.getNextConference())
+        block content_otherYearDesc_next

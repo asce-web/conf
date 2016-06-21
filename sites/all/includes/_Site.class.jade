@@ -69,6 +69,14 @@
       this.initializeMainPages()
       return this
     }
+    Site.prototype.setPrevConference = function setPrevConference(year) {
+      this.setConference('prev', this.getConference(year))
+      return this
+    }
+    Site.prototype.setNextConference = function setNextConference(year) {
+      this.setConference('next', this.getConference(year))
+      return this
+    }
     Site.prototype.addSupporterLevel = function addSupporterLevel(supporter_level) {
       this.supporter_levels = this.supporter_levels || []
       this.supporter_levels.push(supporter_level)
@@ -114,6 +122,12 @@
     }
     Site.prototype.getCurrentConference = function getCurrentConference() {
       return this.conference.current
+    }
+    Site.prototype.getPrevConference = function getPrevConference() {
+      return this.conference.prev
+    }
+    Site.prototype.getNextConference = function getNextConference() {
+      return this.conference.next
     }
     Site.prototype.getSupporterLevel = function getSupporterLevel(supporter_level_name) {
       this.supporter_levels = this.supporter_levels || []

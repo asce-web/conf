@@ -8,8 +8,8 @@ html(lang="en")
     block varsSite
       -
         var site = new Site()
-          .setConference('evergreen', new Conference())
-          .setCurrentConference('evergreen')
+          .setConference('current', new Conference())
+          .setCurrentConference('current')
     block varsPage
       - var page = new Page()
     title= page.getTitle()
@@ -61,7 +61,10 @@ html(lang="en")
         +menuUniversal(site.pages.top.slice(1), site.pages.main.slice(0,1), site.getCurrentConference().name)
         //- button.c-Btn.c-Btn--dominant.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close top menu"): i.material-icons close
       //- button.c-Btn.c-Btn--flat.c-Btn--drawer.js-menubutton(type="button" name="open" title="open top menu"): i.material-icons menu
-    block standard-menu
+    if page.getType() === 'main' || page.getType() === 'sub'
+      header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
+        h1.-d-n#main-menu Main Menu
+        +sitemenulist({pages: site.pages.main, class_obj: Site.MENU_CLASS.standard, depth: 1, icons: true})
     main
       block main
         article&attributes((page_type === 'internal') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
@@ -88,7 +91,14 @@ html(lang="en")
                         small.c-SponsorBlock__Label= item.getLevel().name
                   button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--fwrd #[i.material-icons chevron_right]
                 +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
-    block site-map
+    if page.getType() === 'top'
+      footer.o-Runner.c-Mast: nav.o-ContentWrapper
+        h1.-d-n#site-map Site Map
+        +sitemenulist({pages: site.pages.top, class_obj: Site.MENU_CLASS.sitemap, depth: Infinity})
+    else if page.getType() === 'main' || page.getType() === 'sub'
+      footer.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
+        h1.-d-n#site-map Site Map
+        +sitemenulist({pages: site.pages.main, class_obj: Site.MENU_CLASS.sitemap, depth: Infinity})
     footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-ContentWrapper
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
@@ -128,31 +138,32 @@ html(lang="en")
         //- p: img(src="ASCE-logo.png" itemprop="image")
         p: a(href="http://www.asce.org" itemprop="url").
           &copy; #[time 1996]&ndash;#[time 2016] American Society of Civil Engineers
-    script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
-    script.
-      var button_open = $('<button>').addClass('c-Btn c-Btn--flat c-Btn--drawer js-menubutton')
-        .attr('type','button')
-        .attr('name','open')
-        .attr('title','open top menu')
-        .append($('<i>').addClass('material-icons').text('menu'))
-        .click(function () {
-          $('.o-SiteHead__Nav').removeClass('js-universalnav')
+    block scripts
+      script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
+      script.
+        var button_open = $('<button>').addClass('c-Btn c-Btn--flat c-Btn--drawer js-menubutton')
+          .attr('type','button')
+          .attr('name','open')
+          .attr('title','open top menu')
+          .append($('<i>').addClass('material-icons').text('menu'))
+          .click(function () {
+            $('.o-SiteHead__Nav').removeClass('js-universalnav')
+          })
+        var button_close = $('<button>').addClass('c-Btn c-Btn--dominant c-Btn--drawer c-Btn--drawer--close js-menubutton')
+          .attr('type','button')
+          .attr('name','close')
+          .attr('title','close top menu')
+          .append($('<i>').addClass('material-icons').text('close'))
+          .click(function () {
+            $('.o-SiteHead__Nav').addClass('js-universalnav')
+          })
+        $('.o-SiteHead').append(button_open)
+        $('.o-SiteHead__Nav').append(button_close)
+      script(src="/scripts/c-Program.js")
+      //- script.
+        $('.c-Speaker__Body').addClass('-h-z')
+        $('.c-Speaker__Img').height(function () { return $(this).width() })
+          .click(function () { $(this).siblings('.c-Speaker__Body').removeClass('-h-z') })
+        $(window).resize(function () {
+          $('.c-Speaker__Img').height(function () { return $(this).width() })
         })
-      var button_close = $('<button>').addClass('c-Btn c-Btn--dominant c-Btn--drawer c-Btn--drawer--close js-menubutton')
-        .attr('type','button')
-        .attr('name','close')
-        .attr('title','close top menu')
-        .append($('<i>').addClass('material-icons').text('close'))
-        .click(function () {
-          $('.o-SiteHead__Nav').addClass('js-universalnav')
-        })
-      $('.o-SiteHead').append(button_open)
-      $('.o-SiteHead__Nav').append(button_close)
-    script(src="/scripts/c-Program.js")
-    //- script.
-      //- $('.c-Speaker__Body').addClass('-h-z')
-      //- $('.c-Speaker__Img').height(function () { return $(this).width() })
-      //-   .click(function () { $(this).siblings('.c-Speaker__Body').removeClass('-h-z') })
-      //- $(window).resize(function () {
-      //-   $('.c-Speaker__Img').height(function () { return $(this).width() })
-      //- })

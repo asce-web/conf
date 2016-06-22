@@ -61,7 +61,10 @@ html(lang="en")
         +menuUniversal(site.pages.top.slice(1), site.pages.main.slice(0,1), site.getCurrentConference().name)
         //- button.c-Btn.c-Btn--dominant.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close top menu"): i.material-icons close
       //- button.c-Btn.c-Btn--flat.c-Btn--drawer.js-menubutton(type="button" name="open" title="open top menu"): i.material-icons menu
-    block standard-menu
+    if page.getType() === 'main' || page.getType() === 'sub'
+      header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
+        h1.-d-n#main-menu Main Menu
+        +sitemenulist({pages: site.pages.main, class_obj: Site.MENU_CLASS.standard, depth: 1, icons: true})
     main
       block main
         article&attributes((page_type === 'internal') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
@@ -88,7 +91,14 @@ html(lang="en")
                         small.c-SponsorBlock__Label= item.getLevel().name
                   button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--fwrd #[i.material-icons chevron_right]
                 +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
-    block site-map
+    if page.getType() === 'top'
+      footer.o-Runner.c-Mast: nav.o-ContentWrapper
+        h1.-d-n#site-map Site Map
+        +sitemenulist({pages: site.pages.top, class_obj: Site.MENU_CLASS.sitemap, depth: Infinity})
+    else if page.getType() === 'main' || page.getType() === 'sub'
+      footer.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
+        h1.-d-n#site-map Site Map
+        +sitemenulist({pages: site.pages.main, class_obj: Site.MENU_CLASS.sitemap, depth: Infinity})
     footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-ContentWrapper
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")

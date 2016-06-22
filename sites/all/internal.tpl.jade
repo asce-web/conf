@@ -1,11 +1,1 @@
 extends all.tpl.jade
-
-block standard-menu
-  header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
-    h1.-d-n#main-menu Main Menu
-    +sitemenulist({pages: site.pages.main, class_obj: Site.MENU_CLASS.standard, depth: 1, icons: true})
-
-block site-map
-  footer.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
-    h1.-d-n#site-map Site Map
-    +sitemenulist({pages: site.pages.main, class_obj: Site.MENU_CLASS.sitemap, depth: Infinity})

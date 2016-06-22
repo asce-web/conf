@@ -4,7 +4,7 @@ block append varsPage
   - var page = site.getPage('top','index.html')
 
 block main-header
-  header: h1.-d-n#home Home
+  header.-d-n: h1#home #{page.name} Homepage
 
 block main-body
   mixin otherYearContent(event0)

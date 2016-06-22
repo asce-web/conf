@@ -1,19 +1,19 @@
 extends internal.tpl.jade
 
-block append vars
-  - var page = getPage('internal','home.html')
+block append varsPage
+  - var page = site.getPage('main','home.html')
 
 block main-header
   header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--home.c-Hero: div.o-ContentWrapper
-    +hero-content(conference.current)
-    +actionchoices([{text:'Register', href:'registration.html'}, {text:'Sponsor', href:'sponsor.html'}, {text:'Submit a Paper'}], 'c-Btn c-Btn--hilite c-Btn--hero')
+    +hero-content(site.getCurrentConference())
+    //- +actionchoices([{text:'Register', href:'registration.html'}, {text:'Sponsor', href:'sponsor.html'}, {text:'Submit a Paper'}], 'c-Btn c-Btn--hilite c-Btn--hero')
 
 block main-minimal
   +minimal-text-block()
 
 block main-rich
 
-block callouts
+//- block callouts
   aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     include includes/highlights/_important-dates.jade
   aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper

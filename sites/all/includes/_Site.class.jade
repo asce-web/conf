@@ -44,8 +44,8 @@
       }
       self.conference = {}
       self.conference.current = self.conference.prev = self.conference.next = new Conference()
-      self.supporter_levels;
-      self.supporters;
+      self.supporter_levels = []
+      self.supporters = []
     }
 
     //- SETTER FUNCTIONS
@@ -63,7 +63,6 @@
       return this
     }
     Site.prototype.setConference = function setConference(year, conference0) {
-      this.conference = this.conference || {}
       this.conference[year] = conference0
       return this
     }
@@ -81,22 +80,18 @@
       return this
     }
     Site.prototype.addSupporterLevel = function addSupporterLevel(supporter_level) {
-      this.supporter_levels = this.supporter_levels || []
       this.supporter_levels.push(supporter_level)
       return this
     }
     Site.prototype.removeSupporterLevel = function removeSupporterLevel(supporter_level_name) {
-      this.supporter_levels = this.supporter_levels || []
       spliceFromArray(this.supporter_levels, this.getSupporterLevel(supporter_level_name))
       return this
     }
     Site.prototype.addSupporter = function addSupporter(supporter) {
-      this.supporters = this.supporters || []
       this.supporters.push(supporter)
       return this
     }
     Site.prototype.removeSupporter = function removeSupporter(supporter_name) {
-      this.supporters = this.supporters || []
       spliceFromArray(this.supporters, this.getSupporter(supporter_name))
       return this
     }
@@ -133,11 +128,9 @@
       return this.conference.next
     }
     Site.prototype.getSupporterLevel = function getSupporterLevel(supporter_level_name) {
-      this.supporter_levels = this.supporter_levels || []
       return this.supporter_levels.find(function (item) { return item.name === supporter_level_name })
     }
     Site.prototype.getSupporter = function getSupporter(supporter_name) {
-      this.supporters = this.supporters || []
       return this.supporters.find(function (item) { return item.name === supporter_name })
     }
 

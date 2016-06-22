@@ -13,69 +13,57 @@
       , addressRegion       : $confinfo.state
       , addressRegion_title : (state_data.find(function (item) { return item.index === $confinfo.state }) || false).name
       }
-      self.pass_periods;
-      self.passes;
-      self.program_events;
-      self.important_dates;
+      self.pass_periods = []
+      self.passes = []
+      self.program_events = []
+      self.important_dates = []
     }
 
     //- SETTER FUNCTIONS
     Conference.prototype.addPassPeriod = function addPassPeriod(pass_period) {
-      this.pass_periods = this.pass_periods || []
       this.pass_periods.push(pass_period)
       return this
     }
     Conference.prototype.removePassPeriod = function removePassPeriod(pass_period_name) {
-      this.pass_periods = this.pass_periods || []
       spliceFromArray(this.pass_periods, this.getPassPeriod(pass_period_name))
       return this
     }
     Conference.prototype.addPass = function addPass(pass) {
-      this.passes = this.passes || []
       this.passes.push(pass)
       return this
     }
     Conference.prototype.removePass = function removePass(pass_name) {
-      this.passes = this.passes || []
       spliceFromArray(this.passes, this.getPass(pass_name))
       return this
     }
     Conference.prototype.addProgramEvent = function addProgramEvent(program_event) {
-      this.program_events = this.program_events || []
       this.program_events.push(program_event)
       return this
     }
     Conference.prototype.removeProgramEvent = function removeProgramEvent(program_event_name) {
-      this.program_events = this.program_events || []
       spliceFromArray(this.program_events, this.getProgramEvent(program_event_name))
       return this
     }
     Conference.prototype.addImportantDate = function addImportantDate(important_date) {
-      this.important_dates = this.important_dates || []
       this.important_dates.push(program_event)
       return this
     }
     Conference.prototype.removeImportantDate = function removeImportantDate(important_date_name) {
-      this.important_dates = this.important_dates || []
       spliceFromArray(this.important_dates, this.getImportantDate(important_date_name))
       return this
     }
 
     //- GETTER FUNCTIONS
     Conference.prototype.getPassPeriod = function getPassPeriod(pass_period_name) {
-      this.pass_periods = this.pass_periods || []
       return this.pass_periods.find(function (item) { return item.name === pass_period_name })
     }
     Conference.prototype.getPass = function getPass(pass_name) {
-      this.passes = this.passes || []
       return this.passes.find(function (item) { return item.name === pass_name })
     }
     Conference.prototype.getProgramEvent = function getProgramEvent(program_event_name) {
-      this.program_events = this.program_events || []
       return this.program_events.find(function (item) { return item.name === program_event_name })
     }
     Conference.prototype.getImportantDate = function getImportantDate(important_date_name) {
-      this.important_dates = this.important_dates || []
       return this.important_dates.find(function (item) { return item.name === important_date_name })
     }
 

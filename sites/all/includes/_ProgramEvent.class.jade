@@ -6,8 +6,8 @@
       self.name       = $eventinfo.name
       self.startDate  = $eventinfo.startDate
       self.endDate    = $eventinfo.endDate
-      self.url;
-      sefl.is_starred;
+      self.url = ''
+      sefl.is_starred = false
     }
     ProgramEvent.prototype.setURL = function setURL(url0) {
       this.url = url0

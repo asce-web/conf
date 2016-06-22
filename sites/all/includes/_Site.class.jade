@@ -51,9 +51,9 @@
 
     //- SETTER FUNCTIONS
     Site.prototype.addSubpage = function addSubpage(parent_url, subpage0) {
-      var parent_page = this.getPage('main', parent_url)
+      var parent_page = this.getPage(parent_url)
       parent_page.sub = parent_page.sub || []
-      parent_page.sub.push(subpage0)
+      parent_page.sub.push(subpage0.setType('sub'))
       return this
     }
     Site.prototype.removeSubpage = function removeSubpage(url0) {

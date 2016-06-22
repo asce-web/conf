@@ -49,11 +49,11 @@ mixin hero-content(event0)
       +event-location-name(event0.location)
     span.c-Hero__Dates
       time(datetime=event0.startDate itemprop="startDate")
-        - var start = new Date(event0.startDate)
+        - var start = (event0.startDate) ? new Date(event0.startDate) : new Date()
         = month_names[start.getUTCMonth()].slice(0,3) + ' ' + start.getUTCDate()
       | &ndash;
       time(datetime=event0.endDate itemprop="endDate")
-        - var end = new Date(event0.endDate)
+        - var end = (event0.endDate) ? new Date(event0.endDate) : new Date()
         = month_names[end.getUTCMonth()].slice(0,3) + ' ' + end.getUTCDate()
   p.c-Hero__Theme(itemprop="description")
     if event0.theme

@@ -6,9 +6,9 @@ html(lang="en")
     block vars
       - var site_logo_url = ''
     block varsSite
-      - var site = {}
+      - var site = new Site()
     block varsPage
-      - var page = {}
+      - var page = new Page()
     title= page.getTitle()
     block metas
       meta(charset="utf-8")

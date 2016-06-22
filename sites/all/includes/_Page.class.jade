@@ -3,6 +3,7 @@
     //- CONSTRUCTOR
     function Page($pageinfo) {
       var self = this
+      $pageinfo = $pageinfo || {}
       self.name = $pageinfo.name
       self.url  = $pageinfo.url
       self.title;

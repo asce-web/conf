@@ -2,6 +2,7 @@
   var ProgramEvent = (function () {
     function ProgramEvent($eventinfo) {
       var self = this
+      $eventinfo = $eventinfo || {}
       self.name       = $eventinfo.name
       self.startDate  = $eventinfo.startDate
       self.endDate    = $eventinfo.endDate

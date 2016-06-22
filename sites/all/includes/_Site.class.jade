@@ -3,6 +3,7 @@
     //- CONSTRUCTOR
     function Site($siteinfo) {
       var self = this
+      $siteinfo = $siteinfo || {}
       self.name     = $siteinfo.name
       self.tagline  = $siteinfo.tagline
       self.keywords = $siteinfo.keywords
@@ -39,8 +40,10 @@
             .setTitle(function () { return this.name + ' | ' + self.name })
             .setDescription('Contact us for questions and comments about ' + self.name + '.')
         ]
+      , main: []
       }
-      self.conference;
+      self.conference = {}
+      self.conference.current = self.conference.prev = self.conference.next = new Conference()
       self.supporter_levels;
       self.supporters;
     }

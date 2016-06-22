@@ -2,6 +2,7 @@
   var PassPeriod = (function () {
     function PassPeriod($periodinfo) {
       var self = this
+      $periodinfo = $periodinfo || {}
       self.name        = $periodinfo.name
       self.startDate   = $periodinfo.startDate
       self.endDate     = $periodinfo.endDate

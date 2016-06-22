@@ -73,7 +73,7 @@ html(lang="en")
               +rich-text-block()
           block callouts
           block sponsors
-            if site.supporters
+            if site.supporters.length
               aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
                 h1#sponsors Sponsors
                 div.o-GridFlex.c-SponsorBlock
@@ -145,7 +145,7 @@ html(lang="en")
         })
       $('.o-SiteHead').append(button_open)
       $('.o-SiteHead__Nav').append(button_close)
-    script(src="../scripts/c-Program.js")
+    script(src="/scripts/c-Program.js")
     //- script.
       //- $('.c-Speaker__Body').addClass('-h-z')
       //- $('.c-Speaker__Img').height(function () { return $(this).width() })

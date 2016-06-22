@@ -1,16 +1,16 @@
 extends universal.tpl.jade
 
-block append vars
-  - var page = getPage('universal','sponsor.html')
+block append varsPage
+  - var page = site.getPage('top','sponsor.html')
 
 block append main-body
-  section.o-Runner.o-Runner--highlight: div.o-ContentWrapper
-    h1#thank-you-sponsors Thank You to Our Sponsors
-    include /includes/components/_c-SponsorBlock.jade
-    +sponsorBlock(sponsorlevel.platinum , 'c-SponsorBlock--separate')
-    +sponsorBlock(sponsorlevel.corporate, 'c-SponsorBlock--separate')
-    +sponsorBlock(sponsorlevel.silver   , 'c-SponsorBlock--separate')
-    +sponsorBlock(sponsorlevel.bronze   , 'c-SponsorBlock--separate')
-    +sponsorBlock(sponsorlevel.copper   , ''                        )
+  if site.supporter_levels.length
+    section.o-Runner.o-Runner--highlight: div.o-ContentWrapper
+      h1#thank-you-sponsors Thank You to Our Sponsors
+      include /includes/components/_c-SponsorBlock.jade
+      each sponsorlevel in site.supporter_levels.slice(0,-1)
+        +sponsorBlock(sponsorlevel, 'c-SponsorBlock--separate')
+      each sponsorlevel in site.supporter_levels.slice(-1)
+        +sponsorBlock(sponsorlevel, '')
 
 block sponsors

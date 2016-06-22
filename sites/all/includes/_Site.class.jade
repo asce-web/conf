@@ -42,6 +42,7 @@
         ]
       , main: []
       }
+      for (var item of self.pages.top) item.setType('top')
       self.conference = {}
       self.conference.current = self.conference.prev = self.conference.next = new Conference()
       self.supporter_levels = []
@@ -169,6 +170,7 @@
           .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
           .setDescription('Current and prospective speakers at ' + self.getCurrentConference().name + '.')
       ]
+      for (var item of self.pages.main) item.setType('main')
       return this
     }
 

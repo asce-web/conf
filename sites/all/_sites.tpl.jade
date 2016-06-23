@@ -32,6 +32,9 @@ html(lang="en")
       link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v4.3.0/xmeter.css")
       link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.8.0/bangs.min.css")
       link(rel="stylesheet" href="/styles/conf.css")
+      if site.name
+        //- if this site is an instance of the 'all' template
+        link(rel="stylesheet" href="styles/site.css")
       style.
         .minimal-text {
           border: 8px solid rgba(219, 255, 64, 0.64);

@@ -3,21 +3,14 @@ extends _sites.tpl.jade
 block append varsPage
   - var page = site.getPage('program.html')
 
-block main-minimal
-  +minimal-text-block()
-
 block main-reference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n#full-program Full Program
     include /includes/components/_c-Program.jade
-    +program(site.getCurrentConference().program_events.length, {id:'full-program-block', class:'c-Overlay'})
+    +program(site.getCurrentConference().getProgramEventsAll().length, {id:'full-program-block', class:'c-Overlay'})
       mixin heading(i)
-        +programHeading(program_events[i][0])
+        //- +programHeading(program_events[i][0])
       mixin content(i)
         include /includes/components/_c-TimeBlock.jade
-        +timeBlock(program_events[i], true)
+        //- +timeBlock(program_events[i], true)
     p: small Program subject to change.
-
-//- block callouts
-  aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
-    include includes/highlights/_volunteer.jade

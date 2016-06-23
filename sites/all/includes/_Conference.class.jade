@@ -66,6 +66,18 @@
     Conference.prototype.getImportantDate = function getImportantDate(important_date_name) {
       return this.important_dates.find(function (item) { return item.name === important_date_name })
     }
+    Conference.prototype.getPassPeriodsAll = function getPassPeriodsAll() {
+      return this.pass_periods.slice()
+    }
+    Conference.prototype.getPassesAll = function getPassesAll() {
+      return this.passes.slice()
+    }
+    Conference.prototype.getProgramEventsAll = function getProgramEventsAll() {
+      return this.program_events.slice()
+    }
+    Conference.prototype.getImportantDatesAll = function getImportantDatesAll() {
+      return this.important_dates.slice()
+    }
 
     //- MORE PROTO FUNCTIONS
     Conference.prototype.setPrice = function setPrice(pass_period, pass, membership, price) {

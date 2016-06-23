@@ -58,7 +58,7 @@ html(lang="en")
   body
     header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-GridFlex.o-SiteHead
       a.o-GridFlex__Item.o-Block.o-GridFloat.o-SiteHead__Title.c-SiteTitle.c-Camo(href="index.html")
-        span.o-GridFloat__Item.c-SiteTitle__Logo(style='background-image: url(' + (site.image || '') + ');')
+        span.o-GridFloat__Item.c-SiteTitle__Logo(style='background-image: url(\'' + (site.image || '') + '\');')
         h1.o-GridFloat__Item.c-SiteTitle__Name= site.name
         p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
       nav.o-GridFlex__Item.o-SiteHead__Nav.js-universalnav
@@ -82,7 +82,6 @@ html(lang="en")
             block main-minimal
             block main-reference
             block main-rich
-              +rich-text-block()
           block callouts
           block sponsors
             if site.supporters.length

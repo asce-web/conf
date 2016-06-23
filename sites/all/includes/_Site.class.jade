@@ -50,19 +50,6 @@
     }
 
     //- SETTER FUNCTIONS
-    Site.prototype.addSubpage = function addSubpage(parent_url, subpage0) {
-      var parent_page = this.getPage(parent_url)
-      parent_page.sub = parent_page.sub || []
-      parent_page.sub.push(subpage0.setType('sub'))
-      return this
-    }
-    Site.prototype.removeSubpage = function removeSubpage(url0) {
-      var parent_page = this.pages.main.find(function (main_page) {
-        return (main_page.sub && main_page.sub.find(function (sub_page) { return sub_page.url === url0 }))
-      })
-      spliceFromArray(parent_page.sub, this.getSubpage(url0))
-      return this
-    }
     Site.prototype.setConference = function setConference(year, conference0) {
       this.conference[year] = conference0
       return this
@@ -98,23 +85,15 @@
     }
 
     //- GETTER FUNCTIONS
-    Site.prototype.getPage = function getPage(type, url0) {
-      this.pages[type] = this.pages[type] || []
-      return this.pages[type].find(function (item) { return item.url === url0 })
-    }
-    Site.prototype.getSubpage = function getSubpage(url0) {
-      var parent_page = this.pages.main.find(function (main_page) {
-        return (main_page.sub && main_page.sub.find(function (sub_page) { return sub_page.url === url0 }))
-      })
-      return parent_page.sub.find(function (sub_page) { return sub_page.url === url0 })
-      //- var returned
-      //- for (var page of this.pages.main) {
-      //-   returned = page.sub.find(function (item) { return item.url === url0 })
-      //-   if (returned) {
-      //-     break
-      //-   }
-      //- }
-      //- return returned
+    Site.prototype.getPage = function getPage(url0) {
+      return this.pages.top.find(function (item) { return item.url === url0 })
+        || this.pages.main.find(function (item) { return item.url === url0 })
+        || this.pages.top.find(function (item) {
+          return item.getSubpage(url0)
+        }).getSubpage(url0)
+        || this.pages.main.find(function (item) {
+          return item.getSubpage(url0)
+        }).getSubpage(url0)
     }
     Site.prototype.getConference = function getConference(year) {
       return this.conference[year]

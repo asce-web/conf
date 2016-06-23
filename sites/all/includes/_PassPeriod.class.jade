@@ -6,6 +6,14 @@
       self.name        = $periodinfo.name
       self.startDate   = $periodinfo.startDate
       self.endDate     = $periodinfo.endDate
+      self.icon        = {}
+    }
+    PassPeriod.prototype.setIcon = function setIcon(key) {
+      this.icon = (key) ? icon_data.find(function (item) { return item.content === key }) : null
+      return this
+    }
+    PassPeriod.prototype.getIcon = function getIcon() {
+      return this.icon
     }
     return PassPeriod
   })()

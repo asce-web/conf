@@ -10,6 +10,7 @@
       self.description = ''
       self.is_hidden = false
       self.icon = null
+      self.sub = []
       self.type = ''
     }
 
@@ -34,6 +35,14 @@
       this.icon = (key) ? icon_data.find(function (item) { return item.content === key }) : null
       return this
     }
+    Page.prototype.addSubpage = function addSubpage(page0) {
+      this.sub.push(page0.setType('sub'))
+      return this
+    }
+    Page.prototype.removeSubpage = function removeSubpage(url0) {
+      spliceFromArray(this.sub, this.getSubpage(url0))
+      return this
+    }
     Page.prototype.setType = function setType(type0) {
       this.type = type0
       return this
@@ -51,6 +60,9 @@
     }
     Page.prototype.getIcon = function getIcon() {
       return this.icon
+    }
+    Page.prototype.getSubpage = function getSubpage(url0) {
+      return this.sub.find(function (item) { return item.url === url0 })
     }
     Page.prototype.getType = function getType() {
       return this.type

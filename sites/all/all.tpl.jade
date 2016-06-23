@@ -1,17 +1,17 @@
 doctype html
 html(lang="en")
+  include /includes/_data.jade
+  include /sites/all/includes/_data.jade
+  block vars
+    - var site_logo_url = ''
+  block varsSite
+    -
+      var site = new Site()
+        .setConference('current', new Conference())
+        .setCurrentConference('current')
+  block varsPage
+    - var page = new Page()
   head
-    include /includes/_data.jade
-    include /sites/all/includes/_data.jade
-    block vars
-      - var site_logo_url = ''
-    block varsSite
-      -
-        var site = new Site()
-          .setConference('current', new Conference())
-          .setCurrentConference('current')
-    block varsPage
-      - var page = new Page()
     title= page.getTitle()
     block metas
       meta(charset="utf-8")
@@ -91,14 +91,7 @@ html(lang="en")
                         small.c-SponsorBlock__Label= item.getLevel().name
                   button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--fwrd #[i.material-icons chevron_right]
                 +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
-    if page.getType() === 'top'
-      footer.o-Runner.c-Mast: nav.o-ContentWrapper
-        h1.-d-n#site-map Site Map
-        +sitemenulist({pages: site.pages.top, class_obj: Site.MENU_CLASS.sitemap, depth: Infinity})
-    else if page.getType() === 'main' || page.getType() === 'sub'
-      footer.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
-        h1.-d-n#site-map Site Map
-        +sitemenulist({pages: site.pages.main, class_obj: Site.MENU_CLASS.sitemap, depth: Infinity})
+    +siteMap(page.getType())
     footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-ContentWrapper
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")

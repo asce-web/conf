@@ -31,8 +31,14 @@ mixin sitemenulist(args)
             if args.icons && item.icon
               i.material-icons= item.icon.content
             span= item.name
-          if item.sub && depth > 0
+          if item.sub.length && depth > 0
             +sitemenulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})
+
+mixin siteMap(pagetype)
+  - pagetype = ({top: 'top', main: 'main', sub: 'main'})[pagetype]
+  footer.o-Runner.c-Mast(class=(pagetype==='top') ? '' : 'c-Mast--internal'): nav.o-ContentWrapper
+    h1.-d-n#site-map Site Map
+    +sitemenulist({pages: site.pages[pagetype], class_obj: Site.MENU_CLASS.sitemap, depth:Infinity})
 
 mixin event-location-name(loc)
   span(itemprop="name")

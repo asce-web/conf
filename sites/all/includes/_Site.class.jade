@@ -113,6 +113,12 @@
     Site.prototype.getSupporter = function getSupporter(supporter_name) {
       return this.supporters.find(function (item) { return item.name === supporter_name })
     }
+    Site.prototype.getSupporterLevelsAll = function getSupporterLevelsAll() {
+      return this.supporter_levels.slice()
+    }
+    Site.prototype.getSupportersAll = function getSupportersAll() {
+      return this.supporters.slice()
+    }
 
     //- MORE PROTO FUNCTIONS
     Site.prototype.initializeMainPages = function initializeMainPages() {

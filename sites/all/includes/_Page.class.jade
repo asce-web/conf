@@ -3,19 +3,29 @@
     //- CONSTRUCTOR
     function Page($pageinfo) {
       var self = this
+      $pageinfo = $pageinfo || {}
       self.name = $pageinfo.name
       self.url  = $pageinfo.url
-      self.description;
-      self.is_hidden;
-      self.icon;
+      self.title = ''
+      self.description = ''
+      self.is_hidden = false
+      self.icon = null
+      self.sub = []
     }
 
     //- SETTER FUNCTIONS
+    Page.prototype.setTitle = function setTitle(text) {
+      if (typeof text === 'function') {
+        var callback = text
+        this.title = callback.call(this)
+      } else this.title = text
+      return this
+    }
     Page.prototype.setDescription = function setDescription(text) {
       this.description = text
       return this
     }
-    ProgramEvent.prototype.hide = function hide(bool) {
+    Page.prototype.hide = function hide(bool) {
       if (bool === undefined) bool = true // NOTE param defaults to true
       this.is_hidden = bool
       return this
@@ -24,16 +34,30 @@
       this.icon = (key) ? icon_data.find(function (item) { return item.content === key }) : null
       return this
     }
+    Page.prototype.addSubpage = function addSubpage(page0) {
+      this.sub.push(page0)
+      return this
+    }
+    Page.prototype.removeSubpage = function removeSubpage(url0) {
+      spliceFromArray(this.sub, this.getSubpage(url0))
+      return this
+    }
 
     //- GETTER FUNCTIONS
+    Page.prototype.getTitle = function getTitle() {
+      return this.title
+    }
     Page.prototype.getDescription = function getDescription() {
       return this.description
     }
-    ProgramEvent.prototype.isHidden = function isHidden() {
+    Page.prototype.isHidden = function isHidden() {
       return this.is_hidden
     }
     Page.prototype.getIcon = function getIcon() {
       return this.icon
+    }
+    Page.prototype.getSubpage = function getSubpage(url0) {
+      return this.sub.find(function (item) { return item.url === url0 })
     }
 
     return Page

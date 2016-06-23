@@ -9,24 +9,11 @@
 
 -
   var defaultsite = new Site({
-    title    : 'An ASCE Event'
+    name     : 'An ASCE Event'
   , tagline  : 'Optional Brand Tagline'
   , keywords : ['ASCE', 'civil engineering', 'convention']
   })
-
-  defaultsite
-    .addSubpage('about.html'       , new Page({name:'Cooperating Orgs'            , url:''}))
-    .addSubpage('about.html'       , new Page({name:'Partnering Orgs '            , url:''}))
-    .addSubpage('about.html'       , new Page({name:'Volunteer'                   , url:''}))
-    .addSubpage('about.html'       , new Page({name:'Why Attend'                  , url:''}))
-    .addSubpage('registration.html', new Page({name:'Why Attend'                  , url:''}))
-    .addSubpage('registration.html', new Page({name:'Short Courses'               , url:''}))
-    .addSubpage('registration.html', new Page({name:'Technical Tours'             , url:''}))
-    .addSubpage('registration.html', new Page({name:'Optional Tours'              , url:''}))
-    .addSubpage('program.html'     , new Page({name:'Events'                      , url:''}))
-    .addSubpage('location.html'    , new Page({name:'International Travel'        , url:''}))
-    .addSubpage('speakers.html'    , new Page({name:'Distinguished Lecture Series', url:''}))
-    .addSubpage('speakers.html'    , new Page({name:'Exhibitor List'              , url:''}))
+  var site_logo_url = 'img/site-logo-white.png'
 
   defaultsite
     .setConference('2016', new Conference({
@@ -53,7 +40,11 @@
     , url       : 'http://2017.asceconvention.org/'
     , city      : 'Chicago'
     , state     : 'IL'
-    })).setCurrentConference('2016')
+    }))
+  defaultsite
+    .setCurrentConference('2016')
+    .setPrevConference('2015')
+    .setNextConference('2017')
 
   defaultsite
     .addSupporterLevel(new SupporterLevel('Premier').setClassname('x-lrg'))
@@ -129,6 +120,22 @@
       .setImg('http://2016.asceconvention.org/sites/default/files/keller-na-logo.png')
       .setURL('http://www.keller.co.uk/')
       .setLevel(defaultsite.getSupporterLevel('Corporate'))
+    )
+
+//- -
+  defaultsite
+    .addSubpage('about.html'       , new Page({name:'Cooperating Orgs'            , url:''}))
+    .addSubpage('about.html'       , new Page({name:'Partnering Orgs '            , url:''}))
+    .addSubpage('about.html'       , new Page({name:'Volunteer'                   , url:''}))
+    .addSubpage('about.html'       , new Page({name:'Why Attend'                  , url:''}))
+    .addSubpage('registration.html', new Page({name:'Why Attend'                  , url:''}))
+    .addSubpage('registration.html', new Page({name:'Short Courses'               , url:''}))
+    .addSubpage('registration.html', new Page({name:'Technical Tours'             , url:''}))
+    .addSubpage('registration.html', new Page({name:'Optional Tours'              , url:''}))
+    .addSubpage('program.html'     , new Page({name:'Events'                      , url:''}))
+    .addSubpage('location.html'    , new Page({name:'International Travel'        , url:''}))
+    .addSubpage('speakers.html'    , new Page({name:'Distinguished Lecture Series', url:''}))
+    .addSubpage('speakers.html'    , new Page({name:'Exhibitor List'              , url:''}))
 
   defaultsite.getCurrentConference()
     .addPassPeriod(new PassPeriod({
@@ -459,13 +466,6 @@
     , { name: 'Stephen E. Dickenson', suffix: 'Ph.D., P.E., D.PE, M.ASCE' }
     ]
   }
-
-mixin content_otheryear_prev_desc()
-  | Access the 2015 program to see which sessions qualify for
-  |  #[abbr(title="professional development hours") PDH]s and other documentation.
-
-mixin content_otheryear_next_desc()
-  | Plan ahead to attend, sponsor, or exhibit at the annual convention for civil engineering professionals.
 
 mixin content_pass_student_fineprint()
   | Full-time students must show valid #[abbr(title="identification") ID] onsite at the registration desk when picking up name badge.

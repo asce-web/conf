@@ -1,36 +1,32 @@
 doctype html
 html(lang="en")
   include /includes/_data.jade
-  include includes/_data.jade
+  include /sites/all/includes/_data.jade
+  block varsSite
+    -
+      var site = new Site()
+        .setConference('current', new Conference())
+        .setCurrentConference('current')
+  block varsPage
+    - var page = new Page()
+  block vars
+    - var site_logo_url = ''
+    - var pagetype = (site.pages.top.find(function (item) { return item === page })) ? 'top' : 'main'
   head
-    block vars
-      - getPage('universal','index.html').name = site.title
-      - getPage('universal','index.html').description   = site.tagline
-      - getPage('universal','about.html').description   = 'About ' + site.title + '.'
-      - getPage('universal','sponsor.html').description = 'Sponsors of ' + site.title + '.'
-      - getPage('universal','exhibit.html').description = 'Exhibitors at ' + site.title + '.'
-      - getPage('universal','contact.html').description = 'Contact us for questions and comments about ' + site.title + '.'
-      - getPage('internal' ,'home.html').description         = conference.current.theme
-      - getPage('internal' ,'registration.html').description = 'Register for ' + conference.current.name + ' here.'
-      - getPage('internal' ,'program.html').description      = 'Program and agenda of ' + conference.current.name + '.'
-      - getPage('internal' ,'location.html').description     = 'Location and where to stay for ' + conference.current.name + '.'
-      - getPage('internal' ,'speakers.html').description     = 'Current and prospective speakers at ' + conference.current.name + '.'
-      - var page = {}
-    block title
-      title
-    meta(charset="utf-8")
-    meta(name="description" content=page.description)
-    meta(name="keywords" content=site.keywords)
-    meta(name="viewport" content="width=device-width, initial-scale=1")
-    meta(http-equiv="X-UA-Compatible" content="IE=edge")
-    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic")
-    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,400italic,700")
-    link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
-    link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v4.3.0/xmeter.css")
-    link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.8.0/bangs.min.css")
-    link(rel="stylesheet" href="../styles/conf.css")
-    link(rel="stylesheet" href="styles/sample.css")
-    block style
+    title= page.getTitle()
+    block metas
+      meta(charset="utf-8")
+      meta(name="description" content=page.getDescription())
+      meta(name="keywords" content=site.keywords)
+      meta(name="viewport" content="width=device-width, initial-scale=1")
+      meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    block styles
+      link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic")
+      link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,400italic,700")
+      link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+      link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v4.3.0/xmeter.css")
+      link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.8.0/bangs.min.css")
+      link(rel="stylesheet" href="/styles/conf.css")
       style.
         .minimal-text {
           border: 8px solid rgba(219, 255, 64, 0.64);
@@ -57,19 +53,22 @@ html(lang="en")
   body
     header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-GridFlex.o-SiteHead
       a.o-GridFlex__Item.o-Block.o-GridFloat.o-SiteHead__Title.c-SiteTitle.c-Camo(href="index.html")
-        span.o-GridFloat__Item.c-SiteTitle__Logo(style="background-image: url('img/site-logo-white.png');")
-        h1.o-GridFloat__Item.c-SiteTitle__Name= site.title
+        span.o-GridFloat__Item.c-SiteTitle__Logo(style='background-image: url(' + site_logo_url + ');')
+        h1.o-GridFloat__Item.c-SiteTitle__Name= site.name
         p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
       nav.o-GridFlex__Item.o-SiteHead__Nav.js-universalnav
         h1.-d-n#top-menu Top Menu
         include /includes/components/_c-MenuUniversal.jade
-        +menuUniversal(site_pages.universal.slice(1), site_pages.internal.slice(0,1), conference.current.name)
+        +menuUniversal(site.pages.top.slice(1), site.pages.main.slice(0,1), site.getCurrentConference().name)
         //- button.c-Btn.c-Btn--dominant.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close top menu"): i.material-icons close
       //- button.c-Btn.c-Btn--flat.c-Btn--drawer.js-menubutton(type="button" name="open" title="open top menu"): i.material-icons menu
-    block standard-menu
+    unless pagetype === 'top'
+      header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
+        h1.-d-n#main-menu Main Menu
+        +sitemenulist({pages: site.pages.main, class_obj: Site.MENU_CLASS.standard, depth: 1, icons: true})
     main
       block main
-        article&attributes((page_type === 'internal') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
+        article&attributes((pagetype === 'main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
           block main-header
             header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
               block main-heading
@@ -81,9 +80,21 @@ html(lang="en")
               +rich-text-block()
           block callouts
           block sponsors
-            aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
-              include includes/highlights/_sponsors.jade
-    block site-map
+            if site.supporters.length
+              aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
+                h1#sponsors Sponsors
+                div.o-GridFlex.c-SponsorBlock
+                  button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--back #[i.material-icons chevron_left]
+                  ol.o-GridFlex__Item.o-ListBare.o-GridFlex.c-SponsorBlock__Carousel
+                    each item in site.supporters.slice(0,3)
+                      li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
+                        a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.getURL() style='background-image: url(\'' + item.getImg() + '\');')= item.name
+                        small.c-SponsorBlock__Label= item.getLevel().name
+                  button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--fwrd #[i.material-icons chevron_right]
+                +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
+    footer.o-Runner.c-Mast(class=(pagetype==='main') ? 'c-Mast--internal' : ''): nav.o-ContentWrapper
+      h1.-d-n#site-map Site Map
+      +sitemenulist({pages: site.pages[pagetype], class_obj: Site.MENU_CLASS.sitemap, depth:Infinity})
     footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-ContentWrapper
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
@@ -123,31 +134,32 @@ html(lang="en")
         //- p: img(src="ASCE-logo.png" itemprop="image")
         p: a(href="http://www.asce.org" itemprop="url").
           &copy; #[time 1996]&ndash;#[time 2016] American Society of Civil Engineers
-    script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
-    script.
-      var button_open = $('<button>').addClass('c-Btn c-Btn--flat c-Btn--drawer js-menubutton')
-        .attr('type','button')
-        .attr('name','open')
-        .attr('title','open top menu')
-        .append($('<i>').addClass('material-icons').text('menu'))
-        .click(function () {
-          $('.o-SiteHead__Nav').removeClass('js-universalnav')
+    block scripts
+      script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
+      script.
+        var button_open = $('<button>').addClass('c-Btn c-Btn--flat c-Btn--drawer js-menubutton')
+          .attr('type','button')
+          .attr('name','open')
+          .attr('title','open top menu')
+          .append($('<i>').addClass('material-icons').text('menu'))
+          .click(function () {
+            $('.o-SiteHead__Nav').removeClass('js-universalnav')
+          })
+        var button_close = $('<button>').addClass('c-Btn c-Btn--dominant c-Btn--drawer c-Btn--drawer--close js-menubutton')
+          .attr('type','button')
+          .attr('name','close')
+          .attr('title','close top menu')
+          .append($('<i>').addClass('material-icons').text('close'))
+          .click(function () {
+            $('.o-SiteHead__Nav').addClass('js-universalnav')
+          })
+        $('.o-SiteHead').append(button_open)
+        $('.o-SiteHead__Nav').append(button_close)
+      script(src="/scripts/c-Program.js")
+      //- script.
+        $('.c-Speaker__Body').addClass('-h-z')
+        $('.c-Speaker__Img').height(function () { return $(this).width() })
+          .click(function () { $(this).siblings('.c-Speaker__Body').removeClass('-h-z') })
+        $(window).resize(function () {
+          $('.c-Speaker__Img').height(function () { return $(this).width() })
         })
-      var button_close = $('<button>').addClass('c-Btn c-Btn--dominant c-Btn--drawer c-Btn--drawer--close js-menubutton')
-        .attr('type','button')
-        .attr('name','close')
-        .attr('title','close top menu')
-        .append($('<i>').addClass('material-icons').text('close'))
-        .click(function () {
-          $('.o-SiteHead__Nav').addClass('js-universalnav')
-        })
-      $('.o-SiteHead').append(button_open)
-      $('.o-SiteHead__Nav').append(button_close)
-    script(src="../scripts/c-Program.js")
-    //- script.
-      //- $('.c-Speaker__Body').addClass('-h-z')
-      //- $('.c-Speaker__Img').height(function () { return $(this).width() })
-      //-   .click(function () { $(this).siblings('.c-Speaker__Body').removeClass('-h-z') })
-      //- $(window).resize(function () {
-      //-   $('.c-Speaker__Img').height(function () { return $(this).width() })
-      //- })

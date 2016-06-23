@@ -2,6 +2,7 @@
   var Conference = (function () {
     function Conference($confinfo) {
       var self = this
+      $confinfo = $confinfo || {}
       self.name      = $confinfo.name
       self.theme     = $confinfo.theme
       self.startDate = $confinfo.startDate
@@ -10,17 +11,16 @@
       self.location  = {
         addressLocality     : $confinfo.city
       , addressRegion       : $confinfo.state
-      , addressRegion_title : state_data.find(function (item) { return item.index === $confinfo.state }).name
+      , addressRegion_title : (state_data.find(function (item) { return item.index === $confinfo.state }) || false).name
       }
-      self.pass_periods;
-      self.passes;
-      self.program_events;
-      self.important_dates;
+      self.pass_periods = []
+      self.passes = []
+      self.program_events = []
+      self.important_dates = []
     }
 
     //- SETTER FUNCTIONS
     Conference.prototype.addPassPeriod = function addPassPeriod(pass_period) {
-      this.pass_periods = this.pass_periods || []
       this.pass_periods.push(pass_period)
       return this
     }
@@ -29,7 +29,6 @@
       return this
     }
     Conference.prototype.addPass = function addPass(pass) {
-      this.passes = this.passes || []
       this.passes.push(pass)
       return this
     }
@@ -38,7 +37,6 @@
       return this
     }
     Conference.prototype.addProgramEvent = function addProgramEvent(program_event) {
-      this.program_events = this.program_events || []
       this.program_events.push(program_event)
       return this
     }
@@ -47,7 +45,6 @@
       return this
     }
     Conference.prototype.addImportantDate = function addImportantDate(important_date) {
-      this.important_dates = this.important_dates || []
       this.important_dates.push(program_event)
       return this
     }

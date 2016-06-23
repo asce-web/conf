@@ -1,7 +1,7 @@
-extends internal.tpl.jade
+extends all.tpl.jade
 
-block append vars
-  - var page = getPage('internal','registration.html')
+block append varsPage
+  - var page = site.getPage('registration.html')
 
 block main-heading
   //- soft hyphen (U+00ad, `&shy;`)
@@ -13,40 +13,30 @@ block main-minimal
 block main-reference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n#full-registration Full Registration
-    ul.o-ListBare.o-GridFlex.o-ListStacked
-      include /includes/components/_c-Pass.jade
-      li.o-GridFlex__Item.o-ListStacked__Item
-        +pass(pass.standard, 0)
-      li.o-GridFlex__Item.o-ListStacked__Item
-        +pass(pass.speaker, 0)
-      li.o-GridFlex__Item.o-ListStacked__Item
-        +pass(pass.moderator, 0)
-      li.o-GridFlex__Item.o-ListStacked__Item
-        +pass(pass.ym, 0)
-      li.o-GridFlex__Item.o-ListStacked__Item
-        +pass(pass.student, 0)
-          +content_pass_student_fineprint()
-      li.o-GridFlex__Item.o-ListStacked__Item
-        +pass(pass.guest, 0)
-      li.o-GridFlex__Item.o-ListStacked__Item
-        +pass(pass.daily, 0)
-    ul.o-ListBare.o-GridFlex.o-ListAction.c-Callout
-      li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item
-        i.material-icons(style="display: block; font-size: 2.25em;") stars
-        small Early Bird ends Jul 28
-      li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item
-        i.material-icons(style="display: block; font-size: 2.25em;") date_range
-        small Advance ends Aug 25
-      li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item
-        i.material-icons(style="display: block; font-size: 2.25em;") account_balance
-        small Onsite begins Aug 26
-    +actionchoices([{text:'Register Today!'}], 'c-Btn c-Btn--hilite c-Btn--dominant', {style:'padding: 1.5rem 0;'})
-    div.c-Overlay
+    if site.getCurrentConference().passes.length
+      ul.o-ListBare.o-GridFlex.o-ListStacked
+        include /includes/components/_c-Pass.jade
+        each pass0 in site.getCurrentConference().passes
+          li.o-GridFlex__Item.o-ListStacked__Item
+            +pass(pass0, 0)
+              //- +content_pass_student_fineprint()
+    if site.getCurrentConference().pass_periods.length
+      ul.o-ListBare.o-GridFlex.o-ListAction.c-Callout
+        each pass_period in site.getCurrentConference().pass_periods.slice(0,-1)
+          li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item
+            i.material-icons(style="display: block; font-size: 2.25em;") [stars|date_range]
+            small #{pass_period.name} ends #{pass_period.endDate}
+        each pass_period in site.getCurrentConference().pass_periods.slice(-1)
+          li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item
+            i.material-icons(style="display: block; font-size: 2.25em;") account_balance
+            small #{pass_period.name} begins #{pass_period.startDate}
+    //- +actionchoices([{text:'Register Today!'}], 'c-Btn c-Btn--hilite c-Btn--dominant', {style:'padding: 1.5rem 0;'})
+    //- div.c-Overlay
       h1 Additional Events and Pricing
       +actionchoices([{text:'Short Courses', href:''}, {text:'Technical Tours', href:''}, {text:'Optional Tours', href:''}])
         i.material-icons arrow_forward
 
-block main-rich
+//- block main-rich
   div.o-Runner.o-Runner--highlight.rich-text: div.o-ContentWrapper
     h2 Registration Information
     p: mark: strong.
@@ -92,6 +82,6 @@ block main-rich
     h4 PROGRAM AND SESSION CANCELLATION
     p ASCE reserves the right to cancel programs and/or sessions because of low registration. In the unlikely event of a cancellation, all registrants will be notified and will receive a full refund, if applicable. Programs and Sessions are subject to change, and ASCE reserves the right to substitute a program, session, and/or speaker of equal caliber to fulfill the educational requirements.
 
-block callouts
+//- block callouts
   aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     include includes/highlights/_volunteer.jade

@@ -1,0 +1,16 @@
+extends all.tpl.jade
+
+block append varsPage
+  - var page = site.getPage('sponsor.html')
+
+block append main-body
+  if site.supporter_levels.length
+    section.o-Runner.o-Runner--highlight: div.o-ContentWrapper
+      h1#thank-you-sponsors Thank You to Our Sponsors
+      include /includes/components/_c-SponsorBlock.jade
+      each sponsorlevel in site.supporter_levels.slice(0,-1)
+        +sponsorBlock(sponsorlevel, 'c-SponsorBlock--separate')
+      each sponsorlevel in site.supporter_levels.slice(-1)
+        +sponsorBlock(sponsorlevel, '')
+
+block sponsors

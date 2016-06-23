@@ -1,23 +1,15 @@
-extends universal.tpl.jade
+extends /sites/all/index.jade
 
-block append vars
-  - var page = getPage('universal','index.html')
+block append varsSite
+  include includes/_data.jade
+  - var site = defaultsite
 
-block main-header
-  header: h1.-d-n#home Home
+block append styles
+  link(rel="stylesheet" href="styles/sample.css")
 
-block main-body
-  section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing.c-Hero(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
-    +hero-content(conference.current)
-    +actionchoices([{text:'Find Out More', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
-  +minimal-text-block()
-  section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--prev.c-OtherYear(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
-    div.c-Overlay.c-Overlay--callout
-      +otheryear-content(conference.prev)
-        p.c-OtherYear__Desc
-          +content_otheryear_prev_desc()
-  section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--next.c-OtherYear(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
-    div.c-Overlay.c-Overlay--callout
-      +otheryear-content(conference.next)
-        p.c-OtherYear__Desc
-          +content_otheryear_next_desc()
+block content_otherYearDesc_prev
+  | Access the 2015 program to see which sessions qualify for
+  |  #[abbr(title="professional development hours") PDH]s and other documentation.
+
+block content_otherYearDesc_next
+  | Plan ahead to attend, sponsor, or exhibit at the annual convention for civil engineering professionals.

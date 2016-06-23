@@ -4,9 +4,9 @@
     function Supporter(name) {
       var self = this
       self.name = name
-      self.img;
-      self.url;
-      self.level;
+      self.img = ''
+      self.url = ''
+      self.level = null
     }
 
     //- SETTER FUNCTIONS
@@ -28,7 +28,7 @@
       return this.img
     }
     Supporter.prototype.getURL = function getURL() {
-      return this.img
+      return this.url
     }
     Supporter.prototype.getLevel = function getLevel() {
       return this.level

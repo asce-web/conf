@@ -9,9 +9,9 @@
 
 include _Site.class.jade
 include _Page.class.jade
+include _Conference.class.jade
 include _SupporterLevel.class.jade
 include _Supporter.class.jade
-include _Conference.class.jade
 include _PassPeriod.class.jade
 include _Pass.class.jade
 include _Membership.class.jade
@@ -31,7 +31,7 @@ mixin sitemenulist(args)
             if args.icons && item.icon
               i.material-icons= item.icon.content
             span= item.name
-          if item.sub && depth > 0
+          if item.sub.length && depth > 0
             +sitemenulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})
 
 mixin event-location-name(loc)
@@ -49,28 +49,17 @@ mixin hero-content(event0)
       +event-location-name(event0.location)
     span.c-Hero__Dates
       time(datetime=event0.startDate itemprop="startDate")
-        - var start = new Date(event0.startDate)
+        - var start = (event0.startDate) ? new Date(event0.startDate) : new Date()
         = month_names[start.getUTCMonth()].slice(0,3) + ' ' + start.getUTCDate()
       | &ndash;
       time(datetime=event0.endDate itemprop="endDate")
-        - var end = new Date(event0.endDate)
+        - var end = (event0.endDate) ? new Date(event0.endDate) : new Date()
         = month_names[end.getUTCMonth()].slice(0,3) + ' ' + end.getUTCDate()
   p.c-Hero__Theme(itemprop="description")
     if event0.theme
       = event0.theme
     else
       | &nbsp;
-
-mixin otheryear-content(event0)
-  - event0 = event0 || {}
-  h1.c-OtherYear__Name(itemprop="name")= event0.name
-  meta(content=event0.startDate itemprop="startDate")
-  p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-    +event-location-name(event0.location)
-  block
-  ul.o-ListBare.o-GridFlex.o-ListAction
-    li.o-GridFlex__Item.o-ListAction__Item
-      a.c-Btn.c-Btn--hilite.c-Btn--ghost(href=event0.url itemprop="url") Event Details
 
 mixin actionchoices(items, classes, list_attr)
   - list_attr = list_attr || {}

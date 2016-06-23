@@ -83,9 +83,9 @@
   , { index: 'WI',  name: 'Wisconsin',       pop:  5686986,  area:  65498, region: 'Midwest'   }
   , { index: 'WY',  name: 'Wyoming',         pop:   563626,  area:  97814, region: 'West'      }
   ]
-  var icon_data = {
+  var icon_data = [
     { content: ''              , fallback: ''         }
-    { content: 'info_outline'  , fallback: '&#xE88F;' }
+  , { content: 'info_outline'  , fallback: '&#xE88F;' }
   , { content: 'people'        , fallback: '&#xE7FB;' }
   , { content: 'work'          , fallback: '&#xE8F9;' }
   , { content: 'email'         , fallback: '&#xE0BE;' }
@@ -94,7 +94,7 @@
   , { content: 'event'         , fallback: '&#xE878;' }
   , { content: 'flight'        , fallback: '&#xE539;' }
   , { content: 'account_box'   , fallback: '&#xE851;' }
-  }
+  ]
   function hourTime12(date) {
     var hour = '' + ((date.getHours() - 1)%12 + 1)
     var minute = ((date.getMinutes() < 10) ? '0' : '') + date.getMinutes()
@@ -113,6 +113,3 @@
     var index = array.indexOf(item)
     if (index >= 0) array.splice(index, 1)
   }
-  //- function arrayFind(array, prop, val) {
-  //-   return array.find(function (item) { return item[prop] === val })
-  //- }

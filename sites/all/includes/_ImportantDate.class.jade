@@ -2,9 +2,10 @@
   var ImportantDate = (function () {
     function ImportantDate($actioninfo) {
       var self = this
+      $actioninfo = $actioninfo || {}
       self.name       = $actioninfo.name
       self.startTime  = $actioninfo.startTime
-      self.url;
+      self.url = ''
     }
     ImportantDate.prototype.setURL = function setURL(url0) {
       this.url = url0

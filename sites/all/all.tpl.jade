@@ -8,10 +8,15 @@ html(lang="en")
         .setConference('current', new Conference())
         .setCurrentConference('current')
   block varsPage
-    - var page = new Page()
+    -
+      var page = new Page()
   block vars
-    - var site_logo_url = ''
-    - var pagetype = (site.pages.top.find(function (item) { return item === page })) ? 'top' : 'main'
+    -
+      var site_logo_url = ''
+      var pagetype = (site.pages.top.find(function (item)  { return item === page })) ? 'top'  :
+                     (site.pages.main.find(function (item) { return item === page })) ? 'main' :
+                     (site.pages.main.find(function (mainpage) { return mainpage.sub.find(function (item) { return item === page }) })) ? 'main' :
+                     ''
   head
     title= page.getTitle()
     block metas
@@ -53,7 +58,7 @@ html(lang="en")
   body
     header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-GridFlex.o-SiteHead
       a.o-GridFlex__Item.o-Block.o-GridFloat.o-SiteHead__Title.c-SiteTitle.c-Camo(href="index.html")
-        span.o-GridFloat__Item.c-SiteTitle__Logo(style='background-image: url(' + site_logo_url + ');')
+        span.o-GridFloat__Item.c-SiteTitle__Logo(style='background-image: url(' + (site.image || '') + ');')
         h1.o-GridFloat__Item.c-SiteTitle__Name= site.name
         p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
       nav.o-GridFlex__Item.o-SiteHead__Nav.js-universalnav
@@ -62,7 +67,7 @@ html(lang="en")
         +menuUniversal(site.pages.top.slice(1), site.pages.main.slice(0,1), site.getCurrentConference().name)
         //- button.c-Btn.c-Btn--dominant.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close top menu"): i.material-icons close
       //- button.c-Btn.c-Btn--flat.c-Btn--drawer.js-menubutton(type="button" name="open" title="open top menu"): i.material-icons menu
-    unless pagetype === 'top'
+    if pagetype === 'main'
       header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
         h1.-d-n#main-menu Main Menu
         +sitemenulist({pages: site.pages.main, class_obj: Site.MENU_CLASS.standard, depth: 1, icons: true})

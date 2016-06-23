@@ -8,14 +8,14 @@
 
 
 -
-  var defaultsite = new Site({
+  var site = new Site({
     name     : 'An ASCE Event'
   , tagline  : 'Optional Brand Tagline'
   , keywords : ['ASCE', 'civil engineering', 'convention']
+  , image    : 'img/site-logo-white.png'
   })
-  var site_logo_url = 'img/site-logo-white.png'
 
-  defaultsite
+  site
     .setConference('2016', new Conference({
       name      : 'A 2016 Event'
     , theme     : 'Theme for the conference is optional.'
@@ -41,12 +41,13 @@
     , city      : 'Chicago'
     , state     : 'IL'
     }))
-  defaultsite
+
+  site
     .setCurrentConference('2016')
     .setPrevConference('2015')
     .setNextConference('2017')
 
-  defaultsite
+  site
     .addSupporterLevel(new SupporterLevel('Premier').setClassname('x-lrg'))
     .addSupporterLevel(new SupporterLevel('Platinum').setClassname('lrg'))
     .addSupporterLevel(new SupporterLevel('Gold').setClassname('lrg'))
@@ -55,75 +56,75 @@
     .addSupporterLevel(new SupporterLevel('Bronze').setClassname('sml'))
     .addSupporterLevel(new SupporterLevel('Copper').setClassname('x-sml'))
 
-  defaultsite
+  site
     .addSupporter(new Supporter('ASCE Foundation')
       .setImg('http://2016.asceconvention.org/sites/default/files/asce-foundation-logo.png')
       .setURL('http://www.ascefoundation.org/')
-      .setLevel(defaultsite.getSupporterLevel('Platinum'))
+      .setLevel(site.getSupporterLevel('Platinum'))
     ).addSupporter(new Supporter('Bentley')
       .setImg('http://2016.asceconvention.org/sites/default/files/bentley-logo.png')
       .setURL('https://www.bentley.com/')
-      .setLevel(defaultsite.getSupporterLevel('Platinum'))
+      .setLevel(site.getSupporterLevel('Platinum'))
     ).addSupporter(new Supporter('Pennoni')
       .setImg('http://2016.asceconvention.org/sites/default/files/pennoni-50th-anniversary-logo.png')
       .setURL('https://www.pennoni.com/')
-      .setLevel(defaultsite.getSupporterLevel('Silver'))
+      .setLevel(site.getSupporterLevel('Silver'))
     ).addSupporter(new Supporter('Innovyze')
       .setImg('http://2016.asceconvention.org/sites/default/files/innovyze-logo.png')
       .setURL('http://www.innovyze.com/')
-      .setLevel(defaultsite.getSupporterLevel('Silver'))
+      .setLevel(site.getSupporterLevel('Silver'))
     ).addSupporter(new Supporter('Fasten Group')
       .setImg('http://2016.asceconvention.org/sites/default/files/fasten-group-logo.png')
       .setURL('http://www.chinafasten.com/')
-      .setLevel(defaultsite.getSupporterLevel('Bronze'))
+      .setLevel(site.getSupporterLevel('Bronze'))
     ).addSupporter(new Supporter('David Evans and Associates, Inc.')
       .setImg('http://2016.asceconvention.org/sites/default/files/david-evans-associates-logo.png')
       .setURL('http://www.deainc.com/')
-      .setLevel(defaultsite.getSupporterLevel('Bronze'))
+      .setLevel(site.getSupporterLevel('Bronze'))
     ).addSupporter(new Supporter('KCI Technologies')
       .setImg('http://2016.asceconvention.org/sites/default/files/kci-technologies-logo.png')
       .setURL('http://www.kci.com/')
-      .setLevel(defaultsite.getSupporterLevel('Bronze'))
+      .setLevel(site.getSupporterLevel('Bronze'))
     ).addSupporter(new Supporter('McCormick & Taylor')
       .setImg('http://2016.asceconvention.org/sites/default/files/mccormick-taylor-logo.png')
       .setURL('http://www.mccormicktaylor.com/')
-      .setLevel(defaultsite.getSupporterLevel('Bronze'))
+      .setLevel(site.getSupporterLevel('Bronze'))
     ).addSupporter(new Supporter('Rutgers Center for Advanced Infrastructure and Transportation')
       .setImg('http://2016.asceconvention.org/sites/default/files/rutgers-cait-logo.png')
       .setURL('http://cait.rutgers.edu/')
-      .setLevel(defaultsite.getSupporterLevel('Copper'))
+      .setLevel(site.getSupporterLevel('Copper'))
     ).addSupporter(new Supporter('Kimley-Horn')
       .setImg('http://2016.asceconvention.org/sites/default/files/kimley-horn-logo.png')
       .setURL('http://www.kimley-horn.com/')
-      .setLevel(defaultsite.getSupporterLevel('Copper'))
+      .setLevel(site.getSupporterLevel('Copper'))
     ).addSupporter(new Supporter('Christopher B. Burke Engineering, Ltd.')
       .setImg('http://2016.asceconvention.org/sites/default/files/christopher-b-burke-engineering-logo.png')
       .setURL('http://cbbel.com/')
-      .setLevel(defaultsite.getSupporterLevel('Copper'))
+      .setLevel(site.getSupporterLevel('Copper'))
     ).addSupporter(new Supporter('Bank of America')
       .setImg('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg')
       .setURL('http://www.asce.org/member_advantages/#b')
-      .setLevel(defaultsite.getSupporterLevel('Corporate'))
+      .setLevel(site.getSupporterLevel('Corporate'))
     ).addSupporter(new Supporter('Geico')
       .setImg('http://2016.asceconvention.org/sites/default/files/geico-logo.gif')
       .setURL('https://www.geico.com/landingpage/member-discount/?logo=00774')
-      .setLevel(defaultsite.getSupporterLevel('Corporate'))
+      .setLevel(site.getSupporterLevel('Corporate'))
     ).addSupporter(new Supporter('Pearl Insurance')
       .setImg('http://2016.asceconvention.org/sites/default/files/pearl-insurance-logo.jpg')
       .setURL('http://asceinsurance.com/')
-      .setLevel(defaultsite.getSupporterLevel('Corporate'))
+      .setLevel(site.getSupporterLevel('Corporate'))
     ).addSupporter(new Supporter('UPS')
       .setImg('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg')
       .setURL('http://savewithups.com/asce/')
-      .setLevel(defaultsite.getSupporterLevel('Corporate'))
+      .setLevel(site.getSupporterLevel('Corporate'))
     ).addSupporter(new Supporter('Keller North America')
       .setImg('http://2016.asceconvention.org/sites/default/files/keller-na-logo.png')
       .setURL('http://www.keller.co.uk/')
-      .setLevel(defaultsite.getSupporterLevel('Corporate'))
+      .setLevel(site.getSupporterLevel('Corporate'))
     )
 
 //- -
-  defaultsite
+  site
     .addSubpage('about.html'       , new Page({name:'Cooperating Orgs'            , url:''}))
     .addSubpage('about.html'       , new Page({name:'Partnering Orgs '            , url:''}))
     .addSubpage('about.html'       , new Page({name:'Volunteer'                   , url:''}))
@@ -137,7 +138,7 @@
     .addSubpage('speakers.html'    , new Page({name:'Distinguished Lecture Series', url:''}))
     .addSubpage('speakers.html'    , new Page({name:'Exhibitor List'              , url:''}))
 
-  defaultsite.getCurrentConference()
+  site.getCurrentConference()
     .addPassPeriod(new PassPeriod({
       name      : 'Early Bird'
     , endDate   : '2016-07-28'
@@ -149,7 +150,7 @@
     , startDate : '2016-08-26'
     }))
 
-  defaultsite.getCurrentConference()
+  site.getCurrentConference()
     .addPass(new Pass({
       name        : 'Standard Pass'
     , description : 'Members & Non-Members'
@@ -184,7 +185,7 @@
       .addMembership(new Membership('Non-Member'))
     )
 
-  defaultsite.getCurrentConference()
+  site.getCurrentConference()
     .setPrice('Early Bird', 'Standard Pass' , 'Member'    ,  745)
     .setPrice('Early Bird', 'Standard Pass' , 'Non-Member',  845)
     .setPrice('Advance'   , 'Standard Pass' , 'Member'    ,  845)
@@ -225,7 +226,7 @@
     .setPrice('Onsite'    , 'Daily Pass'    , 'Member'    ,  645)
     .setPrice('Onsite'    , 'Daily Pass'    , 'Non-Member',  745)
 
-  defaultsite.getCurrentConference()
+  site.getCurrentConference()
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 10:00', endDate:'2016-09-28 19:00', name:'Registration'                                                }))
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 10:30', endDate:'2016-09-28 16:30', name:'Technical Tours'                                             }).setURL('').setStar(true))
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Short Courses'                                               }).setURL('').setStar(true))
@@ -270,13 +271,13 @@
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 12:00', endDate:'2016-10-01 14:00', name:'ASCE Luncheon & Closing General Session'                     }).setStar(true))
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 14:30', endDate:'2016-10-01 17:30', name:'Technical Tours'                                             }).setURL(''))
 
-  defaultsite.getCurrentConference()
+  site.getCurrentConference()
     .addImportantDate(new ImportantDate({startTime:'2015-10-12', name:'Optional Final Papers Due'     }))
     .addImportantDate(new ImportantDate({startTime:'2015-12-17', name:'Early-Bird Registration Closes'}).setURL('registration.html'))
     .addImportantDate(new ImportantDate({startTime:'2016-01-12', name:'Advance Registration Closes'   }).setURL('registration.html'))
     .addImportantDate(new ImportantDate({startTime:'2016-06-12', name:'Convention Begins'             }))
 
-  defaultsite.rawdata = {
+  site.rawdata = {
     comment: 'this is draft data that I don’t want to delete yet'
   , pass: {
       standard: {

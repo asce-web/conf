@@ -43,10 +43,10 @@
         ]
       , main: []
       }
-      self.conference = {}
+      self.conference         = {}
       self.conference.current = self.conference.prev = self.conference.next = new Conference()
-      self.supporter_levels = []
-      self.supporters = []
+      self.supporter_levels   = []
+      self.supporters         = []
     }
 
     //- SETTER FUNCTIONS
@@ -158,7 +158,7 @@
       return this
     }
 
-    //- STATIC FIELDS
+    //- STATIC MEMBERS
     Site.MENU_CLASS = {
       standard: {
         listclasses: 'o-ListBare o-GridFlex c-MenuStandard'

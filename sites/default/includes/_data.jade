@@ -156,35 +156,35 @@
     .addPass(new Pass({
       name        : 'Standard Pass'
     , description : 'Members & Non-Members'
-    }).addMembership(new Membership('Member', true))
-      .addMembership(new Membership('Non-Member'))
+    }).addAttendeeType(new Pass.AttendeeType('Member', true))
+      .addAttendeeType(new Pass.AttendeeType('Non-Member'))
     ).addPass(new Pass({
       name        : 'Speaker Pass'
     , description : 'Speakers and Presenters'
-    }).addMembership(new Membership('Member', true))
-      .addMembership(new Membership('Non-Member'))
+    }).addAttendeeType(new Pass.AttendeeType('Member', true))
+      .addAttendeeType(new Pass.AttendeeType('Non-Member'))
     ).addPass(new Pass({
       name        : 'Moderator Pass'
     , description : 'Moderators'
-    }).addMembership(new Membership('Member', true))
-      .addMembership(new Membership('Non-Member'))
+    }).addAttendeeType(new Pass.AttendeeType('Member', true))
+      .addAttendeeType(new Pass.AttendeeType('Non-Member'))
     ).addPass(new Pass({
       name        : 'Younger Member'
     , description : 'Members 18–35'
-    }).addMembership(new Membership('Member/Non-Member'))
+    }).addAttendeeType(new Pass.AttendeeType('Member/Non-Member'))
     ).addPass(new Pass({
       name        : 'Student Pass'
     , description : 'Undergraduates 18–24'
-    }).addMembership(new Membership('Member/Non-Member'))
+    }).addAttendeeType(new Pass.AttendeeType('Member/Non-Member'))
     ).addPass(new Pass({
       name        : 'Guest Pass'
     , description : 'Speaker and Moderator Guests'
-    }).addMembership(new Membership('Member/Non-Member'))
+    }).addAttendeeType(new Pass.AttendeeType('Member/Non-Member'))
     ).addPass(new Pass({
       name        : 'Daily Pass'
     , description : 'For One Day Only'
-    }).addMembership(new Membership('Member', true))
-      .addMembership(new Membership('Non-Member'))
+    }).addAttendeeType(new Pass.AttendeeType('Member', true))
+      .addAttendeeType(new Pass.AttendeeType('Non-Member'))
     )
 
 //- -

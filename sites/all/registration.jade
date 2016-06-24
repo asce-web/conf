@@ -16,19 +16,13 @@ block main-reference
         li.o-GridFlex__Item.o-ListStacked__Item
           //- +pass(pass0, 0)
     ul.o-ListBare.o-GridFlex.o-ListAction.c-Callout
-      each pass_period,index in site.getCurrentConference().getPassPeriodsAll()
-        li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item
-          i.material-icons(style="display: block; font-size: 2.25em;")
-            if pass_period.name === 'Early Bird'
-              | stars
-            else if pass_period.name === 'Advance'
-              | date_range
-            else if pass_period.name === 'Onsite'
-              | account_balance
+      each item,index in site.getCurrentConference().getPassPeriodsAll()
+        li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item.c-PassPeriodLegendItem
+          i.material-icons= item.getIcon()
           small
             if index < site.getCurrentConference().getPassPeriodsAll().length-1
-              = pass_period.name + ' ends '   + pass_period.endDate
+              = item.name + ' ends '   + item.endDate
             else
-              = pass_period.name + ' begins ' + pass_period.startDate
+              = item.name + ' begins ' + item.startDate
     +actionchoices([{text:'Register Today!'}], 'c-Btn c-Btn--hilite c-Btn--dominant')
     block additionalInfo

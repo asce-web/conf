@@ -3,9 +3,17 @@
     function PassPeriod($periodinfo) {
       var self = this
       $periodinfo = $periodinfo || {}
-      self.name        = $periodinfo.name
-      self.startDate   = $periodinfo.startDate
-      self.endDate     = $periodinfo.endDate
+      self.name      = $periodinfo.name
+      self.startDate = $periodinfo.startDate
+      self.endDate   = $periodinfo.endDate
+      self.icon = null
+    }
+    PassPeriod.prototype.setIcon = function setIcon(key) {
+      this.icon = icon_data.find(function (item) { return item.content === key })
+      return this
+    }
+    PassPeriod.prototype.getIcon = function getIcon(fallback) {
+      return (this.icon) ? ((fallback) ? this.icon.fallback : this.icon.content) : ''
     }
     return PassPeriod
   })()

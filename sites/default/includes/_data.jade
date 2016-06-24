@@ -141,13 +141,13 @@
     .addPassPeriod(new PassPeriod({
       name      : 'Early Bird'
     , endDate   : '2016-07-28'
-    })).addPassPeriod(new PassPeriod({
+    }).setIcon('stars')).addPassPeriod(new PassPeriod({
       name      : 'Advance'
     , endDate   : '2016-08-25'
-    })).addPassPeriod(new PassPeriod({
+    }).setIcon('date_range')).addPassPeriod(new PassPeriod({
       name      : 'Onsite'
     , startDate : '2016-08-26'
-    }))
+    }).setIcon('account_balance'))
 
   site.getCurrentConference()
     .addPass(new Pass({

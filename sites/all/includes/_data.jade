@@ -29,7 +29,7 @@ mixin sitemenulist(args)
         li(class=class_obj.itemclasses)
           a(class=class_obj.linkclasses href=item.url)
             if args.icons && item.icon
-              i.material-icons= item.getIcon().content
+              i.material-icons= item.getIcon()
             span= item.name
           if item.sub.length && depth > 0
             +sitemenulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})

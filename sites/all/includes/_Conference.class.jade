@@ -63,7 +63,7 @@
       return this.reg_periods.find(function (item) { return item.name === reg_period_name })
     }
     Conference.prototype.getCurrentRegistrationPeriod = function getCurrentRegistrationPeriod() {
-      return this.current_reg_period
+      return this.current_reg_period || {}
     }
     Conference.prototype.getPass = function getPass(pass_name) {
       return this.passes.find(function (item) { return item.name === pass_name })

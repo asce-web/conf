@@ -23,6 +23,9 @@
     Pass.prototype.getAttendeeType = function getAttendeeType(attend_type_name) {
       return this.attend_types.find(function (item) { return item.name === attend_type_name })
     }
+    Pass.prototype.getAttendeeTypesAll = function getAttendeeTypesAll() {
+      return this.attend_types.slice()
+    }
 
     //- STATIC MEMBERS
     Pass.AttendeeType = (function () {

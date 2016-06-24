@@ -171,15 +171,15 @@
     ).addPass(new Pass({
       name        : 'Younger Member'
     , description : 'Members 18–35'
-    }).addAttendeeType(new Pass.AttendeeType('Member/Non-Member'))
+    }).addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
     ).addPass(new Pass({
       name        : 'Student Pass'
     , description : 'Undergraduates 18–24'
-    }).addAttendeeType(new Pass.AttendeeType('Member/Non-Member'))
+    }).addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
     ).addPass(new Pass({
       name        : 'Guest Pass'
     , description : 'Speaker and Moderator Guests'
-    }).addAttendeeType(new Pass.AttendeeType('Member/Non-Member'))
+    }).addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
     ).addPass(new Pass({
       name        : 'Daily Pass'
     , description : 'For One Day Only'

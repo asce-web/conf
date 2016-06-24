@@ -14,19 +14,21 @@ block main-reference
       include /includes/components/_c-Pass.jade
       each pass0 in site.getCurrentConference().getPassesAll()
         li.o-GridFlex__Item.o-ListStacked__Item
-          +pass(pass0, 0)
+          //- +pass(pass0, 0)
     ul.o-ListBare.o-GridFlex.o-ListAction.c-Callout
       each pass_period,index in site.getCurrentConference().getPassPeriodsAll()
         li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item
           i.material-icons(style="display: block; font-size: 2.25em;")
-            if index < site.getCurrentConference().length-1
-              | [stars|date_range]
-            else
+            if pass_period.name === 'Early Bird'
+              | stars
+            else if pass_period.name === 'Advance'
+              | date_range
+            else if pass_period.name === 'Onsite'
               | account_balance
           small
-            if index < site.getCurrentConference().length-1
+            if index < site.getCurrentConference().getPassPeriodsAll().length-1
               = pass_period.name + ' ends '   + pass_period.endDate
             else
               = pass_period.name + ' begins ' + pass_period.startDate
-    block actionButtons
+    +actionchoices([{text:'Register Today!'}], 'c-Btn c-Btn--hilite c-Btn--dominant')
     block additionalInfo

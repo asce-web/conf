@@ -138,19 +138,19 @@
 
 -
   site.getCurrentConference()
-    .addPassPeriod(new PassPeriod({
+    .addRegistrationPeriod(new RegistrationPeriod({
       name      : 'Early Bird'
     , endDate   : '2016-07-28'
-    }).setIcon('stars')).addPassPeriod(new PassPeriod({
+    }).setIcon('stars')).addRegistrationPeriod(new RegistrationPeriod({
       name      : 'Advance'
     , endDate   : '2016-08-25'
-    }).setIcon('date_range')).addPassPeriod(new PassPeriod({
+    }).setIcon('date_range')).addRegistrationPeriod(new RegistrationPeriod({
       name      : 'Onsite'
     , startDate : '2016-08-26'
     }).setIcon('account_balance'))
 
   site.getCurrentConference()
-    .setCurrentPassPeriod('Early Bird')
+    .setCurrentRegistrationPeriod('Early Bird')
 
   site.getCurrentConference()
     .addPass(new Pass({

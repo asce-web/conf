@@ -1,6 +1,6 @@
 -
-  var PassPeriod = (function () {
-    function PassPeriod($periodinfo) {
+  var RegistrationPeriod = (function () {
+    function RegistrationPeriod($periodinfo) {
       var self = this
       $periodinfo = $periodinfo || {}
       self.name      = $periodinfo.name
@@ -8,12 +8,12 @@
       self.endDate   = $periodinfo.endDate
       self.icon = null
     }
-    PassPeriod.prototype.setIcon = function setIcon(key) {
+    RegistrationPeriod.prototype.setIcon = function setIcon(key) {
       this.icon = icon_data.find(function (item) { return item.content === key })
       return this
     }
-    PassPeriod.prototype.getIcon = function getIcon(fallback) {
+    RegistrationPeriod.prototype.getIcon = function getIcon(fallback) {
       return (this.icon) ? ((fallback) ? this.icon.fallback : this.icon.content) : ''
     }
-    return PassPeriod
+    return RegistrationPeriod
   })()

@@ -1,24 +1,28 @@
-mixin pass(type, body_period)
+mixin pass(pass0)
+  - var current_period = site.getCurrentConference().getCurrentRegistrationPeriod()
   article.c-Pass
-    mixin period-details(regperiod, is_body)
-      h1.c-Pass__Period__Hn= regperiod.name
+    mixin finePrint()
+      | fine print
+    mixin period-details(reg_period, is_body)
+      h1.c-Pass__Period__Hn= reg_period.name
       dl
-        each item in regperiod.memberships
+        each item in pass0.getAttendeeTypesAll()
+          - var price = 0;
           dt.c-Pass__Period__Attendee= item.name
-          dd.c-Pass__Period__Price(class=(is_body && item.is_featured)?'c-Pass__Price--featured':'')
-            = item.price.toLocaleString('en', {style:'currency', currency:'USD'})
+          dd.c-Pass__Period__Price(class=(is_body && item.is_featured) ? 'c-Pass__Price--featured' : '')
+            = price.toLocaleString('en', {style:'currency', currency:'USD'})
+    block
     header.c-Pass__Head
-      h1.c-Pass__Hn= type.name
+      h1.c-Pass__Hn= pass0.name
       p.c-Pass__Desc
-        = type.description
+        = pass0.description
         small.o-Block.c-Pass__Fine
-          block
+          +finePrint()
     div.c-Pass__Body
       section.c-Pass__Period
-        if type.periods[body_period]
-          +period-details(type.periods[body_period], true)
+        +period-details(current_period, true)
     footer.o-GridFlex.c-Pass__Foot
-      each item in type.periods
-        unless item === type.periods[body_period]
+      each item in site.getCurrentConference().getRegistrationPeriodsAll()
+        unless item === current_period
           section.o-GridFlex__Item.-w-1o2.c-Pass__Period
-            +period-details(item)
+            +period-details(item, false)

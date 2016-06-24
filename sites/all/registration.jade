@@ -17,8 +17,8 @@ block main-reference
           //- +pass(pass0, 0)
     ul.o-ListBare.o-GridFlex.o-ListAction.c-Callout
       each item,index in site.getCurrentConference().getPassPeriodsAll()
-        li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item
-          i.material-icons(style="display: block; font-size: 2.25em;")= item.getIcon().content
+        li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item.c-PassPeriodLegendItem
+          i.material-icons= item.getIcon().content
           small
             if index < site.getCurrentConference().getPassPeriodsAll().length-1
               = item.name + ' ends '   + item.endDate

@@ -9,7 +9,7 @@
       self.icon        = {}
     }
     PassPeriod.prototype.setIcon = function setIcon(key) {
-      this.icon = (key) ? icon_data.find(function (item) { return item.content === key }) : null
+      this.icon = icon_data.find(function (item) { return item.content === key }) || {}
       return this
     }
     PassPeriod.prototype.getIcon = function getIcon() {

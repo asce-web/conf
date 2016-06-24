@@ -9,7 +9,11 @@ block main-reference
     include /includes/components/_c-Program.jade
     +program(site.getCurrentConference().getProgramEventsAll().length, {id:'full-program-block', class:'c-Overlay'})
       mixin heading(i)
-        //- +programHeading(program_events[i][0])
+        //- - var event0 = program_events[i][0]
+        //- time(datetime=event0.startDate)
+          - var date = new Date(event0.startDate)
+          span.js-o-Block-sK= day_names[date.getUTCDay()] + ', '
+          span.js-o-Block-sK= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
       mixin content(i)
         include /includes/components/_c-TimeBlock.jade
         //- +timeBlock(program_events[i], true)

@@ -12,10 +12,3 @@ mixin program(n, attrs)
         +heading(i)
       div.o-GridFlex__Item.c-Program__Schedule
         +content(i)
-
-//- Use the following mixin as default definition for +heading(i) above.
-mixin programHeading(event0)
-  time(datetime=event0.startDate)
-    - var date = new Date(event0.startDate)
-    span.js-o-Block-sK= day_names[date.getUTCDay()] + ', '
-    span.js-o-Block-sK= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()

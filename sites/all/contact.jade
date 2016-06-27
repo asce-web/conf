@@ -6,4 +6,14 @@ block append varsPage
 block main-reference
   section.o-Runner.o-Runner--highlight: div.o-ContentWrapper
     h1.-d-n#contact-us Contact Us
-    include /includes/components/_contact-form.jade
+    form
+      label
+        | name
+        input(type="text")
+      label
+        | email
+        input(type="email")
+      label
+        | message
+        textarea
+      button submit

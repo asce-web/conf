@@ -3,11 +3,12 @@ extends _sites.tpl.jade
 block append varsPage
   - var page = site.getPage('registration.html')
 
-block main-heading
-  //- soft hyphen (U+00ad, `&shy;`)
-  h1.c-PageTitle Registra&shy;tion
+block mainHeader
+  header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
+    //- soft hyphen (U+00ad, `&shy;`)
+    h1.c-PageTitle Registra&shy;tion
 
-block main-reference
+block mainReference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n#full-registration Full Registration
     ul.o-ListBare.o-GridFlex.o-ListStacked

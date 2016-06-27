@@ -75,14 +75,13 @@ html(lang="en")
     main
       block main
         article&attributes((pagetype === 'main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
-          block main-header
+          block mainHeader
             header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
-              block main-heading
-                h1.c-PageTitle= page.name
-          block main-body
-            block main-minimal
-            block main-reference
-            block main-rich
+              h1.c-PageTitle= page.name
+          block mainBody
+            block mainMinimal
+            block mainReference
+            block mainRich
           block callouts
           block sponsors
             if site.supporters.length

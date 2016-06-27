@@ -3,7 +3,7 @@ extends /sites/all/registration.jade
 block append varsSite
   include includes/_data.jade
 
-block main-minimal
+block mainMinimal
   include includes/_text-block-minimal.jade
 
 block additionalInfo
@@ -12,7 +12,7 @@ block additionalInfo
     +actionchoices([{text:'Short Courses', href:''}, {text:'Technical Tours', href:''}, {text:'Optional Tours', href:''}])
       i.material-icons arrow_forward
 
-block main-rich
+block mainRich
   div.o-Runner.o-Runner--highlight.rich-text: div.o-ContentWrapper
     h2 Registration Information
     p: mark: strong.

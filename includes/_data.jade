@@ -118,3 +118,65 @@
     var index = array.indexOf(item)
     if (index >= 0) array.splice(index, 1)
   }
+
+include class/_Site.class.jade
+include class/_Page.class.jade
+include class/_Conference.class.jade
+include class/_SupporterLevel.class.jade
+include class/_Supporter.class.jade
+include class/_RegistrationPeriod.class.jade
+include class/_Pass.class.jade
+include class/_Membership.class.jade
+include class/_ProgramEvent.class.jade
+include class/_ImportantDate.class.jade
+
+mixin sitemenulist(args)
+  - var pages     = args.pages     || []
+  - var class_obj = args.class_obj || {}
+  - var depth     = +args.depth    || 0
+  - var icons     = !!args.icons
+  ul(class=class_obj.listclasses)
+    each item in pages
+      unless item.is_hidden
+        li(class=class_obj.itemclasses)
+          a(class=class_obj.linkclasses href=item.url)
+            if args.icons && item.icon
+              i.material-icons= item.getIcon()
+            span= item.name
+          if item.sub.length && depth > 0
+            +sitemenulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})
+
+mixin event-location-name(loc)
+  span(itemprop="name")
+    span(itemprop="addressLocality")= loc.addressLocality + ', '
+    abbr(title=loc.addressRegion_title itemprop="addressRegion")
+      = loc.addressRegion
+
+mixin hero-content(event0)
+  - event0 = event0 || {}
+  h1.c-PageTitle.c-Hero__Name(itemprop="name")= event0.name
+  meta(content=event0.url itemprop="url")
+  p.c-Hero__Detail
+    span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+      +event-location-name(event0.location)
+    span.c-Hero__Dates
+      time(datetime=event0.startDate itemprop="startDate")
+        - var start = (event0.startDate) ? new Date(event0.startDate) : new Date()
+        = month_names[start.getUTCMonth()].slice(0,3) + ' ' + start.getUTCDate()
+      | &ndash;
+      time(datetime=event0.endDate itemprop="endDate")
+        - var end = (event0.endDate) ? new Date(event0.endDate) : new Date()
+        = month_names[end.getUTCMonth()].slice(0,3) + ' ' + end.getUTCDate()
+  p.c-Hero__Theme(itemprop="description")
+    if event0.theme
+      = event0.theme
+    else
+      | &nbsp;
+
+mixin actionchoices(items, classes, list_attr)
+  ul.o-ListBare.o-GridFlex.o-ListAction&attributes(list_attr || {})
+    each obj in items
+      li.o-GridFlex__Item.o-ListAction__Item
+        a(class=classes href=obj.href)&attributes(obj.attr || {})
+          = obj.text
+          block

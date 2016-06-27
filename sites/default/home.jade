@@ -6,27 +6,27 @@ block append varsSite
 block actionButtons
   +actionchoices([{text:'Register', href:'registration.html'}, {text:'Sponsor', href:'sponsor.html'}, {text:'Submit a Paper'}], 'c-Btn c-Btn--hilite c-Btn--hero')
 
-block main-minimal
-  +minimal-text-block()
+block mainMinimal
+  include includes/_text-block-minimal.jade
 
-//- block callouts
-  aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
+block callouts
+  +callout('c-Banner')
     include includes/highlights/_important-dates.jade
-  aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
+  +callout()
     include includes/highlights/_registration.jade
-  aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
+  +callout('c-Banner')
     include includes/highlights/_program.jade
-  aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
-    include includes/highlights/_speakers.jade
-  aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
-    include includes/highlights/_co-chairs.jade
-  aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
-    include includes/highlights/_mobile.jade
-  aside.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--location: div.o-ContentWrapper
+  +callout('o-Runner--wrappedInner c-Banner c-Banner--location')
     include includes/highlights/_location.jade
-  aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
+  +callout()
+    include includes/highlights/_speakers.jade
+  +callout('c-Banner')
+    include includes/highlights/_co-chairs.jade
+  +callout()
     include includes/highlights/_social.jade
-  aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
-    include includes/highlights/_contact.jade
-  aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
+  +callout('c-Banner')
+    include includes/highlights/_mobile.jade
+  +callout()
     include includes/highlights/_volunteer.jade
+  +callout('c-Banner')
+    include includes/highlights/_contact.jade

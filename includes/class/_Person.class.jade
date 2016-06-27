@@ -1,0 +1,35 @@
+-
+  var Person = (function () {
+    function Person($personinfo) {
+      var self = this
+      self.id   = $personinfo.id
+      self.name = {
+        honorificPrefix : $personinfo.name.honorificPrefix
+      , givenName       : $personinfo.name.givenName
+      , additionalName  : $personinfo.name.additionalName
+      , familyName      : $personinfo.name.familyName
+      , honorificSuffix : $personinfo.name.honorificSuffix
+      }
+      self.img         = $personinfo.img
+      self.url         = $personinfo.url
+      self.email       = $personinfo.email
+      self.telephone   = $personinfo.telephone
+      self.jobTitle    = $personinfo.jobTitle
+      self.affiliation = $personinfo.affiliation
+    }
+    Person.prototype.printFullName = function printFullName() {
+      var returned = ''
+      returned += this.name.givenName
+      returned += ' ' + this.name.additionalName
+      returned += ' ' + this.name.familyName
+      return returned
+    }
+    Person.prototype.printEntireName = function printEntireName() {
+      var returned = ''
+      if (this.name.honorificPrefix) returned += this.name.honorificPrefix + ' '
+      returned += this.printFullName()
+      if (this.name.honorificSuffix) returned += ', ' + this.name.honorificSuffix
+      return returned
+    }
+    return Person
+  })()

@@ -275,12 +275,12 @@
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 12:00', endDate:'2016-10-01 14:00', name:'ASCE Luncheon & Closing General Session'                     }).setStar(true))
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 14:30', endDate:'2016-10-01 17:30', name:'Technical Tours'                                             }).setURL('#0'))
 
-//- -
   site.getCurrentConference()
     .addImportantDate(new ImportantDate({startTime:'2015-10-12', name:'Optional Final Papers Due'     }))
     .addImportantDate(new ImportantDate({startTime:'2015-12-17', name:'Early-Bird Registration Closes'}).setURL('registration.html'))
     .addImportantDate(new ImportantDate({startTime:'2016-01-12', name:'Advance Registration Closes'   }).setURL('registration.html'))
     .addImportantDate(new ImportantDate({startTime:'2016-06-12', name:'Convention Begins'             }))
+    .addImportantDate(new ImportantDate({startTime:'2016-06-15', name:'Convention Ends'               }).hide())
 
   site.rawdata = {
     comment: 'this is draft data that I don’t want to delete yet'
@@ -467,47 +467,11 @@
         ]
       }
     }
-  , co_chairs: [
-      { name: 'Thomas J. McCollough', suffix: 'P.E., M.ASCE' }
-    , { name: 'Stephen E. Dickenson', suffix: 'Ph.D., P.E., D.PE, M.ASCE' }
-    ]
   }
+  site.co_chairs = [
+    new Person({name:{givenName:'Thomas',  additionalName:'J.', familyName:'McCollough', honorificSuffix:'P.E., M.ASCE'}})
+  , new Person({name:{givenName:'Stephen', additionalName:'E.', familyName:'Dickenson',  honorificSuffix:'Ph.D., P.E., D.PE, M.ASCE'}})
+  ]
 
 mixin content_pass_student_fineprint()
   | Full-time students must show valid #[abbr(title="identification") ID] onsite at the registration desk when picking up name badge.
-
-mixin location_callout_description()
-  | With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
-
-mixin volunteer_callout_description()
-  | We will need volunteers to act as greeters, direct people to various venues within the hotel, collect tickets, travel with tour buses, provide head counts, and serve as a point of contact with ASCE staff.
-
-
-mixin minimal-text-block()
-  div.o-Runner.o-Runner--highlight.minimal-text: div.o-ContentWrapper
-    p.
-      Join civil engineering professionals from around the world at
-      this ASCE flagship event. Network with peers, earn PDHs, and
-      expand your knowledge base.
-    p #[a(href="") Lorem ipsum dolor sit amet], consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
-    ul
-      li 3&frac12; days of premier educational and networking events
-      li 15 tracks and 6 plenary sessions focusing on ...
-      li Prestigious awards and keynote lecture presentations
-      li Lively programs for studdnts and young professionals
-
-mixin rich-text-block()
-  div.o-Runner.o-Runner--highlight.rich-text: div.o-ContentWrapper
-    h2 a heading
-    p #[a(href="") Lorem ipsum dolor sit amet], consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
-    h3 another heading
-    blockquote #[a(href="") Aenean euismod bibendum laoreet]. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
-    ul
-      li 3&frac12; days of premier educational and networking events
-      li 15 tracks and 6 plenary sessions focusing on ...
-      li Prestigious awards and keynote lecture presentations
-      li Lively programs for studdnts and young professionals
-    h2 a heading
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
-    h3 another heading
-    blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.

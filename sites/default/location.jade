@@ -3,7 +3,7 @@ extends /sites/all/location.jade
 block append varsSite
   include includes/_data.jade
 
-block main-rich
+block mainRich
   div.o-Runner.o-Runner--highlight.rich-text: div.o-ContentWrapper
     p.
       Join civil engineering professionals from around the world at
@@ -54,8 +54,8 @@ block main-rich
     h2 Taxi Service
     p About $25 one-way from airport to hotel. See, that wasn&rsquo;t so bad, was it?
 
-//- block callouts
-  aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
+block callouts
+  +callout('c-Banner')
     include includes/highlights/_important-dates.jade
-  aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
+  +callout('c-Banner')
     include includes/highlights/_contact.jade

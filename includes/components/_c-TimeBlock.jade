@@ -3,9 +3,12 @@ mixin timeBlock(events, show_all)
     each event0 in events
       if show_all || event0.isStarred()
         dt.o-GridFlex__Item.c-TimeBlock__Times
-          time(datetime=event0.startDate)= Util.hourTime12(Util.toDate(event0.startDate))
+          -
+            var start = Util.toDate(event0.startDate)
+              , end   = Util.toDate(event0.endDate)
+          time(datetime=event0.startDate)= Util.hourTime12(start)
           | &ndash;
-          time(datetime=event0.endDate)= Util.hourTime12(Util.toDate(event0.endDate))
+          time(datetime=event0.endDate)= Util.hourTime12(end)
         dd.o-GridFlex__Item.c-TimeBlock__Desc
           if event0.getURL()
             a.o-Block.c-TimeBlock__Link(href=event0.getURL())

@@ -3,10 +3,10 @@ extends _sites.tpl.jade
 block append varsPage
   - var page = site.getPage('index.html')
 
-block main-header
+block mainHeader
   header.-d-n: h1#home #{page.name} Homepage
 
-block main-body
+block mainBody
   mixin otherYearContent(event0)
     - event0 = event0 || {}
     h1.c-OtherYear__Name(itemprop="name")= event0.name

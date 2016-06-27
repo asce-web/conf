@@ -3,7 +3,7 @@ extends _sites.tpl.jade
 block append varsPage
   - var page = site.getPage('program.html')
 
-block main-reference
+block mainReference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n#full-program Full Program
     - var groupings = site.getCurrentConference().groupProgramEvents()

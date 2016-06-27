@@ -75,14 +75,13 @@ html(lang="en")
     main
       block main
         article&attributes((pagetype === 'main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
-          block main-header
+          block mainHeader
             header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
-              block main-heading
-                h1.c-PageTitle= page.name
-          block main-body
-            block main-minimal
-            block main-reference
-            block main-rich
+              h1.c-PageTitle= page.name
+          block mainBody
+            block mainMinimal
+            block mainReference
+            block mainRich
           block callouts
           block sponsors
             if site.supporters.length
@@ -91,7 +90,7 @@ html(lang="en")
                 div.o-GridFlex.c-SponsorBlock
                   button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--back #[i.material-icons chevron_left]
                   ol.o-GridFlex__Item.o-ListBare.o-GridFlex.c-SponsorBlock__Carousel
-                    each item in site.supporters.slice(0,3)
+                    each item in site.getSupportersAll().slice(0,3)
                       li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
                         a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.getURL() style='background-image: url(\'' + item.getImg() + '\');')= item.name
                         small.c-SponsorBlock__Label= item.getLevel().name

@@ -280,7 +280,7 @@
     .addImportantDate(new ImportantDate({startTime:'2015-12-17', name:'Early-Bird Registration Closes'}).setURL('registration.html'))
     .addImportantDate(new ImportantDate({startTime:'2016-01-12', name:'Advance Registration Closes'   }).setURL('registration.html'))
     .addImportantDate(new ImportantDate({startTime:'2016-06-12', name:'Convention Begins'             }))
-    .addImportantDate(new ImportantDate({startTime:'2016-06-15', name:'Convention Ends'               }).hide(true))
+    .addImportantDate(new ImportantDate({startTime:'2016-06-15', name:'Convention Ends'               }).hide())
 
   site.rawdata = {
     comment: 'this is draft data that I don’t want to delete yet'
@@ -467,21 +467,14 @@
         ]
       }
     }
-  , co_chairs: [
-      { name: 'Thomas J. McCollough', suffix: 'P.E., M.ASCE' }
-    , { name: 'Stephen E. Dickenson', suffix: 'Ph.D., P.E., D.PE, M.ASCE' }
-    ]
   }
+  site.co_chairs = [
+    new Person({name:{givenName:'Thomas',  additionalName:'J.', familyName:'McCollough', honorificSuffix:'P.E., M.ASCE'}})
+  , new Person({name:{givenName:'Stephen', additionalName:'E.', familyName:'Dickenson',  honorificSuffix:'Ph.D., P.E., D.PE, M.ASCE'}})
+  ]
 
 mixin content_pass_student_fineprint()
   | Full-time students must show valid #[abbr(title="identification") ID] onsite at the registration desk when picking up name badge.
-
-mixin location_callout_description()
-  | With sweeping views of the surrounding mountains and a bustling downtown full of shopping, locally sourced dining, and entertainment, Portland is a wonderful destination for business and leisure.
-
-mixin volunteer_callout_description()
-  | We will need volunteers to act as greeters, direct people to various venues within the hotel, collect tickets, travel with tour buses, provide head counts, and serve as a point of contact with ASCE staff.
-
 
 mixin minimal-text-block()
   div.o-Runner.o-Runner--highlight.minimal-text: div.o-ContentWrapper

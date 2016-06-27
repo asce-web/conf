@@ -91,7 +91,7 @@ html(lang="en")
                 div.o-GridFlex.c-SponsorBlock
                   button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--back #[i.material-icons chevron_left]
                   ol.o-GridFlex__Item.o-ListBare.o-GridFlex.c-SponsorBlock__Carousel
-                    each item in site.supporters.slice(0,3)
+                    each item in site.getSupportersAll().slice(0,3)
                       li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
                         a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.getURL() style='background-image: url(\'' + item.getImg() + '\');')= item.name
                         small.c-SponsorBlock__Label= item.getLevel().name

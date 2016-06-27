@@ -1,0 +1,13 @@
+extends _sites.tpl.jade
+
+block append varsPage
+  - var page = site.getPage('speakers.html')
+
+block mainReference
+  section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
+    h1.-d-n#all-speakers All Speakers
+    ul.o-ListBare.o-GridFlex.o-ListStacked
+      include /includes/components/_c-Speaker.jade
+      each speaker in new Array(6)
+        li.o-GridFlex__Item.o-ListStacked__Item
+          +speaker()

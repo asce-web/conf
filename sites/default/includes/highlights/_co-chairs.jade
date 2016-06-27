@@ -1,0 +1,12 @@
+h1#conference-co-chairs Conference Co-Chairs
+ul.o-ListBare
+  each person in site.co_chairs
+    li(itemscope="" itemtype="http://schema.org/Person")
+      b(itemprop="name")
+        span(itemprop="givenName")= person.name.givenName
+        = ' '
+        span(itemprop="additionalName")= person.name.additionalName
+        = ' '
+        span(itemprop="familyName")= person.name.familyName
+      = ', '
+      span(itemprop="honorificSuffix")= person.name.honorificSuffix

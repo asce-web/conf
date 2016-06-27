@@ -1,11 +1,10 @@
 extends lib.tpl.jade
 
 block append vars
-  - var page_id = lib[4]
-  - titles.push(page_id.name)
+  - var page = Lib.getPage('comp.html')
 
 block toc
-    +libtoc({pages: page_id.sub, depth: Infinity})
+  +libtoc({pages: page.sub, depth: Infinity})
 
 block append main
   section.sg-sect#masthead-mastfoot
@@ -98,6 +97,7 @@ block append main
   section.sg-sect#standard-menu
     h2 The Standard Menu
     figure.docs-figure
+      include /sites/all/includes/_data.jade
       -
         var pages = [
           { name: 'Home'          , href: '' }
@@ -106,7 +106,7 @@ block append main
         , { name: 'Hotel & Travel', href: '' }
         , { name: 'Speakers'      , href: '' }
         ]
-      +sitemenulist({pages: pages, class_obj: menu_class.standard, depth: 0})
+      +sitemenulist({pages: pages, class_obj: Conf.MENU_CLASS.standard, depth: 0})
       ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
         li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._hover menu item hover
         li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._active menu item active
@@ -121,6 +121,7 @@ block append main
   section.sg-sect#sub-menu
     h2 The Sub Menu
     figure.docs-figure
+      include /sites/all/includes/_data.jade
       -
         var pages = [
           { name: 'Why Attend'                  , href: '' }
@@ -128,7 +129,7 @@ block append main
         , { name: 'Registration Submenu Item 3' , href: '' }
         ]
       div(style="height: 100px;")
-        +sitemenulist({pages: pages, class_obj: menu_class.standard.sub, depth: 0})
+        +sitemenulist({pages: pages, class_obj: Conf.MENU_CLASS.standard.sub, depth: 0})
       div(style="height: 100px;"): ul.o-ListBare.c-MenuSub
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._hover menu item hover
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._active menu item active
@@ -143,6 +144,7 @@ block append main
   section.sg-sect#sitemap-component
     h2 The Sitemap Component
     figure.docs-figure
+      include /sites/all/includes/_data.jade
       -
         var pages = [
             {
@@ -176,7 +178,7 @@ block append main
               ]
             }
           ]
-      +sitemenulist({pages: pages, class_obj: menu_class.sitemap, depth: Infinity})
+      +sitemenulist({pages: pages, class_obj: Conf.MENU_CLASS.sitemap, depth: Infinity})
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-Sitemap]"&gt;
           &lt;li class="#[u c-Sitemap__Item]"&gt;
@@ -195,12 +197,12 @@ block append main
         &lt;/ul&gt;
   section.sg-sect#page-title
     h2 The Page Title
-    p Use #[code(class=classname.code) .c-PageTitle] for the top-level heading of a page.
+    p Use #[code.docs-code .c-PageTitle] for the top-level heading of a page.
     figure.docs-figure
       h1.c-PageTitle A Page Title
       pre.docs-pre.
         &lt;h1 class="#[u c-PageTitle]"&gt;A Page Title&lt;/h1&gt;
-    p Use #[code(class=classname.code) .c-PageTitle--special] if you want a special page title inside a banner.
+    p Use #[code.docs-code .c-PageTitle--special] if you want a special page title inside a banner.
     figure.docs-figure
       div.c-Banner(style="height: 13.5rem; margin-bottom: 1.5rem; z-index:1;")
         h1.c-PageTitle.c-PageTitle--special special page title
@@ -352,11 +354,11 @@ block append main
     p.
       On the Sponsor page, each Sponsor Block corresponds to one level,
       e.g., Platinum, Gold, or Corporate.
-      This block is a #[code(class=classname.code) section] containing a heading
+      This block is a #[code.docs-code section] containing a heading
       (the name of the sponsor level)
       followed by an unordered list of sponsor logo items.
     p.
-      To separate multiple sponsor blocks, add class #[code(class=classname.code) .c-SponsorBlock--separate]
+      To separate multiple sponsor blocks, add class #[code.docs-code .c-SponsorBlock--separate]
       for a thin bottom border.
     figure.docs-figure
       section.c-SponsorBlock.c-SponsorBlock--separate
@@ -406,8 +408,8 @@ block append main
     p.
       On every page other than the Sponsor page, the Sponsor Block should be used
       for the entire list of sponsors (in order by rank) displayed in a rotating
-      carousel. This block has no heading, and as such, is not a #[code(class=classname.code) section].
-      Instead, it&rsquo;s a #[code(class=classname.code) div] containing a back button,
+      carousel. This block has no heading, and as such, is not a #[code.docs-code section].
+      Instead, it&rsquo;s a #[code.docs-code div] containing a back button,
       followed by an #[em ordered] list of sponsor logo items, followed by
       a forward button. The list should be ordered because the sponsors are
       displayed by rank (highest ranking sponsors first).
@@ -475,7 +477,7 @@ block append main
         &lt;/dl&gt;
   section.sg-sect#pass-component
     h2 The Pass Component
-    p The Pass Component should be an #[code(class=classname.code) article] element.
+    p The Pass Component should be an #[code.docs-code article] element.
     p.
       Remember that this is not a demonstration of an entire Pass Component.
       This simply demonstrates the Component&rsquo;s styles and the styles
@@ -556,7 +558,7 @@ block append main
       Since the Program Component will be used to display program event information,
       the headings will be dates. Each heading should have the following structure
       and include similar data.
-      Elements with class #[code(class=classname.code) .js-*] are required for Javascript.
+      Elements with class #[code.docs-code .js-*] are required for Javascript.
     figure.sg-c-Fig
       - var sampevent = { startDate: '2016-09-28 10:10', endDate: '2016-09-28 19:00', name: 'Registration' }
       h1.o-GridFlex__Item.c-Program__Hn: label
@@ -577,17 +579,17 @@ block append main
     figure.docs-figure
       dl.o-GridFlex.c-TimeBlock
         dt.o-GridFlex__Item.c-TimeBlock__Times
-          time= hourTime12(new Date(new Date().setHours(10, 30)))
+          time= Util.hourTime12(new Date(new Date().setHours(10, 30)))
           | &ndash;
-          time= hourTime12(new Date(new Date().setHours(17, 0)))
+          time= Util.hourTime12(new Date(new Date().setHours(17, 0)))
         dd.o-GridFlex__Item.c-TimeBlock__Desc
           a.o-Block.c-TimeBlock__Link(href="")
             | Technical Tours
             i.material-icons arrow_forward
         dt.o-GridFlex__Item.c-TimeBlock__Times
-          time= hourTime12(new Date(new Date().setHours(13, 0)))
+          time= Util.hourTime12(new Date(new Date().setHours(13, 0)))
           | &ndash;
-          time= hourTime12(new Date(new Date().setHours(16, 30)))
+          time= Util.hourTime12(new Date(new Date().setHours(16, 30)))
         dd.o-GridFlex__Item.c-TimeBlock__Desc Short Courses
       pre.docs-pre.
         &lt;dl class="o-GridFlex  #[u c-TimeBlock]"&gt;
@@ -640,7 +642,7 @@ block append main
     h2 The Social List
     p.
       There are two Social List styles: one is a normal list, placeable anywhere,
-      and the second is inside a #[code(class=classname.code) footer] element.
+      and the second is inside a #[code.docs-code footer] element.
     figure.docs-figure
       ul.o-ListBare.o-GridFlex.c-SocialList
         li.o-GridFlex__Item.c-SocialList__Item
@@ -657,7 +659,7 @@ block append main
           span menu item active:
           a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")._active
       footer
-        p This is a #[code(class=classname.code) footer] element.
+        p This is a #[code.docs-code footer] element.
         ul.o-ListBare.o-GridFlex.c-SocialList
           li.o-GridFlex__Item.c-SocialList__Item
             a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" itemprop="sameAs" title="Follow ASCE on Twitter")
@@ -689,7 +691,7 @@ block append main
   section.sg-sect#callout-component
     h2 The Callout Component
     figure.docs-figure
-      p.c-Callout A callout! Use whatever the heck element you want, even a #[code(class=classname.code) &lt;figure&gt;]!
+      p.c-Callout A callout! Use whatever the heck element you want, even a #[code.docs-code &lt;figure&gt;]!
       pre.docs-pre.
         &lt;p class="#[u c-Callout]"&gt;A callout! ...&lt;/p&gt;
     figure.docs-figure
@@ -709,13 +711,13 @@ block append main
       vertical rhythm, be sure to contain them in typographical block-level elements
       such as paragraphs or lists.
     p.
-      Button Components may be in the form of #[code(class=classname.code) a] elements (links or anchors) or
-      #[code(class=classname.code) button] elements.
-      Keep in mind these button usage guidelines: #[code(class=classname.code) button]s should
-      indicate action and be worded actionably. Use an #[code(class=classname.code) a] instead of a #[code(class=classname.code) button]
+      Button Components may be in the form of #[code.docs-code a] elements (links or anchors) or
+      #[code.docs-code button] elements.
+      Keep in mind these button usage guidelines: #[code.docs-code button]s should
+      indicate action and be worded actionably. Use an #[code.docs-code a] instead of a #[code.docs-code button]
       if there is a
-      meaningful target href or url. Of course, #[code(class=classname.code) a] elements
-      as well as #[code(class=classname.code) button] elements may be styled
+      meaningful target href or url. Of course, #[code.docs-code a] elements
+      as well as #[code.docs-code button] elements may be styled
       to look like Button Components.
     p Every Button Component must have styles available for each of the following states:
     dl
@@ -727,8 +729,8 @@ block append main
       dd the user is in the process of clicking the component
       dt.-fw-7 disabled
       dd.
-        the element is a #[code(class=classname.code) button] with the #[code(class=classname.code) disabled] attribute or
-        is an #[code(class=classname.code) a] with no #[code(class=classname.code) href] attribute.
+        the element is a #[code.docs-code button] with the #[code.docs-code disabled] attribute or
+        is an #[code.docs-code a] with no #[code.docs-code href] attribute.
         the component is inaccessable and/or does nothing, and the user
         may not interact with it
     p.
@@ -859,7 +861,7 @@ block append main
       h4 Drawer Button Structure
       p Drawer buttons for pull-out menu.
       p.
-        These are actually #[code(class=classname.code) button] elements.
+        These are actually #[code.docs-code button] elements.
         #[i Close] button is fixed to the top right.
         Use with Flat Button styles when inside the masthead.
       figure.docs-figure
@@ -985,7 +987,7 @@ block append main
     h3 Camo Links
     p.
       A Camo Link is a link that blends with its surrounding text.
-      It unsets the default styles assigned to unclassed #[code(class=classname.code) a] elements
+      It unsets the default styles assigned to unclassed #[code.docs-code a] elements
       (also known as anchors).
       Essentially, use it for when you need a link but don&rsquo;t
       want to expose it to the user.
@@ -997,8 +999,8 @@ block append main
           &lt;a class="#[u c-Camo]"&gt;camouflaged link&lt;/a&gt;.
           See where you can find it.&lt;p&gt;
     p.
-      #[strong Note to developers:] the #[code(class=classname.code) .c-Camo]
-      class uses #[code(class=classname.code) !important] on
+      #[strong Note to developers:] the #[code.docs-code .c-Camo]
+      class uses #[code.docs-code !important] on
       all its styles, so use only when necessary. And if possible, use on the
       innermost element. E.g.:
     pre.docs-pre.

@@ -1,0 +1,32 @@
+extends /sites/all/home.jade
+
+block append varsSite
+  include includes/_data.jade
+
+block actionButtons
+  +actionchoices([{text:'Register', href:'registration.html'}, {text:'Sponsor', href:'sponsor.html'}, {text:'Submit a Paper'}], 'c-Btn c-Btn--hilite c-Btn--hero')
+
+block mainMinimal
+  include includes/_text-block-minimal.jade
+
+block callouts
+  +callout('c-Banner')
+    include includes/highlights/_important-dates.jade
+  +callout()
+    include includes/highlights/_registration.jade
+  +callout('c-Banner')
+    include includes/highlights/_program.jade
+  +callout('o-Runner--wrappedInner c-Banner c-Banner--location')
+    include includes/highlights/_location.jade
+  +callout()
+    include includes/highlights/_speakers.jade
+  +callout('c-Banner')
+    include includes/highlights/_co-chairs.jade
+  +callout()
+    include includes/highlights/_social.jade
+  +callout('c-Banner')
+    include includes/highlights/_mobile.jade
+  +callout()
+    include includes/highlights/_volunteer.jade
+  +callout('c-Banner')
+    include includes/highlights/_contact.jade

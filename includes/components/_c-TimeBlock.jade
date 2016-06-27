@@ -1,15 +1,18 @@
 mixin timeBlock(events, show_all)
   dl.o-GridFlex.c-TimeBlock
     each event0 in events
-      if show_all || event0.is_starred
+      if show_all || event0.isStarred()
         dt.o-GridFlex__Item.c-TimeBlock__Times
-          time(datetime=event0.startDate)= hourTime12(new Date(event0.startDate))
+          -
+            var start = Util.toDate(event0.startDate)
+              , end   = Util.toDate(event0.endDate)
+          time(datetime=event0.startDate)= Util.hourTime12(start)
           | &ndash;
-          time(datetime=event0.endDate)= hourTime12(new Date(event0.endDate))
+          time(datetime=event0.endDate)= Util.hourTime12(end)
         dd.o-GridFlex__Item.c-TimeBlock__Desc
-          if event0.href || event0.href === ''
-            a.o-Block.c-TimeBlock__Link(href=event0.href)
-              = event0.name
+          if event0.getURL()
+            a.o-Block.c-TimeBlock__Link(href=event0.getURL())
+              span= event0.name
               i.material-icons arrow_forward
           else
             = event0.name

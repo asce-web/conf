@@ -31,7 +31,7 @@
       return this
     }
     Page.prototype.setIcon = function setIcon(key) {
-      this.icon = icon_data.find(function (item) { return item.content === key })
+      this.icon = Util.ICON_DATA.find(function (item) { return item.content === key })
       return this
     }
     Page.prototype.addSubpage = function addSubpage(page0) {
@@ -39,7 +39,7 @@
       return this
     }
     Page.prototype.removeSubpage = function removeSubpage(url0) {
-      spliceFromArray(this.sub, this.getSubpage(url0))
+      Util.spliceFromArray(this.sub, this.getSubpage(url0))
       return this
     }
 

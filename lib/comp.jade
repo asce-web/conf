@@ -579,17 +579,17 @@ block append main
     figure.docs-figure
       dl.o-GridFlex.c-TimeBlock
         dt.o-GridFlex__Item.c-TimeBlock__Times
-          time= hourTime12(new Date(new Date().setHours(10, 30)))
+          time= Util.hourTime12(new Date(new Date().setHours(10, 30)))
           | &ndash;
-          time= hourTime12(new Date(new Date().setHours(17, 0)))
+          time= Util.hourTime12(new Date(new Date().setHours(17, 0)))
         dd.o-GridFlex__Item.c-TimeBlock__Desc
           a.o-Block.c-TimeBlock__Link(href="")
             | Technical Tours
             i.material-icons arrow_forward
         dt.o-GridFlex__Item.c-TimeBlock__Times
-          time= hourTime12(new Date(new Date().setHours(13, 0)))
+          time= Util.hourTime12(new Date(new Date().setHours(13, 0)))
           | &ndash;
-          time= hourTime12(new Date(new Date().setHours(16, 30)))
+          time= Util.hourTime12(new Date(new Date().setHours(16, 30)))
         dd.o-GridFlex__Item.c-TimeBlock__Desc Short Courses
       pre.docs-pre.
         &lt;dl class="o-GridFlex  #[u c-TimeBlock]"&gt;

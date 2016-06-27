@@ -11,7 +11,7 @@
       self.location  = {
         addressLocality     : $confinfo.city
       , addressRegion       : $confinfo.state
-      , addressRegion_title : (state_data.find(function (item) { return item.index === $confinfo.state }) || false).name
+      , addressRegion_title : (Util.STATE_DATA.find(function (item) { return item.index === $confinfo.state }) || false).name
       }
       self.reg_periods         = []
       self.passes              = []
@@ -26,7 +26,7 @@
       return this
     }
     Conference.prototype.removeRegistrationPeriod = function removeRegistrationPeriod(reg_period_name) {
-      spliceFromArray(this.reg_periods, this.getRegistrationPeriod(reg_period_name))
+      Util.spliceFromArray(this.reg_periods, this.getRegistrationPeriod(reg_period_name))
       return this
     }
     Conference.prototype.setCurrentRegistrationPeriod = function setCurrentRegistrationPeriod(reg_period_name) {
@@ -38,7 +38,7 @@
       return this
     }
     Conference.prototype.removePass = function removePass(pass_name) {
-      spliceFromArray(this.passes, this.getPass(pass_name))
+      Util.spliceFromArray(this.passes, this.getPass(pass_name))
       return this
     }
     Conference.prototype.addProgramEvent = function addProgramEvent(program_event) {
@@ -46,7 +46,7 @@
       return this
     }
     Conference.prototype.removeProgramEvent = function removeProgramEvent(program_event_name) {
-      spliceFromArray(this.program_events, this.getProgramEvent(program_event_name))
+      Util.spliceFromArray(this.program_events, this.getProgramEvent(program_event_name))
       return this
     }
     Conference.prototype.addImportantDate = function addImportantDate(important_date) {
@@ -54,7 +54,7 @@
       return this
     }
     Conference.prototype.removeImportantDate = function removeImportantDate(important_date_name) {
-      spliceFromArray(this.important_dates, this.getImportantDate(important_date_name))
+      Util.spliceFromArray(this.important_dates, this.getImportantDate(important_date_name))
       return this
     }
 

@@ -9,7 +9,7 @@
       self.icon = null
     }
     RegistrationPeriod.prototype.setIcon = function setIcon(key) {
-      this.icon = icon_data.find(function (item) { return item.content === key })
+      this.icon = Util.ICON_DATA.find(function (item) { return item.content === key })
       return this
     }
     RegistrationPeriod.prototype.getIcon = function getIcon(fallback) {

@@ -2,6 +2,6 @@ div.c-Overlay.c-Overlay--callout
   -
     var loc = conference.current.location
     var heading = loc.addressLocality + ', ' + loc.addressRegion
-  h1(id=urlify(heading))= heading
+  h1(id=toURL(heading))= heading
   p: +location_callout_description()
   +actionchoices([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn c-Btn--hilite c-Btn--ghost')

@@ -15,7 +15,7 @@
       return this
     }
     Pass.prototype.removeAttendeeType = function removeAttendeeType(attend_type_name) {
-      spliceFromArray(this.attend_types, this.getAttendeeType(attend_type_name))
+      Util.spliceFromArray(this.attend_types, this.getAttendeeType(attend_type_name))
       return this
     }
 

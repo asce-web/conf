@@ -72,7 +72,7 @@
       return this
     }
     Site.prototype.removeSupporterLevel = function removeSupporterLevel(supporter_level_name) {
-      spliceFromArray(this.supporter_levels, this.getSupporterLevel(supporter_level_name))
+      Util.spliceFromArray(this.supporter_levels, this.getSupporterLevel(supporter_level_name))
       return this
     }
     Site.prototype.addSupporter = function addSupporter(supporter) {
@@ -80,7 +80,7 @@
       return this
     }
     Site.prototype.removeSupporter = function removeSupporter(supporter_name) {
-      spliceFromArray(this.supporters, this.getSupporter(supporter_name))
+      Util.spliceFromArray(this.supporters, this.getSupporter(supporter_name))
       return this
     }
 

@@ -11,7 +11,6 @@ html(lang="en")
       var page = new Page()
   block vars
     -
-      var site_logo_url = ''
       var pagetype = (site.pages.top.find(function (item)  { return item === page })) ? 'top'  :
                      (site.pages.main.find(function (item) { return item === page })) ? 'main' :
                      (site.pages.main.find(function (mainpage) { return mainpage.sub.find(function (item) { return item === page }) })) ? 'main' :

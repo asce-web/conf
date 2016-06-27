@@ -1,9 +1,12 @@
 h1#program-highlights Program Highlights
 include /includes/components/_c-Program.jade
-+program(program_events.length, {id:'program-highlights-block', class:'c-Overlay', style:'margin-bottom: 1.5rem;'})
++program(groupings.length, {id:'program-highlights-block', class:'c-Overlay', style:'margin-bottom: 1.5rem;'})
   mixin heading(i)
-    +programHeading(program_events[i][0])
+    time(datetime=groupings[i].date)
+      - var date = (groupings[i].date) ? new Date(groupings[i].date) : new Date()
+      span.js-o-Block-sK= day_names[date.getUTCDay()] + ', '
+      span.js-o-Block-sK= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
   mixin content(i)
     include /includes/components/_c-TimeBlock.jade
-    +timeBlock(program_events[i], false)
+    +timeBlock(groupings[i].events, false)
 +actionchoices([{text:'Full Program', href:'program.html'}], 'c-Btn c-Btn--hilite')

@@ -6,11 +6,11 @@
       $pageinfo = $pageinfo || {}
       self.name = $pageinfo.name
       self.url  = $pageinfo.url
-      self.title = ''
+      self.title       = ''
       self.description = ''
-      self.is_hidden = false
-      self.icon = null
-      self.sub = []
+      self.is_hidden   = false
+      self.icon        = null
+      self.sub         = []
     }
 
     //- SETTER FUNCTIONS
@@ -31,7 +31,7 @@
       return this
     }
     Page.prototype.setIcon = function setIcon(key) {
-      this.icon = (key) ? icon_data.find(function (item) { return item.content === key }) : null
+      this.icon = icon_data.find(function (item) { return item.content === key })
       return this
     }
     Page.prototype.addSubpage = function addSubpage(page0) {
@@ -53,8 +53,8 @@
     Page.prototype.isHidden = function isHidden() {
       return this.is_hidden
     }
-    Page.prototype.getIcon = function getIcon() {
-      return this.icon
+    Page.prototype.getIcon = function getIcon(fallback) {
+      return (this.icon) ? ((fallback) ? this.icon.fallback : this.icon.content) : ''
     }
     Page.prototype.getSubpage = function getSubpage(url0) {
       return this.sub.find(function (item) { return item.url === url0 })

@@ -13,19 +13,24 @@
       , addressRegion       : $confinfo.state
       , addressRegion_title : (state_data.find(function (item) { return item.index === $confinfo.state }) || false).name
       }
-      self.pass_periods = []
-      self.passes = []
-      self.program_events = []
-      self.important_dates = []
+      self.reg_periods         = []
+      self.passes              = []
+      self.program_events      = []
+      self.important_dates     = []
+      self.current_reg_period  = null
     }
 
     //- SETTER FUNCTIONS
-    Conference.prototype.addPassPeriod = function addPassPeriod(pass_period) {
-      this.pass_periods.push(pass_period)
+    Conference.prototype.addRegistrationPeriod = function addRegistrationPeriod(reg_period) {
+      this.reg_periods.push(reg_period)
       return this
     }
-    Conference.prototype.removePassPeriod = function removePassPeriod(pass_period_name) {
-      spliceFromArray(this.pass_periods, this.getPassPeriod(pass_period_name))
+    Conference.prototype.removeRegistrationPeriod = function removeRegistrationPeriod(reg_period_name) {
+      spliceFromArray(this.reg_periods, this.getRegistrationPeriod(reg_period_name))
+      return this
+    }
+    Conference.prototype.setCurrentRegistrationPeriod = function setCurrentRegistrationPeriod(reg_period_name) {
+      this.current_reg_period = this.getRegistrationPeriod(reg_period_name)
       return this
     }
     Conference.prototype.addPass = function addPass(pass) {
@@ -54,8 +59,11 @@
     }
 
     //- GETTER FUNCTIONS
-    Conference.prototype.getPassPeriod = function getPassPeriod(pass_period_name) {
-      return this.pass_periods.find(function (item) { return item.name === pass_period_name })
+    Conference.prototype.getRegistrationPeriod = function getRegistrationPeriod(reg_period_name) {
+      return this.reg_periods.find(function (item) { return item.name === reg_period_name })
+    }
+    Conference.prototype.getCurrentRegistrationPeriod = function getCurrentRegistrationPeriod() {
+      return this.current_reg_period || {}
     }
     Conference.prototype.getPass = function getPass(pass_name) {
       return this.passes.find(function (item) { return item.name === pass_name })
@@ -66,15 +74,40 @@
     Conference.prototype.getImportantDate = function getImportantDate(important_date_name) {
       return this.important_dates.find(function (item) { return item.name === important_date_name })
     }
+    Conference.prototype.getRegistrationPeriodsAll = function getRegistrationPeriodsAll() {
+      return this.reg_periods.slice()
+    }
+    Conference.prototype.getPassesAll = function getPassesAll() {
+      return this.passes.slice()
+    }
+    Conference.prototype.getProgramEventsAll = function getProgramEventsAll() {
+      return this.program_events.slice()
+    }
+    Conference.prototype.getImportantDatesAll = function getImportantDatesAll() {
+      return this.important_dates.slice()
+    }
 
     //- MORE PROTO FUNCTIONS
-    Conference.prototype.setPrice = function setPrice(pass_period, pass, membership, price) {
-      //- pass_period = pass_period.name || pass_period
+    Conference.prototype.setPrice = function setPrice(reg_period, pass, membership, price) {
+      //- reg_period = reg_period.name || reg_period
       //- pass        = pass.name        || pass
       //- membership  = membership.name  || membership
       //- this.registration = this.registration || {}
-      //- this.registration[pass_period][pass][membership] = price
+      //- this.registration[reg_period][pass][membership] = price
       return this
+    }
+    Conference.prototype.groupProgramEvents = function groupProgramEvents() {
+      var groupings = []
+      var all_events = this.getProgramEventsAll()
+      for (event0 of all_events) {
+        function dateOf(program_event) { return program_event.startDate.slice(0,10) }
+        if (!groupings.find(function (item) { return item.date === dateOf(event0) })) {
+          groupings.push({date: dateOf(event0), events: all_events.filter(function (item) {
+            return dateOf(item) === dateOf(event0)
+          })})
+        }
+      }
+      return groupings
     }
 
     return Conference

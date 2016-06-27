@@ -8,10 +8,15 @@ html(lang="en")
         .setConference('current', new Conference())
         .setCurrentConference('current')
   block varsPage
-    - var page = new Page()
+    -
+      var page = new Page()
   block vars
-    - var site_logo_url = ''
-    - var pagetype = (site.pages.top.find(function (item) { return item === page })) ? 'top' : 'main'
+    -
+      var site_logo_url = ''
+      var pagetype = (site.pages.top.find(function (item)  { return item === page })) ? 'top'  :
+                     (site.pages.main.find(function (item) { return item === page })) ? 'main' :
+                     (site.pages.main.find(function (mainpage) { return mainpage.sub.find(function (item) { return item === page }) })) ? 'main' :
+                     ''
   head
     title= page.getTitle()
     block metas
@@ -27,6 +32,9 @@ html(lang="en")
       link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v4.3.0/xmeter.css")
       link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.8.0/bangs.min.css")
       link(rel="stylesheet" href="/styles/conf.css")
+      if site.name
+        //- if this site is an instance of the 'all' template
+        link(rel="stylesheet" href="styles/site.css")
       style.
         .minimal-text {
           border: 8px solid rgba(219, 255, 64, 0.64);
@@ -53,7 +61,7 @@ html(lang="en")
   body
     header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-GridFlex.o-SiteHead
       a.o-GridFlex__Item.o-Block.o-GridFloat.o-SiteHead__Title.c-SiteTitle.c-Camo(href="index.html")
-        span.o-GridFloat__Item.c-SiteTitle__Logo(style='background-image: url(' + site_logo_url + ');')
+        span.o-GridFloat__Item.c-SiteTitle__Logo(style='background-image: url(\'' + (site.image || '') + '\');')
         h1.o-GridFloat__Item.c-SiteTitle__Name= site.name
         p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
       nav.o-GridFlex__Item.o-SiteHead__Nav.js-universalnav
@@ -62,7 +70,7 @@ html(lang="en")
         +menuUniversal(site.pages.top.slice(1), site.pages.main.slice(0,1), site.getCurrentConference().name)
         //- button.c-Btn.c-Btn--dominant.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close top menu"): i.material-icons close
       //- button.c-Btn.c-Btn--flat.c-Btn--drawer.js-menubutton(type="button" name="open" title="open top menu"): i.material-icons menu
-    unless pagetype === 'top'
+    if pagetype === 'main'
       header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
         h1.-d-n#main-menu Main Menu
         +sitemenulist({pages: site.pages.main, class_obj: Site.MENU_CLASS.standard, depth: 1, icons: true})
@@ -77,7 +85,6 @@ html(lang="en")
             block main-minimal
             block main-reference
             block main-rich
-              +rich-text-block()
           block callouts
           block sponsors
             if site.supporters.length
@@ -103,8 +110,8 @@ html(lang="en")
           span.o-Block(itemprop="location" itemscope itemtype="https://schema.org/PostalAddress")
             span.o-Block(itemprop="streetAddress") 1801 Alexander Bell Drive
             span.o-Block
-              span(itemprop="addressLocality") Reston, 
-              span(itemprop="addressRegion") VA 
+              span(itemprop="addressLocality") Reston,#{' '}
+              span(itemprop="addressRegion") VA#{' '}
               span(itemprop="postalCode") 22901-4382
           span.o-Block(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
             a(href="tel:+1-800-548-2723") (800) 548-2723
@@ -115,11 +122,6 @@ html(lang="en")
             meta(content="+1-703-295-6300" itemprop="telephone")
             meta(content="United States of America" itemprop="areaServed")
             meta(content="customer support" itemprop="contactType")
-        // p: mark.
-          #[strong Note:]
-          Each social icon will be a transparent logo in a dark gray background.
-          #[code background-color] is white, and secondary color on hover.
-          (Use conference color scheme.)
         ul.o-ListBare.o-GridFlex.c-SocialList
           li.o-GridFlex__Item.c-SocialList__Item
             a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="//twitter.com/ASCE" itemprop="sameAs" title="Follow ASCE on Twitter")

@@ -2,10 +2,9 @@ extends /sites/all/index.jade
 
 block append varsSite
   include includes/_data.jade
-  - var site = defaultsite
 
-block append styles
-  link(rel="stylesheet" href="styles/sample.css")
+block introText
+  +minimal-text-block()
 
 block content_otherYearDesc_prev
   | Access the 2015 program to see which sessions qualify for

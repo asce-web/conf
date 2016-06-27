@@ -12,7 +12,7 @@ include _Page.class.jade
 include _Conference.class.jade
 include _SupporterLevel.class.jade
 include _Supporter.class.jade
-include _PassPeriod.class.jade
+include _RegistrationPeriod.class.jade
 include _Pass.class.jade
 include _Membership.class.jade
 include _ProgramEvent.class.jade
@@ -29,7 +29,7 @@ mixin sitemenulist(args)
         li(class=class_obj.itemclasses)
           a(class=class_obj.linkclasses href=item.url)
             if args.icons && item.icon
-              i.material-icons= item.icon.content
+              i.material-icons= item.getIcon()
             span= item.name
           if item.sub.length && depth > 0
             +sitemenulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})
@@ -62,40 +62,9 @@ mixin hero-content(event0)
       | &nbsp;
 
 mixin actionchoices(items, classes, list_attr)
-  - list_attr = list_attr || {}
-  ul.o-ListBare.o-GridFlex.o-ListAction&attributes(list_attr)
+  ul.o-ListBare.o-GridFlex.o-ListAction&attributes(list_attr || {})
     each obj in items
-      - obj.attr = obj.attr || {}
       li.o-GridFlex__Item.o-ListAction__Item
-        a(class=classes href=obj.href)&attributes(obj.attr)
+        a(class=classes href=obj.href)&attributes(obj.attr || {})
           = obj.text
           block
-
-mixin minimal-text-block()
-  div.o-Runner.o-Runner--highlight.minimal-text: div.o-ContentWrapper
-    p.
-      Join civil engineering professionals from around the world at
-      this ASCE flagship event. Network with peers, earn PDHs, and
-      expand your knowledge base.
-    p #[a(href="") Lorem ipsum dolor sit amet], consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
-    ul
-      li 3&frac12; days of premier educational and networking events
-      li 15 tracks and 6 plenary sessions focusing on ...
-      li Prestigious awards and keynote lecture presentations
-      li Lively programs for studdnts and young professionals
-
-mixin rich-text-block()
-  div.o-Runner.o-Runner--highlight.rich-text: div.o-ContentWrapper
-    h2 a heading
-    p #[a(href="") Lorem ipsum dolor sit amet], consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
-    h3 another heading
-    blockquote #[a(href="") Aenean euismod bibendum laoreet]. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.
-    ul
-      li 3&frac12; days of premier educational and networking events
-      li 15 tracks and 6 plenary sessions focusing on ...
-      li Prestigious awards and keynote lecture presentations
-      li Lively programs for studdnts and young professionals
-    h2 a heading
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
-    h3 another heading
-    blockquote Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci.

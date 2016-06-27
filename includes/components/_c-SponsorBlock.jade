@@ -1,7 +1,7 @@
-mixin sponsorBlock(sponsor_level, classes)
+mixin sponsorBlock(sponsorlevel, classes)
   section.c-SponsorBlock(class=classes)
-    h1.c-SponsorBlock__Hn= sponsor_level.name
+    h1.c-SponsorBlock__Hn= sponsorlevel.name
     ul.o-ListBare.o-GridFlex.o-ListStacked
-      each item in sponsors.filter(function (item) { return sponsorlevel[item.level] === sponsor_level })
+      each item in site.getSupportersAll().filter(function (item) { return item.getLevel() === sponsorlevel })
         li.o-GridFlex__Item.o-ListStacked__Item
-          a.o-Block.c-SponsorBlock__Logo(class='c-SponsorBlock__Logo--'+sponsor_level.size href=item.href style='background-image: url(\'' + item.src + '\');')= item.name
+          a.o-Block.c-SponsorBlock__Logo(class=sponsorlevel.classname href=item.url style='background-image: url(\'' + (item.img || '') + '\');')= item.name

@@ -1,0 +1,11 @@
+extends /sites/all/program.jade
+
+block append varsSite
+  include includes/_data.jade
+
+block main-minimal
+  +minimal-text-block()
+
+//- block callouts
+  aside.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
+    include includes/highlights/_volunteer.jade

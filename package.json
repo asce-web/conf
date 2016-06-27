@@ -14,7 +14,7 @@
     "lessc": "lessc",
     "lessc:conf": "lessc styles/conf.less styles/conf.css",
     "lessc:lib": "lessc lib/styles/lib.less lib/styles/lib.css",
-    "lessc:sample": "lessc sample/styles/sample.less sample/styles/sample.css",
+    "lessc:sample": "lessc sites/default/styles/site.less sites/default/styles/site.css",
     "lessc:all": "npm run lessc:conf  &&  npm run lessc:lib  &&  npm run lessc:sample",
     "minify": "cleancss styles/conf.css -o styles/conf.min.css",
     "build": "npm run jade:all  &&  npm run lessc:all  &&  npm run minify"

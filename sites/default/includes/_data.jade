@@ -275,12 +275,12 @@
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 12:00', endDate:'2016-10-01 14:00', name:'ASCE Luncheon & Closing General Session'                     }).setStar(true))
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 14:30', endDate:'2016-10-01 17:30', name:'Technical Tours'                                             }).setURL('#0'))
 
-//- -
   site.getCurrentConference()
     .addImportantDate(new ImportantDate({startTime:'2015-10-12', name:'Optional Final Papers Due'     }))
     .addImportantDate(new ImportantDate({startTime:'2015-12-17', name:'Early-Bird Registration Closes'}).setURL('registration.html'))
     .addImportantDate(new ImportantDate({startTime:'2016-01-12', name:'Advance Registration Closes'   }).setURL('registration.html'))
     .addImportantDate(new ImportantDate({startTime:'2016-06-12', name:'Convention Begins'             }))
+    .addImportantDate(new ImportantDate({startTime:'2016-06-15', name:'Convention Ends'               }).hide(true))
 
   site.rawdata = {
     comment: 'this is draft data that I don’t want to delete yet'

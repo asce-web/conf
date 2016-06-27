@@ -111,6 +111,9 @@
   function urlify(str) {
     return encodeURIComponent(str.toLowerCase().replace(/[\W]+/g, '-'))
   }
+  function toDate(string) {
+    return (string) ? new Date(string) : new Date()
+  }
   function spliceFromArray(array, item) {
     var index = array.indexOf(item)
     if (index >= 0) array.splice(index, 1)

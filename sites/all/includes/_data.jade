@@ -7,18 +7,6 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
--
-  function groupProgramEvents(allevents) {
-    var groupings = []
-    for (event0 of allevents) {
-      function dateOf(program_event) { return program_event.startDate.slice(0,10) }
-      if (!groupings.find(function (item) { return item.date === dateOf(event0) })) {
-        groupings.push({date: dateOf(event0), events: allevents.filter(function (item) { return dateOf(item) === dateOf(event0) })})
-      }
-    }
-    return groupings
-  }
-
 include _Site.class.jade
 include _Page.class.jade
 include _Conference.class.jade

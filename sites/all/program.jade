@@ -6,14 +6,11 @@ block append varsPage
 block main-reference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n#full-program Full Program
-    - var groupings = groupProgramEvents(site.getCurrentConference().getProgramEventsAll())
+    - var groupings = site.getCurrentConference().groupProgramEvents()
     include /includes/components/_c-Program.jade
     +program(groupings.length, {id:'full-program-block', class:'c-Overlay'})
       mixin heading(i)
-        time(datetime=groupings[i].date)
-          - var date = (groupings[i].date) ? new Date(groupings[i].date) : new Date()
-          span.js-o-Block-sK= day_names[date.getUTCDay()] + ', '
-          span.js-o-Block-sK= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
+        +programHeading(groupings[i].date)
       mixin content(i)
         include /includes/components/_c-TimeBlock.jade
         +timeBlock(groupings[i].events, true)

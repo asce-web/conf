@@ -1,11 +1,9 @@
 h1#program-highlights Program Highlights
 include /includes/components/_c-Program.jade
+- var groupings = site.getCurrentConference().groupProgramEvents()
 +program(groupings.length, {id:'program-highlights-block', class:'c-Overlay', style:'margin-bottom: 1.5rem;'})
   mixin heading(i)
-    time(datetime=groupings[i].date)
-      - var date = (groupings[i].date) ? new Date(groupings[i].date) : new Date()
-      span.js-o-Block-sK= day_names[date.getUTCDay()] + ', '
-      span.js-o-Block-sK= month_names[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
+    +programHeading(groupings[i].date)
   mixin content(i)
     include /includes/components/_c-TimeBlock.jade
     +timeBlock(groupings[i].events, false)

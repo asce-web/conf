@@ -71,3 +71,8 @@ mixin actionchoices(items, classes, list_attr)
         a(class=classes href=obj.href)&attributes(obj.attr || {})
           = obj.text
           block
+
+mixin callout(classes)
+  aside.o-Runner.o-Runner--highlight(class=classes)
+    div.o-ContentWrapper
+      block

@@ -467,11 +467,11 @@
         ]
       }
     }
-  , co_chairs: [
-      { name: 'Thomas J. McCollough', suffix: 'P.E., M.ASCE' }
-    , { name: 'Stephen E. Dickenson', suffix: 'Ph.D., P.E., D.PE, M.ASCE' }
-    ]
   }
+  site.co_chairs = [
+    new Person({name:{givenName:'Thomas',  additionalName:'J.', familyName:'McCollough', honorificSuffix:'P.E., M.ASCE'}})
+  , new Person({name:{givenName:'Stephen', additionalName:'E.', familyName:'Dickenson',  honorificSuffix:'Ph.D., P.E., D.PE, M.ASCE'}})
+  ]
 
 mixin content_pass_student_fineprint()
   | Full-time students must show valid #[abbr(title="identification") ID] onsite at the registration desk when picking up name badge.

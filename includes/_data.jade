@@ -43,7 +43,7 @@ mixin event-location-name(loc)
     abbr(title=loc.addressRegion_title itemprop="addressRegion")
       = loc.addressRegion
 
-mixin hero-content(event0)
+mixin heroContent(event0)
   - event0 = event0 || {}
   h1.c-PageTitle.c-Hero__Name(itemprop="name")= event0.name
   meta(content=event0.url itemprop="url")

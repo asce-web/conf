@@ -3,7 +3,6 @@
     conf  |  _comp.SponsorBlock.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.module.clearfix.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.borders.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('__settings.less');
@@ -22,11 +21,7 @@
 // --separate - separates this block from a subsequent one
 // ^subcomponents
 // __Hn       - name of sponsor level ("Platinum", etc.)
-// __Carousel - list of sponsors for the home page carousel
 // __Logo     - cosmetic styles for sponsor logo
-// __Text     - cosmetic styles for sponsor name
-// __Btn      - buttons for carousel
-// __Label    - label for sponsor in carousel
 // ^author
 // : Chris Harvey
 // ^updated
@@ -42,8 +37,6 @@
 // @p-color_coop_bg:   #e8eaeb; // bgcolor for coop orgs
 
 .c-SponsorBlock {
-  flex-wrap: nowrap; /* TODO remove this after xmeter@v5 and use Flex object */
-  align-items: center; // keeps buttons vertically small
   text-align: center; // for the small labels in carousel
 }
 .c-SponsorBlock--separate {
@@ -56,21 +49,6 @@
   .font-size-el(@g-font_size_h2);
   font-family: inherit;
   color: @g-color_site_gray_dk;
-}
-
-.c-SponsorBlock__Carousel {
-  .flex-justify-content(space-around);
-}
-// sponsor carousel will always show 3 sponsor logos at a time
-// TODO use object `.o-FLex > .o-Flex__Item` after install xmeter@v5
-.c-SponsorBlock__Carousel__Item {
-  .flex(1); // more elegant than `width:33%;`
-  &:not(:last-child) {
-    padding-right: 1rem;
-    @media screen and (min-width: 45em) {
-      padding-right: 2rem;
-    }
-  }
 }
 
 .c-SponsorBlock__Logo {
@@ -106,30 +84,4 @@
   @media screen and (min-width: 60em) {
     .p-dimensions(360px; 160px);
   }
-}
-
-// .c-SponsorBlock__Text {
-//   .font-size-el(0.875);
-//   // &:not(:last-child)::after {
-//   //   content: '';
-//   //   padding-right: 1rem;
-//   //   border-right: 1px solid @color_asce_primary; // so no change on hover
-//   //   margin-right: 1rem;
-//   // }
-// }
-
-.c-SponsorBlock__Btn {
-  flex: none;
-  flex: 0; /* TODO remove this after xmeter@v5 */
-}
-.c-SponsorBlock__Btn--back {
-  margin-right: 1rem;
-}
-.c-SponsorBlock__Btn--fwrd {
-  margin-left: 1rem;
-}
-
-.c-SponsorBlock__Label {
-  font-weight: 800;
-  color: @g-color_site_gray_lt;
 }

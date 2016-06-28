@@ -27,6 +27,8 @@ html(lang="en")
       link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic")
       link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,400italic,700")
       link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+      link(rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
+      link(rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css")
       link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v4.3.0/xmeter.css")
       link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.8.0/bangs.min.css")
       link(rel="stylesheet" href="/styles/conf.css")
@@ -84,18 +86,14 @@ html(lang="en")
             block mainRich
           block callouts
           block sponsors
-            if site.supporters.length
-              aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
-                h1#sponsors Sponsors
-                div.o-GridFlex.c-SponsorBlock
-                  button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--back #[i.material-icons chevron_left]
-                  ol.o-GridFlex__Item.o-ListBare.o-GridFlex.c-SponsorBlock__Carousel
-                    each item in site.getSupportersAll().slice(0,3)
-                      li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
-                        a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.getURL() style='background-image: url(\'' + item.getImg() + '\');')= item.name
-                        small.c-SponsorBlock__Label= item.getLevel().name
-                  button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--fwrd #[i.material-icons chevron_right]
-                +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
+            +callout()
+              h1#sponsors Sponsors
+              ol.o-ListBare.c-SponsorCarousel
+                each item in site.getSupportersAll()
+                  li.c-SponsorCarousel__Item
+                    a.o-Block.c-SponsorCarousel__Logo(href=item.getURL() style='background-image: url(\'' + item.getImg() + '\');')= item.name
+                    small.c-SponsorCarousel__Label= item.getLevel().name
+              +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
     footer.o-Runner.c-Mast(class=(pagetype==='main') ? 'c-Mast--internal' : ''): nav.o-ContentWrapper
       h1.-d-n#site-map Site Map
       +sitemenulist({pages: site.pages[pagetype], class_obj: Site.MENU_CLASS.sitemap, depth:Infinity})
@@ -135,6 +133,7 @@ html(lang="en")
           &copy; #[time 1996]&ndash;#[time 2016] American Society of Civil Engineers
     block scripts
       script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
+      script(src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
       script.
         var button_open = $('<button>').addClass('c-Btn c-Btn--drawer c-Btn--flat js-menubutton')
           .attr('type','button')
@@ -154,6 +153,7 @@ html(lang="en")
           })
         $('.o-SiteHead').append(button_open)
         $('.o-SiteHead__Nav').append(button_close)
+      script(src="/scripts/c-SponsorCarousel.js")
       script(src="/scripts/c-Program.js")
       //- script.
         $('.c-Speaker__Body').addClass('-h-z')

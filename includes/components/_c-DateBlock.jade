@@ -5,7 +5,7 @@ mixin dateBlock(all_dates)
         dt.c-DateBlock__Date
           time(datetime=action.startTime)
             - var date = Util.toDate(action.startTime)
-            = Util.MONTH_NAMES[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate() + ', ' + date.getFullYear()
+            = Util.monthDay(date) + ', ' + date.getFullYear()
         dd.c-DateBlock__Desc
           if action.getURL()
             a.o-Block.c-DateBlock__Link(href=action.getURL())

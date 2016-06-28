@@ -1,0 +1,29 @@
+extends _sites.tpl.jade
+
+block append varsPage
+  - var page = site.getPage('registration.html')
+
+block mainHeader
+  header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
+    //- soft hyphen (U+00ad, `&shy;`)
+    h1.c-PageTitle Registra&shy;tion
+
+block mainReference
+  section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
+    h1.-d-n#full-registration Full Registration
+    ul.o-ListBare.o-GridFlex.o-ListStacked
+      include /includes/components/_c-Pass.jade
+      each pass0 in site.getCurrentConference().getPassesAll()
+        li.o-GridFlex__Item.o-ListStacked__Item
+          +pass(pass0)
+    ul.o-ListBare.o-GridFlex.o-ListAction.c-Callout
+      each item,index in site.getCurrentConference().getRegistrationPeriodsAll()
+        li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item.c-RegPeriodLegendItem
+          i.material-icons= item.getIcon()
+          small
+            if index < site.getCurrentConference().getRegistrationPeriodsAll().length-1
+              = item.name + ' ends '   + item.endDate
+            else
+              = item.name + ' begins ' + item.startDate
+    +actionchoices([{text:'Register Today!', href:'#0'}], 'c-Btn c-Btn--hilite c-Btn--secondary')
+    block additionalInfo

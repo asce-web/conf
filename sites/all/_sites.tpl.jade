@@ -1,0 +1,166 @@
+doctype html
+html(lang="en")
+  include /includes/_data.jade
+  block varsSite
+    -
+      var site = new Site()
+        .setConference('current', new Conference())
+        .setCurrentConference('current')
+  block varsPage
+    -
+      var page = new Page()
+  block vars
+    -
+      var pagetype = (site.pages.top.find(function (item)  { return item === page })) ? 'top'  :
+                     (site.pages.main.find(function (item) { return item === page })) ? 'main' :
+                     (site.pages.main.find(function (mainpage) { return mainpage.sub.find(function (item) { return item === page }) })) ? 'main' :
+                     ''
+  head
+    title= page.getTitle()
+    block metas
+      meta(charset="utf-8")
+      meta(name="description" content=page.getDescription())
+      meta(name="keywords" content=site.keywords)
+      meta(name="viewport" content="width=device-width, initial-scale=1")
+      meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    block styles
+      link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic")
+      link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,400italic,700")
+      link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+      link(rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
+      link(rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css")
+      //- link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v4.3.0/xmeter.css")
+      //- TODO remove on xmeter v5
+      link(rel="stylesheet" href="/node_modules/xmeter/xmeter.css")
+      link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.8.0/bangs.min.css")
+      link(rel="stylesheet" href="/styles/conf.css")
+      if site.name
+        //- if this site is an instance of the 'all' template
+        link(rel="stylesheet" href="styles/site.css")
+      style.
+        .minimal-text {
+          border: 8px solid rgba(219, 255, 64, 0.64);
+        }
+        .minimal-text::before {
+          content: 'minimal text block (no headings inside)';
+          display: block;
+          margin-bottom: 1.5rem;
+          font-weight: 900;
+          text-transform: uppercase;
+          color: red;
+        }
+        .rich-text {
+          border: 8px solid rgba(255, 219, 64, 0.64);
+        }
+        .rich-text::before {
+          content: 'rich text block <div> with optional subheadings';
+          display: block;
+          margin-bottom: 1.5rem;
+          font-weight: 900;
+          text-transform: uppercase;
+          color: red;
+        }
+  body
+    header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-GridFlex.o-SiteHead
+      a.o-GridFlex__Item.o-Block.o-GridFloat.o-SiteHead__Title.c-SiteTitle.c-Camo(href="index.html")
+        span.o-GridFloat__Item.c-SiteTitle__Logo(style='background-image: url(\'' + (site.image || '') + '\');')
+        h1.o-GridFloat__Item.c-SiteTitle__Name= site.name
+        p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
+      nav.o-GridFlex__Item.o-SiteHead__Nav.js-universalnav
+        h1.-d-n#top-menu Top Menu
+        include /includes/components/_c-MenuUniversal.jade
+        +menuUniversal(site.pages.top.slice(1), site.pages.main.slice(0,1), site.getCurrentConference().name)
+        //- button.c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close top menu"): i.material-icons close
+      //- button.c-Btn.c-Btn--flat.c-Btn--drawer.js-menubutton(type="button" name="open" title="open top menu"): i.material-icons menu
+    if pagetype === 'main'
+      header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
+        h1.-d-n#main-menu Main Menu
+        +sitemenulist({pages: site.pages.main, class_obj: Site.MENU_CLASS.standard, depth: 1, icons: true})
+    main
+      block main
+        article&attributes((pagetype === 'main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
+          block mainHeader
+            header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
+              h1.c-PageTitle= page.name
+          block mainBody
+            block mainMinimal
+            block mainReference
+            block mainRich
+          block callouts
+          block sponsors
+            +callout()
+              h1#sponsors Sponsors
+              ol.o-ListBare.c-SponsorCarousel
+                each item in site.getSupportersAll()
+                  li.c-SponsorCarousel__Item
+                    a.o-Block.c-SponsorCarousel__Logo(href=item.getURL() style='background-image: url(\'' + item.getImg() + '\');')= item.name
+                    small.c-SponsorCarousel__Label= item.getLevel().name
+              +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
+    footer.o-Runner.c-Mast(class=(pagetype==='main') ? 'c-Mast--internal' : ''): nav.o-ContentWrapper
+      h1.-d-n#site-map Site Map
+      +sitemenulist({pages: site.pages[pagetype], class_obj: Site.MENU_CLASS.sitemap, depth:Infinity})
+    footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-ContentWrapper
+      h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
+      address(itemscope="" itemtype="http://schema.org/NGO")
+        p
+          span.o-Block(itemprop="name") American Society of Civil Engineers
+          span.o-Block(itemprop="location" itemscope itemtype="https://schema.org/PostalAddress")
+            span.o-Block(itemprop="streetAddress") 1801 Alexander Bell Drive
+            span.o-Block
+              span(itemprop="addressLocality") Reston,#{' '}
+              span(itemprop="addressRegion") VA#{' '}
+              span(itemprop="postalCode") 22901-4382
+          span.o-Block(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
+            a(href="tel:+1-800-548-2723") (800) 548-2723
+            meta(content="+1-800-548-2723" itemprop="telephone")
+            meta(content="customer support" itemprop="contactType")
+          span.o-Block(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
+            a(href="tel:+1-703-295-6300") +1 (703) 295-6300
+            meta(content="+1-703-295-6300" itemprop="telephone")
+            meta(content="United States of America" itemprop="areaServed")
+            meta(content="customer support" itemprop="contactType")
+        ul.o-ListBare.o-GridFlex.c-SocialList
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="//twitter.com/ASCE" itemprop="sameAs" title="Follow ASCE on Twitter")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="//plus.google.com/ASCE" itemprop="sameAs" title="Follow ASCE on Google+")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="//facebook.com/ASCE" itemprop="sameAs" title="Follow ASCE on Facebook")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--linkedin(href="//linkedin.com/ASCE" itemprop="sameAs" title="Follow ASCE on LinkedIn")
+          li.o-GridFlex__Item.c-SocialList__Item
+            a.o-Block.c-SocialList__Link.c-SocialList__Link--youtube(href="//youtube.com/ASCE" itemprop="sameAs" title="Follow ASCE on YouTube")
+        //- p: img(src="ASCE-logo.png" itemprop="image")
+        p: a(href="http://www.asce.org" itemprop="url").
+          &copy; #[time 1996]&ndash;#[time 2016] American Society of Civil Engineers
+    block scripts
+      script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
+      script(src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
+      script.
+        var button_open = $('<button>').addClass('c-Btn c-Btn--drawer c-Btn--flat js-menubutton')
+          .attr('type','button')
+          .attr('name','open')
+          .attr('title','open top menu')
+          .append($('<i>').addClass('material-icons').text('menu'))
+          .click(function () {
+            $('.o-SiteHead__Nav').removeClass('js-universalnav')
+          })
+        var button_close = $('<button>').addClass('c-Btn c-Btn--drawer c-Btn--drawer--close c-Btn--ghost c-Btn--ghost--dark js-menubutton')
+          .attr('type','button')
+          .attr('name','close')
+          .attr('title','close top menu')
+          .append($('<i>').addClass('material-icons').text('close'))
+          .click(function () {
+            $('.o-SiteHead__Nav').addClass('js-universalnav')
+          })
+        $('.o-SiteHead').append(button_open)
+        $('.o-SiteHead__Nav').append(button_close)
+      script(src="/scripts/c-SponsorCarousel.js")
+      script(src="/scripts/c-Program.js")
+      //- script.
+        $('.c-Speaker__Body').addClass('-h-z')
+        $('.c-Speaker__Img').height(function () { return $(this).width() })
+          .click(function () { $(this).siblings('.c-Speaker__Body').removeClass('-h-z') })
+        $(window).resize(function () {
+          $('.c-Speaker__Img').height(function () { return $(this).width() })
+        })

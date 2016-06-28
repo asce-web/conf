@@ -1,11 +1,7 @@
 extends lib.tpl.jade
 
 block append vars
-  - var page_id = lib[4]
-  - titles.push(page_id.name)
-
-block toc
-    +libtoc({pages: page_id.sub, depth: Infinity})
+  - var page = Lib.getPage('comp.html')
 
 block append main
   section.sg-sect#masthead-mastfoot
@@ -68,13 +64,13 @@ block append main
     figure.docs-figure
       -
         var pages1 = [
-          { name: 'About'  , href: '' }
-        , { name: 'Sponsor', href: '' }
-        , { name: 'Exhibit', href: '' }
-        , { name: 'Contact', href: '' }
+          new Page({ name: 'About'  , url: '' })
+        , new Page({ name: 'Sponsor', url: '' })
+        , new Page({ name: 'Exhibit', url: '' })
+        , new Page({ name: 'Contact', url: '' })
         ]
         var pages2 = [
-          { name: 'Home', href: '' }
+          new Page({ name: 'Home', url: '' })
         ]
       div(style="margin-bottom: 1.5rem;")
         include /includes/components/_c-MenuUniversal.jade
@@ -100,13 +96,13 @@ block append main
     figure.docs-figure
       -
         var pages = [
-          { name: 'Home'          , href: '' }
-        , { name: 'Registration'  , href: '' }
-        , { name: 'Program'       , href: '' }
-        , { name: 'Hotel & Travel', href: '' }
-        , { name: 'Speakers'      , href: '' }
+          new Page({ name: 'Home'          , url: '' })
+        , new Page({ name: 'Registration'  , url: '' })
+        , new Page({ name: 'Program'       , url: '' })
+        , new Page({ name: 'Hotel & Travel', url: '' })
+        , new Page({ name: 'Speakers'      , url: '' })
         ]
-      +sitemenulist({pages: pages, class_obj: menu_class.standard, depth: 0})
+      +sitemenulist({pages: pages, class_obj: Site.MENU_CLASS.standard, depth: 0})
       ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
         li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._hover menu item hover
         li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._active menu item active
@@ -123,12 +119,12 @@ block append main
     figure.docs-figure
       -
         var pages = [
-          { name: 'Why Attend'                  , href: '' }
-        , { name: 'Registration Submenu Item 2' , href: '' }
-        , { name: 'Registration Submenu Item 3' , href: '' }
+          new Page({ name: 'Why Attend'     , url: '' })
+        , new Page({ name: 'Short Courses'  , url: '' })
+        , new Page({ name: 'Technical Tours', url: '' })
         ]
       div(style="height: 100px;")
-        +sitemenulist({pages: pages, class_obj: menu_class.standard.sub, depth: 0})
+        +sitemenulist({pages: pages, class_obj: Site.MENU_CLASS.standard.sub, depth: 0})
       div(style="height: 100px;"): ul.o-ListBare.c-MenuSub
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._hover menu item hover
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._active menu item active
@@ -145,38 +141,26 @@ block append main
     figure.docs-figure
       -
         var pages = [
-            {
-              name: 'Home', href: 'home.html'
-            }
-          , {
-              name: 'Registration', href: 'registration.html'
-            , sub: [
-                { name: 'Why Attend'     , href: '' }
-              ]
-            }
-          , {
-              name: 'Program', href: 'program.html'
-            , sub: [
-                { name: 'Events', href: '' }
-              , { name: 'Short Courses'  , href: '' }
-              , { name: 'Technical Tours', href: '' }
-              , { name: 'Optional Tours' , href: '' }
-              ]
-            }
-          , {
-              name: 'Hotel & Travel', href: 'location.html'
-            , sub: [
-                { name: 'International Travel', href: '' }
-              ]
-            }
-          , {
-              name: 'Speakers', href: 'speakers.html'
-            , sub: [
-                { name: 'Distinguished Lecture Series', href: '' }
-              ]
-            }
+            new Page({
+              name: 'Home', url: 'home.html'
+            })
+          , new Page({
+              name: 'Registration', url: 'registration.html'
+            }).addSubpage(new Page({ name: 'Why Attend'     , url: '' }))
+          , new Page({
+              name: 'Program', url: 'program.html'
+            }).addSubpage(new Page({ name: 'Events'         , url: '' }))
+              .addSubpage(new Page({ name: 'Short Courses'  , url: '' }))
+              .addSubpage(new Page({ name: 'Technical Tours', url: '' }))
+              .addSubpage(new Page({ name: 'Optional Tours' , url: '' }))
+          , new Page({
+              name: 'Hotel & Travel', url: 'location.html'
+            }).addSubpage(new Page({ name: 'International Travel', url: '' }))
+          , new Page({
+              name: 'Speakers', url: 'speakers.html'
+            }).addSubpage(new Page({ name: 'Distinguished Lecture Series', url: '' }))
           ]
-      +sitemenulist({pages: pages, class_obj: menu_class.sitemap, depth: Infinity})
+      +sitemenulist({pages: pages, class_obj: Site.MENU_CLASS.sitemap, depth: Infinity})
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-Sitemap]"&gt;
           &lt;li class="#[u c-Sitemap__Item]"&gt;
@@ -195,12 +179,12 @@ block append main
         &lt;/ul&gt;
   section.sg-sect#page-title
     h2 The Page Title
-    p Use #[code(class=classname.code) .c-PageTitle] for the top-level heading of a page.
+    p Use #[code.docs-code .c-PageTitle] for the top-level heading of a page.
     figure.docs-figure
       h1.c-PageTitle A Page Title
       pre.docs-pre.
         &lt;h1 class="#[u c-PageTitle]"&gt;A Page Title&lt;/h1&gt;
-    p Use #[code(class=classname.code) .c-PageTitle--special] if you want a special page title inside a banner.
+    p Use #[code.docs-code .c-PageTitle--special] if you want a special page title inside a banner.
     figure.docs-figure
       div.c-Banner(style="height: 13.5rem; margin-bottom: 1.5rem; z-index:1;")
         h1.c-PageTitle.c-PageTitle--special special page title
@@ -235,8 +219,6 @@ block append main
           , addressRegion_title : 'Colorado'
           }
         }
-      //- div.c-Hero
-        +hero-content(demoevent)
       div.c-Hero
         h1.c-PageTitle.c-Hero__Name(itemprop="name") Geo-Risk 2017
         meta(content="http://2017.georiskconference.org/" itemprop="url")
@@ -288,11 +270,6 @@ block append main
           , addressRegion_title : 'Illinois'
           }
         }
-      //- div.c-OtherYear
-        +otheryear-content(demoevent)
-          p.c-OtherYear__Desc.
-            Access the 2016 program to see which sessions qualify for
-            PDHs and other documentation.
       div.c-OtherYear
         h1.c-OtherYear__Name(itemprop="name") Geo-Chicago 2016
         meta(content="2016-08-14" itemprop="startDate")
@@ -352,11 +329,11 @@ block append main
     p.
       On the Sponsor page, each Sponsor Block corresponds to one level,
       e.g., Platinum, Gold, or Corporate.
-      This block is a #[code(class=classname.code) section] containing a heading
+      This block is a #[code.docs-code section] containing a heading
       (the name of the sponsor level)
       followed by an unordered list of sponsor logo items.
     p.
-      To separate multiple sponsor blocks, add class #[code(class=classname.code) .c-SponsorBlock--separate]
+      To separate multiple sponsor blocks, add class #[code.docs-code .c-SponsorBlock--separate]
       for a thin bottom border.
     figure.docs-figure
       section.c-SponsorBlock.c-SponsorBlock--separate
@@ -402,45 +379,39 @@ block append main
           ...
         &lt;/section&gt;
         ...
-    h3 All Site Pages
+  section.sg-sect#sponsor-carousel
+    h2 The Sponsor Carousel
     p.
-      On every page other than the Sponsor page, the Sponsor Block should be used
-      for the entire list of sponsors (in order by rank) displayed in a rotating
-      carousel. This block has no heading, and as such, is not a #[code(class=classname.code) section].
-      Instead, it&rsquo;s a #[code(class=classname.code) div] containing a back button,
-      followed by an #[em ordered] list of sponsor logo items, followed by
-      a forward button. The list should be ordered because the sponsors are
+      The Sponsor Carousel holds the list of all sponsors.
+      It appears on every page except the Sponsor page.
+    p.
+      The entire list of sponsors (in order by rank) is displayed in a rotating carousel.
+      It takes the form of an #[em ordered] list of sponsor logo items.
+      The list should be ordered because the sponsors are
       displayed by rank (highest ranking sponsors first).
+    p Enable Javascript to experience visual effects.
     figure.docs-figure
-      div.o-GridFlex.c-SponsorBlock
-        button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--back #[i.material-icons chevron_left] #[span.-d-n &laquo;]
-        ol.o-GridFlex__Item.o-ListBare.o-GridFlex.c-SponsorBlock__Carousel
-          li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
-            small.c-SponsorBlock__Label Platinum
-          li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
-            small.c-SponsorBlock__Label Platinum
-          li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
-            small.c-SponsorBlock__Label Silver
-        button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--fwrd #[i.material-icons chevron_right] #[span.-d-n &raquo;]
+      ol.o-ListBare.c-SponsorCarousel
+        li.c-SponsorCarousel__Item
+          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
+          small.c-SponsorCarousel__Label Platinum
+        li.c-SponsorCarousel__Item
+          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
+          small.c-SponsorCarousel__Label Platinum
+        li.c-SponsorCarousel__Item
+          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
+          small.c-SponsorCarousel__Label Silver
+        li.c-SponsorCarousel__Item
+          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/pearl-insurance-logo.jpg');") Pearl Insurance
+          small.c-SponsorCarousel__Label Bronze
       pre.docs-pre.
-        &lt;div class="o-GridFlex  #[u c-SponsorBlock]"&gt;
-          &lt;button class="o-GridFlex__Item  c-Btn  c-Btn--inline  c-Btn--flat  #[u c-SponsorBlock__Btn]  #[u c-SponsorBlock__Btn--back]"&gt;
-            &lt;i class="material-icons"&gt;chevron_left&lt;/i&gt;
-          &lt;/button&gt;
-          &lt;ol class="o-GridFlex__Item  o-ListBare  o-GridFlex  #[u c-SponsorBlock__Carousel]"&gt;
-            &lt;li class="o-GridFlex__Item"  #[u c-SponsorBlock__Carousel__Item]&gt;
-              &lt;a class="o-Block  #[u c-SponsorBlock__Logo]  #[u c-SponsorBlock__Logo--lrg]"&gt;Bank of America&lt;/a&gt;
-              &lt;small class="#[u c-SponsorBlock__Label]"&gt;Platinum&lt;/small&gt;
-            &lt;/li&gt;
-            ...
-          &lt;/ol&gt;
-          &lt;button class="o-GridFlex__Item  c-Btn  c-Btn--inline  c-Btn--flat  #[u c-SponsorBlock__Btn]  #[u c-SponsorBlock__Btn--fwrd]"&gt;
-            &lt;i class="material-icons"&gt;chevron_right&lt;/i&gt;
-          &lt;/button&gt;
-        &lt;/div&gt;
+        &lt;ol class="o-ListBare  #[u c-SponsorCarousel]"&gt;
+          &lt;li class="#[u c-SponsorCarousel__Item]"&gt;
+            &lt;a class="o-Block  #[u c-SponsorCarousel__Logo]"&gt;Bank of America&lt;/a&gt;
+            &lt;small class="#[u c-SponsorCarousel__Label]"&gt;Platinum&lt;/small&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ol&gt;
   section.sg-sect#date-block
     h2 The Date Block
     figure.docs-figure
@@ -475,7 +446,7 @@ block append main
         &lt;/dl&gt;
   section.sg-sect#pass-component
     h2 The Pass Component
-    p The Pass Component should be an #[code(class=classname.code) article] element.
+    p The Pass Component should be an #[code.docs-code article] element.
     p.
       Remember that this is not a demonstration of an entire Pass Component.
       This simply demonstrates the Component&rsquo;s styles and the styles
@@ -533,8 +504,7 @@ block append main
         &lt;/article&gt;
   section.sg-sect#program-component
     h2 The Program Component
-    p.
-      Enable Javascript to experience visual effects.
+    p Enable Javascript to experience visual effects.
     figure.docs-figure
       include /includes/components/_c-Program.jade
       +program(3, {id:'demoprog'})
@@ -556,13 +526,13 @@ block append main
       Since the Program Component will be used to display program event information,
       the headings will be dates. Each heading should have the following structure
       and include similar data.
-      Elements with class #[code(class=classname.code) .js-*] are required for Javascript.
+      Elements with class #[code.docs-code .js-*] are required for Javascript.
     figure.sg-c-Fig
-      - var sampevent = { startDate: '2016-09-28 10:10', endDate: '2016-09-28 19:00', name: 'Registration' }
-      h1.o-GridFlex__Item.c-Program__Hn: label
+      - var sampevent = new ProgramEvent({ startDate: '2016-09-28 10:10', endDate: '2016-09-28 19:00', name: 'Registration' })
+      h1.c-Program__Hn: label
         include /includes/components/_c-Program.jade
-        +programHeading(sampevent)
-      pre.
+        +programHeading('2016-09-28')
+      pre.docs-pre.
         &lt;h1 class="#[u c-Program__Hn]"&gt;
           &lt;label&gt;
             &lt;input class="#[u c-Program__Check]" .../&gt;
@@ -577,17 +547,17 @@ block append main
     figure.docs-figure
       dl.o-GridFlex.c-TimeBlock
         dt.o-GridFlex__Item.c-TimeBlock__Times
-          time= hourTime12(new Date(new Date().setHours(10, 30)))
+          time= Util.hourTime12(new Date(new Date().setHours(10, 30)))
           | &ndash;
-          time= hourTime12(new Date(new Date().setHours(17, 0)))
+          time= Util.hourTime12(new Date(new Date().setHours(17, 0)))
         dd.o-GridFlex__Item.c-TimeBlock__Desc
           a.o-Block.c-TimeBlock__Link(href="")
             | Technical Tours
             i.material-icons arrow_forward
         dt.o-GridFlex__Item.c-TimeBlock__Times
-          time= hourTime12(new Date(new Date().setHours(13, 0)))
+          time= Util.hourTime12(new Date(new Date().setHours(13, 0)))
           | &ndash;
-          time= hourTime12(new Date(new Date().setHours(16, 30)))
+          time= Util.hourTime12(new Date(new Date().setHours(16, 30)))
         dd.o-GridFlex__Item.c-TimeBlock__Desc Short Courses
       pre.docs-pre.
         &lt;dl class="o-GridFlex  #[u c-TimeBlock]"&gt;
@@ -640,7 +610,7 @@ block append main
     h2 The Social List
     p.
       There are two Social List styles: one is a normal list, placeable anywhere,
-      and the second is inside a #[code(class=classname.code) footer] element.
+      and the second is inside a #[code.docs-code footer] element.
     figure.docs-figure
       ul.o-ListBare.o-GridFlex.c-SocialList
         li.o-GridFlex__Item.c-SocialList__Item
@@ -657,7 +627,7 @@ block append main
           span menu item active:
           a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")._active
       footer
-        p This is a #[code(class=classname.code) footer] element.
+        p This is a #[code.docs-code footer] element.
         ul.o-ListBare.o-GridFlex.c-SocialList
           li.o-GridFlex__Item.c-SocialList__Item
             a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" itemprop="sameAs" title="Follow ASCE on Twitter")
@@ -689,7 +659,7 @@ block append main
   section.sg-sect#callout-component
     h2 The Callout Component
     figure.docs-figure
-      p.c-Callout A callout! Use whatever the heck element you want, even a #[code(class=classname.code) &lt;figure&gt;]!
+      p.c-Callout A callout! Use whatever the heck element you want, even a #[code.docs-code &lt;figure&gt;]!
       pre.docs-pre.
         &lt;p class="#[u c-Callout]"&gt;A callout! ...&lt;/p&gt;
     figure.docs-figure
@@ -709,13 +679,13 @@ block append main
       vertical rhythm, be sure to contain them in typographical block-level elements
       such as paragraphs or lists.
     p.
-      Button Components may be in the form of #[code(class=classname.code) a] elements (links or anchors) or
-      #[code(class=classname.code) button] elements.
-      Keep in mind these button usage guidelines: #[code(class=classname.code) button]s should
-      indicate action and be worded actionably. Use an #[code(class=classname.code) a] instead of a #[code(class=classname.code) button]
+      Button Components may be in the form of #[code.docs-code a] elements (links or anchors) or
+      #[code.docs-code button] elements.
+      Keep in mind these button usage guidelines: #[code.docs-code button]s should
+      indicate action and be worded actionably. Use an #[code.docs-code a] instead of a #[code.docs-code button]
       if there is a
-      meaningful target href or url. Of course, #[code(class=classname.code) a] elements
-      as well as #[code(class=classname.code) button] elements may be styled
+      meaningful target href or url. Of course, #[code.docs-code a] elements
+      as well as #[code.docs-code button] elements may be styled
       to look like Button Components.
     p Every Button Component must have styles available for each of the following states:
     dl
@@ -727,8 +697,8 @@ block append main
       dd the user is in the process of clicking the component
       dt.-fw-7 disabled
       dd.
-        the element is a #[code(class=classname.code) button] with the #[code(class=classname.code) disabled] attribute or
-        is an #[code(class=classname.code) a] with no #[code(class=classname.code) href] attribute.
+        the element is a #[code.docs-code button] with the #[code.docs-code disabled] attribute or
+        is an #[code.docs-code a] with no #[code.docs-code href] attribute.
         the component is inaccessable and/or does nothing, and the user
         may not interact with it
     p.
@@ -736,112 +706,256 @@ block append main
       only the code for the default state is shown.
     p.
       #[strong Important:] colors will vary by site. Colors shown here are
-      #[a(href="visual.html") ASCE 2016].
+      #[a(href="visual.html#asce2016") ASCE 2016].
     h3 Generic Buttons
     p Generic, general purpose buttons.
     figure.docs-figure
-      div(style="margin-bottom:1.5rem;"): a.c-Btn(href="#0") generic button
-      div(style="margin-bottom:1.5rem;")
-        a.c-Btn(href="#0")._hover generic button hover
-        a.c-Btn(href="#0")._active generic button active
-        a.c-Btn generic button disabled
+      ul.o-ListBare
+        li(style="margin-bottom:0.375rem;"): a.c-Btn(href="#0") generic button
+        li(style="margin-bottom:0.375rem;"): a.c-Btn(href="#0")._hover generic button hover
+        li(style="margin-bottom:0.375rem;"): a.c-Btn(href="#0")._active generic button active
+        li(style="margin-bottom:0.375rem;"): a.c-Btn generic button disabled
       pre.docs-pre.
         &lt;a class="#[u c-Btn]"&gt;generic button&lt;/a&gt;
-    h3 Highlight Buttons
-    p Highlight buttons, for large buttons in highlight block.
-    figure.docs-figure
-      div(style="margin-bottom:1.5rem;"): a.c-Btn.c-Btn--hilite(href="#0") highlight button
-      div(style="margin-bottom:1.5rem;")
-        a.c-Btn.c-Btn--hilite(href="#0")._hover highlight button hover
-        a.c-Btn.c-Btn--hilite(href="#0")._active highlight button active
-        a.c-Btn.c-Btn--hilite highlight button disabled
-      pre.docs-pre.
-        &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;highlight button&lt;/a&gt;
-    h3 Inline Buttons
-    p Inline buttons, for buttons in line with text.
-    figure.docs-figure
+    section
+      h3 Button Color Styles
+      h4 Dark Button Color
+      p Same as generic button but darker.
+      figure.docs-figure
+        ul.o-ListBare
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--dark(href="#0") generic dark button
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--dark(href="#0")._hover generic dark button hover
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--dark(href="#0")._active generic dark button active
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--dark generic dark button disabled
+        pre.docs-pre.
+          &lt;a class="#[u c-Btn]  #[u c-Btn--dark]"&gt;generic dark button&lt;/a&gt;
+      h4 Primary Button Color
+      p Button with site primary color.
+      figure.docs-figure
+        ul.o-ListBare
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--primary(href="#0") primary button
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--primary(href="#0")._hover primary button hover
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--primary(href="#0")._active primary button active
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--primary primary button disabled
+        pre.docs-pre.
+          &lt;a class="#[u c-Btn]  #[u c-Btn--primary]"&gt;primary button&lt;/a&gt;
+      h4 Secondary Button Color
+      p Button with site secondary color.
+      figure.docs-figure
+        ul.o-ListBare
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--secondary(href="#0") secondary button
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--secondary(href="#0")._hover secondary button hover
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--secondary(href="#0")._active secondary button active
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--secondary secondary button disabled
+        pre.docs-pre.
+          &lt;a class="#[u c-Btn]  #[u c-Btn--secondary]"&gt;secondary button&lt;/a&gt;
+      h4 Ghost Button Color
       p.
-        The following button,
-        #[a.c-Btn.c-Btn--inline(href="#0") inline button],
-        is in line with the text in this paragraph.
-      p Lorem ipsum #[a.c-Btn.c-Btn--inline(href="#0")._hover inline button hover] dolor.
-      p Lorem ipsum #[a.c-Btn.c-Btn--inline(href="#0")._active inline button active] dolor.
-      p Lorem ipsum #[a.c-Btn.c-Btn--inline inline button disabled] dolor.
-      pre.docs-pre.
-        &lt;p&gt;The following button,
-          &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
-          is in line with the text in this paragraph.&lt;/p&gt;
-    h3 Hero Buttons
-    p Hero button, for action button(s) in hero section. Combine with Highlight button to make bigger.
-    figure.docs-figure
-      div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--hero(href="#0") hero button
-      div(style="margin-bottom: 1.5rem;")
-        a.c-Btn.c-Btn--hero(href="#0")._hover hero button hover
-        a.c-Btn.c-Btn--hero(href="#0")._active hero button active
-        a.c-Btn.c-Btn--hero hero button disabled
-      pre.docs-pre.
-        &lt;a class="#[u c-Btn]  #[u c-Btn--hero]"&gt;hero button&lt;/a&gt;
-    h3 Dominant Buttons
-    p Dominant button, for emphasizing a button when it is near other not-as-important buttons.
-    figure.docs-figure
-      div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--dominant(href="#0") dominant button
-      div(style="margin-bottom: 1.5rem;")
-        a.c-Btn.c-Btn--dominant(href="#0")._hover dominant button hover
-        a.c-Btn.c-Btn--dominant(href="#0")._active dominant button active
-        a.c-Btn.c-Btn--dominant dominant button disabled
-      pre.docs-pre.
-        &lt;a class="#[u c-Btn]  #[u c-Btn--dominant]"&gt;dominant button!&lt;/a&gt;
-    h3 Ghost Buttons
-    p.
-      Ghost buttons can be used on a colored or image background.
-      Obviously, choose a background and a button color that won&rsquo;t clash.
-    figure.docs-figure
-      div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--ghost(href="#0") ghost button
-      div(style="margin-bottom: 1.5rem;")
-        a.c-Btn.c-Btn--ghost(href="#0")._hover ghost button hover
-        a.c-Btn.c-Btn--ghost(href="#0")._active ghost button active
-        a.c-Btn.c-Btn--ghost ghost button disabled
-      div.o-Highlight.c-Banner(style="margin-bottom:1.5rem; z-index:1;")
-        a.c-Btn.c-Btn--ghost(href="#0") ghost button inside a banner
-        a.c-Btn.c-Btn--ghost(href="#0")._hover ghost button hover inside a banner
-        a.c-Btn.c-Btn--ghost(href="#0")._active ghost button active inside a banner
-        a.c-Btn.c-Btn--ghost ghost button disabled inside a banner
-      pre.docs-pre.
-        &lt;a class="#[u c-Btn]  #[u c-Btn--ghost]"&gt;ghost button&lt;/a&gt;
-    h3 Flat Buttons
-    p Flat, link-ish buttons.
-    figure.docs-figure
-      div(style="margin-bottom: 1.5rem;"): a.c-Btn.c-Btn--flat(href="#0") flat button
-      div(style="margin-bottom: 1.5rem;")
-        a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover
-        a.c-Btn.c-Btn--flat(href="#0")._active flat button active
-        a.c-Btn.c-Btn--flat flat button disabled
-      div.o-Highlight.c-Banner(style="margin-bottom:1.5rem; z-index:1;")
-        a.c-Btn.c-Btn--flat(href="#0") flat button inside a banner
-        a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover inside a banner
-        a.c-Btn.c-Btn--flat(href="#0")._active flat button active inside a banner
-        a.c-Btn.c-Btn--flat flat button disabled inside a banner
-      pre.docs-pre.
-        &lt;a class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/a&gt;
-    h3 Drawer Buttons
-    p Drawer buttons for pull-out menu.
-    p These are actually #[code(class=classname.code) button] elements. #[i Close] button is fixed to the top right.
-    figure.docs-figure
-      div(style="margin-bottom: 1.5rem;")
-        button.c-Btn.c-Btn--drawer open
-        button.c-Btn.c-Btn--drawer.c-Btn--drawer--close close
-      pre.docs-pre.
-        &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]"&gt;open&lt;/button&gt;
-        &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]  #[u c-Btn--drawer--close]"&gt;close&lt;/button&gt;
-      button.c-Btn.c-Btn--drawer._hover drawer hover
-      button.c-Btn.c-Btn--drawer._active drawer active
-      button.c-Btn.c-Btn--drawer(disabled) drawer disabled
+        Ghost buttons can be used on a colored or image background.
+        Obviously, choose a background and a button color that won&rsquo;t clash.
+      figure.docs-figure
+        ul.o-ListBare
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost(href="#0") ghost button
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost(href="#0")._hover ghost button hover
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost(href="#0")._active ghost button active
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost ghost button disabled
+        div.o-Highlight.c-Banner(style="z-index:1;")
+          ul.o-ListBare
+            li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost(href="#0") ghost button inside a banner
+            li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost(href="#0")._hover ghost button hover inside a banner
+            li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost(href="#0")._active ghost button active inside a banner
+            li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost ghost button disabled inside a banner
+        pre.docs-pre.
+          &lt;a class="#[u c-Btn]  #[u c-Btn--ghost]"&gt;ghost button&lt;/a&gt;
+      h4 Dark Ghost Button Color
+      p.
+        Same as Ghost buttons but for use on darker background.
+      figure.docs-figure
+        ul.o-ListBare
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark(href="#0") ghost dark button
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark(href="#0")._hover ghost dark button hover
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark(href="#0")._active ghost dark button active
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark ghost dark button disabled
+        div.o-Highlight.c-Banner(style="z-index:1;")
+          ul.o-ListBare
+            li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark(href="#0") ghost dark button inside a banner
+            li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark(href="#0")._hover ghost dark button hover inside a banner
+            li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark(href="#0")._active ghost dark button active inside a banner
+            li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark ghost dark button disabled inside a banner
+        pre.docs-pre.
+          &lt;a class="#[u c-Btn]  #[u c-Btn--ghost]  #[u c-Btn--ghost--dark]"&gt;ghost dark button&lt;/a&gt;
+      h4 Flat Button Color
+      p Flat, link-ish buttons.
+      figure.docs-figure
+        ul.o-ListBare
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0") flat button
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0")._active flat button active
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat flat button disabled
+        div.o-Highlight.c-Banner(style="z-index:1;")
+          ul.o-ListBare
+            li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0") flat button inside a banner
+            li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover inside a banner
+            li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0")._active flat button active inside a banner
+            li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat flat button disabled inside a banner
+        pre.docs-pre.
+          &lt;a class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/a&gt;
+    section
+      h3 Button Sizing Styles
+      h4 Highlight Button Structure
+      p Highlight buttons, for large buttons in highlight block.
+      figure.docs-figure
+        ul.o-ListBare
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--hilite(href="#0") highlight button
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--hilite(href="#0")._hover highlight button hover
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--hilite(href="#0")._active highlight button active
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--hilite highlight button disabled
+        pre.docs-pre.
+          &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;highlight button&lt;/a&gt;
+      h4 Inline Buttons Structure
+      p Inline buttons, for buttons in line with text.
+      figure.docs-figure
+        p.
+          The following button,
+          #[a.c-Btn.c-Btn--inline(href="#0") inline button],
+          is in line with the text in this paragraph.
+          Lorem ipsum #[a.c-Btn.c-Btn--inline(href="#0")._hover inline button hover] dolor.
+          Consectetur #[a.c-Btn.c-Btn--inline(href="#0")._active inline button active] adipiscing elit
+          aliquam sagittis #[a.c-Btn.c-Btn--inline inline button disabled] suscipit nunc.
+        pre.docs-pre.
+          &lt;p&gt;The following button,
+            &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
+            is in line with the text in this paragraph. ...&lt;/p&gt;
+      h4 Drawer Button Structure
+      p Drawer buttons for pull-out menu.
+      p.
+        These are actually #[code.docs-code button] elements.
+        #[i Close] button is fixed to the top right.
+        Add extra Button styles as shown.
+      figure.docs-figure
+        div(style="margin-bottom: 1.5rem;")
+          button.c-Btn.c-Btn--drawer.c-Btn--flat open
+          button.c-Btn.c-Btn--drawer.c-Btn--drawer--close.c-Btn--ghost.c-Btn--ghost--dark close
+        pre.docs-pre.
+          &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]  c-Btn--flat"&gt;open&lt;/button&gt;
+          &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]  #[u c-Btn--drawer--close]  c-Btn--ghost  c-Btn--ghost--dark"&gt;close&lt;/button&gt;
+        ul.o-ListBare
+          li(style="margin-bottom:0.375rem;"): button.c-Btn.c-Btn--drawer drawer button
+          li(style="margin-bottom:0.375rem;"): button.c-Btn.c-Btn--drawer._hover drawer button hover
+          li(style="margin-bottom:0.375rem;"): button.c-Btn.c-Btn--drawer._active drawer button active
+          li(style="margin-bottom:0.375rem;"): button.c-Btn.c-Btn--drawer(disabled) drawer button disabled
+    h3 Button Summary Table
+    table
+      thead: tr
+        th Button Style
+        th Default Size
+        th Highlight Size
+        th Inline Size
+      tbody
+        tr
+          th Generic
+          td
+            a.c-Btn(href="#0") Generic Default
+            br
+            span .c-Btn
+          td
+            a.c-Btn.c-Btn--hilite(href="#0") Generic Highlight
+            br
+            span .c-Btn.c-Btn--hilite
+          td
+            a.c-Btn.c-Btn--inline(href="#0") Generic Inline
+            br
+            span .c-Btn.c-Btn--inline
+        tr
+          th Generic Dark
+          td
+            a.c-Btn.c-Btn--dark(href="#0") Generic Dark Default
+            br
+            span .c-Btn.c-Btn--dark
+          td
+            a.c-Btn.c-Btn--dark.c-Btn--hilite(href="#0") Generic Dark Highlight
+            br
+            span .c-Btn.c-Btn--dark.c-Btn--hilite
+          td
+            a.c-Btn.c-Btn--dark.c-Btn--inline(href="#0") Generic Dark Inline
+            br
+            span .c-Btn.c-Btn--dark.c-Btn--inline
+        tr
+          th Primary
+          td
+            a.c-Btn.c-Btn--primary(href="#0") Primary Default
+            br
+            span .c-Btn.c-Btn--primary
+          td
+            a.c-Btn.c-Btn--primary.c-Btn--hilite(href="#0") Primary Highlight
+            br
+            span .c-Btn.c-Btn--primary.c-Btn--hilite
+          td
+            a.c-Btn.c-Btn--primary.c-Btn--inline(href="#0") Primary Inline
+            br
+            span .c-Btn.c-Btn--primary.c-Btn--inline
+        tr
+          th Secondary
+          td
+            a.c-Btn.c-Btn--secondary(href="#0") Secondary Default
+            br
+            span .c-Btn.c-Btn--secondary
+          td
+            a.c-Btn.c-Btn--secondary.c-Btn--hilite(href="#0") Secondary Highlight
+            br
+            span .c-Btn.c-Btn--secondary.c-Btn--hilite
+          td
+            a.c-Btn.c-Btn--secondary.c-Btn--inline(href="#0") Secondary Inline
+            br
+            span .c-Btn.c-Btn--secondary.c-Btn--inline
+        tr
+          th Ghost
+          td
+            a.c-Btn.c-Btn--ghost(href="#0") Ghost Default
+            br
+            span .c-Btn.c-Btn--ghost
+          td
+            a.c-Btn.c-Btn--ghost.c-Btn--hilite(href="#0") Ghost Highlight
+            br
+            span .c-Btn.c-Btn--ghost.c-Btn--hilite
+          td
+            a.c-Btn.c-Btn--ghost.c-Btn--inline(href="#0") Ghost Inline
+            br
+            span .c-Btn.c-Btn--ghost.c-Btn--inline
+        tr(style="background-color: #555; color: #eee;")
+          th Ghost Dark
+          td
+            a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark(href="#0") Ghost Dark Default
+            br
+            span .c-Btn.c-Btn--ghost.c-Btn--ghost--dark
+          td
+            a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--hilite(href="#0") Ghost Dark Highlight
+            br
+            span .c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--hilite
+          td
+            a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--inline(href="#0") Ghost Dark Inline
+            br
+            span .c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--inline
+        tr
+          th Flat
+          td
+            a.c-Btn.c-Btn--flat(href="#0") Flat Default
+            br
+            span .c-Btn.c-Btn--flat
+          td
+            a.c-Btn.c-Btn--flat.c-Btn--hilite(href="#0") Flat Highlight
+            br
+            span .c-Btn.c-Btn--flat.c-Btn--hilite
+          td
+            a.c-Btn.c-Btn--flat.c-Btn--inline(href="#0") Flat Inline
+            br
+            span .c-Btn.c-Btn--flat.c-Btn--inline
   section.sg-sect#text-level-components
     h2 Text-Level Components
     h3 Camo Links
     p.
       A Camo Link is a link that blends with its surrounding text.
-      It unsets the default styles assigned to unclassed #[code(class=classname.code) a] elements
+      It unsets the default styles assigned to unclassed #[code.docs-code a] elements
       (also known as anchors).
       Essentially, use it for when you need a link but don&rsquo;t
       want to expose it to the user.
@@ -853,8 +967,8 @@ block append main
           &lt;a class="#[u c-Camo]"&gt;camouflaged link&lt;/a&gt;.
           See where you can find it.&lt;p&gt;
     p.
-      #[strong Note to developers:] the #[code(class=classname.code) .c-Camo]
-      class uses #[code(class=classname.code) !important] on
+      #[strong Note to developers:] the #[code.docs-code .c-Camo]
+      class uses #[code.docs-code !important] on
       all its styles, so use only when necessary. And if possible, use on the
       innermost element. E.g.:
     pre.docs-pre.

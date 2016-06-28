@@ -1,0 +1,40 @@
+
+/*################################*\
+    conf  |  _c-Sitemap.less
+\*################################*/
+
+
+// Sitemap for universal or internal sites.
+//
+// ^Subcomponents:
+// __Item    - each item in the list
+// __SubList - a sub menu list
+// __SubItem - an item within the SubList
+//             (too complicated to use `__SubList__Item`)
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-04-27
+.c-Sitemap {
+  .flex-justify-content(space-around);
+  margin-bottom: 0; // override ul
+  .menubar();
+}
+.c-Sitemap__Item {
+  @media screen and (max-width: 44.999em) {
+    &:not(:last-child) {
+      margin-bottom: @g-vru;
+    }
+  }
+  @media screen and (min-width: 45em) {
+    width: auto;
+  }
+}
+.c-Sitemap__SubList {
+  margin-bottom: 0; // override ul
+  padding-left: 1rem;
+  text-transform: none; // override .menubar()
+  font-weight: 300;
+}
+.c-Sitemap__SubItem {
+}

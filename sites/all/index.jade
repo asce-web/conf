@@ -7,26 +7,23 @@ block mainHeader
   header.-d-n: h1#home #{page.name} Homepage
 
 block mainBody
-  mixin otherYearContent(event0)
-    - event0 = event0 || {}
-    h1.c-OtherYear__Name(itemprop="name")= event0.name
-    meta(content=event0.startDate itemprop="startDate")
-    p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-      +event-location-name(event0.location)
-    p.c-OtherYear__Desc
-      block
-    ul.o-ListBare.o-GridFlex.o-ListAction
-      li.o-GridFlex__Item.o-ListAction__Item
-        a.c-Btn.c-Btn--hilite.c-Btn--ghost(href=event0.url itemprop="url") Event Details
+  mixin otherYearBlock(event0, classes)
+    section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-OtherYear(class=classes itemscope="" itemtype="http://schema.org/Event")
+      div.o-ContentWrapper
+        div.c-Overlay.c-Overlay--callout
+          - event0 = event0 || {}
+          h1.c-OtherYear__Name(itemprop="name")= event0.name
+          meta(content=event0.startDate itemprop="startDate")
+          p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+            +event-location-name(event0.location)
+          p.c-OtherYear__Desc
+            block
+          +actionchoices([{text:'Event Details', href:event0.url}], 'c-Btn c-Btn--hilite c-Btn--ghost')
   section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing.c-Hero(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
     +heroContent(site.getCurrentConference())
     +actionchoices([{text:'Find Out More', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
   block introText
-  section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--prev.c-OtherYear(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
-    div.c-Overlay.c-Overlay--callout
-      +otherYearContent(site.getPrevConference())
-        block content_otherYearDesc_prev
-  section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--next.c-OtherYear(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
-    div.c-Overlay.c-Overlay--callout
-      +otherYearContent(site.getNextConference())
-        block content_otherYearDesc_next
+  +otherYearBlock(site.getPrevConference(), 'c-Banner--prev')
+    block content_otherYearDesc_prev
+  +otherYearBlock(site.getNextConference(), 'c-Banner--next')
+    block content_otherYearDesc_next

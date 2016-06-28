@@ -30,6 +30,7 @@ html(lang="en")
           nav#table-contents
             h2 Table of Contents
             block toc
+              +libtoc({pages: page.sub, depth: Infinity})
     footer
       unless page === Lib.getPage('index.html')
         nav

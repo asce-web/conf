@@ -21,6 +21,18 @@ include class/_Membership.class.jade
 include class/_ProgramEvent.class.jade
 include class/_ImportantDate.class.jade
 
+mixin linkWithIcon(args)
+  -
+    var classes   = args.classes   || ''
+      , href      = args.href      || ''
+      , link_text = args.link_text || ''
+      , icons     = args.icons     || ''
+      , icon_text = args.icon_text || ''
+  a(class=classes href=href)
+    if icons
+      i.material-icons= icon_text
+    span= link_text
+
 mixin sitemenulist(args)
   - var pages     = args.pages     || []
   - var class_obj = args.class_obj || {}
@@ -30,10 +42,13 @@ mixin sitemenulist(args)
     each item in pages
       unless item.is_hidden
         li(class=class_obj.itemclasses)
-          a(class=class_obj.linkclasses href=item.url)
-            if args.icons && item.icon
-              i.material-icons= item.getIcon()
-            span= item.name
+          +linkWithIcon({
+            classes   : class_obj.linkclasses
+          , href      : item.url
+          , link_text : item.name
+          , icons     : args.icons && item.getIcon()
+          , icon_text : item.getIcon()
+          })
           if item.sub.length && depth > 0
             +sitemenulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})
 

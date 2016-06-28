@@ -40,7 +40,7 @@ mixin sitemenulist(args)
   - var icons     = !!args.icons
   ul(class=class_obj.listclasses)
     each item in pages
-      unless item.is_hidden
+      unless item.isHidden()
         li(class=class_obj.itemclasses)
           +linkWithIcon({
             classes   : class_obj.linkclasses
@@ -49,7 +49,7 @@ mixin sitemenulist(args)
           , icons     : args.icons && item.getIcon()
           , icon_text : item.getIcon()
           })
-          if item.sub.length && depth > 0
+          if item.getSubpagesAll().length && depth > 0
             +sitemenulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})
 
 mixin event-location-name(loc)

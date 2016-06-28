@@ -18,10 +18,10 @@ block mainBody
             +event-location-name(event0.location)
           p.c-OtherYear__Desc
             block
-          +actionchoices([{text:'Event Details', href:event0.url}], 'c-Btn c-Btn--hilite c-Btn--ghost')
+          +actionchoices([{text:'Event Details', href:event0.url}], 'c-Btn c-Btn--hilite c-Btn--ghostDark')
   section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing.c-Hero(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
     +heroContent(site.getCurrentConference())
-    +actionchoices([{text:'Find Out More', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--hero')
+    +actionchoices([{text:'Find Out More', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--primary')
   block introText
   +otherYearBlock(site.getPrevConference(), 'c-Banner--prev')
     block content_otherYearDesc_prev

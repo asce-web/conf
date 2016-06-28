@@ -17,4 +17,4 @@ mixin programHeading(str)
   time(datetime=str)
     - var date = Util.toDate(str)
     span.js-o-Block-sK= Util.DAY_NAMES[date.getUTCDay()] + ', '
-    span.js-o-Block-sK= Util.MONTH_NAMES[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
+    span.js-o-Block-sK= Util.monthDay(date)

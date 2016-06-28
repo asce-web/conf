@@ -3,9 +3,6 @@ extends lib.tpl.jade
 block append vars
   - var page = Lib.getPage('comp.html')
 
-block toc
-  +libtoc({pages: page.sub, depth: Infinity})
-
 block append main
   section.sg-sect#masthead-mastfoot
     h2 The Masthead and Mastfoot
@@ -67,13 +64,13 @@ block append main
     figure.docs-figure
       -
         var pages1 = [
-          { name: 'About'  , href: '' }
-        , { name: 'Sponsor', href: '' }
-        , { name: 'Exhibit', href: '' }
-        , { name: 'Contact', href: '' }
+          new Page({ name: 'About'  , url: '' })
+        , new Page({ name: 'Sponsor', url: '' })
+        , new Page({ name: 'Exhibit', url: '' })
+        , new Page({ name: 'Contact', url: '' })
         ]
         var pages2 = [
-          { name: 'Home', href: '' }
+          new Page({ name: 'Home', url: '' })
         ]
       div(style="margin-bottom: 1.5rem;")
         include /includes/components/_c-MenuUniversal.jade
@@ -97,16 +94,15 @@ block append main
   section.sg-sect#standard-menu
     h2 The Standard Menu
     figure.docs-figure
-      include /sites/all/includes/_data.jade
       -
         var pages = [
-          { name: 'Home'          , href: '' }
-        , { name: 'Registration'  , href: '' }
-        , { name: 'Program'       , href: '' }
-        , { name: 'Hotel & Travel', href: '' }
-        , { name: 'Speakers'      , href: '' }
+          new Page({ name: 'Home'          , url: '' })
+        , new Page({ name: 'Registration'  , url: '' })
+        , new Page({ name: 'Program'       , url: '' })
+        , new Page({ name: 'Hotel & Travel', url: '' })
+        , new Page({ name: 'Speakers'      , url: '' })
         ]
-      +sitemenulist({pages: pages, class_obj: Conf.MENU_CLASS.standard, depth: 0})
+      +sitemenulist({pages: pages, class_obj: Site.MENU_CLASS.standard, depth: 0})
       ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
         li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._hover menu item hover
         li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._active menu item active
@@ -121,15 +117,14 @@ block append main
   section.sg-sect#sub-menu
     h2 The Sub Menu
     figure.docs-figure
-      include /sites/all/includes/_data.jade
       -
         var pages = [
-          { name: 'Why Attend'                  , href: '' }
-        , { name: 'Registration Submenu Item 2' , href: '' }
-        , { name: 'Registration Submenu Item 3' , href: '' }
+          new Page({ name: 'Why Attend'     , url: '' })
+        , new Page({ name: 'Short Courses'  , url: '' })
+        , new Page({ name: 'Technical Tours', url: '' })
         ]
       div(style="height: 100px;")
-        +sitemenulist({pages: pages, class_obj: Conf.MENU_CLASS.standard.sub, depth: 0})
+        +sitemenulist({pages: pages, class_obj: Site.MENU_CLASS.standard.sub, depth: 0})
       div(style="height: 100px;"): ul.o-ListBare.c-MenuSub
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._hover menu item hover
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._active menu item active
@@ -144,41 +139,28 @@ block append main
   section.sg-sect#sitemap-component
     h2 The Sitemap Component
     figure.docs-figure
-      include /sites/all/includes/_data.jade
       -
         var pages = [
-            {
-              name: 'Home', href: 'home.html'
-            }
-          , {
-              name: 'Registration', href: 'registration.html'
-            , sub: [
-                { name: 'Why Attend'     , href: '' }
-              ]
-            }
-          , {
-              name: 'Program', href: 'program.html'
-            , sub: [
-                { name: 'Events', href: '' }
-              , { name: 'Short Courses'  , href: '' }
-              , { name: 'Technical Tours', href: '' }
-              , { name: 'Optional Tours' , href: '' }
-              ]
-            }
-          , {
-              name: 'Hotel & Travel', href: 'location.html'
-            , sub: [
-                { name: 'International Travel', href: '' }
-              ]
-            }
-          , {
-              name: 'Speakers', href: 'speakers.html'
-            , sub: [
-                { name: 'Distinguished Lecture Series', href: '' }
-              ]
-            }
+            new Page({
+              name: 'Home', url: 'home.html'
+            })
+          , new Page({
+              name: 'Registration', url: 'registration.html'
+            }).addSubpage(new Page({ name: 'Why Attend'     , url: '' }))
+          , new Page({
+              name: 'Program', url: 'program.html'
+            }).addSubpage(new Page({ name: 'Events'         , url: '' }))
+              .addSubpage(new Page({ name: 'Short Courses'  , url: '' }))
+              .addSubpage(new Page({ name: 'Technical Tours', url: '' }))
+              .addSubpage(new Page({ name: 'Optional Tours' , url: '' }))
+          , new Page({
+              name: 'Hotel & Travel', url: 'location.html'
+            }).addSubpage(new Page({ name: 'International Travel', url: '' }))
+          , new Page({
+              name: 'Speakers', url: 'speakers.html'
+            }).addSubpage(new Page({ name: 'Distinguished Lecture Series', url: '' }))
           ]
-      +sitemenulist({pages: pages, class_obj: Conf.MENU_CLASS.sitemap, depth: Infinity})
+      +sitemenulist({pages: pages, class_obj: Site.MENU_CLASS.sitemap, depth: Infinity})
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-Sitemap]"&gt;
           &lt;li class="#[u c-Sitemap__Item]"&gt;
@@ -237,8 +219,6 @@ block append main
           , addressRegion_title : 'Colorado'
           }
         }
-      //- div.c-Hero
-        +hero-content(demoevent)
       div.c-Hero
         h1.c-PageTitle.c-Hero__Name(itemprop="name") Geo-Risk 2017
         meta(content="http://2017.georiskconference.org/" itemprop="url")
@@ -290,11 +270,6 @@ block append main
           , addressRegion_title : 'Illinois'
           }
         }
-      //- div.c-OtherYear
-        +otheryear-content(demoevent)
-          p.c-OtherYear__Desc.
-            Access the 2016 program to see which sessions qualify for
-            PDHs and other documentation.
       div.c-OtherYear
         h1.c-OtherYear__Name(itemprop="name") Geo-Chicago 2016
         meta(content="2016-08-14" itemprop="startDate")
@@ -560,11 +535,11 @@ block append main
       and include similar data.
       Elements with class #[code.docs-code .js-*] are required for Javascript.
     figure.sg-c-Fig
-      - var sampevent = { startDate: '2016-09-28 10:10', endDate: '2016-09-28 19:00', name: 'Registration' }
-      h1.o-GridFlex__Item.c-Program__Hn: label
+      - var sampevent = new ProgramEvent({ startDate: '2016-09-28 10:10', endDate: '2016-09-28 19:00', name: 'Registration' })
+      h1.c-Program__Hn: label
         include /includes/components/_c-Program.jade
-        +programHeading(sampevent)
-      pre.
+        +programHeading('2016-09-28')
+      pre.docs-pre.
         &lt;h1 class="#[u c-Program__Hn]"&gt;
           &lt;label&gt;
             &lt;input class="#[u c-Program__Check]" .../&gt;

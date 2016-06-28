@@ -13,10 +13,10 @@ function resizeProgram() {
     return parseInt($(this).parents('.c-Program').css('padding-bottom'))
   })
   if ($(window).width() < 480) { // @media screen and (min-width: 30em)
-    $('.c-Program__Hn').css('width','')
+    $('.c-Program .c-Program__Hn').css('width','')
     setProgramHeight($('.c-Program__Hn').length)
   } else {
-    $('.c-Program__Hn').width(function () {
+    $('.c-Program .c-Program__Hn').width(function () {
     // $('.c-Program__Hn').css('flex-basis', function () {
       return (100/($(this).siblings('.c-Program__Hn').length+1)) + '%'
     })
@@ -39,8 +39,8 @@ function updateProgram() {
 $(window).resize(resizeProgram)
 $('.js-o-Block-sK').addClass('o-Block-sK')
   .parentsUntil('.c-Program__Hn').addClass('o-Block-sK')
-$('.c-Program__Hn').addClass('-z-1') // over .c-Program__Schedule
-$('.c-Program__Schedule').addClass('-xo-1') // fallback `order: 1;`
+$('.c-Program .c-Program__Hn').addClass('-z-1') // over .c-Program__Schedule
+$('.c-Program .c-Program__Schedule').addClass('-xo-1') // fallback `order: 1;`
   .css('position','absolute').css('left', 0)
-$('.c-Program__Check:checked').each(updateProgram)
-$('.c-Program__Check').change(updateProgram)
+$('.c-Program .c-Program__Check:checked').each(updateProgram)
+$('.c-Program .c-Program__Check').change(updateProgram)

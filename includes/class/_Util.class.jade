@@ -105,6 +105,9 @@
       var minute = ((date.getMinutes() < 10) ? '0' : '') + date.getMinutes()
       return hour + ':' + minute
     }
+    Util.monthDay = function monthDay(date) {
+      return Util.MONTH_NAMES[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
+    }
     Util.toURL = function toURL(string) {
       return encodeURIComponent(string.toLowerCase().replace(/[\W]+/g, '-'))
     }

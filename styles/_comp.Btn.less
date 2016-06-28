@@ -141,13 +141,6 @@
   background-color: @g-color_site_secondary;
 }
 
-.c-Btn--ghost,
-.c-Btn--flat {
-  .menubar();
-  font-size: (14em/16); // same as Mast
-  letter-spacing: 1px;
-}
-
 .c-Btn--ghost {
   color: inherit;
   border: 2px solid currentColor;
@@ -175,6 +168,9 @@
 }
 
 .c-Btn--flat {
+  .menubar();
+  font-size: (14em/16); // same as Mast
+  letter-spacing: 1px;
   &,
   &:hover,
   &:focus,

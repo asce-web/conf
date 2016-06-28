@@ -25,12 +25,15 @@
 }
 
 .c-SponsorCarousel__Item {
+  padding: 0 0.5rem;
+  @media screen and (min-width: 45em) {
+    padding: 0 1rem;
+  }
 }
 
 .c-SponsorCarousel__Logo {
   width: auto;
-  height: (4*@g-vru);
-  margin: auto;
+  height: (6*@g-vru);
   text-indent: -999999px;
   background-position: center;
   background-size: contain;
@@ -41,3 +44,6 @@
   font-weight: 800;
   color: @g-color_site_gray_lt;
 }
+
+
+.slick-arrow::before { color: @g-color_asce_black; }

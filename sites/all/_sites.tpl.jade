@@ -27,6 +27,8 @@ html(lang="en")
       link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic")
       link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,400italic,700")
       link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+      link(rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
+      link(rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css")
       link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v4.3.0/xmeter.css")
       link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.8.0/bangs.min.css")
       link(rel="stylesheet" href="/styles/conf.css")
@@ -141,6 +143,7 @@ html(lang="en")
           &copy; #[time 1996]&ndash;#[time 2016] American Society of Civil Engineers
     block scripts
       script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
+      script(src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
       script.
         var button_open = $('<button>').addClass('c-Btn c-Btn--drawer c-Btn--flat js-menubutton')
           .attr('type','button')
@@ -160,6 +163,18 @@ html(lang="en")
           })
         $('.o-SiteHead').append(button_open)
         $('.o-SiteHead__Nav').append(button_close)
+      script.
+        $('.c-SponsorCarousel').slick({
+          slidesToShow: 3
+        , slidesToScroll: 1
+        , mobileFirst: true
+        , arrows: true
+        , dots: true
+        , autoplay: true
+        , autoplaySpeed: 1000
+        , draggable: true
+        , swipeToSlide: true
+        })
       script(src="/scripts/c-Program.js")
       //- script.
         $('.c-Speaker__Body').addClass('-h-z')

@@ -379,45 +379,6 @@ block append main
           ...
         &lt;/section&gt;
         ...
-    //- h3 All Site Pages
-    //- p.
-      On every page other than the Sponsor page, the Sponsor Block should be used
-      for the entire list of sponsors (in order by rank) displayed in a rotating
-      carousel. This block has no heading, and as such, is not a #[code.docs-code section].
-      Instead, it&rsquo;s a #[code.docs-code div] containing a back button,
-      followed by an #[em ordered] list of sponsor logo items, followed by
-      a forward button. The list should be ordered because the sponsors are
-      displayed by rank (highest ranking sponsors first).
-    //- figure.docs-figure
-      div.o-GridFlex.c-SponsorBlock
-        button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--back #[i.material-icons chevron_left] #[span.-d-n &laquo;]
-        ol.o-GridFlex__Item.o-ListBare.o-GridFlex.c-SponsorBlock__Carousel
-          li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
-            small.c-SponsorBlock__Label Platinum
-          li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
-            small.c-SponsorBlock__Label Platinum
-          li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
-            small.c-SponsorBlock__Label Silver
-        button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--fwrd #[i.material-icons chevron_right] #[span.-d-n &raquo;]
-      pre.docs-pre.
-        &lt;div class="o-GridFlex  #[u c-SponsorBlock]"&gt;
-          &lt;button class="o-GridFlex__Item  c-Btn  c-Btn--inline  c-Btn--flat  #[u c-SponsorBlock__Btn]  #[u c-SponsorBlock__Btn--back]"&gt;
-            &lt;i class="material-icons"&gt;chevron_left&lt;/i&gt;
-          &lt;/button&gt;
-          &lt;ol class="o-GridFlex__Item  o-ListBare  o-GridFlex  #[u c-SponsorBlock__Carousel]"&gt;
-            &lt;li class="o-GridFlex__Item"  #[u c-SponsorBlock__Carousel__Item]&gt;
-              &lt;a class="o-Block  #[u c-SponsorBlock__Logo]  #[u c-SponsorBlock__Logo--lrg]"&gt;Bank of America&lt;/a&gt;
-              &lt;small class="#[u c-SponsorBlock__Label]"&gt;Platinum&lt;/small&gt;
-            &lt;/li&gt;
-            ...
-          &lt;/ol&gt;
-          &lt;button class="o-GridFlex__Item  c-Btn  c-Btn--inline  c-Btn--flat  #[u c-SponsorBlock__Btn]  #[u c-SponsorBlock__Btn--fwrd]"&gt;
-            &lt;i class="material-icons"&gt;chevron_right&lt;/i&gt;
-          &lt;/button&gt;
-        &lt;/div&gt;
   section.sg-sect#sponsor-carousel
     h2 The Sponsor Carousel
     p.
@@ -428,6 +389,7 @@ block append main
       It takes the form of an #[em ordered] list of sponsor logo items.
       The list should be ordered because the sponsors are
       displayed by rank (highest ranking sponsors first).
+    p Enable Javascript to experience visual effects.
     figure.docs-figure
       ol.o-ListBare.c-SponsorCarousel
         li.c-SponsorCarousel__Item
@@ -439,6 +401,9 @@ block append main
         li.c-SponsorCarousel__Item
           a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
           small.c-SponsorCarousel__Label Silver
+        li.c-SponsorCarousel__Item
+          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/pearl-insurance-logo.jpg');") Pearl Insurance
+          small.c-SponsorCarousel__Label Bronze
       pre.docs-pre.
         &lt;ol class="o-ListBare  #[u c-SponsorCarousel]"&gt;
           &lt;li class="#[u c-SponsorCarousel__Item]"&gt;
@@ -539,8 +504,7 @@ block append main
         &lt;/article&gt;
   section.sg-sect#program-component
     h2 The Program Component
-    p.
-      Enable Javascript to experience visual effects.
+    p Enable Javascript to experience visual effects.
     figure.docs-figure
       include /includes/components/_c-Program.jade
       +program(3, {id:'demoprog'})

@@ -1,0 +1,60 @@
+
+/*################################*\
+    conf  |  _c-SocialList.less
+\*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+@import (reference) url('__settings.less');
+
+
+// List of social media icons
+//
+// ^subcomponents
+// __Item - each item in the list
+// __Link - each link inside an __Item in the menu
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-04-23
+.c-SocialList {
+  .flex-justify-content(space-between);
+  width: 50%;
+  margin-left: auto; margin-right: auto;
+  text-align: center;
+}
+.c-SocialList__Item {
+  width: auto;
+}
+.c-SocialList__Link {
+  @width: (100vw/10);
+  width:  @width;
+  height: @width;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: @g-color_site_gray_dk;
+  &:hover,
+  &:active,
+  &._hover,
+  &._active {
+    background-color: @g-color_site_secondary;
+  }
+  footer & {
+    @width: (100vw/15);
+    width:  @width;
+    height: @width;
+    background-color: @g-color_asce_white;
+  }
+}
+
+// these subclasses will use negative images
+// (white icons inside transparent circles)
+// then change the background-color on hover
+.c-SocialList__Link--twitter {
+  background-image: url('../img/twitter.png');
+}
+.c-SocialList__Link--google {
+  background-image: url('../img/google.png');
+}
+.c-SocialList__Link--facebook {
+  background-image: url('../img/facebook.png');
+}

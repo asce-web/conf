@@ -1,0 +1,71 @@
+
+/*################################*\
+    conf  |  _c-Program.less
+\*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+
+
+// A block containing the entire program.
+//
+// ^subcomponents
+// __Hn       - heading for a date
+// __Schedule - schedule for a date
+// __Check    - a radio button selecting the desired date to view
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-05-05
+@p-transdura: 500ms;
+.c-Program {
+  position: relative;
+  .flex-justify-content(center);
+  .flex-align-content(flex-start); // push flex items to top
+  .flex-align-items(flex-start); // minimize height of flex items
+  .font-size-mod(14/16); // NOTE this value is used in `TimeBlock.less`
+  overflow: hidden;
+  .transition-multi(height @p-transdura);
+  h1 {
+    font-family: inherit;
+    color: inherit;
+  }
+}
+
+.c-Program__Hn,
+.c-Program__Schedule {
+  .transitions(@g-prefix_transform; @p-transdura);
+}
+.c-Program__Hn {
+  .font-size-el(1);
+  cursor: pointer;
+  &:not(.c-Program__Hn--selected) {
+    color: @g-color_site_gray_lt;
+  }
+  @media screen and (min-width: 45em) {
+    .font-size-el(1.25);
+  }
+  label {
+    cursor: inherit; // override browser default `default`
+  }
+}
+.c-Program__Hn--selected {
+  .transform(scale(1.2));
+}
+
+.c-Program__Schedule {
+}
+.c-Program__Schedule--hiddenBefore {
+  .transform(translateX(-100%) scale(0));
+}
+.c-Program__Schedule--hiddenAfter {
+  .transform(translateX(100%) scale(0));
+}
+.c-Program__Schedule--shown {
+}
+
+.c-Program__Check {
+  position: absolute;
+  opacity: 0;
+}

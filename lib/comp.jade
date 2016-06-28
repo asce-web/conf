@@ -379,8 +379,8 @@ block append main
           ...
         &lt;/section&gt;
         ...
-    h3 All Site Pages
-    p.
+    //- h3 All Site Pages
+    //- p.
       On every page other than the Sponsor page, the Sponsor Block should be used
       for the entire list of sponsors (in order by rank) displayed in a rotating
       carousel. This block has no heading, and as such, is not a #[code.docs-code section].
@@ -388,7 +388,7 @@ block append main
       followed by an #[em ordered] list of sponsor logo items, followed by
       a forward button. The list should be ordered because the sponsors are
       displayed by rank (highest ranking sponsors first).
-    figure.docs-figure
+    //- figure.docs-figure
       div.o-GridFlex.c-SponsorBlock
         button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--back #[i.material-icons chevron_left] #[span.-d-n &laquo;]
         ol.o-GridFlex__Item.o-ListBare.o-GridFlex.c-SponsorBlock__Carousel
@@ -418,6 +418,35 @@ block append main
             &lt;i class="material-icons"&gt;chevron_right&lt;/i&gt;
           &lt;/button&gt;
         &lt;/div&gt;
+  section.sg-sect#sponsor-carousel
+    h2 The Sponsor Carousel
+    p.
+      The Sponsor Carousel holds the list of all sponsors.
+      It appears on every page except the Sponsor page.
+    p.
+      The entire list of sponsors (in order by rank) is displayed in a rotating carousel.
+      It takes the form of an #[em ordered] list of sponsor logo items.
+      The list should be ordered because the sponsors are
+      displayed by rank (highest ranking sponsors first).
+    figure.docs-figure
+      ol.o-ListBare.c-SponsorCarousel
+        li.c-SponsorCarousel__Item
+          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
+          small.c-SponsorCarousel__Label Platinum
+        li.c-SponsorCarousel__Item
+          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
+          small.c-SponsorCarousel__Label Platinum
+        li.c-SponsorCarousel__Item
+          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
+          small.c-SponsorCarousel__Label Silver
+      pre.docs-pre.
+        &lt;ol class="o-ListBare  #[u c-SponsorCarousel]"&gt;
+          &lt;li class="#[u c-SponsorCarousel__Item]"&gt;
+            &lt;a class="o-Block  #[u c-SponsorCarousel__Logo]"&gt;Bank of America&lt;/a&gt;
+            &lt;small class="#[u c-SponsorCarousel__Label]"&gt;Platinum&lt;/small&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ol&gt;
   section.sg-sect#date-block
     h2 The Date Block
     figure.docs-figure

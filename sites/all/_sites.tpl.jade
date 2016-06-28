@@ -84,18 +84,24 @@ html(lang="en")
             block mainRich
           block callouts
           block sponsors
-            if site.supporters.length
-              aside.o-Runner.o-Runner--highlight: div.o-ContentWrapper
-                h1#sponsors Sponsors
-                div.o-GridFlex.c-SponsorBlock
-                  button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--back #[i.material-icons chevron_left]
-                  ol.o-GridFlex__Item.o-ListBare.o-GridFlex.c-SponsorBlock__Carousel
-                    each item in site.getSupportersAll().slice(0,3)
-                      li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
-                        a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.getURL() style='background-image: url(\'' + item.getImg() + '\');')= item.name
-                        small.c-SponsorBlock__Label= item.getLevel().name
-                  button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--fwrd #[i.material-icons chevron_right]
-                +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
+            +callout()
+              div.o-GridFlex.c-SponsorBlock
+                button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--back #[i.material-icons chevron_left]
+                ol.o-GridFlex__Item.o-ListBare.o-GridFlex.c-SponsorBlock__Carousel
+                  each item in site.getSupportersAll().slice(0,3)
+                    li.o-GridFlex__Item.c-SponsorBlock__Carousel__Item
+                      a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href=item.getURL() style='background-image: url(\'' + item.getImg() + '\');')= item.name
+                      small.c-SponsorBlock__Label= item.getLevel().name
+                button.o-GridFlex__Item.c-Btn.c-Btn--inline.c-Btn--flat.c-SponsorBlock__Btn.c-SponsorBlock__Btn--fwrd #[i.material-icons chevron_right]
+              +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
+            +callout()
+              h1#sponsors Sponsors
+              ol.o-ListBare.c-SponsorCarousel
+                each item in site.getSupportersAll()
+                  li.c-SponsorCarousel__Item
+                    a.o-Block.c-SponsorCarousel__Logo(href=item.getURL() style='background-image: url(\'' + item.getImg() + '\');')= item.name
+                    small.c-SponsorBlock__Label= item.getLevel().name
+              +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
     footer.o-Runner.c-Mast(class=(pagetype==='main') ? 'c-Mast--internal' : ''): nav.o-ContentWrapper
       h1.-d-n#site-map Site Map
       +sitemenulist({pages: site.pages[pagetype], class_obj: Site.MENU_CLASS.sitemap, depth:Infinity})

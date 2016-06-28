@@ -66,7 +66,7 @@ html(lang="en")
         h1.-d-n#top-menu Top Menu
         include /includes/components/_c-MenuUniversal.jade
         +menuUniversal(site.pages.top.slice(1), site.pages.main.slice(0,1), site.getCurrentConference().name)
-        //- button.c-Btn.c-Btn--dominant.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close top menu"): i.material-icons close
+        //- button.c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close top menu"): i.material-icons close
       //- button.c-Btn.c-Btn--flat.c-Btn--drawer.js-menubutton(type="button" name="open" title="open top menu"): i.material-icons menu
     if pagetype === 'main'
       header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
@@ -136,7 +136,7 @@ html(lang="en")
     block scripts
       script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
       script.
-        var button_open = $('<button>').addClass('c-Btn c-Btn--flat c-Btn--drawer js-menubutton')
+        var button_open = $('<button>').addClass('c-Btn c-Btn--drawer c-Btn--flat js-menubutton')
           .attr('type','button')
           .attr('name','open')
           .attr('title','open top menu')
@@ -144,7 +144,7 @@ html(lang="en")
           .click(function () {
             $('.o-SiteHead__Nav').removeClass('js-universalnav')
           })
-        var button_close = $('<button>').addClass('c-Btn c-Btn--dominant c-Btn--drawer c-Btn--drawer--close js-menubutton')
+        var button_close = $('<button>').addClass('c-Btn c-Btn--drawer c-Btn--drawer--close c-Btn--ghost c-Btn--ghost--dark js-menubutton')
           .attr('type','button')
           .attr('name','close')
           .attr('title','close top menu')

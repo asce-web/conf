@@ -17,13 +17,15 @@
 // Buttons.
 //
 // ^subclasses
-// --hilite   - singular button in highlight block
-// --inline   - buttons inline with text
-// --hero     - for action button(s) in hero section
-// --dominant - button for some other primary use
-// --ghost    - ghost button (border and text only)
-// --flat     - button element to look like a regular link
-// --drawer   - structural styles for menu buttons in site masthead
+// --dark        - normal button but dark
+// --primary     - site primary color
+// --primary     - site secondary color
+// --ghost       - ghost button (border and text only)
+//   --ghost--dark - like ghost but dark
+// --flat        - button element to look like a regular link
+// --hilite      - singular button in highlight block
+// --inline      - buttons in line with text
+// --drawer      - structural styles for menu buttons in site masthead
 // ^enhancement classes
 // : subclasses used only in the styleguide (not on the conference sites)
 // : ._hover  - indicates hover/focus state
@@ -31,7 +33,7 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-05-13
+// 2016-06-27
 .c-Btn {
   // all button styles
   display: inline-block;
@@ -41,7 +43,7 @@
   font-weight: 700;
   border-radius: 0.25rem;
   cursor: pointer;
-  .transition-duration(250ms);
+  .transitions(color, background-color, border-color, filter; 250ms);
   a&:not([href]),
   button&:disabled {
     opacity: 0.75; // override xmeter
@@ -139,42 +141,36 @@
   background-color: @g-color_site_secondary;
 }
 
-.c-Btn--ghost,
-.c-Btn--ghostDark,
-.c-Btn--flat {
-  .menubar();
-  font-size: (14em/16); // same as Mast
-  letter-spacing: 1px;
-}
-
-.c-Btn--ghost,
-.c-Btn--ghostDark {
-  border: 2px solid;
+.c-Btn--ghost {
+  color: inherit;
+  border: 2px solid currentColor;
   background-color: transparent;
-}
-
-.l-ghost(@color; @hovercolor; @hoverbgcolor) {
-  color: @color;
-  border-color: @color;
   &:hover,
   &:focus,
   &:active,
   &._hover,
   &._active {
-    color: @hovercolor;
-    background-color: @hoverbgcolor;
+    color: @g-color_asce_white;
+    background-color: @g-color_site_gray_dk;
+    border-color: transparent;
   }
 }
 
-.c-Btn--ghost {
-  .l-ghost(@g-color_site_gray_dk; @g-color_asce_white; @g-color_site_gray_dk);
-}
-
-.c-Btn--ghostDark {
-  .l-ghost(@g-color_asce_white; @g-color_site_gray_dk; @g-color_asce_white);
+.c-Btn--ghost--dark {
+  &:hover,
+  &:focus,
+  &:active,
+  &._hover,
+  &._active {
+    color: @g-color_site_gray_dk;
+    background-color: @g-color_asce_white;
+  }
 }
 
 .c-Btn--flat {
+  .menubar();
+  font-size: (14em/16); // same as Mast
+  letter-spacing: 1px;
   &,
   &:hover,
   &:focus,
@@ -202,6 +198,7 @@
 //++++++++++++++++++++++++++++++++//
 .c-Btn--hilite {
   padding: @g-boxpadd_mill_v @g-boxpadd_kilo_h;
+  border-radius: 0.5rem;
   font-size: 1.5em;
 }
 

@@ -47,12 +47,12 @@ block append main
     h2 The Site Title
     p Use with #[a(href="#text-level-components") the Camo Link].
     figure.docs-figure
-      a.o-Block.o-GridFloat.c-SiteTitle.c-Camo(href="" style="margin-bottom: 1.5rem;")
+      a.o-GridFloat.c-SiteTitle.c-Camo.h-Block(href="" style="margin-bottom: 1.5rem;")
         span.o-GridFloat__Item.c-SiteTitle__Logo
         h1.o-GridFloat__Item.c-SiteTitle__Name ASCE Convention
         p.o-GridFloat__Item.c-SiteTitle__Tagline The Flagship Event of ASCE
       pre.docs-pre.
-        &lt;a class="o-Block  o-GridFloat  #[u c-SiteTitle]  c-Camo"&gt;
+        &lt;a class="o-GridFloat  #[u c-SiteTitle]  c-Camo  h-Block"&gt;
           &lt;span class="o-GridFloat__Item  #[u c-SiteTitle__Logo]"&gt;&lt;/span&gt;
           &lt;h1 class="o-GridFloat__Item  #[u c-SiteTitle__Name]"&gt;ASCE Convention&lt;/h1&gt;
           &lt;p class="o-GridFloat__Item  #[u c-SiteTitle__Tagline]"&gt;The Flagship Event of ASCE&lt;/p&gt;
@@ -76,19 +76,19 @@ block append main
         include /includes/components/_c-MenuUniversal.jade
         +menuUniversal(pages1, pages2, 'ASCE 2016')
       ul.o-ListBare.o-GridFlex.c-MenuUniversal(style="margin-bottom: 1.5rem;")
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="")._hover menu item hover
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="")._active menu item active
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link menu item disabled
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="")._hover current year hover
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="")._active current year active
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.c-MenuUniversal__Link.h-Block(href="")._hover menu item hover
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.c-MenuUniversal__Link.h-Block(href="")._active menu item active
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.c-MenuUniversal__Link.h-Block menu item disabled
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.c-MenuUniversal__Link.h-Block.c-MenuUniversal__Link--current(href="")._hover current year hover
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.c-MenuUniversal__Link.h-Block.c-MenuUniversal__Link--current(href="")._active current year active
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuUniversal]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuUniversal__Item]"&gt;
-            &lt;a class="o-Block  #[u c-MenuUniversal__Link]"&gt;About&lt;/a&gt;
+            &lt;a class="#[u c-MenuUniversal__Link]  h-Block"&gt;About&lt;/a&gt;
           &lt;/li&gt;
           ...
           &lt;li class="o-GridFlex__Item  #[u c-MenuUniversal__Item]"&gt;
-            &lt;a class="o-Block  #[u c-MenuUniversal__Link]  #[u c-MenuUniversal__Link--current]"&gt;ASCE 2016&lt;/a&gt;
+            &lt;a class="#[u c-MenuUniversal__Link]  #[u c-MenuUniversal__Link--current]  h-Block"&gt;ASCE 2016&lt;/a&gt;
           &lt;/li&gt;
         &lt;/ul&gt;
   section.sg-sect#standard-menu
@@ -104,13 +104,13 @@ block append main
         ]
       +sitemenulist({pages: pages, class_obj: Site.MENU_CLASS.standard, depth: 0})
       ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
-        li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._hover menu item hover
-        li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._active menu item active
-        li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link menu item disabled
+        li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.c-MenuStandard__Link.h-Block(href="")._hover menu item hover
+        li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.c-MenuStandard__Link.h-Block(href="")._active menu item active
+        li.o-GridFlex__Item.c-MenuStandard__Item: a.c-MenuStandard__Link.h-Block menu item disabled
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuStandard]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuStandard__Item]"&gt;
-            &lt;a class="o-Block  #[u c-MenuStandard__Link]"&gt;Home&lt;/a&gt;
+            &lt;a class="#[u c-MenuStandard__Link]  h-Block"&gt;Home&lt;/a&gt;
           &lt;/li&gt;
           ...
         &lt;/ul&gt;
@@ -126,13 +126,13 @@ block append main
       div(style="height: 100px;")
         +sitemenulist({pages: pages, class_obj: Site.MENU_CLASS.standard.sub, depth: 0})
       div(style="height: 100px;"): ul.o-ListBare.c-MenuSub
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._hover menu item hover
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._active menu item active
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link menu item disabled
+        li.c-MenuSub__Item: a.c-MenuSub__Link.h-Block(href="")._hover menu item hover
+        li.c-MenuSub__Item: a.c-MenuSub__Link.h-Block(href="")._active menu item active
+        li.c-MenuSub__Item: a.c-MenuSub__Link.h-Block menu item disabled
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuSub]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuSub__Item]"&gt;
-            &lt;a class="o-Block  #[u c-MenuSub__Link]"&gt;Why Attend&lt;/a&gt;
+            &lt;a class="#[u c-MenuSub__Link]  h-Block"&gt;Why Attend&lt;/a&gt;
           &lt;/li&gt;
           ...
         &lt;/ul&gt;
@@ -340,35 +340,35 @@ block append main
         h1.c-SponsorBlock__Hn Titanium Sponsors
         ul.o-ListBare.o-GridFlex.o-ListStacked
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
+            a.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg.h-Block(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
+            a.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg.h-Block(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
+            a.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg.h-Block(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
       section.c-SponsorBlock.c-SponsorBlock--separate
         h1.c-SponsorBlock__Hn Platinum Sponsors
         ul.o-ListBare.o-GridFlex.o-ListStacked
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
+            a.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med.h-Block(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
+            a.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med.h-Block(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
+            a.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med.h-Block(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
       section.c-SponsorBlock
         h1.c-SponsorBlock__Hn Gold Sponsors
         ul.o-ListBare.o-GridFlex.o-ListStacked
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
+            a.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml.h-Block(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
+            a.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml.h-Block(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
+            a.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml.h-Block(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
       pre.docs-pre.
         &lt;section class="#[u c-SponsorBlock]  #[u c-SponsorBlock--separate]"&gt;
           &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Titanium Sponsors&lt;/h1&gt;
           &lt;ul class="o-ListBare  o-GridFlex  o-ListStacked"&gt;
             &lt;li class="o-GridFlex__Item  o-ListStacked__Item"&gt;
-              &lt;a class="o-Block  #[u c-SponsorBlock__Logo]  #[u c-SponsorBlock__Logo--lrg]"&gt;Bank of America&lt;/a&gt;
+              &lt;a class="#[u c-SponsorBlock__Logo]  #[u c-SponsorBlock__Logo--lrg]  h-Block"&gt;Bank of America&lt;/a&gt;
             &lt;/li&gt;
             ...
           &lt;/ul&gt;
@@ -393,21 +393,21 @@ block append main
     figure.docs-figure
       ol.o-ListBare.c-SponsorCarousel
         li.c-SponsorCarousel__Item
-          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
+          a.c-SponsorCarousel__Logo.h-Block(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
           small.c-SponsorCarousel__Label Platinum
         li.c-SponsorCarousel__Item
-          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
+          a.c-SponsorCarousel__Logo.h-Block(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
           small.c-SponsorCarousel__Label Platinum
         li.c-SponsorCarousel__Item
-          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
+          a.c-SponsorCarousel__Logo.h-Block(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
           small.c-SponsorCarousel__Label Silver
         li.c-SponsorCarousel__Item
-          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/pearl-insurance-logo.jpg');") Pearl Insurance
+          a.c-SponsorCarousel__Logo.h-Block(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/pearl-insurance-logo.jpg');") Pearl Insurance
           small.c-SponsorCarousel__Label Bronze
       pre.docs-pre.
         &lt;ol class="o-ListBare  #[u c-SponsorCarousel]"&gt;
           &lt;li class="#[u c-SponsorCarousel__Item]"&gt;
-            &lt;a class="o-Block  #[u c-SponsorCarousel__Logo]"&gt;Bank of America&lt;/a&gt;
+            &lt;a class="#[u c-SponsorCarousel__Logo]  h-Block"&gt;Bank of America&lt;/a&gt;
             &lt;small class="#[u c-SponsorCarousel__Label]"&gt;Platinum&lt;/small&gt;
           &lt;/li&gt;
           ...
@@ -423,7 +423,7 @@ block append main
         dt.c-DateBlock__Date
           time(datetime="2015-12-17") Dec 17, 2015
         dd.c-DateBlock__Desc
-          a.o-Block.c-DateBlock__Link(href="")
+          a.c-DateBlock__Link.h-Block(href="")
             | Early-Bird Registration Closes
             i.material-icons arrow_forward
       pre.docs-pre.
@@ -537,8 +537,8 @@ block append main
           &lt;label&gt;
             &lt;input class="#[u c-Program__Check]" .../&gt;
             &lt;time datetime="2016-09-28"&gt;
-              &lt;span class="#[u js-o-Block-sK]"&gt;Wednesday, &lt;/span&gt;
-              &lt;span class="#[u js-o-Block-sK]"&gt;Sep 28&lt;/span&gt;
+              &lt;span class="#[u js-h-Block-sK]"&gt;Wednesday, &lt;/span&gt;
+              &lt;span class="#[u js-h-Block-sK]"&gt;Sep 28&lt;/span&gt;
             &lt;/time&gt;
           &lt;/label&gt;
         &lt;/h1&gt;
@@ -551,7 +551,7 @@ block append main
           | &ndash;
           time= Util.hourTime12(new Date(new Date().setHours(17, 0)))
         dd.o-GridFlex__Item.c-TimeBlock__Desc
-          a.o-Block.c-TimeBlock__Link(href="")
+          a.c-TimeBlock__Link.h-Block(href="")
             | Technical Tours
             i.material-icons arrow_forward
         dt.o-GridFlex__Item.c-TimeBlock__Times
@@ -565,7 +565,7 @@ block append main
             &lt;time&gt;10:30am&lt;/time&gt;&ndash;&lt;time&gt;5pm&lt;/time&gt;
           &lt;/dt&gt;
           &lt;dd class="o-GridFlex__Item  #[u c-TimeBlock__Desc]"&gt;
-            &lt;a class="o-Block  #[u c-TimeBlock__Link]"&gt;Technical Tours&lt;/a&gt;
+            &lt;a class="#[u c-TimeBlock__Link]  h-Block"&gt;Technical Tours&lt;/a&gt;
           &lt;/dd&gt;
           &lt;dt class="o-GridFlex__Item  #[u c-TimeBlock__Times]"&gt;...&lt;/dt&gt;
           &lt;dd class="o-GridFlex__Item  #[u c-TimeBlock__Desc]"&gt;...&lt;/dd&gt;
@@ -614,42 +614,42 @@ block append main
     figure.docs-figure
       ul.o-ListBare.o-GridFlex.c-SocialList
         li.o-GridFlex__Item.c-SocialList__Item
-          a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")
+          a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="" title="Follow #ASCE2016 on Twitter")
         li.o-GridFlex__Item.c-SocialList__Item
-          a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" title="Follow #ASCE2016 on Google+")
+          a.c-SocialList__Link.c-SocialList__Link--google.h-Block(href="" title="Follow #ASCE2016 on Google+")
         li.o-GridFlex__Item.c-SocialList__Item
-          a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" title="Follow #ASCE2016 on Facebook")
+          a.c-SocialList__Link.c-SocialList__Link--facebook.h-Block(href="" title="Follow #ASCE2016 on Facebook")
       ul.o-ListBare.o-GridFlex.c-SocialList
         li.o-GridFlex__Item.c-SocialList__Item
           span menu item hover:
-          a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")._hover
+          a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="" title="Follow #ASCE2016 on Twitter")._hover
         li.o-GridFlex__Item.c-SocialList__Item
           span menu item active:
-          a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")._active
+          a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="" title="Follow #ASCE2016 on Twitter")._active
       footer
         p This is a #[code.docs-code footer] element.
         ul.o-ListBare.o-GridFlex.c-SocialList
           li.o-GridFlex__Item.c-SocialList__Item
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" itemprop="sameAs" title="Follow ASCE on Twitter")
+            a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="" itemprop="sameAs" title="Follow ASCE on Twitter")
           li.o-GridFlex__Item.c-SocialList__Item
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="" itemprop="sameAs" title="Follow ASCE on Google+")
+            a.c-SocialList__Link.c-SocialList__Link--google.h-Block(href="" itemprop="sameAs" title="Follow ASCE on Google+")
           li.o-GridFlex__Item.c-SocialList__Item
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="" itemprop="sameAs" title="Follow ASCE on Facebook")
+            a.c-SocialList__Link.c-SocialList__Link--facebook.h-Block(href="" itemprop="sameAs" title="Follow ASCE on Facebook")
           li.o-GridFlex__Item.c-SocialList__Item
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--linkedin(href="" itemprop="sameAs" title="Follow ASCE on LinkedIn")
+            a.c-SocialList__Link.c-SocialList__Link--linkedin.h-Block(href="" itemprop="sameAs" title="Follow ASCE on LinkedIn")
           li.o-GridFlex__Item.c-SocialList__Item
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--youtube(href="" itemprop="sameAs" title="Follow ASCE on YouTube")
+            a.c-SocialList__Link.c-SocialList__Link--youtube.h-Block(href="" itemprop="sameAs" title="Follow ASCE on YouTube")
         ul.o-ListBare.o-GridFlex.c-SocialList
           li.o-GridFlex__Item.c-SocialList__Item
             span in footer menu item hover:
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")._hover
+            a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="" title="Follow #ASCE2016 on Twitter")._hover
           li.o-GridFlex__Item.c-SocialList__Item
             span in footer menu item active:
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="" title="Follow #ASCE2016 on Twitter")._active
+            a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="" title="Follow #ASCE2016 on Twitter")._active
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-SocialList]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-SocialList__Item]"&gt;
-            &lt;a class="o-Block  #[u c-SocialList__Link]  #[u c-SocialList__Link--twitter]"&gt;&lt;/a&gt;
+            &lt;a class="#[u c-SocialList__Link]  #[u c-SocialList__Link--twitter]  h-Block"&gt;&lt;/a&gt;
           &lt;/li&gt;
           ...
         &lt;/ul&gt;

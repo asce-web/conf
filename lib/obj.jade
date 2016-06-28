@@ -6,15 +6,6 @@ block append vars
 block append main
   div.docs-t-Xmeter
     include /node_modules/xmeter/docs/includes/_content-obj.jade
-  section.sg-sect#block-object
-    h2 The Block Object
-    figure.docs-figure
-      div.
-        A simple block object. Use this class to display an element as a
-        #[span.o-Block block element,]
-        with an inherited line-height to maintain vertical rhythm.
-      pre.docs-pre.
-        ... to display an element as a &lt;span class="#[u o-Block]"&gt;block element,&lt;/span&gt; with ...
   section.sg-sect#inline-object
     h2 The Inline Object
     p.
@@ -75,8 +66,8 @@ block append main
       each item must have the #[code.docs-code .o-GridFlex__Item] class.
       To remove normal list styles (padding, bullets, etc.),
       add class #[code.docs-code .o-ListBare] to the container.
-      If the items are normally inline elements, remember to add class
-      #[code.docs-code .o-Block] to each one.
+      If the items are normally inline elements, remember to add helper
+      #[code.docs-code .h-Block] to each one.
     figure.docs-figure
       ul.o-ListBare.o-GridFlex
         li.o-GridFlex__Item Burns &amp; McDonnell Engineering

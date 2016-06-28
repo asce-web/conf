@@ -11,7 +11,7 @@ mixin timeBlock(events, show_all)
           time(datetime=event0.endDate)= Util.hourTime12(end)
         dd.o-GridFlex__Item.c-TimeBlock__Desc
           if event0.getURL()
-            a.o-Block.c-TimeBlock__Link(href=event0.getURL())
+            a.c-TimeBlock__Link.h-Block(href=event0.getURL())
               span= event0.name
               i.material-icons arrow_forward
           else

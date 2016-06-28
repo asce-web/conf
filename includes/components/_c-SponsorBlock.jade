@@ -4,4 +4,4 @@ mixin sponsorBlock(sponsorlevel, classes)
     ul.o-ListBare.o-GridFlex.o-ListStacked
       each item in site.getSupportersAll().filter(function (item) { return item.getLevel() === sponsorlevel })
         li.o-GridFlex__Item.o-ListStacked__Item
-          a.o-Block.c-SponsorBlock__Logo(class=sponsorlevel.classname href=item.url style='background-image: url(\'' + (item.img || '') + '\');')= item.name
+          a.c-SponsorBlock__Logo.h-Block(class=sponsorlevel.classname href=item.url style='background-image: url(\'' + (item.img || '') + '\');')= item.name

@@ -8,7 +8,7 @@ mixin dateBlock(all_dates)
             = Util.monthDay(date) + ', ' + date.getFullYear()
         dd.c-DateBlock__Desc
           if action.getURL()
-            a.o-Block.c-DateBlock__Link(href=action.getURL())
+            a.c-DateBlock__Link.h-Block(href=action.getURL())
               span= action.name
               i.material-icons arrow_forward
           else

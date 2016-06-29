@@ -28,23 +28,6 @@
   @media screen and (max-width: (@g-bp_menu_standard_normaltext - 1)) {
     .flex-justify-content(space-around);
   }
-  .material-icons {
-    display: block;
-    @media screen and (min-width: @g-bp_menu_standard_normaltext) {
-      display: none;
-    }
-    & + span {
-      @media screen and (max-width: (@g-bp_menu_standard_normaltext - 1)) {
-        display: block;
-        .font-size-el(0.75);
-        font-weight: 400;
-      }
-      @media screen and (max-width: (@g-bp_menu_standard_smalltext - 1)) {
-        .font-size-el(0);
-        line-height: 0; // override Infinity
-      }
-    }
-  }
 }
 
 .c-MenuStandard__Item {

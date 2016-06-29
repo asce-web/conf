@@ -68,8 +68,8 @@ html(lang="en")
         h1.-d-n#top-menu Top Menu
         include /includes/components/_c-MenuUniversal.jade
         +menuUniversal(site.pages.top.slice(1), site.pages.main.slice(0,1), site.getCurrentConference().name)
-        //- button.c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close top menu"): i.material-icons close
-      //- button.c-Btn.c-Btn--flat.c-Btn--drawer.js-menubutton(type="button" name="open" title="open top menu"): i.material-icons menu
+        //- button.c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--drawer.c-Btn--drawer--close(type="button" name="close" title="close top menu"): i.material-icons close
+      //- button.c-Btn.c-Btn--flat.c-Btn--drawer(type="button" name="open" title="open top menu"): i.material-icons menu
     if pagetype === 'main'
       header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
         h1.-d-n#main-menu Main Menu
@@ -135,7 +135,7 @@ html(lang="en")
       script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
       script(src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
       script.
-        var button_open = $('<button>').addClass('c-Btn c-Btn--drawer c-Btn--flat js-menubutton')
+        var button_open = $('<button>').addClass('c-Btn c-Btn--drawer c-Btn--flat')
           .attr('type','button')
           .attr('name','open')
           .attr('title','open top menu')
@@ -143,7 +143,7 @@ html(lang="en")
           .click(function () {
             $('.o-SiteHead__Nav').addClass('o-SiteHead__Nav--open')
           })
-        var button_close = $('<button>').addClass('c-Btn c-Btn--drawer c-Btn--drawer--close c-Btn--ghost c-Btn--ghost--dark js-menubutton')
+        var button_close = $('<button>').addClass('c-Btn c-Btn--drawer c-Btn--drawer--close c-Btn--ghost c-Btn--ghost--dark')
           .attr('type','button')
           .attr('name','close')
           .attr('title','close top menu')

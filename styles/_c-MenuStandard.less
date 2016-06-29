@@ -25,23 +25,23 @@
   .menubar();
   margin-bottom: 0; // override `ul`
   text-align: center;
-  @iconbreakpoint: 487px;
-  @media screen and (max-width: (@iconbreakpoint - 1)) {
+  @media screen and (max-width: (@g-bp_menu_standard_normaltext - 1)) {
     .flex-justify-content(space-around);
   }
   .material-icons {
     display: block;
-    @media screen and (min-width: @iconbreakpoint) {
+    @media screen and (min-width: @g-bp_menu_standard_normaltext) {
       display: none;
     }
     & + span {
-      @media screen and (max-width: (@iconbreakpoint - 1)) {
+      @media screen and (max-width: (@g-bp_menu_standard_normaltext - 1)) {
         display: block;
         .font-size-el(0.75);
         font-weight: 400;
       }
-      @media screen and (max-width: 381px) {
-        display: none;
+      @media screen and (max-width: (@g-bp_menu_standard_smalltext - 1)) {
+        .font-size-el(0);
+        line-height: 0; // override Infinity
       }
     }
   }

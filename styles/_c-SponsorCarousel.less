@@ -3,6 +3,7 @@
     conf  |  _c-SponsorCarousel.less
 \*################################*/
 @import (reference) url('__settings.less');
+@import (reference) url('__tool.module.logo.less');
 
 
 // A section containing one level of sponsor.
@@ -31,9 +32,7 @@
   width: auto;
   height: (6*@g-vru);
   text-indent: -999999px;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  .logo();
 }
 
 .c-SponsorCarousel__Label {

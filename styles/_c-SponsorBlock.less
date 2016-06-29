@@ -6,6 +6,7 @@
 @import (reference) url('../node_modules/xmeter/src/__tool.module.borders.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('__settings.less');
+@import (reference) url('__tool.module.logo.less');
 
 
 // mixin for setting the `max-width` and `height` of sponsor logos.
@@ -54,9 +55,7 @@
 .c-SponsorBlock__Logo {
   margin: auto;
   text-indent: -999999px;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  .logo();
 }
 .c-SponsorBlock__Logo--sml {
   .p-dimensions(68px; 36px);

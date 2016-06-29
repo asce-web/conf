@@ -64,7 +64,7 @@ html(lang="en")
         span.o-GridFloat__Item.c-SiteTitle__Logo(style='background-image: url(\'' + (site.image || '') + '\');')
         h1.o-GridFloat__Item.c-SiteTitle__Name= site.name
         p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
-      nav.o-GridFlex__Item.o-SiteHead__Nav.o-SiteHead__Nav--closed
+      nav.o-GridFlex__Item.o-SiteHead__Nav
         h1.-d-n#top-menu Top Menu
         include /includes/components/_c-MenuUniversal.jade
         +menuUniversal(site.pages.top.slice(1), site.pages.main.slice(0,1), site.getCurrentConference().name)
@@ -141,7 +141,7 @@ html(lang="en")
           .attr('title','open top menu')
           .append($('<i>').addClass('material-icons').text('menu'))
           .click(function () {
-            $('.o-SiteHead__Nav').removeClass('o-SiteHead__Nav--closed')
+            $('.o-SiteHead__Nav').addClass('o-SiteHead__Nav--open')
           })
         var button_close = $('<button>').addClass('c-Btn c-Btn--drawer c-Btn--drawer--close c-Btn--ghost c-Btn--ghost--dark js-menubutton')
           .attr('type','button')
@@ -149,7 +149,7 @@ html(lang="en")
           .attr('title','close top menu')
           .append($('<i>').addClass('material-icons').text('close'))
           .click(function () {
-            $('.o-SiteHead__Nav').addClass('o-SiteHead__Nav--closed')
+            $('.o-SiteHead__Nav').removeClass('o-SiteHead__Nav--open')
           })
         $('.o-SiteHead').append(button_open)
         $('.o-SiteHead__Nav').append(button_close)

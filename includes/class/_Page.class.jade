@@ -59,6 +59,9 @@
     Page.prototype.getSubpage = function getSubpage(url0) {
       return this.sub.find(function (item) { return item.url === url0 })
     }
+    Page.prototype.getSubpagesAll = function getSubpagesAll() {
+      return this.sub.slice()
+    }
 
     return Page
   })()

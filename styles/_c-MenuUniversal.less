@@ -19,14 +19,12 @@
 // Chris Harvey
 // ^updated
 // 2016-05-16
-@p-mobilebp: 45em;
 .c-MenuUniversal {
   .menubar();
   .flex-justify-content(flex-end);
   .flex-align-content(flex-start); // override `stretch` // push items to top in mobile drawer menu
-  .flex-align-items(center); // vertically alignment
-  margin-bottom: 0; // override `ul`
-  @media screen and (max-width: (@p-mobilebp - 0.001em)) {
+  .flex-align-items(center); // vertical alignment
+  @media screen and (max-width: 44.999em) {
     background-color: @g-color_site_gray_lt;
     border-left: 1px solid currentColor;
     a {
@@ -38,20 +36,14 @@
       }
     }
   }
-  @media screen and (min-width: @p-mobilebp) {
+  @media screen and (min-width: 45em) {
     .flex-wrap(nowrap);
     white-space: nowrap;
-  }
-  .material-icons {
-    margin-right: 1rem;
-    @media screen and (min-width: @p-mobilebp) {
-      display: none;
-    }
   }
 }
 
 .c-MenuUniversal__Item {
-  @media screen and (min-width: @p-mobilebp) {
+  @media screen and (min-width: 45em) {
     width: auto;
   }
 }
@@ -59,7 +51,7 @@
 .c-MenuUniversal__Link {
   border-radius: 0.25rem; // same as `.c-Btn`
   padding: @g-boxpadd_norm;
-  @media screen and (min-width: @p-mobilebp) {
+  @media screen and (min-width: 45em) {
     padding: @g-boxpadd_mill;
   }
 }

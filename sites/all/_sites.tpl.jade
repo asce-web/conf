@@ -65,7 +65,12 @@ html(lang="en")
         h1.o-GridFloat__Item.c-SiteTitle__Name= site.name
         p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
       input#toggle-top-menu(type="checkbox" value="open top menu")
-      label.-d-n(for="toggle-top-menu") toggle top menu
+      label(for="toggle-top-menu")
+        span.-d-n toggle top menu
+        span.icon.c-Btn
+          span.o1
+          span.o2
+          span.o3
       nav.o-GridFlex__Item.o-SiteHead__Nav
         h1.-d-n#top-menu Top Menu
         include /includes/components/_c-MenuUniversal.jade

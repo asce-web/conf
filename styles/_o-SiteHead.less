@@ -34,8 +34,9 @@
 .o-SiteHead__Title {
 }
 
+@trans_dura: 250ms;
 .o-SiteHead__Nav {
-  .transitions(@g-prefix_transform, opacity; 125ms);
+  .transitions(@g-prefix_transform, opacity; @trans_dura);
   .transition-timing-function(@google-accel);
   // .transition-timing-function(@g-accel_hard);
   // .transition-timing-function(@g-accel_dram);
@@ -52,14 +53,53 @@
     opacity: 0;
   }
 }
-#toggle-top-menu:checked ~ .o-SiteHead__Nav,
-.o-SiteHead__Nav--open {
-  @media screen and (max-width: 44.999em) {
-    .transform(translateX(-100%));
-    opacity: 1;
-    .transition-timing-function(@google-decel);
-    // .transition-timing-function(@g-decel_hard);
-    // .transition-timing-function(@g-decel_dram);
-    // .transition-timing-function(@g-accel_extm);
+
+#toggle-top-menu {
+  & ~ label {
+    width: 180px;
+    height: 180px;
+    background: #65eba2;
+    border: 1px solid transparent;
+    .icon {
+      display: block;
+      position: relative;
+      z-index: 3; // over `.SiteHead__Nav`
+      height: 70px;
+      margin: 55px;
+      & > span {
+        display: block;
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 10px;
+        background: #6d0083;
+        .transitions(@g-prefix_transform; @trans_dura);
+      }
+      & > .o1 { .transform(translateY(10px)); }
+      & > .o2 { .transform(translateY(30px)); }
+      & > .o3 { .transform(translateY(50px)); }
+    }
   }
+  &:checked {
+    & ~ label {
+      .icon {
+        & > .o1 { .transform(translateY(30px) rotate(45deg)); }
+        & > .o2 { .transform(translateY(30px) scaleX(0.001)); }
+        & > .o3 { .transform(translateY(30px) rotate(-45deg)); }
+      }
+    }
+    & ~ .o-SiteHead__Nav {
+      @media screen and (max-width: 44.999em) {
+        .transform(translateX(-100%));
+        opacity: 1;
+        .transition-timing-function(@google-decel);
+        // .transition-timing-function(@g-decel_hard);
+        // .transition-timing-function(@g-decel_dram);
+        // .transition-timing-function(@g-accel_extm);
+      }
+    }
+  }
+}
+
+.o-SiteHead__Nav--open {
 }

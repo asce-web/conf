@@ -49,14 +49,14 @@
     height: 100%;
     background-color: @g-color_site_gray_lt;
     border-left: 1px solid currentColor;
-    &:not(.o-SiteHead__Nav--open) {
-      opacity: 0;
-    }
+    opacity: 0;
   }
 }
+#toggle-top-menu:checked ~ .o-SiteHead__Nav,
 .o-SiteHead__Nav--open {
   @media screen and (max-width: 44.999em) {
     .transform(translateX(-100%));
+    opacity: 1;
     .transition-timing-function(@google-decel);
     // .transition-timing-function(@g-decel_hard);
     // .transition-timing-function(@g-decel_dram);

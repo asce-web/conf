@@ -34,7 +34,7 @@
 .o-SiteHead__Title {
 }
 
-@trans_dura: 500ms;
+@trans_dura: 250ms;
 .o-SiteHead__Nav {
   .transitions(@g-prefix_transform, opacity; @trans_dura);
   .transition-timing-function(@google-accel);
@@ -57,21 +57,22 @@
 input#toggle-top-menu {
   display: none;
   & ~ label {
-    position: relative;
-    top: 0; right: 0;
     cursor: pointer;
-    .transitions(top, right, bottom, left; @trans_dura);
     @media screen and (min-width: 45em) {
       display: none;
     }
     .icon {
       display: block;
-      position: relative;
+      position: absolute;
+      top: 11.5px; // half height of the mast head
+      right: 0;
       z-index: 3; // over `.SiteHead__Nav`
       @width: 40px;
       width:  @width;
       height: @width;
       margin: @g-boxpadd_mill;
+      border-radius: 0.25rem;
+      .transitions(top, right, bottom, left, color, background-color; 2*@trans_dura);
       & > span {
         @thick: 4px;
         display: block;
@@ -80,27 +81,32 @@ input#toggle-top-menu {
         left: (2 * @thick); right: (2 * @thick);
         height: @thick;
         background-color: currentColor;
-        .transitions(@g-prefix_transform, background-color; @trans_dura);
+        .transitions(@g-prefix_transform; 2*@trans_dura);
       }
       & > .o1 { .transform(translateY(-@width/5px)); }
       & > .o2 { .transform(translateY(0px)); }
       & > .o3 { .transform(translateY(@width/5px)); }
-      &:hover > span {
-        background-color: @g-color_site_gray_lt;
+      &:hover,
+      &:focus,
+      &:active {
+        color: @g-color_site_gray_lt;
       }
     }
   }
   &:checked {
     & ~ label {
-      top:   -1rem;
-      right: -1rem;
       .icon {
+        position: fixed;
+        color: @g-color_site_gray_lt;
+        background-color: @g-color_asce_white;
+        &:hover,
+        &:focus
+        &:active {
+          color: @g-color_site_gray_dk;
+        }
         & > .o1 { .transform(rotate(45deg)); }
         & > .o2 { .transform(scaleX(0.001)); }
         & > .o3 { .transform(rotate(-45deg)); }
-        &:hover > span {
-          background-color: @g-color_site_gray_dk;
-        }
       }
     }
     & ~ .o-SiteHead__Nav {

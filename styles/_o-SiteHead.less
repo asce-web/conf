@@ -10,6 +10,10 @@
 @import (reference) url('_dev.less');
 
 
+@p-trans_dura_menu: 250ms;
+@p-trans_dura_btn: 2*@p-trans_dura_menu;
+
+
 // Object in the top-most Masthead containing site title and navigation menu
 //
 // ^subcomponents
@@ -23,11 +27,6 @@
   .flex-wrap(nowrap); // override `.o-GridFlex wrap`
   .flex-justify-content(space-between);
   .flex-align-items(center); // override `stretch` // for vertical alignment
-  .js-menubutton { // specificity HACK override .c-Btn
-    @media screen and (min-width: 45em) {
-      display: none;
-    }
-  }
 }
 
 .o-SiteHead__Title,
@@ -40,7 +39,7 @@
 }
 
 .o-SiteHead__Nav {
-  .transitions(@g-prefix_transform, opacity; 125ms);
+  .transitions(@g-prefix_transform, opacity; @p-trans_dura_menu);
   .transition-timing-function(@google-accel);
   // .transition-timing-function(@g-accel_hard);
   // .transition-timing-function(@g-accel_dram);
@@ -54,17 +53,58 @@
     height: 100%;
     background-color: @g-color_site_gray_lt;
     border-left: 1px solid currentColor;
-    &:not(.o-SiteHead__Nav--open) {
-      opacity: 0;
-    }
+    opacity: 0;
   }
 }
-.o-SiteHead__Nav--open {
+
+input#toggle-top-menu:checked ~ .o-SiteHead__Nav {
   @media screen and (max-width: 44.999em) {
     .transform(translateX(-100%));
+    opacity: 1;
     .transition-timing-function(@google-decel);
     // .transition-timing-function(@g-decel_hard);
     // .transition-timing-function(@g-decel_dram);
     // .transition-timing-function(@g-accel_extm);
+  }
+}
+
+
+input#toggle-top-menu {
+  display: none;
+  & + label {
+    cursor: pointer;
+    @media screen and (min-width: 45em) {
+      display: none;
+    }
+  }
+}
+svg.c-MenuBtn {
+  position: absolute;
+  top: ((75px - 48px)/2); // half height of the mast head
+  right: 0;
+  z-index: 3; // over `.SiteHead__Nav`
+  margin: @g-boxpadd_mill;
+  border-radius: 0.25rem;
+}
+.c-MenuBtn__Bar {
+  fill: @g-color_asce_white;
+  .transform-origin(center);
+  .transitions(@g-prefix_transform, fill; @p-trans_dura_btn);
+  &:nth-child(1) {}
+  &:nth-child(2) { .transform(translate(0,-5px)); }
+  &:nth-child(3) { .transform(translate(0,5px)); }
+}
+input#toggle-top-menu:checked + label {
+  svg.c-MenuBtn {
+    position: fixed;
+  }
+  .c-MenuBtn__Bar {
+    fill: @g-color_site_gray_lt;
+    &:nth-child(1) {
+      .transform(scale((24/18),12));
+      fill: @g-color_asce_white;
+    }
+    &:nth-child(2) { .transform(rotate(45deg)); }
+    &:nth-child(3) { .transform(rotate(-45deg)); }
   }
 }

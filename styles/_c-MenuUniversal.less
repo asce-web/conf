@@ -46,7 +46,6 @@
 }
 
 .c-MenuUniversal__Link {
-  border-radius: 0.25rem; // same as `.c-Btn`
   padding: @g-boxpadd_norm;
   @media screen and (min-width: 45em) {
     padding: @g-boxpadd_mill;
@@ -56,6 +55,7 @@
 .c-MenuUniversal__Link--current {
   // colors copied directly from `.c-Btn.c-Btn--dominant`
   // (can’t use that component because of padding and display issues)
+  border-radius: 0.25rem; // same as `.c-Btn`
   background-color: @g-color_site_primary;
   &,
   &:hover,

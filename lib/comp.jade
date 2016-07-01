@@ -60,7 +60,7 @@ block append main
   section.sg-sect#universal-menu
     h2 The Universal Menu
     p #[strong Note:] Universal Menu will convert to pull-out drawer when screen is smaller than 720px.
-    p Current Year menu item will appear exactly the same as Hero Button, but will not have that class.
+    p Current Year menu item will appear exactly the same as Primary Button, but will not have that class.
     figure.docs-figure
       -
         var pages1 = [
@@ -827,10 +827,12 @@ block append main
             &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
             is in line with the text in this paragraph. ...&lt;/p&gt;
       h4 Drawer Button Structure
-      p Drawer buttons for pull-out menu.
+      p.
+        Drawer buttons for pull-out menu.
+        Hidden when screen is larger than 720px.
+        #[i Close] button is fixed to the top right.
       p.
         These are actually #[code.docs-code button] elements.
-        #[i Close] button is fixed to the top right.
         Add extra Button styles as shown.
       figure.docs-figure
         div(style="margin-bottom: 1.5rem;")

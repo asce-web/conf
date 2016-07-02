@@ -1,6 +1,6 @@
 
 /*################################*\
-    conf  |  _c-MenuBtn.less
+    conf  |  _c-BtnMenu.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform-origin.less');
@@ -30,7 +30,7 @@ input#toggle-top-menu {
 // Chris Harvey
 // ^updated
 // 2016-07-02
-.c-MenuBtn {
+.c-BtnMenu {
   position: absolute;
   top: ((75px - 48px)/2); // half height of the mast head
   right: 0;
@@ -39,7 +39,7 @@ input#toggle-top-menu {
   border-radius: 0.25rem;
 }
 
-.c-MenuBtn__Bar {
+.c-BtnMenu__Bar {
   fill: @g-color_asce_white;
   .transform-origin(center);
   .transitions(@g-prefix_transform, fill; @p-trans_dura);
@@ -49,10 +49,10 @@ input#toggle-top-menu {
 }
 
 input#toggle-top-menu:checked + label {
-  svg.c-MenuBtn {
+  svg.c-BtnMenu {
     position: fixed;
   }
-  .c-MenuBtn__Bar {
+  .c-BtnMenu__Bar {
     fill: @g-color_site_gray_lt;
     &:nth-child(1) {
       .transform(scale((24/18),12));

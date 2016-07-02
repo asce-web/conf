@@ -68,11 +68,11 @@ html(lang="en")
         input#toggle-top-menu(type="checkbox" value="open top menu")
         label(for="toggle-top-menu")
           span.-d-n toggle top menu
-          svg.c-MenuBtn(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
+          svg.c-BtnMenu(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
             path(d="M0,0 H24 V24 H0 z" fill="transparent")
             g(transform="translate(3,11)")
               each val in new Array(3)
-                rect.c-MenuBtn__Bar(width="18" height="2")
+                rect.c-BtnMenu__Bar(width="18" height="2")
         nav.o-Drawer
           h1.-d-n#top-menu Top Menu
           include /includes/components/_c-MenuUniversal.jade

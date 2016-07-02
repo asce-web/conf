@@ -37,6 +37,9 @@ input#toggle-top-menu {
   z-index: 3; // over `.o-Drawer`
   margin: @g-boxpadd_mill;
   border-radius: 0.25rem;
+  noscript &::before {
+    content: 'menu';
+  }
 }
 
 .c-BtnMenu__Bar {
@@ -49,8 +52,11 @@ input#toggle-top-menu {
 }
 
 input#toggle-top-menu:checked + label {
-  svg.c-BtnMenu {
+  .c-BtnMenu {
     position: fixed;
+  }
+  noscript .c-BtnMenu::before {
+    content: 'close';
   }
   .c-BtnMenu__Bar {
     fill: @g-color_site_gray_lt;

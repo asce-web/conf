@@ -6,12 +6,12 @@ mixin program(n, attrs)
     mixin content(i)
       | content #{i}
     block
-    - for (var i = 0; i < n; i++)
+    each val,index in new Array(n)
       h1.o-GridFlex__Item.c-Program__Hn: label
-        input.c-Program__Check(type="radio" name='program-'+attrs.id value=i)&attributes((i===0) ? {checked:''} : {})
-        +heading(i)
+        input.c-Program__Check(type="radio" name='program-'+attrs.id value=index)&attributes((index===0) ? {checked:''} : {})
+        +heading(index)
       div.o-GridFlex__Item.c-Program__Schedule
-        +content(i)
+        +content(index)
 
 mixin programHeading(str)
   time(datetime=str)

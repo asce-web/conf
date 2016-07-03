@@ -121,28 +121,13 @@
       .setLevel(site.getSupporterLevel('Corporate'))
     )
 
-//- -
-  site
-    .addSubpage('about.html'       , new Page({name:'Cooperating Orgs'            , url:''}))
-    .addSubpage('about.html'       , new Page({name:'Partnering Orgs '            , url:''}))
-    .addSubpage('about.html'       , new Page({name:'Volunteer'                   , url:''}))
-    .addSubpage('about.html'       , new Page({name:'Why Attend'                  , url:''}))
-    .addSubpage('registration.html', new Page({name:'Why Attend'                  , url:''}))
-    .addSubpage('registration.html', new Page({name:'Short Courses'               , url:''}))
-    .addSubpage('registration.html', new Page({name:'Technical Tours'             , url:''}))
-    .addSubpage('registration.html', new Page({name:'Optional Tours'              , url:''}))
-    .addSubpage('program.html'     , new Page({name:'Events'                      , url:''}))
-    .addSubpage('location.html'    , new Page({name:'International Travel'        , url:''}))
-    .addSubpage('speakers.html'    , new Page({name:'Distinguished Lecture Series', url:''}))
-    .addSubpage('speakers.html'    , new Page({name:'Exhibitor List'              , url:''}))
-
--
   site.getCurrentConference()
     .addRegistrationPeriod(new RegistrationPeriod({
       name      : 'Early Bird'
     , endDate   : '2016-07-28'
     }).setIcon('stars')).addRegistrationPeriod(new RegistrationPeriod({
       name      : 'Advance'
+    , startDate : '2016-07-29'
     , endDate   : '2016-08-25'
     }).setIcon('date_range')).addRegistrationPeriod(new RegistrationPeriod({
       name      : 'Onsite'
@@ -187,49 +172,41 @@
       .addAttendeeType(new Pass.AttendeeType('Non-Member'))
     )
 
-//- -
-  site.getCurrentConference()
-    .setPrice('Early Bird', 'Standard Pass' , 'Member'    ,  745)
-    .setPrice('Early Bird', 'Standard Pass' , 'Non-Member',  845)
-    .setPrice('Advance'   , 'Standard Pass' , 'Member'    ,  845)
-    .setPrice('Advance'   , 'Standard Pass' , 'Non-Member',  945)
-    .setPrice('Onsite'    , 'Standard Pass' , 'Member'    ,  945)
-    .setPrice('Onsite'    , 'Standard Pass' , 'Non-Member', 1045)
+  //- site.getCurrentConference()
+  //-   .setPrice('Early Bird', 'Standard Pass' , 'Member'    ,  745)
+  //-   .setPrice('Early Bird', 'Standard Pass' , 'Non-Member',  845)
+  //-   .setPrice('Advance'   , 'Standard Pass' , 'Member'    ,  845)
+  //-   .setPrice('Advance'   , 'Standard Pass' , 'Non-Member',  945)
+  //-   .setPrice('Onsite'    , 'Standard Pass' , 'Member'    ,  945)
+  //-   .setPrice('Onsite'    , 'Standard Pass' , 'Non-Member', 1045)
+  //-   .setPrice('Early Bird', 'Speaker Pass'  , 'Member'    ,  645)
+  //-   .setPrice('Early Bird', 'Speaker Pass'  , 'Non-Member',  745)
+  //-   .setPrice('Advance'   , 'Speaker Pass'  , 'Member'    ,  745)
+  //-   .setPrice('Advance'   , 'Speaker Pass'  , 'Non-Member',  845)
+  //-   .setPrice('Onsite'    , 'Speaker Pass'  , 'Member'    ,  945)
+  //-   .setPrice('Onsite'    , 'Speaker Pass'  , 'Non-Member',  945)
+  //-   .setPrice('Early Bird', 'Moderator Pass', 'Member'    ,  645)
+  //-   .setPrice('Early Bird', 'Moderator Pass', 'Non-Member',  745)
+  //-   .setPrice('Advance'   , 'Moderator Pass', 'Member'    ,  745)
+  //-   .setPrice('Advance'   , 'Moderator Pass', 'Non-Member',  845)
+  //-   .setPrice('Onsite'    , 'Moderator Pass', 'Member'    ,  945)
+  //-   .setPrice('Onsite'    , 'Moderator Pass', 'Non-Member',  945)
+  //-   .setPrice('Early Bird', 'Younger Member', 'Member/Non-Member',  645)
+  //-   .setPrice('Advance'   , 'Younger Member', 'Member/Non-Member',  745)
+  //-   .setPrice('Onsite'    , 'Younger Member', 'Member/Non-Member',  845)
+  //-   .setPrice('Early Bird', 'Student Pass'  , 'Member/Non-Member',  295)
+  //-   .setPrice('Advance'   , 'Student Pass'  , 'Member/Non-Member',  295)
+  //-   .setPrice('Onsite'    , 'Student Pass'  , 'Member/Non-Member',  395)
+  //-   .setPrice('Early Bird', 'Guest Pass'    , 'Member/Non-Member',  295)
+  //-   .setPrice('Advance'   , 'Guest Pass'    , 'Member/Non-Member',  320)
+  //-   .setPrice('Onsite'    , 'Guest Pass'    , 'Member/Non-Member',  395)
+  //-   .setPrice('Early Bird', 'Daily Pass'    , 'Member'    ,  495)
+  //-   .setPrice('Early Bird', 'Daily Pass'    , 'Non-Member',  595)
+  //-   .setPrice('Advance'   , 'Daily Pass'    , 'Member'    ,  545)
+  //-   .setPrice('Advance'   , 'Daily Pass'    , 'Non-Member',  645)
+  //-   .setPrice('Onsite'    , 'Daily Pass'    , 'Member'    ,  645)
+  //-   .setPrice('Onsite'    , 'Daily Pass'    , 'Non-Member',  745)
 
-    .setPrice('Early Bird', 'Speaker Pass'  , 'Member'    ,  645)
-    .setPrice('Early Bird', 'Speaker Pass'  , 'Non-Member',  745)
-    .setPrice('Advance'   , 'Speaker Pass'  , 'Member'    ,  745)
-    .setPrice('Advance'   , 'Speaker Pass'  , 'Non-Member',  845)
-    .setPrice('Onsite'    , 'Speaker Pass'  , 'Member'    ,  945)
-    .setPrice('Onsite'    , 'Speaker Pass'  , 'Non-Member',  945)
-
-    .setPrice('Early Bird', 'Moderator Pass', 'Member'    ,  645)
-    .setPrice('Early Bird', 'Moderator Pass', 'Non-Member',  745)
-    .setPrice('Advance'   , 'Moderator Pass', 'Member'    ,  745)
-    .setPrice('Advance'   , 'Moderator Pass', 'Non-Member',  845)
-    .setPrice('Onsite'    , 'Moderator Pass', 'Member'    ,  945)
-    .setPrice('Onsite'    , 'Moderator Pass', 'Non-Member',  945)
-
-    .setPrice('Early Bird', 'Younger Member', 'Member/Non-Member',  645)
-    .setPrice('Advance'   , 'Younger Member', 'Member/Non-Member',  745)
-    .setPrice('Onsite'    , 'Younger Member', 'Member/Non-Member',  845)
-
-    .setPrice('Early Bird', 'Student Pass'  , 'Member/Non-Member',  295)
-    .setPrice('Advance'   , 'Student Pass'  , 'Member/Non-Member',  295)
-    .setPrice('Onsite'    , 'Student Pass'  , 'Member/Non-Member',  395)
-
-    .setPrice('Early Bird', 'Guest Pass'    , 'Member/Non-Member',  295)
-    .setPrice('Advance'   , 'Guest Pass'    , 'Member/Non-Member',  320)
-    .setPrice('Onsite'    , 'Guest Pass'    , 'Member/Non-Member',  395)
-
-    .setPrice('Early Bird', 'Daily Pass'    , 'Member'    ,  495)
-    .setPrice('Early Bird', 'Daily Pass'    , 'Non-Member',  595)
-    .setPrice('Advance'   , 'Daily Pass'    , 'Member'    ,  545)
-    .setPrice('Advance'   , 'Daily Pass'    , 'Non-Member',  645)
-    .setPrice('Onsite'    , 'Daily Pass'    , 'Member'    ,  645)
-    .setPrice('Onsite'    , 'Daily Pass'    , 'Non-Member',  745)
-
--
   site.getCurrentConference()
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 10:00', endDate:'2016-09-28 19:00', name:'Registration'                                                }))
     .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 10:30', endDate:'2016-09-28 16:30', name:'Technical Tours'                                             }).setURL('#0').setStar(true))
@@ -468,10 +445,25 @@
       }
     }
   }
+
   site.co_chairs = [
     new Person({name:{givenName:'Thomas',  additionalName:'J.', familyName:'McCollough', honorificSuffix:'P.E., M.ASCE'}})
   , new Person({name:{givenName:'Stephen', additionalName:'E.', familyName:'Dickenson',  honorificSuffix:'Ph.D., P.E., D.PE, M.ASCE'}})
   ]
+
+  //- site
+  //-   .addSubpage('about.html'       , new Page({name:'Cooperating Orgs'            , url:''}))
+  //-   .addSubpage('about.html'       , new Page({name:'Partnering Orgs '            , url:''}))
+  //-   .addSubpage('about.html'       , new Page({name:'Volunteer'                   , url:''}))
+  //-   .addSubpage('about.html'       , new Page({name:'Why Attend'                  , url:''}))
+  //-   .addSubpage('registration.html', new Page({name:'Why Attend'                  , url:''}))
+  //-   .addSubpage('registration.html', new Page({name:'Short Courses'               , url:''}))
+  //-   .addSubpage('registration.html', new Page({name:'Technical Tours'             , url:''}))
+  //-   .addSubpage('registration.html', new Page({name:'Optional Tours'              , url:''}))
+  //-   .addSubpage('program.html'     , new Page({name:'Events'                      , url:''}))
+  //-   .addSubpage('location.html'    , new Page({name:'International Travel'        , url:''}))
+  //-   .addSubpage('speakers.html'    , new Page({name:'Distinguished Lecture Series', url:''}))
+  //-   .addSubpage('speakers.html'    , new Page({name:'Exhibitor List'              , url:''}))
 
 mixin content_pass_student_fineprint()
   | Full-time students must show valid #[abbr(title="identification") ID] onsite at the registration desk when picking up name badge.

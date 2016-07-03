@@ -60,16 +60,24 @@ html(lang="en")
         }
   body
     header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-GridFlex.o-SiteHead
-      a.o-GridFlex__Item.o-Block.o-GridFloat.o-SiteHead__Title.c-SiteTitle.c-Camo(href="index.html")
+      a.o-GridFlex__Item.o-Block.o-GridFloat.o-SiteHead__Item.c-SiteTitle.c-Camo(href="index.html")
         span.o-GridFloat__Item.c-SiteTitle__Logo(style='background-image: url(\'' + (site.image || '') + '\');')
         h1.o-GridFloat__Item.c-SiteTitle__Name= site.name
         p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
-      nav.o-GridFlex__Item.o-SiteHead__Nav.js-universalnav
-        h1.-d-n#top-menu Top Menu
-        include /includes/components/_c-MenuUniversal.jade
-        +menuUniversal(site.pages.top.slice(1), site.pages.main.slice(0,1), site.getCurrentConference().name)
-        //- button.c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--drawer.c-Btn--drawer--close.js-menubutton(type="button" name="close" title="close top menu"): i.material-icons close
-      //- button.c-Btn.c-Btn--flat.c-Btn--drawer.js-menubutton(type="button" name="open" title="open top menu"): i.material-icons menu
+      div.o-GridFlex__Item.o-SiteHead__Item
+        label.c-Toggle
+          input.c-Toggle__Check(type="checkbox" value="open top menu")
+          span.-d-n toggle top menu
+          svg.c-Toggle__Viz(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
+            path(d="M0,0 H24 V24 H0 z" fill="transparent")
+            g(transform="translate(3,11)")
+              each val in new Array(3)
+                rect.c-Toggle__Viz__Bar(width="18" height="2")
+          noscript: p Oops! Looks like you need to enable Javascript for the top menu.
+        nav.o-Drawer
+          h1.-d-n#top-menu Top Menu
+          include /includes/components/_c-MenuUniversal.jade
+          +menuUniversal(site.pages.top.slice(1), site.pages.main.slice(0,1), site.getCurrentConference().name)
     if pagetype === 'main'
       header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
         h1.-d-n#main-menu Main Menu
@@ -134,27 +142,16 @@ html(lang="en")
     block scripts
       script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
       script(src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
-      script.
-        var button_open = $('<button>').addClass('c-Btn c-Btn--drawer c-Btn--flat js-menubutton')
-          .attr('type','button')
-          .attr('name','open')
-          .attr('title','open top menu')
-          .append($('<i>').addClass('material-icons').text('menu'))
-          .click(function () {
-            $('.o-SiteHead__Nav').removeClass('js-universalnav')
-          })
-        var button_close = $('<button>').addClass('c-Btn c-Btn--drawer c-Btn--drawer--close c-Btn--ghost c-Btn--ghost--dark js-menubutton')
-          .attr('type','button')
-          .attr('name','close')
-          .attr('title','close top menu')
-          .append($('<i>').addClass('material-icons').text('close'))
-          .click(function () {
-            $('.o-SiteHead__Nav').addClass('js-universalnav')
-          })
-        $('.o-SiteHead').append(button_open)
-        $('.o-SiteHead__Nav').append(button_close)
       script(src="/scripts/c-SponsorCarousel.js")
       script(src="/scripts/c-Program.js")
+      script.
+        $('.c-Toggle__Check').change(function () {
+          if ($(this).prop('checked')) {
+            $(this).parents('.c-Toggle').siblings('.o-Drawer').addClass('o-Drawer--open')
+          } else {
+            $(this).parents('.c-Toggle').siblings('.o-Drawer').removeClass('o-Drawer--open')
+          }
+        })
       //- script.
         $('.c-Speaker__Body').addClass('-h-z')
         $('.c-Speaker__Img').height(function () { return $(this).width() })

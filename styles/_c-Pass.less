@@ -1,0 +1,134 @@
+
+/*################################*\
+    conf  |  _c-Pass.less
+\*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.module.borders.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+@import (reference) url('__settings.less');
+@import (reference) url('_dev.less');
+
+
+// A listing of prices for one Pass Type
+// (e.g. Student, Speaker, Standard, etc.)
+//
+// ^subcomponents
+// __Head   - pass header. contains heading and description
+// __Body   - pass body containing current registration period
+// __Foot   - pass footer containing other registration periods
+// __Hn     - name of pass type (e.g. "Standard Pass")
+// __Desc   - description of pass type (e.g. "Undergraduates 18–24")
+// __Fine   - fine print (additional to description)
+// __Period - a registration period. see below.
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-05-03
+.c-Pass {
+  text-align: center;
+  background-color: @g-color_site_gray_dk;
+  .border-vert(all; 1px);
+  border-style: solid;
+  border-color: @g-color_asce_black;
+  .font-size-mod(0.75);
+  color: @g-color_asce_white;
+  overflow: hidden;
+  h1 {
+    font-family: inherit;
+    color: inherit;
+  }
+  .c-Pass__Period__Hn {
+    margin-bottom: 0; // specificity HACK: override `.c-Pass >> h1`
+  }
+  // HACK using variables
+  .c-Pass__Foot .c-Pass__Period:first-child::after {
+    margin: @l-vru 0; // FIXME IE10 does not support rems on pseudo-elements!!!
+  }
+  .c-Pass__Price--featured {
+    padding: (0.5*@l-vru) 0;
+  }
+}
+
+.c-Pass__Head {
+  padding: @g-boxpadd_micr;
+}
+
+.c-Pass__Body {
+  background-color: @g-color_asce_white;
+  color: @g-color_asce_black;
+}
+
+.c-Pass__Foot {
+}
+
+.c-Pass__Hn,
+.c-Pass__Desc {
+  white-space: nowrap;
+}
+
+.c-Pass__Hn {
+  .font-size-el(@g-font_size_h1);
+}
+
+.c-Pass__Desc {
+  font-weight: 600;
+}
+
+.c-Pass__Fine {
+  font-weight: 300;
+  font-style: italic;
+  .font-size-el(14/16);
+  white-space: normal; // fallback
+  white-space: initial; // override __Desc
+}
+
+
+// A registration period containing a heading and a price listing.
+// A subcomponent of `.c-Pass`.
+//
+// ^subcomponents
+// __Hn              - the name of the registration period
+// __Attendee        - attendee type (membership status)
+// __Price           - any price for any pass
+//   __Price--featured - highlighted price of some sort (usually membership price)
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-04-26
+.c-Pass__Period {
+  padding: @g-boxpadd_micr;
+  .c-Pass__Foot &:first-child {
+    position: relative;
+    &::after {
+      @rw: 1px;
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      border-right-width: @rw;
+      opacity: 0.5;
+    }
+  }
+}
+
+.c-Pass__Period__Hn {
+  font-weight: 700;
+  .font-size-el(@g-font_size_h3);
+  .c-Pass__Body & {
+    .font-size-el(@g-font_size_h2);
+  }
+}
+
+.c-Pass__Period__Attendee {
+  &::after {
+    content: ':\0020';
+  }
+}
+
+.c-Pass__Period__Price {
+}
+
+.c-Pass__Price--featured {
+  .font-size-el(@g-font_size_h1);
+  font-weight: 600;
+  color: @g-color_site_primary;
+}

@@ -1,0 +1,77 @@
+
+/*################################*\
+    conf  |  _c-Overlay.less
+\*################################*/
+@import (reference) url('__settings.less');
+
+
+// Adds a background dark translucency to a group of elements.
+// Useful for when this group has text and is a child of
+// another element that has a background image (e.g. a banner).
+//
+// ^subclasses
+// --callout - as a callout (just narrower)
+// --inv - opposite color backgorund
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-05-06
+.c-Overlay {
+  padding: @g-boxpadd_micr;
+  margin-left:  auto;
+  margin-right: auto;
+  background-color: fadeout(#000, 25%);
+  color: fadeout(@g-color_asce_white, 12.5%);
+  @media screen and (min-width: 30em) { padding: @g-boxpadd_mill; }
+  @media screen and (min-width: 45em) { padding: @g-boxpadd_norm; }
+  @media screen and (min-width: 60em) { padding: @g-boxpadd_kilo; }
+}
+
+.c-Overlay--callout {
+  @media screen and (min-width: 45em) {
+    width: 75%;
+  }
+}
+
+.c-Overlay--inv {
+  background-color: fadeout(#fff, 25%);
+  color: @g-color_asce_black;
+}
+
+// An overlay that is a link.
+// Semantically equivalent to `a.c-Overlay`, but with lower specificity.
+//
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-04-22
+// .c-Overlay--link {
+//   &,
+//   &:hover,
+//   &:focus {
+//     color: inherit;
+//   }
+// }
+// .c-Overlay--link {
+//   border-width: 2px;
+//   border-color: transparent;
+//   &:hover,
+//   &:focus {
+//     border-color: @g-color_site_secondary;
+//   }
+// }
+// .c-Btn--hilite,
+// .c-Overlay--link {
+//   box-shadow: 0 0 1rem 0 @g-color_site_secondary;
+//   &:hover,
+//   &:focus {
+//     box-shadow: 0 0 1rem 0.5rem @g-color_site_secondary;
+//   }
+//   &.c-Btn--hero {
+//     box-shadow: 0 0 1rem 0 @g-color_site_primary;
+//     &:hover,
+//     &:focus {
+//       box-shadow: 0 0 1rem 0.5rem @g-color_site_primary;
+//     }
+//   }
+// }

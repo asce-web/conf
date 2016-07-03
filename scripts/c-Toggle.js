@@ -1,8 +1,8 @@
 function updateToggle() {
   if ($(this).prop('checked')) {
-    $(this).siblings('.c-Toggle__Viz').addClass('c-Toggle__Viz--on')
+    $(this).parents('.c-Toggle').addClass('c-Toggle--on')
   } else {
-    $(this).siblings('.c-Toggle__Viz').removeClass('c-Toggle__Viz--on')
+    $(this).parents('.c-Toggle').removeClass('c-Toggle--on')
   }
 }
 $('.c-Toggle__Check:checked').each(updateToggle)

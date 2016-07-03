@@ -13,6 +13,8 @@
 
 // Toggle button with "menu" icon in inactive state and "close" icon in active state.
 //
+// ^subclasses
+// --on - state of toggle button in the "on" position
 // ^subcomponents
 // __Check - checkbox for toggle button
 // __Viz   - graphic visualization
@@ -25,6 +27,8 @@
     display: none;
   }
 }
+.c-Toggle--on {
+}
 
 .c-Toggle__Check {
   display: none;
@@ -32,8 +36,6 @@
 
 // Vizualization for the toggle menu
 //
-// ^subclasses
-// --on - state of toggle button in the "on" position
 // ^subcomponents
 // __Bar - rectangle comprising the icons
 // ^author
@@ -50,11 +52,11 @@
   noscript &::before {
     content: 'menu';
   }
-}
-.c-Toggle__Viz--on {
-  position: fixed;
-  noscript &::before {
-    content: 'close';
+  .c-Toggle__Check:checked ~ & {
+    position: fixed;
+    noscript &::before {
+      content: 'close';
+    }
   }
 }
 
@@ -66,7 +68,7 @@
   &:nth-child(1) {}
   &:nth-child(2) { .transform(translate(0,-5px)); }
   &:nth-child(3) { .transform(translate(0,5px)); }
-  .c-Toggle__Viz--on & {
+  .c-Toggle__Check:checked ~ .c-Toggle__Viz & {
     &:nth-child(1) {
       .transform(scale((24/18),12));
       fill: @g-color_site_gray_dk;

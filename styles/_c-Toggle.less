@@ -79,3 +79,12 @@
     &:nth-child(3) { .transform(rotate(-45deg)); }
   }
 }
+
+.c-Toggle__Check ~ noscript {
+  position: absolute;
+  right: 0;
+  top: 75px;
+}
+.c-Toggle__Check:not(:checked) ~ noscript {
+  display: none;
+}

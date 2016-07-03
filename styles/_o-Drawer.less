@@ -40,16 +40,14 @@
     border-left: 1px solid currentColor;
     opacity: 0;
   }
-}
-
-input#toggle-top-menu:checked ~ .o-Drawer,
-.o-Drawer--open {
-  @media screen and (max-width: 44.999em) {
-    .transform(translateX(-100%));
-    opacity: 1;
-    .transition-timing-function(@google-decel);
-    // .transition-timing-function(@g-decel_hard);
-    // .transition-timing-function(@g-decel_dram);
-    // .transition-timing-function(@g-accel_extm);
+  .c-Toggle--on ~ & {
+    @media screen and (max-width: 44.999em) {
+      .transform(translateX(-100%));
+      opacity: 1;
+      .transition-timing-function(@google-decel);
+      // .transition-timing-function(@g-decel_hard);
+      // .transition-timing-function(@g-decel_dram);
+      // .transition-timing-function(@g-accel_extm);
+    }
   }
 }

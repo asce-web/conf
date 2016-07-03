@@ -19,7 +19,7 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-07-02
+// 2016-07-03
 .c-Toggle {
   @media screen and (min-width: 45em) {
     display: none;
@@ -30,6 +30,7 @@
   display: none;
 }
 
+
 // Vizualization for the toggle menu
 //
 // ^subcomponents
@@ -37,7 +38,7 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-07-02
+// 2016-07-03
 .c-Toggle__Viz {
   position: absolute;
   top: ((75px - 48px)/2); // half height of the mast head
@@ -56,7 +57,6 @@
   }
 }
 
-
 .c-Toggle__Viz__Bar {
   fill: @g-color_asce_white;
   .transform-origin(center);
@@ -74,13 +74,4 @@
     &:nth-child(2) { .transform(rotate(45deg)); }
     &:nth-child(3) { .transform(rotate(-45deg)); }
   }
-}
-
-.c-Toggle__Check ~ noscript {
-  position: absolute;
-  right: 0;
-  top: 75px;
-}
-.c-Toggle__Check:not(:checked) ~ noscript {
-  display: none;
 }

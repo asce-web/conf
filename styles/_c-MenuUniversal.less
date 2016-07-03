@@ -20,10 +20,11 @@
 // ^updated
 // 2016-05-16
 .c-MenuUniversal {
-  .menubar();
   .flex-justify-content(flex-end);
   .flex-align-content(flex-start); // override `stretch` // push items to top in mobile drawer menu
   .flex-align-items(center); // vertical alignment
+  .menubar();
+  white-space: nowrap;
   @media screen and (max-width: 44.999em) {
     a {
       &:hover,

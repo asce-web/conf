@@ -276,17 +276,15 @@ block append main
       Some time in the future, this Object may be used for other purposes,
       at which point we must
       reconsider its name.
-    p.
-      #[strong Note:] The #[b SiteHead__Nav] subcomponent (#[i universal menu])
-      will be fixed to the top right when screen is smaller than 720px.
     figure.docs-figure
       div.o-GridFlex.o-SiteHead
-        div.o-SiteHead__Title site title
-        div.o-SiteHead__Nav universal menu
+        div.o-SiteHead__Item site title
+        div.o-SiteHead__Item universal menu
       pre.docs-pre.
         &lt;div class="o-GridFlex  #[u o-SiteHead]"&gt;
-          &lt;div class="#[u o-SiteHead__Title]"&gt;site title&lt;/div&gt;
-          &lt;div class="#[u o-SiteHead__Nav]"&gt;universal menu&lt;/div&gt;
+          &lt;div class="#[u o-SiteHead__Item]"&gt;site title&lt;/div&gt;
+          &lt;div class="#[u o-SiteHead__Item]"&gt;universal menu&lt;/div&gt;
         &lt;/div&gt;
   section.sg-sect#drawer-object
     h2 The Drawer Object
+    p #[strong Note:] This Object will be fixed to the top right when screen is smaller than 720px.

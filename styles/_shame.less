@@ -47,9 +47,51 @@
   // color: @g-color_asce_label_txt;
 }
 
+.c-Toggle__Check ~ noscript {
+  position: absolute;
+  right: 0;
+  top: 75px;
+}
+.c-Toggle__Check:not(:checked) ~ noscript {
+  display: none;
+}
+
 .material-icons {
+  vertical-align: middle; // fixes Google’s material icons
+  .c-MenuUniversal & {
+    margin-right: 1rem;
+    @media screen and (min-width: 45em) {
+      display: none;
+    }
+  }
+  .c-MenuStandard & {
+    display: block;
+    @media screen and (min-width: @g-bp_menu_standard_normaltext) {
+      display: none;
+    }
+    & + span {
+      @media screen and (max-width: (@g-bp_menu_standard_normaltext - 1)) {
+        display: block;
+        .font-size-el(0.75);
+        font-weight: 400;
+      }
+      @media screen and (max-width: (@g-bp_menu_standard_smalltext - 1)) {
+        .font-size-el(0);
+        line-height: 0; // override Infinity
+      }
+    }
+  }
+  .c-TimeBlock__Link &,
+  .c-DateBlock__Link & {
+    position: absolute;
+    right: 0;
+  }
+  .c-DateBlock__Link & {
+    top: -0.5em;
+  }
   .c-RegPeriodLegendItem & {
     display: block;
+    // line-height is determined in `.material-icons`
     font-size: 2.25em;
   }
 }

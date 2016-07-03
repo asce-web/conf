@@ -212,6 +212,9 @@
 }
 
 .c-Btn--drawer {
+  @media screen and (min-width: 45em) {
+    display: none;
+  }
   padding: @g-boxpadd_micr;
   margin: @g-boxpadd_mill;
   border: 0; // override `button`
@@ -221,6 +224,6 @@
 .c-Btn--drawer--close {
   position: absolute;
   top: 0; right: 0;
-  z-index: 2; // over MenuUniversal
+  z-index: 2; // over `.SiteHead__Nav`
 }
 //++++ end # BUTTON STRUCTURE STYLES ++++//

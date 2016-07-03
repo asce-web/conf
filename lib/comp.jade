@@ -952,8 +952,32 @@ block append main
             a.c-Btn.c-Btn--flat.c-Btn--inline(href="#0") Flat Inline
             br
             span .c-Btn.c-Btn--flat.c-Btn--inline
-  section.sg-sect#menu-button
-    h2 The Menu Button
+  section.sg-sect#toggle-button
+    h2 The Toggle Button
+    p.
+      #[strong Note:]
+      The Toggle Button for the universal menu will be hidden when screen is larger than 720px.
+      When toggled on, it will be fixed to the top right of the screen.
+    figure.docs-figure
+      label.c-Toggle
+        input.c-Toggle__Check(type="checkbox" value="open top menu")
+        svg.c-Toggle__Viz(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
+          path(d="M0,0 H24 V24 H0 z" fill="transparent")
+          g(transform="translate(3,11)")
+            each val in new Array(3)
+              rect.c-Toggle__Viz__Bar(width="18" height="2")
+      pre.docs-pre.
+        &lt;label class="#[u c-Toggle]"&gt;
+          &lt;input class="#[u c-Toggle__Check]" type="checkbox" value="..."/&gt;
+          &lt;svg class="#[u c-Toggle__Viz]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"&gt;
+            &lt;path d="M0,0 H24 V24 H0 z" fill="transparent"/&gt;
+            &lt;g transform="translate(3,11)"&gt;
+              &lt;rect class="#[u c-Toggle__Viz__Bar]" width="18" height="2"&gt;
+              &lt;rect class="#[u c-Toggle__Viz__Bar]" width="18" height="2"&gt;
+              &lt;rect class="#[u c-Toggle__Viz__Bar]" width="18" height="2"&gt;
+            &lt;/g&gt;
+          &lt;svg&gt;
+        &lt;/label&gt;
   section.sg-sect#text-level-components
     h2 Text-Level Components
     h3 Camo Links

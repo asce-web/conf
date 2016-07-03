@@ -3,15 +3,6 @@
     conf  |  _o-SiteHead.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform-origin.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
-@import (reference) url('__settings.less');
-@import (reference) url('_dev.less');
-
-
-@p-trans_dura_menu: 250ms;
-@p-trans_dura_btn: 2*@p-trans_dura_menu;
 
 
 // Object in the top-most Masthead containing site title and navigation menu
@@ -35,43 +26,8 @@
   white-space: nowrap;
 }
 
-input#toggle-top-menu {
-  display: none;
-  & + label {
-    cursor: pointer;
-    @media screen and (min-width: 45em) {
-      display: none;
-    }
-  }
+.o-SiteHead__Title {
 }
 
-svg.c-MenuBtn {
-  position: absolute;
-  top: ((75px - 48px)/2); // half height of the mast head
-  right: 0;
-  z-index: 3; // over `.SiteHead__Nav`
-  margin: @g-boxpadd_mill;
-  border-radius: 0.25rem;
-}
-.c-MenuBtn__Bar {
-  fill: @g-color_asce_white;
-  .transform-origin(center);
-  .transitions(@g-prefix_transform, fill; @p-trans_dura_btn);
-  &:nth-child(1) {}
-  &:nth-child(2) { .transform(translate(0,-5px)); }
-  &:nth-child(3) { .transform(translate(0,5px)); }
-}
-input#toggle-top-menu:checked + label {
-  svg.c-MenuBtn {
-    position: fixed;
-  }
-  .c-MenuBtn__Bar {
-    fill: @g-color_site_gray_lt;
-    &:nth-child(1) {
-      .transform(scale((24/18),12));
-      fill: @g-color_asce_white;
-    }
-    &:nth-child(2) { .transform(rotate(45deg)); }
-    &:nth-child(3) { .transform(rotate(-45deg)); }
-  }
+.o-SiteHead__Nav {
 }

@@ -1,0 +1,70 @@
+
+/*################################*\
+    conf  |  _c-BtnMenu.less
+\*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform-origin.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
+@import (reference) url('__settings.less');
+
+
+@p-trans_dura: 500ms;
+
+
+input#toggle-top-menu {
+  display: none;
+  & + label {
+    cursor: pointer;
+    @media screen and (min-width: 45em) {
+      display: none;
+    }
+  }
+}
+
+// Toggle button with "menu" icon in inactive state and "close" icon in active state.
+// This is an <svg> element.
+//
+// ^subcomponents
+// __Bar - rectangle comprising the icons
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-07-02
+.c-BtnMenu {
+  position: absolute;
+  top: ((75px - 48px)/2); // half height of the mast head
+  right: 0;
+  z-index: 3; // over `.o-Drawer`
+  margin: @g-boxpadd_mill;
+  border-radius: 0.25rem;
+  noscript &::before {
+    content: 'menu';
+  }
+}
+
+.c-BtnMenu__Bar {
+  fill: @g-color_asce_white;
+  .transform-origin(center);
+  .transitions(@g-prefix_transform, fill; @p-trans_dura);
+  &:nth-child(1) {}
+  &:nth-child(2) { .transform(translate(0,-5px)); }
+  &:nth-child(3) { .transform(translate(0,5px)); }
+}
+
+input#toggle-top-menu:checked + label {
+  .c-BtnMenu {
+    position: fixed;
+  }
+  noscript .c-BtnMenu::before {
+    content: 'close';
+  }
+  .c-BtnMenu__Bar {
+    fill: @g-color_site_gray_lt;
+    &:nth-child(1) {
+      .transform(scale((24/18),12));
+      fill: @g-color_asce_white;
+    }
+    &:nth-child(2) { .transform(rotate(45deg)); }
+    &:nth-child(3) { .transform(rotate(-45deg)); }
+  }
+}

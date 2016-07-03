@@ -968,7 +968,18 @@ block append main
             &lt;rect class="#[u c-BtnMenu__Bar]" width="18" height="2"&gt;
             &lt;rect class="#[u c-BtnMenu__Bar]" width="18" height="2"&gt;
           &lt;/g&gt;
-        &lt;p&gt;
+        &lt;svg&gt;
+    figure.docs-figure
+      figcaption The state #[code.docs-code --on] fixes the button to the top-right of the page.
+      svg.c-BtnMenu.c-BtnMenu--on(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
+        path(d="M0,0 H24 V24 H0 z" fill="transparent")
+        g(transform="translate(3,11)")
+          each val in new Array(3)
+            rect.c-BtnMenu__Bar(width="18" height="2")
+      pre.docs-pre.
+        &lt;svg class="#[u c-BtnMenu]  #[u c-BtnMenu--on]" ...&gt;
+          ...
+        &lt;svg&gt;
   section.sg-sect#text-level-components
     h2 Text-Level Components
     h3 Camo Links

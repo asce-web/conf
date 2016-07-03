@@ -24,6 +24,8 @@ input#toggle-top-menu {
 // Toggle button with "menu" icon in inactive state and "close" icon in active state.
 // This is an <svg> element.
 //
+// ^subclasses
+// --on - state of toggle button in the "on" position
 // ^subcomponents
 // __Bar - rectangle comprising the icons
 // ^author
@@ -51,14 +53,17 @@ input#toggle-top-menu {
   &:nth-child(3) { .transform(translate(0,5px)); }
 }
 
-input#toggle-top-menu:checked + label {
-  .c-BtnMenu {
+  input#toggle-top-menu:checked + label .c-BtnMenu,
+  .c-BtnMenu--on {
     position: fixed;
   }
-  noscript .c-BtnMenu::before {
+  input#toggle-top-menu:checked + label noscript .c-BtnMenu::before,
+  noscript .c-BtnMenu--on::before {
     content: 'close';
   }
-  .c-BtnMenu__Bar {
+
+  input#toggle-top-menu:checked + label .c-BtnMenu__Bar,
+  .c-BtnMenu--on .c-BtnMenu__Bar {
     &:nth-child(1) {
       .transform(scale((24/18),12));
       fill: @g-color_site_gray_dk;
@@ -68,4 +73,3 @@ input#toggle-top-menu:checked + label {
     &:nth-child(2) { .transform(rotate(45deg)); }
     &:nth-child(3) { .transform(rotate(-45deg)); }
   }
-}

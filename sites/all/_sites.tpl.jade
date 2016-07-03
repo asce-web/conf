@@ -65,12 +65,12 @@ html(lang="en")
         h1.o-GridFloat__Item.c-SiteTitle__Name= site.name
         p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
       div.o-GridFlex__Item.o-SiteHead__Item
-        input#toggle-top-menu(type="checkbox" value="open top menu")
-        label(for="toggle-top-menu")
+        label.c-Toggle
+          input.c-Toggle__Check(type="checkbox" value="open top menu")
           span.-d-n toggle top menu
           //- noscript
             i.c-BtnMenu.material-icons
-          svg.c-BtnMenu(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
+          svg.c-Toggle__Viz.c-BtnMenu(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
             path(d="M0,0 H24 V24 H0 z" fill="transparent")
             g(transform="translate(3,11)")
               each val in new Array(3)
@@ -145,6 +145,7 @@ html(lang="en")
       script(src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
       script(src="/scripts/c-SponsorCarousel.js")
       script(src="/scripts/c-Program.js")
+      script(src="/scripts/c-Toggle.js")
       //- script.
         $('.c-Speaker__Body').addClass('-h-z')
         $('.c-Speaker__Img').height(function () { return $(this).width() })

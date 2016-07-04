@@ -1,4 +1,4 @@
-extends lib.tpl.jade
+extends _lib.tpl.jade
 
 block append vars
   - var page = Lib.getPage('obj.html')
@@ -6,7 +6,7 @@ block append vars
 block append main
   div.docs-t-Xmeter
     include /node_modules/xmeter/docs/includes/_content-obj.jade
-  section.sg-sect#flex-grid
+  section#flex-grid
     h2 The Flex Grid
     p.
       A Flex Grid is simply a list of items arranged like blocks in a grid.
@@ -53,7 +53,7 @@ block append main
           &lt;li class="#[u o-GridFlex__Item]"&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
           ...
         &lt;/ul&gt;
-  section.sg-sect#float-grid
+  section#float-grid
     h2 The Float Grid
     p.
       The Float Grid works just like the Flex Grid object above, except that this object
@@ -91,7 +91,7 @@ block append main
           &lt;li class="#[u o-GridFloat__Item]"&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
           ...
         &lt;/ul&gt;
-  section.sg-sect#runner-object
+  section#runner-object
     h2 The Runner Object
     p.
       The Runner Object is a large, full-width section with padding on all four sides.
@@ -145,7 +145,7 @@ block append main
             &lt;p&gt;runner content&lt;/p&gt;
           #[u!= '&lt;/div&gt;']
         &lt;/div&gt;
-  section.sg-sect#content-wrapper
+  section#content-wrapper
     h2 The Content Wrapper
     p.
       This object wraps content, limiting its maximum width.
@@ -173,7 +173,7 @@ block append main
     //-     &lt;div class="#[u o-Runner]"&gt;
     //-       &lt;h1 class="#[u o-ContentWrapper]"&gt;heading with a max-width&lt;/h1&gt;
     //-     &lt;/div&gt;
-  section.sg-sect#action-list
+  section#action-list
     h2 The Action List
     p.
       An action list is a list of (typically 3 or less) choices of actions a user can make.
@@ -190,7 +190,7 @@ block append main
           &lt;li class="o-GridFlex__Item  #[u o-ListAction__Item]"&gt;action item 2&lt;/li&gt;
           &lt;li class="o-GridFlex__Item  #[u o-ListAction__Item]"&gt;action item 3&lt;/li&gt;
         &lt;/ul&gt;
-  section.sg-sect#stacked-list
+  section#stacked-list
     h2 The Stacked List
     p.
       The Stacked List Object is usually an unordered list (though it can be ordered) of blocky items.
@@ -213,7 +213,7 @@ block append main
           &lt;/li&gt;
           ...
         &lt;/ul&gt;
-  section.sg-sect#site-head
+  section#site-head
     h2 The Site Head
     p.
       Simply a modification for the #[a(href="#flex-grid") Flex Grid Object].
@@ -233,7 +233,7 @@ block append main
           &lt;div class="#[u o-SiteHead__Item]"&gt;site title&lt;/div&gt;
           &lt;div class="#[u o-SiteHead__Item]"&gt;universal menu&lt;/div&gt;
         &lt;/div&gt;
-  section.sg-sect#drawer-object
+  section#drawer-object
     h2 The Drawer Object
     p.
       #[strong Note:]

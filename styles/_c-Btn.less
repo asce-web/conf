@@ -11,6 +11,7 @@
 // Table of Contents
 // # ALL BUTTON STYLES (.c-Btn)
 // # BUTTON COLOR STYLES
+// # BUTTON TEXTURE STYLES
 // # BUTTON STRUCTURE STYLES
 
 
@@ -33,7 +34,7 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-06-27
+// 2016-07-03
 .c-Btn {
   // all button styles
   display: inline-block;
@@ -90,6 +91,8 @@
     &:hover,
     &:focus,
     &:active {
+      border: 0;
+      box-shadow: none;
       background-color: #eee;
       color: #bbb;
     }
@@ -125,45 +128,80 @@
   &:active,
   &._hover,
   &._active {
-    color: #fff;
-  }
-  &:active,
-  &._active {
-    background-color: @g-color_site_gray_dk;
+    color: @g-color_asce_white;
   }
 }
 
 .c-Btn--primary {
   background-color: @g-color_site_primary;
+  &:hover,
+  &:focus,
+  &._hover {
+    background-color: darken(@g-color_site_primary, 25%, relative);
+  }
+  &:active,
+  &._active {
+    background-color: darken(@g-color_site_primary, 50%, relative);
+  }
 }
 
 .c-Btn--secondary {
   background-color: @g-color_site_secondary;
+  &:hover,
+  &:focus,
+  &._hover {
+    background-color: lighten(@g-color_site_secondary, 25%, relative);
+  }
+  &:active,
+  &._active {
+    background-color: lighten(@g-color_site_secondary, 50%, relative);
+  }
 }
 
 .c-Btn--ghost {
-  color: inherit;
-  border: 2px solid currentColor;
-  background-color: transparent;
   &:hover,
   &:focus,
-  &:active,
-  &._hover,
-  &._active {
+  &._hover {
     color: @g-color_asce_white;
-    background-color: @g-color_site_gray_dk;
     border-color: transparent;
+    background-color: @g-color_site_gray_dk;
+  }
+  &,
+  &:active,
+  &._active {
+    color: inherit;
+    border: 2px solid currentColor;
+    background-color: transparent;
   }
 }
 
 .c-Btn--ghost--dark {
   &:hover,
   &:focus,
+  &._hover {
+    &:not(:active) { // HACK because :hover will override :active
+      color: @g-color_site_gray_dk;
+      background-color: @g-color_asce_white;
+    }
+  }
+}
+//++++ end # BUTTON COLOR STYLES ++++//
+
+
+//++++++++++++++++++++++++++++++++//
+//    # BUTTON TEXTURE STYLES
+//++++++++++++++++++++++++++++++++//
+.c-Btn--glossy {
+  @bs_x:     0;
+  @bs_y:     1em;
+  @bs_blur:  0;
+  @bs_color: fadeout(#fff, 75%);
+  border: 1px outset transparent;
+  box-shadow: @bs_x @bs_y @bs_blur @bs_color inset;
   &:active,
-  &._hover,
   &._active {
-    color: @g-color_site_gray_dk;
-    background-color: @g-color_asce_white;
+    border-style: inset;
+    box-shadow: @bs_x (-0.5*@bs_y) @bs_blur @bs_color inset;
   }
 }
 
@@ -190,7 +228,7 @@
     color: @g-color_site_gray_dk;
   }
 }
-//++++ end # BUTTON COLOR STYLES ++++//
+//++++ end # BUTTON TEXTURE STYLES ++++//
 
 
 //++++++++++++++++++++++++++++++++//
@@ -209,21 +247,5 @@
   line-height: 0;
   white-space: nowrap;
   border-radius: 0.25em;
-}
-
-.c-Btn--drawer {
-  @media screen and (min-width: 45em) {
-    display: none;
-  }
-  padding: @g-boxpadd_micr;
-  margin: @g-boxpadd_mill;
-  border: 0; // override `button`
-  color: inherit; // override `.c-Btn` // in dark mast
-}
-
-.c-Btn--drawer--close {
-  position: absolute;
-  top: 0; right: 0;
-  z-index: 2; // over `.SiteHead__Nav`
 }
 //++++ end # BUTTON STRUCTURE STYLES ++++//

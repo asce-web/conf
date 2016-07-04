@@ -127,43 +127,59 @@
   &._active {
     color: #fff;
   }
-  &:active,
-  &._active {
-    background-color: @g-color_site_gray_dk;
-  }
 }
 
 .c-Btn--primary {
   background-color: @g-color_site_primary;
+  &:hover,
+  &:focus,
+  &._hover {
+    background-color: darken(@g-color_site_primary, 25%, relative);
+  }
+  &:active,
+  &._active {
+    background-color: darken(@g-color_site_primary, 50%, relative);
+  }
 }
 
 .c-Btn--secondary {
   background-color: @g-color_site_secondary;
+  &:hover,
+  &:focus,
+  &._hover {
+    background-color: lighten(@g-color_site_secondary, 25%, relative);
+  }
+  &:active,
+  &._active {
+    background-color: lighten(@g-color_site_secondary, 50%, relative);
+  }
 }
 
 .c-Btn--ghost {
-  color: inherit;
-  border: 2px solid currentColor;
-  background-color: transparent;
   &:hover,
   &:focus,
-  &:active,
-  &._hover,
-  &._active {
+  &._hover {
     color: @g-color_asce_white;
-    background-color: @g-color_site_gray_dk;
     border-color: transparent;
+    background-color: @g-color_site_gray_dk;
+  }
+  &,
+  &:active,
+  &._active {
+    color: inherit;
+    border: 2px solid currentColor;
+    background-color: transparent;
   }
 }
 
 .c-Btn--ghost--dark {
   &:hover,
   &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    color: @g-color_site_gray_dk;
-    background-color: @g-color_asce_white;
+  &._hover {
+    &:not(:active) { // HACK because :hover will override :active
+      color: @g-color_site_gray_dk;
+      background-color: @g-color_asce_white;
+    }
   }
 }
 

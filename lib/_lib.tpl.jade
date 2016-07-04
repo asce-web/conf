@@ -15,15 +15,16 @@ html(lang="en")
     title= page.name + ' | ' + project_name
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic")
-    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,400italic,700")
-    link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
-    link(rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
-    link(rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css")
-    link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v4.3.0/xmeter.min.css")
-    link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.8.0/bangs.min.css")
-    link(rel="stylesheet" href="/styles/conf.css")
-    link(rel="stylesheet" href="styles/lib.css")
+    block styles
+      link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic")
+      link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,400italic,700")
+      link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+      link(rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
+      link(rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css")
+      link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v4.3.0/xmeter.min.css")
+      link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.8.0/bangs.min.css")
+      link(rel="stylesheet" href="/styles/conf.css")
+      link(rel="stylesheet" href="styles/lib.css")
   body
     main
       block main
@@ -44,7 +45,8 @@ html(lang="en")
           li: a(href="/index.html") Home
           li: a(href="index.html") Pattern Library
           li: a(href="/sites/default/index.html") Sample Site
-    script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
-    script(src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
-    script(src="/scripts/c-SponsorCarousel.js")
-    script(src="/scripts/c-Program.js")
+    block scripts
+      script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
+      script(src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
+      script(src="/scripts/c-SponsorCarousel.js")
+      script(src="/scripts/c-Program.js")

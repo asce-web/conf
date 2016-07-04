@@ -80,9 +80,9 @@ mixin heroContent(event0)
       | &nbsp;
 
 mixin actionchoices(items, classes, list_attr)
-  ul.o-ListBare.o-GridFlex.o-ListAction&attributes(list_attr || {})
+  ul.o-List.o-GridFlex.o-ListAction&attributes(list_attr || {})
     each obj in items
-      li.o-GridFlex__Item.o-ListAction__Item
+      li.o-List__Item.o-GridFlex__Item.o-ListAction__Item
         a(class=classes href=obj.href)&attributes(obj.attr || {})
           = obj.text
           block

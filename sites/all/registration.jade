@@ -11,14 +11,14 @@ block mainHeader
 block mainReference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n#full-registration Full Registration
-    ul.o-ListBare.o-GridFlex.o-ListStacked
+    ul.o-List.o-GridFlex.o-ListStacked
       include /includes/components/_c-Pass.jade
       each pass0 in site.getCurrentConference().getPassesAll()
-        li.o-GridFlex__Item.o-ListStacked__Item
+        li.o-List__Item.o-GridFlex__Item.o-ListStacked__Item
           +pass(pass0)
-    ul.o-ListBare.o-GridFlex.o-ListAction.c-Callout
+    ul.o-List.o-GridFlex.o-ListAction.c-Callout
       each item,index in site.getCurrentConference().getRegistrationPeriodsAll()
-        li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item.c-RegPeriodLegendItem
+        li.o-List__Item.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item.c-RegPeriodLegendItem
           i.material-icons= item.getIcon()
           small
             - var start = Util.toDate(item.startDate)

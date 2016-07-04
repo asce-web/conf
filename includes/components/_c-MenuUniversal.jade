@@ -1,7 +1,7 @@
 mixin menuUniversal(array1, array2, current_text)
-  ul.o-ListBare.o-GridFlex.c-MenuUniversal
+  ul.o-List.o-GridFlex.c-MenuUniversal
     mixin univItem(page0, is_current, text)
-      li.o-GridFlex__Item.c-MenuUniversal__Item
+      li.o-List__Item.o-GridFlex__Item.c-MenuUniversal__Item
         +linkWithIcon({
           classes   : 'c-MenuUniversal__Link h-Block' + ((is_current) ? ' c-MenuUniversal__Link--current' : '')
         , href      : page0.url

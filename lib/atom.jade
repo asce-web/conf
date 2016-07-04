@@ -1,4 +1,4 @@
-extends lib.tpl.jade
+extends _lib.tpl.jade
 
 block append vars
   - var page = Lib.getPage('atom.html')
@@ -13,7 +13,7 @@ block append main
     #[cite Bangs!], which is a set of atoms for all properties and values.
     Only the most common classes are listed below, however feel free to check out
     #[a(href="https://github.com/chharvey/bangs/blob/gh-pages/PROPERTIES.md") the comprehensive list.]
-  section.sg-sect#-fl
+  section#-fl
     h2 Floats
     p.
       Use floats to float content to the left or to the right in surrounding prose.
@@ -33,7 +33,7 @@ block append main
         &lt;div class="#[u -fl-l]"&gt;floating left&lt;/div&gt;
         &lt;div class="#[u -fl-r]"&gt;floating right&lt;/div&gt;
         &lt;div&gt;Lorem ipsum dolor ...&lt;/div&gt;
-  section.sg-sect#-w
+  section#-w
     h2 Widths
     p.
       Use these classes to set the width of block (or inline-block) elements.

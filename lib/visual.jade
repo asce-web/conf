@@ -1,4 +1,4 @@
-extends lib.tpl.jade
+extends _lib.tpl.jade
 
 block append vars
   - var page = Lib.getPage('visual.html')
@@ -28,14 +28,14 @@ block append main
             br
       p(style="font-size: 0.8rem; line-height:1.875;")
         span.o-Block= color.name
-  section.sg-sect#asce
+  section#asce
     h2 ASCE
     h3 Colors
     ul.o-ListBare.o-GridFlex
       +colorsample(scheme.asce.black)
       +colorsample(scheme.asce.white)
       +colorsample(scheme.asce.blue)
-  section.sg-sect#asce2016
+  section#asce2016
     h2 ASCE 2016
     h3 Colors
     ul.o-ListBare.o-GridFlex

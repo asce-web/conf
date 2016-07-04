@@ -4,7 +4,7 @@ block append vars
   - var page = Lib.getPage('comp.html')
 
 block append main
-  section.sg-sect#masthead-mastfoot
+  section#masthead-mastfoot
     h2 The Masthead and Mastfoot
     figure.docs-figure
       header.c-Mast
@@ -43,7 +43,7 @@ block append main
         &lt;footer class="#[u c-Mast]  #[u c-Mast--internal]"&gt;
           &lt;p&gt;&lt;a&gt;&copy; 1996&ndash;2016 American Society of Civil Engineers&lt;/a&gt;&lt;/p&gt;
         &lt;/footer&gt;
-  section.sg-sect#site-title
+  section#site-title
     h2 The Site Title
     p Use with #[a(href="#text-level-components") the Camo Link].
     figure.docs-figure
@@ -57,7 +57,7 @@ block append main
           &lt;h1 class="o-GridFloat__Item  #[u c-SiteTitle__Name]"&gt;ASCE Convention&lt;/h1&gt;
           &lt;p class="o-GridFloat__Item  #[u c-SiteTitle__Tagline]"&gt;The Flagship Event of ASCE&lt;/p&gt;
         &lt;/a&gt;
-  section.sg-sect#universal-menu
+  section#universal-menu
     h2 The Universal Menu
     p #[strong Note:] Universal Menu will convert to pull-out drawer when screen is smaller than 720px.
     p Current Year menu item will appear exactly the same as Primary Button, but will not have that class.
@@ -91,7 +91,7 @@ block append main
             &lt;a class="o-Block  #[u c-MenuUniversal__Link]  #[u c-MenuUniversal__Link--current]"&gt;ASCE 2016&lt;/a&gt;
           &lt;/li&gt;
         &lt;/ul&gt;
-  section.sg-sect#standard-menu
+  section#standard-menu
     h2 The Standard Menu
     figure.docs-figure
       -
@@ -114,7 +114,7 @@ block append main
           &lt;/li&gt;
           ...
         &lt;/ul&gt;
-  section.sg-sect#sub-menu
+  section#sub-menu
     h2 The Sub Menu
     figure.docs-figure
       -
@@ -136,7 +136,7 @@ block append main
           &lt;/li&gt;
           ...
         &lt;/ul&gt;
-  section.sg-sect#sitemap-component
+  section#sitemap-component
     h2 The Sitemap Component
     figure.docs-figure
       -
@@ -177,7 +177,7 @@ block append main
           &lt;/li&gt;
           ...
         &lt;/ul&gt;
-  section.sg-sect#page-title
+  section#page-title
     h2 The Page Title
     p Use #[code.docs-code .c-PageTitle] for the top-level heading of a page.
     figure.docs-figure
@@ -192,7 +192,7 @@ block append main
         &lt;div class="c-Banner"&gt;
           &lt;h1 class="#[u c-PageTitle]  #[u c-PageTitle--special]"&gt;special page title&lt;/h1&gt;
         &lt;/div&gt;
-  section.sg-sect#banner-component
+  section#banner-component
     h2 The Banner Component
     figure.docs-figure
       div.c-Banner(style="margin-bottom: 1.5rem; z-index:1;")
@@ -203,7 +203,7 @@ block append main
           &lt;h1&gt;banner heading&lt;/h1&gt;
           &lt;p&gt;banner content&lt;/p&gt;
         &lt;/div&gt;
-  section.sg-sect#hero-block
+  section#hero-block
     h2 The Hero Block
     figure.docs-figure
       -
@@ -254,7 +254,7 @@ block append main
             &lt;/p&gt;
             &lt;p class="#[u c-Hero__Theme]"#[mark  itemprop="description"]&gt;Geotechincal risk ...&lt;/p&gt;
           &lt;/div&gt;
-  section.sg-sect#other-year-block
+  section#other-year-block
     h2 The Other Year Block
     figure.docs-figure
       -
@@ -293,7 +293,7 @@ block append main
             &lt;/p&gt;
             &lt;p class="#[u c-OtherYear__Desc]"&gt;Access the ...&lt;/p&gt;
           &lt;/div&gt;
-  section.sg-sect#overlay-component
+  section#overlay-component
     h2 The Overlay Component
     p Use the Overlay Component over a Banner.
     figure.docs-figure
@@ -322,7 +322,7 @@ block append main
             &lt;p&gt;inverted overlay content&lt;/p&gt;
           &lt;/div&gt;
         &lt;/div&gt;
-  section.sg-sect#sponsor-block
+  section#sponsor-block
     h2 The Sponsor Block
     p A Sponsor Block holds one group of sponsors.
     h3 Sponsor Page
@@ -379,7 +379,7 @@ block append main
           ...
         &lt;/section&gt;
         ...
-  section.sg-sect#sponsor-carousel
+  section#sponsor-carousel
     h2 The Sponsor Carousel
     p.
       The Sponsor Carousel holds the list of all sponsors.
@@ -412,7 +412,7 @@ block append main
           &lt;/li&gt;
           ...
         &lt;/ol&gt;
-  section.sg-sect#date-block
+  section#date-block
     h2 The Date Block
     figure.docs-figure
       dl.c-DateBlock
@@ -444,7 +444,7 @@ block append main
             &lt;/a&gt;
           &lt;/dd&gt;
         &lt;/dl&gt;
-  section.sg-sect#pass-component
+  section#pass-component
     h2 The Pass Component
     p The Pass Component should be an #[code.docs-code article] element.
     p.
@@ -502,7 +502,7 @@ block append main
             &lt;/section&gt;
           &lt;/footer&gt;
         &lt;/article&gt;
-  section.sg-sect#program-component
+  section#program-component
     h2 The Program Component
     p Enable Javascript to experience visual effects.
     figure.docs-figure
@@ -542,7 +542,7 @@ block append main
             &lt;/time&gt;
           &lt;/label&gt;
         &lt;/h1&gt;
-  section.sg-sect#time-block
+  section#time-block
     h2 The Time Block
     figure.docs-figure
       dl.o-GridFlex.c-TimeBlock
@@ -571,7 +571,7 @@ block append main
           &lt;dd class="o-GridFlex__Item  #[u c-TimeBlock__Desc]"&gt;...&lt;/dd&gt;
           ...
         &lt;/dl&gt;
-  section.sg-sect#speaker-component
+  section#speaker-component
     h2 The Speaker Component
     figure.docs-figure
       article.c-Speaker(style="margin-bottom: 1.5rem;")
@@ -606,7 +606,7 @@ block append main
             &lt;/ul&gt;
           &lt;/div&gt;
         &lt;/article&gt;
-  section.sg-sect#social-list
+  section#social-list
     h2 The Social List
     p.
       There are two Social List styles: one is a normal list, placeable anywhere,
@@ -656,7 +656,7 @@ block append main
         &lt;footer&gt;
           #[small &lt;!-- second social list exactly the same structure as above --&gt;]
         &lt;/footer&gt;
-  section.sg-sect#callout-component
+  section#callout-component
     h2 The Callout Component
     figure.docs-figure
       p.c-Callout A callout! Use whatever the heck element you want, even a #[code.docs-code &lt;figure&gt;]!
@@ -672,7 +672,7 @@ block append main
           &lt;li class="o-GridFlex__Item  #[u c-Callout__Item]"&gt;...&lt;/li&gt;
           ...
         &lt;/ul&gt;
-  section.sg-sect#buttons
+  section#buttons
     h2 Buttons
     p.
       Buttons are displayed inline-block, so in order to preserve
@@ -711,7 +711,7 @@ block append main
     p.
       #[strong Important:] colors will vary by site. Colors shown here are
       #[a(href="visual.html#asce2016") ASCE 2016].
-    section#generic-buttons
+    section
       h3 Generic Buttons
       p Generic, general purpose buttons.
       figure.docs-figure
@@ -722,7 +722,7 @@ block append main
           li(style="margin-bottom:0.375rem;"): a.c-Btn generic button disabled
         pre.docs-pre.
           &lt;a class="#[u c-Btn]"&gt;generic button&lt;/a&gt;
-    section#button-color-styles
+    section
       h3 Button Color Styles
       h4 Dark Button Color
       p Same as generic button but darker.
@@ -789,7 +789,7 @@ block append main
             li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark ghost dark button disabled inside a banner
         pre.docs-pre.
           &lt;a class="#[u c-Btn]  #[u c-Btn--ghost]  #[u c-Btn--ghost--dark]"&gt;ghost dark button&lt;/a&gt;
-    section#button-texture-styles
+    section
       h3 Button Texture Styles
       h4 Glossy Button Texture
       p Glossy, #[abbr(title="three-dimensional") 3D] buttons. Mix with any color style as needed.
@@ -817,7 +817,7 @@ block append main
             li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat flat button disabled inside a banner
         pre.docs-pre.
           &lt;a class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/a&gt;
-    section#button-sizing-styles
+    section
       h3 Button Sizing Styles
       p These styles are for different sized buttons. Use with any color style.
       h4 Highlight Button Structure
@@ -844,7 +844,7 @@ block append main
           &lt;p&gt;The following button,
             &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
             is in line with the text in this paragraph. ...&lt;/p&gt;
-    section#button-summary-table
+    section
       h3 Button Summary Table
       table
         thead: tr
@@ -1004,7 +1004,7 @@ block append main
               a.c-Btn.c-Btn--flat.c-Btn--inline(href="#0") Flat Inline
               br
               span .c-Btn.c-Btn--flat.c-Btn--inline
-  section.sg-sect#toggle-button
+  section#toggle-button
     h2 The Toggle Button
     p.
       This Component is not part of the #[code.docs-code .c-Btn] suite of styles; it is a
@@ -1033,7 +1033,7 @@ block append main
             &lt;/g&gt;
           &lt;svg&gt;
         &lt;/label&gt;
-  section.sg-sect#text-level-components
+  section#text-level-components
     h2 Text-Level Components
     h3 Camo Links
     p.

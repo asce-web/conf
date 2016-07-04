@@ -694,30 +694,35 @@ block append main
       dt.-fw-7 hover/focus
       dd the user&rsquo;s cursor is hovering over the component, or the user agent is focusing on the component
       dt.-fw-7 active
-      dd the user is in the process of clicking the component
+      dd the user is in the process of clicking/activating the component
       dt.-fw-7 disabled
-      dd.
-        the element is a #[code.docs-code button] with the #[code.docs-code disabled] attribute or
-        is an #[code.docs-code a] with no #[code.docs-code href] attribute.
-        the component is inaccessable and/or does nothing, and the user
-        may not interact with it
+      dd
+        | the component is inaccessable and/or does nothing, and the user
+        |  may not interact with it.
+        |  this state is implemented by
+        ul
+          li a #[code.docs-code button] with the #[code.docs-code disabled] attribute, or
+          li.
+            an #[code.docs-code a] with the #[code.docs-code href] attribute #[em absent]
+            (this is not the same as an empty attribute #[code.docs-code [href=""]]).
     p.
       Each of these states is demonstrated in the sections below, however
       only the code for the default state is shown.
     p.
       #[strong Important:] colors will vary by site. Colors shown here are
       #[a(href="visual.html#asce2016") ASCE 2016].
-    h3 Generic Buttons
-    p Generic, general purpose buttons.
-    figure.docs-figure
-      ul.o-ListBare
-        li(style="margin-bottom:0.375rem;"): a.c-Btn(href="#0") generic button
-        li(style="margin-bottom:0.375rem;"): a.c-Btn(href="#0")._hover generic button hover
-        li(style="margin-bottom:0.375rem;"): a.c-Btn(href="#0")._active generic button active
-        li(style="margin-bottom:0.375rem;"): a.c-Btn generic button disabled
-      pre.docs-pre.
-        &lt;a class="#[u c-Btn]"&gt;generic button&lt;/a&gt;
-    section
+    section#generic-buttons
+      h3 Generic Buttons
+      p Generic, general purpose buttons.
+      figure.docs-figure
+        ul.o-ListBare
+          li(style="margin-bottom:0.375rem;"): a.c-Btn(href="#0") generic button
+          li(style="margin-bottom:0.375rem;"): a.c-Btn(href="#0")._hover generic button hover
+          li(style="margin-bottom:0.375rem;"): a.c-Btn(href="#0")._active generic button active
+          li(style="margin-bottom:0.375rem;"): a.c-Btn generic button disabled
+        pre.docs-pre.
+          &lt;a class="#[u c-Btn]"&gt;generic button&lt;/a&gt;
+    section#button-color-styles
       h3 Button Color Styles
       h4 Dark Button Color
       p Same as generic button but darker.
@@ -784,7 +789,19 @@ block append main
             li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark ghost dark button disabled inside a banner
         pre.docs-pre.
           &lt;a class="#[u c-Btn]  #[u c-Btn--ghost]  #[u c-Btn--ghost--dark]"&gt;ghost dark button&lt;/a&gt;
-      h4 Flat Button Color
+    section#button-texture-styles
+      h3 Button Texture Styles
+      h4 Glossy Button Texture
+      p Glossy, #[abbr(title="three-dimensional") 3D] buttons. Mix with any color style as needed.
+      figure.docs-figure
+        ul.o-ListBare
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--glossy(href="#0") glossy button
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--glossy(href="#0")._hover glossy button hover
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--glossy(href="#0")._active glossy button active
+          li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--glossy glossy button disabled
+        pre.docs-pre.
+          &lt;a class="#[u c-Btn]  #[u c-Btn--glossy]"&gt;glossy button&lt;/a&gt;
+      h4 Flat Button Texture
       p Flat, link-ish buttons.
       figure.docs-figure
         ul.o-ListBare
@@ -800,8 +817,9 @@ block append main
             li(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat flat button disabled inside a banner
         pre.docs-pre.
           &lt;a class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/a&gt;
-    section
+    section#button-sizing-styles
       h3 Button Sizing Styles
+      p These styles are for different sized buttons. Use with any color style.
       h4 Highlight Button Structure
       p Highlight buttons, for large buttons in highlight block.
       figure.docs-figure
@@ -826,134 +844,171 @@ block append main
           &lt;p&gt;The following button,
             &lt;a class="#[u c-Btn]  #[u c-Btn--inline]"&gt;inline button&lt;/a&gt;,
             is in line with the text in this paragraph. ...&lt;/p&gt;
-      h4 Drawer Button Structure
-      p.
-        Drawer buttons for pull-out menu.
-        Hidden when screen is larger than 720px.
-        #[i Close] button is fixed to the top right.
-      p.
-        These are actually #[code.docs-code button] elements.
-        Add extra Button styles as shown.
-      figure.docs-figure
-        div(style="margin-bottom: 1.5rem;")
-          button.c-Btn.c-Btn--drawer.c-Btn--flat open
-          button.c-Btn.c-Btn--drawer.c-Btn--drawer--close.c-Btn--ghost.c-Btn--ghost--dark close
-        pre.docs-pre.
-          &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]  c-Btn--flat"&gt;open&lt;/button&gt;
-          &lt;button class="#[u c-Btn]  #[u c-Btn--drawer]  #[u c-Btn--drawer--close]  c-Btn--ghost  c-Btn--ghost--dark"&gt;close&lt;/button&gt;
-        ul.o-ListBare
-          li(style="margin-bottom:0.375rem;"): button.c-Btn.c-Btn--drawer drawer button
-          li(style="margin-bottom:0.375rem;"): button.c-Btn.c-Btn--drawer._hover drawer button hover
-          li(style="margin-bottom:0.375rem;"): button.c-Btn.c-Btn--drawer._active drawer button active
-          li(style="margin-bottom:0.375rem;"): button.c-Btn.c-Btn--drawer(disabled) drawer button disabled
-    h3 Button Summary Table
-    table
-      thead: tr
-        th Button Style
-        th Default Size
-        th Highlight Size
-        th Inline Size
-      tbody
-        tr
-          th Generic
-          td
-            a.c-Btn(href="#0") Generic Default
-            br
-            span .c-Btn
-          td
-            a.c-Btn.c-Btn--hilite(href="#0") Generic Highlight
-            br
-            span .c-Btn.c-Btn--hilite
-          td
-            a.c-Btn.c-Btn--inline(href="#0") Generic Inline
-            br
-            span .c-Btn.c-Btn--inline
-        tr
-          th Generic Dark
-          td
-            a.c-Btn.c-Btn--dark(href="#0") Generic Dark Default
-            br
-            span .c-Btn.c-Btn--dark
-          td
-            a.c-Btn.c-Btn--dark.c-Btn--hilite(href="#0") Generic Dark Highlight
-            br
-            span .c-Btn.c-Btn--dark.c-Btn--hilite
-          td
-            a.c-Btn.c-Btn--dark.c-Btn--inline(href="#0") Generic Dark Inline
-            br
-            span .c-Btn.c-Btn--dark.c-Btn--inline
-        tr
-          th Primary
-          td
-            a.c-Btn.c-Btn--primary(href="#0") Primary Default
-            br
-            span .c-Btn.c-Btn--primary
-          td
-            a.c-Btn.c-Btn--primary.c-Btn--hilite(href="#0") Primary Highlight
-            br
-            span .c-Btn.c-Btn--primary.c-Btn--hilite
-          td
-            a.c-Btn.c-Btn--primary.c-Btn--inline(href="#0") Primary Inline
-            br
-            span .c-Btn.c-Btn--primary.c-Btn--inline
-        tr
-          th Secondary
-          td
-            a.c-Btn.c-Btn--secondary(href="#0") Secondary Default
-            br
-            span .c-Btn.c-Btn--secondary
-          td
-            a.c-Btn.c-Btn--secondary.c-Btn--hilite(href="#0") Secondary Highlight
-            br
-            span .c-Btn.c-Btn--secondary.c-Btn--hilite
-          td
-            a.c-Btn.c-Btn--secondary.c-Btn--inline(href="#0") Secondary Inline
-            br
-            span .c-Btn.c-Btn--secondary.c-Btn--inline
-        tr
-          th Ghost
-          td
-            a.c-Btn.c-Btn--ghost(href="#0") Ghost Default
-            br
-            span .c-Btn.c-Btn--ghost
-          td
-            a.c-Btn.c-Btn--ghost.c-Btn--hilite(href="#0") Ghost Highlight
-            br
-            span .c-Btn.c-Btn--ghost.c-Btn--hilite
-          td
-            a.c-Btn.c-Btn--ghost.c-Btn--inline(href="#0") Ghost Inline
-            br
-            span .c-Btn.c-Btn--ghost.c-Btn--inline
-        tr(style="background-color: #555; color: #eee;")
-          th Ghost Dark
-          td
-            a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark(href="#0") Ghost Dark Default
-            br
-            span .c-Btn.c-Btn--ghost.c-Btn--ghost--dark
-          td
-            a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--hilite(href="#0") Ghost Dark Highlight
-            br
-            span .c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--hilite
-          td
-            a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--inline(href="#0") Ghost Dark Inline
-            br
-            span .c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--inline
-        tr
-          th Flat
-          td
-            a.c-Btn.c-Btn--flat(href="#0") Flat Default
-            br
-            span .c-Btn.c-Btn--flat
-          td
-            a.c-Btn.c-Btn--flat.c-Btn--hilite(href="#0") Flat Highlight
-            br
-            span .c-Btn.c-Btn--flat.c-Btn--hilite
-          td
-            a.c-Btn.c-Btn--flat.c-Btn--inline(href="#0") Flat Inline
-            br
-            span .c-Btn.c-Btn--flat.c-Btn--inline
+    section#button-summary-table
+      h3 Button Summary Table
+      table
+        thead: tr
+          th Button Style
+          th Default Size
+          th Highlight Size
+          th Inline Size
+        tbody
+          tr
+            th Generic
+            td
+              a.c-Btn(href="#0") Generic Default
+              br
+              span .c-Btn
+            td
+              a.c-Btn.c-Btn--hilite(href="#0") Generic Highlight
+              br
+              span .c-Btn.c-Btn--hilite
+            td
+              a.c-Btn.c-Btn--inline(href="#0") Generic Inline
+              br
+              span .c-Btn.c-Btn--inline
+          tr
+            th Generic Dark
+            td
+              a.c-Btn.c-Btn--dark(href="#0") Generic Dark Default
+              br
+              span .c-Btn.c-Btn--dark
+            td
+              a.c-Btn.c-Btn--dark.c-Btn--hilite(href="#0") Generic Dark Highlight
+              br
+              span .c-Btn.c-Btn--dark.c-Btn--hilite
+            td
+              a.c-Btn.c-Btn--dark.c-Btn--inline(href="#0") Generic Dark Inline
+              br
+              span .c-Btn.c-Btn--dark.c-Btn--inline
+          tr
+            th Primary
+            td
+              a.c-Btn.c-Btn--primary(href="#0") Primary Default
+              br
+              span .c-Btn.c-Btn--primary
+            td
+              a.c-Btn.c-Btn--primary.c-Btn--hilite(href="#0") Primary Highlight
+              br
+              span .c-Btn.c-Btn--primary.c-Btn--hilite
+            td
+              a.c-Btn.c-Btn--primary.c-Btn--inline(href="#0") Primary Inline
+              br
+              span .c-Btn.c-Btn--primary.c-Btn--inline
+          tr
+            th Secondary
+            td
+              a.c-Btn.c-Btn--secondary(href="#0") Secondary Default
+              br
+              span .c-Btn.c-Btn--secondary
+            td
+              a.c-Btn.c-Btn--secondary.c-Btn--hilite(href="#0") Secondary Highlight
+              br
+              span .c-Btn.c-Btn--secondary.c-Btn--hilite
+            td
+              a.c-Btn.c-Btn--secondary.c-Btn--inline(href="#0") Secondary Inline
+              br
+              span .c-Btn.c-Btn--secondary.c-Btn--inline
+          tr
+            th Ghost
+            td
+              a.c-Btn.c-Btn--ghost(href="#0") Ghost Default
+              br
+              span .c-Btn.c-Btn--ghost
+            td
+              a.c-Btn.c-Btn--ghost.c-Btn--hilite(href="#0") Ghost Highlight
+              br
+              span .c-Btn.c-Btn--ghost.c-Btn--hilite
+            td
+              a.c-Btn.c-Btn--ghost.c-Btn--inline(href="#0") Ghost Inline
+              br
+              span .c-Btn.c-Btn--ghost.c-Btn--inline
+          tr(style="background-color: #555; color: #eee;")
+            th Ghost Dark
+            td
+              a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark(href="#0") Ghost Dark Default
+              br
+              span .c-Btn.c-Btn--ghost.c-Btn--ghost--dark
+            td
+              a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--hilite(href="#0") Ghost Dark Highlight
+              br
+              span .c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--hilite
+            td
+              a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--inline(href="#0") Ghost Dark Inline
+              br
+              span .c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--inline
+          tr
+            th(rowspan="4") Glossy
+            td
+              a.c-Btn.c-Btn--glossy(href="#0") Glossy Default
+              br
+              span .c-Btn.c-Btn--glossy
+            td
+              a.c-Btn.c-Btn--glossy.c-Btn--hilite(href="#0") Glossy Highlight
+              br
+              span .c-Btn.c-Btn--glossy.c-Btn--hilite
+            td
+              a.c-Btn.c-Btn--glossy.c-Btn--inline(href="#0") Glossy Inline
+              br
+              span .c-Btn.c-Btn--glossy.c-Btn--inline
+          tr
+            td
+              a.c-Btn.c-Btn--glossy.c-Btn--dark(href="#0") Glossy Dark Default
+              br
+              span .c-Btn.c-Btn--glossy.c-Btn--dark
+            td
+              a.c-Btn.c-Btn--glossy.c-Btn--dark.c-Btn--hilite(href="#0") Glossy Dark Highlight
+              br
+              span .c-Btn.c-Btn--glossy.c-Btn--dark.c-Btn--hilite
+            td
+              a.c-Btn.c-Btn--glossy.c-Btn--dark.c-Btn--inline(href="#0") Glossy Dark Inline
+              br
+              span .c-Btn.c-Btn--glossy.c-Btn--dark.c-Btn--inline
+          tr
+            td
+              a.c-Btn.c-Btn--glossy.c-Btn--primary(href="#0") Glossy Primary Default
+              br
+              span .c-Btn.c-Btn--glossy.c-Btn--primary
+            td
+              a.c-Btn.c-Btn--glossy.c-Btn--primary.c-Btn--hilite(href="#0") Glossy Primary Highlight
+              br
+              span .c-Btn.c-Btn--glossy.c-Btn--primary.c-Btn--hilite
+            td
+              a.c-Btn.c-Btn--glossy.c-Btn--primary.c-Btn--inline(href="#0") Glossy Primary Inline
+              br
+              span .c-Btn.c-Btn--glossy.c-Btn--primary.c-Btn--inline
+          tr
+            td
+              a.c-Btn.c-Btn--glossy.c-Btn--secondary(href="#0") Glossy Secondary Default
+              br
+              span .c-Btn.c-Btn--glossy.c-Btn--secondary
+            td
+              a.c-Btn.c-Btn--glossy.c-Btn--secondary.c-Btn--hilite(href="#0") Glossy Secondary Highlight
+              br
+              span .c-Btn.c-Btn--glossy.c-Btn--secondary.c-Btn--hilite
+            td
+              a.c-Btn.c-Btn--glossy.c-Btn--secondary.c-Btn--inline(href="#0") Glossy Secondary Inline
+              br
+              span .c-Btn.c-Btn--glossy.c-Btn--secondary.c-Btn--inline
+          tr
+            th Flat
+            td
+              a.c-Btn.c-Btn--flat(href="#0") Flat Default
+              br
+              span .c-Btn.c-Btn--flat
+            td
+              a.c-Btn.c-Btn--flat.c-Btn--hilite(href="#0") Flat Highlight
+              br
+              span .c-Btn.c-Btn--flat.c-Btn--hilite
+            td
+              a.c-Btn.c-Btn--flat.c-Btn--inline(href="#0") Flat Inline
+              br
+              span .c-Btn.c-Btn--flat.c-Btn--inline
   section.sg-sect#toggle-button
     h2 The Toggle Button
+    p.
+      This Component is not part of the #[code.docs-code .c-Btn] suite of styles; it is a
+      separate Component that just so happens to look like a button.
     p.
       #[strong Note:]
       The Toggle Button for the universal menu will be hidden when screen is larger than 720px.

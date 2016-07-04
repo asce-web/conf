@@ -193,11 +193,11 @@
 //++++++++++++++++++++++++++++++++//
 .c-Btn--glossy {
   @bs_x:     0;
-  @bs_y:     0.5 * @g-vru;
+  @bs_y:     1em;
   @bs_blur:  0;
   @bs_color: fadeout(#fff, 75%);
   border: 1px outset transparent;
-  box-shadow: @bs_x (1.5*@bs_y) @bs_blur @bs_color inset;
+  box-shadow: @bs_x @bs_y @bs_blur @bs_color inset;
   &:active,
   &._active {
     border-style: inset;

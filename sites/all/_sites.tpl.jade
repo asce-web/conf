@@ -96,11 +96,8 @@ html(lang="en")
           block sponsors
             +highlight()
               h1#sponsors Sponsors
-              ol.o-ListBare.c-SponsorCarousel
-                each item in site.getSupportersAll()
-                  li.c-SponsorCarousel__Item
-                    a.o-Block.c-SponsorCarousel__Logo(href=item.getURL() style='background-image: url(\'' + item.getImg() + '\');')= item.name
-                    small.c-SponsorCarousel__Label= item.getLevel().name
+              include /includes/components/_c-SponsorCarousel.jade
+              +sponsorCarousel(site.getSupportersAll())
               +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
     footer.o-Runner.c-Mast(class=(pagetype==='main') ? 'c-Mast--internal' : ''): nav.o-ContentWrapper
       h1.-d-n#site-map Site Map

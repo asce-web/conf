@@ -98,6 +98,11 @@
       , description: 'Very specific classes used for creating anomalies or fixing broken styles.'
       }
     ]
+    Lib.DOCS_CLASSES = {
+      figure : 'docs-figure'
+    , pre    : 'docs-pre'
+    , code   : 'docs-code'
+    }
     Lib.getPage = function getPage(url0) {
       return Lib.PAGES.find(function (item) { return item.url === url0 })
     }

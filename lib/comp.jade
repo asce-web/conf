@@ -416,17 +416,13 @@ block append main
   section#date-block
     h2 The Date Block
     figure.docs-figure
-      dl.c-DateBlock
-        dt.c-DateBlock__Date
-          time(datetime="2015-10-12") Oct 12, 2015
-        dd.c-DateBlock__Desc
-          | Optional Final Papers Due
-        dt.c-DateBlock__Date
-          time(datetime="2015-12-17") Dec 17, 2015
-        dd.c-DateBlock__Desc
-          a.o-Block.c-DateBlock__Link(href="")
-            | Early-Bird Registration Closes
-            i.material-icons arrow_forward
+      -
+        var all_dates = [
+          new ImportantDate({name:'Optional Final Papers Due'     , startTime:'2015-10-12'})
+        , new ImportantDate({name:'Early-Bird Registration Closes', startTime:'2015-12-17'}).setURL('#0')
+        ]
+      include /includes/components/_c-DateBlock.jade
+      +dateBlock(all_dates)
       pre.docs-pre.
         &lt;dl class="#[u c-DateBlock]"&gt;
           &lt;dt class="#[u c-DateBlock__Date]"&gt;

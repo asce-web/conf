@@ -513,7 +513,6 @@ block append main
       and include similar data.
       Elements with class #[code.docs-code .js-*] are required for Javascript.
     figure.sg-c-Fig
-      - var sampevent = new ProgramEvent({ startDate: '2016-09-28 10:10', endDate: '2016-09-28 19:00', name: 'Registration' })
       h1.c-Program__Hn: label
         include /includes/components/_c-Program.jade
         +programHeading('2016-09-28')
@@ -530,27 +529,31 @@ block append main
   section#time-block
     h2 The Time Block
     figure.docs-figure
-      dl.o-GridFlex.c-TimeBlock
-        dt.o-GridFlex__Item.c-TimeBlock__Times
-          time= Util.hourTime12(new Date(new Date().setHours(10, 30)))
-          | &ndash;
-          time= Util.hourTime12(new Date(new Date().setHours(17, 0)))
-        dd.o-GridFlex__Item.c-TimeBlock__Desc
-          a.o-Block.c-TimeBlock__Link(href="")
-            | Technical Tours
-            i.material-icons arrow_forward
-        dt.o-GridFlex__Item.c-TimeBlock__Times
-          time= Util.hourTime12(new Date(new Date().setHours(13, 0)))
-          | &ndash;
-          time= Util.hourTime12(new Date(new Date().setHours(16, 30)))
-        dd.o-GridFlex__Item.c-TimeBlock__Desc Short Courses
+      include /includes/components/_c-TimeBlock.jade
+      +timeBlock([
+        new ProgramEvent({startDate:'2016-09-28 10:00', endDate:'2016-09-28 19:00', name:'Registration'             })
+      , new ProgramEvent({startDate:'2016-09-28 10:30', endDate:'2016-09-28 16:30', name:'Technical Tours'          }).setURL('#0')
+      , new ProgramEvent({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Short Courses'            }).setURL('#0')
+      , new ProgramEvent({startDate:'2016-09-28 12:00', endDate:'2016-09-28 17:00', name:'Optional Tours'           }).setURL('#0')
+      , new ProgramEvent({startDate:'2016-09-28 17:30', endDate:'2016-09-28 19:30', name:'Opening Welcome Reception'})
+      , new ProgramEvent({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Community Service Project'})
+      ], true)
       pre.docs-pre.
         &lt;dl class="o-GridFlex  #[u c-TimeBlock]"&gt;
           &lt;dt class="o-GridFlex__Item  #[u c-TimeBlock__Times]"&gt;
-            &lt;time&gt;10:30am&lt;/time&gt;&ndash;&lt;time&gt;5pm&lt;/time&gt;
+            &lt;time&gt;10am&lt;/time&gt;&ndash;&lt;time&gt;7pm&lt;/time&gt;
           &lt;/dt&gt;
           &lt;dd class="o-GridFlex__Item  #[u c-TimeBlock__Desc]"&gt;
-            &lt;a class="o-Block  #[u c-TimeBlock__Link]"&gt;Technical Tours&lt;/a&gt;
+            Registration
+          &lt;/dd&gt;
+          &lt;dt class="o-GridFlex__Item  #[u c-TimeBlock__Times]"&gt;
+            &lt;time&gt;10:30am&lt;/time&gt;&ndash;&lt;time&gt;4:30pm&lt;/time&gt;
+          &lt;/dt&gt;
+          &lt;dd class="o-GridFlex__Item  #[u c-TimeBlock__Desc]"&gt;
+            &lt;a class="o-Block  #[u c-TimeBlock__Link]"&gt;
+              &lt;i class="material-icons"&gt;arrow_forward&lt;/i&gt;
+              &lt;span&gt;Technical Tours&lt;/span&gt;
+            &lt;/a&gt;
           &lt;/dd&gt;
           &lt;dt class="o-GridFlex__Item  #[u c-TimeBlock__Times]"&gt;...&lt;/dt&gt;
           &lt;dd class="o-GridFlex__Item  #[u c-TimeBlock__Desc]"&gt;...&lt;/dd&gt;

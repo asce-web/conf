@@ -562,19 +562,9 @@ block append main
   section#speaker-component
     h2 The Speaker Component
     figure.docs-figure
-      article.c-Speaker(style="margin-bottom: 1.5rem;")
-        div.c-Speaker__Img(style="background-image: url(../sample/img/headshot1.jpg)")
-          header.c-Speaker__Head
-            h1.c-Speaker__Name Donna Fulman, P.ASCE
-            p.c-Speaker__JobTitle Interior Engineering Administration
-        div.c-Speaker__Body
-          div.c-Speaker__Bio
-            p Donna Fulman is an award-winning, German designer raised in Austria and currently living in New York City.
-            p Former Lead Product Designer and Art Director at Spotify, she recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
-          footer: ul.o-ListBare
-            li.o-Inline: a.c-Speaker__Link(href="") Email
-            li.o-Inline: a.c-Speaker__Link(href="") LinkedIn
-            li.o-Inline: a.c-Speaker__Link(href="") Twitter
+      div(style="margin-bottom: 1.5rem;")
+        include /includes/components/_c-Speaker.jade
+        +speaker()
       pre.docs-pre.
         &lt;article class="#[u c-Speaker]"&gt;
           &lt;div class="#[u c-Speaker__Img]" #[u style="background-image: url('#[var= '/path-to-img-src/']');"]&gt;
@@ -585,7 +575,7 @@ block append main
           &lt;/div&gt;
           &lt;div class="#[u c-Speaker__Body]"&gt;
             &lt;div class="#[u c-Speaker__Bio]"&gt;
-              &lt;p&gt;Donna Fulman is ...&lt;/p&gt;
+              &lt;p&gt;Tobias van Schneider is ...&lt;/p&gt;
               &lt;p&gt;Former Lead Product Designer ...&lt;/p&gt;
             &lt;/div&gt;
             &lt;ul class="o-ListBare"&gt;

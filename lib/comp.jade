@@ -414,13 +414,11 @@ block append main
   section#date-block
     h2 The Date Block
     figure.docs-figure
-      -
-        var all_dates = [
-          new ImportantDate({name:'Optional Final Papers Due'     , startTime:'2015-10-12'})
-        , new ImportantDate({name:'Early-Bird Registration Closes', startTime:'2015-12-17'}).setURL('#0')
-        ]
       include /includes/components/_c-DateBlock.jade
-      +dateBlock(all_dates)
+      +dateBlock([
+        new ImportantDate({name:'Optional Final Papers Due'     , startTime:'2015-10-12'})
+      , new ImportantDate({name:'Early-Bird Registration Closes', startTime:'2015-12-17'}).setURL('#0')
+      ])
       pre.docs-pre.
         &lt;dl class="#[u c-DateBlock]"&gt;
           &lt;dt class="#[u c-DateBlock__Date]"&gt;

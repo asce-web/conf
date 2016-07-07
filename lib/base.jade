@@ -5,4 +5,5 @@ block append vars
 
 block append main
   div.docs-t-Xmeter
-    include includes/_content-base.jade
+    - var classname = Lib.DOCS_CLASSES
+    include includes/_lib.base.jade

@@ -47,40 +47,39 @@ block append main
     h2 The Site Title
     p Use with #[a(href="#text-level-components") the Camo Link].
     figure.docs-figure
-      a.o-Block.o-GridFloat.c-SiteTitle.c-Camo(href="" style="margin-bottom: 1.5rem;")
-        span.o-GridFloat__Item.c-SiteTitle__Logo
-        h1.o-GridFloat__Item.c-SiteTitle__Name ASCE Convention
-        p.o-GridFloat__Item.c-SiteTitle__Tagline The Flagship Event of ASCE
+      include /includes/components/_c-SiteTitle.jade
+      +siteTitle(new Site({
+        name    : 'CI Summit'
+      , tagline : 'Innovations In Construction'
+      , logo    : 'http://cisummit.org/sites/cisummit.org/files/ci-shield-logo.png'
+      }), '#0')
       pre.docs-pre.
         &lt;a class="o-Block  o-GridFloat  #[u c-SiteTitle]  c-Camo"&gt;
           &lt;span class="o-GridFloat__Item  #[u c-SiteTitle__Logo]"&gt;&lt;/span&gt;
-          &lt;h1 class="o-GridFloat__Item  #[u c-SiteTitle__Name]"&gt;ASCE Convention&lt;/h1&gt;
-          &lt;p class="o-GridFloat__Item  #[u c-SiteTitle__Tagline]"&gt;The Flagship Event of ASCE&lt;/p&gt;
+          &lt;h1 class="o-GridFloat__Item  #[u c-SiteTitle__Name]"&gt;CI Summit&lt;/h1&gt;
+          &lt;p class="o-GridFloat__Item  #[u c-SiteTitle__Tagline]"&gt;Innovations In Construction&lt;/p&gt;
         &lt;/a&gt;
   section#universal-menu
     h2 The Universal Menu
     p #[strong Note:] Universal Menu will convert to pull-out drawer when screen is smaller than 720px.
     p Current Year menu item will appear exactly the same as Primary Button, but will not have that class.
     figure.docs-figure
-      -
-        var pages1 = [
-          new Page({ name: 'About'  , url: '' })
-        , new Page({ name: 'Sponsor', url: '' })
-        , new Page({ name: 'Exhibit', url: '' })
-        , new Page({ name: 'Contact', url: '' })
-        ]
-        var pages2 = [
-          new Page({ name: 'Home', url: '' })
-        ]
       div(style="margin-bottom: 1.5rem;")
         include /includes/components/_c-MenuUniversal.jade
-        +menuUniversal(pages1, pages2, 'ASCE 2016')
+        +menuUniversal([
+          new Page({ name: 'About'  , url: '#0' })
+        , new Page({ name: 'Sponsor', url: '#0' })
+        , new Page({ name: 'Exhibit', url: '#0' })
+        , new Page({ name: 'Contact', url: '#0' })
+        ], [
+          new Page({ name: 'Home', url: '#0' })
+        ], 'Current Year')
       ul.o-ListBare.o-GridFlex.c-MenuUniversal(style="margin-bottom: 1.5rem;")
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="")._hover menu item hover
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="")._active menu item active
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="#0")._hover menu item hover
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="#0")._active menu item active
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link menu item disabled
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="")._hover current year hover
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="")._active current year active
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="#0")._hover current year hover
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="#0")._active current year active
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuUniversal]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuUniversal__Item]"&gt;
@@ -88,24 +87,22 @@ block append main
           &lt;/li&gt;
           ...
           &lt;li class="o-GridFlex__Item  #[u c-MenuUniversal__Item]"&gt;
-            &lt;a class="o-Block  #[u c-MenuUniversal__Link]  #[u c-MenuUniversal__Link--current]"&gt;ASCE 2016&lt;/a&gt;
+            &lt;a class="o-Block  #[u c-MenuUniversal__Link]  #[u c-MenuUniversal__Link--current]"&gt;Current Year&lt;/a&gt;
           &lt;/li&gt;
         &lt;/ul&gt;
   section#standard-menu
     h2 The Standard Menu
     figure.docs-figure
-      -
-        var pages = [
-          new Page({ name: 'Home'          , url: '' })
-        , new Page({ name: 'Registration'  , url: '' })
-        , new Page({ name: 'Program'       , url: '' })
-        , new Page({ name: 'Hotel & Travel', url: '' })
-        , new Page({ name: 'Speakers'      , url: '' })
-        ]
-      +sitemenulist({pages: pages, class_obj: Site.MENU_CLASS.standard, depth: 0})
+      +sitetoc({pages: [
+        new Page({ name: 'Home'          , url: '#0' })
+      , new Page({ name: 'Registration'  , url: '#0' })
+      , new Page({ name: 'Program'       , url: '#0' })
+      , new Page({ name: 'Hotel & Travel', url: '#0' })
+      , new Page({ name: 'Speakers'      , url: '#0' })
+      ], class_obj: Site.MENU_CLASS.standard, depth: 0})
       ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
-        li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._hover menu item hover
-        li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._active menu item active
+        li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="#0")._hover menu item hover
+        li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="#0")._active menu item active
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link menu item disabled
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuStandard]"&gt;
@@ -117,17 +114,15 @@ block append main
   section#sub-menu
     h2 The Sub Menu
     figure.docs-figure
-      -
-        var pages = [
-          new Page({ name: 'Why Attend'     , url: '' })
-        , new Page({ name: 'Short Courses'  , url: '' })
-        , new Page({ name: 'Technical Tours', url: '' })
-        ]
       div(style="height: 100px;")
-        +sitemenulist({pages: pages, class_obj: Site.MENU_CLASS.standard.sub, depth: 0})
+        +sitetoc({pages: [
+          new Page({ name: 'Why Attend'     , url: '#0' })
+        , new Page({ name: 'Short Courses'  , url: '#0' })
+        , new Page({ name: 'Technical Tours', url: '#0' })
+        ], class_obj: Site.MENU_CLASS.standard.sub, depth: 0})
       div(style="height: 100px;"): ul.o-ListBare.c-MenuSub
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._hover menu item hover
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._active menu item active
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="#0")._hover menu item hover
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="#0")._active menu item active
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link menu item disabled
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuSub]"&gt;
@@ -139,28 +134,26 @@ block append main
   section#sitemap-component
     h2 The Sitemap Component
     figure.docs-figure
-      -
-        var pages = [
-            new Page({
-              name: 'Home', url: 'home.html'
-            })
-          , new Page({
-              name: 'Registration', url: 'registration.html'
-            }).addSubpage(new Page({ name: 'Why Attend'     , url: '' }))
-          , new Page({
-              name: 'Program', url: 'program.html'
-            }).addSubpage(new Page({ name: 'Events'         , url: '' }))
-              .addSubpage(new Page({ name: 'Short Courses'  , url: '' }))
-              .addSubpage(new Page({ name: 'Technical Tours', url: '' }))
-              .addSubpage(new Page({ name: 'Optional Tours' , url: '' }))
-          , new Page({
-              name: 'Hotel & Travel', url: 'location.html'
-            }).addSubpage(new Page({ name: 'International Travel', url: '' }))
-          , new Page({
-              name: 'Speakers', url: 'speakers.html'
-            }).addSubpage(new Page({ name: 'Distinguished Lecture Series', url: '' }))
-          ]
-      +sitemenulist({pages: pages, class_obj: Site.MENU_CLASS.sitemap, depth: Infinity})
+      +sitetoc({pages: [
+          new Page({
+            name: 'Home', url: 'home.html'
+          })
+        , new Page({
+            name: 'Registration', url: '#0'
+          }).addSubpage(new Page({ name: 'Why Attend'     , url: '#0' }))
+        , new Page({
+            name: 'Program', url: '#0'
+          }).addSubpage(new Page({ name: 'Events'         , url: '#0' }))
+            .addSubpage(new Page({ name: 'Short Courses'  , url: '#0' }))
+            .addSubpage(new Page({ name: 'Technical Tours', url: '#0' }))
+            .addSubpage(new Page({ name: 'Optional Tours' , url: '#0' }))
+        , new Page({
+            name: 'Hotel & Travel', url: '#0'
+          }).addSubpage(new Page({ name: 'International Travel', url: '#0' }))
+        , new Page({
+            name: 'Speakers', url: '#0'
+          }).addSubpage(new Page({ name: 'Distinguished Lecture Series', url: '#0' }))
+        ], class_obj: Site.MENU_CLASS.sitemap, depth: Infinity})
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-Sitemap]"&gt;
           &lt;li class="#[u c-Sitemap__Item]"&gt;
@@ -336,36 +329,30 @@ block append main
       To separate multiple sponsor blocks, add class #[code.docs-code .c-SponsorBlock--separate]
       for a thin bottom border.
     figure.docs-figure
-      section.c-SponsorBlock.c-SponsorBlock--separate
-        h1.c-SponsorBlock__Hn Titanium Sponsors
-        ul.o-ListBare.o-GridFlex.o-ListStacked
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
-      section.c-SponsorBlock.c-SponsorBlock--separate
-        h1.c-SponsorBlock__Hn Platinum Sponsors
-        ul.o-ListBare.o-GridFlex.o-ListStacked
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
-      section.c-SponsorBlock
-        h1.c-SponsorBlock__Hn Gold Sponsors
-        ul.o-ListBare.o-GridFlex.o-ListStacked
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
+      -
+        var levels = [
+          new SupporterLevel('Titanium').setClassname('c-SponsorBlock__Logo--lrg')
+        , new SupporterLevel('Platinum').setClassname('c-SponsorBlock__Logo--med')
+        , new SupporterLevel('Silver').setClassname('c-SponsorBlock__Logo--sml')
+        ]
+        var sponsor_list = [
+          new Supporter('Bank of America')
+            .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg')
+            .setURL('#0')
+        , new Supporter('UPS')
+            .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg')
+            .setURL('#0')
+        , new Supporter('Geico')
+            .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png')
+            .setURL('#0')
+        ]
+      include /includes/components/_c-SponsorBlock.jade
+      +sponsorBlock(levels[0], sponsor_list, 'c-SponsorBlock--separate')
+      +sponsorBlock(levels[1], sponsor_list, 'c-SponsorBlock--separate')
+      +sponsorBlock(levels[2], sponsor_list)
       pre.docs-pre.
         &lt;section class="#[u c-SponsorBlock]  #[u c-SponsorBlock--separate]"&gt;
-          &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Titanium Sponsors&lt;/h1&gt;
+          &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Titanium&lt;/h1&gt;
           &lt;ul class="o-ListBare  o-GridFlex  o-ListStacked"&gt;
             &lt;li class="o-GridFlex__Item  o-ListStacked__Item"&gt;
               &lt;a class="o-Block  #[u c-SponsorBlock__Logo]  #[u c-SponsorBlock__Logo--lrg]"&gt;Bank of America&lt;/a&gt;
@@ -375,7 +362,7 @@ block append main
         &lt;/section&gt;
 
         &lt;section class="#[u c-SponsorBlock]"&gt;
-          &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Platinum Sponsors&lt;/h1&gt;
+          &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Silver&lt;/h1&gt;
           ...
         &lt;/section&gt;
         ...
@@ -391,41 +378,47 @@ block append main
       displayed by rank (highest ranking sponsors first).
     p Enable Javascript to experience visual effects.
     figure.docs-figure
-      ol.o-ListBare.c-SponsorCarousel
-        li.c-SponsorCarousel__Item
-          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
-          small.c-SponsorCarousel__Label Platinum
-        li.c-SponsorCarousel__Item
-          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
-          small.c-SponsorCarousel__Label Platinum
-        li.c-SponsorCarousel__Item
-          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
-          small.c-SponsorCarousel__Label Silver
-        li.c-SponsorCarousel__Item
-          a.o-Block.c-SponsorCarousel__Logo(href="#0" style="background-image: url('http://2016.asceconvention.org/sites/default/files/pearl-insurance-logo.jpg');") Pearl Insurance
-          small.c-SponsorCarousel__Label Bronze
+      -
+        var levels = [
+          new SupporterLevel('Titanium').setClassname('c-SponsorBlock__Logo--lrg')
+        , new SupporterLevel('Platinum').setClassname('c-SponsorBlock__Logo--med')
+        , new SupporterLevel('Silver').setClassname('c-SponsorBlock__Logo--sml')
+        ]
+      include /includes/components/_c-SponsorCarousel.jade
+      +sponsorCarousel([
+        new Supporter('Bank of America')
+          .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg')
+          .setURL('#0')
+          .setLevel(levels[0])
+      , new Supporter('UPS')
+          .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg')
+          .setURL('#0')
+          .setLevel(levels[0])
+      , new Supporter('Geico')
+          .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png')
+          .setURL('#0')
+          .setLevel(levels[1])
+      , new Supporter('Pearl Insurance')
+          .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/pearl-insurance-logo.jpg')
+          .setURL('#0')
+          .setLevel(levels[2])
+      ])
       pre.docs-pre.
         &lt;ol class="o-ListBare  #[u c-SponsorCarousel]"&gt;
           &lt;li class="#[u c-SponsorCarousel__Item]"&gt;
             &lt;a class="o-Block  #[u c-SponsorCarousel__Logo]"&gt;Bank of America&lt;/a&gt;
-            &lt;small class="#[u c-SponsorCarousel__Label]"&gt;Platinum&lt;/small&gt;
+            &lt;small class="#[u c-SponsorCarousel__Label]"&gt;Titanium&lt;/small&gt;
           &lt;/li&gt;
           ...
         &lt;/ol&gt;
   section#date-block
     h2 The Date Block
     figure.docs-figure
-      dl.c-DateBlock
-        dt.c-DateBlock__Date
-          time(datetime="2015-10-12") Oct 12, 2015
-        dd.c-DateBlock__Desc
-          | Optional Final Papers Due
-        dt.c-DateBlock__Date
-          time(datetime="2015-12-17") Dec 17, 2015
-        dd.c-DateBlock__Desc
-          a.o-Block.c-DateBlock__Link(href="")
-            | Early-Bird Registration Closes
-            i.material-icons arrow_forward
+      include /includes/components/_c-DateBlock.jade
+      +dateBlock([
+        new ImportantDate({name:'Optional Final Papers Due'     , startTime:'2015-10-12'})
+      , new ImportantDate({name:'Early-Bird Registration Closes', startTime:'2015-12-17'}).setURL('#0')
+      ])
       pre.docs-pre.
         &lt;dl class="#[u c-DateBlock]"&gt;
           &lt;dt class="#[u c-DateBlock__Date]"&gt;
@@ -447,37 +440,27 @@ block append main
   section#pass-component
     h2 The Pass Component
     p The Pass Component should be an #[code.docs-code article] element.
-    p.
-      Remember that this is not a demonstration of an entire Pass Component.
-      This simply demonstrates the Component&rsquo;s styles and the styles
-      of its subcomponents. For a full demonstration, see the sample page.
     figure.docs-figure
-      article.c-Pass(style="margin-bottom: 1.5rem;")
-        header.c-Pass__Head
-          h1.c-Pass__Hn Speaker Pass
-          p.c-Pass__Desc Speakers and Presenters
-        section.c-Pass__Body.c-Pass__Period
-          h1.c-Pass__Period__Hn Advance
-          dl
-            dt.c-Pass__Period__Attendee Non-Member
-            dd.c-Pass__Period__Price $945
-            dt.c-Pass__Period__Attendee Member
-            dd.c-Pass__Period__Price.c-Pass__Price--featured $845
-        footer.o-GridFlex.c-Pass__Foot
-          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
-            h1.c-Pass__Period__Hn Advance
-            dl
-              dt.c-Pass__Period__Attendee Non-Member
-              dd.c-Pass__Period__Price $945
-              dt.c-Pass__Period__Attendee Member
-              dd.c-Pass__Period__Price $845
-          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
-            h1.c-Pass__Period__Hn Advance
-            dl
-              dt.c-Pass__Period__Attendee Non-Member
-              dd.c-Pass__Period__Price $945
-              dt.c-Pass__Period__Attendee Member
-              dd.c-Pass__Period__Price $845
+      div(style="margin-bottom: 1.5rem;")
+        include /includes/components/_c-Pass.jade
+        +pass(new Pass({
+          name        : 'Speaker Pass'
+        , description : 'Speakers and Presenters'
+        }).addAttendeeType(new Pass.AttendeeType('Member', true))
+          .addAttendeeType(new Pass.AttendeeType('Non-Member'))
+        , new Conference()
+            .addRegistrationPeriod(new RegistrationPeriod({
+              name      : 'Early Bird'
+            , endDate   : '2015-07-28'
+            })).addRegistrationPeriod(new RegistrationPeriod({
+              name      : 'Advance'
+            , startDate : '2015-07-29'
+            , endDate   : '2015-08-25'
+            })).addRegistrationPeriod(new RegistrationPeriod({
+              name      : 'Onsite'
+            , startDate : '2015-08-26'
+            })).setCurrentRegistrationPeriod('Advance')
+        )
       pre.docs-pre.
         &lt;article class="#[u c-Pass]"&gt;
           &lt;header class="#[u c-Pass__Head]"&gt;
@@ -487,10 +470,10 @@ block append main
           &lt;section class="#[u c-Pass__Body]  #[u c-Pass__Period]"&gt;
             &lt;h1 class="#[u c-Pass__Period__Hn]"&gt;Advance&lt;/h1&gt;
             &lt;dl&gt;
-              &lt;dt class="#[u c-Pass__Period__Attendee]"&gt;Non-Member&lt;/dt&gt;
-              &lt;dd class="#[u c-Pass__Period__Price]&gt;$945&lt;/dd&gt;
               &lt;dt class="#[u c-Pass__Period__Attendee]"&gt;Member&lt;/dt&gt;
-              &lt;dd class="#[u c-Pass__Period__Price]  #[u c-Pass__Price--featured]&gt;$845&lt;/dd&gt;
+              &lt;dd class="#[u c-Pass__Period__Price]  #[u c-Pass__Price--featured]&gt;$0&lt;/dd&gt;
+              &lt;dt class="#[u c-Pass__Period__Attendee]"&gt;Non-Member&lt;/dt&gt;
+              &lt;dd class="#[u c-Pass__Period__Price]&gt;$0&lt;/dd&gt;
             &lt;/dl&gt;
           &lt;/section&gt;
           &lt;footer class="o-GridFlex  #[u c-Pass__Foot]"&gt;
@@ -528,7 +511,6 @@ block append main
       and include similar data.
       Elements with class #[code.docs-code .js-*] are required for Javascript.
     figure.sg-c-Fig
-      - var sampevent = new ProgramEvent({ startDate: '2016-09-28 10:10', endDate: '2016-09-28 19:00', name: 'Registration' })
       h1.c-Program__Hn: label
         include /includes/components/_c-Program.jade
         +programHeading('2016-09-28')
@@ -545,27 +527,31 @@ block append main
   section#time-block
     h2 The Time Block
     figure.docs-figure
-      dl.o-GridFlex.c-TimeBlock
-        dt.o-GridFlex__Item.c-TimeBlock__Times
-          time= Util.hourTime12(new Date(new Date().setHours(10, 30)))
-          | &ndash;
-          time= Util.hourTime12(new Date(new Date().setHours(17, 0)))
-        dd.o-GridFlex__Item.c-TimeBlock__Desc
-          a.o-Block.c-TimeBlock__Link(href="")
-            | Technical Tours
-            i.material-icons arrow_forward
-        dt.o-GridFlex__Item.c-TimeBlock__Times
-          time= Util.hourTime12(new Date(new Date().setHours(13, 0)))
-          | &ndash;
-          time= Util.hourTime12(new Date(new Date().setHours(16, 30)))
-        dd.o-GridFlex__Item.c-TimeBlock__Desc Short Courses
+      include /includes/components/_c-TimeBlock.jade
+      +timeBlock([
+        new ProgramEvent({startDate:'2016-09-28 10:00', endDate:'2016-09-28 19:00', name:'Registration'             })
+      , new ProgramEvent({startDate:'2016-09-28 10:30', endDate:'2016-09-28 16:30', name:'Technical Tours'          }).setURL('#0')
+      , new ProgramEvent({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Short Courses'            }).setURL('#0')
+      , new ProgramEvent({startDate:'2016-09-28 12:00', endDate:'2016-09-28 17:00', name:'Optional Tours'           }).setURL('#0')
+      , new ProgramEvent({startDate:'2016-09-28 17:30', endDate:'2016-09-28 19:30', name:'Opening Welcome Reception'})
+      , new ProgramEvent({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Community Service Project'})
+      ], true)
       pre.docs-pre.
         &lt;dl class="o-GridFlex  #[u c-TimeBlock]"&gt;
           &lt;dt class="o-GridFlex__Item  #[u c-TimeBlock__Times]"&gt;
-            &lt;time&gt;10:30am&lt;/time&gt;&ndash;&lt;time&gt;5pm&lt;/time&gt;
+            &lt;time&gt;10am&lt;/time&gt;&ndash;&lt;time&gt;7pm&lt;/time&gt;
           &lt;/dt&gt;
           &lt;dd class="o-GridFlex__Item  #[u c-TimeBlock__Desc]"&gt;
-            &lt;a class="o-Block  #[u c-TimeBlock__Link]"&gt;Technical Tours&lt;/a&gt;
+            Registration
+          &lt;/dd&gt;
+          &lt;dt class="o-GridFlex__Item  #[u c-TimeBlock__Times]"&gt;
+            &lt;time&gt;10:30am&lt;/time&gt;&ndash;&lt;time&gt;4:30pm&lt;/time&gt;
+          &lt;/dt&gt;
+          &lt;dd class="o-GridFlex__Item  #[u c-TimeBlock__Desc]"&gt;
+            &lt;a class="o-Block  #[u c-TimeBlock__Link]"&gt;
+              &lt;i class="material-icons"&gt;arrow_forward&lt;/i&gt;
+              &lt;span&gt;Technical Tours&lt;/span&gt;
+            &lt;/a&gt;
           &lt;/dd&gt;
           &lt;dt class="o-GridFlex__Item  #[u c-TimeBlock__Times]"&gt;...&lt;/dt&gt;
           &lt;dd class="o-GridFlex__Item  #[u c-TimeBlock__Desc]"&gt;...&lt;/dd&gt;
@@ -574,19 +560,9 @@ block append main
   section#speaker-component
     h2 The Speaker Component
     figure.docs-figure
-      article.c-Speaker(style="margin-bottom: 1.5rem;")
-        div.c-Speaker__Img(style="background-image: url(../sample/img/headshot1.jpg)")
-          header.c-Speaker__Head
-            h1.c-Speaker__Name Donna Fulman, P.ASCE
-            p.c-Speaker__JobTitle Interior Engineering Administration
-        div.c-Speaker__Body
-          div.c-Speaker__Bio
-            p Donna Fulman is an award-winning, German designer raised in Austria and currently living in New York City.
-            p Former Lead Product Designer and Art Director at Spotify, she recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
-          footer: ul.o-ListBare
-            li.o-Inline: a.c-Speaker__Link(href="") Email
-            li.o-Inline: a.c-Speaker__Link(href="") LinkedIn
-            li.o-Inline: a.c-Speaker__Link(href="") Twitter
+      div(style="margin-bottom: 1.5rem;")
+        include /includes/components/_c-Speaker.jade
+        +speaker()
       pre.docs-pre.
         &lt;article class="#[u c-Speaker]"&gt;
           &lt;div class="#[u c-Speaker__Img]" #[u style="background-image: url('#[var= '/path-to-img-src/']');"]&gt;
@@ -597,7 +573,7 @@ block append main
           &lt;/div&gt;
           &lt;div class="#[u c-Speaker__Body]"&gt;
             &lt;div class="#[u c-Speaker__Bio]"&gt;
-              &lt;p&gt;Donna Fulman is ...&lt;/p&gt;
+              &lt;p&gt;Tobias van Schneider is ...&lt;/p&gt;
               &lt;p&gt;Former Lead Product Designer ...&lt;/p&gt;
             &lt;/div&gt;
             &lt;ul class="o-ListBare"&gt;

@@ -442,37 +442,27 @@ block append main
   section#pass-component
     h2 The Pass Component
     p The Pass Component should be an #[code.docs-code article] element.
-    p.
-      Remember that this is not a demonstration of an entire Pass Component.
-      This simply demonstrates the Component&rsquo;s styles and the styles
-      of its subcomponents. For a full demonstration, see the sample page.
     figure.docs-figure
-      article.c-Pass(style="margin-bottom: 1.5rem;")
-        header.c-Pass__Head
-          h1.c-Pass__Hn Speaker Pass
-          p.c-Pass__Desc Speakers and Presenters
-        section.c-Pass__Body.c-Pass__Period
-          h1.c-Pass__Period__Hn Advance
-          dl
-            dt.c-Pass__Period__Attendee Non-Member
-            dd.c-Pass__Period__Price $945
-            dt.c-Pass__Period__Attendee Member
-            dd.c-Pass__Period__Price.c-Pass__Price--featured $845
-        footer.o-GridFlex.c-Pass__Foot
-          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
-            h1.c-Pass__Period__Hn Advance
-            dl
-              dt.c-Pass__Period__Attendee Non-Member
-              dd.c-Pass__Period__Price $945
-              dt.c-Pass__Period__Attendee Member
-              dd.c-Pass__Period__Price $845
-          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
-            h1.c-Pass__Period__Hn Advance
-            dl
-              dt.c-Pass__Period__Attendee Non-Member
-              dd.c-Pass__Period__Price $945
-              dt.c-Pass__Period__Attendee Member
-              dd.c-Pass__Period__Price $845
+      div(style="margin-bottom: 1.5rem;")
+        include /includes/components/_c-Pass.jade
+        +pass(new Pass({
+          name        : 'Speaker Pass'
+        , description : 'Speakers and Presenters'
+        }).addAttendeeType(new Pass.AttendeeType('Member', true))
+          .addAttendeeType(new Pass.AttendeeType('Non-Member'))
+        , new Conference()
+            .addRegistrationPeriod(new RegistrationPeriod({
+              name      : 'Early Bird'
+            , endDate   : '2015-07-28'
+            })).addRegistrationPeriod(new RegistrationPeriod({
+              name      : 'Advance'
+            , startDate : '2015-07-29'
+            , endDate   : '2015-08-25'
+            })).addRegistrationPeriod(new RegistrationPeriod({
+              name      : 'Onsite'
+            , startDate : '2015-08-26'
+            })).setCurrentRegistrationPeriod('Advance')
+        )
       pre.docs-pre.
         &lt;article class="#[u c-Pass]"&gt;
           &lt;header class="#[u c-Pass__Head]"&gt;
@@ -482,10 +472,10 @@ block append main
           &lt;section class="#[u c-Pass__Body]  #[u c-Pass__Period]"&gt;
             &lt;h1 class="#[u c-Pass__Period__Hn]"&gt;Advance&lt;/h1&gt;
             &lt;dl&gt;
-              &lt;dt class="#[u c-Pass__Period__Attendee]"&gt;Non-Member&lt;/dt&gt;
-              &lt;dd class="#[u c-Pass__Period__Price]&gt;$945&lt;/dd&gt;
               &lt;dt class="#[u c-Pass__Period__Attendee]"&gt;Member&lt;/dt&gt;
-              &lt;dd class="#[u c-Pass__Period__Price]  #[u c-Pass__Price--featured]&gt;$845&lt;/dd&gt;
+              &lt;dd class="#[u c-Pass__Period__Price]  #[u c-Pass__Price--featured]&gt;$0&lt;/dd&gt;
+              &lt;dt class="#[u c-Pass__Period__Attendee]"&gt;Non-Member&lt;/dt&gt;
+              &lt;dd class="#[u c-Pass__Period__Price]&gt;$0&lt;/dd&gt;
             &lt;/dl&gt;
           &lt;/section&gt;
           &lt;footer class="o-GridFlex  #[u c-Pass__Foot]"&gt;

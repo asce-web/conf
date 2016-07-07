@@ -108,9 +108,10 @@
   })()
 
 mixin libtoc(args)
-  - var pages     = args.pages     || []
-  - var class_obj = args.class_obj || {}
-  - var depth     = +args.depth    || 0
+  -
+    var pages     = args.pages     || []
+    var class_obj = args.class_obj || {}
+    var depth     = +args.depth    || 0
   ol(class=class_obj.listclasses)
     each item in pages
       li(class=class_obj.itemclasses)

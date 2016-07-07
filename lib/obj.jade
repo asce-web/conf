@@ -5,7 +5,12 @@ block append vars
 
 block append main
   div.docs-t-Xmeter
-    include /node_modules/xmeter/docs/includes/_content-obj.jade
+    include /node_modules/xmeter/docs/includes/_docs.obj.list-object.jade
+    +docs_list(Lib.DOCS_CLASSES)
+    include /node_modules/xmeter/docs/includes/_docs.obj.flex-object.jade
+    +docs_flex(Lib.DOCS_CLASSES)
+    include /node_modules/xmeter/docs/includes/_docs.obj.grid-object.jade
+    +docs_grid(Lib.DOCS_CLASSES)
   section#flex-grid
     h2 The Flex Grid
     p.

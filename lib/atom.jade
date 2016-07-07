@@ -5,7 +5,10 @@ block append vars
 
 block append main
   div.docs-t-Xmeter
-    include /node_modules/xmeter/docs/includes/_content-atom.jade
+    include /node_modules/xmeter/docs/includes/_docs.atom.margin-bottom.jade
+    +docs_marginBottom(Lib.DOCS_CLASSES)
+    include /node_modules/xmeter/docs/includes/_docs.atom.padding-top.jade
+    +docs_paddingTop(Lib.DOCS_CLASSES)
 
 //- block append main
   p.

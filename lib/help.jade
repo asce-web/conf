@@ -5,4 +5,9 @@ block append vars
 
 block append main
   div.docs-t-Xmeter
-    include /node_modules/xmeter/docs/includes/_content-help.jade
+    include /node_modules/xmeter/docs/includes/_docs.help.block.jade
+    +docs_block(Lib.DOCS_CLASSES)
+    include /node_modules/xmeter/docs/includes/_docs.help.inline.jade
+    +docs_inline(Lib.DOCS_CLASSES)
+    include /node_modules/xmeter/docs/includes/_docs.help.clearfix.jade
+    +docs_clearfix(Lib.DOCS_CLASSES)

@@ -1,0 +1,20 @@
+section#sub-menu
+  h2 The Sub Menu
+  figure.docs-figure
+    div(style="height: 100px;")
+      +sitetoc({pages: [
+        new Page({ name: 'Why Attend'     , url: '#0' })
+      , new Page({ name: 'Short Courses'  , url: '#0' })
+      , new Page({ name: 'Technical Tours', url: '#0' })
+      ], class_obj: Site.MENU_CLASS.standard.sub, depth: 0})
+    div(style="height: 100px;"): ul.o-ListBare.c-MenuSub
+      li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="#0")._hover menu item hover
+      li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="#0")._active menu item active
+      li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link menu item disabled
+    pre.docs-pre.
+      &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuSub]"&gt;
+        &lt;li class="o-GridFlex__Item  #[u c-MenuSub__Item]"&gt;
+          &lt;a class="o-Block  #[u c-MenuSub__Link]"&gt;Why Attend&lt;/a&gt;
+        &lt;/li&gt;
+        ...
+      &lt;/ul&gt;

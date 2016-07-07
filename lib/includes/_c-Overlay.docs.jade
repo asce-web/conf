@@ -1,0 +1,29 @@
+section#overlay-component
+  h2 The Overlay Component
+  p Use the Overlay Component over a Banner.
+  figure.docs-figure
+    div.c-Banner(style="margin-bottom: 1.5rem; padding: 1.5rem; z-index:1;")
+      div.c-Overlay(style="margin-bottom:1.5rem;")
+        h1 overlay heading
+        p overlay content
+      div.c-Overlay.c-Overlay--callout(style="margin-bottom:1.5rem;")
+        h1 overlay as callout heading
+        p overlay as callout content
+      div.c-Overlay.c-Overlay--inv(style="margin-bottom:1.5rem;")
+        h1 inverted overlay heading
+        p inverted overlay content
+    pre.docs-pre.
+      &lt;div class="c-Banner"&gt;
+        &lt;div class="#[u c-Overlay]"&gt;
+          &lt;h1&gt;overlay heading&lt;/h1&gt;
+          &lt;p&gt;overlay content&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="#[u c-Overlay]  #[u c-Overlay--callout]"&gt;
+          &lt;h1&gt;overlay as callout heading&lt;/h1&gt;
+          &lt;p&gt;overlay as callout content&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="#[u c-Overlay]  #[u c-Overlay--inv]"&gt;
+          &lt;h1&gt;inverted overlay heading&lt;/h1&gt;
+          &lt;p&gt;inverted overlay content&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;

@@ -329,36 +329,30 @@ block append main
       To separate multiple sponsor blocks, add class #[code.docs-code .c-SponsorBlock--separate]
       for a thin bottom border.
     figure.docs-figure
-      section.c-SponsorBlock.c-SponsorBlock--separate
-        h1.c-SponsorBlock__Hn Titanium Sponsors
-        ul.o-ListBare.o-GridFlex.o-ListStacked
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg');") Bank of America
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg');") UPS
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png');") Geico
-      section.c-SponsorBlock.c-SponsorBlock--separate
-        h1.c-SponsorBlock__Hn Platinum Sponsors
-        ul.o-ListBare.o-GridFlex.o-ListStacked
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg');") Bank of America
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg');") UPS
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png');") Geico
-      section.c-SponsorBlock
-        h1.c-SponsorBlock__Hn Gold Sponsors
-        ul.o-ListBare.o-GridFlex.o-ListStacked
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg');") Bank of America
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg');") UPS
-          li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png');") Geico
+      -
+        var levels = [
+          new SupporterLevel('Titanium').setClassname('c-SponsorBlock__Logo--lrg')
+        , new SupporterLevel('Platinum').setClassname('c-SponsorBlock__Logo--med')
+        , new SupporterLevel('Silver').setClassname('c-SponsorBlock__Logo--sml')
+        ]
+        var sponsor_list = [
+          new Supporter('Bank of America')
+            .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg')
+            .setURL('#0')
+        , new Supporter('UPS')
+            .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg')
+            .setURL('#0')
+        , new Supporter('Geico')
+            .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png')
+            .setURL('#0')
+        ]
+      include /includes/components/_c-SponsorBlock.jade
+      +sponsorBlock(levels[0], sponsor_list, 'c-SponsorBlock--separate')
+      +sponsorBlock(levels[1], sponsor_list, 'c-SponsorBlock--separate')
+      +sponsorBlock(levels[2], sponsor_list)
       pre.docs-pre.
         &lt;section class="#[u c-SponsorBlock]  #[u c-SponsorBlock--separate]"&gt;
-          &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Titanium Sponsors&lt;/h1&gt;
+          &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Titanium&lt;/h1&gt;
           &lt;ul class="o-ListBare  o-GridFlex  o-ListStacked"&gt;
             &lt;li class="o-GridFlex__Item  o-ListStacked__Item"&gt;
               &lt;a class="o-Block  #[u c-SponsorBlock__Logo]  #[u c-SponsorBlock__Logo--lrg]"&gt;Bank of America&lt;/a&gt;
@@ -368,7 +362,7 @@ block append main
         &lt;/section&gt;
 
         &lt;section class="#[u c-SponsorBlock]"&gt;
-          &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Platinum Sponsors&lt;/h1&gt;
+          &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Silver&lt;/h1&gt;
           ...
         &lt;/section&gt;
         ...
@@ -386,35 +380,34 @@ block append main
     figure.docs-figure
       -
         var levels = [
-          new SupporterLevel('Platinum')
-        , new SupporterLevel('Silver')
-        , new SupporterLevel('Bronze')
-        ]
-        var all_supporters = [
-          new Supporter('Bank of America')
-            .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg')
-            .setURL('#0')
-            .setLevel(levels[0])
-        , new Supporter('UPS')
-            .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg')
-            .setURL('#0')
-            .setLevel(levels[0])
-        , new Supporter('Geico')
-            .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png')
-            .setURL('#0')
-            .setLevel(levels[1])
-        , new Supporter('Pearl Insurance')
-            .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/pearl-insurance-logo.jpg')
-            .setURL('#0')
-            .setLevel(levels[2])
+          new SupporterLevel('Titanium').setClassname('c-SponsorBlock__Logo--lrg')
+        , new SupporterLevel('Platinum').setClassname('c-SponsorBlock__Logo--med')
+        , new SupporterLevel('Silver').setClassname('c-SponsorBlock__Logo--sml')
         ]
       include /includes/components/_c-SponsorCarousel.jade
-      +sponsorCarousel(all_supporters)
+      +sponsorCarousel([
+        new Supporter('Bank of America')
+          .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg')
+          .setURL('#0')
+          .setLevel(levels[0])
+      , new Supporter('UPS')
+          .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg')
+          .setURL('#0')
+          .setLevel(levels[0])
+      , new Supporter('Geico')
+          .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png')
+          .setURL('#0')
+          .setLevel(levels[1])
+      , new Supporter('Pearl Insurance')
+          .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/pearl-insurance-logo.jpg')
+          .setURL('#0')
+          .setLevel(levels[2])
+      ])
       pre.docs-pre.
         &lt;ol class="o-ListBare  #[u c-SponsorCarousel]"&gt;
           &lt;li class="#[u c-SponsorCarousel__Item]"&gt;
             &lt;a class="o-Block  #[u c-SponsorCarousel__Logo]"&gt;Bank of America&lt;/a&gt;
-            &lt;small class="#[u c-SponsorCarousel__Label]"&gt;Platinum&lt;/small&gt;
+            &lt;small class="#[u c-SponsorCarousel__Label]"&gt;Titanium&lt;/small&gt;
           &lt;/li&gt;
           ...
         &lt;/ol&gt;

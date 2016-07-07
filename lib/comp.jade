@@ -333,29 +333,29 @@ block append main
         h1.c-SponsorBlock__Hn Titanium Sponsors
         ul.o-ListBare.o-GridFlex.o-ListStacked
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg');") Bank of America
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg');") UPS
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--lrg(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png');") Geico
       section.c-SponsorBlock.c-SponsorBlock--separate
         h1.c-SponsorBlock__Hn Platinum Sponsors
         ul.o-ListBare.o-GridFlex.o-ListStacked
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg');") Bank of America
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg');") UPS
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--med(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png');") Geico
       section.c-SponsorBlock
         h1.c-SponsorBlock__Hn Gold Sponsors
         ul.o-ListBare.o-GridFlex.o-ListStacked
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg');") Bank of America
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg');") Bank of America
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg');") UPS
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg');") UPS
           li.o-GridFlex__Item.o-ListStacked__Item
-            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://2016.asceconvention.org/sites/default/files/geico-logo.gif');") Geico
+            a.o-Block.c-SponsorBlock__Logo.c-SponsorBlock__Logo--sml(href="" style="background-image: url('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png');") Geico
       pre.docs-pre.
         &lt;section class="#[u c-SponsorBlock]  #[u c-SponsorBlock--separate]"&gt;
           &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Titanium Sponsors&lt;/h1&gt;
@@ -391,10 +391,22 @@ block append main
         , new SupporterLevel('Bronze')
         ]
         var all_supporters = [
-          new Supporter('Bank of America').setImg('http://2016.asceconvention.org/sites/default/files/bank-of-america-logo.jpg').setURL('#0').setLevel(levels[0])
-        , new Supporter('UPS').setImg('http://2016.asceconvention.org/sites/default/files/ups-logo.jpg').setURL('#0').setLevel(levels[0])
-        , new Supporter('Geico').setImg('http://2016.asceconvention.org/sites/default/files/geico-logo.gif').setURL('#0').setLevel(levels[1])
-        , new Supporter('Pearl Insurance').setImg('http://2016.asceconvention.org/sites/default/files/pearl-insurance-logo.jpg').setURL('#0').setLevel(levels[2])
+          new Supporter('Bank of America')
+            .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg')
+            .setURL('#0')
+            .setLevel(levels[0])
+        , new Supporter('UPS')
+            .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg')
+            .setURL('#0')
+            .setLevel(levels[0])
+        , new Supporter('Geico')
+            .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png')
+            .setURL('#0')
+            .setLevel(levels[1])
+        , new Supporter('Pearl Insurance')
+            .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/pearl-insurance-logo.jpg')
+            .setURL('#0')
+            .setLevel(levels[2])
         ]
       include /includes/components/_c-SponsorCarousel.jade
       +sponsorCarousel(all_supporters)

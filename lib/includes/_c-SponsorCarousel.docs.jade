@@ -1,0 +1,45 @@
+section#sponsor-carousel
+  h2 The Sponsor Carousel
+  p.
+    The Sponsor Carousel holds the list of all sponsors.
+    It appears on every page except the Sponsor page.
+  p.
+    The entire list of sponsors (in order by rank) is displayed in a rotating carousel.
+    It takes the form of an #[em ordered] list of sponsor logo items.
+    The list should be ordered because the sponsors are
+    displayed by rank (highest ranking sponsors first).
+  p Enable Javascript to experience visual effects.
+  figure.docs-figure
+    -
+      var levels = [
+        new SupporterLevel('Titanium').setClassname('c-SponsorBlock__Logo--lrg')
+      , new SupporterLevel('Platinum').setClassname('c-SponsorBlock__Logo--med')
+      , new SupporterLevel('Silver').setClassname('c-SponsorBlock__Logo--sml')
+      ]
+    include /includes/components/_c-SponsorCarousel.jade
+    +sponsorCarousel([
+      new Supporter('Bank of America')
+        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg')
+        .setURL('#0')
+        .setLevel(levels[0])
+    , new Supporter('UPS')
+        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg')
+        .setURL('#0')
+        .setLevel(levels[0])
+    , new Supporter('Geico')
+        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png')
+        .setURL('#0')
+        .setLevel(levels[1])
+    , new Supporter('Pearl Insurance')
+        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/pearl-insurance-logo.jpg')
+        .setURL('#0')
+        .setLevel(levels[2])
+    ])
+    pre.docs-pre.
+      &lt;ol class="o-ListBare  #[u c-SponsorCarousel]"&gt;
+        &lt;li class="#[u c-SponsorCarousel__Item]"&gt;
+          &lt;a class="o-Block  #[u c-SponsorCarousel__Logo]"&gt;Bank of America&lt;/a&gt;
+          &lt;small class="#[u c-SponsorCarousel__Label]"&gt;Titanium&lt;/small&gt;
+        &lt;/li&gt;
+        ...
+      &lt;/ol&gt;

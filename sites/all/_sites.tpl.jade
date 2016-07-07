@@ -60,10 +60,9 @@ html(lang="en")
         }
   body
     header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-GridFlex.o-SiteHead
-      a.o-GridFlex__Item.o-Block.o-GridFloat.o-SiteHead__Item.c-SiteTitle.c-Camo(href="index.html")
-        span.o-GridFloat__Item.c-SiteTitle__Logo(style='background-image: url(\'' + (site.image || '') + '\');')
-        h1.o-GridFloat__Item.c-SiteTitle__Name= site.name
-        p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
+      div.o-GridFlex__Item.o-SiteHead__Item
+        include /includes/components/_c-SiteTitle.jade
+        +siteTitle(site, 'index.html')
       div.o-GridFlex__Item.o-SiteHead__Item
         label.c-Toggle
           input.c-Toggle__Check(type="checkbox" value="open top menu")
@@ -96,11 +95,8 @@ html(lang="en")
           block sponsors
             +highlight()
               h1#sponsors Sponsors
-              ol.o-ListBare.c-SponsorCarousel
-                each item in site.getSupportersAll()
-                  li.c-SponsorCarousel__Item
-                    a.o-Block.c-SponsorCarousel__Logo(href=item.getURL() style='background-image: url(\'' + item.getImg() + '\');')= item.name
-                    small.c-SponsorCarousel__Label= item.getLevel().name
+              include /includes/components/_c-SponsorCarousel.jade
+              +sponsorCarousel(site.getSupportersAll())
               +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
     footer.o-Runner.c-Mast(class=(pagetype==='main') ? 'c-Mast--internal' : ''): nav.o-ContentWrapper
       h1.-d-n#site-map Site Map

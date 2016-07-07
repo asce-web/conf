@@ -1,0 +1,47 @@
+section#flex-grid
+  h2 The Flex Grid
+  p.
+    A Flex Grid is simply a list of items arranged like blocks in a grid.
+    It has the structure of a list in that all items share the same container
+    (unlike tables where items are in different rows), while at the same time
+    appearing like a table with rows and columns.
+  p.
+    The Flex Grid can be flexible and responsive, adjusting the number of
+    columns based on screen size.
+    By default, each item has full width.
+    #[mark Remember to set the widths of each item in order to achieve a grid-like appearance.]
+  p.
+    The container must have the #[code.docs-code .o-GridFlex] class and
+    each item must have the #[code.docs-code .o-GridFlex__Item] class.
+    To remove normal list styles (padding, bullets, etc.),
+    add class #[code.docs-code .o-List] to the container.
+    If the items are normally inline elements, remember to add helper
+    #[code.docs-code .h-Block] to each one.
+  figure.docs-figure
+    ul.o-List.o-GridFlex
+      li.o-List__Item.o-GridFlex__Item Burns &amp; McDonnell Engineering
+      li.o-List__Item.o-GridFlex__Item DIS-TRAN Steel, LLC
+      li.o-List__Item.o-GridFlex__Item EDM International
+      li.o-List__Item.o-GridFlex__Item Electrical Consultants, Inc.
+      li.o-List__Item.o-GridFlex__Item Fabrimet Inc.
+      li.o-List__Item.o-GridFlex__Item Falcon Steel Company
+      li.o-List__Item.o-GridFlex__Item Sabre-FWT
+      li.o-List__Item.o-GridFlex__Item HDR
+      li.o-List__Item.o-GridFlex__Item Mitas Energy
+      li.o-List__Item.o-GridFlex__Item Power Consulting Associates, LLC
+      li.o-List__Item.o-GridFlex__Item Power Line Systems, Inc.
+      li.o-List__Item.o-GridFlex__Item Quanta Services
+      li.o-List__Item.o-GridFlex__Item ReliaPOLE Inspection Services
+      li.o-List__Item.o-GridFlex__Item Sabre-FWT
+      li.o-List__Item.o-GridFlex__Item SAE Towers
+      li.o-List__Item.o-GridFlex__Item TAPP Steel Poles
+      li.o-List__Item.o-GridFlex__Item Trinity Meyer Utility Structures
+      li.o-List__Item.o-GridFlex__Item TRC Engineers
+      li.o-List__Item.o-GridFlex__Item Underground Devices
+      li.o-List__Item.o-GridFlex__Item Valmont Newmark
+    pre.docs-pre.
+      &lt;ul class="o-List  #[u o-GridFlex]"&gt;
+        &lt;li class="o-List__Item  #[u o-GridFlex__Item]"&gt;Burns &amp; McDonnell Engineering&lt;/li&gt;
+        &lt;li class="o-List__Item  #[u o-GridFlex__Item]"&gt;DIS-TRAN Steel, LLC&lt;/li&gt;
+        ...
+      &lt;/ul&gt;

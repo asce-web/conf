@@ -64,25 +64,22 @@ block append main
     p #[strong Note:] Universal Menu will convert to pull-out drawer when screen is smaller than 720px.
     p Current Year menu item will appear exactly the same as Primary Button, but will not have that class.
     figure.docs-figure
-      -
-        var pages1 = [
-          new Page({ name: 'About'  , url: '' })
-        , new Page({ name: 'Sponsor', url: '' })
-        , new Page({ name: 'Exhibit', url: '' })
-        , new Page({ name: 'Contact', url: '' })
-        ]
-        var pages2 = [
-          new Page({ name: 'Home', url: '' })
-        ]
       div(style="margin-bottom: 1.5rem;")
         include /includes/components/_c-MenuUniversal.jade
-        +menuUniversal(pages1, pages2, 'ASCE 2016')
+        +menuUniversal([
+          new Page({ name: 'About'  , url: '#0' })
+        , new Page({ name: 'Sponsor', url: '#0' })
+        , new Page({ name: 'Exhibit', url: '#0' })
+        , new Page({ name: 'Contact', url: '#0' })
+        ], [
+          new Page({ name: 'Home', url: '#0' })
+        ], 'Current Year')
       ul.o-ListBare.o-GridFlex.c-MenuUniversal(style="margin-bottom: 1.5rem;")
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="")._hover menu item hover
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="")._active menu item active
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="#0")._hover menu item hover
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link(href="#0")._active menu item active
         li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link menu item disabled
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="")._hover current year hover
-        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="")._active current year active
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="#0")._hover current year hover
+        li.o-GridFlex__Item.c-MenuUniversal__Item: a.o-Block.c-MenuUniversal__Link.c-MenuUniversal__Link--current(href="#0")._active current year active
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuUniversal]"&gt;
           &lt;li class="o-GridFlex__Item  #[u c-MenuUniversal__Item]"&gt;
@@ -90,24 +87,22 @@ block append main
           &lt;/li&gt;
           ...
           &lt;li class="o-GridFlex__Item  #[u c-MenuUniversal__Item]"&gt;
-            &lt;a class="o-Block  #[u c-MenuUniversal__Link]  #[u c-MenuUniversal__Link--current]"&gt;ASCE 2016&lt;/a&gt;
+            &lt;a class="o-Block  #[u c-MenuUniversal__Link]  #[u c-MenuUniversal__Link--current]"&gt;Current Year&lt;/a&gt;
           &lt;/li&gt;
         &lt;/ul&gt;
   section#standard-menu
     h2 The Standard Menu
     figure.docs-figure
-      -
-        var pages = [
-          new Page({ name: 'Home'          , url: '' })
-        , new Page({ name: 'Registration'  , url: '' })
-        , new Page({ name: 'Program'       , url: '' })
-        , new Page({ name: 'Hotel & Travel', url: '' })
-        , new Page({ name: 'Speakers'      , url: '' })
-        ]
-      +sitetoc({pages: pages, class_obj: Site.MENU_CLASS.standard, depth: 0})
+      +sitetoc({pages: [
+        new Page({ name: 'Home'          , url: '#0' })
+      , new Page({ name: 'Registration'  , url: '#0' })
+      , new Page({ name: 'Program'       , url: '#0' })
+      , new Page({ name: 'Hotel & Travel', url: '#0' })
+      , new Page({ name: 'Speakers'      , url: '#0' })
+      ], class_obj: Site.MENU_CLASS.standard, depth: 0})
       ul.o-ListBare.o-GridFlex.c-MenuStandard(style="margin-bottom: 1.5rem;")
-        li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._hover menu item hover
-        li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="")._active menu item active
+        li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="#0")._hover menu item hover
+        li.o-GridFlex__Item.c-MenuStandard__Item._hover: a.o-Block.c-MenuStandard__Link(href="#0")._active menu item active
         li.o-GridFlex__Item.c-MenuStandard__Item: a.o-Block.c-MenuStandard__Link menu item disabled
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuStandard]"&gt;
@@ -119,17 +114,15 @@ block append main
   section#sub-menu
     h2 The Sub Menu
     figure.docs-figure
-      -
-        var pages = [
-          new Page({ name: 'Why Attend'     , url: '' })
-        , new Page({ name: 'Short Courses'  , url: '' })
-        , new Page({ name: 'Technical Tours', url: '' })
-        ]
       div(style="height: 100px;")
-        +sitetoc({pages: pages, class_obj: Site.MENU_CLASS.standard.sub, depth: 0})
+        +sitetoc({pages: [
+          new Page({ name: 'Why Attend'     , url: '#0' })
+        , new Page({ name: 'Short Courses'  , url: '#0' })
+        , new Page({ name: 'Technical Tours', url: '#0' })
+        ], class_obj: Site.MENU_CLASS.standard.sub, depth: 0})
       div(style="height: 100px;"): ul.o-ListBare.c-MenuSub
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._hover menu item hover
-        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="")._active menu item active
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="#0")._hover menu item hover
+        li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="#0")._active menu item active
         li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link menu item disabled
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuSub]"&gt;
@@ -141,28 +134,26 @@ block append main
   section#sitemap-component
     h2 The Sitemap Component
     figure.docs-figure
-      -
-        var pages = [
-            new Page({
-              name: 'Home', url: 'home.html'
-            })
-          , new Page({
-              name: 'Registration', url: 'registration.html'
-            }).addSubpage(new Page({ name: 'Why Attend'     , url: '' }))
-          , new Page({
-              name: 'Program', url: 'program.html'
-            }).addSubpage(new Page({ name: 'Events'         , url: '' }))
-              .addSubpage(new Page({ name: 'Short Courses'  , url: '' }))
-              .addSubpage(new Page({ name: 'Technical Tours', url: '' }))
-              .addSubpage(new Page({ name: 'Optional Tours' , url: '' }))
-          , new Page({
-              name: 'Hotel & Travel', url: 'location.html'
-            }).addSubpage(new Page({ name: 'International Travel', url: '' }))
-          , new Page({
-              name: 'Speakers', url: 'speakers.html'
-            }).addSubpage(new Page({ name: 'Distinguished Lecture Series', url: '' }))
-          ]
-      +sitetoc({pages: pages, class_obj: Site.MENU_CLASS.sitemap, depth: Infinity})
+      +sitetoc({pages: [
+          new Page({
+            name: 'Home', url: 'home.html'
+          })
+        , new Page({
+            name: 'Registration', url: '#0'
+          }).addSubpage(new Page({ name: 'Why Attend'     , url: '#0' }))
+        , new Page({
+            name: 'Program', url: '#0'
+          }).addSubpage(new Page({ name: 'Events'         , url: '#0' }))
+            .addSubpage(new Page({ name: 'Short Courses'  , url: '#0' }))
+            .addSubpage(new Page({ name: 'Technical Tours', url: '#0' }))
+            .addSubpage(new Page({ name: 'Optional Tours' , url: '#0' }))
+        , new Page({
+            name: 'Hotel & Travel', url: '#0'
+          }).addSubpage(new Page({ name: 'International Travel', url: '#0' }))
+        , new Page({
+            name: 'Speakers', url: '#0'
+          }).addSubpage(new Page({ name: 'Distinguished Lecture Series', url: '#0' }))
+        ], class_obj: Site.MENU_CLASS.sitemap, depth: Infinity})
       pre.docs-pre.
         &lt;ul class="o-ListBare  o-GridFlex  #[u c-Sitemap]"&gt;
           &lt;li class="#[u c-Sitemap__Item]"&gt;

@@ -33,11 +33,12 @@ mixin linkWithIcon(args)
       i.material-icons= icon_text
     span= link_text
 
-mixin sitemenulist(args)
-  - var pages     = args.pages     || []
-  - var class_obj = args.class_obj || {}
-  - var depth     = +args.depth    || 0
-  - var icons     = !!args.icons
+mixin sitetoc(args)
+  -
+    var pages     = args.pages     || []
+    var class_obj = args.class_obj || {}
+    var depth     = +args.depth    || 0
+    var icons     = !!args.icons
   ul(class=class_obj.listclasses)
     each item in pages
       unless item.isHidden()
@@ -50,7 +51,7 @@ mixin sitemenulist(args)
           , icon_text : item.getIcon()
           })
           if item.getSubpagesAll().length && depth > 0
-            +sitemenulist({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})
+            +sitetoc({pages: item.getSubpagesAll(), class_obj: (class_obj.sub || {}), depth: depth-1})
 
 mixin event-location-name(loc)
   span(itemprop="name")
@@ -87,7 +88,7 @@ mixin actionchoices(items, classes, list_attr)
           = obj.text
           block
 
-mixin callout(classes)
+mixin highlight(classes)
   aside.o-Runner.o-Runner--highlight(class=classes)
     div.o-ContentWrapper
       block

@@ -86,7 +86,7 @@
         , { name: 'The Callout Component'    , url: 'comp.html#callout-component' }
         , { name: 'Buttons'                  , url: 'comp.html#buttons' }
         , { name: 'The Toggle Button'        , url: 'comp.html#toggle-button' }
-        , { name: 'Text-Level Components'    , url: 'comp.html#text-level-components'}
+        , { name: 'The Camo Link'            , url: 'comp.html#camo-link'}
         ]
       }
     , {
@@ -110,9 +110,10 @@
   })()
 
 mixin libtoc(args)
-  - var pages     = args.pages     || []
-  - var class_obj = args.class_obj || {}
-  - var depth     = +args.depth    || 0
+  -
+    var pages     = args.pages     || []
+    var class_obj = args.class_obj || {}
+    var depth     = +args.depth    || 0
   ol(class=class_obj.listclasses)
     each item in pages
       li(class=class_obj.itemclasses)

@@ -15,7 +15,7 @@ block mainReference
       include /includes/components/_c-Pass.jade
       each pass0 in site.getCurrentConference().getPassesAll()
         li.o-List__Item.o-GridFlex__Item.o-ListStacked__Item
-          +pass(pass0)
+          +pass(pass0, site.getCurrentConference())
     ul.o-List.o-GridFlex.o-ListAction.c-Callout
       each item,index in site.getCurrentConference().getRegistrationPeriodsAll()
         li.o-List__Item.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item.c-RegPeriodLegendItem

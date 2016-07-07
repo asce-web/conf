@@ -1,0 +1,48 @@
+section#pass-component
+  h2 The Pass Component
+  p The Pass Component should be an #[code.docs-code article] element.
+  figure.docs-figure
+    div(style="margin-bottom: 1.5rem;")
+      include /includes/components/_c-Pass.jade
+      +pass(new Pass({
+        name        : 'Speaker Pass'
+      , description : 'Speakers and Presenters'
+      }).addAttendeeType(new Pass.AttendeeType('Member', true))
+        .addAttendeeType(new Pass.AttendeeType('Non-Member'))
+      , new Conference()
+          .addRegistrationPeriod(new RegistrationPeriod({
+            name      : 'Early Bird'
+          , endDate   : '2015-07-28'
+          })).addRegistrationPeriod(new RegistrationPeriod({
+            name      : 'Advance'
+          , startDate : '2015-07-29'
+          , endDate   : '2015-08-25'
+          })).addRegistrationPeriod(new RegistrationPeriod({
+            name      : 'Onsite'
+          , startDate : '2015-08-26'
+          })).setCurrentRegistrationPeriod('Advance')
+      )
+    pre.docs-pre.
+      &lt;article class="#[u c-Pass]"&gt;
+        &lt;header class="#[u c-Pass__Head]"&gt;
+          &lt;h1 class="#[u c-Pass__Hn]"&gt;Speaker Pass&lt;/h1&gt;
+          &lt;p class="#[u c-Pass__Desc]"&gt;Speakers and Presenters&lt;/p&gt;
+        &lt;/header&gt;
+        &lt;section class="#[u c-Pass__Body]  #[u c-Pass__Period]"&gt;
+          &lt;h1 class="#[u c-Pass__Period__Hn]"&gt;Advance&lt;/h1&gt;
+          &lt;dl&gt;
+            &lt;dt class="#[u c-Pass__Period__Attendee]"&gt;Non-Member&lt;/dt&gt;
+            &lt;dd class="#[u c-Pass__Period__Price]&gt;$945&lt;/dd&gt;
+            &lt;dt class="#[u c-Pass__Period__Attendee]"&gt;Member&lt;/dt&gt;
+            &lt;dd class="#[u c-Pass__Period__Price]  #[u c-Pass__Price--featured]&gt;$845&lt;/dd&gt;
+          &lt;/dl&gt;
+        &lt;/section&gt;
+        &lt;footer class="o-GridFlex  #[u c-Pass__Foot]"&gt;
+          &lt;section class="o-GridFlex__Item  #[u c-Pass__Period]"&gt;
+            ...
+          &lt;/section&gt;
+          &lt;section class="o-GridFlex__Item  #[u c-Pass__Period]"&gt;
+            ...
+          &lt;/section&gt;
+        &lt;/footer&gt;
+      &lt;/article&gt;

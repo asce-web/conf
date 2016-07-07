@@ -62,10 +62,9 @@ html(lang="en")
         }
   body
     header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-GridFlex.o-SiteHead
-      a.o-GridFlex__Item.o-GridFloat.o-SiteHead__Item.c-SiteTitle.c-Camo.h-Block(href="index.html")
-        span.o-GridFloat__Item.c-SiteTitle__Logo(style='background-image: url(\'' + (site.image || '') + '\');')
-        h1.o-GridFloat__Item.c-SiteTitle__Name= site.name
-        p.o-GridFloat__Item.c-SiteTitle__Tagline= site.tagline
+      div.o-GridFlex__Item.o-SiteHead__Item
+        include /includes/components/_c-SiteTitle.jade
+        +siteTitle(site, 'index.html')
       div.o-GridFlex__Item.o-SiteHead__Item
         label.c-Toggle
           input.c-Toggle__Check(type="checkbox" value="open top menu")
@@ -83,7 +82,7 @@ html(lang="en")
     if pagetype === 'main'
       header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
         h1.-d-n#main-menu Main Menu
-        +sitemenulist({pages: site.pages.main, class_obj: Site.MENU_CLASS.standard, depth: 1, icons: true})
+        +sitetoc({pages: site.pages.main, class_obj: Site.MENU_CLASS.standard, depth: 1, icons: true})
     main
       block main
         article&attributes((pagetype === 'main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
@@ -96,17 +95,14 @@ html(lang="en")
             block mainRich
           block callouts
           block sponsors
-            +callout()
+            +highlight()
               h1#sponsors Sponsors
-              ol.o-List.c-SponsorCarousel
-                each item in site.getSupportersAll()
-                  li.o-List__Item.c-SponsorCarousel__Item
-                    a.c-SponsorCarousel__Logo.h-Block(href=item.getURL() style='background-image: url(\'' + item.getImg() + '\');')= item.name
-                    small.c-SponsorCarousel__Label= item.getLevel().name
+              include /includes/components/_c-SponsorCarousel.jade
+              +sponsorCarousel(site.getSupportersAll())
               +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
     footer.o-Runner.c-Mast(class=(pagetype==='main') ? 'c-Mast--internal' : ''): nav.o-ContentWrapper
       h1.-d-n#site-map Site Map
-      +sitemenulist({pages: site.pages[pagetype], class_obj: Site.MENU_CLASS.sitemap, depth:Infinity})
+      +sitetoc({pages: site.pages[pagetype], class_obj: Site.MENU_CLASS.sitemap, depth:Infinity})
     footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-ContentWrapper
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")

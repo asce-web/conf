@@ -1,0 +1,39 @@
+section#sitemap-component
+  h2 The Sitemap Component
+  figure.docs-figure
+    +sitetoc({pages: [
+        new Page({
+          name: 'Home', url: 'home.html'
+        })
+      , new Page({
+          name: 'Registration', url: '#0'
+        }).addSubpage(new Page({ name: 'Why Attend'     , url: '#0' }))
+      , new Page({
+          name: 'Program', url: '#0'
+        }).addSubpage(new Page({ name: 'Events'         , url: '#0' }))
+          .addSubpage(new Page({ name: 'Short Courses'  , url: '#0' }))
+          .addSubpage(new Page({ name: 'Technical Tours', url: '#0' }))
+          .addSubpage(new Page({ name: 'Optional Tours' , url: '#0' }))
+      , new Page({
+          name: 'Hotel & Travel', url: '#0'
+        }).addSubpage(new Page({ name: 'International Travel', url: '#0' }))
+      , new Page({
+          name: 'Speakers', url: '#0'
+        }).addSubpage(new Page({ name: 'Distinguished Lecture Series', url: '#0' }))
+      ], class_obj: Site.MENU_CLASS.sitemap, depth: Infinity})
+    pre.docs-pre.
+      &lt;ul class="o-List  o-GridFlex  #[u c-Sitemap]"&gt;
+        &lt;li class="o-List__Item  #[u c-Sitemap__Item]"&gt;
+          &lt;a&gt;Home&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="o-List__Item  #[u c-Sitemap__Item]"&gt;
+          &lt;a&gt;Registration&lt;/a&gt;
+          &lt;ul class="o-List  #[u c-Sitemap__SubList]"&gt;
+            &lt;li class="o-List__Item  #[u c-Sitemap__SubItem]"&gt;
+              &lt;a&gt;Why Attend&lt;/a&gt;
+            &lt;/li&gt;
+            ...
+          &lt;/ul&gt;
+        &lt;/li&gt;
+        ...
+      &lt;/ul&gt;

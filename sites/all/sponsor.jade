@@ -8,4 +8,7 @@ block sponsors
     h1#thank-you-sponsors Thank You to Our Sponsors
     include /includes/components/_c-SponsorBlock.jade
     each sponsorlevel,index in site.getSupporterLevelsAll()
-      +sponsorBlock(sponsorlevel, (index < site.getSupporterLevelsAll().length-1) ? 'c-SponsorBlock--separate' : '')
+      +sponsorBlock(sponsorlevel
+      , site.getSupportersAll().filter(function (item) { return item.getLevel() === sponsorlevel })
+      , (index < site.getSupporterLevelsAll().length-1) ? 'c-SponsorBlock--separate' : ''
+      )

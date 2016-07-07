@@ -1,0 +1,39 @@
+section#other-year-block
+  h2 The Other Year Block
+  figure.docs-figure
+    -
+      var demoevent = {
+        name      : 'Geo-Chicago 2016'
+      , theme     : 'Sustainability, energy, and the geoenvironment.'
+      , startDate : '2016-08-14'
+      , endDate   : '2016-08-18'
+      , url       : 'http://2016.geoenvironmentconference.org/'
+      , location  : {
+          addressLocality     : 'Chicago'
+        , addressRegion       : 'IL'
+        , addressRegion_title : 'Illinois'
+        }
+      }
+    div.c-OtherYear
+      h1.c-OtherYear__Name(itemprop="name") Geo-Chicago 2016
+      meta(content="2016-08-14" itemprop="startDate")
+      p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
+        span(itemprop="name")
+          span(itemprop="addressLocality") Chicago,#{' '}
+          abbr(title="Illinois" itemprop="addressRegion") IL
+      p.c-OtherYear__Desc Access the 2016 program to see which sessions qualify for PDHs and other documentation.
+    div
+      input.docs-btn--md#docs-btn--md-otheryear(type="checkbox" value="otheryear-md-true")
+      label(for="docs-btn--md-otheryear") show microdata
+      pre.docs-pre.docs-pre--has-md.
+        &lt;div class="#[u c-OtherYear]"#[mark  itemscope="" itemtype="http://schema.org/Event"]&gt;
+          &lt;h1 class="#[u c-OtherYear__Name]"#[mark  itemprop="name"]&gt;Geo-Chicago 2016&lt;/h1&gt;
+          #[mark!= '&lt;meta content="2016-08-14" itemprop="startDate"/&gt;']
+          &lt;p class="#[u c-OtherYear__Detail]"#[mark  itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress"]&gt;
+            #[mark &lt;span itemprop="name"&gt;]
+              #[mark &lt;span itemprop="addressLocality"&gt;]Chicago, #[mark!= '&lt;/span&gt;']
+              #[mark &lt;abbr title="Illinois" itemprop="addressRegion"&gt;]IL#[mark!= '&lt;/abbr&gt;']
+            #[mark!= '&lt;/span&gt;']
+          &lt;/p&gt;
+          &lt;p class="#[u c-OtherYear__Desc]"&gt;Access the ...&lt;/p&gt;
+        &lt;/div&gt;

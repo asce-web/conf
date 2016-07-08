@@ -3,25 +3,28 @@
     conf  |  _o-ListAction.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+@import (reference) url('__settings.less');
 
 
 // An action list is a list of (typically 3 or less) actionable choices a user can make.
-// Should be a `.o-GridFlex` Object.
+// Should also be a `.o-Grid` Object.
 //
 // ^subcomponents
 // __Item - an item in the list
 // ^author
 // : Chris Harvey
 // ^updated
-// : 2016-05-06
+// : 2016-07-08
 .o-ListAction {
-  .flex-justify-content(space-around);
   text-align: center;
 }
 
 
 .o-ListAction__Item {
+  @media screen and (max-width: 44.999em) {
+    margin-bottom: @g-vru;
+  }
   @media screen and (min-width: 45em) {
-    width: auto;
+    .flex(auto);
   }
 }

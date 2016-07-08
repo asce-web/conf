@@ -2,8 +2,6 @@
 /*################################*\
     conf  |  _c-Hero.less
 \*################################*/
-// @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.module.clearfix.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 
 
@@ -19,7 +17,7 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-04-22
+// 2016-07-08
 .c-Hero {
   font-weight: 600;
   text-align: center;
@@ -38,7 +36,12 @@
 }
 .c-Hero__Place {
   @media screen and (max-width: 44.999em) {
-    .clearfix();
+    &::after {
+      // duplicating Xmeter’s .h-Clearfix Helper
+      content: '';
+      display: block;
+      clear: both;
+    }
   }
   @media screen and (min-width: 45em) {
     padding-right: 2rem;

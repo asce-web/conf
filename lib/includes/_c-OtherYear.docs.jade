@@ -22,18 +22,18 @@ section#other-year-block
           span(itemprop="addressLocality") Chicago,#{' '}
           abbr(title="Illinois" itemprop="addressRegion") IL
       p.c-OtherYear__Desc Access the 2016 program to see which sessions qualify for PDHs and other documentation.
-    div
-      input.docs-btn--md#docs-btn--md-otheryear(type="checkbox" value="otheryear-md-true")
-      label(for="docs-btn--md-otheryear") show microdata
-      pre.docs-pre.docs-pre--has-md.
-        &lt;div class="#[u c-OtherYear]"#[mark  itemscope="" itemtype="http://schema.org/Event"]&gt;
-          &lt;h1 class="#[u c-OtherYear__Name]"#[mark  itemprop="name"]&gt;Geo-Chicago 2016&lt;/h1&gt;
-          #[mark!= '&lt;meta content="2016-08-14" itemprop="startDate"/&gt;']
-          &lt;p class="#[u c-OtherYear__Detail]"#[mark  itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress"]&gt;
-            #[mark &lt;span itemprop="name"&gt;]
-              #[mark &lt;span itemprop="addressLocality"&gt;]Chicago, #[mark!= '&lt;/span&gt;']
-              #[mark &lt;abbr title="Illinois" itemprop="addressRegion"&gt;]IL#[mark!= '&lt;/abbr&gt;']
-            #[mark!= '&lt;/span&gt;']
+    div.docs-c-Togglable
+      input.docs-c-Togglable__Check#other-year-check(type="checkbox" value="otheryear-md-true")
+      label(for="other-year-check") show microdata
+      pre.docs-pre.
+        &lt;div class="#[u c-OtherYear]"#[mark.docs-c-Togglable__Text  itemscope="" itemtype="http://schema.org/Event"]&gt;
+          &lt;h1 class="#[u c-OtherYear__Name]"#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;Geo-Chicago 2016&lt;/h1&gt;
+          #[mark.docs-c-Togglable__Text!= '&lt;meta content="2016-08-14" itemprop="startDate"/&gt;']
+          &lt;p class="#[u c-OtherYear__Detail]"#[mark.docs-c-Togglable__Text  itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress"]&gt;
+            #[mark.docs-c-Togglable__Text &lt;span itemprop="name"&gt;]
+              #[mark.docs-c-Togglable__Text &lt;span itemprop="addressLocality"&gt;]Chicago, #[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
+              #[mark.docs-c-Togglable__Text &lt;abbr title="Illinois" itemprop="addressRegion"&gt;]IL#[mark.docs-c-Togglable__Text!= '&lt;/abbr&gt;']
+            #[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
           &lt;/p&gt;
           &lt;p class="#[u c-OtherYear__Desc]"&gt;Access the ...&lt;/p&gt;
         &lt;/div&gt;

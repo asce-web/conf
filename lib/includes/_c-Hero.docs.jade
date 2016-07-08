@@ -27,25 +27,25 @@ section#hero-block
           | &ndash;
           time(datetime="2017-06-07" itemprop="endDate") Jun 7
       p.c-Hero__Theme(itemprop="description") Geotechincal risk from theory to practice.
-    div
-      input.docs-btn--md#docs-btn--md-hero(type="checkbox" value="hero-md-true")
-      label(for="docs-btn--md-hero") show microdata
-      pre.docs-pre.docs-pre--has-md.
-        &lt;div class="#[u c-Hero]"#[mark  itemscope="" itemtype="http://schema.org/Event"]&gt;
-          &lt;h1 class="c-PageTitle #[u c-Hero__Name]"#[mark  itemprop="name"]&gt;Geo-Risk 2017&lt;/h1&gt;
-          #[mark!= '&lt;meta content="http://2017.georiskconference.org/" itemprop="url"/&gt;']
+    div.docs-c-Togglable
+      input.docs-c-Togglable__Check#hero-check(type="checkbox" value="hero-md-true")
+      label(for="hero-check") show microdata
+      pre.docs-pre.
+        &lt;div class="#[u c-Hero]"#[mark.docs-c-Togglable__Text  itemscope="" itemtype="http://schema.org/Event"]&gt;
+          &lt;h1 class="c-PageTitle #[u c-Hero__Name]"#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;Geo-Risk 2017&lt;/h1&gt;
+          #[mark.docs-c-Togglable__Text!= '&lt;meta content="http://2017.georiskconference.org/" itemprop="url"/&gt;']
           &lt;p class="#[u c-Hero__Detail]"&gt;
-            &lt;span class="#[u c-Hero__Place]"#[mark  itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress"]&gt;
-              #[mark &lt;span itemprop="name"&gt;]
-                #[mark &lt;span itemprop="addressLocality"&gt;]Denver, #[mark!= '&lt;/span&gt;']
-                #[mark &lt;abbr title="Colorado" itemprop="addressRegion"&gt;]CO#[mark!= '&lt;/abbr&gt;']
-              #[mark!= '&lt;/span&gt;']
+            &lt;span class="#[u c-Hero__Place]"#[mark.docs-c-Togglable__Text  itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress"]&gt;
+              #[mark.docs-c-Togglable__Text &lt;span itemprop="name"&gt;]
+                #[mark.docs-c-Togglable__Text &lt;span itemprop="addressLocality"&gt;]Denver, #[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
+                #[mark.docs-c-Togglable__Text &lt;abbr title="Colorado" itemprop="addressRegion"&gt;]CO#[mark.docs-c-Togglable__Text!= '&lt;/abbr&gt;']
+              #[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
             &lt;/span&gt;
             &lt;span class="#[u c-Hero__Dates]"&gt;
-              #[mark &lt;time datetime="2017-06-04" itemprop="startDate"&gt;]Jun 4#[mark!= '&lt;/time&gt;']
+              #[mark.docs-c-Togglable__Text &lt;time datetime="2017-06-04" itemprop="startDate"&gt;]Jun 4#[mark.docs-c-Togglable__Text!= '&lt;/time&gt;']
               &ndash;
-              #[mark &lt;time datetime="2017-06-07" itemprop="endDate"&gt;]Jun 7#[mark!= '&lt;/time&gt;']
+              #[mark.docs-c-Togglable__Text &lt;time datetime="2017-06-07" itemprop="endDate"&gt;]Jun 7#[mark.docs-c-Togglable__Text!= '&lt;/time&gt;']
             &lt;/span&gt;
           &lt;/p&gt;
-          &lt;p class="#[u c-Hero__Theme]"#[mark  itemprop="description"]&gt;Geotechincal risk ...&lt;/p&gt;
+          &lt;p class="#[u c-Hero__Theme]"#[mark.docs-c-Togglable__Text  itemprop="description"]&gt;Geotechincal risk ...&lt;/p&gt;
         &lt;/div&gt;

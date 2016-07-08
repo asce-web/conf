@@ -61,11 +61,11 @@ html(lang="en")
           color: red;
         }
   body
-    header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-Flex.o-SiteHead
-      div.o-Flex__Item.o-SiteHead__Item
+    header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-Flex.-xai-c
+      div.o-Flex__Item(style="max-width:50%;")
         include /includes/components/_c-SiteTitle.jade
         +siteTitle(site, 'index.html')
-      div.o-Flex__Item.o-SiteHead__Item
+      div.o-Flex__Item(style="max-width:50%;")
         label.c-Toggle
           input.c-Toggle__Check(type="checkbox" value="open top menu")
           span.-d-n toggle top menu

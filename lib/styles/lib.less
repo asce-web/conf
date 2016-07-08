@@ -8,6 +8,7 @@
     styleguide.less
 \*================================*/
 @import (reference) url('../../node_modules/xmeter/src/__settings.less');
+@import (reference) url('../../node_modules/xmeter/src/__tool.fallback.transition.less');
 @import (reference) url('../../node_modules/xmeter/src/__tool.module.borders.less');
 @import (reference) url('../../node_modules/xmeter/src/__tool.module.fontsize.less');
 
@@ -44,13 +45,6 @@
     color: #c06;
   }
 }
-.docs-pre--has-md mark {
-  display: inline-block;
-  transition: text-indent 500ms;
-  .docs-btn--md:not(:checked) ~ & {
-    text-indent: -200%;
-  }
-}
 .docs-code {
   padding: 1px 2px;
   border-radius: 3px;
@@ -66,7 +60,22 @@
   border-radius: 8px;
   background-color: #f8fcff;
 }
-/*button*/.docs-btn--md { display: inline-block; margin: 0.25rem; }
+
+
+// A container with togglable content.
+// Togglable content may be shown/hidden on command.
+.docs-c-Togglable {}
+  .docs-c-Togglable__Check {
+    margin: 0.25rem;
+  }
+  .docs-c-Togglable__Text {
+    display: inline-block;
+    .transition-multi(text-indent 500ms); // TODO change to `transition()` on xmeter v5
+  }
+  .docs-c-Togglable__Check:not(:checked) ~ * .docs-c-Togglable__Text {
+    text-indent: -200%;
+  }
+
 
 
 .docs-ColorBox {

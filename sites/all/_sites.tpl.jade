@@ -99,7 +99,7 @@ html(lang="en")
               h1#sponsors Sponsors
               include /includes/components/_c-SponsorCarousel.jade
               +sponsorCarousel(site.getSupportersAll())
-              +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
+              +highlightButtons([{text:'All Sponsors', href:'sponsor.html'}])
     footer.o-Runner.c-Mast(class=(pagetype==='main') ? 'c-Mast--internal' : ''): nav.o-ContentWrapper
       h1.-d-n#site-map Site Map
       +sitetoc({pages: site.pages[pagetype], class_obj: Site.MENU_CLASS.sitemap, depth:Infinity})

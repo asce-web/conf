@@ -88,6 +88,13 @@ mixin actionchoices(items, classes, list_attr)
           = obj.text
           block
 
+mixin highlightButtons(links, more_classes)
+  ul.o-List.-ta-c
+    each item in links
+      li.o-List__Item
+        a.c-Btn.c-Btn--hilite(class=' '+(more_classes || '') href=item.href)&attributes(item.attr || {})
+          = item.text
+
 mixin highlight(classes)
   aside.o-Runner.o-Runner--highlight(class=classes)
     div.o-ContentWrapper

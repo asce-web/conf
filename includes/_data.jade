@@ -21,17 +21,15 @@ include class/_Membership.class.jade
 include class/_ProgramEvent.class.jade
 include class/_ImportantDate.class.jade
 
-mixin linkWithIcon(args)
+mixin linkWithIcon(link, icon)
+  //- NOTE parameter validation
   -
-    var classes   = args.classes   || ''
-      , href      = args.href      || ''
-      , link_text = args.link_text || ''
-      , icons     = args.icons     || ''
-      , icon_text = args.icon_text || ''
-  a(class=classes href=href)
-    if icons
-      i.material-icons= icon_text
-    span= link_text
+    link = link || {}
+    icon = icon || {}
+  a(class=link.classes href=link.url)&attributes(link.attr || {})
+    if icon.is_on
+      i.material-icons= icon.text
+    span= link.text
 
 mixin sitetoc(args)
   //- NOTE parameter validation
@@ -45,11 +43,12 @@ mixin sitetoc(args)
       unless item.isHidden()
         li(class=class_obj.itemclasses)
           +linkWithIcon({
-            classes   : class_obj.linkclasses
-          , href      : item.url
-          , link_text : item.name
-          , icons     : args.icons && item.getIcon()
-          , icon_text : item.getIcon()
+            classes : class_obj.linkclasses
+          , url     : item.url
+          , text    : item.name
+          }, {
+            is_on : args.icons && item.getIcon()
+          , text  : item.getIcon()
           })
           if item.getSubpagesAll().length && depth > 0
             +sitetoc({pages: item.getSubpagesAll(), class_obj: (class_obj.sub || {}), depth: depth-1})

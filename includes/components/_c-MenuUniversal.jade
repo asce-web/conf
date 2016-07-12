@@ -3,11 +3,12 @@ mixin menuUniversal(array1, array2, current_text)
     mixin univItem(page0, is_current, text)
       li.o-GridFlex__Item.c-MenuUniversal__Item
         +linkWithIcon({
-          classes   : 'c-MenuUniversal__Link o-Block' + ((is_current) ? ' c-MenuUniversal__Link--current' : '')
-        , href      : page0.url
-        , link_text : text
-        , icons     : page0.getIcon()
-        , icon_text : page0.getIcon()
+          classes : 'c-MenuUniversal__Link o-Block' + ((is_current) ? ' c-MenuUniversal__Link--current' : '')
+        , url     : page0.url
+        , text    : text
+        }, {
+          is_on : page0.getIcon()
+        , text  : page0.getIcon()
         })
     each page0 in array1
       +univItem(page0, false, page0.name)

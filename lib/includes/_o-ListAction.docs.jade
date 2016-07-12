@@ -1,14 +1,18 @@
 section#action-list
   h2 The Action List
   p.
-    An action list is a list of (typically 3 or fewer) choices of actions a user can make.
-    This list is likely to contain buttons, but that is a styling choice.
+    The Action List contains a variable number of items (typically 3 or fewer).
+    Most commonly these items are actionable elements, such as links or buttons.
+    However, this Object does not discriminate its contents&mdash;it can be used to hold
+    static items as well.
     The list items are stacked vertically by default and become horizontal
     on Medium screens (720px) and larger.
+    When displayed horizontally, the items have equal width
+    (unlike Flex Object items, whose widths are automatically sized).
   figure.docs-figure
-    ul.o-List.o-Grid.o-ListAction
+    ul.o-List.o-ListAction
       each val,index in new Array(3)
-        li.o-List__Item.o-Grid__Item.o-ListAction__Item action item #{index+1}
+        li.o-List__Item.o-ListAction__Item action item #{index+1}
     pre.docs-pre.
       &lt;ul class="o-List  o-Grid  #[u o-ListAction]"&gt;
         &lt;li class="o-List__Item  o-Grid__Item  #[u o-ListAction__Item]"&gt;action item 1&lt;/li&gt;

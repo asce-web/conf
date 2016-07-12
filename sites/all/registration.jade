@@ -16,18 +16,19 @@ block mainReference
       each pass0 in site.getCurrentConference().getPassesAll()
         li.o-List__Item.o-GridFlex__Item.o-ListStacked__Item
           +pass(pass0, site.getCurrentConference())
-    ul.o-List.o-ListAction.c-Callout.c-RegPeriodLegend
+    ul.o-List.o-ListAction.c-Callout._regLegend
       each item,index in site.getCurrentConference().getRegistrationPeriodsAll()
         li.o-List__Item.o-ListAction__Item.c-Callout__Item
           i.material-icons= item.getIcon()
           small
+            b= item.name
             - var start = Util.toDate(item.startDate)
             - var end   = Util.toDate(item.endDate)
             if item.startDate && item.endDate
-              = item.name + ': ' + Util.monthDay(start) + '–' + Util.monthDay(end)
+              = ': ' + Util.monthDay(start) + '–' + Util.monthDay(end)
             else if item.startDate
-              = item.name + ' begins ' + Util.monthDay(start)
+              = ' begins ' + Util.monthDay(start)
             else if item.endDate
-              = item.name + ' ends '   + Util.monthDay(end)
+              = ' ends '   + Util.monthDay(end)
     +highlightButtons([{text:'Register Today!', href:'#0'}], 'c-Btn--secondary')
     block additionalInfo

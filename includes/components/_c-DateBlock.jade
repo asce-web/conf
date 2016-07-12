@@ -9,11 +9,12 @@ mixin dateBlock(all_dates)
         dd.c-DateBlock__Desc
           if action.getURL()
             +linkWithIcon({
-              classes   : 'c-DateBlock__Link h-Block'
-            , href      : action.getURL()
-            , link_text : action.name
-            , icons     : true
-            , icon_text : 'arrow_forward'
+              classes : 'c-DateBlock__Link h-Block'
+            , url     : action.getURL()
+            , text    : action.name
+            }, {
+              is_on : true
+            , text  : 'arrow_forward'
             })
           else
             = action.name

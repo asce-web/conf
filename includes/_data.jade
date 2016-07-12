@@ -80,18 +80,10 @@ mixin heroContent(event0)
     else
       | &nbsp;
 
-mixin actionchoices(items, classes, list_attr)
-  ul.o-List.o-Grid.o-ListAction&attributes(list_attr || {})
-    each obj in items
-      li.o-List__Item.o-Grid__Item.o-ListAction__Item
-        a(class=classes href=obj.href)&attributes(obj.attr || {})
-          = obj.text
-          block
-
 mixin highlightButtons(links, more_classes)
-  ul.o-List.-ta-c
+  ul.o-List.o-Grid.o-ListAction
     each item in links
-      li.o-List__Item
+      li.o-List__Item.o-Grid__Item.o-ListAction__Item
         a.c-Btn.c-Btn--hilite(class=' '+(more_classes || '') href=item.href)&attributes(item.attr || {})
           = item.text
 

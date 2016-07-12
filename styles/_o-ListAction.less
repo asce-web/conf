@@ -7,7 +7,6 @@
 
 
 // An action list is a list of (typically 3 or less) actionable choices a user can make.
-// Should also be a `.o-Grid` Object.
 //
 // ^subcomponents
 // __Item - an item in the list
@@ -16,17 +15,18 @@
 // ^updated
 // : 2016-07-12
 .o-ListAction {
-  text-align: center;
-  margin-bottom: 0; // @g-vru moved to __Items
+  .flexbox();
+  line-height: inherit; // if using on a text-level element
   .flex-justify-content(space-around);
+  text-align: center;
+  @media screen and (max-width: 44.999em) {
+    .flex-direction(column);
+  }
   @media screen and (min-width: 45em) {
     .flex-wrap(nowrap);
   }
 }
 
 .o-ListAction__Item {
-  margin-bottom: @g-vru;
-  @media screen and (min-width: 45em) {
-    .flex(1);
-  }
+  .flex(1);
 }

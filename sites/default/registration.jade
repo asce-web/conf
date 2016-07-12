@@ -9,7 +9,7 @@ block mainMinimal
 block additionalInfo
   div.c-Overlay
     h1 Additional Events and Pricing
-    ul.o-List.o-Grid.o-ListAction
+    ul.o-List.o-ListAction
       -
         var choices = [
           { text: 'Short Courses'  , href: '#0' }
@@ -17,7 +17,7 @@ block additionalInfo
         , { text: 'Optional Tours' , href: '#0' }
         ]
       each item in choices
-        li.o-List__Item.o-Grid__Item.o-ListAction__Item
+        li.o-List__Item.o-ListAction__Item
           a(href=item.href)
             span= item.text
             i.material-icons arrow_forward

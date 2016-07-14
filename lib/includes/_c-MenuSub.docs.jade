@@ -2,11 +2,12 @@ section#sub-menu
   h2 The Sub Menu
   figure.docs-figure
     div(style="height: 100px;")
-      +sitetoc({pages: [
+      include /includes/components/_c-MenuSub.jade
+      +menuSub([
         new Page({ name: 'Why Attend'     , url: '#0' })
       , new Page({ name: 'Short Courses'  , url: '#0' })
       , new Page({ name: 'Technical Tours', url: '#0' })
-      ], class_obj: Site.MENU_CLASS.standard.sub, depth: 0})
+      ])
     div(style="height: 100px;"): ul.o-ListBare.c-MenuSub
       li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="#0")._hover menu item hover
       li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="#0")._active menu item active

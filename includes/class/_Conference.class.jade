@@ -13,11 +13,11 @@
       , addressRegion       : $confinfo.state
       , addressRegion_title : (Util.STATE_DATA.find(function (item) { return item.index === $confinfo.state }) || false).name
       }
-      self.reg_periods         = []
-      self.passes              = []
-      self.program_events      = []
-      self.important_dates     = []
-      self.current_reg_period  = null
+      self.reg_periods     = []
+      self.current_reg_pd_index = NaN
+      self.passes          = []
+      self.program_events  = []
+      self.important_dates = []
     }
 
     //- SETTER FUNCTIONS
@@ -30,7 +30,7 @@
       return this
     }
     Conference.prototype.setCurrentRegistrationPeriod = function setCurrentRegistrationPeriod(reg_period_name) {
-      this.current_reg_period = this.getRegistrationPeriod(reg_period_name)
+      this.current_reg_pd_index = this.reg_periods.indexOf(this.getRegistrationPeriod(reg_period_name))
       return this
     }
     Conference.prototype.addPass = function addPass(pass) {
@@ -63,7 +63,9 @@
       return this.reg_periods.find(function (item) { return item.name === reg_period_name })
     }
     Conference.prototype.getCurrentRegistrationPeriod = function getCurrentRegistrationPeriod() {
-      return this.current_reg_period || {}
+      return this.reg_periods[this.current_reg_pd_index] || new RegistrationPeriod()
+      //- does not return undefined, but an empty RegistrationPeriod object,
+      //- in case there is no current registration period
     }
     Conference.prototype.getPass = function getPass(pass_name) {
       return this.passes.find(function (item) { return item.name === pass_name })

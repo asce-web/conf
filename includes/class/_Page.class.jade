@@ -54,7 +54,7 @@
       return this.is_hidden
     }
     Page.prototype.getIcon = function getIcon(fallback) {
-      return (this.icon) ? ((fallback) ? this.icon.fallback : this.icon.content) : ''
+      return (this.icon) ? Util.iconToString(this.icon, fallback) : ''
     }
     Page.prototype.getSubpage = function getSubpage(url0) {
       return this.sub.find(function (item) { return item.url === url0 })

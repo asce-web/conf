@@ -82,7 +82,8 @@ html(lang="en")
     if pagetype === 'main'
       header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
         h1.-d-n#main-menu Main Menu
-        +sitetoc({pages: site.pages.main, class_obj: Site.MENU_CLASS.standard, depth: 1, icons: true})
+        include /includes/components/_c-MenuStandard.jade
+        +menuStandard(site.pages.main)
     main
       block main
         article&attributes((pagetype === 'main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
@@ -102,7 +103,8 @@ html(lang="en")
               +highlightButtons([{text:'All Sponsors', href:'sponsor.html'}])
     footer.o-Runner.c-Mast(class=(pagetype==='main') ? 'c-Mast--internal' : ''): nav.o-ContentWrapper
       h1.-d-n#site-map Site Map
-      +sitetoc({pages: site.pages[pagetype], class_obj: Site.MENU_CLASS.sitemap, depth:Infinity})
+      include /includes/components/_c-Sitemap.jade
+      +sitemap(site.pages[pagetype])
     footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-ContentWrapper
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")

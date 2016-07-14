@@ -118,6 +118,9 @@
       var index = array.indexOf(item)
       if (index >= 0) array.splice(index, 1)
     }
+    Util.iconToString = function iconToString(icon0, fallback0) {
+      return (fallback0) ? icon0.fallback : icon0.content
+    }
 
     return Util
   })()

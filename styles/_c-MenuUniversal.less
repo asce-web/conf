@@ -22,10 +22,8 @@
 // 2016-07-14
 .c-MenuUniversal {
   .flex-justify-content(flex-end);
-  // .flex-align-content(flex-start); // override `stretch` // push items to top in mobile drawer menu // don’t need if `height: auto;`
   .flex-align-items(center); // vertical alignment
   .menubar();
-  // white-space: nowrap;
   @media screen and (max-width: 44.999em) {
     .flex-direction(column);
     .flex-align-items(stretch); // horizontal alignment
@@ -38,15 +36,9 @@
       }
     }
   }
-  // @media screen and (min-width: 45em) {
-  //   .flex-wrap(nowrap);
-  // }
 }
 
 .c-MenuUniversal__Item {
-  // @media screen and (min-width: 45em) {
-  //   width: auto;
-  // }
   .flex(0 0 auto);
 }
 

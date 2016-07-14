@@ -17,7 +17,6 @@
 // 2016-07-14
 .c-Sitemap {
   .flex-justify-content(space-around); // override Flex `space-between`
-  // margin-bottom: 0; // override ul // already in `.c-Mast >> .c-Sitemap`
   .menubar();
   @media screen and (max-width: 44.999em) {
     .flex-direction(column);
@@ -30,12 +29,8 @@
       margin-bottom: (14/16 * @g-vru); // FIXME uses `.c-Mast` module vru
     }
   }
-  // @media screen and (min-width: 45em) {
-  //   width: auto;
-  // }
 }
 .c-Sitemap__SubList {
-  // margin-bottom: 0; // override ul // already in `li > ul`
   padding-left: 1rem;
   text-transform: none; // override .menubar()
   font-weight: 300;

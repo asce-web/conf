@@ -6,12 +6,12 @@ section#universal-menu
     div(style="margin-bottom: 1.5rem;")
       include /includes/components/_c-MenuUniversal.jade
       +menuUniversal([
-        new Page({ name: 'About'  , url: '#0' })
-      , new Page({ name: 'Sponsor', url: '#0' })
-      , new Page({ name: 'Exhibit', url: '#0' })
-      , new Page({ name: 'Contact', url: '#0' })
+        new Page({ name: 'About'  , url: '#0' }).setIcon('insert_drive_file')
+      , new Page({ name: 'Sponsor', url: '#0' }).setIcon('insert_drive_file')
+      , new Page({ name: 'Exhibit', url: '#0' }).setIcon('insert_drive_file')
+      , new Page({ name: 'Contact', url: '#0' }).setIcon('insert_drive_file')
       ], [
-        new Page({ name: 'Home', url: '#0' })
+        new Page({ name: 'Home', url: '#0' }).setIcon('insert_drive_file')
       ], 'Current Year')
     ul.o-List.o-Flex.c-MenuUniversal(style="margin-bottom: 1.5rem;")
       li.o-List__Item.o-Flex__Item.c-MenuUniversal__Item: a.c-MenuUniversal__Link.h-Block(href="#0")._hover menu item hover
@@ -22,10 +22,16 @@ section#universal-menu
     pre.docs-pre.
       &lt;ul class="o-List  o-Flex  #[u c-MenuUniversal]"&gt;
         &lt;li class="o-List__Item  o-Flex__Item  #[u c-MenuUniversal__Item]"&gt;
-          &lt;a class="#[u c-MenuUniversal__Link]  h-Block"&gt;About&lt;/a&gt;
+          &lt;a class="#[u c-MenuUniversal__Link]  h-Block"&gt;
+            &lt;i class="material-icons"&gt;...&lt;/i&gt;
+            &lt;span&gt;About&lt;/span&gt;
+          &lt;/a&gt;
         &lt;/li&gt;
         ...
         &lt;li class="o-List__Item  o-Flex__Item  #[u c-MenuUniversal__Item]"&gt;
-          &lt;a class="#[u c-MenuUniversal__Link]  h-Block  #[u c-MenuUniversal__Link--current]"&gt;Current Year&lt;/a&gt;
+          &lt;a class="#[u c-MenuUniversal__Link]  h-Block  #[u c-MenuUniversal__Link--current]"&gt;
+            &lt;i class="material-icons"&gt;...&lt;/i&gt;
+            &lt;span&gt;Current Year&lt;/span&gt;
+          &lt;/a&gt;
         &lt;/li&gt;
       &lt;/ul&gt;

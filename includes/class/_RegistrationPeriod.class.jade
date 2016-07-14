@@ -13,7 +13,7 @@
       return this
     }
     RegistrationPeriod.prototype.getIcon = function getIcon(fallback) {
-      return (this.icon) ? ((fallback) ? this.icon.fallback : this.icon.content) : ''
+      return (this.icon) ? Util.iconToString(this.icon, fallback) : ''
     }
     return RegistrationPeriod
   })()

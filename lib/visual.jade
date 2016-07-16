@@ -20,10 +20,10 @@ block append main
     }
   mixin colorsamples(colors)
     - var boxwidth = '96px'
-    ul.o-List.o-GridFlex
+    ul.o-List.o-Flex.docs-o-ColorList
       each color in colors
-        li.o-List__Item.o-GridFlex__Item.-mr-1(style={width:boxwidth})
-          div.docs-ColorBox(class=color.bg_class style={height:boxwidth})
+        li.o-List__Item.o-Flex__Item.docs-o-ColorList__Item
+          div.docs-c-ColorBox(class=color.bg_class style={ width:boxwidth, height:boxwidth })
             p
               each foreground,index in [scheme.asce.black.code, scheme.asce.white.code]
                 code(style={color:foreground})= color.code

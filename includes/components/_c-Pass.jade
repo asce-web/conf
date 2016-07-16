@@ -6,8 +6,8 @@ mixin pass(pass0, current_conference)
       dl
         each item in pass0.getAttendeeTypesAll()
           - var price = 0;
-          dt.c-Pass__Period__Attendee= item.name
-          dd.c-Pass__Period__Price(class=(is_body && item.is_featured) ? 'c-Pass__Price--featured' : '')
+          dt.c-Pass__Attendee= item.name
+          dd.c-Pass__Price(class=(is_body && item.is_featured) ? 'c-Pass__Price--featured' : '')
             = price.toLocaleString('en', {style:'currency', currency:'USD'})
     header.c-Pass__Head
       h1.c-Pass__Hn= pass0.name

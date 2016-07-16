@@ -43,7 +43,7 @@
     margin-bottom: 0; // specificity HACK: override `.c-Pass >> h1`
   }
   // HACK using variables
-  .c-Pass__Foot .c-Pass__Period:first-child::after {
+  .c-Pass__Foot .c-Pass__Period:not(:last-child)::after {
     margin: @l-vru 0; // FIXME IE10 does not support rems on pseudo-elements!!!
   }
 }
@@ -109,7 +109,7 @@
 .c-Pass__Period {
   padding: @g-boxpadd_micr;
   .c-Pass__Foot & {
-    &:first-child {
+    &:not(:last-child) {
       position: relative; // for the ::after
       &::after {
         @rw: 1px;

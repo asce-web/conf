@@ -14,9 +14,10 @@ mixin pass(pass0, current_conference)
       p.c-Pass__Desc
         = pass0.description
         small.o-Block.c-Pass__Fine
-    div.c-Pass__Body
-      section.c-Pass__Period
-        +period-details(current_period, true)
+    if current_period
+      div.c-Pass__Body
+        section.c-Pass__Period
+          +period-details(current_period, true)
     footer.o-GridFlex.c-Pass__Foot
       each item in current_conference.getRegistrationPeriodsAll()
         unless item === current_period

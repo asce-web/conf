@@ -2,6 +2,7 @@
 /*################################*\
     conf  |  _c-Pass.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.borders.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 @import (reference) url('__settings.less');
@@ -96,6 +97,9 @@
 // 2016-04-26
 .c-Pass__Period {
   padding: @g-boxpadd_micr;
+  .c-Pass__Foot & {
+    .flex(1); // override Flex__Item (auto)
+  }
   .c-Pass__Foot &:first-child {
     position: relative;
     &::after {

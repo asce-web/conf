@@ -63,9 +63,7 @@
       return this.reg_periods.find(function (item) { return item.name === reg_period_name })
     }
     Conference.prototype.getCurrentRegistrationPeriod = function getCurrentRegistrationPeriod() {
-      return this.reg_periods[this.current_reg_pd_index] || new RegistrationPeriod()
-      //- does not return undefined, but an empty RegistrationPeriod object,
-      //- in case there is no current registration period
+      return this.reg_periods[this.current_reg_pd_index]
     }
     Conference.prototype.getPass = function getPass(pass_name) {
       return this.passes.find(function (item) { return item.name === pass_name })

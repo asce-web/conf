@@ -1,10 +1,7 @@
 h1#registration Registration
-ul.o-List.o-GridFlex.o-ListStacked
-  include /includes/components/_c-Pass.jade
-  li.o-List__Item.o-GridFlex__Item.o-ListStacked__Item
-    +pass(site.getCurrentConference().getPass('Standard Pass'), site.getCurrentConference())
-  li.o-List__Item.o-GridFlex__Item.o-ListStacked__Item
-    +pass(site.getCurrentConference().getPass('Student Pass'), site.getCurrentConference())
-  li.o-List__Item.o-GridFlex__Item.o-ListStacked__Item
-    +pass(site.getCurrentConference().getPass('Younger Member'), site.getCurrentConference())
-+actionchoices([{text:'Registration Details', href:'registration.html'}], 'c-Btn c-Btn--hilite')
++passList([
+  site.getCurrentConference().getPass('Standard Pass')
+, site.getCurrentConference().getPass('Student Pass')
+, site.getCurrentConference().getPass('Younger Member')
+], site.getCurrentConference())
++highlightButtons([{text:'Registration Details', href:'registration.html'}])

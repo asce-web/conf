@@ -1,7 +1,3 @@
 h1#speakers Speakers
-ul.o-List.o-GridFlex.o-ListStacked
-  include /includes/components/_c-Speaker.jade
-  each speaker in new Array(3)
-    li.o-List__Item.o-GridFlex__Item.o-ListStacked__Item
-      +speaker()
-+actionchoices([{text:'All Speakers', href:'speakers.html'}], 'c-Btn c-Btn--hilite')
++speakerList(3)
++highlightButtons([{text:'All Speakers', href:'speakers.html'}])

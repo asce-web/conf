@@ -8,9 +8,9 @@
     styleguide.less
 \*================================*/
 @import (reference) url('../../node_modules/xmeter/src/__settings.less');
+@import (reference) url('../../node_modules/xmeter/src/__tool.fallback.flexbox.less');
 @import (reference) url('../../node_modules/xmeter/src/__tool.fallback.transition.less');
 @import (reference) url('../../node_modules/xmeter/src/__tool.module.borders.less');
-@import (reference) url('../../node_modules/xmeter/src/__tool.module.fontsize.less');
 
 
 // This stylesheet is used on all styleguide documentation files.
@@ -62,6 +62,15 @@
 }
 
 
+.docs-o-ColorList {
+  .flex-justify-content(flex-start);
+}
+.docs-o-ColorList__Item {
+  .flex(0);
+  margin-right: 1rem;
+}
+
+
 // A container with togglable content.
 // Togglable content may be shown/hidden on command.
 .docs-c-Togglable {}
@@ -77,14 +86,16 @@
   }
 
 
-
-.docs-ColorBox {
+.docs-c-ColorBox {
   text-align: center;
+  box-shadow: 0 2px 0.5rem 0 fadeout(#222, 50%); // #222 is `currentColor`
   p {
     position: relative;
     top: 24px;
   }
 }
+
+
 .docs-t-Xmeter {
   padding: (0.25*@g-vru) 0.5rem;
   background: fadeout(#000, 90%);

@@ -10,17 +10,10 @@ section#pass-component
       }).addAttendeeType(new Pass.AttendeeType('Member', true))
         .addAttendeeType(new Pass.AttendeeType('Non-Member'))
       , new Conference()
-          .addRegistrationPeriod(new RegistrationPeriod({
-            name      : 'Early Bird'
-          , endDate   : '2015-07-28'
-          })).addRegistrationPeriod(new RegistrationPeriod({
-            name      : 'Advance'
-          , startDate : '2015-07-29'
-          , endDate   : '2015-08-25'
-          })).addRegistrationPeriod(new RegistrationPeriod({
-            name      : 'Onsite'
-          , startDate : '2015-08-26'
-          })).setCurrentRegistrationPeriod('Advance')
+          .addRegistrationPeriod(new RegistrationPeriod({ name: 'Early Bird' }))
+          .addRegistrationPeriod(new RegistrationPeriod({ name: 'Advance' }))
+          .addRegistrationPeriod(new RegistrationPeriod({ name: 'Onsite' }))
+          .setCurrentRegistrationPeriod('Advance')
       )
     pre.docs-pre.
       &lt;article class="#[u c-Pass]"&gt;
@@ -31,17 +24,17 @@ section#pass-component
         &lt;section class="#[u c-Pass__Body]  #[u c-Pass__Period]"&gt;
           &lt;h1 class="#[u c-Pass__Period__Hn]"&gt;Advance&lt;/h1&gt;
           &lt;dl&gt;
-            &lt;dt class="#[u c-Pass__Period__Attendee]"&gt;Non-Member&lt;/dt&gt;
-            &lt;dd class="#[u c-Pass__Period__Price]&gt;$945&lt;/dd&gt;
-            &lt;dt class="#[u c-Pass__Period__Attendee]"&gt;Member&lt;/dt&gt;
-            &lt;dd class="#[u c-Pass__Period__Price]  #[u c-Pass__Price--featured]&gt;$845&lt;/dd&gt;
+            &lt;dt class="#[u c-Pass__Attendee]"&gt;Member&lt;/dt&gt;
+            &lt;dd class="#[u c-Pass__Price]  #[u c-Pass__Price--featured]&gt;$0&lt;/dd&gt;
+            &lt;dt class="#[u c-Pass__Attendee]"&gt;Non-Member&lt;/dt&gt;
+            &lt;dd class="#[u c-Pass__Price]&gt;$0&lt;/dd&gt;
           &lt;/dl&gt;
         &lt;/section&gt;
-        &lt;footer class="o-GridFlex  #[u c-Pass__Foot]"&gt;
-          &lt;section class="o-GridFlex__Item  #[u c-Pass__Period]"&gt;
+        &lt;footer class="o-Flex  #[u c-Pass__Foot]"&gt;
+          &lt;section class="o-Flex__Item  #[u c-Pass__Period]"&gt;
             ...
           &lt;/section&gt;
-          &lt;section class="o-GridFlex__Item  #[u c-Pass__Period]"&gt;
+          &lt;section class="o-Flex__Item  #[u c-Pass__Period]"&gt;
             ...
           &lt;/section&gt;
         &lt;/footer&gt;

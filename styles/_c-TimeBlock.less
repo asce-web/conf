@@ -2,6 +2,7 @@
 /*################################*\
     conf  |  _c-TimeBlock.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
 
 
@@ -28,7 +29,7 @@
   position: relative; // for psuedo-elements in viz
   padding: 0 @g-boxpadd_kilo_h (2*@l-vru);
   @media screen and (min-width: 30em) {
-    width: 50%;
+    .flex(50%);
   }
 }
 .c-TimeBlock__Times {

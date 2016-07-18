@@ -18,28 +18,33 @@ block append main
       , gray_lt   : { code: '#9fa5a8', bg_class: '-bc-site_gray_lt'  , name: 'ASCE 2016 Light Gray' }
       }
     }
-  mixin colorsample(color)
+  mixin colorsamples(colors)
     - var boxwidth = '96px'
-    li.o-List__Item.o-GridFlex__Item.-mr-1(style={width:boxwidth})
-      div.docs-ColorBox(class=color.bg_class style={height:boxwidth})
-        p
-          each foreground in [scheme.asce.black.code, scheme.asce.white.code]
-            code(style={color:foreground})= color.code
-            br
-      p(style="font-size: 0.8rem; line-height:1.875;")
-        span.h-Block= color.name
+    ul.o-List.o-Flex.docs-o-ColorList
+      each color in colors
+        li.o-List__Item.o-Flex__Item.docs-o-ColorList__Item
+          div.docs-c-ColorBox(class=color.bg_class style={ width:boxwidth, height:boxwidth })
+            p
+              each foreground,index in [scheme.asce.black.code, scheme.asce.white.code]
+                code(style={color:foreground})= color.code
+                unless index == 1
+                  br
+          p(style="font-size: 0.8rem; line-height:1.875;")
+            span.h-Block= color.name
   section#asce
     h2 ASCE
     h3 Colors
-    ul.o-List.o-GridFlex
-      +colorsample(scheme.asce.black)
-      +colorsample(scheme.asce.white)
-      +colorsample(scheme.asce.blue)
+    +colorsamples([
+      scheme.asce.black
+    , scheme.asce.white
+    , scheme.asce.blue
+    ])
   section#asce2016
     h2 ASCE 2016
     h3 Colors
-    ul.o-List.o-GridFlex
-      +colorsample(scheme.asce2016.primary)
-      +colorsample(scheme.asce2016.secondary)
-      +colorsample(scheme.asce2016.gray_dk)
-      +colorsample(scheme.asce2016.gray_lt)
+    +colorsamples([
+      scheme.asce2016.primary
+    , scheme.asce2016.secondary
+    , scheme.asce2016.gray_dk
+    , scheme.asce2016.gray_lt
+    ])

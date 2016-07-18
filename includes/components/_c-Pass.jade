@@ -6,19 +6,20 @@ mixin pass(pass0, current_conference)
       dl
         each item in pass0.getAttendeeTypesAll()
           - var price = 0;
-          dt.c-Pass__Period__Attendee= item.name
-          dd.c-Pass__Period__Price(class=(is_body && item.is_featured) ? 'c-Pass__Price--featured' : '')
+          dt.c-Pass__Attendee= item.name
+          dd.c-Pass__Price(class=(is_body && item.is_featured) ? 'c-Pass__Price--featured' : '')
             = price.toLocaleString('en', {style:'currency', currency:'USD'})
     header.c-Pass__Head
       h1.c-Pass__Hn= pass0.name
       p.c-Pass__Desc
         = pass0.description
         small.c-Pass__Fine.h-Block
-    div.c-Pass__Body
-      section.c-Pass__Period
-        +period-details(current_period, true)
-    footer.o-GridFlex.c-Pass__Foot
+    if current_period
+      div.c-Pass__Body
+        section.c-Pass__Period
+          +period-details(current_period, true)
+    footer.o-Flex.c-Pass__Foot
       each item in current_conference.getRegistrationPeriodsAll()
         unless item === current_period
-          section.o-GridFlex__Item.-w-1o2.c-Pass__Period
+          section.o-Flex__Item.c-Pass__Period
             +period-details(item, false)

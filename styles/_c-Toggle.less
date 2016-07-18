@@ -27,7 +27,9 @@
 }
 
 .c-Toggle__Check {
-  display: none;
+  // can’t use `display:none` due to keyboard selection
+  position: absolute;
+  opacity: 0;
 }
 
 

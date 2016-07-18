@@ -6,8 +6,8 @@ block append varsPage
 block mainReference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n#all-speakers All Speakers
-    ul.o-List.o-GridFlex.o-ListStacked
+    ul.o-List.o-ListStacked
       include /includes/components/_c-Speaker.jade
       each speaker in new Array(6)
-        li.o-List__Item.o-GridFlex__Item.o-ListStacked__Item
+        li.o-List__Item.o-ListStacked__Item
           +speaker()

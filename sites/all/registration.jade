@@ -11,10 +11,10 @@ block mainHeader
 block mainReference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
     h1.-d-n#full-registration Full Registration
-    ul.o-List.o-GridFlex.o-ListStacked
+    ul.o-List.o-ListStacked
       include /includes/components/_c-Pass.jade
       each pass0 in site.getCurrentConference().getPassesAll()
-        li.o-List__Item.o-GridFlex__Item.o-ListStacked__Item
+        li.o-List__Item.o-ListStacked__Item
           +pass(pass0, site.getCurrentConference())
     ul.o-List.o-ListAction.c-Callout._regLegend
       each item,index in site.getCurrentConference().getRegistrationPeriodsAll()

@@ -67,7 +67,7 @@
 //++++++++++++++++++++++++++++++++//
 .c-Btn {
   // generic button color styles
-  background-color: lighten(@g-color_site_gray_lt, 25%, relative);
+  background-color: lighten(@g-color_site_gray_lt, 25%, relative); // TODO color var
   &,
   &:hover,
   &:focus,
@@ -79,11 +79,11 @@
   &:hover,
   &:focus,
   &._hover {
-    background-color: @g-color_site_gray_lt;
+    background-color: var(--color-gray-lt);
   }
   &:active,
   &._active {
-    background-color: darken(@g-color_site_gray_lt, 25%, relative);
+    background-color: darken(@g-color_site_gray_lt, 25%, relative); // TODO color var
   }
   a&:not([href]),
   button&:disabled {
@@ -100,7 +100,7 @@
 }
 
 .c-Btn--dark {
-  background-color: darken(@g-color_site_gray_dk, 25%, relative);
+  background-color: darken(@g-color_site_gray_dk, 25%, relative); // TODO color var
   &,
   &:hover,
   &:focus,
@@ -112,11 +112,11 @@
   &:hover,
   &:focus,
   &._hover {
-    background-color: @g-color_site_gray_dk;
+    background-color: var(--color-gray-dk);
   }
   &:active,
   &._active {
-    background-color: lighten(@g-color_site_gray_dk, 25%, relative);
+    background-color: lighten(@g-color_site_gray_dk, 25%, relative); // TODO color var
   }
 }
 
@@ -133,28 +133,28 @@
 }
 
 .c-Btn--primary {
-  background-color: @g-color_site_primary;
+  background-color: var(--color-primary);
   &:hover,
   &:focus,
   &._hover {
-    background-color: darken(@g-color_site_primary, 25%, relative);
+    background-color: darken(@g-color_site_primary, 25%, relative); // TODO color var
   }
   &:active,
   &._active {
-    background-color: darken(@g-color_site_primary, 50%, relative);
+    background-color: darken(@g-color_site_primary, 50%, relative); // TODO color var
   }
 }
 
 .c-Btn--secondary {
-  background-color: @g-color_site_secondary;
+  background-color: var(--color-secondary);
   &:hover,
   &:focus,
   &._hover {
-    background-color: lighten(@g-color_site_secondary, 25%, relative);
+    background-color: lighten(@g-color_site_secondary, 25%, relative); // TODO color var
   }
   &:active,
   &._active {
-    background-color: lighten(@g-color_site_secondary, 50%, relative);
+    background-color: lighten(@g-color_site_secondary, 50%, relative); // TODO color var
   }
 }
 
@@ -164,7 +164,7 @@
   &._hover {
     color: @g-color_asce_white;
     border-color: transparent;
-    background-color: @g-color_site_gray_dk;
+    background-color: var(--color-gray-dk);
   }
   &,
   &:active,
@@ -180,7 +180,7 @@
   &:focus,
   &._hover {
     &:not(:active) { // HACK because :hover will override :active
-      color: @g-color_site_gray_dk;
+      color: var(--color-gray-dk);
       background-color: @g-color_asce_white;
     }
   }
@@ -215,17 +215,17 @@
   &:active,
   &._hover,
   &._active {
-    color: @g-color_site_secondary; // same as link
+    color: var(--color-secondary); // same as link
     background-color: transparent;
   }
   &:hover,
   &:focus,
   &._hover {
-    color: @g-color_site_gray_lt; // same as link
+    color: var(--color-gray-lt); // same as link
   }
   &:active,
   &._active {
-    color: @g-color_site_gray_dk;
+    color: var(--color-gray-dk);
   }
 }
 //++++ end # BUTTON TEXTURE STYLES ++++//

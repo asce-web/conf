@@ -90,3 +90,10 @@ mixin highlight(classes)
   aside.o-Runner.o-Runner--highlight(class=classes)
     div.o-ContentWrapper
       block
+
+mixin passList(passes, current_conference)
+  ul.o-List.o-ListStacked
+    include /includes/components/_c-Pass.jade
+    each pass0 in passes
+      li.o-List__Item.o-ListStacked__Item
+        +pass(pass0, current_conference)

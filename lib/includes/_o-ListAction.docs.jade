@@ -1,17 +1,21 @@
 section#action-list
   h2 The Action List
   p.
-    An action list is a list of (typically 3 or less) choices of actions a user can make.
-    This list is likely to contain buttons, but that is a styling choice.
-    The structure of this list is less complicated than that of a Stacked List (below).
+    The Action List contains a variable number of items (typically 3 or fewer).
+    Most commonly these items are actionable elements, such as links or buttons.
+    However, this Object does not discriminate its contents&mdash;it can be used to hold
+    static items as well.
+    The list items are stacked vertically by default and become horizontal
+    on Medium screens (720px) and larger.
+    When displayed horizontally, the items have equal width
+    (unlike Flex Object items, whose widths are automatically sized).
   figure.docs-figure
-    ul.o-List.o-GridFlex.o-ListAction
-      li.o-List__Item.o-GridFlex__Item.o-ListAction__Item action item 1
-      li.o-List__Item.o-GridFlex__Item.o-ListAction__Item action item 2
-      li.o-List__Item.o-GridFlex__Item.o-ListAction__Item action item 3
+    ul.o-List.o-ListAction
+      each val,index in new Array(3)
+        li.o-List__Item.o-ListAction__Item action item #{index+1}
     pre.docs-pre.
-      &lt;ul class="o-List  o-GridFlex  #[u o-ListAction]"&gt;
-        &lt;li class="o-List__Item  o-GridFlex__Item  #[u o-ListAction__Item]"&gt;action item 1&lt;/li&gt;
-        &lt;li class="o-List__Item  o-GridFlex__Item  #[u o-ListAction__Item]"&gt;action item 2&lt;/li&gt;
-        &lt;li class="o-List__Item  o-GridFlex__Item  #[u o-ListAction__Item]"&gt;action item 3&lt;/li&gt;
+      &lt;ul class="o-List  #[u o-ListAction]"&gt;
+        &lt;li class="o-List__Item  #[u o-ListAction__Item]"&gt;action item 1&lt;/li&gt;
+        &lt;li class="o-List__Item  #[u o-ListAction__Item]"&gt;action item 2&lt;/li&gt;
+        &lt;li class="o-List__Item  #[u o-ListAction__Item]"&gt;action item 3&lt;/li&gt;
       &lt;/ul&gt;

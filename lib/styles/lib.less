@@ -8,8 +8,9 @@
     styleguide.less
 \*================================*/
 @import (reference) url('../../node_modules/xmeter/src/__settings.less');
-@import (reference) url('../../node_modules/xmeter/src/__tool.module.borders.less');
-@import (reference) url('../../node_modules/xmeter/src/__tool.module.fontsize.less');
+@import (reference) url('../../node_modules/xmeter/src/__fallback.flexbox.less');
+@import (reference) url('../../node_modules/xmeter/src/__fallback.transition.less');
+@import (reference) url('../../node_modules/xmeter/src/__tool.borders.less');
 
 
 // This stylesheet is used on all styleguide documentation files.
@@ -44,13 +45,6 @@
     color: #c06;
   }
 }
-.docs-pre--has-md mark {
-  display: inline-block;
-  transition: text-indent 500ms;
-  .docs-btn--md:not(:checked) ~ & {
-    text-indent: -200%;
-  }
-}
 .docs-code {
   padding: 1px 2px;
   border-radius: 3px;
@@ -66,16 +60,42 @@
   border-radius: 8px;
   background-color: #f8fcff;
 }
-/*button*/.docs-btn--md { display: inline-block; margin: 0.25rem; }
 
 
-.docs-ColorBox {
+.docs-o-ColorList {
+  .flex-justify-content(flex-start);
+}
+.docs-o-ColorList__Item {
+  .flex(0);
+  margin-right: 1rem;
+}
+
+
+// A container with togglable content.
+// Togglable content may be shown/hidden on command.
+.docs-c-Togglable {}
+  .docs-c-Togglable__Check {
+    margin: 0.25rem;
+  }
+  .docs-c-Togglable__Text {
+    display: inline-block;
+    .transition(text-indent 500ms);
+  }
+  .docs-c-Togglable__Check:not(:checked) ~ * .docs-c-Togglable__Text {
+    text-indent: -200%;
+  }
+
+
+.docs-c-ColorBox {
   text-align: center;
+  box-shadow: 0 2px 0.5rem 0 fadeout(#222, 50%); // #222 is `currentColor`
   p {
     position: relative;
     top: 24px;
   }
 }
+
+
 .docs-t-Xmeter {
   padding: (0.25*@g-vru) 0.5rem;
   background: fadeout(#000, 90%);

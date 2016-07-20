@@ -5,7 +5,10 @@ block append vars
 
 block append main
   div.docs-t-Xmeter
-    include /node_modules/xmeter/docs/includes/_content-atom.jade
+    include /node_modules/xmeter/docs/includes/_atom.margin-bottom.docs.jade
+    +docs_marginBottom(Lib.DOCS_CLASSES)
+    include /node_modules/xmeter/docs/includes/_atom.padding-top.docs.jade
+    +docs_paddingTop(Lib.DOCS_CLASSES)
 
 //- block append main
   p.
@@ -44,8 +47,8 @@ block append main
       Em widths are adjustable, based on the font size of the element
       (e.g. if the element&rsquo;s font size is 16px, then 1em is 16px
       and 5em is 80px).
-    figure.o-GridFlex.docs-figure
-      section.o-GridFlex__Item.-w-1o3
+    figure.docs-figure
+      section.-w-1o3
         h3 Percentage Widths
         pre.
           .-w-1o1      100%#[br]
@@ -88,7 +91,7 @@ block append main
           .-w-9o10      90%
           .-w-10o10    100%
         //- footer: p 39 classes, 20 unique classes
-      section.o-GridFlex__Item.-w-1o3
+      section.-w-1o3
         h3 Pixel Widths
         pre.
           .-w-96px        96px
@@ -107,7 +110,7 @@ block append main
           .-w-1344px    1344px
           .-w-1440px    1440px
         //- footer: p 15 unique classes
-      section.o-GridFlex__Item.-w-1o3
+      section.-w-1o3
         h3 Em Widths
         pre.
           .-w-5em      5em
@@ -129,11 +132,11 @@ block append main
           .-w-85em    85em
           .-w-90em    90em
         //- footer: p 18 unique classes
-      pre.o-GridFlex__Item.
-        &lt;div class="o-GridFlex"&gt;
-          &lt;section class="o-GridFlex__Item  #[u -w-1o3]"&gt;...&lt;/section&gt;
-          &lt;section class="o-GridFlex__Item  #[u -w-1o3]"&gt;...&lt;/section&gt;
-          &lt;section class="o-GridFlex__Item  #[u -w-1o3]"&gt;...&lt;/section&gt;
+      pre.
+        &lt;div class=""&gt;
+          &lt;section class="#[u -w-1o3]"&gt;...&lt;/section&gt;
+          &lt;section class="#[u -w-1o3]"&gt;...&lt;/section&gt;
+          &lt;section class="#[u -w-1o3]"&gt;...&lt;/section&gt;
         &lt;/div&gt;
     p.
       You may add a breakpoint suffix, for using these classes only in certain

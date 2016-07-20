@@ -49,16 +49,11 @@
       , description: 'Patterns of structure that can be reused many times for many different purposes.'
       , sub: [
           { name: 'Table of Contents'  , url: 'obj.html#table-contents' }
-        , { name: 'The Block Object'   , url: 'obj.html#block-object' }
-        , { name: 'The Inline Object'  , url: 'obj.html#inline-object' }
-        , { name: 'The Bare List'      , url: 'obj.html#bare-list' }
-        , { name: 'The Flex Grid'      , url: 'obj.html#flex-grid' }
         , { name: 'The Float Grid'     , url: 'obj.html#float-grid' }
         , { name: 'The Runner Object'  , url: 'obj.html#runner-object' }
         , { name: 'The Content Wrapper', url: 'obj.html#content-wrapper' }
         , { name: 'The Action List'    , url: 'obj.html#action-list' }
         , { name: 'The Stacked List'   , url: 'obj.html#stacked-list' }
-        , { name: 'The Site Head'      , url: 'obj.html#site-head' }
         , { name: 'The Drawer Object'  , url: 'obj.html#drawer-object' }
         ]
       }
@@ -101,6 +96,11 @@
       , description: 'Very specific classes used for creating anomalies or fixing broken styles.'
       }
     ]
+    Lib.DOCS_CLASSES = {
+      figure : 'docs-figure'
+    , pre    : 'docs-pre'
+    , code   : 'docs-code'
+    }
     Lib.getPage = function getPage(url0) {
       return Lib.PAGES.find(function (item) { return item.url === url0 })
     }

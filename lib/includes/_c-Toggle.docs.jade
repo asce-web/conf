@@ -5,11 +5,13 @@ section#toggle-button
     separate Component that just so happens to look like a button.
   p.
     #[strong Note:]
-    The Toggle Button for the universal menu will be hidden when screen is larger than 720px.
+    The Toggle Button for the universal menu will normally be hidden when
+    screen is larger than 720px. However on this page it is always shown
+    for demonstration purposes.
     When toggled on, it will be fixed to the top right of the screen.
   figure.docs-figure
-    label.c-Toggle
-      input.c-Toggle__Check(type="checkbox" value="open top menu")
+    label.c-Toggle(style="display: inline;")
+      input.c-Toggle__Check(type="checkbox" value="demo toggle")
       svg.c-Toggle__Viz(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
         path(d="M0,0 H24 V24 H0 z" fill="transparent")
         g(transform="translate(3,11)")

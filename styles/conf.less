@@ -26,25 +26,20 @@
  *
  * # SETTINGS & TOOLS-----------------------PROJECT SETTINGS & MIXINS
  * __settings.less..........................variables
- * __tool.module.border-radius.less.........useful mixins for grouping border-radii
- * __tool.module.menubar.less...............typographical styles for menu bars
- * __tool.module.logo.less..................background-image styles for logos
+ * __tool.border-radius.less................useful mixins for grouping border-radii
+ * __tool.menubar.less......................typographical styles for menu bars
+ * __tool.logo.less.........................background-image styles for logos
  *
  * # BASE-----------------------------------BARE UNCLASSED ELEMENTS
  * _dev.less................................development code
  * _base.less...............................bare, unclassed elements
  *
  * # OBJECTS--------------------------------REUSABLE STRUCTURAL PATTERNS
- * Block....................................a simple block object
- * Inline...................................a simple inline object
- * ListBare.................................plain, unstyled, blocky list
- * GridFlex.................................grid of items
  * GridFloat................................grid of items; legacy support
  * Runner...................................header and footer
  * ContentWrapper...........................keeps content at max width
  * ListAction...............................list of actionable choices
  * ListStacked..............................row of stackable items (Sponsors, Passes, Speakers, etc.)
- * SiteHead.................................container for SiteTitle and MenuUniversal components
  * Drawer...................................pull-out container
  *
  * # COMPONENTS-----------------------------SPECIFIC STYLE PATTERNS
@@ -86,9 +81,9 @@
 //    # SETTINGS & TOOLS
 //++++++++++++++++++++++++++++++++//
 @import url('__settings.less');
-@import url('__tool.module.border-radius.less');
-// @import url('__tool.module.menubar.less');
-// @import url('__tool.module.logo.less');
+@import url('__tool.border-radius.less');
+// @import url('__tool.menubar.less');
+// @import url('__tool.logo.less');
 //++++ end # SETTINGS & TOOLS ++++//
 
 
@@ -103,16 +98,11 @@
 //++++++++++++++++++++++++++++++++//
 //    # OBJECTS
 //++++++++++++++++++++++++++++++++//
-@import url('_o-Block.less');
-@import url('_o-Inline.less');
-@import url('_o-ListBare.less');
-@import url('_o-GridFlex.less');
 @import url('_o-GridFloat.less');
 @import url('_o-Runner.less');
 @import url('_o-ContentWrapper.less');
 @import url('_o-ListAction.less');
 @import url('_o-ListStacked.less');
-@import url('_o-SiteHead.less');
 @import url('_o-Drawer.less');
 //++++ end # OBJECTS ++++//
 

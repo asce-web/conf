@@ -1,18 +1,18 @@
 mixin timeBlock(events, show_all)
-  dl.o-GridFlex.c-TimeBlock
+  dl.o-Grid.c-TimeBlock
     each event0 in events
       if show_all || event0.isStarred()
-        dt.o-GridFlex__Item.c-TimeBlock__Times
+        dt.o-Grid__Item.c-TimeBlock__Times
           -
             var start = Util.toDate(event0.startDate)
               , end   = Util.toDate(event0.endDate)
           time(datetime=event0.startDate)= Util.hourTime12(start)
           | &ndash;
           time(datetime=event0.endDate)= Util.hourTime12(end)
-        dd.o-GridFlex__Item.c-TimeBlock__Desc
+        dd.o-Grid__Item.c-TimeBlock__Desc
           if event0.getURL()
             +linkWithIcon({
-              classes : 'c-TimeBlock__Link o-Block'
+              classes : 'c-TimeBlock__Link h-Block'
             , url     : event0.getURL()
             , text    : event0.name
             }, {

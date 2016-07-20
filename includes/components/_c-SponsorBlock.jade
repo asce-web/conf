@@ -1,7 +1,7 @@
 mixin sponsorBlock(sponsorlevel, sponsor_list, classes)
   section.c-SponsorBlock(class=classes)
     h1.c-SponsorBlock__Hn= sponsorlevel.name
-    ul.o-ListBare.o-GridFlex.o-ListStacked
+    ul.o-List.o-ListStacked
       each item in sponsor_list
-        li.o-GridFlex__Item.o-ListStacked__Item
-          a.o-Block.c-SponsorBlock__Logo(class=sponsorlevel.getClassname() href=item.url style='background-image: url(\'' + (item.img || '') + '\');')= item.name
+        li.o-List__Item.o-ListStacked__Item
+          a.c-SponsorBlock__Logo.h-Block(class=sponsorlevel.classname href=item.url style='background-image: url(\'' + (item.img || '') + '\');')= item.name

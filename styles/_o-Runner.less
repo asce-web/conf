@@ -2,7 +2,7 @@
 /*################################*\
     conf  |  _o-Runner.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
+@import (reference) url('../node_modules/xmeter/src/__fallback.transition.less');
 
 
 // A large, full-width section with padding.
@@ -17,7 +17,7 @@
 // 2016-04-25
 .o-Runner {
   padding: @g-boxpadd_micr;
-  .transition-multi(padding 250ms);
+  .transition(padding 250ms);
   @media screen and (min-width: 30em) { padding: @g-boxpadd_mill; }
   @media screen and (min-width: 45em) { padding: @g-boxpadd_norm; }
   @media screen and (min-width: 60em) { padding: @g-boxpadd_kilo; }

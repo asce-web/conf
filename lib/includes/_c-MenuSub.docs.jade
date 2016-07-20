@@ -8,14 +8,16 @@ section#sub-menu
       , new Page({ name: 'Short Courses'  , url: '#0' })
       , new Page({ name: 'Technical Tours', url: '#0' })
       ])
-    div(style="height: 100px;"): ul.o-ListBare.c-MenuSub
-      li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="#0")._hover menu item hover
-      li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link(href="#0")._active menu item active
-      li.c-MenuSub__Item: a.o-Block.c-MenuSub__Link menu item disabled
+    div(style="height: 100px;"): ul.o-List.c-MenuSub
+      li.o-List__Item.c-MenuSub__Item: a.c-MenuSub__Link.h-Block(href="#0")._hover menu item hover
+      li.o-List__Item.c-MenuSub__Item: a.c-MenuSub__Link.h-Block(href="#0")._active menu item active
+      li.o-List__Item.c-MenuSub__Item: a.c-MenuSub__Link.h-Block menu item disabled
     pre.docs-pre.
-      &lt;ul class="o-ListBare  o-GridFlex  #[u c-MenuSub]"&gt;
-        &lt;li class="o-GridFlex__Item  #[u c-MenuSub__Item]"&gt;
-          &lt;a class="o-Block  #[u c-MenuSub__Link]"&gt;Why Attend&lt;/a&gt;
+      &lt;ul class="o-List  #[u c-MenuSub]"&gt;
+        &lt;li class="o-List__Item  #[u c-MenuSub__Item]"&gt;
+          &lt;a class="#[u c-MenuSub__Link]  h-Block"&gt;
+            &lt;span&gt;Why Attend&lt;/span&gt;
+          &lt;/a&gt;
         &lt;/li&gt;
         ...
       &lt;/ul&gt;

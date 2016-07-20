@@ -29,7 +29,8 @@ html(lang="en")
       link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
       link(rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
       link(rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css")
-      link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v4.3.0/xmeter.css")
+      link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/stage-v5.0.0/xmeter.css")
+      //- TODO update on xmeter v5
       link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.8.0/bangs.min.css")
       link(rel="stylesheet" href="/styles/conf.css")
       if site.name
@@ -59,11 +60,11 @@ html(lang="en")
           color: red;
         }
   body
-    header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-GridFlex.o-SiteHead
-      div.o-GridFlex__Item.o-SiteHead__Item
+    header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-Flex.-xai-c
+      div.o-Flex__Item(style="max-width:50%;")
         include /includes/components/_c-SiteTitle.jade
         +siteTitle(site, 'index.html')
-      div.o-GridFlex__Item.o-SiteHead__Item
+      div.o-Flex__Item(style="max-width:50%;")
         label.c-Toggle
           input.c-Toggle__Check(type="checkbox" value="open top menu")
           span.-d-n toggle top menu
@@ -98,7 +99,7 @@ html(lang="en")
               h1#sponsors Sponsors
               include /includes/components/_c-SponsorCarousel.jade
               +sponsorCarousel(site.getSupportersAll())
-              +actionchoices([{text:'All Sponsors', href:'sponsor.html'}], 'c-Btn c-Btn--hilite')
+              +highlightButtons([{text:'All Sponsors', href:'sponsor.html'}])
     footer.o-Runner.c-Mast(class=(pagetype==='main') ? 'c-Mast--internal' : ''): nav.o-ContentWrapper
       h1.-d-n#site-map Site Map
       include /includes/components/_c-Sitemap.jade
@@ -107,33 +108,33 @@ html(lang="en")
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
         p
-          span.o-Block(itemprop="name") American Society of Civil Engineers
-          span.o-Block(itemprop="location" itemscope itemtype="https://schema.org/PostalAddress")
-            span.o-Block(itemprop="streetAddress") 1801 Alexander Bell Drive
-            span.o-Block
+          span.h-Block(itemprop="name") American Society of Civil Engineers
+          span.h-Block(itemprop="location" itemscope itemtype="https://schema.org/PostalAddress")
+            span.h-Block(itemprop="streetAddress") 1801 Alexander Bell Drive
+            span.h-Block
               span(itemprop="addressLocality") Reston,#{' '}
               span(itemprop="addressRegion") VA#{' '}
               span(itemprop="postalCode") 22901-4382
-          span.o-Block(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
+          span.h-Block(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
             a(href="tel:+1-800-548-2723") (800) 548-2723
             meta(content="+1-800-548-2723" itemprop="telephone")
             meta(content="customer support" itemprop="contactType")
-          span.o-Block(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
+          span.h-Block(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
             a(href="tel:+1-703-295-6300") +1 (703) 295-6300
             meta(content="+1-703-295-6300" itemprop="telephone")
             meta(content="United States of America" itemprop="areaServed")
             meta(content="customer support" itemprop="contactType")
-        ul.o-ListBare.o-GridFlex.c-SocialList
-          li.o-GridFlex__Item.c-SocialList__Item
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--twitter(href="//twitter.com/ASCE" itemprop="sameAs" title="Follow ASCE on Twitter")
-          li.o-GridFlex__Item.c-SocialList__Item
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--google(href="//plus.google.com/ASCE" itemprop="sameAs" title="Follow ASCE on Google+")
-          li.o-GridFlex__Item.c-SocialList__Item
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--facebook(href="//facebook.com/ASCE" itemprop="sameAs" title="Follow ASCE on Facebook")
-          li.o-GridFlex__Item.c-SocialList__Item
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--linkedin(href="//linkedin.com/ASCE" itemprop="sameAs" title="Follow ASCE on LinkedIn")
-          li.o-GridFlex__Item.c-SocialList__Item
-            a.o-Block.c-SocialList__Link.c-SocialList__Link--youtube(href="//youtube.com/ASCE" itemprop="sameAs" title="Follow ASCE on YouTube")
+        ul.o-List.o-Flex.c-SocialList
+          li.o-List__Item.o-Flex__Item.c-SocialList__Item
+            a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="//twitter.com/ASCE" itemprop="sameAs" title="Follow ASCE on Twitter")
+          li.o-List__Item.o-Flex__Item.c-SocialList__Item
+            a.c-SocialList__Link.c-SocialList__Link--google.h-Block(href="//plus.google.com/ASCE" itemprop="sameAs" title="Follow ASCE on Google+")
+          li.o-List__Item.o-Flex__Item.c-SocialList__Item
+            a.c-SocialList__Link.c-SocialList__Link--facebook.h-Block(href="//facebook.com/ASCE" itemprop="sameAs" title="Follow ASCE on Facebook")
+          li.o-List__Item.o-Flex__Item.c-SocialList__Item
+            a.c-SocialList__Link.c-SocialList__Link--linkedin.h-Block(href="//linkedin.com/ASCE" itemprop="sameAs" title="Follow ASCE on LinkedIn")
+          li.o-List__Item.o-Flex__Item.c-SocialList__Item
+            a.c-SocialList__Link.c-SocialList__Link--youtube.h-Block(href="//youtube.com/ASCE" itemprop="sameAs" title="Follow ASCE on YouTube")
         //- p: img(src="ASCE-logo.png" itemprop="image")
         p: a(href="http://www.asce.org" itemprop="url").
           &copy; #[time 1996]&ndash;#[time 2016] American Society of Civil Engineers

@@ -1,20 +1,24 @@
 
 /*################################*\
-    conf  |  _o-GridFlex.less
+    conf  |  _o-GridFloat.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__tool.module.clearfix.less');
 
 
-// The GridFloat object is a fallback class for browsers who don’t support Flexbox.
+// Use the GridFloat Object for a grid-like appearance using floats.
 //
 // ^subcomponents
 // : `__Item` - any item inside the grid
 // ^author
 // : Chris Harvey
 // ^updated
-// : 2016-02-08
+// : 2016-07-08
 .o-GridFloat {
-  .clearfix();
+  &::after {
+    // duplicating Xmeter’s .h-Clearfix Helper
+    content: '';
+    display: block;
+    clear: both;
+  }
 }
 
 .o-GridFloat__Item {

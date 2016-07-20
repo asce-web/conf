@@ -2,10 +2,10 @@
 /*################################*\
     conf  |  _c-Program.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+@import (reference) url('../node_modules/xmeter/src/__fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__fallback.transform.less');
+@import (reference) url('../node_modules/xmeter/src/__fallback.transition.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.fontsize.less');
 
 
 // A block containing the entire program.
@@ -26,7 +26,7 @@
   .flex-align-items(flex-start); // minimize height of flex items
   .font-size-mod(14/16); // NOTE this value is used in `TimeBlock.less`
   overflow: hidden;
-  .transition-multi(height @p-transdura);
+  .transition(height @p-transdura);
   h1 {
     font-family: inherit;
     color: inherit;
@@ -42,6 +42,9 @@
   cursor: pointer;
   &:not(.c-Program__Hn--selected) {
     color: @g-color_site_gray_lt;
+  }
+  @media screen and (min-width: 30em) {
+    .flex(1);
   }
   @media screen and (min-width: 45em) {
     .font-size-el(1.25);

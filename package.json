@@ -39,7 +39,7 @@
     "clean-css": "^3.4.9",
     "jade": "^1.11.0",
     "less": "^2.6.0",
-    "xmeter": "^4.0.0"
+    "xmeter": "^5.0.0"
   },
   "dependencies": {}
 }

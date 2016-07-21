@@ -4,18 +4,18 @@
     function Supporter(name) {
       var self = this
       self.name = name
-      self.img   = ''
       self.url   = ''
+      self.img   = ''
       self.level = null
     }
 
     //- SETTER FUNCTIONS
-    Supporter.prototype.setImg = function setImg(img0) {
-      this.img = img0
-      return this
-    }
     Supporter.prototype.setURL = function setURL(url0) {
       this.url = url0
+      return this
+    }
+    Supporter.prototype.setImg = function setImg(img0) {
+      this.img = img0
       return this
     }
     Supporter.prototype.setLevel = function setLevel(supporter_level) {
@@ -24,11 +24,11 @@
     }
 
     //- GETTER FUNCTIONS
-    Supporter.prototype.getImg = function getImg() {
-      return this.img
-    }
     Supporter.prototype.getURL = function getURL() {
       return this.url
+    }
+    Supporter.prototype.getImg = function getImg() {
+      return this.img
     }
     Supporter.prototype.getLevel = function getLevel() {
       return this.level

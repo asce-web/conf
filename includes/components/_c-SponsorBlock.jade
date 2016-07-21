@@ -3,5 +3,5 @@ mixin sponsorBlock(sponsorlevel, sponsor_list, classes)
     h1.c-SponsorBlock__Hn= sponsorlevel.name
     ul.o-List.o-ListStacked
       each item in sponsor_list
-        li.o-List__Item.o-ListStacked__Item
-          a.c-SponsorBlock__Logo.h-Block(class=sponsorlevel.classname href=item.url style='background-image: url(\'' + (item.img || '') + '\');')= item.name
+        li.o-List__Item.o-ListStacked__Item(itemprop="sponsor" itemscope="" itemtype="http://schema.org/Organization")
+          +sponsorLink(item, 'c-SponsorBlock__Logo h-Block ' + sponsorlevel.getClassname())

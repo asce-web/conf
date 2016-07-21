@@ -104,3 +104,7 @@ mixin speakerList(n)
     each speaker0 in new Array(n)
       li.o-List__Item.o-ListStacked__Item
         +speaker()
+
+mixin sponsorLink(sponsor0, classes)
+  a(class=classes href=sponsor0.getURL() style='background-image: url(\'' + sponsor0.getImg() || '' + '\');' itemprop="url")
+    span(itemprop="name")= sponsor0.name

@@ -104,3 +104,27 @@ mixin speakerList(n)
     each speaker0 in new Array(n)
       li.o-List__Item.o-ListStacked__Item
         +speaker()
+
+mixin chairList(chairs)
+  ul
+    each person in chairs
+      li(itemprop="organizer" itemscope="" itemtype="http://schema.org/Person")
+        +personEntireName(person)
+
+mixin sponsorLink(sponsor0, classes)
+  a(class=classes href=sponsor0.getURL() style='background-image: url(\'' + sponsor0.getImg() || '' + '\');' itemprop="url")
+    span(itemprop="name")= sponsor0.name
+
+mixin personEntireName(person)
+  if person.name.honorificPrefix
+    span(itemprop="honorificPrefix")= person.name.honorificPrefix
+    = ' '
+  span(itemprop="name")
+    span(itemprop="givenName")= person.name.givenName
+    = ' '
+    span(itemprop="additionalName")= person.name.additionalName
+    = ' '
+    span(itemprop="familyName")= person.name.familyName
+  if person.name.honorificSuffix
+    = ', '
+    span(itemprop="honorificSuffix")= person.name.honorificSuffix

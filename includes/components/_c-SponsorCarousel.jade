@@ -1,6 +1,6 @@
 mixin sponsorCarousel(sponsor_list)
   ol.o-List.c-SponsorCarousel
     each item in sponsor_list
-      li.o-List__Item.c-SponsorCarousel__Item
-        a.c-SponsorCarousel__Logo.h-Block(href=item.getURL() style='background-image: url(\'' + item.getImg() + '\');')= item.name
+      li.o-List__Item.c-SponsorCarousel__Item(itemprop="sponsor" itemscope="" itemtype="http://schema.org/Organization")
+        +sponsorLink(item, 'c-SponsorCarousel__Logo h-Block')
         small.c-SponsorCarousel__Label= item.getLevel().name

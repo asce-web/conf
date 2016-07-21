@@ -1,8 +1,8 @@
 h1#conference-co-chairs Conference Co-Chairs
-ul.o-List
-  each person in site.co_chairs
-    li.o-List__Item(itemscope="" itemtype="http://schema.org/Person")
-      b(itemprop="name")
+ul
+  each person in site.getCurrentConference().getChairsAll()
+    li(itemprop="organizer" itemscope="" itemtype="http://schema.org/Person")
+      span(itemprop="name")
         span(itemprop="givenName")= person.name.givenName
         = ' '
         span(itemprop="additionalName")= person.name.additionalName

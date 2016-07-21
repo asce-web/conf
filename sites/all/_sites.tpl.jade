@@ -144,11 +144,7 @@ html(lang="en")
       script(src="/scripts/c-Program.js")
       script.
         $('.c-Toggle__Check').change(function () {
-          if ($(this).prop('checked')) {
-            $(this).parents('.c-Toggle').siblings('.o-Drawer').addClass('o-Drawer--open')
-          } else {
-            $(this).parents('.c-Toggle').siblings('.o-Drawer').removeClass('o-Drawer--open')
-          }
+          $(this).parents('.c-Toggle').siblings('.o-Drawer').toggleClass('o-Drawer--open')
         })
       //- script.
         $('.c-Speaker__Body').addClass('-h-z')

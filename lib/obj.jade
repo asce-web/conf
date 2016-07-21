@@ -19,4 +19,7 @@ block append main
   include includes/_o-Drawer.docs.jade
 
 block append scripts
-  script(src="scripts/o-Drawer.docs.js")
+  script.
+    $('#drawer-check').change(function () {
+      $(this).parents('.docs-c-Togglable').siblings('.o-Drawer').toggleClass('o-Drawer--open')
+    })

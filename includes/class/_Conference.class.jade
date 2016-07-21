@@ -18,6 +18,7 @@
       self.passes          = []
       self.program_events  = []
       self.important_dates = []
+      self.chairs          = []
     }
 
     //- SETTER FUNCTIONS
@@ -57,6 +58,14 @@
       Util.spliceFromArray(this.important_dates, this.getImportantDate(important_date_name))
       return this
     }
+    Conference.prototype.addChair = function addChair(person) {
+      this.chairs.push(person)
+      return this
+    }
+    Conference.prototype.removeChair = function removeChair(person_id) {
+      Util.spliceFromArray(this.chairs, this.getChair(person_id))
+      return this
+    }
 
     //- GETTER FUNCTIONS
     Conference.prototype.getRegistrationPeriod = function getRegistrationPeriod(reg_period_name) {
@@ -74,6 +83,9 @@
     Conference.prototype.getImportantDate = function getImportantDate(important_date_name) {
       return this.important_dates.find(function (item) { return item.name === important_date_name })
     }
+    Conference.prototype.getChair = function getChair(person_id) {
+      return this.chairs.find(function (item) { return item.id === person_id })
+    }
     Conference.prototype.getRegistrationPeriodsAll = function getRegistrationPeriodsAll() {
       return this.reg_periods.slice()
     }
@@ -85,6 +97,9 @@
     }
     Conference.prototype.getImportantDatesAll = function getImportantDatesAll() {
       return this.important_dates.slice()
+    }
+    Conference.prototype.getChairsAll = function getChairsAll() {
+      return this.chairs.slice()
     }
 
     //- MORE PROTO FUNCTIONS

@@ -1,20 +1,21 @@
 mixin dateBlock(all_dates)
   dl.c-DateBlock
-    each action in all_dates
-      unless action.isHidden()
-        dt.c-DateBlock__Date
-          time(datetime=action.startTime)
-            - var date = Util.toDate(action.startTime)
-            = Util.monthDay(date) + ', ' + date.getFullYear()
-        dd.c-DateBlock__Desc
-          if action.getURL()
-            +linkWithIcon({
-              classes : 'c-DateBlock__Link h-Block'
-            , url     : action.getURL()
-            , text    : action.name
-            }, {
-              is_on : true
-            , text  : 'arrow_forward'
-            })
-          else
-            = action.name
+    each action0 in all_dates
+      unless action0.isHidden()
+        li(itemprop="potentialAction" itemscope="" itemtype="http://schema.org/Action" style="list-style: none;")
+          dt.c-DateBlock__Date
+            time(datetime=action0.startTime itemprop="startTime")
+              - var date = Util.toDate(action0.startTime)
+              = Util.monthDay(date) + ', ' + date.getFullYear()
+          dd.c-DateBlock__Desc(itemprop="name")
+            if action0.getURL()
+              +linkWithIcon({
+                classes : 'c-DateBlock__Link h-Block'
+              , url     : action0.getURL()
+              , text    : action0.name
+              }, {
+                is_on : true
+              , text  : 'arrow_forward'
+              })
+            else
+              = action0.name

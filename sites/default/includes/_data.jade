@@ -138,37 +138,32 @@
     .setCurrentRegistrationPeriod('Early Bird')
 
   site.getCurrentConference()
-    .addPass(new Pass({
-      name        : 'Standard Pass'
-    , description : 'Members & Non-Members'
-    }).addAttendeeType(new Pass.AttendeeType('Member', true))
+    .addPass(new Pass({ name: 'Standard Pass' })
+      .setDescription('Members & Non-Members')
+      .addAttendeeType(new Pass.AttendeeType('Member', true))
       .addAttendeeType(new Pass.AttendeeType('Non-Member'))
-    ).addPass(new Pass({
-      name        : 'Speaker Pass'
-    , description : 'Speakers and Presenters'
-    }).addAttendeeType(new Pass.AttendeeType('Member', true))
+    ).addPass(new Pass({ name: 'Speaker Pass' })
+      .setDescription('Speakers and Presenters')
+      .addAttendeeType(new Pass.AttendeeType('Member', true))
       .addAttendeeType(new Pass.AttendeeType('Non-Member'))
-    ).addPass(new Pass({
-      name        : 'Moderator Pass'
-    , description : 'Moderators'
-    }).addAttendeeType(new Pass.AttendeeType('Member', true))
+    ).addPass(new Pass({ name: 'Moderator Pass' })
+      .setDescription('Moderators')
+      .addAttendeeType(new Pass.AttendeeType('Member', true))
       .addAttendeeType(new Pass.AttendeeType('Non-Member'))
-    ).addPass(new Pass({
-      name        : 'Younger Member'
-    , description : 'Members 18–35'
-    }).addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
-    ).addPass(new Pass({
-      name        : 'Student Pass'
-    , description : 'Undergraduates 18–24'
-    }).addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
-    ).addPass(new Pass({
-      name        : 'Guest Pass'
-    , description : 'Speaker and Moderator Guests'
-    }).addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
-    ).addPass(new Pass({
-      name        : 'Daily Pass'
-    , description : 'For One Day Only'
-    }).addAttendeeType(new Pass.AttendeeType('Member', true))
+    ).addPass(new Pass({ name: 'Younger Member' })
+      .setDescription('Members 18–35')
+      .addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
+    ).addPass(new Pass({ name: 'Student Pass' })
+      .setDescription('Undergraduates 18–24')
+      .addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
+      .setFineprint('Full-time students must show valid <abbr title="identification">ID</abbr>\
+        onsite at the registration desk when picking up name badge.')
+    ).addPass(new Pass({ name: 'Guest Pass' })
+      .setDescription('Speaker and Moderator Guests')
+      .addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
+    ).addPass(new Pass({ name: 'Daily Pass' })
+      .setDescription('For One Day Only')
+      .addAttendeeType(new Pass.AttendeeType('Member', true))
       .addAttendeeType(new Pass.AttendeeType('Non-Member'))
     )
 
@@ -251,6 +246,29 @@
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 10:15', endDate:'2016-10-01 11:45', name:'Concurrent Sessions'                                         }))
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 12:00', endDate:'2016-10-01 14:00', name:'ASCE Luncheon & Closing General Session'                     }).setStar(true))
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 14:30', endDate:'2016-10-01 17:30', name:'Technical Tours'                                             }).setURL('#0'))
+
+  site.getCurrentConference()
+    .addSpeaker(new Person({
+      id   : 'donna-fulman'
+    , name: {
+        givenName       : 'Donna'
+      , familyName      : 'Fulman'
+      , honorificSuffix : 'P.ASCE'
+      }
+    }).setJobTitle('Interior Engineering Administration')
+      .setImg('img/headshot1.jpg')
+      .setEmail('example@asce.org')
+      .setTel('+1 703-555-5555')
+      .setURL('#0')
+      .setSocial({
+        linkedin: { url: 'https://www.linkedin.com/groups/143956/profile' }
+      , twitter : { url: 'https://twitter.com/ASCETweets', text: '@ASCETweets' }
+      })
+      .setBio('<p>Donna Fulman is an award-winning, German designer raised in Austria\
+        and currently living in New York City.</p>\
+        <p>Former Lead Product Designer and Art Director at Spotify, she recently founded\
+        Semplice and at the same time serves on the AIGA Board of Directors in New York.</p>')
+    )
 
   site.getCurrentConference()
     .addImportantDate(new ImportantDate({startTime:'2015-10-12', name:'Optional Final Papers Due'     }))
@@ -478,6 +496,3 @@
   //-   .addSubpage('location.html'    , new Page({name:'International Travel'        , url:''}))
   //-   .addSubpage('speakers.html'    , new Page({name:'Distinguished Lecture Series', url:''}))
   //-   .addSubpage('speakers.html'    , new Page({name:'Exhibitor List'              , url:''}))
-
-mixin content_pass_student_fineprint()
-  | Full-time students must show valid #[abbr(title="identification") ID] onsite at the registration desk when picking up name badge.

@@ -5,11 +5,20 @@
       var self = this
       $passinfo = $passinfo || {}
       self.name         = $passinfo.name
-      self.description  = $passinfo.description
+      self.description  = ''
+      self.fineprint    = ''
       self.attend_types = []
     }
 
     //- SETTER FUNCTIONS
+    Pass.prototype.setDescription = function setDescription(text) {
+      this.description = text
+      return this
+    }
+    Pass.prototype.setFineprint = function setFineprint(html) {
+      this.fineprint = html
+      return this
+    }
     Pass.prototype.addAttendeeType = function addAttendeeType(attend_type) {
       this.attend_types.push(attend_type)
       return this
@@ -20,6 +29,12 @@
     }
 
     //- GETTER FUNCTIONS
+    Pass.prototype.getDescription = function getDescription() {
+      return this.description
+    }
+    Pass.prototype.getFineprint = function getFineprint(unescaped) {
+      return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this.fineprint
+    }
     Pass.prototype.getAttendeeType = function getAttendeeType(attend_type_name) {
       return this.attend_types.find(function (item) { return item.name === attend_type_name })
     }

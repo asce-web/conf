@@ -4,11 +4,12 @@ section#pass-component
   figure.docs-figure
     div(style="margin-bottom: 1.5rem;")
       include /includes/components/_c-Pass.jade
-      +pass(new Pass({
-        name        : 'Speaker Pass'
-      , description : 'Speakers and Presenters'
-      }).addAttendeeType(new Pass.AttendeeType('Member', true))
+      +pass(new Pass({ name: 'Speaker Pass' })
+        .setDescription('Speakers and Presenters')
+        .addAttendeeType(new Pass.AttendeeType('Member', true))
         .addAttendeeType(new Pass.AttendeeType('Non-Member'))
+        .setFineprint('Side note or fine print goes here. <b>HTML</b> is allowed.\
+          Text-level elements only.')
       , new Conference()
           .addRegistrationPeriod(new RegistrationPeriod({ name: 'Early Bird' }))
           .addRegistrationPeriod(new RegistrationPeriod({ name: 'Advance' }))
@@ -19,7 +20,10 @@ section#pass-component
       &lt;article class="#[u c-Pass]"&gt;
         &lt;header class="#[u c-Pass__Head]"&gt;
           &lt;h1 class="#[u c-Pass__Hn]"&gt;Speaker Pass&lt;/h1&gt;
-          &lt;p class="#[u c-Pass__Desc]"&gt;Speakers and Presenters&lt;/p&gt;
+          &lt;p class="#[u c-Pass__Desc]"&gt;
+            Speakers and Presenters
+            &lt;small class="#[u c-Pass__Fine]"&gt;Side note ...&lt;/small&gt;
+          &lt;/p&gt;
         &lt;/header&gt;
         &lt;section class="#[u c-Pass__Body]  #[u c-Pass__Period]"&gt;
           &lt;h1 class="#[u c-Pass__Period__Hn]"&gt;Advance&lt;/h1&gt;

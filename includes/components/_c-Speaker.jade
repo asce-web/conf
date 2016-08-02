@@ -1,14 +1,22 @@
-mixin speaker()
-  article.c-Speaker
-    div.c-Speaker__Img(style="background-image:url('img/headshot1.jpg');")
+mixin speaker(person)
+  article.c-Speaker(itemprop="performer" itemscope="" itemtype="http://schema.org/Person")
+    div.c-Speaker__Img(style='background-image:url(\'' + (person.img || '') + '\');')
       header.c-Speaker__Head
-        h1.c-Speaker__Name Donna Fulman, P.ASCE
-        p.c-Speaker__JobTitle Interior Engineering Administration
+        h1.c-Speaker__Name: +personEntireName(person)
+        p.c-Speaker__JobTitle(itemprop="jobTitle")= person.getJobTitle()
     div.c-Speaker__Body
-      div.c-Speaker__Bio.minimal-text
-        p Tobias van Schneider is an award-winning, German designer raised in Austria and currently living in New York City.
-        p Former Lead Product Designer and Art Director at Spotify, he recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
-      footer: ul.o-List
-        li.o-List__Item.h-Inline: a.c-Speaker__Link(href="#0") Email
-        li.o-List__Item.h-Inline: a.c-Speaker__Link(href="#0") LinkedIn
-        li.o-List__Item.h-Inline: a.c-Speaker__Link(href="#0") Twitter
+      div.c-Speaker__Bio(itemprop="description")!= person.getBio(true)
+      footer
+        ul.o-List
+          if person.getEmail()
+            li.o-List__Item: a.c-Speaker__Link(href='mailto:'+person.getEmail() title="send email" itemprop="email")= person.getEmail()
+          if person.getTel()
+            li.o-List__Item: a.c-Speaker__Link(href='tel:'+Util.toURL(person.getTel()) title="call" itemprop="telephone")= person.getTel()
+          if person.getURL()
+            li.o-List__Item: a.c-Speaker__Link(href=person.getURL() title="homepage" itemprop="url") Homepage
+        if person.getSocial()
+          ul.o-List
+            each val,key in person.getSocial()
+              li.o-List__Item.h-Inline
+                a.c-Speaker__Link(href=val.url title=(val.text || Util.SOCIAL_DATA[key].name) itemprop="sameAs")
+                  = Util.SOCIAL_DATA[key].name

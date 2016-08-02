@@ -97,12 +97,12 @@ mixin passList(passes, current_conference)
       li.o-List__Item.o-ListStacked__Item
         +pass(pass0, current_conference)
 
-mixin speakerList(n)
+mixin speakerList(speakers)
   ul.o-List.o-ListStacked
     include /includes/components/_c-Speaker.jade
-    each speaker0 in new Array(n)
+    each person in speakers
       li.o-List__Item.o-ListStacked__Item
-        +speaker()
+        +speaker(person)
 
 mixin chairList(chairs)
   ul
@@ -121,8 +121,9 @@ mixin personEntireName(person)
   span(itemprop="name")
     span(itemprop="givenName")= person.name.givenName
     = ' '
-    span(itemprop="additionalName")= person.name.additionalName
-    = ' '
+    if person.name.additionalName
+      span(itemprop="additionalName")= person.name.additionalName
+      = ' '
     span(itemprop="familyName")= person.name.familyName
   if person.name.honorificSuffix
     = ', '

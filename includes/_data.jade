@@ -121,8 +121,9 @@ mixin personEntireName(person)
   span(itemprop="name")
     span(itemprop="givenName")= person.name.givenName
     = ' '
-    span(itemprop="additionalName")= person.name.additionalName
-    = ' '
+    if person.name.additionalName
+      span(itemprop="additionalName")= person.name.additionalName
+      = ' '
     span(itemprop="familyName")= person.name.familyName
   if person.name.honorificSuffix
     = ', '

@@ -13,7 +13,8 @@ mixin pass(pass0, current_conference)
       h1.c-Pass__Hn= pass0.name
       p.c-Pass__Desc
         = pass0.description
-        small.c-Pass__Fine.h-Block
+        if pass0.getFineprint()
+          small.c-Pass__Fine.h-Block!= pass0.getFineprint(true)
     if current_period
       div.c-Pass__Body
         section.c-Pass__Period

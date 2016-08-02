@@ -138,37 +138,32 @@
     .setCurrentRegistrationPeriod('Early Bird')
 
   site.getCurrentConference()
-    .addPass(new Pass({
-      name        : 'Standard Pass'
-    , description : 'Members & Non-Members'
-    }).addAttendeeType(new Pass.AttendeeType('Member', true))
+    .addPass(new Pass({ name: 'Standard Pass' })
+      .setDescription('Members & Non-Members')
+      .addAttendeeType(new Pass.AttendeeType('Member', true))
       .addAttendeeType(new Pass.AttendeeType('Non-Member'))
-    ).addPass(new Pass({
-      name        : 'Speaker Pass'
-    , description : 'Speakers and Presenters'
-    }).addAttendeeType(new Pass.AttendeeType('Member', true))
+    ).addPass(new Pass({ name: 'Speaker Pass' })
+      .setDescription('Speakers and Presenters')
+      .addAttendeeType(new Pass.AttendeeType('Member', true))
       .addAttendeeType(new Pass.AttendeeType('Non-Member'))
-    ).addPass(new Pass({
-      name        : 'Moderator Pass'
-    , description : 'Moderators'
-    }).addAttendeeType(new Pass.AttendeeType('Member', true))
+    ).addPass(new Pass({ name: 'Moderator Pass' })
+      .setDescription('Moderators')
+      .addAttendeeType(new Pass.AttendeeType('Member', true))
       .addAttendeeType(new Pass.AttendeeType('Non-Member'))
-    ).addPass(new Pass({
-      name        : 'Younger Member'
-    , description : 'Members 18–35'
-    }).addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
-    ).addPass(new Pass({
-      name        : 'Student Pass'
-    , description : 'Undergraduates 18–24'
-    }).addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
-    ).addPass(new Pass({
-      name        : 'Guest Pass'
-    , description : 'Speaker and Moderator Guests'
-    }).addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
-    ).addPass(new Pass({
-      name        : 'Daily Pass'
-    , description : 'For One Day Only'
-    }).addAttendeeType(new Pass.AttendeeType('Member', true))
+    ).addPass(new Pass({ name: 'Younger Member' })
+      .setDescription('Members 18–35')
+      .addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
+    ).addPass(new Pass({ name: 'Student Pass' })
+      .setDescription('Undergraduates 18–24')
+      .addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
+      .setFineprint('Full-time students must show valid <abbr title="identification">ID</abbr>\
+        onsite at the registration desk when picking up name badge.')
+    ).addPass(new Pass({ name: 'Guest Pass' })
+      .setDescription('Speaker and Moderator Guests')
+      .addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
+    ).addPass(new Pass({ name: 'Daily Pass' })
+      .setDescription('For One Day Only')
+      .addAttendeeType(new Pass.AttendeeType('Member', true))
       .addAttendeeType(new Pass.AttendeeType('Non-Member'))
     )
 
@@ -497,9 +492,6 @@
   //-   .addSubpage('location.html'    , new Page({name:'International Travel'        , url:''}))
   //-   .addSubpage('speakers.html'    , new Page({name:'Distinguished Lecture Series', url:''}))
   //-   .addSubpage('speakers.html'    , new Page({name:'Exhibitor List'              , url:''}))
-
-mixin content_pass_student_fineprint()
-  span.minimal-text Full-time students must show valid #[abbr(title="identification") ID] onsite at the registration desk when picking up name badge.
 
 mixin personBio()
   div.minimal-text

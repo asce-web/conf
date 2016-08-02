@@ -17,6 +17,7 @@
       self.telephone   = ''
       self.url         = ''
       self.social      = null
+      self.bio         = ''
     }
 
     //- SETTER FUNCTIONS
@@ -53,6 +54,10 @@
       }
       return this
     }
+    Person.prototype.setBio = function setBio(html) {
+      this.bio = html
+      return this
+    }
 
     //- GETTER FUNCTIONS
     Person.prototype.getJobTitle = function getJobTitle(text) {
@@ -72,6 +77,9 @@
     }
     Person.prototype.getSocial = function getSocial() {
       return Object.assign({}, this.social) // shallow clone this.social into {}
+    }
+    Person.prototype.getBio = function getBio(unescaped) {
+      return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this.bio
     }
 
     //- MORE PROTO FUNCTIONS

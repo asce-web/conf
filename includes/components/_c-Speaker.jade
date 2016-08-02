@@ -5,7 +5,7 @@ mixin speaker(person)
         h1.c-Speaker__Name: +personEntireName(person)
         p.c-Speaker__JobTitle(itemprop="jobTitle")= person.getJobTitle()
     div.c-Speaker__Body
-      div.c-Speaker__Bio(itemprop="description")
+      div.c-Speaker__Bio(itemprop="description")!= person.getBio(true)
       footer
         ul.o-List
           if person.getEmail()

@@ -5,9 +5,7 @@ mixin speaker(person)
         h1.c-Speaker__Name: +personEntireName(person)
         p.c-Speaker__JobTitle(itemprop="jobTitle")= person.getJobTitle()
     div.c-Speaker__Body
-      div.c-Speaker__Bio.minimal-text(itemprop="description")
-        p Donna Fulman is an award-winning, German designer raised in Austria and currently living in New York City.
-        p Former Lead Product Designer and Art Director at Spotify, he recently founded Semplice and at the same time serves on the AIGA Board of Directors in New York.
+      div.c-Speaker__Bio(itemprop="description")
       footer
         ul.o-List
           if person.getEmail()

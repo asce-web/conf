@@ -11,17 +11,17 @@ section#speaker-component
         , honorificSuffix: 'P.ASCE'
         }
       }).setJobTitle('Interior Engineering Administration')
-        .setImg('img/headshot1.jpg')
-        .setEmail('#0')
-        .setTel('#0')
+        .setImg('/img/Blue-Geometric-Background-3.jpg')
+        .setEmail('example@asce.org')
+        .setTel('+1 703-555-5555')
         .setURL('#0')
         .setSocial({
-          linkedin: '#0'
-        , twitter : '#0'
+          linkedin: { url: 'https://www.linkedin.com/groups/143956/profile' }
+        , twitter : { url: 'https://twitter.com/ASCETweets', text: '@ASCETweets' }
         }))
     pre.docs-pre.
       &lt;article class="#[u c-Speaker]"&gt;
-        &lt;div class="#[u c-Speaker__Img]" #[u style="background-image: url('#[var= '/path-to-img-src/']');"]&gt;
+        &lt;div class="#[u c-Speaker__Img]" #[u style="background-image: url('headshot.jpg');"]&gt;
           &lt;header class="#[u c-Speaker__Head]"&gt;
             &lt;h1 class="#[u c-Speaker__Name]"&gt;Donna Fulman, P.ASCE&lt;/h1&gt;
             &lt;p class="#[u c-Speaker__JobTitle]"&gt;Interior Engineering Administration&lt;/p&gt;
@@ -33,9 +33,12 @@ section#speaker-component
             &lt;p&gt;Former Lead Product Designer ...&lt;/p&gt;
           &lt;/div&gt;
           &lt;ul class="o-List"&gt;
-            &lt;li class="o-List__Item  h-Inline"&gt;&lt;a class="#[u c-Speaker__Link]"&gt;Email&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="o-List__Item"&gt;&lt;a class="#[u c-Speaker__Link]"&gt;example@asce.org&lt;/a&gt;&lt;/li&gt;
             ...
+          &lt;/ul&gt;
+          &lt;ul class="o-List"&gt;
+            &lt;li class="o-List__Item  h-Inline"&gt;&lt;a class="#[u c-Speaker__Link]"&gt;LinkedIn&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="o-List__Item  h-Inline"&gt;&lt;a class="#[u c-Speaker__Link]"&gt;Twitter&lt;/a&gt;&lt;/li&gt;
           &lt;/ul&gt;
         &lt;/div&gt;
       &lt;/article&gt;
-    pre.docs-pre.

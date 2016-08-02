@@ -25,6 +25,7 @@
 // 2016-07-03
 .o-Drawer {
   .transitions(@g-prefix_transform, opacity; @p-trans_dura);
+  // animation for *closing* drawer
   .transition-timing-function(@google-accel);
   // .transition-timing-function(@g-accel_hard);
   // .transition-timing-function(@g-accel_dram);
@@ -44,6 +45,7 @@
   @media screen and (max-width: 44.999em) {
     .transform(translateX(-100%));
     opacity: 1;
+    // animation for *opening* drawer
     .transition-timing-function(@google-decel);
     // .transition-timing-function(@g-decel_hard);
     // .transition-timing-function(@g-decel_dram);

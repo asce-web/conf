@@ -86,12 +86,12 @@
 
     //- GETTER FUNCTIONS
     Site.prototype.getPage = function getPage(url0) {
-      return this.pages.top.find(function (item) { return item.url === url0 }) ||
-        this.pages.main.find(function (item) { return item.url === url0 }) ||
-        this.pages.top.find(function (item) {
+      return this.pages.top.find(function (item) { return item.url === url0 })
+        || this.pages.main.find(function (item) { return item.url === url0 })
+        || this.pages.top.find(function (item) {
           return item.getSubpage(url0)
-        }).getSubpage(url0) ||
-        this.pages.main.find(function (item) {
+        }).getSubpage(url0)
+        || this.pages.main.find(function (item) {
           return item.getSubpage(url0)
         }).getSubpage(url0)
     }

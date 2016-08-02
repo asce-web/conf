@@ -94,6 +94,28 @@
     , { content: 'account_balance', fallback: '\uE84F', html: '&#xE84F;' }
     , { content: 'insert_drive_file', fallback: '\uE24D', html: '&#xE24D;' }
     ]
+    Util.SOCIAL_DATA = {
+      twitter : {
+        name: 'Twitter'
+      , icon: Util.ICON_DATA[-1]
+      }
+    , facebook: {
+        name: 'Faceboook'
+      , icon: Util.ICON_DATA[-1]
+      }
+    , google  : {
+        name: 'Google+'
+      , icon: Util.ICON_DATA[-1]
+      }
+    , youtube : {
+        name: 'YouTube'
+      , icon: Util.ICON_DATA[-1]
+      }
+    , linkedin: {
+        name: 'LinkedIn'
+      , icon: Util.ICON_DATA[-1]
+      }
+    }
 
     Util.hourTime12 = function hourTime12(date) {
       var hour = '' + ((date.getHours() - 1)%12 + 1)

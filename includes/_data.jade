@@ -97,12 +97,12 @@ mixin passList(passes, current_conference)
       li.o-List__Item.o-ListStacked__Item
         +pass(pass0, current_conference)
 
-mixin speakerList(n)
+mixin speakerList(speakers)
   ul.o-List.o-ListStacked
     include /includes/components/_c-Speaker.jade
-    each speaker0 in new Array(n)
+    each person in speakers
       li.o-List__Item.o-ListStacked__Item
-        +speaker()
+        +speaker(person)
 
 mixin chairList(chairs)
   ul

@@ -3,7 +3,22 @@ section#speaker-component
   figure.docs-figure
     div(style="margin-bottom: 1.5rem;")
       include /includes/components/_c-Speaker.jade
-      +speaker()
+      +speaker(new Person({
+        id  : 'donna-fulman'
+      , name: {
+          givenName      : 'Donna'
+        , familyName     : 'Fulman'
+        , honorificSuffix: 'P.ASCE'
+        }
+      }).setJobTitle('Interior Engineering Administration')
+        .setImg('img/headshot1.jpg')
+        .setEmail('#0')
+        .setTel('#0')
+        .setURL('#0')
+        .setSocial({
+          linkedin: '#0'
+        , twitter : '#0'
+        }))
     pre.docs-pre.
       &lt;article class="#[u c-Speaker]"&gt;
         &lt;div class="#[u c-Speaker__Img]" #[u style="background-image: url('#[var= '/path-to-img-src/']');"]&gt;

@@ -2,7 +2,7 @@
   var RegistrationPeriod = (function () {
     function RegistrationPeriod($periodinfo) {
       var self = this
-      $periodinfo = $periodinfo || {}
+      $periodinfo = $periodinfo || {} // NOTE constructor overloading
       self.name      = $periodinfo.name
       self.startDate = $periodinfo.startDate
       self.endDate   = $periodinfo.endDate

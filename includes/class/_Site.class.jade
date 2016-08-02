@@ -3,7 +3,7 @@
     //- CONSTRUCTOR
     function Site($siteinfo) {
       var self = this
-      $siteinfo = $siteinfo || {}
+      $siteinfo = $siteinfo || {} // NOTE constructor overloading
       self.name     = $siteinfo.name
       self.tagline  = $siteinfo.tagline
       self.keywords = $siteinfo.keywords

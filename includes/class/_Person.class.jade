@@ -3,6 +3,7 @@
     //- CONSTRUCTOR
     function Person($personinfo) {
       var self = this
+      $personinfo = $personinfo || { name: {} } // NOTE constructor overloading
       self.id   = $personinfo.id
       self.name = {
         honorificPrefix : $personinfo.name.honorificPrefix

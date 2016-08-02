@@ -3,7 +3,7 @@
     //- CONSTRUCTOR
     function Conference($confinfo) {
       var self = this
-      $confinfo = $confinfo || {}
+      $confinfo = $confinfo || {} // NOTE constructor overloading
       self.name      = $confinfo.name
       self.theme     = $confinfo.theme
       self.startDate = $confinfo.startDate

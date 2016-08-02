@@ -2,7 +2,7 @@
   var ImportantDate = (function () {
     function ImportantDate($actioninfo) {
       var self = this
-      $actioninfo = $actioninfo || {}
+      $actioninfo = $actioninfo || {} // NOTE constructor overloading
       self.name      = $actioninfo.name
       self.startTime = $actioninfo.startTime
       self.url       = ''

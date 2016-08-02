@@ -253,6 +253,25 @@
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 14:30', endDate:'2016-10-01 17:30', name:'Technical Tours'                                             }).setURL('#0'))
 
   site.getCurrentConference()
+    .addSpeaker(new Person({
+      id   : 'donna-fulman'
+    , name: {
+        givenName       : 'Donna'
+      , familyName      : 'Fulman'
+      , honorificSuffix : 'P.ASCE'
+      }
+    }).setJobTitle('Interior Engineering Administration')
+      .setImg('img/headshot1.jpg')
+      .setEmail('#0')
+      .setTel('#0')
+      .setURL('#0')
+      .setSocial({
+        linkedin: '#0'
+      , twitter: '#0'
+      })
+    )
+
+  site.getCurrentConference()
     .addImportantDate(new ImportantDate({startTime:'2015-10-12', name:'Optional Final Papers Due'     }))
     .addImportantDate(new ImportantDate({startTime:'2015-12-17', name:'Early-Bird Registration Closes'}).setURL('registration.html'))
     .addImportantDate(new ImportantDate({startTime:'2016-01-12', name:'Advance Registration Closes'   }).setURL('registration.html'))

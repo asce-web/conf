@@ -17,6 +17,7 @@
       self.current_reg_pd_index = NaN
       self.passes          = []
       self.program_events  = []
+      self.speakers        = []
       self.important_dates = []
       self.chairs          = []
     }
@@ -50,6 +51,14 @@
       Util.spliceFromArray(this.program_events, this.getProgramEvent(program_event_name))
       return this
     }
+    Conference.prototype.addSpeaker = function addSpeaker(person) {
+      this.speakers.push(person)
+      return this
+    }
+    Conference.prototype.removeSpeaker = function removeSpeaker(person_id) {
+      Util.spliceFromArray(this.speakers, this.getSpeaker(person_id))
+      return this
+    }
     Conference.prototype.addImportantDate = function addImportantDate(important_date) {
       this.important_dates.push(important_date)
       return this
@@ -80,6 +89,9 @@
     Conference.prototype.getProgramEvent = function getProgramEvent(program_event_name) {
       return this.program_events.find(function (item) { return item.name === program_event_name })
     }
+    Conference.prototype.getSpeaker = function getSpeaker(person_id) {
+      return this.speakers.find(function (item) { return item.id === person_id })
+    }
     Conference.prototype.getImportantDate = function getImportantDate(important_date_name) {
       return this.important_dates.find(function (item) { return item.name === important_date_name })
     }
@@ -94,6 +106,9 @@
     }
     Conference.prototype.getProgramEventsAll = function getProgramEventsAll() {
       return this.program_events.slice()
+    }
+    Conference.prototype.getSpeakersAll = function getSpeakersAll() {
+      return this.speakers.slice()
     }
     Conference.prototype.getImportantDatesAll = function getImportantDatesAll() {
       return this.important_dates.slice()

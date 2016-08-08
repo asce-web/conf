@@ -1,27 +1,17 @@
 section#other-year-block
   h2 The Other Year Block
   figure.docs-figure
-    -
-      var demoevent = {
-        name      : 'Geo-Chicago 2016'
-      , theme     : 'Sustainability, energy, and the geoenvironment.'
-      , startDate : '2016-08-14'
-      , endDate   : '2016-08-18'
-      , url       : 'http://2016.geoenvironmentconference.org/'
-      , location  : {
-          addressLocality     : 'Chicago'
-        , addressRegion       : 'IL'
-        , addressRegion_title : 'Illinois'
-        }
-      }
-    div.c-OtherYear
-      h1.c-OtherYear__Name(itemprop="name") Geo-Chicago 2016
-      meta(content="2016-08-14" itemprop="startDate")
-      p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-        span(itemprop="name")
-          span(itemprop="addressLocality") Chicago,#{' '}
-          abbr(title="Illinois" itemprop="addressRegion") IL
-      p.c-OtherYear__Desc Access the 2016 program to see which sessions qualify for PDHs and other documentation.
+    include /includes/components/_c-OtherYear.jade
+    +otherYear(new Conference({
+      name      : 'Geo-Chicago 2016'
+    , theme     : 'Sustainability, energy, and the geoenvironment.'
+    , startDate : '2016-08-14'
+    , endDate   : '2016-08-18'
+    , url       : 'http://2016.geoenvironmentconference.org/'
+    , city     : 'Chicago'
+    , state    : 'IL'
+    }))
+      | Access the 2016 program to see which sessions qualify for PDHs and other documentation.
     div.docs-c-Togglable
       input.docs-c-Togglable__Check#other-year-check(type="checkbox" value="otheryear-md-true")
       label(for="other-year-check") show microdata
@@ -36,4 +26,5 @@ section#other-year-block
             #[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
           &lt;/p&gt;
           &lt;p class="#[u c-OtherYear__Desc]"&gt;Access the ...&lt;/p&gt;
+          &lt;a#[mark.docs-c-Togglable__Text  itemprop="url"]&gt;Event Details&lt;/a&gt;
         &lt;/div&gt;

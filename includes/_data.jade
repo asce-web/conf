@@ -58,26 +58,6 @@ mixin event-location-name(loc)
     abbr(title=loc.addressRegion_title itemprop="addressRegion")
       = loc.addressRegion
 
-mixin heroContent(event0)
-  h1.c-PageTitle.c-Hero__Name(itemprop="name")= event0.name
-  meta(content=event0.url itemprop="url")
-  p.c-Hero__Detail
-    span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-      +event-location-name(event0.location)
-    span.c-Hero__Dates
-      time(datetime=event0.startDate itemprop="startDate")
-        - var start = (event0.startDate) ? new Date(event0.startDate) : new Date()
-        = Util.monthDay(start)
-      | &ndash;
-      time(datetime=event0.endDate itemprop="endDate")
-        - var end = (event0.endDate) ? new Date(event0.endDate) : new Date()
-        = Util.monthDay(end)
-  p.c-Hero__Theme(itemprop="description")
-    if event0.theme
-      = event0.theme
-    else
-      | &nbsp;
-
 mixin highlightButtons(links, more_classes)
   ul.o-List.o-ListAction
     each item in links

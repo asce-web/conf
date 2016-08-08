@@ -12,7 +12,7 @@
       self.location  = {
         addressLocality     : $confinfo.city
       , addressRegion       : $confinfo.state
-      , addressRegion_title : (Util.STATE_DATA.find(function (item) { return item.index === $confinfo.state }) || false).name
+      , addressRegion_title : (Util.STATE_DATA.find(function (item) { return item.index === $confinfo.state }) || {}).name
       }
       self.reg_periods     = []
       self.current_reg_pd_index = NaN

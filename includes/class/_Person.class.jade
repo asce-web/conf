@@ -11,13 +11,13 @@
       , familyName      : $personinfo.name.familyName
       , honorificSuffix : $personinfo.name.honorificSuffix
       }
-      self.jobTitle    = ''
-      self.img         = ''
-      self.email       = ''
-      self.telephone   = ''
-      self.url         = ''
-      self.social      = null
-      self.bio         = ''
+      self.jobTitle  = ''
+      self.img       = ''
+      self.email     = ''
+      self.telephone = ''
+      self.url       = ''
+      self.social    = null
+      self.bio       = ''
     }
 
     //- SETTER FUNCTIONS
@@ -48,10 +48,11 @@
       return this
     }
     Person.prototype.setSocial = function setSocial($links) {
-      this.social = {
+      //- NOTE method overloading. pass `null` or pass no arg to unset `this.social`
+      this.social = ($links) ? {
         linkedin: $links.linkedin
       , twitter : $links.twitter
-      }
+      } : null
       return this
     }
     Person.prototype.setBio = function setBio(html) {

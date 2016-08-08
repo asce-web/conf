@@ -74,12 +74,12 @@ include /node_modules/xmeter/docs/includes/_data.jade
 mixin libtoc(args)
   //- NOTE parameter validation
   -
-    var pages     = args.pages     || []
-    var class_obj = args.class_obj || {}
-    var depth     = +args.depth    || 0
-  ol(class=class_obj.listclasses)
+    var pages   = args.pages   || []
+    var classes = args.classes || {}
+    var depth   = +args.depth  || 0
+  ol(class=classes.listclasses)
     each item in pages
-      li(class=class_obj.itemclasses)
-        a(class=class_obj.linkclasses href=item.url)= item.name
+      li(class=classes.itemclasses)
+        a(class=classes.linkclasses href=item.url)= item.name
         if item.sub && depth > 0
-          +libtoc({pages: item.sub, class_obj: (class_obj.sub || {}), depth: depth-1})
+          +libtoc({pages: item.sub, classes: (classes.sub || {}), depth: depth-1})

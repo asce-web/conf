@@ -25,7 +25,7 @@ mixin linkWithIcon(link, icon)
   -
     link = link || {}
     icon = icon || {}
-  a(class=link.classes href=link.url)&attributes(link.attr || {})
+  a(class=link.classes href=link.url title=(link.title || null))&attributes(link.attr || {})
     if icon.is_on
       i.material-icons= icon.text
     span= link.text
@@ -33,24 +33,25 @@ mixin linkWithIcon(link, icon)
 mixin sitetoc(args)
   //- NOTE parameter validation
   -
-    var pages     = args.pages     || []
-    var class_obj = args.class_obj || {}
-    var depth     = +args.depth    || 0
-    var icons     = !!args.icons
-  ul(class=class_obj.listclasses)
+    var pages   = args.pages   || []
+    var classes = args.classes || {}
+    var depth   = +args.depth  || 0
+    var icons   = !!args.icons
+  ul(class=classes.listclasses)
     each item in pages
       unless item.isHidden()
-        li(class=class_obj.itemclasses)
+        li(class=classes.itemclasses)
           +linkWithIcon({
-            classes : class_obj.linkclasses
+            classes : classes.linkclasses
           , url     : item.url
           , text    : item.name
+          , title   : item.name
           }, {
             is_on : args.icons && item.getIcon()
           , text  : item.getIcon()
           })
           if item.getSubpagesAll().length && depth > 0
-            +sitetoc({pages: item.getSubpagesAll(), class_obj: (class_obj.sub || {}), depth: depth-1})
+            +sitetoc({pages: item.getSubpagesAll(), classes: (classes.sub || {}), depth: depth-1})
 
 mixin event-location-name(loc)
   span(itemprop="name")

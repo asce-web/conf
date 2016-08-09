@@ -1,32 +1,16 @@
 section#hero-block
   h2 The Hero Block
   figure.docs-figure
-    -
-      var demoevent = {
-        name      : 'Geo-Risk 2017'
-      , theme     : 'Geotechincal risk from theory to practice.'
-      , startDate : '2017-06-04'
-      , endDate   : '2017-06-07'
-      , url       : 'http://2017.georiskconference.org/'
-      , location  : {
-          addressLocality     : 'Denver'
-        , addressRegion       : 'CO'
-        , addressRegion_title : 'Colorado'
-        }
-      }
-    div.c-Hero
-      h1.c-PageTitle.c-Hero__Name(itemprop="name") Geo-Risk 2017
-      meta(content="http://2017.georiskconference.org/" itemprop="url")
-      p.c-Hero__Detail
-        span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-          span(itemprop="name")
-            span(itemprop="addressLocality") Denver,#{' '}
-            abbr(title="Colorado" itemprop="addressRegion") CO
-        span.c-Hero__Dates
-          time(datetime="2017-06-04" itemprop="startDate") Jun 4
-          | &ndash;
-          time(datetime="2017-06-07" itemprop="endDate") Jun 7
-      p.c-Hero__Theme(itemprop="description") Geotechincal risk from theory to practice.
+    include /includes/components/_c-Hero.jade
+    +hero(new Conference({
+      name      : 'Geo-Risk 2017'
+    , theme     : 'Geotechincal risk from theory to practice.'
+    , startDate : '2017-06-04'
+    , endDate   : '2017-06-07'
+    , url       : 'http://2017.georiskconference.org/'
+    , city     : 'Denver'
+    , state    : 'CO'
+    }), {itemscope:'', itemtype:'http://schema.org/Event'})
     div.docs-c-Togglable
       input.docs-c-Togglable__Check#hero-check(type="checkbox" value="hero-md-true")
       label(for="hero-check") show microdata

@@ -3,14 +3,13 @@
     conf  |  _c-SponsorCarousel.less
 \*################################*/
 @import (reference) url('__settings.less');
-@import (reference) url('__tool.logo.less');
 
 
 // A section containing one level of sponsor.
 //
 // ^subcomponents
 // __Item  - item in list of sponsors
-// __Logo  - sponsor logo image (used on link)
+// __Logo  - structural styles for sponsor logo. should also be .c-SponsorLogo.
 // __Label - label for sponsor level ("Platinum", etc.)
 // ^author
 // : Chris Harvey
@@ -31,8 +30,6 @@
 .c-SponsorCarousel__Logo {
   width: auto;
   height: (6*@g-vru);
-  text-indent: -999999px;
-  .logo();
 }
 
 .c-SponsorCarousel__Label {

@@ -84,3 +84,9 @@ mixin libtoc(args)
         a(class=classes.linkclasses href=item.url)= item.name
         if item.sub && depth > 0
           +libtoc({pages: item.sub, classes: (classes.sub || {}), depth: depth-1})
+
+mixin microdataCheckbox(id)
+  div.docs-c-Togglable
+    input.docs-c-Togglable__Check(id=id+'-check' type="checkbox" value=id+'-md-true')
+    label(for=id+'-check') show microdata
+    block

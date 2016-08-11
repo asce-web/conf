@@ -11,9 +11,7 @@ section#hero-block
     , city     : 'Denver'
     , state    : 'CO'
     }), {itemscope:'', itemtype:'http://schema.org/Event'})
-    div.docs-c-Togglable
-      input.docs-c-Togglable__Check#hero-check(type="checkbox" value="hero-md-true")
-      label(for="hero-check") show microdata
+    +microdataCheckbox('hero')
       pre.docs-pre.
         &lt;div class="#[u c-Hero]"#[mark.docs-c-Togglable__Text  itemscope="" itemtype="http://schema.org/Event"]&gt;
           &lt;h1 class="c-PageTitle #[u c-Hero__Name]"#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;Geo-Risk 2017&lt;/h1&gt;

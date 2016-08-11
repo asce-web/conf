@@ -35,13 +35,16 @@ section#sponsor-carousel
         .setURL('#0')
         .setLevel(levels[2])
     ])
-    pre.docs-pre.
-      &lt;ol class="o-List  #[u c-SponsorCarousel]"&gt;
-        &lt;li class="o-List__Item  #[u c-SponsorCarousel__Item]"#[mark  itemprop="sponsor" itemscope="" itemtype="http://schema.org/Organization"]&gt;
-          &lt;a class="c-SponsorLogo  #[u c-SponsorCarousel__Logo]"#[mark  itemprop="url"]&gt;
-            #[mark &lt;span itemprop="name"&gt;]Bank of America#[mark!= '&lt;/span&gt;']
-          &lt;/a&gt;
-          &lt;small class="#[u c-SponsorCarousel__Label]"&gt;Titanium&lt;/small&gt;
-        &lt;/li&gt;
-        ...
-      &lt;/ol&gt;
+    div.docs-c-Togglable
+      input.docs-c-Togglable__Check#sponsorcarousel-check(type="checkbox" value="sponsorcarousel-md-true")
+      label(for="sponsorcarousel-check") show microdata
+      pre.docs-pre.
+        &lt;ol class="o-List  #[u c-SponsorCarousel]"&gt;
+          &lt;li class="o-List__Item  #[u c-SponsorCarousel__Item]"#[mark.docs-c-Togglable__Text  itemprop="sponsor" itemscope="" itemtype="http://schema.org/Organization"]&gt;
+            &lt;a class="c-SponsorLogo  #[u c-SponsorCarousel__Logo]"#[mark.docs-c-Togglable__Text  itemprop="url"]&gt;
+              #[mark.docs-c-Togglable__Text &lt;span itemprop="name"&gt;]Bank of America#[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
+            &lt;/a&gt;
+            &lt;small class="#[u c-SponsorCarousel__Label]"&gt;Titanium&lt;/small&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/ol&gt;

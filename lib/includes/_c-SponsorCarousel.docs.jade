@@ -37,8 +37,10 @@ section#sponsor-carousel
     ])
     pre.docs-pre.
       &lt;ol class="o-List  #[u c-SponsorCarousel]"&gt;
-        &lt;li class="o-List__Item  #[u c-SponsorCarousel__Item]"&gt;
-          &lt;a class="c-SponsorLogo  #[u c-SponsorCarousel__Logo]"&gt;Bank of America&lt;/a&gt;
+        &lt;li class="o-List__Item  #[u c-SponsorCarousel__Item]"#[mark  itemprop="sponsor" itemscope="" itemtype="http://schema.org/Organization"]&gt;
+          &lt;a class="c-SponsorLogo  #[u c-SponsorCarousel__Logo]"#[mark  itemprop="url"]&gt;
+            #[mark &lt;span itemprop="name"&gt;]Bank of America#[mark!= '&lt;/span&gt;']
+          &lt;/a&gt;
           &lt;small class="#[u c-SponsorCarousel__Label]"&gt;Titanium&lt;/small&gt;
         &lt;/li&gt;
         ...

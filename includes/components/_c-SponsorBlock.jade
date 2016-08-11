@@ -4,4 +4,5 @@ mixin sponsorBlock(sponsorlevel, sponsor_list, classes)
     ul.o-List.o-ListStacked
       each item in sponsor_list
         li.o-List__Item.o-ListStacked__Item(itemprop="sponsor" itemscope="" itemtype="http://schema.org/Organization")
-          +sponsorLink(item, 'c-SponsorBlock__Logo h-Block ' + sponsorlevel.getClassname())
+          include _c-SponsorLogo.jade
+          +sponsorLogo(item, 'c-SponsorBlock__Logo h-Block ' + sponsorlevel.getClassname())

@@ -91,10 +91,6 @@ mixin chairList(chairs)
       li(itemprop="organizer" itemscope="" itemtype="http://schema.org/Person")
         +personEntireName(person)
 
-mixin sponsorLink(sponsor0, classes)
-  a(class=classes href=sponsor0.getURL() style='background-image: url(\'' + sponsor0.getImg() || '' + '\');' itemprop="url")
-    span(itemprop="name")= sponsor0.name
-
 mixin personEntireName(person)
   if person.name.honorificPrefix
     span(itemprop="honorificPrefix")= person.name.honorificPrefix

@@ -32,9 +32,7 @@ section#sponsor-block
     +sponsorBlock(levels[0], sponsor_list, 'c-SponsorBlock--separate')
     +sponsorBlock(levels[1], sponsor_list, 'c-SponsorBlock--separate')
     +sponsorBlock(levels[2], sponsor_list)
-    div.docs-c-Togglable
-      input.docs-c-Togglable__Check#sponsorblock-check(type="checkbox" value="sponsorblock-md-true")
-      label(for="sponsorblock-check") show microdata
+    +microdataCheckbox('sponsorblock')
       pre.docs-pre.
         &lt;section class="#[u c-SponsorBlock]  #[u c-SponsorBlock--separate]"&gt;
           &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Titanium&lt;/h1&gt;

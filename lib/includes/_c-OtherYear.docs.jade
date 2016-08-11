@@ -12,9 +12,7 @@ section#other-year-block
     , state    : 'IL'
     }))
       | Access the 2016 program to see which sessions qualify for PDHs and other documentation.
-    div.docs-c-Togglable
-      input.docs-c-Togglable__Check#otheryear-check(type="checkbox" value="otheryear-md-true")
-      label(for="otheryear-check") show microdata
+    +microdataCheckbox('otheryear')
       pre.docs-pre.
         &lt;div class="#[u c-OtherYear]"#[mark.docs-c-Togglable__Text  itemscope="" itemtype="http://schema.org/Event"]&gt;
           &lt;h1 class="#[u c-OtherYear__Name]"#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;Geo-Chicago 2016&lt;/h1&gt;

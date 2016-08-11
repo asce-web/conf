@@ -35,9 +35,7 @@ section#sponsor-carousel
         .setURL('#0')
         .setLevel(levels[2])
     ])
-    div.docs-c-Togglable
-      input.docs-c-Togglable__Check#sponsorcarousel-check(type="checkbox" value="sponsorcarousel-md-true")
-      label(for="sponsorcarousel-check") show microdata
+    +microdataCheckbox('sponsorcarousel')
       pre.docs-pre.
         &lt;ol class="o-List  #[u c-SponsorCarousel]"&gt;
           &lt;li class="o-List__Item  #[u c-SponsorCarousel__Item]"#[mark.docs-c-Togglable__Text  itemprop="sponsor" itemscope="" itemtype="http://schema.org/Organization"]&gt;

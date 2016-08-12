@@ -80,8 +80,8 @@ html(lang="en")
     if pagetype === 'main'
       header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
         h1.-d-n#main-menu Main Menu
-        include /includes/components/_c-MenuStandard.jade
-        +menuStandard(site.pages.main)
+        include /includes/components/_c-MenuMain.jade
+        +menuMain(site.pages.main)
     main
       block main
         article&attributes((pagetype === 'main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})

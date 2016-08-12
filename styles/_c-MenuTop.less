@@ -1,6 +1,6 @@
 
 /*################################*\
-    conf  |  _c-MenuUniversal.less
+    conf  |  _c-MenuTop.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__fallback.flexbox.less');
 @import (reference) url('__settings.less');
@@ -8,8 +8,6 @@
 
 
 // Site-wide navigation menu (both mobile and desktop)
-// This is not a "universal menu;" this is simply
-// a menu whose name happens to be "Universal."
 // This component is dependent on the Flex Object.
 //
 // ^subcomponents
@@ -19,14 +17,12 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-07-14
-.c-MenuUniversal {
+// 2016-08-12
+.c-MenuTop {
   .flex-justify-content(flex-end);
-  .flex-align-items(center); // vertical alignment
   .menubar();
   @media screen and (max-width: 44.999em) {
     .flex-direction(column);
-    .flex-align-items(stretch); // horizontal alignment // override `center` above
     a {
       &:hover,
       &:focus,
@@ -36,20 +32,23 @@
       }
     }
   }
+  @media screen and (min-width: 45em) {
+    .flex-align-items(center); // vertical alignment
+  }
 }
 
-.c-MenuUniversal__Item {
+.c-MenuTop__Item {
   .flex(0 0 auto);
 }
 
-.c-MenuUniversal__Link {
+.c-MenuTop__Link {
   padding: @g-boxpadd_norm;
   @media screen and (min-width: 45em) {
     padding: @g-boxpadd_mill;
   }
 }
 
-.c-MenuUniversal__Link--current {
+.c-MenuTop__Link--current {
   // colors copied directly from `.c-Btn.c-Btn--primary`
   // HACK (can’t use that component because of padding and display issues)
   @media screen and (min-width: 45em) {

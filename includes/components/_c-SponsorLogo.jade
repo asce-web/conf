@@ -1,3 +1,3 @@
 mixin sponsorLogo(sponsor, classes, attr_link, attr_name)
-  a.c-SponsorLogo(class=classes href=sponsor.getURL() style='background-image: url(\'' + sponsor.getImg() || '' + '\');')&attributes(attr_link|| {})
+  a.c-SponsorLogo(class=classes href=sponsor.getURL() style='background-image: url(\'' + (sponsor.getImg() || '') + '\');')&attributes(attr_link|| {})
     span&attributes(attr_name|| {})= sponsor.name

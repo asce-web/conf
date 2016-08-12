@@ -1,0 +1,25 @@
+section#main-menu
+  h2 The Main Menu
+  figure.docs-figure
+    include /includes/components/_c-MenuMain.jade
+    +menuMain([
+      new Page({ name: 'Home'          , url: '#0' }).setIcon('insert_drive_file')
+    , new Page({ name: 'Registration'  , url: '#0' }).setIcon('insert_drive_file')
+    , new Page({ name: 'Program'       , url: '#0' }).setIcon('insert_drive_file')
+    , new Page({ name: 'Hotel & Travel', url: '#0' }).setIcon('insert_drive_file')
+    , new Page({ name: 'Speakers'      , url: '#0' }).setIcon('insert_drive_file')
+    ])
+    ul.o-List.o-Flex.c-MenuMain(style="margin-bottom: 1.5rem;")
+      li.o-List__Item.o-Flex__Item.c-MenuMain__Item._hover: a.c-MenuMain__Link.h-Block(href="#0")._hover menu item hover
+      li.o-List__Item.o-Flex__Item.c-MenuMain__Item._hover: a.c-MenuMain__Link.h-Block(href="#0")._active menu item active
+      li.o-List__Item.o-Flex__Item.c-MenuMain__Item: a.c-MenuMain__Link.h-Block menu item disabled
+    pre.docs-pre.
+      &lt;ul class="o-List  o-Flex  #[u c-MenuMain]"&gt;
+        &lt;li class="o-List__Item  o-Flex__Item  #[u c-MenuMain__Item]"&gt;
+          &lt;a class="#[u c-MenuMain__Link]  h-Block"&gt;
+            &lt;i class="material-icons"&gt;...&lt;/i&gt;
+            &lt;span&gt;Home&lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/li&gt;
+        ...
+      &lt;/ul&gt;

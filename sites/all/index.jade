@@ -4,7 +4,7 @@ block append varsPage
   - var page = site.getPage('index.html')
 
 block mainHeader
-  header.-d-n: h1#home #{page.name} Homepage
+  header.-d-n: h1 #{site.name} Homepage
 
 block mainBody
   mixin otherYearBlock(event0, classes)
@@ -19,6 +19,6 @@ block mainBody
       +highlightButtons([{text:'Find Out More', href:'home.html'}], 'c-Btn--primary')
   block introText
   +otherYearBlock(site.getPrevConference(), 'c-Banner--prev')
-    block content_otherYearDesc_prev
+    block otherYearDesc_prev
   +otherYearBlock(site.getNextConference(), 'c-Banner--next')
-    block content_otherYearDesc_next
+    block otherYearDesc_next

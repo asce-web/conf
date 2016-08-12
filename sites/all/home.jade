@@ -5,7 +5,6 @@ block append varsPage
 
 block mainHeader
   header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--home: div.o-ContentWrapper
-    div.c-Hero
-      include /includes/components/_c-Hero.jade
-      +hero(site.getCurrentConference())
-        block actionButtons
+    include /includes/components/_c-Hero.jade
+    +hero(site.getCurrentConference())
+      block actionButtons

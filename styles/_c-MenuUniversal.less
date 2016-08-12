@@ -22,11 +22,9 @@
 // 2016-07-14
 .c-MenuUniversal {
   .flex-justify-content(flex-end);
-  .flex-align-items(center); // vertical alignment
   .menubar();
   @media screen and (max-width: 44.999em) {
     .flex-direction(column);
-    .flex-align-items(stretch); // horizontal alignment // override `center` above
     a {
       &:hover,
       &:focus,
@@ -35,6 +33,9 @@
         background-color: @g-color_asce_white;
       }
     }
+  }
+  @media screen and (min-width: 45em) {
+    .flex-align-items(center); // vertical alignment
   }
 }
 

@@ -1,6 +1,6 @@
 
 /*################################*\
-    conf  |  _c-MenuStandard.less
+    conf  |  _c-MenuMain.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__fallback.flexbox.less');
 @import (reference) url('../node_modules/xmeter/src/__fallback.transform.less');
@@ -11,7 +11,7 @@
 @import (reference) url('__tool.menubar.less');
 
 
-// Top-level navigation for current year site.
+// Main-level navigation for current year site.
 //
 // ^subcomponents
 // __Item - each item in the list
@@ -20,7 +20,7 @@
 // Chris Harvey
 // ^updated
 // 2016-07-14
-.c-MenuStandard {
+.c-MenuMain {
   .flex-justify-content(flex-start); // override .o-Flex `space-between`
   .menubar();
   @media screen and (max-width: (@g-bp_menu_standard_normaltext - 1)) {
@@ -29,7 +29,7 @@
   }
 }
 
-.c-MenuStandard__Item {
+.c-MenuMain__Item {
   @trans_dura: 250ms;
   .flex(0 0 auto);
   .transition(background-color @trans_dura);
@@ -48,6 +48,6 @@
   }
 }
 
-.c-MenuStandard__Link {
+.c-MenuMain__Link {
   padding: @g-boxpadd_mill;
 }

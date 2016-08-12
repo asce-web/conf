@@ -74,16 +74,16 @@
   }
   .c-MenuMain & {
     display: block;
-    @media screen and (min-width: @g-bp_menu_standard_normaltext) {
+    @media screen and (min-width: @g-bp_menu_main_normaltext) {
       display: none;
     }
     & + span {
-      @media screen and (max-width: (@g-bp_menu_standard_normaltext - 1)) {
+      @media screen and (max-width: (@g-bp_menu_main_normaltext - 1)) {
         display: block;
         .font-size-el(0.75);
         font-weight: 400;
       }
-      @media screen and (max-width: (@g-bp_menu_standard_smalltext - 1)) {
+      @media screen and (max-width: (@g-bp_menu_main_smalltext - 1)) {
         .font-size-el(0);
         line-height: 0; // override Infinity
       }

@@ -59,7 +59,7 @@ html(lang="en")
           color: red;
         }
   body
-    header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-Flex.-xai-c
+    header.o-Runner.c-Mast: div.o-Constrain: div.o-Flex.-xai-c
       div.o-Flex__Item(style="max-width:50%;")
         include /includes/components/_c-SiteTitle.jade
         +siteTitle(site, 'index.html')
@@ -78,7 +78,7 @@ html(lang="en")
           include /includes/components/_c-MenuTop.jade
           +menuTop(site.pages.top.slice(1), site.pages.main.slice(0,1), site.getCurrentConference().name)
     if pagetype === 'main'
-      header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
+      header.o-Runner.c-Mast.c-Mast--internal: nav.o-Constrain
         h1.-d-n#main-menu Main Menu
         include /includes/components/_c-MenuMain.jade
         +menuMain(site.pages.main)
@@ -86,7 +86,7 @@ html(lang="en")
       block main
         article&attributes((pagetype === 'main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
           block mainHeader
-            header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
+            header.o-Runner.o-Runner--pageHeader: div.o-Constrain
               h1.c-PageTitle= page.name
           block mainBody
             block mainMinimal
@@ -101,11 +101,11 @@ html(lang="en")
                 #[a(href="http://go.asce.org/static/sponsors/") sponsors carousel]
                 by rank)
               +highlightButtons([{text:'All Sponsors', href:'sponsor.html'}])
-    footer.o-Runner.c-Mast(class=(pagetype==='main') ? 'c-Mast--internal' : ''): nav.o-ContentWrapper
+    footer.o-Runner.c-Mast(class=(pagetype==='main') ? 'c-Mast--internal' : ''): nav.o-Constrain
       h1.-d-n#site-map Site Map
       include /includes/components/_c-Sitemap.jade
       +sitemap(site.pages[pagetype])
-    footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-ContentWrapper
+    footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-Constrain
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
         p

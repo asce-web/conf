@@ -4,12 +4,12 @@ block append varsPage
   - var page = site.getPage('registration.html')
 
 block mainHeader
-  header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
+  header.o-Runner.o-Runner--pageHeader: div.o-Constrain
     //- soft hyphen (U+00ad, `&shy;`)
     h1.c-PageTitle Registra&shy;tion
 
 block mainReference
-  section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
+  section.o-Runner.o-Runner--highlight.c-Banner: div.o-Constrain
     h1.-d-n#full-registration Full Registration
     +passList(site.getCurrentConference().getPassesAll(), site.getCurrentConference())
     ul.o-List.o-ListAction.c-Callout._regLegend

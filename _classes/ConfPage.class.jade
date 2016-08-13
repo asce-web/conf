@@ -1,66 +1,28 @@
 -
+  //- var Page = require('./Page.class.js')
   var ConfPage = (function () {
     //- CONSTRUCTOR
-    function ConfPage($pageinfo) {
+    function ConfPage($obj, name, url) {
       var self = this
-      $pageinfo = $pageinfo || {} // NOTE constructor overloading
-      self.name = $pageinfo.name
-      self.url  = $pageinfo.url
-      self.title       = ''
-      self.description = ''
-      self.is_hidden   = false
-      self.icon        = null
-      self.sub         = []
+      if ($obj) {
+        Page.call(self, { name: $obj.name, url: $obj.url })
+      } else {
+        Page.call(self, { name: name, url: url })
+      }
+      self.icon = null
     }
+    ConfPage.prototype = Object.create(Page.prototype)
+    ConfPage.prototype.constructor = ConfPage
 
     //- SETTER FUNCTIONS
-    ConfPage.prototype.setTitle = function setTitle(text) {
-      if (typeof text === 'function') {
-        var callback = text
-        this.title = callback.call(this)
-      } else this.title = text
-      return this
-    }
-    ConfPage.prototype.setDescription = function setDescription(text) {
-      this.description = text
-      return this
-    }
-    ConfPage.prototype.hide = function hide(bool) {
-      if (bool === undefined) bool = true // NOTE param defaults to true
-      this.is_hidden = bool
-      return this
-    }
     ConfPage.prototype.setIcon = function setIcon(key) {
       this.icon = Util.ICON_DATA.find(function (item) { return item.content === key })
       return this
     }
-    ConfPage.prototype.addSubpage = function addSubpage(page0) {
-      this.sub.push(page0)
-      return this
-    }
-    ConfPage.prototype.removeSubpage = function removeSubpage(url0) {
-      Util.spliceFromArray(this.sub, this.getSubpage(url0))
-      return this
-    }
 
     //- GETTER FUNCTIONS
-    ConfPage.prototype.getTitle = function getTitle() {
-      return this.title
-    }
-    ConfPage.prototype.getDescription = function getDescription() {
-      return this.description
-    }
-    ConfPage.prototype.isHidden = function isHidden() {
-      return this.is_hidden
-    }
     ConfPage.prototype.getIcon = function getIcon(fallback) {
       return (this.icon) ? Util.iconToString(this.icon, fallback) : ''
-    }
-    ConfPage.prototype.getSubpage = function getSubpage(url0) {
-      return this.sub.find(function (item) { return item.url === url0 })
-    }
-    ConfPage.prototype.getSubpagesAll = function getSubpagesAll() {
-      return this.sub.slice()
     }
 
     return ConfPage

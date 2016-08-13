@@ -85,15 +85,15 @@
     }
 
     //- GETTER FUNCTIONS
-    Site.prototype.getPage = function getPage(url0) {
-      return this.pages.top.find(function (item) { return item.url === url0 })
-        || this.pages.main.find(function (item) { return item.url === url0 })
-        || this.pages.top.find(function (item) {
-          return item.getSubpage(url0)
-        }).getSubpage(url0)
-        || this.pages.main.find(function (item) {
-          return item.getSubpage(url0)
-        }).getSubpage(url0)
+    Site.prototype.getPage = function getPage(url) {
+      return this.pages.top.find(function (item) { return item.getURL() === url })
+        || this.pages.main.find(function (item) { return item.getURL() === url })
+        //- || this.pages.top.find(function (item) {
+        //-   return item.getSubpage(url)
+        //- }).getSubpage(url)
+        //- || this.pages.main.find(function (item) {
+        //-   return item.getSubpage(url)
+        //- }).getSubpage(url)
     }
     Site.prototype.getConference = function getConference(year) {
       return this.conference[year]

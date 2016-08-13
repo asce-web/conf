@@ -7,8 +7,7 @@ html(lang="en")
         .setConference('current', new Conference())
         .setCurrentConference('current')
   block varsPage
-    -
-      var page = new ConfPage()
+    - var page = new ConfPage()
   block vars
     -
       var pagetype = (site.pages.top.find(function (item)  { return item === page })) ? 'top'  :
@@ -76,18 +75,21 @@ html(lang="en")
         nav.o-Drawer
           h1.-d-n#top-menu Top Menu
           include /includes/components/_c-MenuTop.jade
-          +menuTop(site.pages.top.slice(1), site.pages.main.slice(0,1), site.getCurrentConference().name)
+          +menuTop(site.getPage('#top-menu').getPagesAll().slice(1)
+          , site.getPage('#main-menu').getPagesAll().slice(0,1)
+          , site.getCurrentConference().name
+          )
     if pagetype === 'main'
       header.o-Runner.c-Mast.c-Mast--internal: nav.o-Constrain
         h1.-d-n#main-menu Main Menu
         include /includes/components/_c-MenuMain.jade
-        +menuMain(site.pages.main)
+        +menuMain(site.getPage('#main-menu').getPagesAll())
     main
       block main
         article&attributes((pagetype === 'main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
           block mainHeader
             header.o-Runner.o-Runner--pageHeader: div.o-Constrain
-              h1.c-PageTitle= page.name
+              h1.c-PageTitle= page.getName()
           block mainBody
             block mainMinimal
             block mainReference

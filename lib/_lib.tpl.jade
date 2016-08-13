@@ -5,9 +5,8 @@ html(lang="en")
   head
     block vars
       -
-        var project_name = 'ASCE Conferences Styleguide'
-        var page = {}
-    title= page.name + ' | ' + project_name
+        var page = confdocs
+    title= page.getTitle() || (page.getName() + ' | ' + confdocs.getName())
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     block styles
@@ -24,17 +23,21 @@ html(lang="en")
     main.docs-main
       block main
         header
-          h1= project_name + ' — ' + page.name
-          p= page.description
+          //- h1= page.getTitle() || (confdocs.getName() + ' — ' + page.getName())
+          if page.getTitle()
+            h1= page.getTitle()
+          else
+            h1 #[a(href=confdocs.getURL())= confdocs.getName()] &mdash; #{page.getName()}
+          p= page.getDescription()
           nav#table-contents
             h2 Table of Contents
             block toc
-              +libtoc({pages: page.sub, depth: Infinity})
+              +libtoc({pages: page.getPagesAll(), depth: Infinity})
     footer
-      unless page === Lib.getPage('index.html')
+      block subsitemap
         nav
           h1 Subsitemap
-          +libtoc({pages: Lib.PAGES})
+          +libtoc({pages: confdocs.getPagesAll()})
       nav
         h1 Sitemap
         ol

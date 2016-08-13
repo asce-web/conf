@@ -1,7 +1,7 @@
 -
-  var Site = (function () {
+  var ConfSite = (function () {
     //- CONSTRUCTOR
-    function Site($siteinfo) {
+    function ConfSite($siteinfo) {
       var self = this
       $siteinfo = $siteinfo || {} // NOTE constructor overloading
       self.name     = $siteinfo.name
@@ -40,42 +40,42 @@
     }
 
     //- SETTER FUNCTIONS
-    Site.prototype.setConference = function setConference(year, conference0) {
+    ConfSite.prototype.setConference = function setConference(year, conference0) {
       this.conference[year] = conference0
       return this
     }
-    Site.prototype.setCurrentConference = function setCurrentConference(year) {
+    ConfSite.prototype.setCurrentConference = function setCurrentConference(year) {
       this.setConference('current', this.getConference(year))
       this.initializeMainPages()
       return this
     }
-    Site.prototype.setPrevConference = function setPrevConference(year) {
+    ConfSite.prototype.setPrevConference = function setPrevConference(year) {
       this.setConference('prev', this.getConference(year))
       return this
     }
-    Site.prototype.setNextConference = function setNextConference(year) {
+    ConfSite.prototype.setNextConference = function setNextConference(year) {
       this.setConference('next', this.getConference(year))
       return this
     }
-    Site.prototype.addSupporterLevel = function addSupporterLevel(supporter_level) {
+    ConfSite.prototype.addSupporterLevel = function addSupporterLevel(supporter_level) {
       this.supporter_levels.push(supporter_level)
       return this
     }
-    Site.prototype.removeSupporterLevel = function removeSupporterLevel(supporter_level_name) {
+    ConfSite.prototype.removeSupporterLevel = function removeSupporterLevel(supporter_level_name) {
       Util.spliceFromArray(this.supporter_levels, this.getSupporterLevel(supporter_level_name))
       return this
     }
-    Site.prototype.addSupporter = function addSupporter(supporter) {
+    ConfSite.prototype.addSupporter = function addSupporter(supporter) {
       this.supporters.push(supporter)
       return this
     }
-    Site.prototype.removeSupporter = function removeSupporter(supporter_name) {
+    ConfSite.prototype.removeSupporter = function removeSupporter(supporter_name) {
       Util.spliceFromArray(this.supporters, this.getSupporter(supporter_name))
       return this
     }
 
     //- GETTER FUNCTIONS
-    Site.prototype.getPage = function getPage(url) {
+    ConfSite.prototype.getPage = function getPage(url) {
       return this.pages.top.find(function (item) { return item.getURL() === url })
         || this.pages.main.find(function (item) { return item.getURL() === url })
         //- || this.pages.top.find(function (item) {
@@ -85,33 +85,33 @@
         //-   return item.getSubpage(url)
         //- }).getSubpage(url)
     }
-    Site.prototype.getConference = function getConference(year) {
+    ConfSite.prototype.getConference = function getConference(year) {
       return this.conference[year]
     }
-    Site.prototype.getCurrentConference = function getCurrentConference() {
+    ConfSite.prototype.getCurrentConference = function getCurrentConference() {
       return this.conference.current
     }
-    Site.prototype.getPrevConference = function getPrevConference() {
+    ConfSite.prototype.getPrevConference = function getPrevConference() {
       return this.conference.prev
     }
-    Site.prototype.getNextConference = function getNextConference() {
+    ConfSite.prototype.getNextConference = function getNextConference() {
       return this.conference.next
     }
-    Site.prototype.getSupporterLevel = function getSupporterLevel(supporter_level_name) {
+    ConfSite.prototype.getSupporterLevel = function getSupporterLevel(supporter_level_name) {
       return this.supporter_levels.find(function (item) { return item.name === supporter_level_name })
     }
-    Site.prototype.getSupporter = function getSupporter(supporter_name) {
+    ConfSite.prototype.getSupporter = function getSupporter(supporter_name) {
       return this.supporters.find(function (item) { return item.name === supporter_name })
     }
-    Site.prototype.getSupporterLevelsAll = function getSupporterLevelsAll() {
+    ConfSite.prototype.getSupporterLevelsAll = function getSupporterLevelsAll() {
       return this.supporter_levels.slice()
     }
-    Site.prototype.getSupportersAll = function getSupportersAll() {
+    ConfSite.prototype.getSupportersAll = function getSupportersAll() {
       return this.supporters.slice()
     }
 
     //- MORE PROTO FUNCTIONS
-    Site.prototype.initializeMainPages = function initializeMainPages() {
+    ConfSite.prototype.initializeMainPages = function initializeMainPages() {
       var self = this
       self.pages.main = [
         new ConfPage('Home', 'home.html')
@@ -139,7 +139,7 @@
     }
 
     //- STATIC MEMBERS
-    Site.MENU_CLASS = {
+    ConfSite.MENU_CLASS = {
       main: {
         listclasses: 'o-List o-Flex c-MenuMain'
       , itemclasses: 'o-List__Item o-Flex__Item c-MenuMain__Item'
@@ -160,5 +160,5 @@
       }
     }
 
-    return Site
+    return ConfSite
   })()

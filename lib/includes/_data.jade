@@ -49,12 +49,10 @@ include /_classes/Styleguide.class.jade
     .addPage(new Page({ name: 'The Toggle Button'        , url: '#toggle-button' }))
     .addPage(new Page({ name: 'The Camo Link'            , url: '#camo-link'}))
 
-  var Lib = {
-    DOCS_CLASSES : {
-      figure : 'docs-figure'
-    , pre    : 'docs-pre'
-    , code   : 'docs-code'
-    }
+  var DOCS_CLASSES = {
+    figure : 'docs-figure'
+  , pre    : 'docs-pre'
+  , code   : 'docs-code'
   }
 
 mixin libtoc(args)

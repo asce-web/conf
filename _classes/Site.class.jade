@@ -10,31 +10,31 @@
       self.logo     = $siteinfo.logo
       self.pages = {
         top: [
-          new Page({
+          new ConfPage({
             name: self.name
           , url:  'index.html'
           }).setIcon('')
             .setTitle(self.name)
             .setDescription(self.tagline)
-        , new Page({
+        , new ConfPage({
             name: 'About'
           , url:  'about.html'
           }).setIcon('info_outline')
             .setTitle(function () { return this.name + ' | ' + self.name })
             .setDescription('About ' + self.name + '.')
-        , new Page({
+        , new ConfPage({
             name: 'Sponsor'
           , url:  'sponsor.html'
           }).setIcon('people')
             .setTitle(function () { return this.name + ' | ' + self.name })
             .setDescription('Sponsors of ' + self.name + '.')
-        , new Page({
+        , new ConfPage({
             name: 'Exhibit'
           , url:  'exhibit.html'
           }).setIcon('work')
             .setTitle(function () { return this.name + ' | ' + self.name })
             .setDescription('Exhibitors at ' + self.name + '.')
-        , new Page({
+        , new ConfPage({
             name: 'Contact'
           , url:  'contact.html'
           }).setIcon('email')
@@ -124,31 +124,31 @@
     Site.prototype.initializeMainPages = function initializeMainPages() {
       var self = this
       self.pages.main = [
-        new Page({
+        new ConfPage({
           name: 'Home'
         , url:  'home.html'
         }).setIcon('home')
           .setTitle(self.getCurrentConference().name)
           .setDescription(self.getCurrentConference().theme)
-      , new Page({
+      , new ConfPage({
           name: 'Registration'
         , url:  'registration.html'
         }).setIcon('shopping_cart')
           .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
           .setDescription('Register for ' + self.getCurrentConference().name + ' here.')
-      , new Page({
+      , new ConfPage({
           name: 'Program'
         , url:  'program.html'
         }).setIcon('event')
           .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
           .setDescription('Program and agenda of ' + self.getCurrentConference().name + '.')
-      , new Page({
+      , new ConfPage({
           name: 'Hotel & Travel'
         , url:  'location.html'
         }).setIcon('flight')
           .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
           .setDescription('Location and where to stay for ' + self.getCurrentConference().name + '.')
-      , new Page({
+      , new ConfPage({
           name: 'Speakers'
         , url:  'speakers.html'
         }).setIcon('account_box')

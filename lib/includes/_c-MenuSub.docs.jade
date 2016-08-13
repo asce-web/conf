@@ -4,9 +4,9 @@ section#sub-menu
     div(style="height: 100px;")
       include /includes/components/_c-MenuSub.jade
       +menuSub([
-        new ConfPage({ name: 'Why Attend'     , url: '#0' })
-      , new ConfPage({ name: 'Short Courses'  , url: '#0' })
-      , new ConfPage({ name: 'Technical Tours', url: '#0' })
+        new ConfPage('Why Attend'     ,'#0')
+      , new ConfPage('Short Courses'  ,'#0')
+      , new ConfPage('Technical Tours','#0')
       ])
     div(style="height: 100px;"): ul.o-List.c-MenuSub
       li.o-List__Item.c-MenuSub__Item: a.c-MenuSub__Link.h-Block(href="#0")._hover menu item hover

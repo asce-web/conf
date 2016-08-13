@@ -3,24 +3,18 @@ section#sitemap-component
   figure.docs-figure
     include /includes/components/_c-Sitemap.jade
     +sitemap([
-        new ConfPage({
-          name: 'Home', url: 'home.html'
-        })
-      , new ConfPage({
-          name: 'Registration', url: '#0'
-        }).addSubpage(new ConfPage({ name: 'Why Attend'     , url: '#0' }))
-      , new ConfPage({
-          name: 'Program', url: '#0'
-        }).addSubpage(new ConfPage({ name: 'Events'         , url: '#0' }))
-          .addSubpage(new ConfPage({ name: 'Short Courses'  , url: '#0' }))
-          .addSubpage(new ConfPage({ name: 'Technical Tours', url: '#0' }))
-          .addSubpage(new ConfPage({ name: 'Optional Tours' , url: '#0' }))
-      , new ConfPage({
-          name: 'Hotel & Travel', url: '#0'
-        }).addSubpage(new ConfPage({ name: 'International Travel', url: '#0' }))
-      , new ConfPage({
-          name: 'Speakers', url: '#0'
-        }).addSubpage(new ConfPage({ name: 'Distinguished Lecture Series', url: '#0' }))
+        new ConfPage('Home', '#0')
+      , new ConfPage('Registration', '#0')
+          .addPage(new ConfPage('Why Attend'     , '#0'))
+      , new ConfPage('Program', '#0')
+          .addPage(new ConfPage('Events'         , '#0'))
+          .addPage(new ConfPage('Short Courses'  , '#0'))
+          .addPage(new ConfPage('Technical Tours', '#0'))
+          .addPage(new ConfPage('Optional Tours' , '#0'))
+      , new ConfPage('Hotel & Travel', '#0')
+          .addPage(new ConfPage('International Travel', '#0'))
+      , new ConfPage('Speakers', '#0')
+          .addPage(new ConfPage('Distinguished Lecture Series', '#0'))
       ])
     pre.docs-pre.
       &lt;ul class="o-List  o-Flex  #[u c-Sitemap]"&gt;

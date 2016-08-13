@@ -6,12 +6,12 @@ section#top-menu
     div(style="margin-bottom: 1.5rem;")
       include /includes/components/_c-MenuTop.jade
       +menuTop([
-        new ConfPage({ name: 'About'  , url: '#0' }).setIcon('insert_drive_file')
-      , new ConfPage({ name: 'Sponsor', url: '#0' }).setIcon('insert_drive_file')
-      , new ConfPage({ name: 'Exhibit', url: '#0' }).setIcon('insert_drive_file')
-      , new ConfPage({ name: 'Contact', url: '#0' }).setIcon('insert_drive_file')
+        new ConfPage('About'  , '#0').setIcon('insert_drive_file')
+      , new ConfPage('Sponsor', '#0').setIcon('insert_drive_file')
+      , new ConfPage('Exhibit', '#0').setIcon('insert_drive_file')
+      , new ConfPage('Contact', '#0').setIcon('insert_drive_file')
       ], [
-        new ConfPage({ name: 'Home', url: '#0' }).setIcon('insert_drive_file')
+        new ConfPage('Home', '#0').setIcon('insert_drive_file')
       ], 'Current Year')
     ul.o-List.o-Flex.c-MenuTop(style="margin-bottom: 1.5rem;")
       li.o-List__Item.o-Flex__Item.c-MenuTop__Item: a.c-MenuTop__Link.h-Block(href="#0")._hover menu item hover

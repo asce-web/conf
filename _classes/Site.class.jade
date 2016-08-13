@@ -10,35 +10,25 @@
       self.logo     = $siteinfo.logo
       self.pages = {
         top: [
-          new ConfPage({
-            name: self.name
-          , url:  'index.html'
-          }).setIcon('')
+          new ConfPage(self.name, 'index.html')
+            .setIcon('')
             .setTitle(self.name)
             .setDescription(self.tagline)
-        , new ConfPage({
-            name: 'About'
-          , url:  'about.html'
-          }).setIcon('info_outline')
-            .setTitle(function () { return this.name + ' | ' + self.name })
+        , new ConfPage('About', 'about.html')
+            .setIcon('info_outline')
+            .setTitle(function () { return this.getName() + ' | ' + self.name })
             .setDescription('About ' + self.name + '.')
-        , new ConfPage({
-            name: 'Sponsor'
-          , url:  'sponsor.html'
-          }).setIcon('people')
-            .setTitle(function () { return this.name + ' | ' + self.name })
+        , new ConfPage('Sponsor', 'sponsor.html')
+            .setIcon('people')
+            .setTitle(function () { return this.getName() + ' | ' + self.name })
             .setDescription('Sponsors of ' + self.name + '.')
-        , new ConfPage({
-            name: 'Exhibit'
-          , url:  'exhibit.html'
-          }).setIcon('work')
-            .setTitle(function () { return this.name + ' | ' + self.name })
+        , new ConfPage('Exhibit', 'exhibit.html')
+            .setIcon('work')
+            .setTitle(function () { return this.getName() + ' | ' + self.name })
             .setDescription('Exhibitors at ' + self.name + '.')
-        , new ConfPage({
-            name: 'Contact'
-          , url:  'contact.html'
-          }).setIcon('email')
-            .setTitle(function () { return this.name + ' | ' + self.name })
+        , new ConfPage('Contact', 'contact.html')
+            .setIcon('email')
+            .setTitle(function () { return this.getName() + ' | ' + self.name })
             .setDescription('Contact us for questions and comments about ' + self.name + '.')
         ]
       , main: []
@@ -124,34 +114,24 @@
     Site.prototype.initializeMainPages = function initializeMainPages() {
       var self = this
       self.pages.main = [
-        new ConfPage({
-          name: 'Home'
-        , url:  'home.html'
-        }).setIcon('home')
+        new ConfPage('Home', 'home.html')
+          .setIcon('home')
           .setTitle(self.getCurrentConference().name)
           .setDescription(self.getCurrentConference().theme)
-      , new ConfPage({
-          name: 'Registration'
-        , url:  'registration.html'
-        }).setIcon('shopping_cart')
+      , new ConfPage('Registration', 'registration.html')
+          .setIcon('shopping_cart')
           .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
           .setDescription('Register for ' + self.getCurrentConference().name + ' here.')
-      , new ConfPage({
-          name: 'Program'
-        , url:  'program.html'
-        }).setIcon('event')
+      , new ConfPage('Program', 'program.html')
+          .setIcon('event')
           .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
           .setDescription('Program and agenda of ' + self.getCurrentConference().name + '.')
-      , new ConfPage({
-          name: 'Hotel & Travel'
-        , url:  'location.html'
-        }).setIcon('flight')
+      , new ConfPage('Hotel & Travel', 'location.html')
+          .setIcon('flight')
           .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
           .setDescription('Location and where to stay for ' + self.getCurrentConference().name + '.')
-      , new ConfPage({
-          name: 'Speakers'
-        , url:  'speakers.html'
-        }).setIcon('account_box')
+      , new ConfPage('Speakers', 'speakers.html')
+          .setIcon('account_box')
           .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
           .setDescription('Current and prospective speakers at ' + self.getCurrentConference().name + '.')
       ]

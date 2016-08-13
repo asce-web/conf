@@ -2,13 +2,9 @@
   //- var Page = require('./Page.class.js')
   var ConfPage = (function () {
     //- CONSTRUCTOR
-    function ConfPage($obj, name, url) {
+    function ConfPage(name, url) {
       var self = this
-      if ($obj) {
-        Page.call(self, { name: $obj.name, url: $obj.url })
-      } else {
-        Page.call(self, { name: name, url: url })
-      }
+      Page.call(self, { name: name, url: url })
       self.icon = null
     }
     ConfPage.prototype = Object.create(Page.prototype)

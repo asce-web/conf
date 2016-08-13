@@ -1,7 +1,7 @@
 extends _sites.tpl.jade
 
 block append varsPage
-  - var page = site.getPage('speakers.html')
+  - var page = site.findPage('speakers.html')
 
 block mainReference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-Constrain

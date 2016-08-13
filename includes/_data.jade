@@ -8,9 +8,11 @@
 
 
 
-include /_classes/Util.class.jade
-include /_classes/Site.class.jade
 include /_classes/Page.class.jade
+
+include /_classes/Util.class.jade
+include /_classes/ConfSite.class.jade
+include /_classes/ConfPage.class.jade
 include /_classes/Conference.class.jade
 include /_classes/SupporterLevel.class.jade
 include /_classes/Supporter.class.jade
@@ -43,15 +45,15 @@ mixin sitetoc(args)
         li(class=classes.itemclasses)
           +linkWithIcon({
             classes : classes.linkclasses
-          , url     : item.url
-          , text    : item.name
-          , title   : item.name
+          , url     : item.getURL()
+          , text    : item.getName()
+          , title   : item.getName()
           }, {
             is_on : args.icons && item.getIcon()
           , text  : item.getIcon()
           })
-          if item.getSubpagesAll().length && depth > 0
-            +sitetoc({pages: item.getSubpagesAll(), classes: (classes.sub || {}), depth: depth-1})
+          if item.getPagesAll().length && depth > 0
+            +sitetoc({pages: item.getPagesAll(), classes: (classes.sub || {}), depth: depth-1})
 
 mixin event-location-name(loc)
   span(itemprop="name")

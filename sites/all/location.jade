@@ -1,8 +1,8 @@
 extends _sites.tpl.jade
 
 block append varsPage
-  - var page = site.getPage('location.html')
+  - var page = site.findPage('location.html')
 
 block mainHeader
   header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--location(style="height: 13.5rem;"): div.o-Constrain
-    h1.c-PageTitle.c-PageTitle--special= page.name
+    h1.c-PageTitle.c-PageTitle--special= page.getName()

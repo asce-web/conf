@@ -3,11 +3,11 @@ section#main-menu
   figure.docs-figure
     include /includes/components/_c-MenuMain.jade
     +menuMain([
-      new Page({ name: 'Home'          , url: '#0' }).setIcon('insert_drive_file')
-    , new Page({ name: 'Registration'  , url: '#0' }).setIcon('insert_drive_file')
-    , new Page({ name: 'Program'       , url: '#0' }).setIcon('insert_drive_file')
-    , new Page({ name: 'Hotel & Travel', url: '#0' }).setIcon('insert_drive_file')
-    , new Page({ name: 'Speakers'      , url: '#0' }).setIcon('insert_drive_file')
+      new ConfPage('Home'          , '#0').setIcon('insert_drive_file')
+    , new ConfPage('Registration'  , '#0').setIcon('insert_drive_file')
+    , new ConfPage('Program'       , '#0').setIcon('insert_drive_file')
+    , new ConfPage('Hotel & Travel', '#0').setIcon('insert_drive_file')
+    , new ConfPage('Speakers'      , '#0').setIcon('insert_drive_file')
     ])
     ul.o-List.o-Flex.c-MenuMain(style="margin-bottom: 1.5rem;")
       li.o-List__Item.o-Flex__Item.c-MenuMain__Item._hover: a.c-MenuMain__Link.h-Block(href="#0")._hover menu item hover

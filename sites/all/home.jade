@@ -4,8 +4,7 @@ block append varsPage
   - var page = site.getPage('home.html')
 
 block mainHeader
-  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--home: div.o-ContentWrapper
-    div.c-Hero
-      include /includes/components/_c-Hero.jade
-      +hero(site.getCurrentConference())
-        block actionButtons
+  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--home: div.o-Constrain
+    include /includes/components/_c-Hero.jade
+    +hero(site.getCurrentConference())
+      block actionButtons

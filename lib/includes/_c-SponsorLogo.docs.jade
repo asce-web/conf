@@ -1,0 +1,17 @@
+section#sponsor-logo
+  h2 The Sponsor Logo
+  p.
+    A Sponsor Logo is a logo for a sponsoring organiation.
+    Typically, it is a link with a background image.
+    This Component can be a child of a #[a(href="#sponsor-block") Sponsor Block].
+  figure.docs-figure
+    include /includes/components/_c-SponsorLogo.jade
+    div(style="margin-bottom:1.5rem;"): +sponsorLogo(new Supporter('Bank of America')
+      .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg')
+      .setURL('#0')
+      .setLevel(new SupporterLevel('Titanium').setClassname('c-SponsorBlock__Logo--lrg'))
+    )
+    pre.docs-pre.
+      &lt;a class="#[u c-SponsorLogo]" #[u style="background-image: url('logo.png');"]&gt;
+        &lt;span&gt;Bank of America&lt;/span&gt;
+      &lt;/a&gt;

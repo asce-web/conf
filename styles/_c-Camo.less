@@ -2,7 +2,6 @@
 /*################################*\
     conf  |  _c-Camo.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__fallback.filter.less');
 
 
 // A text-level element that blends in with its surrounding text.
@@ -22,7 +21,6 @@
     text-decoration: none;   text-decoration: initial;
     background: transparent; background:      initial;
     border: 0;               border:          initial;
-    .filter();               .filter(initial);
     opacity: 1 !important;   opacity: initial !important; // specificity HACK override a:not([href]) from xmeter
 
     // inherited values

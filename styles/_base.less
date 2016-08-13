@@ -2,7 +2,6 @@
 /*################################*\
     conf  |  _base.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__fallback.filter.less');
 @import (reference) url('../node_modules/xmeter/src/__fallback.transition.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.fontsize.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.borders.less');
@@ -99,14 +98,7 @@ h1 {
   //--------------------------------//
   a {
     color: @g-color_site_secondary;
-    .transitions(color, background-color, filter; 125ms);
-    &:hover,
-    &:focus,
-    &:active,
-    &._hover,
-    &._active {
-      .filter(blur(1px));
-    }
+    .transitions(color, background-color; 125ms);
     &:hover,
     &:focus,
     &._hover {

@@ -25,9 +25,7 @@ section#speaker-component
           <p>Former Lead Product Designer and Art Director at Spotify, she recently founded\
           Semplice and at the same time serves on the AIGA Board of Directors in New York.</p>')
       )
-    div.docs-c-Togglable
-      input.docs-c-Togglable__Check#speaker-check(type="checkbox" value="speaker-md-true")
-      label(for="speaker-check") show microdata
+    +microdataCheckbox('speaker')
       pre.docs-pre.
         &lt;article class="#[u c-Speaker]"#[mark.docs-c-Togglable__Text  itemprop="performer" itemscope="" itemtype="http://schema.org/Person"]&gt;
           &lt;div class="#[u c-Speaker__Img]" #[u style="background-image: url('headshot.jpg');"]&gt;

@@ -69,6 +69,10 @@
       if (index >= 0) this.pages.splice(index, 1)
       return this
     }
+    Page.prototype.removeAllPages = function removeAllPages() {
+      this.pages = []
+      return this
+    }
 
     //- GETTER FUNCTIONS
     Page.prototype.getName = function getName() {

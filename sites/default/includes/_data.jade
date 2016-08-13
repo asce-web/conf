@@ -8,12 +8,10 @@
 
 
 -
-  var site = new ConfSite({
-    name     : 'An ASCE Event'
-  , tagline  : 'Optional Brand Tagline'
-  , keywords : ['ASCE', 'civil engineering', 'convention']
-  , logo     : 'img/site-logo-white.png'
-  })
+  var site = new ConfSite('An ASCE Event', 'img/site-logo-white.png')
+    .setDescription('Optional Brand Tagline')
+    .setKeywords(['ASCE', 'civil engineering', 'convention'])
+    .init()
 
   site
     .setConference('2016', new Conference({

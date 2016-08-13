@@ -3,17 +3,13 @@ html(lang="en")
   include /includes/_data.jade
   block varsSite
     -
-      var site = new ConfSite()
+      var site = new ConfSite().init()
         .setConference('current', new Conference())
         .setCurrentConference('current')
   block varsPage
     - var page = new ConfPage()
   block vars
-    -
-      var pagetype = (site.pages.top.find(function (item)  { return item === page })) ? 'top'  :
-                     (site.pages.main.find(function (item) { return item === page })) ? 'main' :
-                     (site.pages.main.find(function (mainpage) { return mainpage.sub.find(function (item) { return item === page }) })) ? 'main' :
-                     ''
+    - var pagetype = (site.getPage('#top-menu').findPage(page.getURL())) ? 'top' : (site.getPage('#main-menu').findPage(page.getURL())) ? 'main' : null
   head
     title= page.getTitle()
     block metas
@@ -31,7 +27,7 @@ html(lang="en")
       link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v5.0.0/xmeter.css")
       link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.8.0/bangs.min.css")
       link(rel="stylesheet" href="/styles/conf.css")
-      if site.name
+      if site.getName()
         //- if this site is an instance of the 'all' template
         link(rel="stylesheet" href="styles/site.css")
       style.
@@ -61,7 +57,7 @@ html(lang="en")
     header.o-Runner.c-Mast: div.o-Constrain: div.o-Flex.-xai-c
       div.o-Flex__Item(style="max-width:50%;")
         include /includes/components/_c-SiteTitle.jade
-        +siteTitle(site, 'index.html')
+        +siteTitle(site)
       div.o-Flex__Item(style="max-width:50%;")
         label.c-Toggle(title="toggle top menu")
           input.c-Toggle__Check(type="checkbox" value="open top menu")
@@ -106,7 +102,10 @@ html(lang="en")
     footer.o-Runner.c-Mast(class=(pagetype==='main') ? 'c-Mast--internal' : ''): nav.o-Constrain
       h1.-d-n#site-map Site Map
       include /includes/components/_c-Sitemap.jade
-      +sitemap(site.pages[pagetype])
+      +sitemap(({
+        top : site.getPage('#top-menu').getPagesAll()
+      , main: site.getPage('#main-menu').getPagesAll()
+      })[pagetype])
     footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-Constrain
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")

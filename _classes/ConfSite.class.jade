@@ -1,43 +1,19 @@
 -
+  //- var Page = require('./Page.class.js')
   var ConfSite = (function () {
     //- CONSTRUCTOR
-    function ConfSite($siteinfo) {
+    function ConfSite(name, logo) {
       var self = this
-      $siteinfo = $siteinfo || {} // NOTE constructor overloading
-      self.name     = $siteinfo.name
-      self.tagline  = $siteinfo.tagline
-      self.keywords = $siteinfo.keywords
-      self.logo     = $siteinfo.logo
-      self.pages = {
-        top: [
-          new ConfPage(self.name, 'index.html')
-            .setIcon('')
-            .setTitle(self.name)
-            .setDescription(self.tagline)
-        , new ConfPage('About', 'about.html')
-            .setIcon('info_outline')
-            .setTitle(function () { return this.getName() + ' | ' + self.name })
-            .setDescription('About ' + self.name + '.')
-        , new ConfPage('Sponsor', 'sponsor.html')
-            .setIcon('people')
-            .setTitle(function () { return this.getName() + ' | ' + self.name })
-            .setDescription('Sponsors of ' + self.name + '.')
-        , new ConfPage('Exhibit', 'exhibit.html')
-            .setIcon('work')
-            .setTitle(function () { return this.getName() + ' | ' + self.name })
-            .setDescription('Exhibitors at ' + self.name + '.')
-        , new ConfPage('Contact', 'contact.html')
-            .setIcon('email')
-            .setTitle(function () { return this.getName() + ' | ' + self.name })
-            .setDescription('Contact us for questions and comments about ' + self.name + '.')
-        ]
-      , main: []
-      }
+      Page.call(self, { name: name, url: '/' })
+      self.logo = logo
+      self.was_initialized = false
       self.conference         = {}
       self.conference.current = self.conference.prev = self.conference.next = new Conference()
       self.supporter_levels   = []
       self.supporters         = []
     }
+    ConfSite.prototype = Object.create(Page.prototype)
+    ConfSite.prototype.constructor = ConfSite
 
     //- SETTER FUNCTIONS
     ConfSite.prototype.setConference = function setConference(year, conference0) {
@@ -75,15 +51,8 @@
     }
 
     //- GETTER FUNCTIONS
-    ConfSite.prototype.getPage = function getPage(url) {
-      return this.pages.top.find(function (item) { return item.getURL() === url })
-        || this.pages.main.find(function (item) { return item.getURL() === url })
-        //- || this.pages.top.find(function (item) {
-        //-   return item.getSubpage(url)
-        //- }).getSubpage(url)
-        //- || this.pages.main.find(function (item) {
-        //-   return item.getSubpage(url)
-        //- }).getSubpage(url)
+    ConfSite.prototype.getLogo = function getLogo() {
+      return this.logo
     }
     ConfSite.prototype.getConference = function getConference(year) {
       return this.conference[year]
@@ -111,31 +80,68 @@
     }
 
     //- MORE PROTO FUNCTIONS
+    ConfSite.prototype.init = function init() {
+      var self = this
+      if (!self.was_initialized) {
+        self.was_initialized = true
+        return self
+          .addPage(new Page({ name: 'Top', url: '#top-menu' })
+            .addPage(new ConfPage(self.name, 'index.html')
+              .setIcon('')
+              .setTitle(self.getName())
+              .setDescription(self.getDescription())
+            )
+            .addPage(new ConfPage('About', 'about.html')
+              .setIcon('info_outline')
+              .setTitle(function () { return this.getName() + ' | ' + self.getName() })
+              .setDescription('About ' + self.getName() + '.')
+            )
+            .addPage(new ConfPage('Sponsor', 'sponsor.html')
+                .setIcon('people')
+                .setTitle(function () { return this.getName() + ' | ' + self.getName() })
+                .setDescription('Sponsors of ' + self.getName() + '.')
+            )
+            .addPage(new ConfPage('Exhibit', 'exhibit.html')
+                .setIcon('work')
+                .setTitle(function () { return this.getName() + ' | ' + self.getName() })
+                .setDescription('Exhibitors at ' + self.getName() + '.')
+            )
+            .addPage(new ConfPage('Contact', 'contact.html')
+              .setIcon('email')
+              .setTitle(function () { return this.getName() + ' | ' + self.getName() })
+              .setDescription('Contact us for questions and comments about ' + self.getName() + '.')
+            )
+          )
+          .addPage(new Page({ name: 'Main', url: '#main-menu' }))
+      } else return
+    }
     ConfSite.prototype.initializeMainPages = function initializeMainPages() {
       var self = this
-      self.pages.main = [
-        new ConfPage('Home', 'home.html')
-          .setIcon('home')
-          .setTitle(self.getCurrentConference().name)
-          .setDescription(self.getCurrentConference().theme)
-      , new ConfPage('Registration', 'registration.html')
-          .setIcon('shopping_cart')
-          .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
-          .setDescription('Register for ' + self.getCurrentConference().name + ' here.')
-      , new ConfPage('Program', 'program.html')
-          .setIcon('event')
-          .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
-          .setDescription('Program and agenda of ' + self.getCurrentConference().name + '.')
-      , new ConfPage('Hotel & Travel', 'location.html')
-          .setIcon('flight')
-          .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
-          .setDescription('Location and where to stay for ' + self.getCurrentConference().name + '.')
-      , new ConfPage('Speakers', 'speakers.html')
-          .setIcon('account_box')
-          .setTitle(function () { return this.name + ' | ' + self.getCurrentConference().name })
-          .setDescription('Current and prospective speakers at ' + self.getCurrentConference().name + '.')
-      ]
-      return this
+      if (self.was_initialized) {
+        self.getPage('#main-menu')
+          .removeAllPages() //- NOTE IMPORTANT
+          .addPage(new ConfPage('Home', 'home.html')
+            .setIcon('home')
+            .setTitle(self.getCurrentConference().name)
+            .setDescription(self.getCurrentConference().theme))
+          .addPage(new ConfPage('Registration', 'registration.html')
+            .setIcon('shopping_cart')
+            .setTitle(function () { return this.getName() + ' | ' + self.getCurrentConference().name })
+            .setDescription('Register for ' + self.getCurrentConference().name + ' here.'))
+          .addPage(new ConfPage('Program', 'program.html')
+            .setIcon('event')
+            .setTitle(function () { return this.getName() + ' | ' + self.getCurrentConference().name })
+            .setDescription('Program and agenda of ' + self.getCurrentConference().name + '.'))
+          .addPage(new ConfPage('Hotel & Travel', 'location.html')
+            .setIcon('flight')
+            .setTitle(function () { return this.getName() + ' | ' + self.getCurrentConference().name })
+            .setDescription('Location and where to stay for ' + self.getCurrentConference().name + '.'))
+          .addPage(new ConfPage('Speakers', 'speakers.html')
+            .setIcon('account_box')
+            .setTitle(function () { return this.getName() + ' | ' + self.getCurrentConference().name })
+            .setDescription('Current and prospective speakers at ' + self.getCurrentConference().name + '.'))
+        return self
+      } else return
     }
 
     //- STATIC MEMBERS

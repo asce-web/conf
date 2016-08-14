@@ -30,12 +30,12 @@ html(lang="en")
           nav#table-contents
             h2 Table of Contents
             block toc
-              +libtoc({pages: page.getPagesAll(), depth: Infinity})
+              +doctoc({pages: page.getPagesAll(), depth: Infinity})
     footer
       block subsitemap
         nav
           h1 Subsitemap
-          +libtoc({pages: ConfDocs.DOCS.getPagesAll()})
+          +doctoc({pages: ConfDocs.DOCS.getPagesAll()})
       nav
         h1 Sitemap
         ol

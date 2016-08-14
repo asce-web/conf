@@ -9,7 +9,7 @@
 include /_classes/Styleguide.class.jade
 include ../_classes/ConfDocs.class.jade
 
-mixin libtoc(args)
+mixin doctoc(args)
   //- NOTE parameter validation
   -
     var pages   = args.pages   || []
@@ -20,7 +20,7 @@ mixin libtoc(args)
       li(class=classes.itemclasses)
         a(class=classes.linkclasses href=item.getURL())= item.getName()
         if item.getPagesAll().length && depth > 0
-          +libtoc({pages: item.getPagesAll(), classes: (classes.sub || {}), depth: depth-1})
+          +doctoc({pages: item.getPagesAll(), classes: (classes.sub || {}), depth: depth-1})
 
 mixin microdataCheckbox(id)
   div.docs-c-Togglable

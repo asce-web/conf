@@ -1,7 +1,7 @@
-extends _lib.tpl.jade
+extends _docs.tpl.jade
 
 block append vars
-  - var page = confdocs
+  - var page = ConfDocs.DOCS
 
 block main
   header
@@ -16,10 +16,10 @@ block main
     placed in #[code &lt;figure&gt;] elements to separate them from the surrounding documentation.
   nav#table-contents
     h2 Table of Contents
-    each item in confdocs.getPagesAll().slice(1)
+    each item in ConfDocs.DOCS.getPagesAll().slice(1)
       section
         h3: a(href=item.getURL())= item.getName()
         p= item.getDescription()
-        +libtoc({pages: item.sub, depth: 0})
+        +doctoc({pages: item.getPagesAll(), depth: 0})
 
 block subsitemap

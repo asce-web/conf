@@ -75,7 +75,7 @@ html(lang="en")
           , site.getCurrentConference().name
           )
     if page.pagetype() === 'main'
-      header.o-Runner.c-Mast.c-Mast--internal: nav.o-Constrain
+      header.o-Runner.c-Mast.c-Mast--main: nav.o-Constrain
         h1.-d-n#main-menu Main Menu
         include /includes/components/_c-MenuMain.jade
         +menuMain(site.getPage('#main-menu').getPagesAll())
@@ -98,7 +98,7 @@ html(lang="en")
                 #[a(href="http://go.asce.org/static/sponsors/") sponsors carousel]
                 by rank)
               +highlightButtons([{text:'All Sponsors', href:'sponsor.html'}])
-    footer.o-Runner.c-Mast(class=(page.pagetype()==='main') ? 'c-Mast--internal' : ''): nav.o-Constrain
+    footer.o-Runner.c-Mast(class='c-Mast--'+page.pagetype()): nav.o-Constrain
       h1.-d-n#site-map Site Map
       include /includes/components/_c-Sitemap.jade
       +sitemap(({

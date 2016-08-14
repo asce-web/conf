@@ -1,6 +1,7 @@
 section#masthead-mastfoot
   h2 The Masthead and Mastfoot
   figure.docs-figure
+    figcaption: p generic mast
     header.c-Mast
       h1 mast heading
       p mast content
@@ -12,15 +13,17 @@ section#masthead-mastfoot
     pre.docs-pre.
       &lt;header class="#[u c-Mast]"&gt; ... &lt;/header&gt;
   figure.docs-figure
-    footer.c-Mast.c-Mast--internal
+    figcaption: p mast for main pages (conference and internal pages)
+    footer.c-Mast.c-Mast--main
       ul
         li: a(href="#0") mast link
         li: a(href="#0")._hover mast link hover
         li: a(href="#0")._active mast link active
         li: a mast link disabled
     pre.docs-pre.
-      &lt;footer class="#[u c-Mast]  #[u c-Mast--internal]"&gt; ... &lt;/footer&gt;
+      &lt;footer class="#[u c-Mast]  #[u c-Mast--main]"&gt; ... &lt;/footer&gt;
   figure.docs-figure
+    figcaption: p copyright line mast
     footer.c-Mast.c-Mast--copyright
       p &copy; 1996&ndash;2016 American Society of Civil Engineers
     pre.docs-pre.

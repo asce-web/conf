@@ -3,12 +3,12 @@ html(lang="en")
   include /includes/_data.jade
   block varsSite
     -
-      var site = new ConfSite().init()
-        .setConference('current', new Conference())
-        .setCurrentConference('current')
+      var site = new ConfSite()
+        .init()
+        .setConference('sample', new Conference())
+        .setCurrentConference('sample')
   block varsPage
     - var page = new ConfPage()
-  block vars
   head
     title= page.getTitle()
     block metas

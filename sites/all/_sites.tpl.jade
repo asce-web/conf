@@ -9,7 +9,6 @@ html(lang="en")
   block varsPage
     - var page = new ConfPage()
   block vars
-    - var pagetype = (site.getPage('#top-menu').findPage(page.getURL())) ? 'top' : (site.getPage('#main-menu').findPage(page.getURL())) ? 'main' : null
   head
     title= page.getTitle()
     block metas
@@ -75,14 +74,14 @@ html(lang="en")
           , site.getPage('#main-menu').getPagesAll().slice(0,1)
           , site.getCurrentConference().name
           )
-    if pagetype === 'main'
+    if page.pagetype() === 'main'
       header.o-Runner.c-Mast.c-Mast--internal: nav.o-Constrain
         h1.-d-n#main-menu Main Menu
         include /includes/components/_c-MenuMain.jade
         +menuMain(site.getPage('#main-menu').getPagesAll())
     main
       block main
-        article&attributes((pagetype === 'main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
+        article&attributes((page.pagetype()==='main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
           block mainHeader
             header.o-Runner.o-Runner--pageHeader: div.o-Constrain
               h1.c-PageTitle= page.getName()
@@ -99,13 +98,13 @@ html(lang="en")
                 #[a(href="http://go.asce.org/static/sponsors/") sponsors carousel]
                 by rank)
               +highlightButtons([{text:'All Sponsors', href:'sponsor.html'}])
-    footer.o-Runner.c-Mast(class=(pagetype==='main') ? 'c-Mast--internal' : ''): nav.o-Constrain
+    footer.o-Runner.c-Mast(class=(page.pagetype()==='main') ? 'c-Mast--internal' : ''): nav.o-Constrain
       h1.-d-n#site-map Site Map
       include /includes/components/_c-Sitemap.jade
       +sitemap(({
         top : site.getPage('#top-menu').getPagesAll()
       , main: site.getPage('#main-menu').getPagesAll()
-      })[pagetype])
+      })[page.pagetype()])
     footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-Constrain
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")

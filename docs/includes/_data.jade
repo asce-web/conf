@@ -64,9 +64,7 @@ mixin libtoc(args)
   ol(class=classes.listclasses)
     each item in pages
       li(class=classes.itemclasses)
-        a(class=classes.linkclasses
-          href=item.getURL()
-        )= item.getName()
+        a(class=classes.linkclasses href=item.getURL())= item.getName()
         if item.getPagesAll().length && depth > 0
           +libtoc({pages: item.getPagesAll(), classes: (classes.sub || {}), depth: depth-1})
 

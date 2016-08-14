@@ -3,11 +3,11 @@
 
   var ConfSite = (function () {
     //- CONSTRUCTOR
-    function ConfSite(name, logo) {
+    function ConfSite(name, url) {
       var self = this
-      Page.call(self, { name: name, url: '/' })
-      self.logo = logo
+      Page.call(self, { name: name, url: url })
       self.was_initialized = false
+      self.logo               = ''
       self.conference         = {}
       self.conference.current = self.conference.prev = self.conference.next = new Conference()
       self.supporter_levels   = []
@@ -17,6 +17,10 @@
     ConfSite.prototype.constructor = ConfSite
 
     //- SETTER FUNCTIONS
+    ConfSite.prototype.setLogo = function setLogo(logo) {
+      this.logo = logo
+      return this
+    }
     ConfSite.prototype.setConference = function setConference(year, conference0) {
       this.conference[year] = conference0
       return this

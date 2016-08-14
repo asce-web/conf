@@ -2,11 +2,9 @@ doctype html
 html(lang="en")
   include /includes/_data.jade
   include includes/_data.jade
+  block vars
   head
-    block vars
-      -
-        var page = confdocs
-    title= page.getTitle() || (page.getName() + ' | ' + confdocs.getName())
+    title= page.getTitle() || (page.getName() + ' | ' + ConfDocs.DOCS.getName())
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     block styles
@@ -23,11 +21,11 @@ html(lang="en")
     main.docs-main
       block main
         header
-          //- h1= page.getTitle() || (confdocs.getName() + ' — ' + page.getName())
+          //- h1= page.getTitle() || (ConfDocs.DOCS.getName() + ' — ' + page.getName())
           if page.getTitle()
             h1= page.getTitle()
           else
-            h1 #[a(href=confdocs.getURL())= confdocs.getName()] &mdash; #{page.getName()}
+            h1 #[a(href=ConfDocs.DOCS.getURL())= ConfDocs.DOCS.getName()] &mdash; #{page.getName()}
           p= page.getDescription()
           nav#table-contents
             h2 Table of Contents
@@ -37,7 +35,7 @@ html(lang="en")
       block subsitemap
         nav
           h1 Subsitemap
-          +libtoc({pages: confdocs.getPagesAll()})
+          +libtoc({pages: ConfDocs.DOCS.getPagesAll()})
       nav
         h1 Sitemap
         ol

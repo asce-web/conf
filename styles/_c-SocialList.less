@@ -3,6 +3,7 @@
     conf  |  _c-SocialList.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__fallback.transition.less');
 @import (reference) url('__settings.less');
 @import (reference) url('__tool.logo.less');
 
@@ -36,13 +37,20 @@
   &._active {
     background-color: @g-color_site_secondary;
   }
-  footer & {
-    @width: (100vw/15);
-    width:  @width;
-    height: @width;
-    background-color: @g-color_asce_white;
-  }
 }
+footer .c-SocialList__Link {
+  @width: (100vw/15);
+  width:  @width;
+  height: @width;
+  background-color: @g-color_asce_white;
+}
+
+.c-SocialList__Link--svg {
+  border-radius: 100%;
+  background-size: 60% 60%;
+  .transition-duration(250ms); // override that in base `a`
+}
+
 
 // these subclasses will use negative images
 // (white icons inside transparent circles)

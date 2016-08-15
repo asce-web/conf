@@ -4,6 +4,7 @@
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__fallback.flexbox.less');
 @import (reference) url('__settings.less');
+@import (reference) url('__tool.logo.less');
 
 
 // List of social media icons
@@ -27,9 +28,7 @@
   @width: (100vw/10);
   width:  @width;
   height: @width;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  .logo();
   background-color: @g-color_site_gray_dk;
   &:hover,
   &:active,

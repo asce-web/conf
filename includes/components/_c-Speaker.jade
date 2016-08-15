@@ -9,13 +9,23 @@ mixin speaker(person)
       footer
         ul.o-List
           if person.getEmail()
-            li.o-List__Item: a.c-Speaker__Link(href='mailto:'+person.getEmail() title="send email" itemprop="email")= person.getEmail()
+            li.o-List__Item
+              a.c-Speaker__Link(href='mailto:'+person.getEmail()
+                title="send email"
+                itemprop="email")= person.getEmail()
           if person.getTel()
-            li.o-List__Item: a.c-Speaker__Link(href='tel:'+Util.toURL(person.getTel()) title="call" itemprop="telephone")= person.getTel()
+            li.o-List__Item
+              a.c-Speaker__Link(href='tel:'+Util.toURL(person.getTel())
+                title="call"
+                itemprop="telephone")= person.getTel()
         ul.o-List
           if person.getURL()
-            li.o-List__Item.h-Inline: a.c-Speaker__Link(href=person.getURL() title="homepage" itemprop="url") Homepage
+            li.o-List__Item.h-Inline
+              a.c-Speaker__Link(href=person.getURL()
+                title="homepage"
+                itemprop="url") Homepage
           each val,key in person.getSocial()
             li.o-List__Item.h-Inline
-              a.c-Speaker__Link(href=val.url title=(val.text || Util.SOCIAL_DATA[key].name) itemprop="sameAs")
-                = Util.SOCIAL_DATA[key].name
+              a.c-Speaker__Link(href=val.url
+              title=(val.text || Util.SOCIAL_DATA[key].name)
+              itemprop="sameAs")= Util.SOCIAL_DATA[key].name

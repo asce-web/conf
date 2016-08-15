@@ -1,10 +1,10 @@
 extends _sites.tpl.jade
 
 block append varsPage
-  - var page = site.getPage('program.html')
+  - var page = site.findPage('program.html')
 
 block mainReference
-  section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
+  section.o-Runner.o-Runner--highlight.c-Banner: div.o-Constrain
     h1.-d-n#full-program Full Program
     - var groupings = site.getCurrentConference().groupProgramEvents()
     include /includes/components/_c-Program.jade

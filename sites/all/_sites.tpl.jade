@@ -3,18 +3,12 @@ html(lang="en")
   include /includes/_data.jade
   block varsSite
     -
-      var site = new Site()
-        .setConference('current', new Conference())
-        .setCurrentConference('current')
+      var site = new ConfSite()
+        .init()
+        .setConference('sample', new Conference())
+        .setCurrentConference('sample')
   block varsPage
-    -
-      var page = new Page()
-  block vars
-    -
-      var pagetype = (site.pages.top.find(function (item)  { return item === page })) ? 'top'  :
-                     (site.pages.main.find(function (item) { return item === page })) ? 'main' :
-                     (site.pages.main.find(function (mainpage) { return mainpage.sub.find(function (item) { return item === page }) })) ? 'main' :
-                     ''
+    - var page = new ConfPage()
   head
     title= page.getTitle()
     block metas
@@ -32,7 +26,7 @@ html(lang="en")
       link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v5.0.0/xmeter.css")
       link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.8.0/bangs.min.css")
       link(rel="stylesheet" href="/styles/conf.css")
-      if site.name
+      if site.getName()
         //- if this site is an instance of the 'all' template
         link(rel="stylesheet" href="styles/site.css")
       style.
@@ -59,12 +53,12 @@ html(lang="en")
           color: red;
         }
   body
-    header.o-Runner.c-Mast: div.o-ContentWrapper: div.o-Flex.-xai-c
+    header.o-Runner.c-Mast: div.o-Constrain: div.o-Flex.-xai-c
       div.o-Flex__Item(style="max-width:50%;")
         include /includes/components/_c-SiteTitle.jade
-        +siteTitle(site, 'index.html')
+        +siteTitle(site)
       div.o-Flex__Item(style="max-width:50%;")
-        label.c-Toggle
+        label.c-Toggle(title="toggle top menu")
           input.c-Toggle__Check(type="checkbox" value="open top menu")
           span.-d-n toggle top menu
           svg.c-Toggle__Viz(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
@@ -75,19 +69,22 @@ html(lang="en")
           noscript: p Oops! Looks like you need to enable Javascript for the top menu.
         nav.o-Drawer
           h1.-d-n#top-menu Top Menu
-          include /includes/components/_c-MenuUniversal.jade
-          +menuUniversal(site.pages.top.slice(1), site.pages.main.slice(0,1), site.getCurrentConference().name)
-    if pagetype === 'main'
-      header.o-Runner.c-Mast.c-Mast--internal: nav.o-ContentWrapper
+          include /includes/components/_c-MenuTop.jade
+          +menuTop(site.getPage('#top-menu').getPagesAll().slice(1)
+          , site.getPage('#main-menu').getPagesAll().slice(0,1)
+          , site.getCurrentConference().name
+          )
+    if page.pagetype() === 'main'
+      header.o-Runner.c-Mast.c-Mast--main: nav.o-Constrain
         h1.-d-n#main-menu Main Menu
-        include /includes/components/_c-MenuStandard.jade
-        +menuStandard(site.pages.main)
+        include /includes/components/_c-MenuMain.jade
+        +menuMain(site.getPage('#main-menu').getPagesAll())
     main
       block main
-        article&attributes((pagetype === 'main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
+        article&attributes((page.pagetype()==='main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
           block mainHeader
-            header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
-              h1.c-PageTitle= page.name
+            header.o-Runner.o-Runner--pageHeader: div.o-Constrain
+              h1.c-PageTitle= page.getName()
           block mainBody
             block mainMinimal
             block mainReference
@@ -96,14 +93,19 @@ html(lang="en")
           block sponsors
             +highlight()
               h1#sponsors Sponsors
-              include /includes/components/_c-SponsorCarousel.jade
-              +sponsorCarousel(site.getSupportersAll())
+              p.-ta-c: i.
+                (see external demo of
+                #[a(href="http://go.asce.org/static/sponsors/") sponsors carousel]
+                by rank)
               +highlightButtons([{text:'All Sponsors', href:'sponsor.html'}])
-    footer.o-Runner.c-Mast(class=(pagetype==='main') ? 'c-Mast--internal' : ''): nav.o-ContentWrapper
+    footer.o-Runner.c-Mast(class='c-Mast--'+page.pagetype()): nav.o-Constrain
       h1.-d-n#site-map Site Map
       include /includes/components/_c-Sitemap.jade
-      +sitemap(site.pages[pagetype])
-    footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-ContentWrapper
+      +sitemap(({
+        top : site.getPage('#top-menu').getPagesAll()
+      , main: site.getPage('#main-menu').getPagesAll()
+      })[page.pagetype()])
+    footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-Constrain
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
         p
@@ -140,7 +142,6 @@ html(lang="en")
     block scripts
       script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
       script(src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
-      script(src="/scripts/c-SponsorCarousel.js")
       script(src="/scripts/c-Program.js")
       script.
         $('.c-Toggle__Check').change(function () {

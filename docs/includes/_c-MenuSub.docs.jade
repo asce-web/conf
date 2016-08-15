@@ -1,0 +1,23 @@
+section#sub-menu
+  h2 The Sub Menu
+  figure.docs-figure
+    div(style="height: 100px;")
+      include /includes/components/_c-MenuSub.jade
+      +menuSub([
+        new ConfPage('Why Attend'     ,'#0')
+      , new ConfPage('Short Courses'  ,'#0')
+      , new ConfPage('Technical Tours','#0')
+      ])
+    div(style="height: 100px;"): ul.o-List.c-MenuSub
+      li.o-List__Item.c-MenuSub__Item: a.c-MenuSub__Link.h-Block(href="#0")._hover menu item hover
+      li.o-List__Item.c-MenuSub__Item: a.c-MenuSub__Link.h-Block(href="#0")._active menu item active
+      li.o-List__Item.c-MenuSub__Item: a.c-MenuSub__Link.h-Block menu item disabled
+    pre.docs-pre.
+      &lt;ul class="o-List  #[u c-MenuSub]"&gt;
+        &lt;li class="o-List__Item  #[u c-MenuSub__Item]"&gt;
+          &lt;a class="#[u c-MenuSub__Link]  h-Block"&gt;
+            &lt;span&gt;Why Attend&lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/li&gt;
+        ...
+      &lt;/ul&gt;

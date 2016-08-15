@@ -8,12 +8,11 @@
 
 
 -
-  var site = new Site({
-    name     : 'An ASCE Event'
-  , tagline  : 'Optional Brand Tagline'
-  , keywords : ['ASCE', 'civil engineering', 'convention']
-  , logo     : 'img/site-logo-white.png'
-  })
+  var site = new ConfSite('An ASCE Event', '/sites/default/')
+    .setDescription('Optional Brand Tagline')
+    .setKeywords(['ASCE', 'civil engineering', 'convention'])
+    .setLogo('img/site-logo-white.png')
+    .init()
 
   site
     .setConference('2016', new Conference({
@@ -484,15 +483,15 @@
   }
 
   //- site
-  //-   .addSubpage('about.html'       , new Page({name:'Cooperating Orgs'            , url:''}))
-  //-   .addSubpage('about.html'       , new Page({name:'Partnering Orgs '            , url:''}))
-  //-   .addSubpage('about.html'       , new Page({name:'Volunteer'                   , url:''}))
-  //-   .addSubpage('about.html'       , new Page({name:'Why Attend'                  , url:''}))
-  //-   .addSubpage('registration.html', new Page({name:'Why Attend'                  , url:''}))
-  //-   .addSubpage('registration.html', new Page({name:'Short Courses'               , url:''}))
-  //-   .addSubpage('registration.html', new Page({name:'Technical Tours'             , url:''}))
-  //-   .addSubpage('registration.html', new Page({name:'Optional Tours'              , url:''}))
-  //-   .addSubpage('program.html'     , new Page({name:'Events'                      , url:''}))
-  //-   .addSubpage('location.html'    , new Page({name:'International Travel'        , url:''}))
-  //-   .addSubpage('speakers.html'    , new Page({name:'Distinguished Lecture Series', url:''}))
-  //-   .addSubpage('speakers.html'    , new Page({name:'Exhibitor List'              , url:''}))
+  //-   .addSubpage('about.html'       , new ConfPage({name:'Cooperating Orgs'            , url:''}))
+  //-   .addSubpage('about.html'       , new ConfPage({name:'Partnering Orgs '            , url:''}))
+  //-   .addSubpage('about.html'       , new ConfPage({name:'Volunteer'                   , url:''}))
+  //-   .addSubpage('about.html'       , new ConfPage({name:'Why Attend'                  , url:''}))
+  //-   .addSubpage('registration.html', new ConfPage({name:'Why Attend'                  , url:''}))
+  //-   .addSubpage('registration.html', new ConfPage({name:'Short Courses'               , url:''}))
+  //-   .addSubpage('registration.html', new ConfPage({name:'Technical Tours'             , url:''}))
+  //-   .addSubpage('registration.html', new ConfPage({name:'Optional Tours'              , url:''}))
+  //-   .addSubpage('program.html'     , new ConfPage({name:'Events'                      , url:''}))
+  //-   .addSubpage('location.html'    , new ConfPage({name:'International Travel'        , url:''}))
+  //-   .addSubpage('speakers.html'    , new ConfPage({name:'Distinguished Lecture Series', url:''}))
+  //-   .addSubpage('speakers.html'    , new ConfPage({name:'Exhibitor List'              , url:''}))

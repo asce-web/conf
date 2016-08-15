@@ -1,0 +1,16 @@
+mixin menuTop(array1, array2, current_text)
+  ul.o-List.o-Flex.c-MenuTop
+    mixin menuItem(page, is_current, text)
+      li.o-List__Item.o-Flex__Item.c-MenuTop__Item
+        +linkWithIcon({
+          classes : 'c-MenuTop__Link h-Block' + ((is_current) ? ' c-MenuTop__Link--current' : '')
+        , url     : page.getURL()
+        , text    : text
+        }, {
+          is_on : page.getIcon()
+        , text  : page.getIcon()
+        })
+    each page in array1
+      +menuItem(page, false, page.getName())
+    each page in array2
+      +menuItem(page, true, current_text)

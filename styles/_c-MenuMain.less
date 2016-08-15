@@ -1,0 +1,53 @@
+
+/*################################*\
+    conf  |  _c-MenuMain.less
+\*################################*/
+@import (reference) url('../node_modules/xmeter/src/__fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__fallback.transform.less');
+@import (reference) url('../node_modules/xmeter/src/__fallback.transform-origin.less');
+@import (reference) url('../node_modules/xmeter/src/__fallback.transition.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.fontsize.less');
+@import (reference) url('__settings.less');
+@import (reference) url('__tool.menubar.less');
+
+
+// Main-level navigation for current year site.
+//
+// ^subcomponents
+// __Item - each item in the list
+// __Link - each link inside an __Item in the menu
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-08-12
+.c-MenuMain {
+  .flex-justify-content(flex-start); // override .o-Flex `space-between`
+  .menubar();
+  @media screen and (max-width: (@g-bp_menu_main_normaltext - 1)) {
+    .flex-justify-content(space-around);
+    text-align: center;
+  }
+}
+
+.c-MenuMain__Item {
+  @trans_dura: 250ms;
+  .flex(0 0 auto);
+  .transition(background-color @trans_dura);
+  &:hover,
+  &._hover,
+  .c-MenuSub {
+    background-color: @g-color_site_gray_lt;
+  }
+  .c-MenuSub {
+    .transform-origin(left top);
+    .transitions(@g-prefix_transform, opacity; @trans_dura);
+  }
+  &:not(:hover) .c-MenuSub {
+    .transform(scale(0));
+    opacity: 0;
+  }
+}
+
+.c-MenuMain__Link {
+  padding: @g-boxpadd_mill;
+}

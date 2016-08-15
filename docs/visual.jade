@@ -1,0 +1,50 @@
+extends _docs.tpl.jade
+
+block append vars
+  - var page = ConfDocs.DOCS.getPage('visual.html')
+
+block append main
+  -
+    var scheme = {
+      asce: {
+        black : { code: '#222222', bg_class: '-bc-asce_black', name: 'ASCE Black' }
+      , white : { code: '#ffffff', bg_class: '-bc-asce_white', name: 'ASCE White' }
+      , blue  : { code: '#0c5fa8', bg_class: '-bc-asce_blue' , name: 'ASCE Blue' }
+      }
+    , asce2016: {
+        primary   : { code: '#3fae2a', bg_class: '-bc-site_primary'  , name: 'ASCE 2016 Primary' }
+      , secondary : { code: '#00a1e1', bg_class: '-bc-site_secondary', name: 'ASCE 2016 Secondary' }
+      , gray_dk   : { code: '#373c36', bg_class: '-bc-site_gray_dk'  , name: 'ASCE 2016 Dark Gray' }
+      , gray_lt   : { code: '#9fa5a8', bg_class: '-bc-site_gray_lt'  , name: 'ASCE 2016 Light Gray' }
+      }
+    }
+  mixin colorsamples(colors)
+    - var boxwidth = '96px'
+    ul.o-List.o-Flex.docs-o-ColorList
+      each color in colors
+        li.o-List__Item.o-Flex__Item.docs-o-ColorList__Item
+          div.docs-c-ColorBox(class=color.bg_class style={ width:boxwidth, height:boxwidth })
+            p
+              each foreground,index in [scheme.asce.black.code, scheme.asce.white.code]
+                code(style={color:foreground})= color.code
+                unless index == 1
+                  br
+          p(style="font-size: 0.8rem; line-height:1.875;")
+            span.h-Block= color.name
+  section#asce
+    h2 ASCE
+    h3 Colors
+    +colorsamples([
+      scheme.asce.black
+    , scheme.asce.white
+    , scheme.asce.blue
+    ])
+  section#asce2016
+    h2 ASCE 2016
+    h3 Colors
+    +colorsamples([
+      scheme.asce2016.primary
+    , scheme.asce2016.secondary
+    , scheme.asce2016.gray_dk
+    , scheme.asce2016.gray_lt
+    ])

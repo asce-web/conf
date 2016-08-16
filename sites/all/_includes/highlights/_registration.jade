@@ -1,0 +1,4 @@
+mixin highlight_registration(arr)
+  h1#registration Registration
+  +passList(arr.map(function (item) { return site.getCurrentConference().getPass(item) }), site.getCurrentConference())
+  +highlightButtons([{text:'Registration Details', href:'registration.html'}])

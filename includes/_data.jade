@@ -73,12 +73,13 @@ mixin highlight(classes)
     div.o-Constrain
       block
 
-mixin passList(passes, current_conference)
+mixin passList(conference, show_all)
   ul.o-List.o-ListStacked
     include /_views/c-Pass.view.jade
-    each pass0 in passes
-      li.o-List__Item.o-ListStacked__Item
-        +pass(pass0, current_conference)
+    each pass in conference.getPassesAll()
+      if show_all || pass.isStarred()
+        li.o-List__Item.o-ListStacked__Item
+          +pass(pass, conference)
 
 mixin speakerList(speakers)
   ul.o-List.o-ListStacked

@@ -11,7 +11,7 @@ block mainHeader
 block mainReference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-Constrain
     h1.-d-n#full-registration Full Registration
-    +passList(site.getCurrentConference().getPassesAll(), site.getCurrentConference())
+    +passList(site.getCurrentConference(), true)
     ul.o-List.o-ListAction.c-Callout._regLegend
       each item,index in site.getCurrentConference().getRegistrationPeriodsAll()
         li.o-List__Item.o-ListAction__Item.c-Callout__Item

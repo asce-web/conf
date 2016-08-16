@@ -15,16 +15,14 @@ section#speaker-component
         .setAffiliation('German Chamber of Architects')
         .setImg('/img/Blue-Geometric-Background-3.jpg')
         .setEmail('example@asce.org')
-        .setTel('+1 703-555-5555')
+        .setTel('+1(703)555-5555')
         .setURL('#0')
         .setSocial({
           linkedin: { url: 'https://www.linkedin.com/groups/143956/profile' }
         , twitter : { url: 'https://twitter.com/ASCETweets', text: '@ASCETweets' }
         })
-        .setBio('<p>Donna Fulman is an award-winning, German designer raised in Austria\
-          and currently living in New York City.</p>\
-          <p>Former Lead Product Designer and Art Director at Spotify, she recently founded\
-          Semplice and at the same time serves on the AIGA Board of Directors in New York.</p>')
+        .setBio('<p>Speaker bio goes here. <b>HTML</b> is allowed.\
+          Block- and text-level elements.</p>')
       )
     +microdataCheckbox('speaker')
       pre.docs-pre.
@@ -40,17 +38,19 @@ section#speaker-component
                 #{', '}
                 #[mark.docs-c-Togglable__Text &lt;span itemprop="honorificSuffix"&gt;]P.ASCE#[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
               &lt;/h1&gt;
-              &lt;p class="#[u c-Speaker__JobTitle]"#[mark.docs-c-Togglable__Text  itemprop="jobTitle"]&gt;Interior Engineering Administration&lt;/p&gt;
+              &lt;p class="#[u c-Speaker__JobTitle]"#[mark.docs-c-Togglable__Text  itemprop="jobTitle"]&gt;Administrator of Interior Engineering&lt;/p&gt;
+              &lt;p class="#[u c-Speaker__Affiliation]"#[mark.docs-c-Togglable__Text  itemprop="affiliation" itemscope="" itemtype="http://schema.org/Organization"]&gt;
+                #[mark.docs-c-Togglable__Text &lt;span itemprop="name"&gt;]German Chamber of Architects#[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
+              &lt;/p&gt;
             &lt;/header&gt;
           &lt;/div&gt;
           &lt;div class="#[u c-Speaker__Body]"&gt;
             &lt;div class="#[u c-Speaker__Bio]"#[mark.docs-c-Togglable__Text  itemprop="description"]&gt;
-              &lt;p&gt;Donna Fulman is ...&lt;/p&gt;
-              &lt;p&gt;Former Lead Product Designer ...&lt;/p&gt;
+              &lt;p&gt;Speaker bio ...&lt;/p&gt;
             &lt;/div&gt;
             &lt;ul class="o-List"&gt;
               &lt;li class="o-List__Item"&gt;&lt;a class="#[u c-Speaker__Link]"#[mark.docs-c-Togglable__Text  itemprop="email"]&gt;example@asce.org&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="o-List__Item"&gt;&lt;a class="#[u c-Speaker__Link]"#[mark.docs-c-Togglable__Text  itemprop="telephone"]&gt;+1 703-555-5555&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="o-List__Item"&gt;&lt;a class="#[u c-Speaker__Link]"#[mark.docs-c-Togglable__Text  itemprop="telephone"]&gt;+1(703)555-5555&lt;/a&gt;&lt;/li&gt;
               &lt;li class="o-List__Item"&gt;&lt;a class="#[u c-Speaker__Link]"#[mark.docs-c-Togglable__Text  itemprop="url"]&gt;Homepage&lt;/a&gt;&lt;/li&gt;
             &lt;/ul&gt;
             &lt;ul class="o-List"&gt;

@@ -8,6 +8,7 @@
       self.description  = ''
       self.fineprint    = ''
       self.attend_types = []
+      self.is_starred = false
     }
 
     //- SETTER FUNCTIONS
@@ -27,6 +28,11 @@
       Util.spliceFromArray(this.attend_types, this.getAttendeeType(attend_type_name))
       return this
     }
+    Pass.prototype.star = function star(bool) {
+      //- NOTE method overloading //- param defaults to true
+      this.is_starred = (bool === undefined) ? true : bool
+      return this
+    }
 
     //- GETTER FUNCTIONS
     Pass.prototype.getDescription = function getDescription() {
@@ -40,6 +46,9 @@
     }
     Pass.prototype.getAttendeeTypesAll = function getAttendeeTypesAll() {
       return this.attend_types.slice()
+    }
+    Pass.prototype.isStarred = function isStarred() {
+      return this.is_starred
     }
 
     //- STATIC MEMBERS

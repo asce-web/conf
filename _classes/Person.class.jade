@@ -12,18 +12,23 @@
       , familyName      : $personinfo.name.familyName
       , honorificSuffix : $personinfo.name.honorificSuffix
       }
-      self.jobTitle  = ''
-      self.img       = ''
-      self.email     = ''
-      self.telephone = ''
-      self.url       = ''
-      self.social    = null
-      self.bio       = ''
+      self.jobTitle    = ''
+      self.affiliation = ''
+      self.img         = ''
+      self.email       = ''
+      self.telephone   = ''
+      self.url         = ''
+      self.social      = null
+      self.bio         = ''
     }
 
     //- SETTER FUNCTIONS
     Person.prototype.setJobTitle = function setJobTitle(text) {
       this.jobTitle = text
+      return this
+    }
+    Person.prototype.setAffiliation = function setAffiliation(text) {
+      this.affiliation = text
       return this
     }
     Person.prototype.setImg = function setImg(arg) {
@@ -54,6 +59,8 @@
         linkedin: $links.linkedin
       , twitter : $links.twitter
       } : null
+      //- FIXME the case that (!!$links === false)
+      this.social.twitter.url = $links.twitter.url || Util.SOCIAL_DATA.twitter.toURL($links.twitter.text)
       return this
     }
     Person.prototype.setBio = function setBio(html) {
@@ -64,6 +71,9 @@
     //- GETTER FUNCTIONS
     Person.prototype.getJobTitle = function getJobTitle(text) {
       return this.jobTitle
+    }
+    Person.prototype.getAffiliation = function getAffiliation(text) {
+      return this.affiliation
     }
     Person.prototype.getImg = function getImg() {
       return this.img

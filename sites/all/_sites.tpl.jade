@@ -52,10 +52,11 @@ html(lang="en")
           text-transform: uppercase;
           color: red;
         }
+        .-h-z { height: 0 !important; }
   body
     header.o-Runner.c-Mast: div.o-Constrain: div.o-Flex.-xai-c
       div.o-Flex__Item(style="max-width:50%;")
-        include /includes/components/_c-SiteTitle.jade
+        include /_views/c-SiteTitle.view.jade
         +siteTitle(site)
       div.o-Flex__Item(style="max-width:50%;")
         label.c-Toggle(title="toggle top menu")
@@ -69,7 +70,7 @@ html(lang="en")
           noscript: p Oops! Looks like you need to enable Javascript for the top menu.
         nav.o-Drawer
           h1.-d-n#top-menu Top Menu
-          include /includes/components/_c-MenuTop.jade
+          include /_views/c-MenuTop.view.jade
           +menuTop(site.getPage('#top-menu').getPagesAll().slice(1)
           , site.getPage('#main-menu').getPagesAll().slice(0,1)
           , site.getCurrentConference().name
@@ -77,7 +78,7 @@ html(lang="en")
     if page.pagetype() === 'main'
       header.o-Runner.c-Mast.c-Mast--main: nav.o-Constrain
         h1.-d-n#main-menu Main Menu
-        include /includes/components/_c-MenuMain.jade
+        include /_views/c-MenuMain.view.jade
         +menuMain(site.getPage('#main-menu').getPagesAll())
     main
       block main
@@ -100,7 +101,7 @@ html(lang="en")
               +highlightButtons([{text:'All Sponsors', href:'sponsor.html'}])
     footer.o-Runner.c-Mast(class='c-Mast--'+page.pagetype()): nav.o-Constrain
       h1.-d-n#site-map Site Map
-      include /includes/components/_c-Sitemap.jade
+      include /_views/c-Sitemap.view.jade
       +sitemap(({
         top : site.getPage('#top-menu').getPagesAll()
       , main: site.getPage('#main-menu').getPagesAll()

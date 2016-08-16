@@ -1,9 +1,11 @@
 mixin speaker(person)
   article.c-Speaker(itemprop="performer" itemscope="" itemtype="http://schema.org/Person")
-    div.c-Speaker__Img(style='background-image:url(\'' + (person.img || '') + '\');')
+    div.c-Speaker__Img(style='background-image:url(\'' + (person.getImg() || '') + '\');')
       header.c-Speaker__Head
         h1.c-Speaker__Name: +personEntireName(person)
         p.c-Speaker__JobTitle(itemprop="jobTitle")= person.getJobTitle()
+        p.c-Speaker__Affiliation(itemprop="affiliation" itemscope="" itemtype="http://schema.org/Organization")
+          span(itemprop="name")= person.getAffiliation()
     div.c-Speaker__Body
       div.c-Speaker__Bio(itemprop="description")!= person.getBio(true)
       footer

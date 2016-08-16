@@ -10,17 +10,15 @@ block additionalInfo
   div.c-Overlay
     h1 Additional Events and Pricing
     ul.o-List.o-ListAction
-      -
-        var choices = [
-          { text: 'Short Courses'  , href: '#0' }
-        , { text: 'Technical Tours', href: '#0' }
-        , { text: 'Optional Tours' , href: '#0' }
-        ]
-      each item in choices
-        li.o-List__Item.o-ListAction__Item
-          a(href=item.href)
-            span= item.text
-            i.material-icons arrow_forward
+      li.o-List__Item.o-ListAction__Item: a(href="#0")
+        span Short Courses
+        i.material-icons arrow_forward
+      li.o-List__Item.o-ListAction__Item: a(href="#0")
+        span Technical Tours
+        i.material-icons arrow_forward
+      li.o-List__Item.o-ListAction__Item: a(href="#0")
+        span Optional Tours
+        i.material-icons arrow_forward
 
 block mainRich
   div.o-Runner.o-Runner--highlight.rich-text: div.o-Constrain
@@ -70,4 +68,4 @@ block mainRich
 
 block callouts
   +highlight('c-Banner')
-    include includes/highlights/_volunteer.jade
+    include /sites/default/_includes/highlights/_volunteer.jade

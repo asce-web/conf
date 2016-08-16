@@ -2,7 +2,7 @@ section#program-component
   h2 The Program Component
   p Enable Javascript to experience visual effects.
   figure.docs-figure
-    include /includes/components/_c-Program.jade
+    include /_views/c-Program.view.jade
     +program(3, {id:'demoprog'})
     pre.docs-pre.
       &lt;section class="o-Grid  #[u c-Program]" id="demoprog"&gt;
@@ -25,7 +25,7 @@ section#program-component
     Elements with class #[code.docs-code .js-*] are required for Javascript.
   figure.sg-c-Fig
     h1.c-Program__Hn: label
-      include /includes/components/_c-Program.jade
+      include /_views/c-Program.view.jade
       +programHeading('2016-09-28')
     pre.docs-pre.
       &lt;h1 class="#[u c-Program__Hn]"&gt;

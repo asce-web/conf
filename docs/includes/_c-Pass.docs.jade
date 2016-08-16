@@ -3,7 +3,7 @@ section#pass-component
   p The Pass Component should be an #[code.docs-code article] element.
   figure.docs-figure
     div(style="margin-bottom: 1.5rem;")
-      include /includes/components/_c-Pass.jade
+      include /_views/c-Pass.view.jade
       +pass(new Pass({ name: 'Speaker Pass' })
         .setDescription('Speakers and Presenters')
         .addAttendeeType(new Pass.AttendeeType('Member', true))

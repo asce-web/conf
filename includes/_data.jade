@@ -75,14 +75,14 @@ mixin highlight(classes)
 
 mixin passList(passes, current_conference)
   ul.o-List.o-ListStacked
-    include /includes/components/_c-Pass.jade
+    include /_views/c-Pass.view.jade
     each pass0 in passes
       li.o-List__Item.o-ListStacked__Item
         +pass(pass0, current_conference)
 
 mixin speakerList(speakers)
   ul.o-List.o-ListStacked
-    include /includes/components/_c-Speaker.jade
+    include /_views/c-Speaker.view.jade
     each person in speakers
       li.o-List__Item.o-ListStacked__Item
         +speaker(person)

@@ -13,8 +13,9 @@
       this.url = url0
       return this
     }
-    ProgramEvent.prototype.setStar = function setStar(bool) {
-      this.is_starred = bool
+    ProgramEvent.prototype.star = function star(bool) {
+      //- NOTE method overloading //- param defaults to true
+      this.is_starred = (bool === undefined) ? true : bool
       return this
     }
     ProgramEvent.prototype.getURL = function getURL() {

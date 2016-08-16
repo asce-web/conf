@@ -13,6 +13,7 @@
       , honorificSuffix : $personinfo.name.honorificSuffix
       }
       self.jobTitle    = ''
+      self.affiliation = ''
       self.img         = ''
       self.email       = ''
       self.telephone   = ''
@@ -24,6 +25,10 @@
     //- SETTER FUNCTIONS
     Person.prototype.setJobTitle = function setJobTitle(text) {
       this.jobTitle = text
+      return this
+    }
+    Person.prototype.setAffiliation = function setAffiliation(text) {
+      this.affiliation = text
       return this
     }
     Person.prototype.setImg = function setImg(arg) {
@@ -63,6 +68,9 @@
     //- GETTER FUNCTIONS
     Person.prototype.getJobTitle = function getJobTitle(text) {
       return this.jobTitle
+    }
+    Person.prototype.getAffiliation = function getAffiliation(text) {
+      return this.affiliation
     }
     Person.prototype.getImg = function getImg() {
       return this.img

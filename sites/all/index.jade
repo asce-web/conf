@@ -10,11 +10,11 @@ block mainBody
   mixin otherYearBlock(event0, classes)
     section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner(class=classes): div.o-Constrain
       div.c-Overlay.c-Overlay--callout
-        include /includes/components/_c-OtherYear.jade
+        include /_views/c-OtherYear.view.jade
         +otherYear(event0, 'c-Btn--ghost c-Btn--ghost--dark')
           block
   section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing: div.o-Constrain
-    include /includes/components/_c-Hero.jade
+    include /_views/c-Hero.view.jade
     +hero(site.getCurrentConference(), {itemscope:'', itemtype:'http://schema.org/Event'})
       +highlightButtons([{text:'Find Out More', href:'home.html'}], 'c-Btn--primary')
   block introText

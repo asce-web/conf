@@ -59,8 +59,9 @@
         linkedin: $links.linkedin
       , twitter : $links.twitter
       } : null
-      //- FIXME the case that (!!$links === false)
-      this.social.twitter.url = $links.twitter.url || Util.SOCIAL_DATA.twitter.toURL($links.twitter.text)
+      if ($links && $links.twitter) {
+        this.social.twitter.url = $links.twitter.url || Util.SOCIAL_DATA.twitter.toURL($links.twitter.text)
+      }
       return this
     }
     Person.prototype.setBio = function setBio(html) {

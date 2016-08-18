@@ -6,19 +6,20 @@ block append varsPage
 block mainHeader
   header.-d-n: h1 #{site.getName()} Homepage
 
-block mainBody
-  mixin otherYearBlock(event0, classes)
-    section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner(class=classes): div.o-Constrain
-      div.c-Overlay.c-Overlay--callout
-        include /_views/c-OtherYear.view.jade
-        +otherYear(event0, 'c-Btn--ghost c-Btn--ghost--dark')
-          block
+block prepend mainBody
   section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing: div.o-Constrain
     include /_views/c-Hero.view.jade
     +hero(site.getCurrentConference(), {itemscope:'', itemtype:'http://schema.org/Event'})
       +highlightButtons([{text:'Find Out More', href:'home.html'}], 'c-Btn--primary')
-  block introText
-  +otherYearBlock(site.getPrevConference(), 'c-Banner--prev')
-    block otherYearDesc_prev
-  +otherYearBlock(site.getNextConference(), 'c-Banner--next')
-    block otherYearDesc_next
+
+block mainReference
+  section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--prev: div.o-Constrain
+    div.c-Overlay.c-Overlay--callout
+      include /_views/c-OtherYear.view.jade
+      +otherYear(site.getPrevConference(), 'c-Btn--ghost c-Btn--ghost--dark')
+        block otherYearDesc_prev
+  section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--next: div.o-Constrain
+    div.c-Overlay.c-Overlay--callout
+      include /_views/c-OtherYear.view.jade
+      +otherYear(site.getNextConference(), 'c-Btn--ghost c-Btn--ghost--dark')
+        block otherYearDesc_next

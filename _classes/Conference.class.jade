@@ -9,11 +9,7 @@
       self.startDate = $confinfo.startDate
       self.endDate   = $confinfo.endDate
       self.url       = $confinfo.url
-      self.location  = {
-        addressLocality     : $confinfo.city
-      , addressRegion       : $confinfo.state
-      , addressRegion_title : (Util.STATE_DATA.find(function (item) { return item.index === $confinfo.state }) || {}).name
-      }
+      self.promo_loc = $confinfo.promo_loc
       self.reg_periods     = []
       self.current_reg_pd_index = NaN
       self.passes          = []

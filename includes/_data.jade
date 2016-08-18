@@ -55,11 +55,17 @@ mixin sitetoc(args)
           if item.getPagesAll().length && depth > 0
             +sitetoc({pages: item.getPagesAll(), classes: (classes.sub || {}), depth: depth-1})
 
-mixin event-location-name(loc)
+mixin promotedLocation(promoloc)
+  if promoloc.title && promoloc.text
+    abbr(title=promoloc.title)= promoloc.text
+  else
+    = (promoloc.text || promoloc)
+
+mixin event-location-name(promoloc)
   span(itemprop="name")
-    span(itemprop="addressLocality")= loc.addressLocality + ', '
-    abbr(title=loc.addressRegion_title itemprop="addressRegion")
-      = loc.addressRegion
+    span(itemprop="addressLocality")= promoloc.city
+    = ', '
+    abbr(title=promoloc.state_title itemprop="addressRegion")= promoloc.state
 
 mixin highlightButtons(links, more_classes)
   ul.o-List.o-ListAction

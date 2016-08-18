@@ -3,8 +3,7 @@ mixin hero(event0, attrs)
     h1.c-PageTitle.c-Hero__Name(itemprop="name")= event0.name
     meta(content=event0.url itemprop="url")
     p.c-Hero__Detail
-      span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-        +event-location-name(event0.location)
+      span.c-Hero__Place(itemprop="location"): +promotedLocation(event0.promo_loc)
       span.c-Hero__Dates
         time(datetime=event0.startDate itemprop="startDate")
           - var start = (event0.startDate) ? new Date(event0.startDate) : new Date()

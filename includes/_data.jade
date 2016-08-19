@@ -23,6 +23,27 @@ include /_classes/Pass.class.jade
 include /_classes/ProgramEvent.class.jade
 include /_classes/ImportantDate.class.jade
 
+mixin place(place, attrs)
+  p(itemscope="" itemtype="http://schema.org/Place")&attributes(attrs || {})
+    span.h-Block(itemprop="name")= place.name
+    span.h-Block(itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
+      span.h-Block(itemprop="streetAddress")= place.streetAddress
+      span.h-Block
+        span(itemprop="addressLocality")= place.addressLocality
+        = ', '
+        span(itemprop="addressRegion")= place.addressRegion
+        = ' '
+        span(itemprop="postalCode")= place.postalCode
+      if place.addressCountry
+        if place.addressCountry === 'US'
+          meta(content="US" itemprop="addressCountry")
+        else
+          span.h-Block(itemprop="addressCountry")= place.addressCountry
+    if place.telephone
+      span.h-Block(itemprop="telephone")= place.telephone
+    if place.url
+      a.h-Block(href=place.url itemprop="url")= place.url
+
 mixin linkWithIcon(link, icon)
   //- NOTE parameter validation
   -

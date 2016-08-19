@@ -61,12 +61,6 @@ mixin promotedLocation(promoloc)
   else
     = (promoloc.text || promoloc)
 
-mixin event-location-name(promoloc)
-  span(itemprop="name")
-    span(itemprop="addressLocality")= promoloc.city
-    = ', '
-    abbr(title=promoloc.state_title itemprop="addressRegion")= promoloc.state
-
 mixin highlightButtons(links, more_classes)
   ul.o-List.o-ListAction
     each item in links

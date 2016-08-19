@@ -3,13 +3,24 @@
     //- CONSTRUCTOR
     function Conference($confinfo) {
       var self = this
-      $confinfo = $confinfo || {} // NOTE constructor overloading
+      $confinfo       = $confinfo       || {} // NOTE constructor overloading
+      $confinfo.venue = $confinfo.venue || {} // NOTE parameter validation
       self.name      = $confinfo.name
       self.theme     = $confinfo.theme
       self.startDate = $confinfo.startDate
       self.endDate   = $confinfo.endDate
       self.url       = $confinfo.url
       self.promo_loc = $confinfo.promo_loc
+      self.venue     = {
+        name           : $confinfo.venue.name
+      , streetAddress  : $confinfo.venue.streetAddress
+      , addressLocality: $confinfo.venue.addressLocality
+      , addressRegion  : $confinfo.venue.addressRegion
+      , postalCode     : $confinfo.venue.postalCode
+      , addressCountry : $confinfo.venue.addressCountry || 'US'
+      , telephone      : $confinfo.venue.telephone
+      , url            : $confinfo.venue.url
+      }
       self.reg_periods     = []
       self.current_reg_pd_index = NaN
       self.passes          = []

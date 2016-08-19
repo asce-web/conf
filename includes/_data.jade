@@ -23,22 +23,26 @@ include /_classes/Pass.class.jade
 include /_classes/ProgramEvent.class.jade
 include /_classes/ImportantDate.class.jade
 
+mixin postalAddress(address, attrs)
+  span.h-Block(itemscope="" itemtype="http://schema.org/PostalAddress")&attributes(attrs || {})
+    span.h-Block(itemprop="streetAddress")= address.streetAddress
+    span.h-Block
+      span(itemprop="addressLocality")= address.addressLocality
+      = ', '
+      span(itemprop="addressRegion")= address.addressRegion
+      = ' '
+      span(itemprop="postalCode")= address.postalCode
+    if address.addressCountry
+      if address.addressCountry === 'US'
+        meta(content="US" itemprop="addressCountry")
+      else
+        span.h-Block(itemprop="addressCountry")= address.addressCountry
+
 mixin place(place, attrs)
   p(itemscope="" itemtype="http://schema.org/Place")&attributes(attrs || {})
     span.h-Block(itemprop="name")= place.name
-    span.h-Block(itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
-      span.h-Block(itemprop="streetAddress")= place.streetAddress
-      span.h-Block
-        span(itemprop="addressLocality")= place.addressLocality
-        = ', '
-        span(itemprop="addressRegion")= place.addressRegion
-        = ' '
-        span(itemprop="postalCode")= place.postalCode
-      if place.addressCountry
-        if place.addressCountry === 'US'
-          meta(content="US" itemprop="addressCountry")
-        else
-          span.h-Block(itemprop="addressCountry")= place.addressCountry
+    if place.address
+      +postalAddress(place.address, {itemprop:'address'})
     if place.telephone
       span.h-Block(itemprop="telephone")= place.telephone
     if place.url

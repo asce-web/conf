@@ -56,6 +56,7 @@ mixin sitetoc(args)
             +sitetoc({pages: item.getPagesAll(), classes: (classes.sub || {}), depth: depth-1})
 
 mixin promotedLocation(promoloc)
+  - if (promoloc === undefined) promoloc = '' // NOTE parameter validation
   if promoloc.title && promoloc.text
     abbr(title=promoloc.title)= promoloc.text
   else

@@ -110,7 +110,7 @@ html(lang="en")
         a.c-ASCELogo.h-Block(href="http://www.asce.org" itemprop="url")
           | Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address
-        p(itemprop="location" itemscope="" itemtype="https://schema.org/PostalAddress")
+        p(itemprop="address" itemscope="" itemtype="https://schema.org/PostalAddress")
           span.h-Block(itemprop="streetAddress") 1801 Alexander Bell Drive
           span.h-Block
             span(itemprop="addressLocality") Reston
@@ -139,7 +139,7 @@ html(lang="en")
           li.o-List__Item.o-Flex__Item.c-SocialList__Item
             a.c-SocialList__Link.c-SocialList__Link--youtube.h-Block(href="//youtube.com/ASCE" itemprop="sameAs" title="Follow ASCE on YouTube")
         p: small
-          | &copy; #[time 1996]&ndash;#[time 2016]#{' '}
+          | &copy; #[time 1996]&ndash;#[time 2016],#{' '}
           span(itemprop="name") American Society of Civil Engineers
     block scripts
       script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")

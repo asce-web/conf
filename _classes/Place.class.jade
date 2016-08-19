@@ -1,0 +1,24 @@
+-
+  var Place = (function () {
+    //- CONSTRUCTOR
+    function Place($placeinfo) {
+      var self = this
+      $placeinfo = $placeinfo || {} // NOTE constructor overloading
+      self.name            = $placeinfo.name
+      self.streetAddress   = $placeinfo.streetAddress
+      self.addressLocality = $placeinfo.addressLocality
+      self.addressRegion   = $placeinfo.addressRegion
+      self.postalCode      = $placeinfo.postalCode
+      self.addressCountry  = $placeinfo.addressCountry || 'US'
+      self.telephone       = $placeinfo.telephone
+      self.url             = $placeinfo.url
+    }
+
+    //- SETTER FUNCTIONS
+
+    //- GETTER FUNCTIONS
+
+    //- METHODS
+
+    return Place
+  })()

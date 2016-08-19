@@ -25,14 +25,14 @@
         text : 'Portland, OR'
       , title: 'Portland, Oregon'
       }
-    , venue: {
+    , venue: new Place({
         name           : 'Oregon Convention Center'
       , streetAddress  : '777 NE Martin Luther King, Jr. Blvd.'
       , addressLocality: 'Portland'
       , addressRegion  : 'OR'
       , postalCode     : '97232'
-      , url            : 'http://doubletree.hilton.com/en/dt/groups/personalized/R/RLLC-DT-SCE-20160924/index.jhtml?WT.mc_id=POG'
-      }
+      , url            : 'https://www.oregoncc.org/'
+      })
     })).setConference('2015', new Conference({
       name      : 'A 2015 Event'
     , theme     : ''
@@ -43,13 +43,14 @@
         text : 'New York, NY'
       , title: 'New York, New York'
       }
-    , venue: {
+    , venue: new Place({
         name           : 'New York Marriott Marquis'
       , streetAddress  : '1535 Broadway'
       , addressLocality: 'New York'
       , addressRegion  : 'NY'
       , postalCode     : '10036'
-      }
+      , url            : 'http://www.marriott.com/hotels/travel/nycmq-new-york-marriott-marquis/'
+      })
     })).setConference('2017', new Conference({
       name      : 'A 2017 Event'
     , theme     : ''
@@ -60,15 +61,15 @@
         text : 'Charlotte, NC'
       , title: 'Charlotte, North Carolina'
       }
-    , venue: {
+    , venue: new Place({
         name           : 'Westin Charlotte'
       , streetAddress  : '601 South College Street'
       , addressLocality: 'Charlotte'
       , addressRegion  : 'NC'
       , postalCode     : '28202'
       , telephone      : '1-866-837-4148'
-      , url            : 'https://www.starwoodmeeting.com/StarGroupsWeb/booking/reservation?id=1304081802&key=4EA43'
-      }
+      , url            : 'http://www.westincharlottehotel.com/'
+      })
     }))
 
   site

@@ -3,13 +3,15 @@
     //- CONSTRUCTOR
     function Conference($confinfo) {
       var self = this
-      $confinfo = $confinfo || {} // NOTE constructor overloading
+      $confinfo       = $confinfo       || {} // NOTE constructor overloading
+      $confinfo.venue = $confinfo.venue || {} // NOTE parameter validation
       self.name      = $confinfo.name
       self.theme     = $confinfo.theme
       self.startDate = $confinfo.startDate
       self.endDate   = $confinfo.endDate
       self.url       = $confinfo.url
       self.promo_loc = $confinfo.promo_loc
+      self.venue     = $confinfo.venue || new Place() // NOTE parameter validation
       self.reg_periods     = []
       self.current_reg_pd_index = NaN
       self.passes          = []

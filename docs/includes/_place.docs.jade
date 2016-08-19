@@ -11,7 +11,14 @@ figure.docs-figure
   , postalCode     : '22901-4382'
   , telephone      : '+1-800-548-2723'
   , url            : 'http://www.asce.org/'
-  }))
+  }), {
+    class: 'classes_self'
+  }, {
+    name     : 'classes_name'
+  , address  : 'classes_address'
+  , telephone: 'classes_telephone'
+  , url      : 'classes_url'
+  })
   pre.docs-pre.
     &lt;p itemscope="" itemtype="http://schema.org/Place"&gt;
       &lt;span class="h-Block" itemprop="name"&gt;ASCE World Headquarters&lt;/span&gt;
@@ -26,9 +33,9 @@ figure.docs-figure
       &lt;span class="h-Block" itemprop="telephone"&gt;+1-800-548-2723&lt;/span&gt;
       &lt;a class="h-Block" href="http://www.asce.org/" itemprop="url"&gt;http://www.asce.org/&lt;/a&gt;
     &lt;/p&gt;
-p.
+//- p.
   Use the following CSS selectors to add styling.
-pre.docs-pre.
+//- pre.docs-pre.
   [itemtype="http://schema.org/Place"]                               { /* for the place */ }
   [itemtype="http://schema.org/Place"] [itemprop*="name"]            { /* for the place name */ }
   [itemtype="http://schema.org/Place"] [itemprop*="address"]         { /* for the place address */ }

@@ -23,8 +23,8 @@ include /_classes/Pass.class.jade
 include /_classes/ProgramEvent.class.jade
 include /_classes/ImportantDate.class.jade
 
-mixin postalAddress(address, attrs)
-  span.h-Block(itemscope="" itemtype="http://schema.org/PostalAddress")&attributes(attrs || {})
+mixin postalAddress(address, attr)
+  span.h-Block(itemscope="" itemtype="http://schema.org/PostalAddress")&attributes(attr || {})
     span.h-Block(itemprop="streetAddress")= address.streetAddress
     span.h-Block
       span(itemprop="addressLocality")= address.addressLocality
@@ -38,15 +38,17 @@ mixin postalAddress(address, attrs)
       else
         span.h-Block(itemprop="addressCountry")= address.addressCountry
 
-mixin place(place, attrs)
-  p(itemscope="" itemtype="http://schema.org/Place")&attributes(attrs || {})
-    span.h-Block(itemprop="name")= place.name
+mixin place(place, attr, classes)
+  //- NOTE parameter validation
+  - var classes = classes || {}
+  p(itemscope="" itemtype="http://schema.org/Place")&attributes(attr || {})
+    span.h-Block(class=classes.name itemprop="name")= place.name
     if place.address
-      +postalAddress(place.address, {itemprop:'address'})
+      +postalAddress(place.address, {itemprop:'address', class:classes.address})
     if place.telephone
-      span.h-Block(itemprop="telephone")= place.telephone
+      span.h-Block(class=classes.telephone itemprop="telephone")= place.telephone
     if place.url
-      a.h-Block(href=place.url itemprop="url")= place.url
+      a.h-Block(class=classes.url href=place.url itemprop="url")= place.url
 
 mixin linkWithIcon(link, icon)
   //- NOTE parameter validation

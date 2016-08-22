@@ -23,32 +23,32 @@ include /_classes/Pass.class.jade
 include /_classes/ProgramEvent.class.jade
 include /_classes/ImportantDate.class.jade
 
-mixin postalAddress(address, attr)
-  span.h-Block(itemscope="" itemtype="http://schema.org/PostalAddress")&attributes(attr || {})
-    span.h-Block(itemprop="streetAddress")= address.streetAddress
-    span.h-Block
-      span(itemprop="addressLocality")= address.addressLocality
-      = ', '
-      span(itemprop="addressRegion")= address.addressRegion
-      = ' '
-      span(itemprop="postalCode")= address.postalCode
-    if address.addressCountry
-      if address.addressCountry === 'US'
-        meta(content="US" itemprop="addressCountry")
-      else
-        span.h-Block(itemprop="addressCountry")= address.addressCountry
-
-mixin place(place, attr, classes)
+mixin place($place, attr, classes)
   //- NOTE parameter validation
   - var classes = classes || {}
   p(itemscope="" itemtype="http://schema.org/Place")&attributes(attr || {})
-    span.h-Block(class=classes.name itemprop="name")= place.name
-    if place.address
-      +postalAddress(place.address, {itemprop:'address', class:classes.address})
-    if place.telephone
-      span.h-Block(class=classes.telephone itemprop="telephone")= place.telephone
-    if place.url
-      a.h-Block(class=classes.url href=place.url itemprop="url")= place.url
+    span.-fw-7(class=classes.name itemprop="name")= $place.name
+    if $place.address
+      br
+      span(class=classes.address itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
+        span(itemprop="streetAddress")= $place.address.streetAddress
+        br
+        span(itemprop="addressLocality")= $place.address.addressLocality
+        = ', '
+        span(itemprop="addressRegion")= $place.address.addressRegion
+        = ' '
+        span(itemprop="postalCode")= $place.address.postalCode
+        if $place.address.addressCountry === 'US'
+          meta(content="US" itemprop="addressCountry")
+        else
+          br
+          span(itemprop="addressCountry")= $place.address.addressCountry
+    if $place.telephone
+      br
+      a(class=classes.telephone href='tel:'+$place.telephone itemprop="telephone")= $place.telephone
+    if $place.url
+      br
+      a(class=classes.url href=$place.url itemprop="url")= $place.url
 
 mixin linkWithIcon(link, icon)
   //- NOTE parameter validation

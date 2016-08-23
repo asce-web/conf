@@ -27,7 +27,8 @@ mixin place($place, attr, classes)
   //- NOTE parameter validation
   - var classes = classes || {}
   p(itemscope="" itemtype="http://schema.org/Place")&attributes(attr || {})
-    span.-fw-7(class=classes.name itemprop="name")= $place.name
+    if $place.name
+      span.-fw-7(class=classes.name itemprop="name")= $place.name
     if $place.address
       br
       span(class=classes.address itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
@@ -38,10 +39,7 @@ mixin place($place, attr, classes)
         span(itemprop="addressRegion")= $place.address.addressRegion
         = ' '
         span(itemprop="postalCode")= $place.address.postalCode
-        if $place.address.addressCountry === 'US'
-          meta(content="US" itemprop="addressCountry")
-        else
-          br
+        if $place.address.addressCountry
           span(itemprop="addressCountry")= $place.address.addressCountry
     if $place.telephone
       br

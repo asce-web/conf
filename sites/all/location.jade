@@ -9,11 +9,7 @@ block mainHeader
   section.o-Runner.o-Runner--highlight.-ta-c: div.o-Constrain
     h1.-d-n Important Locations
     ul.o-List.o-ListAction.c-Callout
-      each venue in site.getCurrentConference().getVenuesAll().slice(0,1)
+      each item,index in site.getCurrentConference().getVenuesAll('with_keys')
         li.o-List__Item.o-ListAction__Item.c-Callout__Item: section
-          h1= venue.label
-          +place(venue.place, {itemprop:'location'})
-      each venue in site.getCurrentConference().getVenuesAll().slice(1)
-        li.o-List__Item.o-ListAction__Item.c-Callout__Item: section
-          h1= venue.label
-          +place(venue.place)
+          h1= item._key
+          +place(item._value, (index===0) ? {itemprop:'location'} : {})

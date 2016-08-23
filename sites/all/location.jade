@@ -6,3 +6,15 @@ block append varsPage
 block mainHeader
   header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--location(style="height: 13.5rem;"): div.o-Constrain
     h1.c-PageTitle.c-PageTitle--special= page.getName()
+  section.o-Runner.o-Runner--highlight.-ta-c: div.o-Constrain
+    h1.-d-n Important Locations
+    ul.o-List.o-ListAction.c-Callout
+      li.o-List__Item.o-ListAction__Item.c-Callout__Item: section
+        h1 Conference Venue
+        +place(site.getCurrentConference().venue, {itemprop:'location'})
+      li.o-List__Item.o-ListAction__Item.c-Callout__Item: section
+        h1 Official Conference Hotel
+        +place(site.getCurrentConference().venue)
+      li.o-List__Item.o-ListAction__Item.c-Callout__Item: section
+        h1 Overflow Hotel
+        +place(site.getCurrentConference().venue)

@@ -8,7 +8,11 @@ section#other-year-block
     , startDate : '2016-08-14'
     , endDate   : '2016-08-18'
     , url       : 'http://2016.geoenvironmentconference.org/'
-    , promo_loc : 'Chicago, IL'
+    , promo_loc : ''
+    , promo_loc : {
+        text : 'Chicago, IL'
+      , title: 'Chicago, Illinois'
+      }
     }))
       | Access the 2016 program to see which sessions qualify for PDHs and other documentation.
     +microdataCheckbox('otheryear')
@@ -16,11 +20,8 @@ section#other-year-block
         &lt;div class="#[u c-OtherYear]"#[mark.docs-c-Togglable__Text  itemscope="" itemtype="http://schema.org/Event"]&gt;
           &lt;h1 class="#[u c-OtherYear__Name]"#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;Geo-Chicago 2016&lt;/h1&gt;
           #[mark.docs-c-Togglable__Text!= '&lt;meta content="2016-08-14" itemprop="startDate"/&gt;']
-          &lt;p class="#[u c-OtherYear__Detail]"#[mark.docs-c-Togglable__Text  itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress"]&gt;
-            #[mark.docs-c-Togglable__Text &lt;span itemprop="name"&gt;]
-              #[mark.docs-c-Togglable__Text &lt;span itemprop="addressLocality"&gt;]Chicago, #[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
-              #[mark.docs-c-Togglable__Text &lt;abbr title="Illinois" itemprop="addressRegion"&gt;]IL#[mark.docs-c-Togglable__Text!= '&lt;/abbr&gt;']
-            #[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
+          &lt;p class="#[u c-OtherYear__Detail]"#[mark.docs-c-Togglable__Text  itemprop="location"]&gt;
+            #[mark.docs-c-Togglable__Text &lt;abbr title="Chicago, Illinois"&gt;]Chicago, IL#[mark.docs-c-Togglable__Text!= '&lt;/abbr&gt;']
           &lt;/p&gt;
           &lt;p class="#[u c-OtherYear__Desc]"&gt;Access the ...&lt;/p&gt;
           &lt;a#[mark.docs-c-Togglable__Text  itemprop="url"]&gt;Event Details&lt;/a&gt;

@@ -5,11 +5,13 @@
       var self = this
       $placeinfo = $placeinfo || {} // NOTE constructor overloading
       self.name            = $placeinfo.name
-      self.streetAddress   = $placeinfo.streetAddress
-      self.addressLocality = $placeinfo.addressLocality
-      self.addressRegion   = $placeinfo.addressRegion
-      self.postalCode      = $placeinfo.postalCode
-      self.addressCountry  = $placeinfo.addressCountry || 'US'
+      self.address         = {
+          streetAddress  : $placeinfo.streetAddress
+        , addressLocality: $placeinfo.addressLocality
+        , addressRegion  : $placeinfo.addressRegion
+        , postalCode     : $placeinfo.postalCode
+        , addressCountry : $placeinfo.addressCountry
+      }
       self.telephone       = $placeinfo.telephone
       self.url             = $placeinfo.url
     }

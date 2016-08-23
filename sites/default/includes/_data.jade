@@ -15,7 +15,7 @@
     .init()
 
   site
-    .setConference('2016', new Conference({
+    .addConference('2016', new Conference({
       name      : 'A 2016 Event'
     , theme     : 'Theme for the conference is optional.'
     , startDate : '2016-09-28'
@@ -25,7 +25,7 @@
         text : 'Portland, OR'
       , title: 'Portland, Oregon'
       }
-    })).setConference('2015', new Conference({
+    })).addConference('2015', new Conference({
       name      : 'A 2015 Event'
     , theme     : ''
     , startDate : '2015-10-11'
@@ -35,7 +35,7 @@
         text : 'New York, NY'
       , title: 'New York, New York'
       }
-    })).setConference('2017', new Conference({
+    })).addConference('2017', new Conference({
       name      : 'A 2017 Event'
     , theme     : ''
     , startDate : '2017-10-04'

@@ -5,8 +5,10 @@ html(lang="en")
     -
       var site = new ConfSite()
         .init()
-        .setConference('sample', new Conference())
+        .addConference('sample', new Conference())
         .setCurrentConference('sample')
+        .setPrevConference('sample')
+        .setNextConference('sample')
   block varsPage
     - var page = new ConfPage()
   head

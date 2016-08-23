@@ -11,11 +11,11 @@
       self.endDate   = $confinfo.endDate
       self.url       = $confinfo.url
       self.promo_loc = $confinfo.promo_loc
-      self.venue     = $confinfo.venue || new Place() // NOTE parameter validation
       self.reg_periods     = []
       self.current_reg_pd_index = NaN
       self.passes          = []
       self.program_events  = []
+      self.venues          = []
       self.speakers        = []
       self.important_dates = []
       self.chairs          = []
@@ -48,6 +48,14 @@
     }
     Conference.prototype.removeProgramEvent = function removeProgramEvent(program_event_name) {
       Util.spliceFromArray(this.program_events, this.getProgramEvent(program_event_name))
+      return this
+    }
+    Conference.prototype.addVenue = function addVenue(label, place) {
+      this.venues.push({label: label, place: place})
+      return this
+    }
+    Conference.prototype.removeVenue = function removeVenue(venue_label) {
+      Util.spliceFromArray(this.venues, this.getVenue(venue_label))
       return this
     }
     Conference.prototype.addSpeaker = function addSpeaker(person) {
@@ -88,6 +96,9 @@
     Conference.prototype.getProgramEvent = function getProgramEvent(program_event_name) {
       return this.program_events.find(function (item) { return item.name === program_event_name })
     }
+    Conference.prototype.getVenue = function getVenue(venue_label) {
+      return this.venues.find(function (item) { return item.label === venue_label })
+    }
     Conference.prototype.getSpeaker = function getSpeaker(person_id) {
       return this.speakers.find(function (item) { return item.id === person_id })
     }
@@ -105,6 +116,9 @@
     }
     Conference.prototype.getProgramEventsAll = function getProgramEventsAll() {
       return this.program_events.slice()
+    }
+    Conference.prototype.getVenuesAll = function getVenuesAll() {
+      return this.venues.slice()
     }
     Conference.prototype.getSpeakersAll = function getSpeakersAll() {
       return this.speakers.slice()

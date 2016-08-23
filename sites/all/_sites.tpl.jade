@@ -105,19 +105,19 @@ html(lang="en")
         top : site.getPage('#top-menu').getPagesAll()
       , main: site.getPage('#main-menu').getPagesAll()
       })[page.pagetype()])
-    footer.o-Runner.c-Mast.c-Mast--copyright(itemscope="" itemtype="http://schema.org/NGO"): div.o-Constrain
-      h1#connect-with-asce
-        a.c-ASCELogo.h-Block(href="http://www.asce.org" itemprop="url")
-          | Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
-      address
-        p(itemprop="address" itemscope="" itemtype="https://schema.org/PostalAddress")
-          span.h-Block(itemprop="streetAddress") 1801 Alexander Bell Drive
-          span.h-Block
-            span(itemprop="addressLocality") Reston
-            = ', '
-            span(itemprop="addressRegion") VA
-            = ' '
-            span(itemprop="postalCode") 22901-4382
+    footer.o-Runner.c-Mast.c-Mast--copyright: div.o-Constrain
+      h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
+      address(itemscope="" itemtype="http://schema.org/NGO")
+        p.c-ASCELogo(itemprop="name"): a(href="http://www.asce.org" itemprop="url").
+          American Society of Civil Engineers
+        p(itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
+          span(itemprop="streetAddress") 1801 Alexander Bell Drive
+          br
+          span(itemprop="addressLocality") Reston
+          = ', '
+          span(itemprop="addressRegion") VA
+          = ' '
+          span(itemprop="postalCode") 22901-4382
         p.-fz-el-kilo(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
           a(href="tel:+1-800-548-2723") +1 (800) 548-2723
           meta(content="+1-800-548-2723" itemprop="telephone")

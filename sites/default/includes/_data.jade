@@ -15,30 +15,36 @@
     .init()
 
   site
-    .setConference('2016', new Conference({
+    .addConference('2016', new Conference({
       name      : 'A 2016 Event'
     , theme     : 'Theme for the conference is optional.'
     , startDate : '2016-09-28'
     , endDate   : '2016-10-01'
     , url       : 'http://2016.asceconvention.org/'
-    , city      : 'Portland'
-    , state     : 'OR'
-    })).setConference('2015', new Conference({
+    , promo_loc : {
+        text : 'Portland, OR'
+      , title: 'Portland, Oregon'
+      }
+    })).addConference('2015', new Conference({
       name      : 'A 2015 Event'
     , theme     : ''
     , startDate : '2015-10-11'
     , endDate   : ''
     , url       : 'http://2015.asceconvention.org/'
-    , city      : 'New York'
-    , state     : 'NY'
-    })).setConference('2017', new Conference({
+    , promo_loc : {
+        text : 'New York, NY'
+      , title: 'New York, New York'
+      }
+    })).addConference('2017', new Conference({
       name      : 'A 2017 Event'
     , theme     : ''
     , startDate : '2017-10-04'
     , endDate   : ''
     , url       : 'http://2017.asceconvention.org/'
-    , city      : 'Chicago'
-    , state     : 'IL'
+    , promo_loc : {
+        text : 'Charlotte, NC'
+      , title: 'Charlotte, North Carolina'
+      }
     }))
 
   site
@@ -248,6 +254,31 @@
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 10:15', endDate:'2016-10-01 11:45', name:'Concurrent Sessions'                                         }))
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 12:00', endDate:'2016-10-01 14:00', name:'ASCE Luncheon & Closing General Session'                     }).star())
     .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 14:30', endDate:'2016-10-01 17:30', name:'Technical Tours'                                             }).setURL('#0'))
+
+  site.getCurrentConference()
+    .addVenue('Conference Venue', new Place({
+      name           : 'Oregon Convention Center'
+    , streetAddress  : '777 NE Martin Luther King, Jr. Blvd.'
+    , addressLocality: 'Portland'
+    , addressRegion  : 'OR'
+    , postalCode     : '97232'
+    , url            : 'https://www.oregoncc.org/'
+    })).addVenue('Official Hotel', new Place({
+      name           : 'DoubleTree by Hilton Portland'
+    , streetAddress  : '1000 NE Multnomah St'
+    , addressLocality: 'Portland'
+    , addressRegion  : 'OR'
+    , postalCode     : '97232'
+    })).addVenue('Overflows', new Place({
+      name           : 'Courtyard Portland City Center'
+    , streetAddress  : '550 SW Oak St'
+    , addressLocality: 'Portland'
+    , addressRegion  : 'OR'
+    , postalCode     : '97204'
+    }))
+
+  site.getCurrentConference()
+    .setConferenceVenue('Conference Venue')
 
   site.getCurrentConference()
     .addSpeaker(new Person({
@@ -487,6 +518,27 @@
       }
     }
   }
+
+  site.getConference('2015')
+    .addVenue('Conference Venue', new Place({
+      name           : 'New York Marriott Marquis'
+    , streetAddress  : '1535 Broadway'
+    , addressLocality: 'New York'
+    , addressRegion  : 'NY'
+    , postalCode     : '10036'
+    , url            : 'http://www.marriott.com/hotels/travel/nycmq-new-york-marriott-marquis/'
+    }))
+
+  site.getConference('2017')
+    .addVenue('Conference Venue', new Place({
+      name           : 'Westin Charlotte'
+    , streetAddress  : '601 South College Street'
+    , addressLocality: 'Charlotte'
+    , addressRegion  : 'NC'
+    , postalCode     : '28202'
+    , telephone      : '+1-866-837-4148'
+    , url            : 'http://www.westincharlottehotel.com/'
+    }))
 
   //- site
   //-   .addSubpage('about.html'       , new ConfPage({name:'Cooperating Orgs'            , url:''}))

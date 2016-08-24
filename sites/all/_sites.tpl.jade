@@ -5,8 +5,10 @@ html(lang="en")
     -
       var site = new ConfSite()
         .init()
-        .setConference('sample', new Conference())
+        .addConference('sample', new Conference())
         .setCurrentConference('sample')
+        .setPrevConference('sample')
+        .setNextConference('sample')
   block varsPage
     - var page = new ConfPage()
   head
@@ -81,24 +83,23 @@ html(lang="en")
         include /_views/c-MenuMain.view.jade
         +menuMain(site.getPage('#main-menu').getPagesAll())
     main
-      block main
-        article&attributes((page.pagetype()==='main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
-          block mainHeader
-            header.o-Runner.o-Runner--pageHeader: div.o-Constrain
-              h1.c-PageTitle= page.getName()
-          block mainBody
-            block mainMinimal
-            block mainReference
-            block mainRich
-          block callouts
-          block sponsors
-            +highlight()
-              h1#sponsors Sponsors
-              p.-ta-c: i.
-                (see external demo of
-                #[a(href="http://go.asce.org/static/sponsors/") sponsors carousel]
-                by rank)
-              +highlightButtons([{text:'All Sponsors', href:'sponsor.html'}])
+      article&attributes((page.pagetype()==='main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
+        block mainHeader
+          header.o-Runner.o-Runner--pageHeader: div.o-Constrain
+            h1.c-PageTitle= page.getName()
+        block mainBody
+          block mainMinimal
+          block mainReference
+          block mainRich
+        block callouts
+        block sponsors
+          +highlight()
+            h1#sponsors Sponsors
+            p.-ta-c: i.
+              (see external demo of
+              #[a(href="http://go.asce.org/static/sponsors/") sponsors carousel]
+              by rank)
+            +highlightButtons([{text:'All Sponsors', href:'sponsor.html'}])
     footer.o-Runner.c-Mast(class='c-Mast--'+page.pagetype()): nav.o-Constrain
       h1.-d-n#site-map Site Map
       include /_views/c-Sitemap.view.jade
@@ -106,26 +107,28 @@ html(lang="en")
         top : site.getPage('#top-menu').getPagesAll()
       , main: site.getPage('#main-menu').getPagesAll()
       })[page.pagetype()])
-    footer.o-Runner.c-Mast.c-Mast--copyright: nav.o-Constrain
+    footer.o-Runner.c-Mast.c-Mast--copyright: div.o-Constrain
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
-        p
-          span.h-Block(itemprop="name") American Society of Civil Engineers
-          span.h-Block(itemprop="location" itemscope itemtype="https://schema.org/PostalAddress")
-            span.h-Block(itemprop="streetAddress") 1801 Alexander Bell Drive
-            span.h-Block
-              span(itemprop="addressLocality") Reston,#{' '}
-              span(itemprop="addressRegion") VA#{' '}
-              span(itemprop="postalCode") 22901-4382
-          span.h-Block(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
-            a(href="tel:+1-800-548-2723") (800) 548-2723
-            meta(content="+1-800-548-2723" itemprop="telephone")
-            meta(content="customer support" itemprop="contactType")
-          span.h-Block(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
-            a(href="tel:+1-703-295-6300") +1 (703) 295-6300
-            meta(content="+1-703-295-6300" itemprop="telephone")
-            meta(content="United States of America" itemprop="areaServed")
-            meta(content="customer support" itemprop="contactType")
+        p.c-ASCELogo(itemprop="name"): a(href="http://www.asce.org" itemprop="url").
+          American Society of Civil Engineers
+        p(itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
+          span(itemprop="streetAddress") 1801 Alexander Bell Drive
+          br
+          span(itemprop="addressLocality") Reston
+          = ', '
+          span(itemprop="addressRegion") VA
+          = ' '
+          span(itemprop="postalCode") 22901-4382
+        p.-fz-el-kilo(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
+          a(href="tel:+1-800-548-2723") +1 (800) 548-2723
+          meta(content="+1-800-548-2723" itemprop="telephone")
+          meta(content="customer support" itemprop="contactType")
+        p.-fz-el-kilo(itemprop="contactPoint" itemscope="" itemtype="http://schema.org/ContactPoint")
+          a(href="tel:+1-703-295-6300") +1 (703) 295-6300
+          meta(content="+1-703-295-6300" itemprop="telephone")
+          meta(content="United States of America" itemprop="areaServed")
+          meta(content="customer support" itemprop="contactType")
         ul.o-List.o-Flex.c-SocialList
           li.o-List__Item.o-Flex__Item.c-SocialList__Item
             a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="//twitter.com/ASCE" itemprop="sameAs" title="Follow ASCE on Twitter")
@@ -137,9 +140,9 @@ html(lang="en")
             a.c-SocialList__Link.c-SocialList__Link--linkedin.h-Block(href="//linkedin.com/ASCE" itemprop="sameAs" title="Follow ASCE on LinkedIn")
           li.o-List__Item.o-Flex__Item.c-SocialList__Item
             a.c-SocialList__Link.c-SocialList__Link--youtube.h-Block(href="//youtube.com/ASCE" itemprop="sameAs" title="Follow ASCE on YouTube")
-        //- p: img(src="ASCE-logo.png" itemprop="image")
-        p: a(href="http://www.asce.org" itemprop="url").
-          &copy; #[time 1996]&ndash;#[time 2016] American Society of Civil Engineers
+        p: small
+          | &copy; #[time 1996]&ndash;#[time 2016],#{' '}
+          span(itemprop="name") American Society of Civil Engineers
     block scripts
       script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
       script(src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")

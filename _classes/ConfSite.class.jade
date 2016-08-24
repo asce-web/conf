@@ -8,10 +8,12 @@
       Page.call(self, { name: name, url: url })
       self.was_initialized = false
       self.logo               = ''
-      self.conference         = {}
-      self.conference.current = self.conference.prev = self.conference.next = new Conference()
+      self.conferences        = {}
       self.supporter_levels   = []
       self.supporters         = []
+      self._conference_current_index = null
+      self._conference_prev_index    = null
+      self._conference_next_index    = null
     }
     ConfSite.prototype = Object.create(Page.prototype)
     ConfSite.prototype.constructor = ConfSite
@@ -21,21 +23,26 @@
       this.logo = logo
       return this
     }
-    ConfSite.prototype.setConference = function setConference(year, conference0) {
-      this.conference[year] = conference0
+    ConfSite.prototype.addConference = function addConference(conf_label, conference) {
+      this.conferences[conf_label] = conference
       return this
     }
-    ConfSite.prototype.setCurrentConference = function setCurrentConference(year) {
-      this.setConference('current', this.getConference(year))
+    ConfSite.prototype.removeConference = function removeConference(conf_label) {
+      console.log('Sorry, you do not have this ability.\
+      Instead, add a new conference overriding the one you wish to delete.')
+      return this
+    }
+    ConfSite.prototype.setCurrentConference = function setCurrentConference(conf_label) {
+      this._conference_current_index = conf_label
       this.initializeMainPages()
       return this
     }
-    ConfSite.prototype.setPrevConference = function setPrevConference(year) {
-      this.setConference('prev', this.getConference(year))
+    ConfSite.prototype.setPrevConference = function setPrevConference(conf_label) {
+      this._conference_prev_index = conf_label
       return this
     }
-    ConfSite.prototype.setNextConference = function setNextConference(year) {
-      this.setConference('next', this.getConference(year))
+    ConfSite.prototype.setNextConference = function setNextConference(conf_label) {
+      this._conference_next_index = conf_label
       return this
     }
     ConfSite.prototype.addSupporterLevel = function addSupporterLevel(supporter_level) {
@@ -59,17 +66,21 @@
     ConfSite.prototype.getLogo = function getLogo() {
       return this.logo
     }
-    ConfSite.prototype.getConference = function getConference(year) {
-      return this.conference[year]
+    ConfSite.prototype.getConference = function getConference(conf_label) {
+      return this.conferences[conf_label]
     }
     ConfSite.prototype.getCurrentConference = function getCurrentConference() {
-      return this.conference.current
+      return this.getConference(this._conference_current_index)
     }
     ConfSite.prototype.getPrevConference = function getPrevConference() {
-      return this.conference.prev
+      return this.getConference(this._conference_prev_index)
     }
     ConfSite.prototype.getNextConference = function getNextConference() {
-      return this.conference.next
+      return this.getConference(this._conference_next_index)
+    }
+    ConfSite.prototype.getConferencesAll = function getConferencesAll() {
+      //- NOTE returns shallow clone (like arr.slice())
+      return Object.assign({}, this.conferences)
     }
     ConfSite.prototype.getSupporterLevel = function getSupporterLevel(supporter_level_name) {
       return this.supporter_levels.find(function (item) { return item.name === supporter_level_name })

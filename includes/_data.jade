@@ -9,6 +9,7 @@
 
 
 include /_classes/Page.class.jade
+include /_classes/Place.class.jade
 
 include /_classes/Util.class.jade
 include /_classes/ConfSite.class.jade
@@ -21,6 +22,31 @@ include /_classes/RegistrationPeriod.class.jade
 include /_classes/Pass.class.jade
 include /_classes/ProgramEvent.class.jade
 include /_classes/ImportantDate.class.jade
+
+mixin place($place, attr, classes)
+  //- NOTE parameter validation
+  - var classes = classes || {}
+  p(itemscope="" itemtype="http://schema.org/Place")&attributes(attr || {})
+    if $place.name
+      span.-fw-7(class=classes.name itemprop="name")= $place.name
+    if $place.address
+      br
+      span(class=classes.address itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
+        span(itemprop="streetAddress")= $place.address.streetAddress
+        br
+        span(itemprop="addressLocality")= $place.address.addressLocality
+        = ', '
+        span(itemprop="addressRegion")= $place.address.addressRegion
+        = ' '
+        span(itemprop="postalCode")= $place.address.postalCode
+        if $place.address.addressCountry
+          span(itemprop="addressCountry")= $place.address.addressCountry
+    if $place.telephone
+      br
+      a(class=classes.telephone href='tel:'+$place.telephone itemprop="telephone")= $place.telephone
+    if $place.url
+      br
+      a(class=classes.url href=$place.url itemprop="url")= $place.url
 
 mixin linkWithIcon(link, icon)
   //- NOTE parameter validation
@@ -55,11 +81,12 @@ mixin sitetoc(args)
           if item.getPagesAll().length && depth > 0
             +sitetoc({pages: item.getPagesAll(), classes: (classes.sub || {}), depth: depth-1})
 
-mixin event-location-name(loc)
-  span(itemprop="name")
-    span(itemprop="addressLocality")= loc.addressLocality + ', '
-    abbr(title=loc.addressRegion_title itemprop="addressRegion")
-      = loc.addressRegion
+mixin promotedLocation(promoloc)
+  - if (promoloc === undefined) promoloc = '' // NOTE parameter validation
+  if promoloc.title && promoloc.text
+    abbr(title=promoloc.title)= promoloc.text
+  else
+    = (promoloc.text || promoloc)
 
 mixin highlightButtons(links, more_classes)
   ul.o-List.o-ListAction

@@ -8,8 +8,10 @@ section#hero-block
     , startDate : '2017-06-04'
     , endDate   : '2017-06-07'
     , url       : 'http://2017.georiskconference.org/'
-    , city     : 'Denver'
-    , state    : 'CO'
+    , promo_loc : {
+        text : 'Denver, CO'
+      , title: 'Denver, Colorado'
+      }
     }), {itemscope:'', itemtype:'http://schema.org/Event'})
     +microdataCheckbox('hero')
       pre.docs-pre.
@@ -17,11 +19,8 @@ section#hero-block
           &lt;h1 class="c-PageTitle #[u c-Hero__Name]"#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;Geo-Risk 2017&lt;/h1&gt;
           #[mark.docs-c-Togglable__Text!= '&lt;meta content="http://2017.georiskconference.org/" itemprop="url"/&gt;']
           &lt;p class="#[u c-Hero__Detail]"&gt;
-            &lt;span class="#[u c-Hero__Place]"#[mark.docs-c-Togglable__Text  itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress"]&gt;
-              #[mark.docs-c-Togglable__Text &lt;span itemprop="name"&gt;]
-                #[mark.docs-c-Togglable__Text &lt;span itemprop="addressLocality"&gt;]Denver, #[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
-                #[mark.docs-c-Togglable__Text &lt;abbr title="Colorado" itemprop="addressRegion"&gt;]CO#[mark.docs-c-Togglable__Text!= '&lt;/abbr&gt;']
-              #[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
+            &lt;span class="#[u c-Hero__Place]"#[mark.docs-c-Togglable__Text  itemprop="location"]&gt;
+              #[mark.docs-c-Togglable__Text &lt;abbr title="Denver, Colorado"&gt;]Denver, CO#[mark.docs-c-Togglable__Text!= '&lt;/abbr&gt;']
             &lt;/span&gt;
             &lt;span class="#[u c-Hero__Dates]"&gt;
               #[mark.docs-c-Togglable__Text &lt;time datetime="2017-06-04" itemprop="startDate"&gt;]Jun 4#[mark.docs-c-Togglable__Text!= '&lt;/time&gt;']

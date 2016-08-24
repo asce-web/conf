@@ -11,13 +11,13 @@
       self.url       = $confinfo.url
       self.promo_loc = $confinfo.promo_loc
       self.reg_periods     = []
-      self.current_reg_pd_index = NaN
       self.passes          = []
       self.program_events  = []
       self.venues          = {}
       self.speakers        = []
       self.important_dates = []
       self.chairs          = []
+      self._regpd_current_index    = NaN
       self._venue_conference_index = null
     }
 
@@ -31,7 +31,7 @@
       return this
     }
     Conference.prototype.setCurrentRegistrationPeriod = function setCurrentRegistrationPeriod(reg_period_name) {
-      this.current_reg_pd_index = this.reg_periods.indexOf(this.getRegistrationPeriod(reg_period_name))
+      this._regpd_current_index = this.reg_periods.indexOf(this.getRegistrationPeriod(reg_period_name))
       return this
     }
     Conference.prototype.addPass = function addPass(pass) {
@@ -91,7 +91,7 @@
       return this.reg_periods.find(function (item) { return item.name === reg_period_name })
     }
     Conference.prototype.getCurrentRegistrationPeriod = function getCurrentRegistrationPeriod() {
-      return this.reg_periods[this.current_reg_pd_index]
+      return this.reg_periods[this._regpd_current_index]
     }
     Conference.prototype.getPass = function getPass(pass_name) {
       return this.passes.find(function (item) { return item.name === pass_name })

@@ -3,8 +3,7 @@
     //- CONSTRUCTOR
     function Conference($confinfo) {
       var self = this
-      $confinfo       = $confinfo       || {} // NOTE constructor overloading
-      $confinfo.venue = $confinfo.venue || {} // NOTE parameter validation
+      $confinfo = $confinfo || {} // NOTE constructor overloading
       self.name      = $confinfo.name
       self.theme     = $confinfo.theme
       self.startDate = $confinfo.startDate
@@ -15,10 +14,11 @@
       self.current_reg_pd_index = NaN
       self.passes          = []
       self.program_events  = []
-      self.venues          = []
+      self.venues          = {}
       self.speakers        = []
       self.important_dates = []
       self.chairs          = []
+      self._venue_conference_index = null
     }
 
     //- SETTER FUNCTIONS
@@ -51,12 +51,15 @@
       return this
     }
     Conference.prototype.addVenue = function addVenue(venue_label, place) {
-      this.venues.push({ _key: venue_label, _value: place })
+      this.venues[venue_label] = place
       return this
     }
     Conference.prototype.removeVenue = function removeVenue(venue_label) {
-      Util.spliceFromArray(this.venues, this.venues.find(function (item) { return item._key === venue_label }))
+      this[venue_label] = null
       return this
+    }
+    Conference.prototype.setConferenceVenue = function setConferenceVenue(venue_label) {
+      this._venue_conference_index = venue_label
     }
     Conference.prototype.addSpeaker = function addSpeaker(person) {
       this.speakers.push(person)
@@ -96,9 +99,11 @@
     Conference.prototype.getProgramEvent = function getProgramEvent(program_event_name) {
       return this.program_events.find(function (item) { return item.name === program_event_name })
     }
-    Conference.prototype.getVenue = function getVenue(venue_label, with_key) {
-      var returned = this.venues.find(function (item) { return item._key === venue_label })
-      return (with_key) ? returned : (returned || {})._value
+    Conference.prototype.getVenue = function getVenue(venue_label) {
+      return this.venues[venue_label]
+    }
+    Conference.prototype.getConferenceVenue = function getConferenceVenue() {
+      return this.getVenue(this._venue_conference_index)
     }
     Conference.prototype.getSpeaker = function getSpeaker(person_id) {
       return this.speakers.find(function (item) { return item.id === person_id })
@@ -118,8 +123,9 @@
     Conference.prototype.getProgramEventsAll = function getProgramEventsAll() {
       return this.program_events.slice()
     }
-    Conference.prototype.getVenuesAll = function getVenuesAll(with_keys) {
-      return (with_keys) ? this.venues.slice() : this.venues.map(function (item) { return item._value })
+    Conference.prototype.getVenuesAll = function getVenuesAll() {
+      //- NOTE returns shallow clone (like arr.slice())
+      return Object.assign({}, this.venues)
     }
     Conference.prototype.getSpeakersAll = function getSpeakersAll() {
       return this.speakers.slice()

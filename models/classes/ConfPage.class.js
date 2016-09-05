@@ -12,6 +12,8 @@ module.exports = (function () {
   ConfPage.prototype = Object.create(Page.prototype)
   ConfPage.prototype.constructor = ConfPage
 
+  // REVIEW organize methods by accessor; use args to determine get/set
+
   //- SETTER FUNCTIONS
   ConfPage.prototype.setIcon = function setIcon(key) {
     this.icon = Util.ICON_DATA.find(function (item) { return item.content === key })

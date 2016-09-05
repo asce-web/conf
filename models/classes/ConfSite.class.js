@@ -18,6 +18,8 @@ module.exports = (function () {
   ConfSite.prototype = Object.create(Page.prototype)
   ConfSite.prototype.constructor = ConfSite
 
+  // REVIEW organize methods by accessor; use args to determine get/set
+
   //- SETTER FUNCTIONS
   ConfSite.prototype.setLogo = function setLogo(logo) {
     this.logo = logo

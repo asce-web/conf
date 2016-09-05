@@ -10,6 +10,8 @@ module.exports = (function () {
     self.is_starred = false
   }
 
+  // REVIEW organize methods by accessor; use args to determine get/set
+
   //- SETTER FUNCTIONS
   Pass.prototype.setDescription = function setDescription(text) {
     this.description = text

@@ -50,6 +50,7 @@ module.exports = (function () {
       .add(new Page({ name: 'The Camo Link'            , url: 'comp.html#camo-link'}))
   })()
 
+  // REVIEW may not need this with new xmeter
   ConfDocs.DOCS_CLASSES = {
     figure : 'docs-figure'
   , pre    : 'docs-pre'

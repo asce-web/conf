@@ -23,6 +23,8 @@ module.exports = (function () {
     self.bio         = ''
   }
 
+  // REVIEW organize methods by accessor; use args to determine get/set
+
   //- SETTER FUNCTIONS
   Person.prototype.setJobTitle = function setJobTitle(text) {
     this.jobTitle = text

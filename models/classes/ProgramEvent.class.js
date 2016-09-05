@@ -8,6 +8,9 @@ module.exports = (function () {
     self.url = ''
     self.is_starred = false
   }
+
+  // REVIEW organize methods by accessor; use args to determine get/set
+
   ProgramEvent.prototype.setURL = function setURL(url0) {
     this.url = url0
     return this

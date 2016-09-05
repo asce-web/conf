@@ -8,6 +8,8 @@ module.exports = (function () {
     self.level = null
   }
 
+  // REVIEW organize methods by accessor; use args to determine get/set
+
   //- SETTER FUNCTIONS
   Supporter.prototype.setURL = function setURL(url0) {
     this.url = url0

@@ -20,6 +20,8 @@ module.exports = (function () {
     self._venue_conference_index = null
   }
 
+  // REVIEW organize methods by accessor; use args to determine get/set
+
   //- SETTER FUNCTIONS
   Conference.prototype.addRegistrationPeriod = function addRegistrationPeriod(reg_period) {
     this.reg_periods.push(reg_period)

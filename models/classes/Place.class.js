@@ -15,6 +15,8 @@ module.exports = (function () {
     self.url             = $placeinfo.url
   }
 
+  // REVIEW organize methods by accessor; use args to determine get/set
+
   //- SETTER FUNCTIONS
 
   //- GETTER FUNCTIONS

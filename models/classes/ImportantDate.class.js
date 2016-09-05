@@ -7,6 +7,9 @@ module.exports = (function () {
     self.url       = ''
     self.is_hidden = false
   }
+
+  // REVIEW organize methods by accessor; use args to determine get/set
+
   ImportantDate.prototype.setURL = function setURL(url0) {
     this.url = url0
     return this

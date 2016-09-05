@@ -1,7 +1,6 @@
 // Options and locals for compiling Pug pages.
 module.exports = {
   basedir: './'
-, Page              : require('./classes/Page.class.js')
 , Util              : require('./classes/Util.class.js')
 , ConfSite          : require('./classes/ConfSite.class.js')
 , ConfPage          : require('./classes/ConfPage.class.js')

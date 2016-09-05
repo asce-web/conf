@@ -1,5 +1,5 @@
-var Page = require('../../../models/classes/Page.class.js')
-  , Styleguide = require('./Styleguide.class.js')
+var Page = require('sitepage').Page
+  , StyleGuide = require('sitepage').StyleGuide
 
 module.exports = (function () {
   //- CONSTRUCTOR
@@ -8,7 +8,7 @@ module.exports = (function () {
   //- METHODS
 
   //- STATIC MEMBERS
-  ConfDocs.DOCS = new Styleguide('ASCE Conferences Style Guide', '/docs/')
+  ConfDocs.DOCS = new StyleGuide('ASCE Conferences Style Guide', '/docs/')
     .setTitle('ASCE Conferences Style Guide')
     .setDescription('Pattern Library for conference microsites.')
     .init()

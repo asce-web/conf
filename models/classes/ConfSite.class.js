@@ -1,4 +1,4 @@
-var Page = require('./Page.class.js')
+var Page = require('sitepage').Page
 var ConfPage = require('./ConfPage.class.js')
 
 module.exports = (function () {

@@ -1,4 +1,5 @@
 var Page = require('./Page.class.js')
+var Util = require('./Util.class.js')
 
 module.exports = (function () {
   //- CONSTRUCTOR

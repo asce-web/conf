@@ -1,4 +1,5 @@
 var Page = require('./Page.class.js')
+var ConfPage = require('./ConfPage.class.js')
 
 module.exports = (function () {
   //- CONSTRUCTOR

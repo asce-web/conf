@@ -1,3 +1,5 @@
+var Util = require('./Util.class.js')
+
 module.exports = (function () {
   function RegistrationPeriod($periodinfo) {
     var self = this

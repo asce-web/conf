@@ -1,4 +1,5 @@
-var Styleguide = require('./Styleguide.class.js')
+var Page = require('../../../models/classes/Page.class.js')
+  , Styleguide = require('./Styleguide.class.js')
 
 module.exports = (function () {
   //- CONSTRUCTOR

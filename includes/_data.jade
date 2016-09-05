@@ -62,8 +62,8 @@ mixin sitetoc(args)
             is_on : args.icons && item.getIcon()
           , text  : item.getIcon()
           })
-          if item.getPagesAll().length && depth > 0
-            +sitetoc({pages: item.getPagesAll(), classes: (classes.sub || {}), depth: depth-1})
+          if item.findAll().length && depth > 0
+            +sitetoc({pages: item.findAll(), classes: (classes.sub || {}), depth: depth-1})
 
 mixin promotedLocation(promoloc)
   - if (promoloc === undefined) promoloc = '' // NOTE parameter validation

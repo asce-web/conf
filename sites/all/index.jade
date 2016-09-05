@@ -1,7 +1,7 @@
 extends _sites.tpl.jade
 
 block append varsPage
-  - var page = site.findPage('index.html')
+  - var page = site.find('index.html')
 
 block mainHeader
   header.-d-n: h1 #{site.getName()} Homepage

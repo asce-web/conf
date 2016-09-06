@@ -1,12 +1,12 @@
 module.exports = (function () {
+  // CONSTRUCTOR
   function SupporterLevel(name) {
     var self = this
     self.name = name
     self.classname = ''
   }
 
-  // REVIEW organize methods by accessor; use args to determine get/set
-
+  // ACCESSOR FUNCTIONS
   SupporterLevel.prototype.setClassname = function setClassname(newname) {
     this.classname = newname
     return this
@@ -14,5 +14,6 @@ module.exports = (function () {
   SupporterLevel.prototype.getClassname = function getClassname() {
     return this.classname
   }
+
   return SupporterLevel
 })()

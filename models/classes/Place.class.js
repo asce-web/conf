@@ -1,5 +1,5 @@
 module.exports = (function () {
-  //- CONSTRUCTOR
+  // CONSTRUCTOR
   function Place($placeinfo) {
     var self = this
     $placeinfo = $placeinfo || {} // NOTE constructor overloading
@@ -15,13 +15,7 @@ module.exports = (function () {
     self.url             = $placeinfo.url
   }
 
-  // REVIEW organize methods by accessor; use args to determine get/set
-
-  //- SETTER FUNCTIONS
-
-  //- GETTER FUNCTIONS
-
-  //- METHODS
+  // ACCESSOR FUNCTIONS
 
   return Place
 })()

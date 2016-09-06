@@ -2,12 +2,12 @@ var Page = require('sitepage').Page
   , StyleGuide = require('sitepage').StyleGuide
 
 module.exports = (function () {
-  //- CONSTRUCTOR
+  // CONSTRUCTOR
   function ConfDocs() {}
 
-  //- METHODS
+  // METHODS
 
-  //- STATIC MEMBERS
+  // STATIC MEMBERS
   ConfDocs.DOCS = new StyleGuide('ASCE Conferences Style Guide', '/docs/')
     .title('ASCE Conferences Style Guide')
     .description('Pattern Library for conference microsites.')

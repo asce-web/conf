@@ -1,4 +1,5 @@
 module.exports = (function () {
+  // CONSTRUCTOR
   function ProgramEvent($eventinfo) {
     var self = this
     $eventinfo = $eventinfo || {} // NOTE constructor overloading
@@ -9,22 +10,23 @@ module.exports = (function () {
     self.is_starred = false
   }
 
-  // REVIEW organize methods by accessor; use args to determine get/set
-
+  // ACCESSOR FUNCTIONS
   ProgramEvent.prototype.setURL = function setURL(url0) {
     this.url = url0
-    return this
-  }
-  ProgramEvent.prototype.star = function star(bool) {
-    //- NOTE method overloading //- param defaults to true
-    this.is_starred = (bool === undefined) ? true : bool
     return this
   }
   ProgramEvent.prototype.getURL = function getURL() {
     return this.url
   }
+
+  ProgramEvent.prototype.star = function star(bool) {
+    //- NOTE method overloading //- param defaults to true
+    this.is_starred = (bool === undefined) ? true : bool
+    return this
+  }
   ProgramEvent.prototype.isStarred = function isStarred() {
     return this.is_starred
   }
+
   return ProgramEvent
 })()

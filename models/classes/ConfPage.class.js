@@ -2,7 +2,7 @@ var Page = require('sitepage').Page
 var Util = require('./Util.class.js')
 
 module.exports = (function () {
-  //- CONSTRUCTOR
+  // CONSTRUCTOR
   function ConfPage(name, url) {
     var self = this
     Page.call(self, { name: name, url: url })
@@ -12,20 +12,16 @@ module.exports = (function () {
   ConfPage.prototype = Object.create(Page.prototype)
   ConfPage.prototype.constructor = ConfPage
 
-  // REVIEW organize methods by accessor; use args to determine get/set
-
-  //- SETTER FUNCTIONS
+  // ACCESSOR FUNCTIONS
   ConfPage.prototype.setIcon = function setIcon(key) {
     this.icon = Util.ICON_DATA.find(function (item) { return item.content === key })
     return this
   }
-
-  //- GETTER FUNCTIONS
   ConfPage.prototype.getIcon = function getIcon(fallback) {
     return (this.icon) ? Util.iconToString(this.icon, fallback) : ''
   }
 
-  //- METHODS
+  // METHODS
   ConfPage.prototype.pagetype = function pagetype(arg) {
     if (arguments.length) {
       this._pagetype = arg

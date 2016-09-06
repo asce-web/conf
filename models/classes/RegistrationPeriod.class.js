@@ -1,6 +1,7 @@
 var Util = require('./Util.class.js')
 
 module.exports = (function () {
+  // CONSTRUCTOR
   function RegistrationPeriod($periodinfo) {
     var self = this
     $periodinfo = $periodinfo || {} // NOTE constructor overloading
@@ -10,8 +11,7 @@ module.exports = (function () {
     self.icon = null
   }
 
-  // REVIEW organize methods by accessor; use args to determine get/set
-
+  // ACCESSOR FUNCTIONS
   RegistrationPeriod.prototype.setIcon = function setIcon(key) {
     this.icon = Util.ICON_DATA.find(function (item) { return item.content === key })
     return this
@@ -19,5 +19,6 @@ module.exports = (function () {
   RegistrationPeriod.prototype.getIcon = function getIcon(fallback) {
     return (this.icon) ? Util.iconToString(this.icon, fallback) : ''
   }
+
   return RegistrationPeriod
 })()

@@ -1,7 +1,7 @@
 var Util = require('./Util.class.js')
 
 module.exports = (function () {
-  //- CONSTRUCTOR
+  // CONSTRUCTOR
   function Person($personinfo) {
     var self = this
     $personinfo = $personinfo || { name: {} } // NOTE constructor overloading
@@ -23,17 +23,23 @@ module.exports = (function () {
     self.bio         = ''
   }
 
-  // REVIEW organize methods by accessor; use args to determine get/set
-
-  //- SETTER FUNCTIONS
+  // ACCESSOR FUNCTIONS
   Person.prototype.setJobTitle = function setJobTitle(text) {
     this.jobTitle = text
     return this
   }
+  Person.prototype.getJobTitle = function getJobTitle(text) {
+    return this.jobTitle
+  }
+
   Person.prototype.setAffiliation = function setAffiliation(text) {
     this.affiliation = text
     return this
   }
+  Person.prototype.getAffiliation = function getAffiliation(text) {
+    return this.affiliation
+  }
+
   Person.prototype.setImg = function setImg(arg) {
     var url
     if (typeof arg === 'function') {
@@ -44,18 +50,34 @@ module.exports = (function () {
     this.img = url
     return this
   }
+  Person.prototype.getImg = function getImg() {
+    return this.img
+  }
+
   Person.prototype.setEmail = function setEmail(text) {
     this.email = text
     return this
   }
+  Person.prototype.getEmail = function getEmail() {
+    return this.email
+  }
+
   Person.prototype.setTel = function setTel(text) {
     this.telephone = text
     return this
   }
+  Person.prototype.getTel = function getTel() {
+    return this.telephone
+  }
+
   Person.prototype.setURL = function setURL(text) {
     this.url = text
     return this
   }
+  Person.prototype.getURL = function getURL() {
+    return this.url
+  }
+
   Person.prototype.setSocial = function setSocial($links) {
     this.social = {
       linkedin: $links.linkedin
@@ -64,38 +86,19 @@ module.exports = (function () {
     this.social.twitter.url = $links.twitter.url || Util.SOCIAL_DATA.twitter.toURL($links.twitter.text)
     return this
   }
+  Person.prototype.getSocial = function getSocial() {
+    return Object.assign({}, this.social) // shallow clone this.social into {}
+  }
+
   Person.prototype.setBio = function setBio(html) {
     this.bio = html
     return this
-  }
-
-  //- GETTER FUNCTIONS
-  Person.prototype.getJobTitle = function getJobTitle(text) {
-    return this.jobTitle
-  }
-  Person.prototype.getAffiliation = function getAffiliation(text) {
-    return this.affiliation
-  }
-  Person.prototype.getImg = function getImg() {
-    return this.img
-  }
-  Person.prototype.getEmail = function getEmail() {
-    return this.email
-  }
-  Person.prototype.getTel = function getTel() {
-    return this.telephone
-  }
-  Person.prototype.getURL = function getURL() {
-    return this.url
-  }
-  Person.prototype.getSocial = function getSocial() {
-    return Object.assign({}, this.social) // shallow clone this.social into {}
   }
   Person.prototype.getBio = function getBio(unescaped) {
     return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this.bio
   }
 
-  //- MORE PROTO FUNCTIONS
+  // METHODS
   Person.prototype.printFullName = function printFullName() {
     var returned = ''
     returned += this.name.givenName
@@ -110,8 +113,6 @@ module.exports = (function () {
     if (this.name.honorificSuffix) returned += ', ' + this.name.honorificSuffix
     return returned
   }
-
-  //- STATIC MEMBERS
 
   return Person
 })()

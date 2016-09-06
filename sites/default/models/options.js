@@ -22,10 +22,10 @@ var ConfSite           = require('../../../models/classes/ConfSite.class.js')
 module.exports = Object.assign(require('../../../models/options.js'), {
   site: (function () {
     var site = new ConfSite('An ASCE Event', '/sites/default/')
-      .init()
       .setDescription('Optional Brand Tagline')
       .setKeywords(['ASCE', 'civil engineering', 'convention'])
       .setLogo('img/site-logo-white.png')
+      .init()
 
     site
       .addConference('2016', new Conference({

@@ -102,12 +102,12 @@ module.exports = (function () {
     var self = this
     if (!self.was_initialized) {
       self.was_initialized = true
-      function pageTitle($page) {
-        return function () { return this.name() + ' | ' + $page.name() }
+      function pageTitle($site) {
+        return function () { return this.name() + ' | ' + $site.name() }
       }
       return self
         .add(new Page({ name: 'Top', url: '#top-menu' })
-          .add(new ConfPage(self.name, 'index.html')
+          .add(new ConfPage(self.name(), 'index.html')
             .title(self.name())
             .description(self.description())
             .setIcon('')

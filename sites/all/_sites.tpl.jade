@@ -94,10 +94,11 @@ html(lang="en")
     footer.o-Runner.c-Mast(class='c-Mast--'+page.pagetype()): nav.o-Constrain
       h1.-d-n#site-map Site Map
       include /_views/c-Sitemap.view.jade
-      +sitemap(({
-        top : site.find('#top-menu').findAll()
-      , main: site.find('#main-menu').findAll()
-      })[page.pagetype()])
+      //- if page.pagetype() === 'top'
+      //-   +sitemap(site.find('#top-menu').findAll())
+      //- else if page.pagetype() === 'main'
+      //-   +sitemap(site.find('#main-menu').findAll())
+      +sitemap(site.find('#' + page.pagetype() + '-menu').findAll())
     footer.o-Runner.c-Mast.c-Mast--copyright: div.o-Constrain
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")

@@ -1,18 +1,31 @@
+// Options and locals for compiling Pug pages.
 
 //- ///////////////////////////////////////////////////////////////////////////////
 //- //
-//- // This file holds 'local' data for the sample site.
-//- // Each microsite should have a different instace of this file.
+//- // This file holds 'local' data for the default site instance.
+//- // Each microsite should have its own copy of this file.
 //- //
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
--
+var ConfSite           = require('../../../models/classes/ConfSite.class.js')
+  , Conference         = require('../../../models/classes/Conference.class.js')
+  , SupporterLevel     = require('../../../models/classes/SupporterLevel.class.js')
+  , Supporter          = require('../../../models/classes/Supporter.class.js')
+  , Person             = require('../../../models/classes/Person.class.js')
+  , Place              = require('../../../models/classes/Place.class.js')
+  , RegistrationPeriod = require('../../../models/classes/RegistrationPeriod.class.js')
+  , Pass               = require('../../../models/classes/Pass.class.js')
+  , ProgramEvent       = require('../../../models/classes/ProgramEvent.class.js')
+  , ImportantDate      = require('../../../models/classes/ImportantDate.class.js')
+
+module.exports = Object.assign(require('../../../models/options.js'), {
+site: (function () {
   var site = new ConfSite('An ASCE Event', '/sites/default/')
+    .init()
     .setDescription('Optional Brand Tagline')
     .setKeywords(['ASCE', 'civil engineering', 'convention'])
     .setLogo('img/site-logo-white.png')
-    .init()
 
   site
     .addConference('2016', new Conference({
@@ -332,7 +345,7 @@
       }
     }))
 
-  site.rawdata = {
+  var rawdata = {
     comment: 'this is draft data that I don’t want to delete yet'
   , pass: {
       standard: {
@@ -553,3 +566,7 @@
   //-   .addSubpage('location.html'    , new ConfPage({name:'International Travel'        , url:''}))
   //-   .addSubpage('speakers.html'    , new ConfPage({name:'Distinguished Lecture Series', url:''}))
   //-   .addSubpage('speakers.html'    , new ConfPage({name:'Exhibitor List'              , url:''}))
+
+  return site
+})()
+})

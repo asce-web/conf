@@ -1,16 +1,7 @@
 doctype html
 html(lang="en")
   include /includes/_data.jade
-  block varsSite
-    -
-      var site = new ConfSite()
-        .init()
-        .addConference('sample', new Conference())
-        .setCurrentConference('sample')
-        .setPrevConference('sample')
-        .setNextConference('sample')
   block varsPage
-    - var page = new ConfPage()
   head
     title= page.getTitle()
     block metas

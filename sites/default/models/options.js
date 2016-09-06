@@ -19,11 +19,11 @@ var ConfSite           = require('../../../models/classes/ConfSite.class.js')
   , ProgramEvent       = require('../../../models/classes/ProgramEvent.class.js')
   , ImportantDate      = require('../../../models/classes/ImportantDate.class.js')
 
-module.exports = Object.assign(require('../../../models/options.js'), {
+module.exports = Object.assign(require('../../all/models/options.js'), {
   site: (function () {
     var site = new ConfSite('An ASCE Event', '/sites/default/')
-      .setDescription('Optional Brand Tagline')
-      .setKeywords(['ASCE', 'civil engineering', 'convention'])
+      .description('Optional Brand Tagline')
+      .keywords(['ASCE', 'civil engineering', 'convention'])
       .setLogo('img/site-logo-white.png')
       .init()
 

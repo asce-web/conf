@@ -4,13 +4,13 @@ mixin menuTop(array1, array2, current_text)
       li.o-List__Item.o-Flex__Item.c-MenuTop__Item
         +linkWithIcon({
           classes : 'c-MenuTop__Link h-Block' + ((is_current) ? ' c-MenuTop__Link--current' : '')
-        , url     : page.getURL()
+        , url     : page.url()
         , text    : text
         }, {
           is_on : page.getIcon()
         , text  : page.getIcon()
         })
     each page in array1
-      +menuItem(page, false, page.getName())
+      +menuItem(page, false, page.name())
     each page in array2
       +menuItem(page, true, current_text)

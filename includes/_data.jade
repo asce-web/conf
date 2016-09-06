@@ -55,9 +55,9 @@ mixin sitetoc(args)
         li(class=classes.itemclasses)
           +linkWithIcon({
             classes : classes.linkclasses
-          , url     : item.getURL()
-          , text    : item.getName()
-          , title   : item.getName()
+          , url     : item.url()
+          , text    : item.name()
+          , title   : item.name()
           }, {
             is_on : args.icons && item.getIcon()
           , text  : item.getIcon()

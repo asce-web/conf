@@ -9,8 +9,8 @@ module.exports = (function () {
 
   //- STATIC MEMBERS
   ConfDocs.DOCS = new StyleGuide('ASCE Conferences Style Guide', '/docs/')
-    .setTitle('ASCE Conferences Style Guide')
-    .setDescription('Pattern Library for conference microsites.')
+    .title('ASCE Conferences Style Guide')
+    .description('Pattern Library for conference microsites.')
     .init()
   ;(function () {
     //- adding pages to ConfDocs.DOCS

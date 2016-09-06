@@ -4,54 +4,54 @@ module.exports = (function () {
     var self = this
     $passinfo = $passinfo || {} // NOTE constructor overloading
     self.name         = $passinfo.name
-    self.description  = ''
-    self.fineprint    = ''
-    self.attend_types = []
-    self.is_starred = false
+    self._description  = ''
+    self._fineprint    = ''
+    self._attend_types = []
+    self._is_starred = false
   }
 
   // ACCESSOR FUNCTIONS
   Pass.prototype.setDescription = function setDescription(text) {
-    this.description = text
+    this._description = text
     return this
   }
   Pass.prototype.getDescription = function getDescription() {
-    return this.description
+    return this._description
   }
 
   Pass.prototype.setFineprint = function setFineprint(html) {
-    this.fineprint = html
+    this._fineprint = html
     return this
   }
   Pass.prototype.getFineprint = function getFineprint(unescaped) {
-    return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this.fineprint
+    return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this._fineprint
   }
 
   Pass.prototype.addAttendeeType = function addAttendeeType(attend_type) {
-    this.attend_types.push(attend_type)
+    this._attend_types.push(attend_type)
     return this
   }
   Pass.prototype.getAttendeeType = function getAttendeeType(attend_type_name) {
-    return this.attend_types.find(function (item) { return item.name === attend_type_name })
+    return this._attend_types.find(function (item) { return item.name === attend_type_name })
   }
   Pass.prototype.removeAttendeeType = function removeAttendeeType(attend_type_name) {
-    Util.spliceFromArray(this.attend_types, this.getAttendeeType(attend_type_name))
+    Util.spliceFromArray(this._attend_types, this.getAttendeeType(attend_type_name))
     return this
   }
   Pass.prototype.getAttendeeTypesAll = function getAttendeeTypesAll() {
-    return this.attend_types.slice()
+    return this._attend_types.slice()
   }
 
   Pass.prototype.star = function star(bool) {
-    //- NOTE method overloading //- param defaults to true
-    this.is_starred = (bool === undefined) ? true : bool
+    this._is_starred = (arguments.length) ? bool : true
     return this
   }
   Pass.prototype.isStarred = function isStarred() {
-    return this.is_starred
+    return this._is_starred
   }
 
   // STATIC MEMBERS
+  // REVIEW may not need this class
   Pass.AttendeeType = (function () {
     function AttendeeType(name, is_featured) {
       var self = this

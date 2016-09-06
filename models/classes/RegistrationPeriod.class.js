@@ -8,16 +8,16 @@ module.exports = (function () {
     self.name      = $periodinfo.name
     self.startDate = $periodinfo.startDate
     self.endDate   = $periodinfo.endDate
-    self.icon = null
+    self._icon = null
   }
 
   // ACCESSOR FUNCTIONS
   RegistrationPeriod.prototype.setIcon = function setIcon(key) {
-    this.icon = Util.ICON_DATA.find(function (item) { return item.content === key })
+    this._icon = Util.ICON_DATA.find(function (item) { return item.content === key })
     return this
   }
   RegistrationPeriod.prototype.getIcon = function getIcon(fallback) {
-    return (this.icon) ? Util.iconToString(this.icon, fallback) : ''
+    return (this._icon) ? Util.iconToString(this._icon, fallback) : ''
   }
 
   return RegistrationPeriod

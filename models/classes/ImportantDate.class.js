@@ -5,26 +5,25 @@ module.exports = (function () {
     $actioninfo = $actioninfo || {} // NOTE constructor overloading
     self.name      = $actioninfo.name
     self.startTime = $actioninfo.startTime
-    self.url       = ''
-    self.is_hidden = false
+    self._url       = ''
+    self._is_hidden = false
   }
 
   // ACCESSOR FUNCTIONS
   ImportantDate.prototype.setURL = function setURL(url0) {
-    this.url = url0
+    this._url = url0
     return this
   }
   ImportantDate.prototype.getURL = function getURL() {
-    return this.url
+    return this._url
   }
 
   ImportantDate.prototype.hide = function hide(bool) {
-    if (bool === undefined) bool = true // NOTE param defaults to true
-    this.is_hidden = bool
+    this._is_hidden = (arguments.length) ? bool : true
     return this
   }
   ImportantDate.prototype.isHidden = function isHidden() {
-    return this.is_hidden
+    return this._is_hidden
   }
 
   return ImportantDate

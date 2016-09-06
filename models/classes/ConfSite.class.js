@@ -6,11 +6,11 @@ module.exports = (function () {
   function ConfSite(name, url) {
     var self = this
     Page.call(self, { name: name, url: url })
-    self.was_initialized = false
-    self.logo               = ''
-    self.conferences        = {}
-    self.supporter_levels   = []
-    self.supporters         = []
+    self._logo               = ''
+    self._conferences        = {}
+    self._supporter_levels   = []
+    self._supporters         = []
+    self._was_initialized          = false
     self._conference_current_index = null
     self._conference_prev_index    = null
     self._conference_next_index    = null
@@ -20,19 +20,19 @@ module.exports = (function () {
 
   // ACCESSOR FUNCTIONS
   ConfSite.prototype.setLogo = function setLogo(logo) {
-    this.logo = logo
+    this._logo = logo
     return this
   }
   ConfSite.prototype.getLogo = function getLogo() {
-    return this.logo
+    return this._logo
   }
 
   ConfSite.prototype.addConference = function addConference(conf_label, conference) {
-    this.conferences[conf_label] = conference
+    this._conferences[conf_label] = conference
     return this
   }
   ConfSite.prototype.getConference = function getConference(conf_label) {
-    return this.conferences[conf_label]
+    return this._conferences[conf_label]
   }
   ConfSite.prototype.removeConference = function removeConference(conf_label) {
     console.log('Sorry, you do not have this ability.\
@@ -41,7 +41,7 @@ module.exports = (function () {
   }
   ConfSite.prototype.getConferencesAll = function getConferencesAll() {
     //- NOTE returns shallow clone (like arr.slice())
-    return Object.assign({}, this.conferences)
+    return Object.assign({}, this._conferences)
   }
 
   ConfSite.prototype.setCurrentConference = function setCurrentConference(conf_label) {
@@ -68,40 +68,40 @@ module.exports = (function () {
   }
 
   ConfSite.prototype.addSupporterLevel = function addSupporterLevel(supporter_level) {
-    this.supporter_levels.push(supporter_level)
+    this._supporter_levels.push(supporter_level)
     return this
   }
   ConfSite.prototype.getSupporterLevel = function getSupporterLevel(supporter_level_name) {
-    return this.supporter_levels.find(function (item) { return item.name === supporter_level_name })
+    return this._supporter_levels.find(function (item) { return item.name === supporter_level_name })
   }
   ConfSite.prototype.removeSupporterLevel = function removeSupporterLevel(supporter_level_name) {
-    Util.spliceFromArray(this.supporter_levels, this.getSupporterLevel(supporter_level_name))
+    Util.spliceFromArray(this._supporter_levels, this.getSupporterLevel(supporter_level_name))
     return this
   }
   ConfSite.prototype.getSupporterLevelsAll = function getSupporterLevelsAll() {
-    return this.supporter_levels.slice()
+    return this._supporter_levels.slice()
   }
 
   ConfSite.prototype.addSupporter = function addSupporter(supporter) {
-    this.supporters.push(supporter)
+    this._supporters.push(supporter)
     return this
   }
   ConfSite.prototype.getSupporter = function getSupporter(supporter_name) {
-    return this.supporters.find(function (item) { return item.name === supporter_name })
+    return this._supporters.find(function (item) { return item.name === supporter_name })
   }
   ConfSite.prototype.removeSupporter = function removeSupporter(supporter_name) {
-    Util.spliceFromArray(this.supporters, this.getSupporter(supporter_name))
+    Util.spliceFromArray(this._supporters, this.getSupporter(supporter_name))
     return this
   }
   ConfSite.prototype.getSupportersAll = function getSupportersAll() {
-    return this.supporters.slice()
+    return this._supporters.slice()
   }
 
   // METHODS
   ConfSite.prototype.init = function init() {
     var self = this
-    if (!self.was_initialized) {
-      self.was_initialized = true
+    if (!self._was_initialized) {
+      self._was_initialized = true
       function pageTitle($site) {
         return function () { return this.name() + ' | ' + $site.name() }
       }
@@ -143,7 +143,7 @@ module.exports = (function () {
   }
   ConfSite.prototype.initializeMainPages = function initializeMainPages() {
     var self = this
-    if (self.was_initialized) {
+    if (self._was_initialized) {
       self.find('#main-menu')
         .removeAll() //- NOTE IMPORTANT
         .add(new ConfPage('Home', 'home.html')

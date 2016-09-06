@@ -13,31 +13,31 @@ module.exports = (function () {
     , familyName      : $personinfo.name.familyName
     , honorificSuffix : $personinfo.name.honorificSuffix
     }
-    self.jobTitle    = ''
-    self.affiliation = ''
-    self.img         = ''
-    self.email       = ''
-    self.telephone   = ''
-    self.url         = ''
-    self.social      = null
-    self.bio         = ''
+    self._jobTitle    = ''
+    self._affiliation = ''
+    self._img         = ''
+    self._email       = ''
+    self._telephone   = ''
+    self._url         = ''
+    self._social      = null
+    self._bio         = ''
   }
 
   // ACCESSOR FUNCTIONS
   Person.prototype.setJobTitle = function setJobTitle(text) {
-    this.jobTitle = text
+    this._jobTitle = text
     return this
   }
   Person.prototype.getJobTitle = function getJobTitle(text) {
-    return this.jobTitle
+    return this._jobTitle
   }
 
   Person.prototype.setAffiliation = function setAffiliation(text) {
-    this.affiliation = text
+    this._affiliation = text
     return this
   }
   Person.prototype.getAffiliation = function getAffiliation(text) {
-    return this.affiliation
+    return this._affiliation
   }
 
   Person.prototype.setImg = function setImg(arg) {
@@ -47,55 +47,55 @@ module.exports = (function () {
     } else {
       url = arg
     }
-    this.img = url
+    this._img = url
     return this
   }
   Person.prototype.getImg = function getImg() {
-    return this.img
+    return this._img
   }
 
   Person.prototype.setEmail = function setEmail(text) {
-    this.email = text
+    this._email = text
     return this
   }
   Person.prototype.getEmail = function getEmail() {
-    return this.email
+    return this._email
   }
 
   Person.prototype.setTel = function setTel(text) {
-    this.telephone = text
+    this._telephone = text
     return this
   }
   Person.prototype.getTel = function getTel() {
-    return this.telephone
+    return this._telephone
   }
 
   Person.prototype.setURL = function setURL(text) {
-    this.url = text
+    this._url = text
     return this
   }
   Person.prototype.getURL = function getURL() {
-    return this.url
+    return this._url
   }
 
   Person.prototype.setSocial = function setSocial($links) {
-    this.social = {
+    this._social = {
       linkedin: $links.linkedin
     , twitter : $links.twitter
     }
-    this.social.twitter.url = $links.twitter.url || Util.SOCIAL_DATA.twitter.toURL($links.twitter.text)
+    this._social.twitter.url = $links.twitter.url || Util.SOCIAL_DATA.twitter.toURL($links.twitter.text)
     return this
   }
   Person.prototype.getSocial = function getSocial() {
-    return Object.assign({}, this.social) // shallow clone this.social into {}
+    return Object.assign({}, this._social) // shallow clone this.social into {}
   }
 
   Person.prototype.setBio = function setBio(html) {
-    this.bio = html
+    this._bio = html
     return this
   }
   Person.prototype.getBio = function getBio(unescaped) {
-    return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this.bio
+    return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this._bio
   }
 
   // METHODS

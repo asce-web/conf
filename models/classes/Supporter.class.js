@@ -3,32 +3,32 @@ module.exports = (function () {
   function Supporter(name) {
     var self = this
     self.name = name
-    self.url   = ''
-    self.img   = ''
-    self.level = null
+    self._url   = ''
+    self._img   = ''
+    self._level = null
   }
 
   // ACCESSOR FUNCTIONS
-  Supporter.prototype.setURL = function setURL(url0) {
-    this.url = url0
+  Supporter.prototype.setURL = function setURL(url) {
+    this._url = url
     return this
   }
   Supporter.prototype.getURL = function getURL() {
-    return this.url
+    return this._url
   }
-  Supporter.prototype.setImg = function setImg(img0) {
-    this.img = img0
+  Supporter.prototype.setImg = function setImg(img) {
+    this._img = img
     return this
   }
   Supporter.prototype.getImg = function getImg() {
-    return this.img
+    return this._img
   }
   Supporter.prototype.setLevel = function setLevel(supporter_level) {
-    this.level = supporter_level
+    this._level = supporter_level
     return this
   }
   Supporter.prototype.getLevel = function getLevel() {
-    return this.level
+    return this._level
   }
 
   return Supporter

@@ -9,6 +9,6 @@ block sponsors
     include /_views/c-SponsorBlock.view.jade
     each sponsorlevel,index in site.getSupporterLevelsAll()
       +sponsorBlock(sponsorlevel
-      , site.getSupportersAll().filter(function (item) { return item.getLevel() === sponsorlevel })
+      , site.getSupportersAll().filter(function ($supporter) { return $supporter.level() === sponsorlevel })
       , (index < site.getSupporterLevelsAll().length-1) ? 'c-SponsorBlock--separate' : ''
       )

@@ -9,26 +9,29 @@ module.exports = (function () {
   }
 
   // ACCESSOR FUNCTIONS
-  Supporter.prototype.setURL = function setURL(url) {
+  Supporter.prototype.url = function url(url) {
+    if (arguments.length) {
     this._url = url
     return this
-  }
-  Supporter.prototype.getURL = function getURL() {
+    } else {
     return this._url
+    }
   }
-  Supporter.prototype.setImg = function setImg(img) {
+  Supporter.prototype.img = function img(img) {
+    if (arguments.length) {
     this._img = img
     return this
-  }
-  Supporter.prototype.getImg = function getImg() {
+    } else {
     return this._img
+    }
   }
-  Supporter.prototype.setLevel = function setLevel(supporter_level) {
+  Supporter.prototype.level = function level(supporter_level) {
+    if (arguments.length) {
     this._level = supporter_level
     return this
-  }
-  Supporter.prototype.getLevel = function getLevel() {
+    } else {
     return this._level
+    }
   }
 
   return Supporter

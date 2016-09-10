@@ -2,17 +2,22 @@ module.exports = (function () {
   // CONSTRUCTOR
   function SupporterLevel(name) {
     var self = this
-    self.name = name
+    self._NAME = name
     self._classname = ''
   }
 
   // ACCESSOR FUNCTIONS
-  SupporterLevel.prototype.setClassname = function setClassname(newname) {
-    this._classname = newname
-    return this
+  SupporterLevel.prototype.name = function name() {
+    return this._NAME
   }
-  SupporterLevel.prototype.getClassname = function getClassname() {
-    return this._classname
+
+  SupporterLevel.prototype.classname = function classname(class_str) {
+    if (arguments.length) {
+      this._classname = class_str
+      return this
+    } else {
+      return this._classname
+    }
   }
 
   return SupporterLevel

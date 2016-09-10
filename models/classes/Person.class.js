@@ -24,58 +24,66 @@ module.exports = (function () {
   }
 
   // ACCESSOR FUNCTIONS
-  Person.prototype.setJobTitle = function setJobTitle(text) {
-    this._jobTitle = text
-    return this
-  }
-  Person.prototype.getJobTitle = function getJobTitle(text) {
-    return this._jobTitle
-  }
-
-  Person.prototype.setAffiliation = function setAffiliation(text) {
-    this._affiliation = text
-    return this
-  }
-  Person.prototype.getAffiliation = function getAffiliation(text) {
-    return this._affiliation
-  }
-
-  Person.prototype.setImg = function setImg(arg) {
-    var url
-    if (typeof arg === 'function') {
-      url = arg.call(this)
+  Person.prototype.jobTitle = function jobTitle(text) {
+    if (arguments.length) {
+      this._jobTitle = text
+      return this
     } else {
-      url = arg
+      return this._jobTitle
     }
-    this._img = url
-    return this
-  }
-  Person.prototype.getImg = function getImg() {
-    return this._img
   }
 
-  Person.prototype.setEmail = function setEmail(text) {
-    this._email = text
-    return this
-  }
-  Person.prototype.getEmail = function getEmail() {
-    return this._email
-  }
-
-  Person.prototype.setTel = function setTel(text) {
-    this._telephone = text
-    return this
-  }
-  Person.prototype.getTel = function getTel() {
-    return this._telephone
+  Person.prototype.affiliation = function affiliation(text) {
+    if (arguments.length) {
+      this._affiliation = text
+      return this
+    } else {
+      return this._affiliation
+    }
   }
 
-  Person.prototype.setURL = function setURL(text) {
-    this._url = text
-    return this
+  Person.prototype.img = function img(arg) {
+    if (arguments.length) {
+      this._img = (function (self) {
+        var url;
+        if (typeof arg === 'function') {
+          url = arg.call(self)
+        } else {
+          url = arg
+        }
+        return url
+      })(this)
+      return this
+    } else {
+      return this._img
+    }
   }
-  Person.prototype.getURL = function getURL() {
-    return this._url
+
+  Person.prototype.email = function email(text) {
+    if (arguments.length) {
+      this._email = text
+      return this
+    } else {
+      return this._email
+    }
+  }
+
+  Person.prototype.phone = function phone(text) {
+    if (arguments.length) {
+      this._telephone = text
+      return this
+    } else {
+      return this._telephone
+    }
+  }
+
+  Person.prototype.url = function url(text) {
+    if (arguments.length) {
+      this._url = text
+      return this
+    } else {
+      return this._url
+    }
   }
 
   Person.prototype.setSocial = function setSocial($links) {

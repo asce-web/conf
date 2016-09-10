@@ -3,7 +3,7 @@ module.exports = (function () {
   function Pass($passinfo) {
     var self = this
     $passinfo = $passinfo || {} // NOTE constructor overloading
-    self.name         = $passinfo.name
+    self._NAME = $passinfo.name
     self._description  = ''
     self._fineprint    = ''
     self._attend_types = []
@@ -11,12 +11,17 @@ module.exports = (function () {
   }
 
   // ACCESSOR FUNCTIONS
-  Pass.prototype.setDescription = function setDescription(text) {
-    this._description = text
-    return this
+  Pass.prototype.name = function name() {
+    return this._NAME
   }
-  Pass.prototype.getDescription = function getDescription() {
-    return this._description
+
+  Pass.prototype.description = function description(text) {
+    if (arguments.length) {
+      this._description = text
+      return this
+    } else {
+      return this._description
+    }
   }
 
   Pass.prototype.setFineprint = function setFineprint(html) {
@@ -27,15 +32,15 @@ module.exports = (function () {
     return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this._fineprint
   }
 
-  Pass.prototype.addAttendeeType = function addAttendeeType(attend_type) {
-    this._attend_types.push(attend_type)
+  Pass.prototype.addAttendeeType = function addAttendeeType($attendType) {
+    this._attend_types.push($attendType)
     return this
   }
-  Pass.prototype.getAttendeeType = function getAttendeeType(attend_type_name) {
-    return this._attend_types.find(function (item) { return item.name === attend_type_name })
+  Pass.prototype.getAttendeeType = function getAttendeeType(name) {
+    return this._attend_types.find(function ($attendType) { return $attendType.name() === name })
   }
-  Pass.prototype.removeAttendeeType = function removeAttendeeType(attend_type_name) {
-    Util.spliceFromArray(this._attend_types, this.getAttendeeType(attend_type_name))
+  Pass.prototype.removeAttendeeType = function removeAttendeeType(name) {
+    Util.spliceFromArray(this._attend_types, this.getAttendeeType(name))
     return this
   }
   Pass.prototype.getAttendeeTypesAll = function getAttendeeTypesAll() {
@@ -55,8 +60,14 @@ module.exports = (function () {
   Pass.AttendeeType = (function () {
     function AttendeeType(name, is_featured) {
       var self = this
-      self.name        = name
-      self.is_featured = is_featured
+      self._NAME        = name
+      self._IS_FEATURED = is_featured
+    }
+    AttendeeType.prototype.name = function name() {
+      return this._NAME
+    }
+    AttendeeType.prototype.isFeatured = function isFeatured() {
+      return this._IS_FEATURED
     }
     return AttendeeType
   })()

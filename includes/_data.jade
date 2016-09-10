@@ -87,10 +87,10 @@ mixin highlight(classes)
 mixin passList(conference, show_all)
   ul.o-List.o-ListStacked
     include /_views/c-Pass.view.jade
-    each pass in conference.getPassesAll()
-      if show_all || pass.isStarred()
+    each $pass in conference.getPassesAll()
+      if show_all || $pass.isStarred()
         li.o-List__Item.o-ListStacked__Item
-          +pass(pass, conference)
+          +pass($pass, conference)
 
 mixin speakerList(speakers)
   ul.o-List.o-ListStacked
@@ -101,21 +101,21 @@ mixin speakerList(speakers)
 
 mixin chairList(chairs)
   ul
-    each person in chairs
+    each $person in chairs
       li(itemprop="organizer" itemscope="" itemtype="http://schema.org/Person")
-        +personEntireName(person)
+        +personEntireName($person)
 
-mixin personEntireName(person)
-  if person.name.honorificPrefix
-    span(itemprop="honorificPrefix")= person.name.honorificPrefix
+mixin personEntireName($person)
+  if $person.name.honorificPrefix
+    span(itemprop="honorificPrefix")= $person.name.honorificPrefix
     = ' '
   span(itemprop="name")
-    span(itemprop="givenName")= person.name.givenName
+    span(itemprop="givenName")= $person.name.givenName
     = ' '
-    if person.name.additionalName
-      span(itemprop="additionalName")= person.name.additionalName
+    if $person.name.additionalName
+      span(itemprop="additionalName")= $person.name.additionalName
       = ' '
-    span(itemprop="familyName")= person.name.familyName
-  if person.name.honorificSuffix
+    span(itemprop="familyName")= $person.name.familyName
+  if $person.name.honorificSuffix
     = ', '
-    span(itemprop="honorificSuffix")= person.name.honorificSuffix
+    span(itemprop="honorificSuffix")= $person.name.honorificSuffix

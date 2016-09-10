@@ -13,20 +13,20 @@ section#sponsor-block
   figure.docs-figure
     -
       var levels = [
-        new SupporterLevel('Titanium').setClassname('c-SponsorBlock__Logo--lrg')
-      , new SupporterLevel('Platinum').setClassname('c-SponsorBlock__Logo--med')
-      , new SupporterLevel('Silver').setClassname('c-SponsorBlock__Logo--sml')
+        new SupporterLevel('Titanium').classname('c-SponsorBlock__Logo--lrg')
+      , new SupporterLevel('Platinum').classname('c-SponsorBlock__Logo--med')
+      , new SupporterLevel('Silver').classname('c-SponsorBlock__Logo--sml')
       ]
       var sponsor_list = [
         new Supporter('Bank of America')
-          .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg')
-          .setURL('#0')
+          .url('#0')
+          .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg')
       , new Supporter('UPS')
-          .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg')
-          .setURL('#0')
+          .url('#0')
+          .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg')
       , new Supporter('Geico')
-          .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png')
-          .setURL('#0')
+          .url('#0')
+          .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png')
       ]
     include /_views/c-SponsorBlock.view.jade
     +sponsorBlock(levels[0], sponsor_list, 'c-SponsorBlock--separate')

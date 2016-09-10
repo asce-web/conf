@@ -66,7 +66,7 @@ html(lang="en")
           include /_views/c-MenuTop.view.jade
           +menuTop(site.find('#top-menu').findAll().slice(1)
           , site.find('#main-menu').findAll().slice(0,1)
-          , site.getCurrentConference().name
+          , site.currentConference().name()
           )
     if page.pagetype() === 'main'
       header.o-Runner.c-Mast.c-Mast--main: nav.o-Constrain

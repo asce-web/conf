@@ -3,20 +3,31 @@ module.exports = (function () {
   function ProgramEvent($eventinfo) {
     var self = this
     $eventinfo = $eventinfo || {} // NOTE constructor overloading
-    self.name       = $eventinfo.name
-    self.startDate  = $eventinfo.startDate
-    self.endDate    = $eventinfo.endDate
+    self._NAME  = $eventinfo.name
+    self._START = $eventinfo.start_date
+    self._END   = $eventinfo.end_date
     self._url = ''
     self._is_starred = false
   }
 
   // ACCESSOR FUNCTIONS
-  ProgramEvent.prototype.setURL = function setURL(url0) {
-    this._url = url0
-    return this
+  ProgramEvent.prototype.name = function name() {
+    return this._NAME
   }
-  ProgramEvent.prototype.getURL = function getURL() {
-    return this._url
+  ProgramEvent.prototype.startDate = function startDate() {
+    return this._START
+  }
+  ProgramEvent.prototype.endDate = function endDate() {
+    return this._END
+  }
+
+  ProgramEvent.prototype.url = function url(url) {
+    if (arguments.length) {
+      this._url = url
+      return this
+    } else {
+      return this._url
+    }
   }
 
   ProgramEvent.prototype.star = function star(bool) {

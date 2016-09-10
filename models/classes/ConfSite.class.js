@@ -28,8 +28,8 @@ module.exports = (function () {
     }
   }
 
-  ConfSite.prototype.addConference = function addConference(conf_label, conference) {
-    this._conferences[conf_label] = conference
+  ConfSite.prototype.addConference = function addConference(conf_label, $conference) {
+    this._conferences[conf_label] = $conference
     return this
   }
   ConfSite.prototype.getConference = function getConference(conf_label) {
@@ -111,11 +111,11 @@ module.exports = (function () {
     this._supporter_levels.push($supporterLevel)
     return this
   }
-  ConfSite.prototype.getSupporterLevel = function getSupporterLevel(supporter_level_name) {
-    return this._supporter_levels.find(function ($supporterLevel) { return $supporterLevel.name() === supporter_level_name })
+  ConfSite.prototype.getSupporterLevel = function getSupporterLevel(name) {
+    return this._supporter_levels.find(function ($supporterLevel) { return $supporterLevel.name() === name })
   }
-  ConfSite.prototype.removeSupporterLevel = function removeSupporterLevel(supporter_level_name) {
-    Util.spliceFromArray(this._supporter_levels, this.getSupporterLevel(supporter_level_name))
+  ConfSite.prototype.removeSupporterLevel = function removeSupporterLevel(name) {
+    Util.spliceFromArray(this._supporter_levels, this.getSupporterLevel(name))
     return this
   }
   ConfSite.prototype.getSupporterLevelsAll = function getSupporterLevelsAll() {
@@ -126,11 +126,11 @@ module.exports = (function () {
     this._supporters.push($supporter)
     return this
   }
-  ConfSite.prototype.getSupporter = function getSupporter(supporter_name) {
-    return this._supporters.find(function ($supporter) { return $supporter.name() === supporter_name })
+  ConfSite.prototype.getSupporter = function getSupporter(name) {
+    return this._supporters.find(function ($supporter) { return $supporter.name() === name })
   }
-  ConfSite.prototype.removeSupporter = function removeSupporter(supporter_name) {
-    Util.spliceFromArray(this._supporters, this.getSupporter(supporter_name))
+  ConfSite.prototype.removeSupporter = function removeSupporter(name) {
+    Util.spliceFromArray(this._supporters, this.getSupporter(name))
     return this
   }
   ConfSite.prototype.getSupportersAll = function getSupportersAll() {

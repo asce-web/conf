@@ -11,9 +11,9 @@ module.exports = (function () {
     return this._NAME
   }
 
-  SupporterLevel.prototype.classname = function classname(newname) {
+  SupporterLevel.prototype.classname = function classname(class_str) {
     if (arguments.length) {
-      this._classname = newname
+      this._classname = class_str
       return this
     } else {
       return this._classname

@@ -17,9 +17,9 @@ module.exports = (function () {
     return this._START
   }
 
-  ImportantDate.prototype.url = function url(url0) {
+  ImportantDate.prototype.url = function url(url) {
     if (arguments.length) {
-      this._url = url0
+      this._url = url
       return this
     } else {
       return this._url

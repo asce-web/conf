@@ -29,9 +29,9 @@ module.exports = (function () {
       return this._img
     }
   }
-  Supporter.prototype.level = function level(supporter_level) {
+  Supporter.prototype.level = function level($supporterLevel) {
     if (arguments.length) {
-      this._level = supporter_level
+      this._level = $supporterLevel
       return this
     } else {
       return this._level

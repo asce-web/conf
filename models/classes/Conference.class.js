@@ -79,15 +79,15 @@ module.exports = (function () {
     return this._passes.slice()
   }
 
-  Conference.prototype.addProgramEvent = function addProgramEvent(program_event) {
-    this._program_events.push(program_event)
+  Conference.prototype.addProgramEvent = function addProgramEvent($programEvent) {
+    this._program_events.push($programEvent)
     return this
   }
-  Conference.prototype.getProgramEvent = function getProgramEvent(program_event_name) {
-    return this._program_events.find(function (item) { return item.name === program_event_name })
+  Conference.prototype.getProgramEvent = function getProgramEvent(name) {
+    return this._program_events.find(function ($programEvent) { return $programEvent.name() === name })
   }
-  Conference.prototype.removeProgramEvent = function removeProgramEvent(program_event_name) {
-    Util.spliceFromArray(this._program_events, this.getProgramEvent(program_event_name))
+  Conference.prototype.removeProgramEvent = function removeProgramEvent(name) {
+    Util.spliceFromArray(this._program_events, this.getProgramEvent(name))
     return this
   }
   Conference.prototype.getProgramEventsAll = function getProgramEventsAll() {

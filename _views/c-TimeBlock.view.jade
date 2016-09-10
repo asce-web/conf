@@ -1,6 +1,6 @@
-mixin timeBlock($events, show_all)
+mixin timeBlock(events, show_all)
   dl.o-Grid.c-TimeBlock
-    each $programEvent in $events
+    each $programEvent in events
       if show_all || $programEvent.isStarred()
         dt.o-Grid__Item.c-TimeBlock__Times
           time(datetime=$programEvent.startDate())= Util.hourTime12(Util.toDate($programEvent.startDate()))

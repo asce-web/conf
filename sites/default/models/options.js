@@ -142,14 +142,14 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
     site.currentConference()
       .addRegistrationPeriod(new RegistrationPeriod({
         name      : 'Early Bird'
-      , endDate   : '2016-07-28'
+      , end_date  : '2016-07-28'
       }).setIcon('stars')).addRegistrationPeriod(new RegistrationPeriod({
         name      : 'Advance'
-      , startDate : '2016-07-29'
-      , endDate   : '2016-08-25'
+      , start_date: '2016-07-29'
+      , end_date  : '2016-08-25'
       }).setIcon('date_range')).addRegistrationPeriod(new RegistrationPeriod({
         name      : 'Onsite'
-      , startDate : '2016-08-26'
+      , start_date: '2016-08-26'
       }).setIcon('account_balance'))
 
     site.currentConference()

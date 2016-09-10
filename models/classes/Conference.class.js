@@ -21,15 +21,15 @@ module.exports = (function () {
   }
 
   // ACCESSOR FUNCTIONS
-  Conference.prototype.addRegistrationPeriod = function addRegistrationPeriod(reg_period) {
-    this._reg_periods.push(reg_period)
+  Conference.prototype.addRegistrationPeriod = function addRegistrationPeriod($registrationPeriod) {
+    this._reg_periods.push($registrationPeriod)
     return this
   }
-  Conference.prototype.getRegistrationPeriod = function getRegistrationPeriod(reg_period_name) {
-    return this._reg_periods.find(function (item) { return item.name === reg_period_name })
+  Conference.prototype.getRegistrationPeriod = function getRegistrationPeriod(name) {
+    return this._reg_periods.find(function ($registrationPeriod) { return $registrationPeriod.name() === name })
   }
-  Conference.prototype.removeRegistrationPeriod = function removeRegistrationPeriod(reg_period_name) {
-    Util.spliceFromArray(this._reg_periods, this.getRegistrationPeriod(reg_period_name))
+  Conference.prototype.removeRegistrationPeriod = function removeRegistrationPeriod(name) {
+    Util.spliceFromArray(this._reg_periods, this.getRegistrationPeriod(name))
     return this
   }
   Conference.prototype.getRegistrationPeriodsAll = function getRegistrationPeriodsAll() {

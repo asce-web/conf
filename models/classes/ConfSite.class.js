@@ -10,10 +10,10 @@ module.exports = (function () {
     self._conferences        = {}
     self._supporter_levels   = []
     self._supporters         = []
-    self._was_initialized          = false
-    self._conference_current_index = null
-    self._conference_prev_index    = null
-    self._conference_next_index    = null
+    self._was_initialized = false
+    self._conf_curr_key   = null
+    self._conf_prev_key   = null
+    self._conf_next_key   = null
   }
   ConfSite.prototype = Object.create(Page.prototype)
   ConfSite.prototype.constructor = ConfSite
@@ -47,27 +47,27 @@ module.exports = (function () {
 
   ConfSite.prototype.currentConference = function currentConference(conf_label) {
     if (arguments.length) {
-    this._conference_current_index = conf_label
+    this._conf_curr_key = conf_label
     this.initializeMainPages()
     return this
     } else {
-    return this.getConference(this._conference_current_index)
+    return this.getConference(this._conf_curr_key)
     }
   }
   ConfSite.prototype.prevConference = function prevConference(conf_label) {
     if (arguments.length) {
-    this._conference_prev_index = conf_label
+    this._conf_prev_key = conf_label
     return this
     } else {
-    return this.getConference(this._conference_prev_index)
+    return this.getConference(this._conf_prev_key)
     }
   }
   ConfSite.prototype.nextConference = function nextConference(conf_label) {
     if (arguments.length) {
-    this._conference_next_index = conf_label
+    this._conf_next_key = conf_label
     return this
     } else {
-    return this.getConference(this._conference_next_index)
+    return this.getConference(this._conf_next_key)
     }
   }
 

@@ -3,12 +3,12 @@ module.exports = (function () {
   function Conference($confinfo) {
     var self = this
     $confinfo = $confinfo || {} // NOTE constructor overloading
-    self.name      = $confinfo.name
-    self.theme     = $confinfo.theme
-    self.startDate = $confinfo.startDate
-    self.endDate   = $confinfo.endDate
-    self.url       = $confinfo.url
-    self.promo_loc = $confinfo.promo_loc
+    self._NAME      = $confinfo.name
+    self._THEME     = $confinfo.theme
+    self._START     = $confinfo.start_date
+    self._END       = $confinfo.end_date
+    self._URL       = $confinfo.url
+    self._PROMO_LOC = $confinfo.promo_loc
     self._reg_periods     = []
     self._passes          = []
     self._program_events  = []
@@ -21,38 +21,58 @@ module.exports = (function () {
   }
 
   // ACCESSOR FUNCTIONS
-  Conference.prototype.addRegistrationPeriod = function addRegistrationPeriod(reg_period) {
-    this._reg_periods.push(reg_period)
+  Conference.prototype.name = function name() {
+    return this._NAME
+  }
+  Conference.prototype.theme = function theme() {
+    return this._THEME
+  }
+  Conference.prototype.startDate = function startDate() {
+    return this._START
+  }
+  Conference.prototype.endDate = function endDate() {
+    return this._END
+  }
+  Conference.prototype.url = function url() {
+    return this._URL
+  }
+  Conference.prototype.promoLoc = function promoLoc() {
+    return this._PROMO_LOC
+  }
+
+  Conference.prototype.addRegistrationPeriod = function addRegistrationPeriod($registrationPeriod) {
+    this._reg_periods.push($registrationPeriod)
     return this
   }
-  Conference.prototype.getRegistrationPeriod = function getRegistrationPeriod(reg_period_name) {
-    return this._reg_periods.find(function (item) { return item.name === reg_period_name })
+  Conference.prototype.getRegistrationPeriod = function getRegistrationPeriod(name) {
+    return this._reg_periods.find(function ($registrationPeriod) { return $registrationPeriod.name() === name })
   }
-  Conference.prototype.removeRegistrationPeriod = function removeRegistrationPeriod(reg_period_name) {
-    Util.spliceFromArray(this._reg_periods, this.getRegistrationPeriod(reg_period_name))
+  Conference.prototype.removeRegistrationPeriod = function removeRegistrationPeriod(name) {
+    Util.spliceFromArray(this._reg_periods, this.getRegistrationPeriod(name))
     return this
   }
   Conference.prototype.getRegistrationPeriodsAll = function getRegistrationPeriodsAll() {
     return this._reg_periods.slice()
   }
 
-  Conference.prototype.setCurrentRegistrationPeriod = function setCurrentRegistrationPeriod(reg_period_name) {
+  Conference.prototype.currentRegistrationPeriod = function currentRegistrationPeriod(reg_period_name) {
+    if (arguments.length) {
     this._regpd_current_index = this._reg_periods.indexOf(this.getRegistrationPeriod(reg_period_name))
     return this
-  }
-  Conference.prototype.getCurrentRegistrationPeriod = function getCurrentRegistrationPeriod() {
+    } else {
     return this._reg_periods[this._regpd_current_index]
+    }
   }
 
-  Conference.prototype.addPass = function addPass(pass) {
-    this._passes.push(pass)
+  Conference.prototype.addPass = function addPass($pass) {
+    this._passes.push($pass)
     return this
   }
-  Conference.prototype.getPass = function getPass(pass_name) {
-    return this._passes.find(function (item) { return item.name === pass_name })
+  Conference.prototype.getPass = function getPass(name) {
+    return this._passes.find(function ($pass) { return $pass.name() === name })
   }
-  Conference.prototype.removePass = function removePass(pass_name) {
-    Util.spliceFromArray(this._passes, this.getPass(pass_name))
+  Conference.prototype.removePass = function removePass(name) {
+    Util.spliceFromArray(this._passes, this.getPass(name))
     return this
   }
   Conference.prototype.getPassesAll = function getPassesAll() {
@@ -90,11 +110,13 @@ module.exports = (function () {
     return Object.assign({}, this._venues)
   }
 
-  Conference.prototype.setConferenceVenue = function setConferenceVenue(venue_label) {
+  Conference.prototype.conferenceVenue = function conferenceVenue(venue_label) {
+    if (arguments.length) {
     this._venue_conference_index = venue_label
-  }
-  Conference.prototype.getConferenceVenue = function getConferenceVenue() {
+    return this
+    } else {
     return this.getVenue(this._venue_conference_index)
+    }
   }
 
   Conference.prototype.addSpeaker = function addSpeaker(person) {
@@ -112,15 +134,15 @@ module.exports = (function () {
     return this._speakers.slice()
   }
 
-  Conference.prototype.addImportantDate = function addImportantDate(important_date) {
-    this._important_dates.push(important_date)
+  Conference.prototype.addImportantDate = function addImportantDate($importantDate) {
+    this._important_dates.push($importantDate)
     return this
   }
-  Conference.prototype.getImportantDate = function getImportantDate(important_date_name) {
-    return this._important_dates.find(function (item) { return item.name === important_date_name })
+  Conference.prototype.getImportantDate = function getImportantDate(name) {
+    return this._important_dates.find(function ($importantDate) { return $importantDate.name() === name })
   }
-  Conference.prototype.removeImportantDate = function removeImportantDate(important_date_name) {
-    Util.spliceFromArray(this._important_dates, this.getImportantDate(important_date_name))
+  Conference.prototype.removeImportantDate = function removeImportantDate(name) {
+    Util.spliceFromArray(this._important_dates, this.getImportantDate(name))
     return this
   }
   Conference.prototype.getImportantDatesAll = function getImportantDatesAll() {
@@ -152,17 +174,21 @@ module.exports = (function () {
     return this
   }
   Conference.prototype.groupProgramEvents = function groupProgramEvents() {
-    var groupings = []
     var all_events = this.getProgramEventsAll()
-    for (event0 of all_events) {
-      function dateOf(program_event) { return program_event.startDate.slice(0,10) }
-      if (!groupings.find(function (item) { return item.date === dateOf(event0) })) {
-        groupings.push({date: dateOf(event0), events: all_events.filter(function (item) {
-          return dateOf(item) === dateOf(event0)
-        })})
+    return (function ($groupings) {
+      for ($programEvent of all_events) {
+        function dateOf($programEvent1) { return $programEvent1.startDate().slice(0,10) }
+        if (!$groupings.find(function ($obj) { return $obj.date === dateOf($programEvent) })) {
+          $groupings.push({
+            date  : dateOf($programEvent)
+          , events: all_events.filter(function ($programEvent1) {
+              return dateOf($programEvent1) === dateOf($programEvent)
+            })
+          })
+        }
       }
-    }
-    return groupings
+      return $groupings
+    })([])
   }
 
   return Conference

@@ -31,8 +31,8 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .addConference('2016', new Conference({
         name      : 'A 2016 Event'
       , theme     : 'Theme for the conference is optional.'
-      , startDate : '2016-09-28'
-      , endDate   : '2016-10-01'
+      , start_date: '2016-09-28'
+      , end_date  : '2016-10-01'
       , url       : 'http://2016.asceconvention.org/'
       , promo_loc : {
           text : 'Portland, OR'
@@ -41,8 +41,8 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       })).addConference('2015', new Conference({
         name      : 'A 2015 Event'
       , theme     : ''
-      , startDate : '2015-10-11'
-      , endDate   : ''
+      , start_date: '2015-10-11'
+      , end_date  : ''
       , url       : 'http://2015.asceconvention.org/'
       , promo_loc : {
           text : 'New York, NY'
@@ -51,8 +51,8 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       })).addConference('2017', new Conference({
         name      : 'A 2017 Event'
       , theme     : ''
-      , startDate : '2017-10-04'
-      , endDate   : ''
+      , start_date: '2017-10-04'
+      , end_date  : ''
       , url       : 'http://2017.asceconvention.org/'
       , promo_loc : {
           text : 'Charlotte, NC'
@@ -66,124 +66,124 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .nextConference('2017')
 
     site
-      .addSupporterLevel(new SupporterLevel('Platinum' ).setClassname('c-SponsorBlock__Logo--lrg'))
-      .addSupporterLevel(new SupporterLevel('Corporate').setClassname('c-SponsorBlock__Logo--med'))
-      .addSupporterLevel(new SupporterLevel('Silver'   ).setClassname('c-SponsorBlock__Logo--med'))
-      .addSupporterLevel(new SupporterLevel('Bronze'   ).setClassname('c-SponsorBlock__Logo--sml'))
-      .addSupporterLevel(new SupporterLevel('Copper'   ).setClassname('c-SponsorBlock__Logo--sml'))
+      .addSupporterLevel(new SupporterLevel('Platinum' ).classname('c-SponsorBlock__Logo--lrg'))
+      .addSupporterLevel(new SupporterLevel('Corporate').classname('c-SponsorBlock__Logo--med'))
+      .addSupporterLevel(new SupporterLevel('Silver'   ).classname('c-SponsorBlock__Logo--med'))
+      .addSupporterLevel(new SupporterLevel('Bronze'   ).classname('c-SponsorBlock__Logo--sml'))
+      .addSupporterLevel(new SupporterLevel('Copper'   ).classname('c-SponsorBlock__Logo--sml'))
 
     site
       .addSupporter(new Supporter('ASCE Foundation')
-        .setURL('http://www.ascefoundation.org/')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/asce-foundation-logo.png')
-        .setLevel(site.getSupporterLevel('Platinum'))
+        .url('http://www.ascefoundation.org/')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/asce-foundation-logo.png')
+        .level(site.getSupporterLevel('Platinum'))
       ).addSupporter(new Supporter('Bentley')
-        .setURL('https://www.bentley.com/')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bentley-logo.png')
-        .setLevel(site.getSupporterLevel('Platinum'))
+        .url('https://www.bentley.com/')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bentley-logo.png')
+        .level(site.getSupporterLevel('Platinum'))
       ).addSupporter(new Supporter('Pennoni')
-        .setURL('https://www.pennoni.com/')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/pennoni-50th-anniversary-logo.png')
-        .setLevel(site.getSupporterLevel('Silver'))
+        .url('https://www.pennoni.com/')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/pennoni-50th-anniversary-logo.png')
+        .level(site.getSupporterLevel('Silver'))
       ).addSupporter(new Supporter('Innovyze')
-        .setURL('http://www.innovyze.com/')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/innovyze-logo.png')
-        .setLevel(site.getSupporterLevel('Silver'))
+        .url('http://www.innovyze.com/')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/innovyze-logo.png')
+        .level(site.getSupporterLevel('Silver'))
       ).addSupporter(new Supporter('Fasten Group')
-        .setURL('http://www.chinafasten.com/')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/fasten-group-logo.png')
-        .setLevel(site.getSupporterLevel('Bronze'))
+        .url('http://www.chinafasten.com/')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/fasten-group-logo.png')
+        .level(site.getSupporterLevel('Bronze'))
       ).addSupporter(new Supporter('David Evans and Associates, Inc.')
-        .setURL('http://www.deainc.com/')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/david-evans-associates-logo.png')
-        .setLevel(site.getSupporterLevel('Bronze'))
+        .url('http://www.deainc.com/')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/david-evans-associates-logo.png')
+        .level(site.getSupporterLevel('Bronze'))
       ).addSupporter(new Supporter('KCI Technologies')
-        .setURL('http://www.kci.com/')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/kci-technologies-logo.png')
-        .setLevel(site.getSupporterLevel('Bronze'))
+        .url('http://www.kci.com/')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/kci-technologies-logo.png')
+        .level(site.getSupporterLevel('Bronze'))
       ).addSupporter(new Supporter('McCormick & Taylor')
-        .setURL('http://www.mccormicktaylor.com/')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/mccormick-taylor-logo.png')
-        .setLevel(site.getSupporterLevel('Bronze'))
+        .url('http://www.mccormicktaylor.com/')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/mccormick-taylor-logo.png')
+        .level(site.getSupporterLevel('Bronze'))
       ).addSupporter(new Supporter('Rutgers Center for Advanced Infrastructure and Transportation')
-        .setURL('http://cait.rutgers.edu/')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/rutgers-cait-logo.png')
-        .setLevel(site.getSupporterLevel('Copper'))
+        .url('http://cait.rutgers.edu/')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/rutgers-cait-logo.png')
+        .level(site.getSupporterLevel('Copper'))
       ).addSupporter(new Supporter('Kimley-Horn')
-        .setURL('http://www.kimley-horn.com/')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/kimley-horn-logo.png')
-        .setLevel(site.getSupporterLevel('Copper'))
+        .url('http://www.kimley-horn.com/')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/kimley-horn-logo.png')
+        .level(site.getSupporterLevel('Copper'))
       ).addSupporter(new Supporter('Christopher B. Burke Engineering, Ltd.')
-        .setURL('http://cbbel.com/')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/christopher-b-burke-engineering-logo.png')
-        .setLevel(site.getSupporterLevel('Copper'))
+        .url('http://cbbel.com/')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/christopher-b-burke-engineering-logo.png')
+        .level(site.getSupporterLevel('Copper'))
       ).addSupporter(new Supporter('Bank of America')
-        .setURL('http://www.asce.org/member_advantages/#b')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg')
-        .setLevel(site.getSupporterLevel('Corporate'))
+        .url('http://www.asce.org/member_advantages/#b')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg')
+        .level(site.getSupporterLevel('Corporate'))
       ).addSupporter(new Supporter('Geico')
-        .setURL('https://www.geico.com/landingpage/member-discount/?logo=00774')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png')
-        .setLevel(site.getSupporterLevel('Corporate'))
+        .url('https://www.geico.com/landingpage/member-discount/?logo=00774')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png')
+        .level(site.getSupporterLevel('Corporate'))
       ).addSupporter(new Supporter('Pearl Insurance')
-        .setURL('http://asceinsurance.com/')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/pearl-insurance-logo.jpg')
-        .setLevel(site.getSupporterLevel('Corporate'))
+        .url('http://asceinsurance.com/')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/pearl-insurance-logo.jpg')
+        .level(site.getSupporterLevel('Corporate'))
       ).addSupporter(new Supporter('UPS')
-        .setURL('http://savewithups.com/asce/')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg')
-        .setLevel(site.getSupporterLevel('Corporate'))
+        .url('http://savewithups.com/asce/')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/ups-logo.jpg')
+        .level(site.getSupporterLevel('Corporate'))
       ).addSupporter(new Supporter('Keller North America')
-        .setURL('http://www.keller.co.uk/')
-        .setImg('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/keller-na-logo.png')
-        .setLevel(site.getSupporterLevel('Corporate'))
+        .url('http://www.keller.co.uk/')
+        .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/keller-na-logo.png')
+        .level(site.getSupporterLevel('Corporate'))
       )
 
     site.currentConference()
       .addRegistrationPeriod(new RegistrationPeriod({
         name      : 'Early Bird'
-      , endDate   : '2016-07-28'
+      , end_date  : '2016-07-28'
       }).setIcon('stars')).addRegistrationPeriod(new RegistrationPeriod({
         name      : 'Advance'
-      , startDate : '2016-07-29'
-      , endDate   : '2016-08-25'
+      , start_date: '2016-07-29'
+      , end_date  : '2016-08-25'
       }).setIcon('date_range')).addRegistrationPeriod(new RegistrationPeriod({
         name      : 'Onsite'
-      , startDate : '2016-08-26'
+      , start_date: '2016-08-26'
       }).setIcon('account_balance'))
 
     site.currentConference()
-      .setCurrentRegistrationPeriod('Early Bird')
+      .currentRegistrationPeriod('Early Bird')
 
     site.currentConference()
       .addPass(new Pass({ name: 'Standard Pass' })
-        .setDescription('Members & Non-Members')
+        .description('Members & Non-Members')
         .addAttendeeType(new Pass.AttendeeType('Member', true))
         .addAttendeeType(new Pass.AttendeeType('Non-Member'))
         .star()
       ).addPass(new Pass({ name: 'Speaker Pass' })
-        .setDescription('Speakers and Presenters')
+        .description('Speakers and Presenters')
         .addAttendeeType(new Pass.AttendeeType('Member', true))
         .addAttendeeType(new Pass.AttendeeType('Non-Member'))
       ).addPass(new Pass({ name: 'Moderator Pass' })
-        .setDescription('Moderators')
+        .description('Moderators')
         .addAttendeeType(new Pass.AttendeeType('Member', true))
         .addAttendeeType(new Pass.AttendeeType('Non-Member'))
       ).addPass(new Pass({ name: 'Younger Member' })
-        .setDescription('Members 18–35')
+        .description('Members 18–35')
         .addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
         .star()
       ).addPass(new Pass({ name: 'Student Pass' })
-        .setDescription('Undergraduates 18–24')
+        .description('Undergraduates 18–24')
         .addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
         .setFineprint('Full-time students must show valid <abbr title="identification">ID</abbr>\
           onsite at the registration desk when picking up name badge.')
         .star()
       ).addPass(new Pass({ name: 'Guest Pass' })
-        .setDescription('Speaker and Moderator Guests')
+        .description('Speaker and Moderator Guests')
         .addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
       ).addPass(new Pass({ name: 'Daily Pass' })
-        .setDescription('For One Day Only')
+        .description('For One Day Only')
         .addAttendeeType(new Pass.AttendeeType('Member', true))
         .addAttendeeType(new Pass.AttendeeType('Non-Member'))
       )
@@ -224,49 +224,49 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
     //-   .setPrice('Onsite'    , 'Daily Pass'    , 'Non-Member',  745)
 
     site.currentConference()
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 10:00', endDate:'2016-09-28 19:00', name:'Registration'                                                }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 10:30', endDate:'2016-09-28 16:30', name:'Technical Tours'                                             }).setURL('#0').star())
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Short Courses'                                               }).setURL('#0').star())
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 12:00', endDate:'2016-09-28 17:00', name:'Optional Tours'                                              }).setURL('#0').star())
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 17:30', endDate:'2016-09-28 19:30', name:'Opening Welcome Reception'                                   }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Community Service Project'                                   }).star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 10:00', end_date: '2016-09-28 19:00', name: 'Registration'                                                }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 10:30', end_date: '2016-09-28 16:30', name: 'Technical Tours'                                             }).url('#0').star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 13:00', end_date: '2016-09-28 17:00', name: 'Short Courses'                                               }).url('#0').star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 12:00', end_date: '2016-09-28 17:00', name: 'Optional Tours'                                              }).url('#0').star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 17:30', end_date: '2016-09-28 19:30', name: 'Opening Welcome Reception'                                   }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 13:00', end_date: '2016-09-28 17:00', name: 'Community Service Project'                                   }).star())
 
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 07:00', endDate:'2016-09-29 16:30', name:'Registration'                                                }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 07:30', endDate:'2016-09-29 08:30', name:'Student & Emerging Leaders Welcome Breakfast and Orientation'}))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 08:30', endDate:'2016-09-29 10:00', name:'Opening Plenary Session'                                     }).star())
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 09:30', endDate:'2016-09-29 15:30', name:'Guest Program Orientation & Tour'                            }).star())
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 10:00', endDate:'2016-09-29 10:30', name:'Beverage Break'                                              }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 10:30', endDate:'2016-09-29 11:30', name:'Concurrent Sessions'                                         }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 11:45', endDate:'2016-09-29 13:45', name:'Celebration of Leaders Luncheon'                             }).star())
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 14:00', endDate:'2016-09-29 15:30', name:'Concurrent Sessions'                                         }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 14:00', endDate:'2016-09-29 18:00', name:'Communities and Pavilion'                                    }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 15:30', endDate:'2016-09-29 16:00', name:'Beverage Break'                                              }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 16:00', endDate:'2016-09-29 17:30', name:'Concurrent Sessions'                                         }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-29 18:45', endDate:'2016-09-29 21:45', name:'Optional Tour'                                               }).setURL('#0').star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 07:00', end_date: '2016-09-29 16:30', name: 'Registration'                                                }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 07:30', end_date: '2016-09-29 08:30', name: 'Student & Emerging Leaders Welcome Breakfast and Orientation'}))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 08:30', end_date: '2016-09-29 10:00', name: 'Opening Plenary Session'                                     }).star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 09:30', end_date: '2016-09-29 15:30', name: 'Guest Program Orientation & Tour'                            }).star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 10:00', end_date: '2016-09-29 10:30', name: 'Beverage Break'                                              }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 10:30', end_date: '2016-09-29 11:30', name: 'Concurrent Sessions'                                         }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 11:45', end_date: '2016-09-29 13:45', name: 'Celebration of Leaders Luncheon'                             }).star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 14:00', end_date: '2016-09-29 15:30', name: 'Concurrent Sessions'                                         }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 14:00', end_date: '2016-09-29 18:00', name: 'Communities and Pavilion'                                    }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 15:30', end_date: '2016-09-29 16:00', name: 'Beverage Break'                                              }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 16:00', end_date: '2016-09-29 17:30', name: 'Concurrent Sessions'                                         }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 18:45', end_date: '2016-09-29 21:45', name: 'Optional Tour'                                               }).url('#0').star())
 
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 07:00', endDate:'2016-09-30 16:30', name:'Registration'                                                }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 07:30', endDate:'2016-09-30 08:30', name:'Leadership & Society Awards Breakfast'                       }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 08:30', endDate:'2016-09-30 17:00', name:'Communities and Pavilion'                                    }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 08:45', endDate:'2016-09-30 09:45', name:'ASCE Annual Business Meeting'                                }).star())
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 09:45', endDate:'2016-09-30 10:15', name:'Beverage Break'                                              }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 10:15', endDate:'2016-09-30 11:45', name:'Concurrent Sessions'                                         }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 11:45', endDate:'2016-09-30 13:15', name:'Lunch on Your Own'                                           }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 11:45', endDate:'2016-09-30 13:15', name:'International Luncheon (ticketed)'                           }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 13:15', endDate:'2016-09-30 14:15', name:'Concurrent Sessions'                                         }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 13:00', endDate:'2016-09-30 17:15', name:'Optional Tour'                                               }).setURL('#0').star())
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 14:30', endDate:'2016-09-30 16:00', name:'Industry Leaders Forum'                                      }).star())
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 16:00', endDate:'2016-09-30 16:30', name:'Beverage Break'                                              }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 16:30', endDate:'2016-09-30 17:30', name:'Concurrent Sessions'                                         }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-09-30 18:30', endDate:'2016-09-30 21:30', name:'Theater Night Out'                                           }).star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-30 07:00', end_date: '2016-09-30 16:30', name: 'Registration'                                                }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-30 07:30', end_date: '2016-09-30 08:30', name: 'Leadership & Society Awards Breakfast'                       }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-30 08:30', end_date: '2016-09-30 17:00', name: 'Communities and Pavilion'                                    }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-30 08:45', end_date: '2016-09-30 09:45', name: 'ASCE Annual Business Meeting'                                }).star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-30 09:45', end_date: '2016-09-30 10:15', name: 'Beverage Break'                                              }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-30 10:15', end_date: '2016-09-30 11:45', name: 'Concurrent Sessions'                                         }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-30 11:45', end_date: '2016-09-30 13:15', name: 'Lunch on Your Own'                                           }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-30 11:45', end_date: '2016-09-30 13:15', name: 'International Luncheon (ticketed)'                           }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-30 13:15', end_date: '2016-09-30 14:15', name: 'Concurrent Sessions'                                         }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-30 13:00', end_date: '2016-09-30 17:15', name: 'Optional Tour'                                               }).url('#0').star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-30 14:30', end_date: '2016-09-30 16:00', name: 'Industry Leaders Forum'                                      }).star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-30 16:00', end_date: '2016-09-30 16:30', name: 'Beverage Break'                                              }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-30 16:30', end_date: '2016-09-30 17:30', name: 'Concurrent Sessions'                                         }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-30 18:30', end_date: '2016-09-30 21:30', name: 'Theater Night Out'                                           }).star())
 
-      .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 07:00', endDate:'2016-10-01 14:30', name:'Registration'                                                }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 07:30', endDate:'2016-10-01 08:15', name:'Order of the Engineer Ceremony'                              }).star())
-      .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 08:45', endDate:'2016-10-01 11:45', name:'Optional Tour'                                               }).setURL('#0'))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 08:30', endDate:'2016-10-01 10:00', name:'Concurrent Sessions'                                         }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 08:30', endDate:'2016-10-01 14:00', name:'Communities and Pavilion'                                    }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 10:15', endDate:'2016-10-01 11:45', name:'Concurrent Sessions'                                         }))
-      .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 12:00', endDate:'2016-10-01 14:00', name:'ASCE Luncheon & Closing General Session'                     }).star())
-      .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 14:30', endDate:'2016-10-01 17:30', name:'Technical Tours'                                             }).setURL('#0'))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-10-01 07:00', end_date: '2016-10-01 14:30', name: 'Registration'                                                }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-10-01 07:30', end_date: '2016-10-01 08:15', name: 'Order of the Engineer Ceremony'                              }).star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-10-01 08:45', end_date: '2016-10-01 11:45', name: 'Optional Tour'                                               }).url('#0'))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-10-01 08:30', end_date: '2016-10-01 10:00', name: 'Concurrent Sessions'                                         }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-10-01 08:30', end_date: '2016-10-01 14:00', name: 'Communities and Pavilion'                                    }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-10-01 10:15', end_date: '2016-10-01 11:45', name: 'Concurrent Sessions'                                         }))
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-10-01 12:00', end_date: '2016-10-01 14:00', name: 'ASCE Luncheon & Closing General Session'                     }).star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-10-01 14:30', end_date: '2016-10-01 17:30', name: 'Technical Tours'                                             }).url('#0'))
 
     site.currentConference()
       .addVenue('Conference Venue', new Place({
@@ -291,7 +291,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       }))
 
     site.currentConference()
-      .setConferenceVenue('Conference Venue')
+      .conferenceVenue('Conference Venue')
 
     site.currentConference()
       .addSpeaker(new Person({
@@ -301,12 +301,12 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
         , familyName      : 'Fulman'
         , honorificSuffix : 'P.ASCE'
         }
-      }).setJobTitle('Administrator of Interior Engineering')
-        .setAffiliation('German Chamber of Architects')
-        .setImg('img/headshot1.jpg')
-        .setEmail('example@asce.org')
-        .setTel('+1(703)555-5555')
-        .setURL('#0')
+      }).jobTitle('Administrator of Interior Engineering')
+        .affiliation('German Chamber of Architects')
+        .img('img/headshot1.jpg')
+        .email('example@asce.org')
+        .phone('+1(703)555-5555')
+        .url('#0')
         .setSocial({
           linkedin: { url: 'https://www.linkedin.com/groups/143956/profile' }
         , twitter : { text: '@ASCETweets' }
@@ -320,11 +320,11 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       )
 
     site.currentConference()
-      .addImportantDate(new ImportantDate({startTime:'2015-10-12', name:'Optional Final Papers Due'     }))
-      .addImportantDate(new ImportantDate({startTime:'2015-12-17', name:'Early-Bird Registration Closes'}).setURL('registration.html'))
-      .addImportantDate(new ImportantDate({startTime:'2016-01-12', name:'Advance Registration Closes'   }).setURL('registration.html'))
-      .addImportantDate(new ImportantDate({startTime:'2016-06-12', name:'Convention Begins'             }))
-      .addImportantDate(new ImportantDate({startTime:'2016-06-15', name:'Convention Ends'               }).hide())
+      .addImportantDate(new ImportantDate({start_time:'2015-10-12', name:'Optional Final Papers Due'     }))
+      .addImportantDate(new ImportantDate({start_time:'2015-12-17', name:'Early-Bird Registration Closes'}).url('registration.html'))
+      .addImportantDate(new ImportantDate({start_time:'2016-01-12', name:'Advance Registration Closes'   }).url('registration.html'))
+      .addImportantDate(new ImportantDate({start_time:'2016-06-12', name:'Convention Begins'             }))
+      .addImportantDate(new ImportantDate({start_time:'2016-06-15', name:'Convention Ends'               }).hide())
 
     site.currentConference()
       .addChair(new Person({

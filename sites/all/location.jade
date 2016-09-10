@@ -12,4 +12,4 @@ block mainHeader
       each item,key in site.currentConference().getVenuesAll()
         li.o-List__Item.o-ListAction__Item.c-Callout__Item: section
           h1= key
-          +place(item, (item===site.currentConference().getConferenceVenue()) ? {itemprop:'location'} : {})
+          +place(item, (item===site.currentConference().conferenceVenue()) ? {itemprop:'location'} : {})

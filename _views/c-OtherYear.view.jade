@@ -1,8 +1,8 @@
-mixin otherYear(event0, btnclasses)
+mixin otherYear($conference, btnclasses)
   div.c-OtherYear(itemscope="" itemtype="http://schema.org/Event")
-    h1.c-OtherYear__Name(itemprop="name")= event0.name
-    meta(content=event0.startDate itemprop="startDate")
-    p.c-OtherYear__Detail(itemprop="location"): +promotedLocation(event0.promo_loc)
+    h1.c-OtherYear__Name(itemprop="name")= $conference.name()
+    meta(content=$conference.startDate() itemprop="startDate")
+    p.c-OtherYear__Detail(itemprop="location"): +promotedLocation($conference.promoLoc())
     p.c-OtherYear__Desc
       block
-    +highlightButtons([{text:'Event Details', href:event0.url, attr:{itemprop:'url'}}], btnclasses)
+    +highlightButtons([{text:'Event Details', href:$conference.url(), attr:{itemprop:'url'}}], btnclasses)

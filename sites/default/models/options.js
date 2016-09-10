@@ -526,6 +526,8 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
     }
 
     site.getConference('2015')
+      .setOtherYearBlurb('Access the 2015 program to see which sessions qualify for \
+        <abbr title="professional development hours">PDH</abbr>s and other documentation.')
       .addVenue('Conference Venue', new Place({
         name           : 'New York Marriott Marquis'
       , streetAddress  : '1535 Broadway'
@@ -536,6 +538,8 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       }))
 
     site.getConference('2017')
+      .setOtherYearBlurb('Plan ahead to attend, sponsor, or exhibit at the annual convention \
+        for civil engineering professionals.')
       .addVenue('Conference Venue', new Place({
         name           : 'Westin Charlotte'
       , streetAddress  : '601 South College Street'

@@ -16,6 +16,7 @@ module.exports = (function () {
     self._speakers        = []
     self._important_dates = []
     self._chairs          = []
+    self._other_year_blurb = ''
     self._regpd_curr_index = NaN
     self._venue_conf_key   = null
   }
@@ -162,6 +163,14 @@ module.exports = (function () {
   }
   Conference.prototype.getChairsAll = function getChairsAll() {
     return this._chairs.slice()
+  }
+
+  Conference.prototype.setOtherYearBlurb = function setOtherYearBlurb(html) {
+    this._other_year_blurb = html
+    return this
+  }
+  Conference.prototype.getOtherYearBlurb = function getOtherYearBlurb(unescaped) {
+    return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this._other_year_blurb
   }
 
   // METHODS

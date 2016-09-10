@@ -2,13 +2,17 @@ module.exports = (function () {
   // CONSTRUCTOR
   function Supporter(name) {
     var self = this
-    self.name = name
+    self._NAME = name
     self._url   = ''
     self._img   = ''
     self._level = null
   }
 
   // ACCESSOR FUNCTIONS
+  Supporter.prototype.name = function name() {
+    return this._NAME
+  }
+
   Supporter.prototype.url = function url(url) {
     if (arguments.length) {
     this._url = url

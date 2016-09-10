@@ -71,12 +71,12 @@ module.exports = (function () {
     }
   }
 
-  ConfSite.prototype.addSupporterLevel = function addSupporterLevel(supporter_level) {
-    this._supporter_levels.push(supporter_level)
+  ConfSite.prototype.addSupporterLevel = function addSupporterLevel($supporterLevel) {
+    this._supporter_levels.push($supporterLevel)
     return this
   }
   ConfSite.prototype.getSupporterLevel = function getSupporterLevel(supporter_level_name) {
-    return this._supporter_levels.find(function (item) { return item.name === supporter_level_name })
+    return this._supporter_levels.find(function ($supporterLevel) { return $supporterLevel.name() === supporter_level_name })
   }
   ConfSite.prototype.removeSupporterLevel = function removeSupporterLevel(supporter_level_name) {
     Util.spliceFromArray(this._supporter_levels, this.getSupporterLevel(supporter_level_name))
@@ -86,12 +86,12 @@ module.exports = (function () {
     return this._supporter_levels.slice()
   }
 
-  ConfSite.prototype.addSupporter = function addSupporter(supporter) {
-    this._supporters.push(supporter)
+  ConfSite.prototype.addSupporter = function addSupporter($supporter) {
+    this._supporters.push($supporter)
     return this
   }
   ConfSite.prototype.getSupporter = function getSupporter(supporter_name) {
-    return this._supporters.find(function (item) { return item.name === supporter_name })
+    return this._supporters.find(function ($supporter) { return $supporter.name() === supporter_name })
   }
   ConfSite.prototype.removeSupporter = function removeSupporter(supporter_name) {
     Util.spliceFromArray(this._supporters, this.getSupporter(supporter_name))
@@ -148,35 +148,36 @@ module.exports = (function () {
   ConfSite.prototype.initializeMainPages = function initializeMainPages() {
     var self = this
     if (self._was_initialized) {
+      var cur_conf_name = self.currentConference().name()
       self.find('#main-menu')
         .removeAll() //- NOTE IMPORTANT
         .add(new ConfPage('Home', 'home.html')
-          .title(self.currentConference().name)
-          .description(self.currentConference().theme)
+          .title(cur_conf_name)
+          .description(self.currentConference().theme())
           .setIcon('home')
           .pagetype('main')
         )
         .add(new ConfPage('Registration', 'registration.html')
-          .title(function () { return this.name() + ' | ' + self.currentConference().name })
-          .description('Register for ' + self.currentConference().name + ' here.')
+          .title(function () { return this.name() + ' | ' + cur_conf_name })
+          .description('Register for ' + cur_conf_name + ' here.')
           .setIcon('shopping_cart')
           .pagetype('main')
         )
         .add(new ConfPage('Program', 'program.html')
-          .title(function () { return this.name() + ' | ' + self.currentConference().name })
-          .description('Program and agenda of ' + self.currentConference().name + '.')
+          .title(function () { return this.name() + ' | ' + cur_conf_name })
+          .description('Program and agenda of ' + cur_conf_name + '.')
           .setIcon('event')
           .pagetype('main')
         )
         .add(new ConfPage('Hotel & Travel', 'location.html')
-          .title(function () { return this.name() + ' | ' + self.currentConference().name })
-          .description('Location and where to stay for ' + self.currentConference().name + '.')
+          .title(function () { return this.name() + ' | ' + cur_conf_name })
+          .description('Location and where to stay for ' + cur_conf_name + '.')
           .setIcon('flight')
           .pagetype('main')
         )
         .add(new ConfPage('Speakers', 'speakers.html')
-          .title(function () { return this.name() + ' | ' + self.currentConference().name })
-          .description('Current and prospective speakers at ' + self.currentConference().name + '.')
+          .title(function () { return this.name() + ' | ' + cur_conf_name })
+          .description('Current and prospective speakers at ' + cur_conf_name + '.')
           .setIcon('account_box')
           .pagetype('main')
         )

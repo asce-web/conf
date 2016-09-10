@@ -31,8 +31,8 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .addConference('2016', new Conference({
         name      : 'A 2016 Event'
       , theme     : 'Theme for the conference is optional.'
-      , startDate : '2016-09-28'
-      , endDate   : '2016-10-01'
+      , start_date: '2016-09-28'
+      , end_date  : '2016-10-01'
       , url       : 'http://2016.asceconvention.org/'
       , promo_loc : {
           text : 'Portland, OR'
@@ -41,8 +41,8 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       })).addConference('2015', new Conference({
         name      : 'A 2015 Event'
       , theme     : ''
-      , startDate : '2015-10-11'
-      , endDate   : ''
+      , start_date: '2015-10-11'
+      , end_date  : ''
       , url       : 'http://2015.asceconvention.org/'
       , promo_loc : {
           text : 'New York, NY'
@@ -51,8 +51,8 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       })).addConference('2017', new Conference({
         name      : 'A 2017 Event'
       , theme     : ''
-      , startDate : '2017-10-04'
-      , endDate   : ''
+      , start_date: '2017-10-04'
+      , end_date  : ''
       , url       : 'http://2017.asceconvention.org/'
       , promo_loc : {
           text : 'Charlotte, NC'

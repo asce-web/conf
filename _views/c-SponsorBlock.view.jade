@@ -1,8 +1,8 @@
-mixin sponsorBlock(sponsorlevel, sponsor_list, classes)
+mixin sponsorBlock($supporterLevel, sponsor_list, classes)
   section.c-SponsorBlock(class=classes)
-    h1.c-SponsorBlock__Hn= sponsorlevel.name
+    h1.c-SponsorBlock__Hn= $supporterLevel.name()
     ul.o-List.o-ListStacked
-      each $sponsor in sponsor_list
+      each $supporter in sponsor_list
         li.o-List__Item.o-ListStacked__Item(itemprop="sponsor" itemscope="" itemtype="http://schema.org/Organization")
           include ./c-SponsorLogo.view.jade
-          +sponsorLogo($sponsor, 'c-SponsorBlock__Logo ' + sponsorlevel.classname(), {itemprop:'url'}, {itemprop:'name'})
+          +sponsorLogo($supporter, 'c-SponsorBlock__Logo ' + $supporterLevel.classname(), {itemprop:'url'}, {itemprop:'name'})

@@ -1,18 +1,18 @@
-mixin hero(event0, attrs)
+mixin hero($conference, attrs)
   div.c-Hero&attributes(attrs || {})
-    h1.c-PageTitle.c-Hero__Name(itemprop="name")= event0.name
-    meta(content=event0.url itemprop="url")
+    h1.c-PageTitle.c-Hero__Name(itemprop="name")= $conference.name()
+    meta(content=$conference.url() itemprop="url")
     p.c-Hero__Detail
-      span.c-Hero__Place(itemprop="location"): +promotedLocation(event0.promo_loc)
+      span.c-Hero__Place(itemprop="location"): +promotedLocation($conference.promoLoc())
       span.c-Hero__Dates
-        time(datetime=event0.startDate itemprop="startDate")
-          = Util.monthDay(Util.toDate(event0.startDate))
+        time(datetime=$conference.startDate() itemprop="startDate")
+          = Util.monthDay(Util.toDate($conference.startDate()))
         | &ndash;
-        time(datetime=event0.endDate itemprop="endDate")
-          = Util.monthDay(Util.toDate(event0.endDate))
+        time(datetime=$conference.endDate() itemprop="endDate")
+          = Util.monthDay(Util.toDate($conference.endDate()))
     p.c-Hero__Theme(itemprop="description")
-      if event0.theme
-        = event0.theme
+      if $conference.theme()
+        = $conference.theme()
       else
         | &nbsp;
     block

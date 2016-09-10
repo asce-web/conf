@@ -71,12 +71,12 @@ module.exports = (function () {
     }
   }
 
-  ConfSite.prototype.addSupporterLevel = function addSupporterLevel(supporter_level) {
-    this._supporter_levels.push(supporter_level)
+  ConfSite.prototype.addSupporterLevel = function addSupporterLevel($supporterLevel) {
+    this._supporter_levels.push($supporterLevel)
     return this
   }
   ConfSite.prototype.getSupporterLevel = function getSupporterLevel(supporter_level_name) {
-    return this._supporter_levels.find(function (item) { return item.name === supporter_level_name })
+    return this._supporter_levels.find(function ($supporterLevel) { return $supporterLevel.name() === supporter_level_name })
   }
   ConfSite.prototype.removeSupporterLevel = function removeSupporterLevel(supporter_level_name) {
     Util.spliceFromArray(this._supporter_levels, this.getSupporterLevel(supporter_level_name))
@@ -86,12 +86,12 @@ module.exports = (function () {
     return this._supporter_levels.slice()
   }
 
-  ConfSite.prototype.addSupporter = function addSupporter(supporter) {
-    this._supporters.push(supporter)
+  ConfSite.prototype.addSupporter = function addSupporter($supporter) {
+    this._supporters.push($supporter)
     return this
   }
   ConfSite.prototype.getSupporter = function getSupporter(supporter_name) {
-    return this._supporters.find(function (item) { return item.name === supporter_name })
+    return this._supporters.find(function ($supporter) { return $supporter.name() === supporter_name })
   }
   ConfSite.prototype.removeSupporter = function removeSupporter(supporter_name) {
     Util.spliceFromArray(this._supporters, this.getSupporter(supporter_name))

@@ -7,15 +7,13 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
-mixin place($place, attr, classes)
-  //- NOTE parameter validation
-  - var classes = classes || {}
+mixin place($place, attr)
   p(itemscope="" itemtype="http://schema.org/Place")&attributes(attr || {})
     if $place.name
-      span.-fw-7(class=classes.name itemprop="name")= $place.name
+      span.-fw-7(itemprop="name")= $place.name
     if $place.address
       br
-      span(class=classes.address itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
+      span(itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
         span(itemprop="streetAddress")= $place.address.streetAddress
         br
         span(itemprop="addressLocality")= $place.address.addressLocality
@@ -27,10 +25,10 @@ mixin place($place, attr, classes)
           span(itemprop="addressCountry")= $place.address.addressCountry
     if $place.telephone
       br
-      a(class=classes.telephone href='tel:'+$place.telephone itemprop="telephone")= $place.telephone
+      a(href='tel:'+$place.telephone itemprop="telephone")= $place.telephone
     if $place.url
       br
-      a(class=classes.url href=$place.url itemprop="url")= $place.url
+      a(href=$place.url itemprop="url")= $place.url
 
 mixin linkWithIcon(link, icon)
   //- NOTE parameter validation
@@ -66,7 +64,7 @@ mixin sitetoc(args)
             +sitetoc({pages: item.findAll(), classes: (classes.sub || {}), depth: depth-1})
 
 mixin promotedLocation(promoloc)
-  - if (promoloc === undefined) promoloc = '' // NOTE parameter validation
+  - promoloc = promoloc || {} // NOTE parameter validation
   if promoloc.title && promoloc.text
     abbr(title=promoloc.title)= promoloc.text
   else

@@ -6,12 +6,10 @@ mixin hero(event0, attrs)
       span.c-Hero__Place(itemprop="location"): +promotedLocation(event0.promo_loc)
       span.c-Hero__Dates
         time(datetime=event0.startDate itemprop="startDate")
-          - var start = (event0.startDate) ? new Date(event0.startDate) : new Date()
-          = Util.monthDay(start)
+          = Util.monthDay(Util.toDate(event0.startDate))
         | &ndash;
         time(datetime=event0.endDate itemprop="endDate")
-          - var end = (event0.endDate) ? new Date(event0.endDate) : new Date()
-          = Util.monthDay(end)
+          = Util.monthDay(Util.toDate(event0.endDate))
     p.c-Hero__Theme(itemprop="description")
       if event0.theme
         = event0.theme

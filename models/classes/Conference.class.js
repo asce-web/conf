@@ -155,17 +155,21 @@ module.exports = (function () {
     return this
   }
   Conference.prototype.groupProgramEvents = function groupProgramEvents() {
-    var groupings = []
     var all_events = this.getProgramEventsAll()
-    for (event0 of all_events) {
-      function dateOf(program_event) { return program_event.startDate.slice(0,10) }
-      if (!groupings.find(function (item) { return item.date === dateOf(event0) })) {
-        groupings.push({date: dateOf(event0), events: all_events.filter(function (item) {
-          return dateOf(item) === dateOf(event0)
-        })})
+    return (function ($groupings) {
+      for ($programEvent of all_events) {
+        function dateOf($programEvent1) { return $programEvent1.startDate().slice(0,10) }
+        if (!$groupings.find(function ($obj) { return $obj.date === dateOf($programEvent) })) {
+          $groupings.push({
+            date  : dateOf($programEvent)
+          , events: all_events.filter(function ($programEvent1) {
+              return dateOf($programEvent1) === dateOf($programEvent)
+            })
+          })
+        }
       }
-    }
-    return groupings
+      return $groupings
+    })([])
   }
 
   return Conference

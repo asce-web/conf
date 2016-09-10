@@ -1,23 +1,20 @@
-mixin timeBlock(events, show_all)
+mixin timeBlock($events, show_all)
   dl.o-Grid.c-TimeBlock
-    each event0 in events
-      if show_all || event0.isStarred()
+    each $programEvent in $events
+      if show_all || $programEvent.isStarred()
         dt.o-Grid__Item.c-TimeBlock__Times
-          -
-            var start = Util.toDate(event0.startDate)
-              , end   = Util.toDate(event0.endDate)
-          time(datetime=event0.startDate)= Util.hourTime12(start)
+          time(datetime=$programEvent.startDate())= Util.hourTime12(Util.toDate($programEvent.startDate()))
           | &ndash;
-          time(datetime=event0.endDate)= Util.hourTime12(end)
+          time(datetime=$programEvent.endDate())= Util.hourTime12(Util.toDate($programEvent.endDate()))
         dd.o-Grid__Item.c-TimeBlock__Desc
-          if event0.getURL()
+          if $programEvent.url()
             +linkWithIcon({
               classes : 'c-TimeBlock__Link h-Block'
-            , url     : event0.getURL()
-            , text    : event0.name
+            , url     : $programEvent.url()
+            , text    : $programEvent.name()
             }, {
               is_on : true
             , text  : 'arrow_forward'
             })
           else
-            = event0.name
+            = $programEvent.name()

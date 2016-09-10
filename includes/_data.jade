@@ -106,16 +106,16 @@ mixin chairList(chairs)
         +personEntireName($person)
 
 mixin personEntireName($person)
-  if $person.name.honorificPrefix
-    span(itemprop="honorificPrefix")= $person.name.honorificPrefix
+  if $person.name().honorific_prefix
+    span(itemprop="honorificPrefix")= $person.name().honorific_prefix
     = ' '
   span(itemprop="name")
-    span(itemprop="givenName")= $person.name.givenName
+    span(itemprop="givenName")= $person.name().given_name
     = ' '
-    if $person.name.additionalName
-      span(itemprop="additionalName")= $person.name.additionalName
+    if $person.name().additional_name
+      span(itemprop="additionalName")= $person.name().additional_name
       = ' '
-    span(itemprop="familyName")= $person.name.familyName
-  if $person.name.honorificSuffix
+    span(itemprop="familyName")= $person.name().family_name
+  if $person.name().honorific_suffix
     = ', '
-    span(itemprop="honorificSuffix")= $person.name.honorificSuffix
+    span(itemprop="honorificSuffix")= $person.name().honorific_suffix

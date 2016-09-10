@@ -5,13 +5,13 @@ module.exports = (function () {
   function Person($personinfo) {
     var self = this
     $personinfo = $personinfo || { name: {} } // NOTE constructor overloading
-    self.id   = $personinfo.id
-    self.name = {
-      honorificPrefix : $personinfo.name.honorificPrefix
-    , givenName       : $personinfo.name.givenName
-    , additionalName  : $personinfo.name.additionalName
-    , familyName      : $personinfo.name.familyName
-    , honorificSuffix : $personinfo.name.honorificSuffix
+    self._ID   = $personinfo.id
+    self._NAME = {
+      honorific_prefix: $personinfo.name.honorific_prefix
+    , given_name      : $personinfo.name.given_name
+    , additional_name : $personinfo.name.additional_name
+    , family_name     : $personinfo.name.family_name
+    , honorific_suffix: $personinfo.name.honorific_suffix
     }
     self._jobTitle    = ''
     self._affiliation = ''
@@ -24,6 +24,15 @@ module.exports = (function () {
   }
 
   // ACCESSOR FUNCTIONS
+  Person.prototype.id = function id() {
+    return this._ID
+  }
+
+  Person.prototype.name = function name() {
+    //- NOTE returns shallow clone (like arr.slice())
+    return Object.assign({}, this._NAME)
+  }
+
   Person.prototype.jobTitle = function jobTitle(text) {
     if (arguments.length) {
       this._jobTitle = text

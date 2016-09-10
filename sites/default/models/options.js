@@ -298,9 +298,9 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .addSpeaker(new Person({
         id   : 'donna-fulman'
       , name: {
-          givenName       : 'Donna'
-        , familyName      : 'Fulman'
-        , honorificSuffix : 'P.ASCE'
+          given_name      : 'Donna'
+        , family_name     : 'Fulman'
+        , honorific_suffix: 'P.ASCE'
         }
       }).jobTitle('Administrator of Interior Engineering')
         .affiliation('German Chamber of Architects')
@@ -329,18 +329,18 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .addChair(new Person({
         id   : 'thomas-mccollough'
       , name : {
-          givenName       : 'Thomas'
-        , additionalName  : 'J.'
-        , familyName      : 'McCollough'
-        , honorificSuffix : 'P.E., M.ASCE'
+          given_name      : 'Thomas'
+        , additional_name : 'J.'
+        , family_name     : 'McCollough'
+        , honorific_suffix: 'P.E., M.ASCE'
         }
       })).addChair(new Person({
         id   : 'stephen-dickenson'
       , name : {
-          givenName       : 'Stephen'
-        , additionalName  : 'E.'
-        , familyName      : 'Dickenson'
-        , honorificSuffix : 'Ph.D., P.E., D.PE, M.ASCE'
+          given_name      : 'Stephen'
+        , additional_name : 'E.'
+        , family_name     : 'Dickenson'
+        , honorific_suffix: 'Ph.D., P.E., D.PE, M.ASCE'
         }
       }))
 

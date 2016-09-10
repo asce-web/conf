@@ -119,15 +119,15 @@ module.exports = (function () {
     }
   }
 
-  Conference.prototype.addSpeaker = function addSpeaker(person) {
-    this._speakers.push(person)
+  Conference.prototype.addSpeaker = function addSpeaker($person) {
+    this._speakers.push($person)
     return this
   }
-  Conference.prototype.getSpeaker = function getSpeaker(person_id) {
-    return this._speakers.find(function (item) { return item.id === person_id })
+  Conference.prototype.getSpeaker = function getSpeaker(id) {
+    return this._speakers.find(function ($person) { return $person.id() === id })
   }
-  Conference.prototype.removeSpeaker = function removeSpeaker(person_id) {
-    Util.spliceFromArray(this._speakers, this.getSpeaker(person_id))
+  Conference.prototype.removeSpeaker = function removeSpeaker(id) {
+    Util.spliceFromArray(this._speakers, this.getSpeaker(id))
     return this
   }
   Conference.prototype.getSpeakersAll = function getSpeakersAll() {
@@ -149,15 +149,15 @@ module.exports = (function () {
     return this._important_dates.slice()
   }
 
-  Conference.prototype.addChair = function addChair(person) {
-    this._chairs.push(person)
+  Conference.prototype.addChair = function addChair($person) {
+    this._chairs.push($person)
     return this
   }
-  Conference.prototype.getChair = function getChair(person_id) {
-    return this._chairs.find(function (item) { return item.id === person_id })
+  Conference.prototype.getChair = function getChair(id) {
+    return this._chairs.find(function ($person) { return $person.id() === id })
   }
-  Conference.prototype.removeChair = function removeChair(person_id) {
-    Util.spliceFromArray(this._chairs, this.getChair(person_id))
+  Conference.prototype.removeChair = function removeChair(id) {
+    Util.spliceFromArray(this._chairs, this.getChair(id))
     return this
   }
   Conference.prototype.getChairsAll = function getChairsAll() {

@@ -7,12 +7,13 @@ module.exports = (function () {
   }
 
   // ACCESSOR FUNCTIONS
-  SupporterLevel.prototype.setClassname = function setClassname(newname) {
+  SupporterLevel.prototype.classname = function classname(newname) {
+    if (arguments.length) {
     this._classname = newname
     return this
-  }
-  SupporterLevel.prototype.getClassname = function getClassname() {
+    } else {
     return this._classname
+    }
   }
 
   return SupporterLevel

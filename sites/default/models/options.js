@@ -66,11 +66,11 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .nextConference('2017')
 
     site
-      .addSupporterLevel(new SupporterLevel('Platinum' ).setClassname('c-SponsorBlock__Logo--lrg'))
-      .addSupporterLevel(new SupporterLevel('Corporate').setClassname('c-SponsorBlock__Logo--med'))
-      .addSupporterLevel(new SupporterLevel('Silver'   ).setClassname('c-SponsorBlock__Logo--med'))
-      .addSupporterLevel(new SupporterLevel('Bronze'   ).setClassname('c-SponsorBlock__Logo--sml'))
-      .addSupporterLevel(new SupporterLevel('Copper'   ).setClassname('c-SponsorBlock__Logo--sml'))
+      .addSupporterLevel(new SupporterLevel('Platinum' ).classname('c-SponsorBlock__Logo--lrg'))
+      .addSupporterLevel(new SupporterLevel('Corporate').classname('c-SponsorBlock__Logo--med'))
+      .addSupporterLevel(new SupporterLevel('Silver'   ).classname('c-SponsorBlock__Logo--med'))
+      .addSupporterLevel(new SupporterLevel('Bronze'   ).classname('c-SponsorBlock__Logo--sml'))
+      .addSupporterLevel(new SupporterLevel('Copper'   ).classname('c-SponsorBlock__Logo--sml'))
 
     site
       .addSupporter(new Supporter('ASCE Foundation')

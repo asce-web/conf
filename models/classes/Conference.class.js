@@ -3,12 +3,12 @@ module.exports = (function () {
   function Conference($confinfo) {
     var self = this
     $confinfo = $confinfo || {} // NOTE constructor overloading
-    self.name      = $confinfo.name
-    self.theme     = $confinfo.theme
-    self.startDate = $confinfo.startDate
-    self.endDate   = $confinfo.endDate
-    self.url       = $confinfo.url
-    self.promo_loc = $confinfo.promo_loc
+    self._NAME      = $confinfo.name
+    self._THEME     = $confinfo.theme
+    self._START     = $confinfo.start_date
+    self._END       = $confinfo.end_date
+    self._URL       = $confinfo.url
+    self._PROMO_LOC = $confinfo.promo_loc
     self._reg_periods     = []
     self._passes          = []
     self._program_events  = []
@@ -21,6 +21,25 @@ module.exports = (function () {
   }
 
   // ACCESSOR FUNCTIONS
+  Conference.prototype.name = function name() {
+    return this._NAME
+  }
+  Conference.prototype.theme = function theme() {
+    return this._THEME
+  }
+  Conference.prototype.startDate = function startDate() {
+    return this._START
+  }
+  Conference.prototype.endDate = function endDate() {
+    return this._END
+  }
+  Conference.prototype.url = function url() {
+    return this._URL
+  }
+  Conference.prototype.promoLoc = function promoLoc() {
+    return this._PROMO_LOC
+  }
+
   Conference.prototype.addRegistrationPeriod = function addRegistrationPeriod(reg_period) {
     this._reg_periods.push(reg_period)
     return this

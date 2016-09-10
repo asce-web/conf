@@ -1,101 +1,117 @@
 var Util = require('./Util.class.js')
 
 module.exports = (function () {
-  //- CONSTRUCTOR
-  function Person($personinfo) {
+  // CONSTRUCTOR
+  function Person(id, $name) {
     var self = this
-    $personinfo = $personinfo || { name: {} } // NOTE constructor overloading
-    self.id   = $personinfo.id
-    self.name = {
-      honorificPrefix : $personinfo.name.honorificPrefix
-    , givenName       : $personinfo.name.givenName
-    , additionalName  : $personinfo.name.additionalName
-    , familyName      : $personinfo.name.familyName
-    , honorificSuffix : $personinfo.name.honorificSuffix
+    $name = $name || {} // NOTE constructor overloading
+    self._ID   = id
+    self._NAME = {
+      honorific_prefix: $name.honorific_prefix
+    , given_name      : $name.given_name
+    , additional_name : $name.additional_name
+    , family_name     : $name.family_name
+    , honorific_suffix: $name.honorific_suffix
     }
-    self.jobTitle    = ''
-    self.affiliation = ''
-    self.img         = ''
-    self.email       = ''
-    self.telephone   = ''
-    self.url         = ''
-    self.social      = null
-    self.bio         = ''
+    self._jobTitle    = ''
+    self._affiliation = ''
+    self._img         = ''
+    self._email       = ''
+    self._telephone   = ''
+    self._url         = ''
+    self._social      = {}
+    self._bio         = ''
   }
 
-  // REVIEW organize methods by accessor; use args to determine get/set
+  // ACCESSOR FUNCTIONS
+  Person.prototype.id = function id() {
+    return this._ID
+  }
 
-  //- SETTER FUNCTIONS
-  Person.prototype.setJobTitle = function setJobTitle(text) {
-    this.jobTitle = text
-    return this
+  Person.prototype.name = function name() {
+    //- NOTE returns shallow clone (like arr.slice())
+    return Object.assign({}, this._NAME)
   }
-  Person.prototype.setAffiliation = function setAffiliation(text) {
-    this.affiliation = text
-    return this
-  }
-  Person.prototype.setImg = function setImg(arg) {
-    var url
-    if (typeof arg === 'function') {
-      url = arg.call(this)
+
+  Person.prototype.jobTitle = function jobTitle(text) {
+    if (arguments.length) {
+      this._jobTitle = text
+      return this
     } else {
-      url = arg
+      return this._jobTitle
     }
-    this.img = url
-    return this
-  }
-  Person.prototype.setEmail = function setEmail(text) {
-    this.email = text
-    return this
-  }
-  Person.prototype.setTel = function setTel(text) {
-    this.telephone = text
-    return this
-  }
-  Person.prototype.setURL = function setURL(text) {
-    this.url = text
-    return this
-  }
-  Person.prototype.setSocial = function setSocial($links) {
-    this.social = {
-      linkedin: $links.linkedin
-    , twitter : $links.twitter
-    }
-    this.social.twitter.url = $links.twitter.url || Util.SOCIAL_DATA.twitter.toURL($links.twitter.text)
-    return this
-  }
-  Person.prototype.setBio = function setBio(html) {
-    this.bio = html
-    return this
   }
 
-  //- GETTER FUNCTIONS
-  Person.prototype.getJobTitle = function getJobTitle(text) {
-    return this.jobTitle
+  Person.prototype.affiliation = function affiliation(text) {
+    if (arguments.length) {
+      this._affiliation = text
+      return this
+    } else {
+      return this._affiliation
+    }
   }
-  Person.prototype.getAffiliation = function getAffiliation(text) {
-    return this.affiliation
+
+  Person.prototype.img = function img(url) {
+    if (arguments.length) {
+      this._img = url
+      return this
+    } else {
+      return this._img
+    }
   }
-  Person.prototype.getImg = function getImg() {
-    return this.img
+
+  Person.prototype.email = function email(text) {
+    if (arguments.length) {
+      this._email = text
+      return this
+    } else {
+      return this._email
+    }
   }
-  Person.prototype.getEmail = function getEmail() {
-    return this.email
+
+  Person.prototype.phone = function phone(text) {
+    if (arguments.length) {
+      this._telephone = text
+      return this
+    } else {
+      return this._telephone
+    }
   }
-  Person.prototype.getTel = function getTel() {
-    return this.telephone
+
+  Person.prototype.url = function url(text) {
+    if (arguments.length) {
+      this._url = text
+      return this
+    } else {
+      return this._url
+    }
   }
-  Person.prototype.getURL = function getURL() {
-    return this.url
+
+  Person.prototype.addSocial = function addSocial(network_name, url, title) {
+    this._social[network_name] = { url: url, title: title }
+    return this
   }
-  Person.prototype.getSocial = function getSocial() {
-    return Object.assign({}, this.social) // shallow clone this.social into {}
+  Person.prototype.getSocial = function getSocial(network_name) {
+    return this._social[network_name]
+  }
+  Person.prototype.removeSocial = function removeSocial(network_name) {
+    this._social[network_name] = null
+    return this
+  }
+  Person.prototype.getSocialAll = function getSocialAll() {
+    //- NOTE returns shallow clone (like arr.slice())
+    return Object.assign({}, this._social) // shallow clone this.social into {}
+  }
+
+  Person.prototype.setBio = function setBio(html) {
+    this._bio = html
+    return this
   }
   Person.prototype.getBio = function getBio(unescaped) {
-    return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this.bio
+    return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this._bio
   }
 
-  //- MORE PROTO FUNCTIONS
+  // METHODS
   Person.prototype.printFullName = function printFullName() {
     var returned = ''
     returned += this.name.givenName
@@ -110,8 +126,6 @@ module.exports = (function () {
     if (this.name.honorificSuffix) returned += ', ' + this.name.honorificSuffix
     return returned
   }
-
-  //- STATIC MEMBERS
 
   return Person
 })()

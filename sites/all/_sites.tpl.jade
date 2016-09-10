@@ -3,11 +3,11 @@ html(lang="en")
   include /includes/_data.jade
   block vars
   head
-    title= page.getTitle()
+    title= page.title()
     block metas
       meta(charset="utf-8")
-      meta(name="description" content=page.getDescription())
-      meta(name="keywords" content=site.getKeywords())
+      meta(name="description" content=page.description())
+      meta(name="keywords" content=site.keywords())
       meta(name="viewport" content="width=device-width, initial-scale=1")
       meta(http-equiv="X-UA-Compatible" content="IE=edge")
     block styles
@@ -19,7 +19,7 @@ html(lang="en")
       link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v5.0.0/xmeter.css")
       link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.8.0/bangs.min.css")
       link(rel="stylesheet" href="/styles/conf.css")
-      if site.getName()
+      if site.name()
         //- if this site is an instance of the 'all' template
         link(rel="stylesheet" href="styles/site.css")
       style.
@@ -66,7 +66,7 @@ html(lang="en")
           include /_views/c-MenuTop.view.jade
           +menuTop(site.find('#top-menu').findAll().slice(1)
           , site.find('#main-menu').findAll().slice(0,1)
-          , site.getCurrentConference().name
+          , site.currentConference().name()
           )
     if page.pagetype() === 'main'
       header.o-Runner.c-Mast.c-Mast--main: nav.o-Constrain
@@ -77,7 +77,7 @@ html(lang="en")
       article&attributes((page.pagetype()==='main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
         block mainHeader
           header.o-Runner.o-Runner--pageHeader: div.o-Constrain
-            h1.c-PageTitle= page.getName()
+            h1.c-PageTitle= page.name()
         block mainBody
           block mainMinimal
           block mainReference
@@ -94,10 +94,11 @@ html(lang="en")
     footer.o-Runner.c-Mast(class='c-Mast--'+page.pagetype()): nav.o-Constrain
       h1.-d-n#site-map Site Map
       include /_views/c-Sitemap.view.jade
-      +sitemap(({
-        top : site.find('#top-menu').findAll()
-      , main: site.find('#main-menu').findAll()
-      })[page.pagetype()])
+      //- if page.pagetype() === 'top'
+      //-   +sitemap(site.find('#top-menu').findAll())
+      //- else if page.pagetype() === 'main'
+      //-   +sitemap(site.find('#main-menu').findAll())
+      +sitemap(site.find('#' + page.pagetype() + '-menu').findAll())
     footer.o-Runner.c-Mast.c-Mast--copyright: div.o-Constrain
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")

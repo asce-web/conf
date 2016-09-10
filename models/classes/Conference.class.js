@@ -1,144 +1,179 @@
 module.exports = (function () {
-  //- CONSTRUCTOR
+  // CONSTRUCTOR
   function Conference($confinfo) {
     var self = this
     $confinfo = $confinfo || {} // NOTE constructor overloading
-    self.name      = $confinfo.name
-    self.theme     = $confinfo.theme
-    self.startDate = $confinfo.startDate
-    self.endDate   = $confinfo.endDate
-    self.url       = $confinfo.url
-    self.promo_loc = $confinfo.promo_loc
-    self.reg_periods     = []
-    self.passes          = []
-    self.program_events  = []
-    self.venues          = {}
-    self.speakers        = []
-    self.important_dates = []
-    self.chairs          = []
-    self._regpd_current_index    = NaN
-    self._venue_conference_index = null
+    self._NAME      = $confinfo.name
+    self._THEME     = $confinfo.theme
+    self._START     = $confinfo.start_date
+    self._END       = $confinfo.end_date
+    self._URL       = $confinfo.url
+    self._PROMO_LOC = $confinfo.promo_loc
+    self._reg_periods     = []
+    self._passes          = []
+    self._program_events  = []
+    self._venues          = {}
+    self._speakers        = []
+    self._important_dates = []
+    self._chairs          = []
+    self._other_year_blurb = ''
+    self._regpd_curr_index = NaN
+    self._venue_conf_key   = null
   }
 
-  // REVIEW organize methods by accessor; use args to determine get/set
-
-  //- SETTER FUNCTIONS
-  Conference.prototype.addRegistrationPeriod = function addRegistrationPeriod(reg_period) {
-    this.reg_periods.push(reg_period)
-    return this
+  // ACCESSOR FUNCTIONS
+  Conference.prototype.name = function name() {
+    return this._NAME
   }
-  Conference.prototype.removeRegistrationPeriod = function removeRegistrationPeriod(reg_period_name) {
-    Util.spliceFromArray(this.reg_periods, this.getRegistrationPeriod(reg_period_name))
-    return this
+  Conference.prototype.theme = function theme() {
+    return this._THEME
   }
-  Conference.prototype.setCurrentRegistrationPeriod = function setCurrentRegistrationPeriod(reg_period_name) {
-    this._regpd_current_index = this.reg_periods.indexOf(this.getRegistrationPeriod(reg_period_name))
-    return this
+  Conference.prototype.startDate = function startDate() {
+    return this._START
   }
-  Conference.prototype.addPass = function addPass(pass) {
-    this.passes.push(pass)
-    return this
+  Conference.prototype.endDate = function endDate() {
+    return this._END
   }
-  Conference.prototype.removePass = function removePass(pass_name) {
-    Util.spliceFromArray(this.passes, this.getPass(pass_name))
-    return this
+  Conference.prototype.url = function url() {
+    return this._URL
   }
-  Conference.prototype.addProgramEvent = function addProgramEvent(program_event) {
-    this.program_events.push(program_event)
-    return this
-  }
-  Conference.prototype.removeProgramEvent = function removeProgramEvent(program_event_name) {
-    Util.spliceFromArray(this.program_events, this.getProgramEvent(program_event_name))
-    return this
-  }
-  Conference.prototype.addVenue = function addVenue(venue_label, place) {
-    this.venues[venue_label] = place
-    return this
-  }
-  Conference.prototype.removeVenue = function removeVenue(venue_label) {
-    this[venue_label] = null
-    return this
-  }
-  Conference.prototype.setConferenceVenue = function setConferenceVenue(venue_label) {
-    this._venue_conference_index = venue_label
-  }
-  Conference.prototype.addSpeaker = function addSpeaker(person) {
-    this.speakers.push(person)
-    return this
-  }
-  Conference.prototype.removeSpeaker = function removeSpeaker(person_id) {
-    Util.spliceFromArray(this.speakers, this.getSpeaker(person_id))
-    return this
-  }
-  Conference.prototype.addImportantDate = function addImportantDate(important_date) {
-    this.important_dates.push(important_date)
-    return this
-  }
-  Conference.prototype.removeImportantDate = function removeImportantDate(important_date_name) {
-    Util.spliceFromArray(this.important_dates, this.getImportantDate(important_date_name))
-    return this
-  }
-  Conference.prototype.addChair = function addChair(person) {
-    this.chairs.push(person)
-    return this
-  }
-  Conference.prototype.removeChair = function removeChair(person_id) {
-    Util.spliceFromArray(this.chairs, this.getChair(person_id))
-    return this
+  Conference.prototype.promoLoc = function promoLoc() {
+    return this._PROMO_LOC
   }
 
-  //- GETTER FUNCTIONS
-  Conference.prototype.getRegistrationPeriod = function getRegistrationPeriod(reg_period_name) {
-    return this.reg_periods.find(function (item) { return item.name === reg_period_name })
+  Conference.prototype.addRegistrationPeriod = function addRegistrationPeriod($registrationPeriod) {
+    this._reg_periods.push($registrationPeriod)
+    return this
   }
-  Conference.prototype.getCurrentRegistrationPeriod = function getCurrentRegistrationPeriod() {
-    return this.reg_periods[this._regpd_current_index]
+  Conference.prototype.getRegistrationPeriod = function getRegistrationPeriod(name) {
+    return this._reg_periods.find(function ($registrationPeriod) { return $registrationPeriod.name() === name })
   }
-  Conference.prototype.getPass = function getPass(pass_name) {
-    return this.passes.find(function (item) { return item.name === pass_name })
-  }
-  Conference.prototype.getProgramEvent = function getProgramEvent(program_event_name) {
-    return this.program_events.find(function (item) { return item.name === program_event_name })
-  }
-  Conference.prototype.getVenue = function getVenue(venue_label) {
-    return this.venues[venue_label]
-  }
-  Conference.prototype.getConferenceVenue = function getConferenceVenue() {
-    return this.getVenue(this._venue_conference_index)
-  }
-  Conference.prototype.getSpeaker = function getSpeaker(person_id) {
-    return this.speakers.find(function (item) { return item.id === person_id })
-  }
-  Conference.prototype.getImportantDate = function getImportantDate(important_date_name) {
-    return this.important_dates.find(function (item) { return item.name === important_date_name })
-  }
-  Conference.prototype.getChair = function getChair(person_id) {
-    return this.chairs.find(function (item) { return item.id === person_id })
+  Conference.prototype.removeRegistrationPeriod = function removeRegistrationPeriod(name) {
+    Util.spliceFromArray(this._reg_periods, this.getRegistrationPeriod(name))
+    return this
   }
   Conference.prototype.getRegistrationPeriodsAll = function getRegistrationPeriodsAll() {
-    return this.reg_periods.slice()
+    return this._reg_periods.slice()
+  }
+
+  Conference.prototype.currentRegistrationPeriod = function currentRegistrationPeriod(reg_period_name) {
+    if (arguments.length) {
+      this._regpd_curr_index = this._reg_periods.indexOf(this.getRegistrationPeriod(reg_period_name))
+      return this
+    } else {
+      return this._reg_periods[this._regpd_curr_index]
+    }
+  }
+
+  Conference.prototype.addPass = function addPass($pass) {
+    this._passes.push($pass)
+    return this
+  }
+  Conference.prototype.getPass = function getPass(name) {
+    return this._passes.find(function ($pass) { return $pass.name() === name })
+  }
+  Conference.prototype.removePass = function removePass(name) {
+    Util.spliceFromArray(this._passes, this.getPass(name))
+    return this
   }
   Conference.prototype.getPassesAll = function getPassesAll() {
-    return this.passes.slice()
+    return this._passes.slice()
+  }
+
+  Conference.prototype.addProgramEvent = function addProgramEvent($programEvent) {
+    this._program_events.push($programEvent)
+    return this
+  }
+  Conference.prototype.getProgramEvent = function getProgramEvent(name) {
+    return this._program_events.find(function ($programEvent) { return $programEvent.name() === name })
+  }
+  Conference.prototype.removeProgramEvent = function removeProgramEvent(name) {
+    Util.spliceFromArray(this._program_events, this.getProgramEvent(name))
+    return this
   }
   Conference.prototype.getProgramEventsAll = function getProgramEventsAll() {
-    return this.program_events.slice()
+    return this._program_events.slice()
+  }
+
+  Conference.prototype.addVenue = function addVenue(venue_label, $place) {
+    this._venues[venue_label] = $place
+    return this
+  }
+  Conference.prototype.getVenue = function getVenue(venue_label) {
+    return this._venues[venue_label]
+  }
+  Conference.prototype.removeVenue = function removeVenue(venue_label) {
+    this._venues[venue_label] = null
+    return this
   }
   Conference.prototype.getVenuesAll = function getVenuesAll() {
     //- NOTE returns shallow clone (like arr.slice())
-    return Object.assign({}, this.venues)
-  }
-  Conference.prototype.getSpeakersAll = function getSpeakersAll() {
-    return this.speakers.slice()
-  }
-  Conference.prototype.getImportantDatesAll = function getImportantDatesAll() {
-    return this.important_dates.slice()
-  }
-  Conference.prototype.getChairsAll = function getChairsAll() {
-    return this.chairs.slice()
+    return Object.assign({}, this._venues)
   }
 
-  //- MORE PROTO FUNCTIONS
+  Conference.prototype.conferenceVenue = function conferenceVenue(venue_label) {
+    if (arguments.length) {
+      this._venue_conf_key = venue_label
+      return this
+    } else {
+      return this.getVenue(this._venue_conf_key)
+    }
+  }
+
+  Conference.prototype.addSpeaker = function addSpeaker($person) {
+    this._speakers.push($person)
+    return this
+  }
+  Conference.prototype.getSpeaker = function getSpeaker(id) {
+    return this._speakers.find(function ($person) { return $person.id() === id })
+  }
+  Conference.prototype.removeSpeaker = function removeSpeaker(id) {
+    Util.spliceFromArray(this._speakers, this.getSpeaker(id))
+    return this
+  }
+  Conference.prototype.getSpeakersAll = function getSpeakersAll() {
+    return this._speakers.slice()
+  }
+
+  Conference.prototype.addImportantDate = function addImportantDate($importantDate) {
+    this._important_dates.push($importantDate)
+    return this
+  }
+  Conference.prototype.getImportantDate = function getImportantDate(name) {
+    return this._important_dates.find(function ($importantDate) { return $importantDate.name() === name })
+  }
+  Conference.prototype.removeImportantDate = function removeImportantDate(name) {
+    Util.spliceFromArray(this._important_dates, this.getImportantDate(name))
+    return this
+  }
+  Conference.prototype.getImportantDatesAll = function getImportantDatesAll() {
+    return this._important_dates.slice()
+  }
+
+  Conference.prototype.addChair = function addChair($person) {
+    this._chairs.push($person)
+    return this
+  }
+  Conference.prototype.getChair = function getChair(id) {
+    return this._chairs.find(function ($person) { return $person.id() === id })
+  }
+  Conference.prototype.removeChair = function removeChair(id) {
+    Util.spliceFromArray(this._chairs, this.getChair(id))
+    return this
+  }
+  Conference.prototype.getChairsAll = function getChairsAll() {
+    return this._chairs.slice()
+  }
+
+  Conference.prototype.setOtherYearBlurb = function setOtherYearBlurb(html) {
+    this._other_year_blurb = html
+    return this
+  }
+  Conference.prototype.getOtherYearBlurb = function getOtherYearBlurb(unescaped) {
+    return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this._other_year_blurb
+  }
+
+  // METHODS
   Conference.prototype.setPrice = function setPrice(reg_period, pass, membership, price) {
     //- reg_period = reg_period.name || reg_period
     //- pass        = pass.name        || pass
@@ -148,17 +183,21 @@ module.exports = (function () {
     return this
   }
   Conference.prototype.groupProgramEvents = function groupProgramEvents() {
-    var groupings = []
     var all_events = this.getProgramEventsAll()
-    for (event0 of all_events) {
-      function dateOf(program_event) { return program_event.startDate.slice(0,10) }
-      if (!groupings.find(function (item) { return item.date === dateOf(event0) })) {
-        groupings.push({date: dateOf(event0), events: all_events.filter(function (item) {
-          return dateOf(item) === dateOf(event0)
-        })})
+    return (function ($groupings) {
+      for ($programEvent of all_events) {
+        function dateOf($programEvent1) { return $programEvent1.startDate().slice(0,10) }
+        if (!$groupings.find(function ($obj) { return $obj.date === dateOf($programEvent) })) {
+          $groupings.push({
+            date  : dateOf($programEvent)
+          , events: all_events.filter(function ($programEvent1) {
+              return dateOf($programEvent1) === dateOf($programEvent)
+            })
+          })
+        }
       }
-    }
-    return groupings
+      return $groupings
+    })([])
   }
 
   return Conference

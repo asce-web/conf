@@ -1,4 +1,4 @@
 div.c-Overlay.c-Overlay--callout
-  h1#hotel-travel: +promotedLocation(site.getCurrentConference().promo_loc)
-  p: block blurb
+  h1#hotel-travel: +promotedLocation(site.currentConference().promoLoc())
+  p= site.currentConference().promoLoc().blurb
   +highlightButtons([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn--ghost c-Btn--ghost--dark')

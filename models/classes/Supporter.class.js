@@ -1,38 +1,41 @@
 module.exports = (function () {
-  //- CONSTRUCTOR
+  // CONSTRUCTOR
   function Supporter(name) {
     var self = this
-    self.name = name
-    self.url   = ''
-    self.img   = ''
-    self.level = null
+    self._NAME = name
+    self._url   = ''
+    self._img   = ''
+    self._level = null
   }
 
-  // REVIEW organize methods by accessor; use args to determine get/set
-
-  //- SETTER FUNCTIONS
-  Supporter.prototype.setURL = function setURL(url0) {
-    this.url = url0
-    return this
-  }
-  Supporter.prototype.setImg = function setImg(img0) {
-    this.img = img0
-    return this
-  }
-  Supporter.prototype.setLevel = function setLevel(supporter_level) {
-    this.level = supporter_level
-    return this
+  // ACCESSOR FUNCTIONS
+  Supporter.prototype.name = function name() {
+    return this._NAME
   }
 
-  //- GETTER FUNCTIONS
-  Supporter.prototype.getURL = function getURL() {
-    return this.url
+  Supporter.prototype.url = function url(url) {
+    if (arguments.length) {
+      this._url = url
+      return this
+    } else {
+      return this._url
+    }
   }
-  Supporter.prototype.getImg = function getImg() {
-    return this.img
+  Supporter.prototype.img = function img(img) {
+    if (arguments.length) {
+      this._img = img
+      return this
+    } else {
+      return this._img
+    }
   }
-  Supporter.prototype.getLevel = function getLevel() {
-    return this.level
+  Supporter.prototype.level = function level($supporterLevel) {
+    if (arguments.length) {
+      this._level = $supporterLevel
+      return this
+    } else {
+      return this._level
+    }
   }
 
   return Supporter

@@ -1,63 +1,72 @@
 module.exports = (function () {
-  //- CONSTRUCTOR
-  function Pass($passinfo) {
+  // CONSTRUCTOR
+  function Pass(name) {
     var self = this
-    $passinfo = $passinfo || {} // NOTE constructor overloading
-    self.name         = $passinfo.name
-    self.description  = ''
-    self.fineprint    = ''
-    self.attend_types = []
-    self.is_starred = false
+    self._NAME = name
+    self._description  = ''
+    self._fineprint    = ''
+    self._attend_types = []
+    self._is_starred = false
   }
 
-  // REVIEW organize methods by accessor; use args to determine get/set
-
-  //- SETTER FUNCTIONS
-  Pass.prototype.setDescription = function setDescription(text) {
-    this.description = text
-    return this
+  // ACCESSOR FUNCTIONS
+  Pass.prototype.name = function name() {
+    return this._NAME
   }
+
+  Pass.prototype.description = function description(text) {
+    if (arguments.length) {
+      this._description = text
+      return this
+    } else {
+      return this._description
+    }
+  }
+
   Pass.prototype.setFineprint = function setFineprint(html) {
-    this.fineprint = html
+    this._fineprint = html
     return this
-  }
-  Pass.prototype.addAttendeeType = function addAttendeeType(attend_type) {
-    this.attend_types.push(attend_type)
-    return this
-  }
-  Pass.prototype.removeAttendeeType = function removeAttendeeType(attend_type_name) {
-    Util.spliceFromArray(this.attend_types, this.getAttendeeType(attend_type_name))
-    return this
-  }
-  Pass.prototype.star = function star(bool) {
-    //- NOTE method overloading //- param defaults to true
-    this.is_starred = (bool === undefined) ? true : bool
-    return this
-  }
-
-  //- GETTER FUNCTIONS
-  Pass.prototype.getDescription = function getDescription() {
-    return this.description
   }
   Pass.prototype.getFineprint = function getFineprint(unescaped) {
-    return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this.fineprint
-  }
-  Pass.prototype.getAttendeeType = function getAttendeeType(attend_type_name) {
-    return this.attend_types.find(function (item) { return item.name === attend_type_name })
-  }
-  Pass.prototype.getAttendeeTypesAll = function getAttendeeTypesAll() {
-    return this.attend_types.slice()
-  }
-  Pass.prototype.isStarred = function isStarred() {
-    return this.is_starred
+    return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this._fineprint
   }
 
-  //- STATIC MEMBERS
+  Pass.prototype.addAttendeeType = function addAttendeeType($attendType) {
+    this._attend_types.push($attendType)
+    return this
+  }
+  Pass.prototype.getAttendeeType = function getAttendeeType(name) {
+    return this._attend_types.find(function ($attendType) { return $attendType.name() === name })
+  }
+  Pass.prototype.removeAttendeeType = function removeAttendeeType(name) {
+    Util.spliceFromArray(this._attend_types, this.getAttendeeType(name))
+    return this
+  }
+  Pass.prototype.getAttendeeTypesAll = function getAttendeeTypesAll() {
+    return this._attend_types.slice()
+  }
+
+  Pass.prototype.star = function star(bool) {
+    this._is_starred = (arguments.length) ? bool : true
+    return this
+  }
+  Pass.prototype.isStarred = function isStarred() {
+    return this._is_starred
+  }
+
+  // STATIC MEMBERS
+  // REVIEW may not need this class
   Pass.AttendeeType = (function () {
     function AttendeeType(name, is_featured) {
       var self = this
-      self.name        = name
-      self.is_featured = is_featured
+      self._NAME        = name
+      self._IS_FEATURED = is_featured
+    }
+    AttendeeType.prototype.name = function name() {
+      return this._NAME
+    }
+    AttendeeType.prototype.isFeatured = function isFeatured() {
+      return this._IS_FEATURED
     }
     return AttendeeType
   })()

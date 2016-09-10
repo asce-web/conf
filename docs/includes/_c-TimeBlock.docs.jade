@@ -3,12 +3,12 @@ section#time-block
   figure.docs-figure
     include /_views/c-TimeBlock.view.jade
     +timeBlock([
-      new ProgramEvent({startDate:'2016-09-28 10:00', endDate:'2016-09-28 19:00', name:'Registration'             })
-    , new ProgramEvent({startDate:'2016-09-28 10:30', endDate:'2016-09-28 16:30', name:'Technical Tours'          }).setURL('#0')
-    , new ProgramEvent({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Short Courses'            }).setURL('#0')
-    , new ProgramEvent({startDate:'2016-09-28 12:00', endDate:'2016-09-28 17:00', name:'Optional Tours'           }).setURL('#0')
-    , new ProgramEvent({startDate:'2016-09-28 17:30', endDate:'2016-09-28 19:30', name:'Opening Welcome Reception'})
-    , new ProgramEvent({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Community Service Project'})
+      new ProgramEvent({start_date:'2016-09-28 10:00', end_date:'2016-09-28 19:00', name:'Registration'             })
+    , new ProgramEvent({start_date:'2016-09-28 10:30', end_date:'2016-09-28 16:30', name:'Technical Tours'          }).url('#0')
+    , new ProgramEvent({start_date:'2016-09-28 13:00', end_date:'2016-09-28 17:00', name:'Short Courses'            }).url('#0')
+    , new ProgramEvent({start_date:'2016-09-28 12:00', end_date:'2016-09-28 17:00', name:'Optional Tours'           }).url('#0')
+    , new ProgramEvent({start_date:'2016-09-28 17:30', end_date:'2016-09-28 19:30', name:'Opening Welcome Reception'})
+    , new ProgramEvent({start_date:'2016-09-28 13:00', end_date:'2016-09-28 17:00', name:'Community Service Project'})
     ], true)
     pre.docs-pre.
       &lt;dl class="o-Grid  #[u c-TimeBlock]"&gt;

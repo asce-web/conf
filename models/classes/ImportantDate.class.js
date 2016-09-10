@@ -1,29 +1,38 @@
 module.exports = (function () {
+  // CONSTRUCTOR
   function ImportantDate($actioninfo) {
     var self = this
     $actioninfo = $actioninfo || {} // NOTE constructor overloading
-    self.name      = $actioninfo.name
-    self.startTime = $actioninfo.startTime
-    self.url       = ''
-    self.is_hidden = false
+    self._NAME  = $actioninfo.name
+    self._START = $actioninfo.start_time
+    self._url       = ''
+    self._is_hidden = false
   }
 
-  // REVIEW organize methods by accessor; use args to determine get/set
-
-  ImportantDate.prototype.setURL = function setURL(url0) {
-    this.url = url0
-    return this
+  // ACCESSOR FUNCTIONS
+  ImportantDate.prototype.name = function name() {
+    return this._NAME
   }
+  ImportantDate.prototype.startTime = function startTime() {
+    return this._START
+  }
+
+  ImportantDate.prototype.url = function url(url) {
+    if (arguments.length) {
+      this._url = url
+      return this
+    } else {
+      return this._url
+    }
+  }
+
   ImportantDate.prototype.hide = function hide(bool) {
-    if (bool === undefined) bool = true // NOTE param defaults to true
-    this.is_hidden = bool
+    this._is_hidden = (arguments.length) ? bool : true
     return this
-  }
-  ImportantDate.prototype.getURL = function getURL() {
-    return this.url
   }
   ImportantDate.prototype.isHidden = function isHidden() {
-    return this.is_hidden
+    return this._is_hidden
   }
+
   return ImportantDate
 })()

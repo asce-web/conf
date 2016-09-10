@@ -4,8 +4,8 @@ section#pass-component
   figure.docs-figure
     div(style="margin-bottom: 1.5rem;")
       include /_views/c-Pass.view.jade
-      +pass(new Pass({ name: 'Speaker Pass' })
-        .setDescription('Speakers and Presenters')
+      +pass(new Pass('Speaker Pass')
+        .description('Speakers and Presenters')
         .addAttendeeType(new Pass.AttendeeType('Member', true))
         .addAttendeeType(new Pass.AttendeeType('Non-Member'))
         .setFineprint('Side note or fine print goes here. <b>HTML</b> is allowed.\
@@ -14,7 +14,7 @@ section#pass-component
           .addRegistrationPeriod(new RegistrationPeriod({ name: 'Early Bird' }))
           .addRegistrationPeriod(new RegistrationPeriod({ name: 'Advance' }))
           .addRegistrationPeriod(new RegistrationPeriod({ name: 'Onsite' }))
-          .setCurrentRegistrationPeriod('Advance')
+          .currentRegistrationPeriod('Advance')
       )
     pre.docs-pre.
       &lt;article class="#[u c-Pass]"&gt;

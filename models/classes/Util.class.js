@@ -1,8 +1,8 @@
 module.exports = (function () {
-  //- CONSTRUCTOR
+  // CONSTRUCTOR
   function Util() {}
 
-  //- STATIC MEMBERS
+  // STATIC MEMBERS
   Util.MONTH_NAMES = [
     'January'
   , 'February'

@@ -7,15 +7,13 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
-mixin place($place, attr, classes)
-  //- NOTE parameter validation
-  - var classes = classes || {}
+mixin place($place, attr)
   p(itemscope="" itemtype="http://schema.org/Place")&attributes(attr || {})
     if $place.name
-      span.-fw-7(class=classes.name itemprop="name")= $place.name
+      span.-fw-7(itemprop="name")= $place.name
     if $place.address
       br
-      span(class=classes.address itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
+      span(itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
         span(itemprop="streetAddress")= $place.address.streetAddress
         br
         span(itemprop="addressLocality")= $place.address.addressLocality
@@ -27,10 +25,10 @@ mixin place($place, attr, classes)
           span(itemprop="addressCountry")= $place.address.addressCountry
     if $place.telephone
       br
-      a(class=classes.telephone href='tel:'+$place.telephone itemprop="telephone")= $place.telephone
+      a(href='tel:'+$place.telephone itemprop="telephone")= $place.telephone
     if $place.url
       br
-      a(class=classes.url href=$place.url itemprop="url")= $place.url
+      a(href=$place.url itemprop="url")= $place.url
 
 mixin linkWithIcon(link, icon)
   //- NOTE parameter validation
@@ -55,9 +53,9 @@ mixin sitetoc(args)
         li(class=classes.itemclasses)
           +linkWithIcon({
             classes : classes.linkclasses
-          , url     : item.getURL()
-          , text    : item.getName()
-          , title   : item.getName()
+          , url     : item.url()
+          , text    : item.name()
+          , title   : item.name()
           }, {
             is_on : args.icons && item.getIcon()
           , text  : item.getIcon()
@@ -66,7 +64,7 @@ mixin sitetoc(args)
             +sitetoc({pages: item.findAll(), classes: (classes.sub || {}), depth: depth-1})
 
 mixin promotedLocation(promoloc)
-  - if (promoloc === undefined) promoloc = '' // NOTE parameter validation
+  - promoloc = promoloc || {} // NOTE parameter validation
   if promoloc.title && promoloc.text
     abbr(title=promoloc.title)= promoloc.text
   else
@@ -87,10 +85,10 @@ mixin highlight(classes)
 mixin passList(conference, show_all)
   ul.o-List.o-ListStacked
     include /_views/c-Pass.view.jade
-    each pass in conference.getPassesAll()
-      if show_all || pass.isStarred()
+    each $pass in conference.getPassesAll()
+      if show_all || $pass.isStarred()
         li.o-List__Item.o-ListStacked__Item
-          +pass(pass, conference)
+          +pass($pass, conference)
 
 mixin speakerList(speakers)
   ul.o-List.o-ListStacked
@@ -101,21 +99,21 @@ mixin speakerList(speakers)
 
 mixin chairList(chairs)
   ul
-    each person in chairs
+    each $person in chairs
       li(itemprop="organizer" itemscope="" itemtype="http://schema.org/Person")
-        +personEntireName(person)
+        +personEntireName($person)
 
-mixin personEntireName(person)
-  if person.name.honorificPrefix
-    span(itemprop="honorificPrefix")= person.name.honorificPrefix
+mixin personEntireName($person)
+  if $person.name().honorific_prefix
+    span(itemprop="honorificPrefix")= $person.name().honorific_prefix
     = ' '
   span(itemprop="name")
-    span(itemprop="givenName")= person.name.givenName
+    span(itemprop="givenName")= $person.name().given_name
     = ' '
-    if person.name.additionalName
-      span(itemprop="additionalName")= person.name.additionalName
+    if $person.name().additional_name
+      span(itemprop="additionalName")= $person.name().additional_name
       = ' '
-    span(itemprop="familyName")= person.name.familyName
-  if person.name.honorificSuffix
+    span(itemprop="familyName")= $person.name().family_name
+  if $person.name().honorific_suffix
     = ', '
-    span(itemprop="honorificSuffix")= person.name.honorificSuffix
+    span(itemprop="honorificSuffix")= $person.name().honorific_suffix

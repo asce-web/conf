@@ -13,7 +13,6 @@ module.exports = Object.assign(require('../../models/options.js'), {
 , SupporterLevel    : require('../../models/classes/SupporterLevel.class.js')
 , Supporter         : require('../../models/classes/Supporter.class.js')
 , Person            : require('../../models/classes/Person.class.js')
-, Place             : require('../../models/classes/Place.class.js')
 , RegistrationPeriod: require('../../models/classes/RegistrationPeriod.class.js')
 , Pass              : require('../../models/classes/Pass.class.js')
 , ProgramEvent      : require('../../models/classes/ProgramEvent.class.js')

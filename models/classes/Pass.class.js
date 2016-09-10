@@ -1,9 +1,8 @@
 module.exports = (function () {
   // CONSTRUCTOR
-  function Pass($passinfo) {
+  function Pass(name) {
     var self = this
-    $passinfo = $passinfo || {} // NOTE constructor overloading
-    self._NAME = $passinfo.name
+    self._NAME = name
     self._description  = ''
     self._fineprint    = ''
     self._attend_types = []

@@ -42,17 +42,9 @@ module.exports = (function () {
     }
   }
 
-  Person.prototype.img = function img(arg) {
+  Person.prototype.img = function img(url) {
     if (arguments.length) {
-      this._img = (function (self) {
-        var url;
-        if (typeof arg === 'function') {
-          url = arg.call(self)
-        } else {
-          url = arg
-        }
-        return url
-      })(this)
+      this._img = url
       return this
     } else {
       return this._img

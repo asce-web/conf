@@ -21,9 +21,9 @@ module.exports = (function () {
     return (this._icon) ? Util.iconToString(this._icon, fallback) : ''
   }
 
-  ConfPage.prototype.pagetype = function pagetype(arg) {
+  ConfPage.prototype.pagetype = function pagetype(str) {
     if (arguments.length) {
-      this._pagetype = arg
+      this._pagetype = str
       return this
     } else {
       return this._pagetype

@@ -8,7 +8,8 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
-var ConfSite           = require('../../../models/classes/ConfSite.class.js')
+var Util               = require('../../../models/classes/Util.class.js')
+  , ConfSite           = require('../../../models/classes/ConfSite.class.js')
   , Conference         = require('../../../models/classes/Conference.class.js')
   , SupporterLevel     = require('../../../models/classes/SupporterLevel.class.js')
   , Supporter          = require('../../../models/classes/Supporter.class.js')
@@ -307,10 +308,8 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
         .email('example@asce.org')
         .phone('+1(703)555-5555')
         .url('#0')
-        .setSocial({
-          linkedin: { url: 'https://www.linkedin.com/groups/143956/profile' }
-        , twitter : { text: '@ASCETweets' }
-        })
+        .addSocial('linkedin', 'https://www.linkedin.com/groups/143956/profile')
+        .addSocial('twitter', Util.SOCIAL_DATA.twitter.toURL('@ASCETweets'), '@ASCETweets')
         .setBio('<p>Donna Fulman is an award-winning, German designer raised in Austria\
           and currently living in New York City.</p>\
           <p>Former Lead Product Designer and Art Director at Spotify, she recently founded\

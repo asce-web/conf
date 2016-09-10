@@ -17,10 +17,8 @@ section#speaker-component
         .email('example@asce.org')
         .phone('+1(703)555-5555')
         .url('#0')
-        .setSocial({
-          linkedin: { url: 'https://www.linkedin.com/groups/143956/profile' }
-        , twitter : { text: '@ASCETweets' }
-        })
+        .addSocial('linkedin', 'https://www.linkedin.com/groups/143956/profile')
+        .addSocial('twitter', Util.SOCIAL_DATA.twitter.toURL('@ASCETweets'), '@ASCETweets')
         .setBio('<p>Speaker bio goes here. <b>HTML</b> is allowed.\
           Block- and text-level elements.</p>')
       )

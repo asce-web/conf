@@ -19,7 +19,7 @@ module.exports = (function () {
     self._email       = ''
     self._telephone   = ''
     self._url         = ''
-    self._social      = null
+    self._social      = {}
     self._bio         = ''
   }
 
@@ -78,15 +78,19 @@ module.exports = (function () {
     }
   }
 
-  Person.prototype.setSocial = function setSocial($links) {
-    this._social = {
-      linkedin: $links.linkedin
-    , twitter : $links.twitter
-    }
-    this._social.twitter.url = $links.twitter.url || Util.SOCIAL_DATA.twitter.toURL($links.twitter.text)
+  Person.prototype.addSocial = function addSocial(network_name, url, title) {
+    this._social[network_name] = { url: url, title: title }
     return this
   }
-  Person.prototype.getSocial = function getSocial() {
+  Person.prototype.getSocial = function getSocial(network_name) {
+    return this._social[network_name]
+  }
+  Person.prototype.removeSocial = function removeSocial(network_name) {
+    this._social[network_name] = null
+    return this
+  }
+  Person.prototype.getSocialAll = function getSocialAll() {
+    //- NOTE returns shallow clone (like arr.slice())
     return Object.assign({}, this._social) // shallow clone this.social into {}
   }
 

@@ -48,7 +48,42 @@ module.exports = (function () {
   ConfSite.prototype.currentConference = function currentConference(conf_label) {
     if (arguments.length) {
     this._conf_curr_key = conf_label
-    this.initializeMainPages()
+    ;(function (self) {
+      if (self._was_initialized) {
+        self.find('#main-menu')
+          .removeAll() //- NOTE IMPORTANT
+          .add(new ConfPage('Home', 'home.html')
+            .title(self.currentConference().name)
+            .description(self.currentConference().theme)
+            .setIcon('home')
+            .pagetype('main')
+          )
+          .add(new ConfPage('Registration', 'registration.html')
+            .title(function () { return this.name() + ' | ' + self.currentConference().name })
+            .description('Register for ' + self.currentConference().name + ' here.')
+            .setIcon('shopping_cart')
+            .pagetype('main')
+          )
+          .add(new ConfPage('Program', 'program.html')
+            .title(function () { return this.name() + ' | ' + self.currentConference().name })
+            .description('Program and agenda of ' + self.currentConference().name + '.')
+            .setIcon('event')
+            .pagetype('main')
+          )
+          .add(new ConfPage('Hotel & Travel', 'location.html')
+            .title(function () { return this.name() + ' | ' + self.currentConference().name })
+            .description('Location and where to stay for ' + self.currentConference().name + '.')
+            .setIcon('flight')
+            .pagetype('main')
+          )
+          .add(new ConfPage('Speakers', 'speakers.html')
+            .title(function () { return this.name() + ' | ' + self.currentConference().name })
+            .description('Current and prospective speakers at ' + self.currentConference().name + '.')
+            .setIcon('account_box')
+            .pagetype('main')
+          )
+      }
+    })(this)
     return this
     } else {
     return this.getConference(this._conf_curr_key)
@@ -143,44 +178,6 @@ module.exports = (function () {
           )
         )
         .add(new Page({ name: 'Main', url: '#main-menu' }))
-    } else return
-  }
-  ConfSite.prototype.initializeMainPages = function initializeMainPages() {
-    var self = this
-    if (self._was_initialized) {
-      self.find('#main-menu')
-        .removeAll() //- NOTE IMPORTANT
-        .add(new ConfPage('Home', 'home.html')
-          .title(self.currentConference().name)
-          .description(self.currentConference().theme)
-          .setIcon('home')
-          .pagetype('main')
-        )
-        .add(new ConfPage('Registration', 'registration.html')
-          .title(function () { return this.name() + ' | ' + self.currentConference().name })
-          .description('Register for ' + self.currentConference().name + ' here.')
-          .setIcon('shopping_cart')
-          .pagetype('main')
-        )
-        .add(new ConfPage('Program', 'program.html')
-          .title(function () { return this.name() + ' | ' + self.currentConference().name })
-          .description('Program and agenda of ' + self.currentConference().name + '.')
-          .setIcon('event')
-          .pagetype('main')
-        )
-        .add(new ConfPage('Hotel & Travel', 'location.html')
-          .title(function () { return this.name() + ' | ' + self.currentConference().name })
-          .description('Location and where to stay for ' + self.currentConference().name + '.')
-          .setIcon('flight')
-          .pagetype('main')
-        )
-        .add(new ConfPage('Speakers', 'speakers.html')
-          .title(function () { return this.name() + ' | ' + self.currentConference().name })
-          .description('Current and prospective speakers at ' + self.currentConference().name + '.')
-          .setIcon('account_box')
-          .pagetype('main')
-        )
-      return self
     } else return
   }
 

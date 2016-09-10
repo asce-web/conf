@@ -3,8 +3,8 @@ section#date-block
   figure.docs-figure
     include /_views/c-DateBlock.view.jade
     +dateBlock([
-      new ImportantDate({name:'Optional Final Papers Due'     , startTime:'2015-10-12'})
-    , new ImportantDate({name:'Early-Bird Registration Closes', startTime:'2015-12-17'}).setURL('#0')
+      new ImportantDate({name:'Optional Final Papers Due'     , start_time:'2015-10-12'})
+    , new ImportantDate({name:'Early-Bird Registration Closes', start_time:'2015-12-17'}).url('#0')
     ])
     pre.docs-pre.
       &lt;dl class="#[u c-DateBlock]"&gt;

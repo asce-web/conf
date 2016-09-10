@@ -115,15 +115,15 @@ module.exports = (function () {
     return this._speakers.slice()
   }
 
-  Conference.prototype.addImportantDate = function addImportantDate(important_date) {
-    this._important_dates.push(important_date)
+  Conference.prototype.addImportantDate = function addImportantDate($importantDate) {
+    this._important_dates.push($importantDate)
     return this
   }
-  Conference.prototype.getImportantDate = function getImportantDate(important_date_name) {
-    return this._important_dates.find(function (item) { return item.name === important_date_name })
+  Conference.prototype.getImportantDate = function getImportantDate(name) {
+    return this._important_dates.find(function ($importantDate) { return $importantDate.name() === name })
   }
-  Conference.prototype.removeImportantDate = function removeImportantDate(important_date_name) {
-    Util.spliceFromArray(this._important_dates, this.getImportantDate(important_date_name))
+  Conference.prototype.removeImportantDate = function removeImportantDate(name) {
+    Util.spliceFromArray(this._important_dates, this.getImportantDate(name))
     return this
   }
   Conference.prototype.getImportantDatesAll = function getImportantDatesAll() {

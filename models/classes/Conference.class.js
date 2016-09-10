@@ -45,15 +45,15 @@ module.exports = (function () {
     }
   }
 
-  Conference.prototype.addPass = function addPass(pass) {
-    this._passes.push(pass)
+  Conference.prototype.addPass = function addPass($pass) {
+    this._passes.push($pass)
     return this
   }
-  Conference.prototype.getPass = function getPass(pass_name) {
-    return this._passes.find(function (item) { return item.name === pass_name })
+  Conference.prototype.getPass = function getPass(name) {
+    return this._passes.find(function ($pass) { return $pass.name() === name })
   }
-  Conference.prototype.removePass = function removePass(pass_name) {
-    Util.spliceFromArray(this._passes, this.getPass(pass_name))
+  Conference.prototype.removePass = function removePass(name) {
+    Util.spliceFromArray(this._passes, this.getPass(name))
     return this
   }
   Conference.prototype.getPassesAll = function getPassesAll() {

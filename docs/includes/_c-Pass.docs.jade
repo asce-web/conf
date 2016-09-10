@@ -5,7 +5,7 @@ section#pass-component
     div(style="margin-bottom: 1.5rem;")
       include /_views/c-Pass.view.jade
       +pass(new Pass({ name: 'Speaker Pass' })
-        .setDescription('Speakers and Presenters')
+        .description('Speakers and Presenters')
         .addAttendeeType(new Pass.AttendeeType('Member', true))
         .addAttendeeType(new Pass.AttendeeType('Non-Member'))
         .setFineprint('Side note or fine print goes here. <b>HTML</b> is allowed.\

@@ -142,9 +142,7 @@ module.exports = (function () {
     var self = this
     if (!self._was_initialized) {
       self._was_initialized = true
-      function pageTitle($site) {
-        return function () { return this.name() + ' | ' + $site.name() }
-      }
+      var pageTitle = function () { return this.name() + ' | ' + self.name() }
       return self
         .add(new Page({ name: 'Top', url: '#top-menu' })
           .add(new ConfPage(self.name(), 'index.html')
@@ -154,25 +152,25 @@ module.exports = (function () {
             .pagetype('top')
           )
           .add(new ConfPage('About', 'about.html')
-            .title(pageTitle(self))
+            .title(pageTitle)
             .description('About ' + self.name() + '.')
             .setIcon('info_outline')
             .pagetype('top')
           )
           .add(new ConfPage('Sponsor', 'sponsor.html')
-            .title(pageTitle(self))
+            .title(pageTitle)
             .description('Sponsors of ' + self.name() + '.')
             .setIcon('people')
             .pagetype('top')
           )
           .add(new ConfPage('Exhibit', 'exhibit.html')
-            .title(pageTitle(self))
+            .title(pageTitle)
             .description('Exhibitors at ' + self.name() + '.')
             .setIcon('work')
             .pagetype('top')
           )
           .add(new ConfPage('Contact', 'contact.html')
-            .title(pageTitle(self))
+            .title(pageTitle)
             .description('Contact us for questions and comments about ' + self.name() + '.')
             .setIcon('email')
             .pagetype('top')

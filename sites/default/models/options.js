@@ -295,13 +295,10 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .conferenceVenue('Conference Venue')
 
     site.currentConference()
-      .addSpeaker(new Person({
-        id   : 'donna-fulman'
-      , name: {
+      .addSpeaker(new Person('donna-fulman', {
           given_name      : 'Donna'
         , family_name     : 'Fulman'
         , honorific_suffix: 'P.ASCE'
-        }
       }).jobTitle('Administrator of Interior Engineering')
         .affiliation('German Chamber of Architects')
         .img('img/headshot1.jpg')
@@ -326,22 +323,16 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .addImportantDate(new ImportantDate({start_time:'2016-06-15', name:'Convention Ends'               }).hide())
 
     site.currentConference()
-      .addChair(new Person({
-        id   : 'thomas-mccollough'
-      , name : {
+      .addChair(new Person('thomas-mccollough', {
           given_name      : 'Thomas'
         , additional_name : 'J.'
         , family_name     : 'McCollough'
         , honorific_suffix: 'P.E., M.ASCE'
-        }
-      })).addChair(new Person({
-        id   : 'stephen-dickenson'
-      , name : {
+      })).addChair(new Person('stephen-dickenson', {
           given_name      : 'Stephen'
         , additional_name : 'E.'
         , family_name     : 'Dickenson'
         , honorific_suffix: 'Ph.D., P.E., D.PE, M.ASCE'
-        }
       }))
 
     var rawdata = {

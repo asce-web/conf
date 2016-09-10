@@ -3,14 +3,11 @@ section#speaker-component
   figure.docs-figure
     div(style="margin-bottom: 1.5rem;")
       include /_views/c-Speaker.view.jade
-      +speaker(new Person({
-        id  : 'donna-fulman'
-      , name: {
+      +speaker(new Person('donna-fulman', {
           given_name      : 'Donna'
         , additional_name : 'A.'
         , family_name     : 'Fulman'
         , honorific_suffix: 'P.ASCE'
-        }
       }).jobTitle('Administrator of Interior Engineering')
         .affiliation('German Chamber of Architects')
         .img('/img/Blue-Geometric-Background-3.jpg')

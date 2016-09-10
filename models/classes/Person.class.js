@@ -2,16 +2,16 @@ var Util = require('./Util.class.js')
 
 module.exports = (function () {
   // CONSTRUCTOR
-  function Person($personinfo) {
+  function Person(id, $name) {
     var self = this
-    $personinfo = $personinfo || { name: {} } // NOTE constructor overloading
-    self._ID   = $personinfo.id
+    $name = $name || {} // NOTE constructor overloading
+    self._ID   = id
     self._NAME = {
-      honorific_prefix: $personinfo.name.honorific_prefix
-    , given_name      : $personinfo.name.given_name
-    , additional_name : $personinfo.name.additional_name
-    , family_name     : $personinfo.name.family_name
-    , honorific_suffix: $personinfo.name.honorific_suffix
+      honorific_prefix: $name.honorific_prefix
+    , given_name      : $name.given_name
+    , additional_name : $name.additional_name
+    , family_name     : $name.family_name
+    , honorific_suffix: $name.honorific_suffix
     }
     self._jobTitle    = ''
     self._affiliation = ''

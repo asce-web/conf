@@ -16,8 +16,8 @@ module.exports = (function () {
     self._speakers        = []
     self._important_dates = []
     self._chairs          = []
-    self._regpd_current_index    = NaN
-    self._venue_conference_index = null
+    self._regpd_curr_index = NaN
+    self._venue_conf_key   = null
   }
 
   // ACCESSOR FUNCTIONS
@@ -57,10 +57,10 @@ module.exports = (function () {
 
   Conference.prototype.currentRegistrationPeriod = function currentRegistrationPeriod(reg_period_name) {
     if (arguments.length) {
-    this._regpd_current_index = this._reg_periods.indexOf(this.getRegistrationPeriod(reg_period_name))
-    return this
+      this._regpd_curr_index = this._reg_periods.indexOf(this.getRegistrationPeriod(reg_period_name))
+      return this
     } else {
-    return this._reg_periods[this._regpd_current_index]
+      return this._reg_periods[this._regpd_curr_index]
     }
   }
 
@@ -112,10 +112,10 @@ module.exports = (function () {
 
   Conference.prototype.conferenceVenue = function conferenceVenue(venue_label) {
     if (arguments.length) {
-    this._venue_conference_index = venue_label
-    return this
+      this._venue_conf_key = venue_label
+      return this
     } else {
-    return this.getVenue(this._venue_conference_index)
+      return this.getVenue(this._venue_conf_key)
     }
   }
 

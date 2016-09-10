@@ -13,10 +13,10 @@ module.exports = (function () {
 
   SupporterLevel.prototype.classname = function classname(newname) {
     if (arguments.length) {
-    this._classname = newname
-    return this
+      this._classname = newname
+      return this
     } else {
-    return this._classname
+      return this._classname
     }
   }
 

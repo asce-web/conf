@@ -14,12 +14,13 @@ module.exports = (function () {
   Pass.prototype.name = function name() {
     return this._NAME
   }
+
   Pass.prototype.description = function description(text) {
     if (arguments.length) {
-    this._description = text
-    return this
+      this._description = text
+      return this
     } else {
-    return this._description
+      return this._description
     }
   }
 

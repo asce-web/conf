@@ -15,26 +15,26 @@ module.exports = (function () {
 
   Supporter.prototype.url = function url(url) {
     if (arguments.length) {
-    this._url = url
-    return this
+      this._url = url
+      return this
     } else {
-    return this._url
+      return this._url
     }
   }
   Supporter.prototype.img = function img(img) {
     if (arguments.length) {
-    this._img = img
-    return this
+      this._img = img
+      return this
     } else {
-    return this._img
+      return this._img
     }
   }
   Supporter.prototype.level = function level(supporter_level) {
     if (arguments.length) {
-    this._level = supporter_level
-    return this
+      this._level = supporter_level
+      return this
     } else {
-    return this._level
+      return this._level
     }
   }
 

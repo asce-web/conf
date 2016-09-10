@@ -6,10 +6,10 @@ module.exports = (function () {
   function ConfSite(name, url) {
     var self = this
     Page.call(self, { name: name, url: url })
-    self._logo               = ''
-    self._conferences        = {}
-    self._supporter_levels   = []
-    self._supporters         = []
+    self._logo             = ''
+    self._conferences      = {}
+    self._supporter_levels = []
+    self._supporters       = []
     self._was_initialized = false
     self._conf_curr_key   = null
     self._conf_prev_key   = null
@@ -21,10 +21,10 @@ module.exports = (function () {
   // ACCESSOR FUNCTIONS
   ConfSite.prototype.logo = function logo(logo) {
     if (arguments.length) {
-    this._logo = logo
-    return this
+      this._logo = logo
+      return this
     } else {
-    return this._logo
+      return this._logo
     }
   }
 
@@ -92,18 +92,18 @@ module.exports = (function () {
   }
   ConfSite.prototype.prevConference = function prevConference(conf_label) {
     if (arguments.length) {
-    this._conf_prev_key = conf_label
-    return this
+      this._conf_prev_key = conf_label
+      return this
     } else {
-    return this.getConference(this._conf_prev_key)
+      return this.getConference(this._conf_prev_key)
     }
   }
   ConfSite.prototype.nextConference = function nextConference(conf_label) {
     if (arguments.length) {
-    this._conf_next_key = conf_label
-    return this
+      this._conf_next_key = conf_label
+      return this
     } else {
-    return this.getConference(this._conf_next_key)
+      return this.getConference(this._conf_next_key)
     }
   }
 

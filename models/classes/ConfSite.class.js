@@ -19,12 +19,13 @@ module.exports = (function () {
   ConfSite.prototype.constructor = ConfSite
 
   // ACCESSOR FUNCTIONS
-  ConfSite.prototype.setLogo = function setLogo(logo) {
+  ConfSite.prototype.logo = function logo(logo) {
+    if (arguments.length) {
     this._logo = logo
     return this
-  }
-  ConfSite.prototype.getLogo = function getLogo() {
+    } else {
     return this._logo
+    }
   }
 
   ConfSite.prototype.addConference = function addConference(conf_label, conference) {
@@ -44,27 +45,30 @@ module.exports = (function () {
     return Object.assign({}, this._conferences)
   }
 
-  ConfSite.prototype.setCurrentConference = function setCurrentConference(conf_label) {
+  ConfSite.prototype.currentConference = function currentConference(conf_label) {
+    if (arguments.length) {
     this._conference_current_index = conf_label
     this.initializeMainPages()
     return this
-  }
-  ConfSite.prototype.getCurrentConference = function getCurrentConference() {
+    } else {
     return this.getConference(this._conference_current_index)
+    }
   }
-  ConfSite.prototype.setPrevConference = function setPrevConference(conf_label) {
+  ConfSite.prototype.prevConference = function prevConference(conf_label) {
+    if (arguments.length) {
     this._conference_prev_index = conf_label
     return this
-  }
-  ConfSite.prototype.getPrevConference = function getPrevConference() {
+    } else {
     return this.getConference(this._conference_prev_index)
+    }
   }
-  ConfSite.prototype.setNextConference = function setNextConference(conf_label) {
+  ConfSite.prototype.nextConference = function nextConference(conf_label) {
+    if (arguments.length) {
     this._conference_next_index = conf_label
     return this
-  }
-  ConfSite.prototype.getNextConference = function getNextConference() {
+    } else {
     return this.getConference(this._conference_next_index)
+    }
   }
 
   ConfSite.prototype.addSupporterLevel = function addSupporterLevel(supporter_level) {
@@ -147,32 +151,32 @@ module.exports = (function () {
       self.find('#main-menu')
         .removeAll() //- NOTE IMPORTANT
         .add(new ConfPage('Home', 'home.html')
-          .title(self.getCurrentConference().name)
-          .description(self.getCurrentConference().theme)
+          .title(self.currentConference().name)
+          .description(self.currentConference().theme)
           .setIcon('home')
           .pagetype('main')
         )
         .add(new ConfPage('Registration', 'registration.html')
-          .title(function () { return this.name() + ' | ' + self.getCurrentConference().name })
-          .description('Register for ' + self.getCurrentConference().name + ' here.')
+          .title(function () { return this.name() + ' | ' + self.currentConference().name })
+          .description('Register for ' + self.currentConference().name + ' here.')
           .setIcon('shopping_cart')
           .pagetype('main')
         )
         .add(new ConfPage('Program', 'program.html')
-          .title(function () { return this.name() + ' | ' + self.getCurrentConference().name })
-          .description('Program and agenda of ' + self.getCurrentConference().name + '.')
+          .title(function () { return this.name() + ' | ' + self.currentConference().name })
+          .description('Program and agenda of ' + self.currentConference().name + '.')
           .setIcon('event')
           .pagetype('main')
         )
         .add(new ConfPage('Hotel & Travel', 'location.html')
-          .title(function () { return this.name() + ' | ' + self.getCurrentConference().name })
-          .description('Location and where to stay for ' + self.getCurrentConference().name + '.')
+          .title(function () { return this.name() + ' | ' + self.currentConference().name })
+          .description('Location and where to stay for ' + self.currentConference().name + '.')
           .setIcon('flight')
           .pagetype('main')
         )
         .add(new ConfPage('Speakers', 'speakers.html')
-          .title(function () { return this.name() + ' | ' + self.getCurrentConference().name })
-          .description('Current and prospective speakers at ' + self.getCurrentConference().name + '.')
+          .title(function () { return this.name() + ' | ' + self.currentConference().name })
+          .description('Current and prospective speakers at ' + self.currentConference().name + '.')
           .setIcon('account_box')
           .pagetype('main')
         )

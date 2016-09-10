@@ -24,7 +24,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
     var site = new ConfSite('An ASCE Event', '/sites/default/')
       .description('Optional Brand Tagline')
       .keywords(['ASCE', 'civil engineering', 'convention'])
-      .setLogo('img/site-logo-white.png')
+      .logo('img/site-logo-white.png')
       .init()
 
     site
@@ -61,9 +61,9 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       }))
 
     site
-      .setCurrentConference('2016')
-      .setPrevConference('2015')
-      .setNextConference('2017')
+      .currentConference('2016')
+      .prevConference('2015')
+      .nextConference('2017')
 
     site
       .addSupporterLevel(new SupporterLevel('Platinum' ).setClassname('c-SponsorBlock__Logo--lrg'))
@@ -139,7 +139,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
         .setLevel(site.getSupporterLevel('Corporate'))
       )
 
-    site.getCurrentConference()
+    site.currentConference()
       .addRegistrationPeriod(new RegistrationPeriod({
         name      : 'Early Bird'
       , endDate   : '2016-07-28'
@@ -152,10 +152,10 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       , startDate : '2016-08-26'
       }).setIcon('account_balance'))
 
-    site.getCurrentConference()
+    site.currentConference()
       .setCurrentRegistrationPeriod('Early Bird')
 
-    site.getCurrentConference()
+    site.currentConference()
       .addPass(new Pass({ name: 'Standard Pass' })
         .setDescription('Members & Non-Members')
         .addAttendeeType(new Pass.AttendeeType('Member', true))
@@ -188,7 +188,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
         .addAttendeeType(new Pass.AttendeeType('Non-Member'))
       )
 
-    //- site.getCurrentConference()
+    //- site.currentConference()
     //-   .setPrice('Early Bird', 'Standard Pass' , 'Member'    ,  745)
     //-   .setPrice('Early Bird', 'Standard Pass' , 'Non-Member',  845)
     //-   .setPrice('Advance'   , 'Standard Pass' , 'Member'    ,  845)
@@ -223,7 +223,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
     //-   .setPrice('Onsite'    , 'Daily Pass'    , 'Member'    ,  645)
     //-   .setPrice('Onsite'    , 'Daily Pass'    , 'Non-Member',  745)
 
-    site.getCurrentConference()
+    site.currentConference()
       .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 10:00', endDate:'2016-09-28 19:00', name:'Registration'                                                }))
       .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 10:30', endDate:'2016-09-28 16:30', name:'Technical Tours'                                             }).setURL('#0').star())
       .addProgramEvent(new ProgramEvent({startDate:'2016-09-28 13:00', endDate:'2016-09-28 17:00', name:'Short Courses'                                               }).setURL('#0').star())
@@ -268,7 +268,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 12:00', endDate:'2016-10-01 14:00', name:'ASCE Luncheon & Closing General Session'                     }).star())
       .addProgramEvent(new ProgramEvent({startDate:'2016-10-01 14:30', endDate:'2016-10-01 17:30', name:'Technical Tours'                                             }).setURL('#0'))
 
-    site.getCurrentConference()
+    site.currentConference()
       .addVenue('Conference Venue', new Place({
         name           : 'Oregon Convention Center'
       , streetAddress  : '777 NE Martin Luther King, Jr. Blvd.'
@@ -290,10 +290,10 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       , postalCode     : '97204'
       }))
 
-    site.getCurrentConference()
+    site.currentConference()
       .setConferenceVenue('Conference Venue')
 
-    site.getCurrentConference()
+    site.currentConference()
       .addSpeaker(new Person({
         id   : 'donna-fulman'
       , name: {
@@ -319,14 +319,14 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
           Board of Directors in New York.</p>')
       )
 
-    site.getCurrentConference()
+    site.currentConference()
       .addImportantDate(new ImportantDate({startTime:'2015-10-12', name:'Optional Final Papers Due'     }))
       .addImportantDate(new ImportantDate({startTime:'2015-12-17', name:'Early-Bird Registration Closes'}).setURL('registration.html'))
       .addImportantDate(new ImportantDate({startTime:'2016-01-12', name:'Advance Registration Closes'   }).setURL('registration.html'))
       .addImportantDate(new ImportantDate({startTime:'2016-06-12', name:'Convention Begins'             }))
       .addImportantDate(new ImportantDate({startTime:'2016-06-15', name:'Convention Ends'               }).hide())
 
-    site.getCurrentConference()
+    site.currentConference()
       .addChair(new Person({
         id   : 'thomas-mccollough'
       , name : {

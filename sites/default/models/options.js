@@ -38,6 +38,9 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       , promo_loc : {
           text : 'Portland, OR'
         , title: 'Portland, Oregon'
+        , blurb: 'With sweeping views of the surrounding mountains and a bustling \
+            downtown full of shopping, locally sourced dining, and entertainment, \
+            Portland is a wonderful destination for business and leisure.'
         }
       })).addConference('2015', new Conference({
         name      : 'A 2015 Event'

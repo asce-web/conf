@@ -3,6 +3,6 @@ mixin otherYear($conference, btnclasses)
     h1.c-OtherYear__Name(itemprop="name")= $conference.name()
     meta(content=$conference.startDate() itemprop="startDate")
     p.c-OtherYear__Detail(itemprop="location"): +promotedLocation($conference.promoLoc())
-    p.c-OtherYear__Desc
+    p.c-OtherYear__Blurb
       block
     +highlightButtons([{text:'Event Details', href:$conference.url(), attr:{itemprop:'url'}}], btnclasses)

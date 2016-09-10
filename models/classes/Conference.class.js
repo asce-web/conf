@@ -36,12 +36,13 @@ module.exports = (function () {
     return this._reg_periods.slice()
   }
 
-  Conference.prototype.setCurrentRegistrationPeriod = function setCurrentRegistrationPeriod(reg_period_name) {
+  Conference.prototype.currentRegistrationPeriod = function currentRegistrationPeriod(reg_period_name) {
+    if (arguments.length) {
     this._regpd_current_index = this._reg_periods.indexOf(this.getRegistrationPeriod(reg_period_name))
     return this
-  }
-  Conference.prototype.getCurrentRegistrationPeriod = function getCurrentRegistrationPeriod() {
+    } else {
     return this._reg_periods[this._regpd_current_index]
+    }
   }
 
   Conference.prototype.addPass = function addPass(pass) {
@@ -90,11 +91,13 @@ module.exports = (function () {
     return Object.assign({}, this._venues)
   }
 
-  Conference.prototype.setConferenceVenue = function setConferenceVenue(venue_label) {
+  Conference.prototype.conferenceVenue = function conferenceVenue(venue_label) {
+    if (arguments.length) {
     this._venue_conference_index = venue_label
-  }
-  Conference.prototype.getConferenceVenue = function getConferenceVenue() {
+    return this
+    } else {
     return this.getVenue(this._venue_conference_index)
+    }
   }
 
   Conference.prototype.addSpeaker = function addSpeaker(person) {

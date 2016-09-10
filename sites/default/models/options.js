@@ -153,7 +153,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       }).setIcon('account_balance'))
 
     site.currentConference()
-      .setCurrentRegistrationPeriod('Early Bird')
+      .currentRegistrationPeriod('Early Bird')
 
     site.currentConference()
       .addPass(new Pass({ name: 'Standard Pass' })
@@ -291,7 +291,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       }))
 
     site.currentConference()
-      .setConferenceVenue('Conference Venue')
+      .conferenceVenue('Conference Venue')
 
     site.currentConference()
       .addSpeaker(new Person({

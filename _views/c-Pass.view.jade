@@ -1,5 +1,5 @@
 mixin pass(pass, conference)
-  - var current_period = conference.getCurrentRegistrationPeriod()
+  - var current_period = conference.currentRegistrationPeriod()
   article.c-Pass
     mixin period-details(reg_period, is_body)
       h1.c-Pass__Period__Hn= reg_period.name

@@ -301,12 +301,12 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
         , familyName      : 'Fulman'
         , honorificSuffix : 'P.ASCE'
         }
-      }).setJobTitle('Administrator of Interior Engineering')
-        .setAffiliation('German Chamber of Architects')
-        .setImg('img/headshot1.jpg')
-        .setEmail('example@asce.org')
-        .setTel('+1(703)555-5555')
-        .setURL('#0')
+      }).jobTitle('Administrator of Interior Engineering')
+        .affiliation('German Chamber of Architects')
+        .img('img/headshot1.jpg')
+        .email('example@asce.org')
+        .phone('+1(703)555-5555')
+        .url('#0')
         .setSocial({
           linkedin: { url: 'https://www.linkedin.com/groups/143956/profile' }
         , twitter : { text: '@ASCETweets' }

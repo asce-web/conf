@@ -24,58 +24,66 @@ module.exports = (function () {
   }
 
   // ACCESSOR FUNCTIONS
-  Person.prototype.setJobTitle = function setJobTitle(text) {
+  Person.prototype.jobTitle = function jobTitle(text) {
+    if (arguments.length) {
     this._jobTitle = text
     return this
-  }
-  Person.prototype.getJobTitle = function getJobTitle(text) {
+    } else {
     return this._jobTitle
+    }
   }
 
-  Person.prototype.setAffiliation = function setAffiliation(text) {
+  Person.prototype.affiliation = function affiliation(text) {
+    if (arguments.length) {
     this._affiliation = text
     return this
-  }
-  Person.prototype.getAffiliation = function getAffiliation(text) {
+    } else {
     return this._affiliation
+    }
   }
 
-  Person.prototype.setImg = function setImg(arg) {
-    var url
+  Person.prototype.img = function img(arg) {
+    if (arguments.length) {
+    this._img = (function (self) {
+    var url;
     if (typeof arg === 'function') {
-      url = arg.call(this)
+      url = arg.call(self)
     } else {
       url = arg
     }
-    this._img = url
+    return url
+    })(this)
     return this
-  }
-  Person.prototype.getImg = function getImg() {
+    } else {
     return this._img
+    }
   }
 
-  Person.prototype.setEmail = function setEmail(text) {
+  Person.prototype.email = function email(text) {
+    if (arguments.length) {
     this._email = text
     return this
-  }
-  Person.prototype.getEmail = function getEmail() {
+    } else {
     return this._email
+    }
   }
 
-  Person.prototype.setTel = function setTel(text) {
+  Person.prototype.phone = function phone(text) {
+    if (arguments.length) {
     this._telephone = text
     return this
-  }
-  Person.prototype.getTel = function getTel() {
+    } else {
     return this._telephone
+    }
   }
 
-  Person.prototype.setURL = function setURL(text) {
+  Person.prototype.url = function url(text) {
+    if (arguments.length) {
     this._url = text
     return this
-  }
-  Person.prototype.getURL = function getURL() {
+    } else {
     return this._url
+    }
   }
 
   Person.prototype.setSocial = function setSocial($links) {

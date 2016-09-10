@@ -6,9 +6,6 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
-include /_classes/Styleguide.class.jade
-include ../_classes/ConfDocs.class.jade
-
 mixin doctoc(args)
   //- NOTE parameter validation
   -
@@ -19,8 +16,8 @@ mixin doctoc(args)
     each item in pages
       li(class=classes.itemclasses)
         a(class=classes.linkclasses href=item.getURL())= item.getName()
-        if item.getPagesAll().length && depth > 0
-          +doctoc({pages: item.getPagesAll(), classes: (classes.sub || {}), depth: depth-1})
+        if item.findAll().length && depth > 0
+          +doctoc({pages: item.findAll(), classes: (classes.sub || {}), depth: depth-1})
 
 mixin microdataCheckbox(id)
   div.docs-c-Togglable

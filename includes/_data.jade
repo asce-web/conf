@@ -7,22 +7,6 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
-
-include /_classes/Page.class.jade
-include /_classes/Place.class.jade
-
-include /_classes/Util.class.jade
-include /_classes/ConfSite.class.jade
-include /_classes/ConfPage.class.jade
-include /_classes/Conference.class.jade
-include /_classes/SupporterLevel.class.jade
-include /_classes/Supporter.class.jade
-include /_classes/Person.class.jade
-include /_classes/RegistrationPeriod.class.jade
-include /_classes/Pass.class.jade
-include /_classes/ProgramEvent.class.jade
-include /_classes/ImportantDate.class.jade
-
 mixin place($place, attr, classes)
   //- NOTE parameter validation
   - var classes = classes || {}
@@ -78,8 +62,8 @@ mixin sitetoc(args)
             is_on : args.icons && item.getIcon()
           , text  : item.getIcon()
           })
-          if item.getPagesAll().length && depth > 0
-            +sitetoc({pages: item.getPagesAll(), classes: (classes.sub || {}), depth: depth-1})
+          if item.findAll().length && depth > 0
+            +sitetoc({pages: item.findAll(), classes: (classes.sub || {}), depth: depth-1})
 
 mixin promotedLocation(promoloc)
   - if (promoloc === undefined) promoloc = '' // NOTE parameter validation

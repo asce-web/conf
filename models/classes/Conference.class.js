@@ -95,8 +95,8 @@ module.exports = (function () {
     return this._program_events.slice()
   }
 
-  Conference.prototype.addVenue = function addVenue(venue_label, place) {
-    this._venues[venue_label] = place
+  Conference.prototype.addVenue = function addVenue(venue_label, $place) {
+    this._venues[venue_label] = $place
     return this
   }
   Conference.prototype.getVenue = function getVenue(venue_label) {

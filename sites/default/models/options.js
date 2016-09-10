@@ -14,7 +14,6 @@ var Util               = require('../../../models/classes/Util.class.js')
   , SupporterLevel     = require('../../../models/classes/SupporterLevel.class.js')
   , Supporter          = require('../../../models/classes/Supporter.class.js')
   , Person             = require('../../../models/classes/Person.class.js')
-  , Place              = require('../../../models/classes/Place.class.js')
   , RegistrationPeriod = require('../../../models/classes/RegistrationPeriod.class.js')
   , Pass               = require('../../../models/classes/Pass.class.js')
   , ProgramEvent       = require('../../../models/classes/ProgramEvent.class.js')
@@ -273,26 +272,26 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .addProgramEvent(new ProgramEvent({ start_date: '2016-10-01 14:30', end_date: '2016-10-01 17:30', name: 'Technical Tours'                                             }).url('#0'))
 
     site.currentConference()
-      .addVenue('Conference Venue', new Place({
+      .addVenue('Conference Venue', {
         name           : 'Oregon Convention Center'
       , streetAddress  : '777 NE Martin Luther King, Jr. Blvd.'
       , addressLocality: 'Portland'
       , addressRegion  : 'OR'
       , postalCode     : '97232'
       , url            : 'https://www.oregoncc.org/'
-      })).addVenue('Official Hotel', new Place({
+      }).addVenue('Official Hotel', {
         name           : 'DoubleTree by Hilton Portland'
       , streetAddress  : '1000 NE Multnomah St'
       , addressLocality: 'Portland'
       , addressRegion  : 'OR'
       , postalCode     : '97232'
-      })).addVenue('Overflows', new Place({
+      }).addVenue('Overflows', {
         name           : 'Courtyard Portland City Center'
       , streetAddress  : '550 SW Oak St'
       , addressLocality: 'Portland'
       , addressRegion  : 'OR'
       , postalCode     : '97204'
-      }))
+      })
 
     site.currentConference()
       .conferenceVenue('Conference Venue')
@@ -528,19 +527,19 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
     site.getConference('2015')
       .setOtherYearBlurb('Access the 2015 program to see which sessions qualify for \
         <abbr title="professional development hours">PDH</abbr>s and other documentation.')
-      .addVenue('Conference Venue', new Place({
+      .addVenue('Conference Venue', {
         name           : 'New York Marriott Marquis'
       , streetAddress  : '1535 Broadway'
       , addressLocality: 'New York'
       , addressRegion  : 'NY'
       , postalCode     : '10036'
       , url            : 'http://www.marriott.com/hotels/travel/nycmq-new-york-marriott-marquis/'
-      }))
+      })
 
     site.getConference('2017')
       .setOtherYearBlurb('Plan ahead to attend, sponsor, or exhibit at the annual convention \
         for civil engineering professionals.')
-      .addVenue('Conference Venue', new Place({
+      .addVenue('Conference Venue', {
         name           : 'Westin Charlotte'
       , streetAddress  : '601 South College Street'
       , addressLocality: 'Charlotte'
@@ -548,7 +547,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       , postalCode     : '28202'
       , telephone      : '+1-866-837-4148'
       , url            : 'http://www.westincharlottehotel.com/'
-      }))
+      })
 
     //- site
     //-   .addSubpage('about.html'       , new ConfPage({name:'Cooperating Orgs'            , url:''}))

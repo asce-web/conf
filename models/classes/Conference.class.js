@@ -1,13 +1,32 @@
+/**
+ * A conference event.
+ * It may have a name, theme, dates, (promoted) location, passes, events, venues, speakers,
+ * important dates, chairs, and other properties.
+ * @type {Conference}
+ */
 module.exports = (function () {
   // CONSTRUCTOR
+  /**
+   * Construct a Conference object.
+   * The name, url, theme, start date, end date, and promoted location
+   * are immutable and must be provided during construction.
+   * @constructor
+   * @param {Object} $confinfo an object with the following immutable properties:
+   * @param {string} $confinfo.name the name of this conference
+   * @param {string} $confinfo.url the url of this conference
+   * @param {string} $confinfo.theme the theme, or slogan, of this conference
+   * @param {string} $confinfo.start_date the starting date of this conference
+   * @param {string} $confinfo.end_date the ending date of this conference
+   * @param {string} $confinfo.promo_loc the promoted location of this conference
+   */
   function Conference($confinfo) {
     var self = this
     $confinfo = $confinfo || {} // NOTE constructor overloading
     self._NAME      = $confinfo.name
+    self._URL       = $confinfo.url
     self._THEME     = $confinfo.theme
     self._START     = $confinfo.start_date
     self._END       = $confinfo.end_date
-    self._URL       = $confinfo.url
     self._PROMO_LOC = $confinfo.promo_loc
     self._reg_periods     = []
     self._passes          = []
@@ -22,40 +41,95 @@ module.exports = (function () {
   }
 
   // ACCESSOR FUNCTIONS
+  /**
+   * Get the name of this conference.
+   * @return {string} the name of this conference
+   */
   Conference.prototype.name = function name() {
     return this._NAME
   }
-  Conference.prototype.theme = function theme() {
-    return this._THEME
-  }
-  Conference.prototype.startDate = function startDate() {
-    return this._START
-  }
-  Conference.prototype.endDate = function endDate() {
-    return this._END
-  }
+
+  /**
+   * Get the URL of this conference.
+   * @return {string} the URL of this conference
+   */
   Conference.prototype.url = function url() {
     return this._URL
   }
+
+  /**
+   * Get the theme of this conference.
+   * The theme is a one-sentence or one-phrase slogan,
+   * and may be changed from year to year (from conference to conference).
+   * @return {string} the theme of this conference
+   */
+  Conference.prototype.theme = function theme() {
+    return this._THEME
+  }
+
+  /**
+   * Get the name of this conference.
+   * @return {string} the name of this conference
+   */
+  Conference.prototype.startDate = function startDate() {
+    return this._START
+  }
+
+  /**
+   * Get the name of this conference.
+   * @return {string} the name of this conference
+   */
+  Conference.prototype.endDate = function endDate() {
+    return this._END
+  }
+
+  /**
+   * Get the name of this conference.
+   * @return {string} the name of this conference
+   */
   Conference.prototype.promoLoc = function promoLoc() {
     return this._PROMO_LOC
   }
 
+  /**
+   * Add a registration period to this conference.
+   * @param {RegistrationPeriod} $registrationPeriod the registration period to add
+   */
   Conference.prototype.addRegistrationPeriod = function addRegistrationPeriod($registrationPeriod) {
     this._reg_periods.push($registrationPeriod)
     return this
   }
+  /**
+   * Retrieve a registration period of this conference.
+   * @param  {string} name the name of the registration period
+   * @return {RegistrationPeriod=} the specified registration period
+   */
   Conference.prototype.getRegistrationPeriod = function getRegistrationPeriod(name) {
     return this._reg_periods.find(function ($registrationPeriod) { return $registrationPeriod.name() === name })
   }
+  /**
+   * Remove a registration period from this conference.
+   * @param  {string} name the name of the registration period
+   * @return {Conference} this conference
+   */
   Conference.prototype.removeRegistrationPeriod = function removeRegistrationPeriod(name) {
     Util.spliceFromArray(this._reg_periods, this.getRegistrationPeriod(name))
     return this
   }
+  /**
+   * Retrieve all registration periods of this conference.
+   * @return {Array<RegistrationPeriod>} a shallow array of all registration periods of this conference.
+   */
   Conference.prototype.getRegistrationPeriodsAll = function getRegistrationPeriodsAll() {
     return this._reg_periods.slice()
   }
 
+  /**
+   * Set or get the current registration period.
+   * The current registration period is the registration period that is active at this time.
+   * @param  {string=} reg_period_name the name of the registration period to set current
+   * @return {(Conference|RegistrationPeriod)} this conference || the set current registration period
+   */
   Conference.prototype.currentRegistrationPeriod = function currentRegistrationPeriod(reg_period_name) {
     if (arguments.length) {
       this._regpd_curr_index = this._reg_periods.indexOf(this.getRegistrationPeriod(reg_period_name))
@@ -65,52 +139,119 @@ module.exports = (function () {
     }
   }
 
+  /**
+   * Add a pass to this conference.
+   * @param {Pass} $pass the pass to add
+   */
   Conference.prototype.addPass = function addPass($pass) {
     this._passes.push($pass)
     return this
   }
+  /**
+   * Retrieve a pass of this conference.
+   * @param  {string} name the name of the pass
+   * @return {Pass=} the specified pass
+   */
   Conference.prototype.getPass = function getPass(name) {
     return this._passes.find(function ($pass) { return $pass.name() === name })
   }
+  /**
+   * Remove a pass of this conference.
+   * @param  {string} name the name of the pass
+   * @return {Conference} this conference
+   */
   Conference.prototype.removePass = function removePass(name) {
     Util.spliceFromArray(this._passes, this.getPass(name))
     return this
   }
+  /**
+   * Retrieve all passes of this conference.
+   * @return {Array<Pass>} a shallow array of all passes of this conference
+   */
   Conference.prototype.getPassesAll = function getPassesAll() {
     return this._passes.slice()
   }
 
+  /**
+   * Add a program event to this conference.
+   * @param {ProgramEvent} $programEvent the program event to add
+   */
   Conference.prototype.addProgramEvent = function addProgramEvent($programEvent) {
     this._program_events.push($programEvent)
     return this
   }
+  /**
+   * Retrieve a program event of this conference.
+   * @param  {string} name the name of the program event
+   * @return {ProgramEvent=} the specified program event
+   */
   Conference.prototype.getProgramEvent = function getProgramEvent(name) {
     return this._program_events.find(function ($programEvent) { return $programEvent.name() === name })
   }
+  /**
+   * Remove a program event of this conference.
+   * @param  {string} name the name of the program event
+   * @return {Conference} this conference
+   */
   Conference.prototype.removeProgramEvent = function removeProgramEvent(name) {
     Util.spliceFromArray(this._program_events, this.getProgramEvent(name))
     return this
   }
+  /**
+   * Retrieve all program events of this conference.
+   * @return {Array<ProgramEvent>} a shallow array of all program events of this conference
+   */
   Conference.prototype.getProgramEventsAll = function getProgramEventsAll() {
     return this._program_events.slice()
   }
 
+  /**
+   * Add a venue to this conference.
+   * @param {string} venue_label key for accessing the venue
+   * @param {Object} $place the venue to add. properties:
+   * @param {string} $place.name            the name of the venue or business
+   * @param {string} $place.streetAddress   the venue’s street address
+   * @param {string} $place.addressLocality the venue’s city or town
+   * @param {string} $place.addressRegion   the venue’s state or province
+   * @param {string} $place.postalCode      the venue’s zip code
+   * @param {string} $place.url             the venue’s url
+   */
   Conference.prototype.addVenue = function addVenue(venue_label, $place) {
     this._venues[venue_label] = $place
     return this
   }
+  /**
+   * Retrieve a venue of this conference.
+   * @param  {string} venue_label the key for accessing the venue
+   * @return {Object} the specified venue
+   */
   Conference.prototype.getVenue = function getVenue(venue_label) {
     return this._venues[venue_label]
   }
+  /**
+   * Remove a venue of this conference.
+   * @param  {string} venue_label the key for accessing the venue
+   * @return {Conference} this conference
+   */
   Conference.prototype.removeVenue = function removeVenue(venue_label) {
     this._venues[venue_label] = null
     return this
   }
+  /**
+   * Retrieve all venues of this conference.
+   * @return {Array<Object>} a shallow array of all venues of this conference
+   */
   Conference.prototype.getVenuesAll = function getVenuesAll() {
     //- NOTE returns shallow clone (like arr.slice())
     return Object.assign({}, this._venues)
   }
 
+  /**
+   * Set or get the official conference venue for this conference.
+   * The official conference venue is the venue at which this conference is held.
+   * @param  {string} venue_label the key for accessing the venue
+   * @return {(Conference|Object)} this conference || the set conference venue
+   */
   Conference.prototype.conferenceVenue = function conferenceVenue(venue_label) {
     if (arguments.length) {
       this._venue_conf_key = venue_label
@@ -120,55 +261,121 @@ module.exports = (function () {
     }
   }
 
+  /**
+   * Add a speaker to this conference.
+   * @param {Person} $person the speaker to add
+   */
   Conference.prototype.addSpeaker = function addSpeaker($person) {
     this._speakers.push($person)
     return this
   }
+  /**
+   * Retrieve a speaker of this conference.
+   * @param  {string} id the id of the speaker
+   * @return {Person=} the specified speaker
+   */
   Conference.prototype.getSpeaker = function getSpeaker(id) {
     return this._speakers.find(function ($person) { return $person.id() === id })
   }
+  /**
+   * Remove a speaker of this conference.
+   * @param  {string} id the id of the speaker
+   * @return {Conference} this conference
+   */
   Conference.prototype.removeSpeaker = function removeSpeaker(id) {
     Util.spliceFromArray(this._speakers, this.getSpeaker(id))
     return this
   }
+  /**
+   * Retrieve all speakers of this conference.
+   * @return {Array<Person>} a shallow array of all speakers of this conference
+   */
   Conference.prototype.getSpeakersAll = function getSpeakersAll() {
     return this._speakers.slice()
   }
 
+  /**
+   * Add an important date to this conference.
+   * @param {ImportantDate} $importantDate the important date to add
+   */
   Conference.prototype.addImportantDate = function addImportantDate($importantDate) {
     this._important_dates.push($importantDate)
     return this
   }
+  /**
+   * Retrieve an important date of this conference.
+   * @param  {string} name the name of the important date
+   * @return {ImportantDate=} the specified important date
+   */
   Conference.prototype.getImportantDate = function getImportantDate(name) {
     return this._important_dates.find(function ($importantDate) { return $importantDate.name() === name })
   }
+  /**
+   * Remove an important date of this conference.
+   * @param  {string} name the name of the important date
+   * @return {Conference} this conference
+   */
   Conference.prototype.removeImportantDate = function removeImportantDate(name) {
     Util.spliceFromArray(this._important_dates, this.getImportantDate(name))
     return this
   }
+  /**
+   * Retrieve all important dates of this conference.
+   * @return {Array<ImportantDate>} a shallow array of all important dates of this conference
+   */
   Conference.prototype.getImportantDatesAll = function getImportantDatesAll() {
     return this._important_dates.slice()
   }
 
+  /**
+   * Add a chair to this conference.
+   * A chair is a person who ... TODO FIXME
+   * @param {Person} $person the chair to add
+   */
   Conference.prototype.addChair = function addChair($person) {
     this._chairs.push($person)
     return this
   }
+  /**
+   * Retrieve a chair of this conference.
+   * @param  {string} id the name of the chair
+   * @return {Person=} the specified chair
+   */
   Conference.prototype.getChair = function getChair(id) {
     return this._chairs.find(function ($person) { return $person.id() === id })
   }
+  /**
+   * Remove a chair of this conference.
+   * @param  {string} id the name of the chair
+   * @return {Conference} this conference
+   */
   Conference.prototype.removeChair = function removeChair(id) {
     Util.spliceFromArray(this._chairs, this.getChair(id))
     return this
   }
+  /**
+   * Retrieve all chairs of this conference.
+   * @return {Array<Person>} a shallow array of all chairs of this conference
+   */
   Conference.prototype.getChairsAll = function getChairsAll() {
     return this._chairs.slice()
   }
 
+  /**
+   * Set the other year blurb for this conference.
+   * This blurb is used if this conference occurs in another year (previous or next year).
+   * @param {string} html html-friendly content
+   * @return {Conferenct} this conference
+   */
   Conference.prototype.setOtherYearBlurb = function setOtherYearBlurb(html) {
     this._other_year_blurb = html
     return this
   }
+  /**
+   * Get the other year blurb of this conference.
+   * @param  {boolean=} unescaped whether or not the returned string should be escaped
+   * @return {string} the other year blurb of this pass
+   */
   Conference.prototype.getOtherYearBlurb = function getOtherYearBlurb(unescaped) {
     return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this._other_year_blurb
   }
@@ -182,6 +389,21 @@ module.exports = (function () {
     //- this.registration[reg_period][pass][membership] = price
     return this
   }
+  /**
+   * A group of program events, all of which share the same date (excluding time of day).
+   * Contains two properties:
+   * - `date` is the date by which the events are grouped, and
+   * - `events` is an array of those events.
+   * @typedef {Object} ProgramEventGrouping
+   * @property {string} date - the date of all the events in the group
+   * @property {Array<ProgramEvent>} events - an array whose members all have the same date
+   */
+  /**
+   * Categorize all the program events of this conference by date and return the grouping.
+   * Program events with the same date (excluding time of day) are grouped together.
+   * @see ProgramEvent
+   * @return {ProgramEventGrouping} an object grouping program events together
+   */
   Conference.prototype.groupProgramEvents = function groupProgramEvents() {
     var all_events = this.getProgramEventsAll()
     return (function ($groupings) {

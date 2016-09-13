@@ -15,11 +15,13 @@ module.exports = (function () {
    * @constructor
    * @extends Page
    * @param {string} name name of this site
-   * @param {string} url  url of the landing page for this site
+   * @param {string} url url of the landing page for this site
+   * @param {string} tagline the tagline, or slogan, of this site
    */
-  function ConfSite(name, url) {
+  function ConfSite(name, url, tagline) {
     var self = this
     Page.call(self, { name: name, url: url })
+    Page.prototype.description.call(self, tagline)
     self._logo             = ''
     self._conferences      = {}
     self._supporter_levels = []
@@ -33,6 +35,26 @@ module.exports = (function () {
   ConfSite.prototype.constructor = ConfSite
 
   // ACCESSOR FUNCTIONS
+  /**
+   * Overwrite superclass description() method.
+   * This method only gets the description, it does not set it.
+   * @override
+   * @param  {unknown} arg any argument
+   * @return {string} the description of this site
+   */
+  ConfSite.prototype.description = function description(arg) {
+    return Page.prototype.description.call(this)
+  }
+  /**
+   * Get the tagline of this site.
+   * The tagline is very brief slogan, and is fixed for the entire series of conferences.
+   * Equivalent to calling `Page.prototype.description()`.
+   * @return {string} the tagline of this site
+   */
+  ConfSite.prototype.tagline = function tagline() {
+    return this.description()
+  }
+
   /**
    * Set or get the logo of this site.
    * @param  {string=} logo url of the logo file
@@ -252,7 +274,7 @@ module.exports = (function () {
         .add(new Page({ name: 'Top', url: '#top-menu' })
           .add(new ConfPage(self.name(), 'index.html')
             .title(self.name())
-            .description(self.description())
+            .description(self.tagline())
             .setIcon('')
             .pagetype('top')
           )

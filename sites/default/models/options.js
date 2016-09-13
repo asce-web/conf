@@ -21,8 +21,7 @@ var Util               = require('../../../models/classes/Util.class.js')
 
 module.exports = Object.assign(require('../../all/models/options.js'), {
   site: (function () {
-    var site = new ConfSite('An ASCE Event', '/sites/default/')
-      .description('Optional Brand Tagline')
+    var site = new ConfSite('An ASCE Event', '/sites/default/', 'Optional Brand Tagline')
       .keywords(['ASCE', 'civil engineering', 'convention'])
       .logo('img/site-logo-white.png')
       .init()

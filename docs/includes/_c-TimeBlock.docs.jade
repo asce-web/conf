@@ -13,34 +13,35 @@ section#time-block
     , new ProgramEvent({start_date:'2016-09-28 17:30', end_date:'2016-09-28 19:30', name:'Opening Welcome Reception'})
     , new ProgramEvent({start_date:'2016-09-28 13:00', end_date:'2016-09-28 17:00', name:'Community Service Project'})
     ], true)
-    pre.docs-pre.
-      &lt;dl class="o-List  #[u c-TimeBlock]"&gt;
-        &lt;li class="o-List__Item  o-Grid" itemprop="subEvent" itemscope="" itemtype="http://schema.org/Event"&gt;
-          &lt;dt class="o-Grid__Item  #[u c-TimeBlock__Times]"&gt;
-            &lt;time itemprop="startDate"&gt;10am&lt;/time&gt;
-            &ndash;
-            &lt;time itemprop="endDate"&gt;7pm&lt;/time&gt;
-          &lt;/dt&gt;
-          &lt;dd class="o-Grid__Item  #[u c-TimeBlock__Desc]" itemprop="name"&gt;
-            Registration
-          &lt;/dd&gt;
-        &lt;/li&gt;
-        &lt;li class="o-List__Item  o-Grid" itemprop="subEvent" itemscope="" itemtype="http://schema.org/Event"&gt;
-          &lt;dt class="o-Grid__Item  #[u c-TimeBlock__Times]"&gt;
-            &lt;time itemprop="startDate"&gt;10:30am&lt;/time&gt;
-            &ndash;
-            &lt;time itemprop="endDate"&gt;4:30pm&lt;/time&gt;
-          &lt;/dt&gt;
-          &lt;dd class="o-Grid__Item  #[u c-TimeBlock__Desc]" itemprop="name"&gt;
-            &lt;a class="#[u c-TimeBlock__Link]  h-Block" itemprop="url"&gt;
-              &lt;i class="material-icons"&gt;arrow_forward&lt;/i&gt;
-              &lt;span&gt;Technical Tours&lt;/span&gt;
-            &lt;/a&gt;
-          &lt;/dd&gt;
-        &lt;/li&gt;
-        &lt;li class="o-List__Item  o-Grid" itemprop="subEvent" itemscope="" itemtype="http://schema.org/Event"&gt;
-          &lt;dt class="o-Grid__Item  #[u c-TimeBlock__Times]"&gt;...&lt;/dt&gt;
-          &lt;dd class="o-Grid__Item  #[u c-TimeBlock__Desc]" itemprop="name"&gt;...&lt;/dd&gt;
-        &lt;/li&gt;
-        ...
-      &lt;/dl&gt;
+    +microdataCheckbox('timeblock')
+      pre.docs-pre.
+        &lt;dl class="o-List  #[u c-TimeBlock]"&gt;
+          &lt;li class="o-List__Item  o-Grid"#[mark.docs-c-Togglable__Text  itemprop="subEvent" itemscope="" itemtype="http://schema.org/Event"]&gt;
+            &lt;dt class="o-Grid__Item  #[u c-TimeBlock__Times]"&gt;
+              &lt;time#[mark.docs-c-Togglable__Text  itemprop="startDate"]&gt;10am&lt;/time&gt;
+              &ndash;
+              &lt;time#[mark.docs-c-Togglable__Text  itemprop="endDate"]&gt;7pm&lt;/time&gt;
+            &lt;/dt&gt;
+            &lt;dd class="o-Grid__Item  #[u c-TimeBlock__Desc]"#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;
+              Registration
+            &lt;/dd&gt;
+          &lt;/li&gt;
+          &lt;li class="o-List__Item  o-Grid"#[mark.docs-c-Togglable__Text  itemprop="subEvent" itemscope="" itemtype="http://schema.org/Event"]&gt;
+            &lt;dt class="o-Grid__Item  #[u c-TimeBlock__Times]"&gt;
+              &lt;time#[mark.docs-c-Togglable__Text  itemprop="startDate"]&gt;10:30am&lt;/time&gt;
+              &ndash;
+              &lt;time#[mark.docs-c-Togglable__Text  itemprop="endDate"]&gt;4:30pm&lt;/time&gt;
+            &lt;/dt&gt;
+            &lt;dd class="o-Grid__Item  #[u c-TimeBlock__Desc]"#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;
+              &lt;a class="#[u c-TimeBlock__Link]  h-Block"#[mark.docs-c-Togglable__Text  itemprop="url"]&gt;
+                &lt;i class="material-icons"&gt;arrow_forward&lt;/i&gt;
+                &lt;span&gt;Technical Tours&lt;/span&gt;
+              &lt;/a&gt;
+            &lt;/dd&gt;
+          &lt;/li&gt;
+          &lt;li class="o-List__Item  o-Grid"#[mark.docs-c-Togglable__Text  itemprop="subEvent" itemscope="" itemtype="http://schema.org/Event"]&gt;
+            &lt;dt class="o-Grid__Item  #[u c-TimeBlock__Times]"&gt;...&lt;/dt&gt;
+            &lt;dd class="o-Grid__Item  #[u c-TimeBlock__Desc]"#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;...&lt;/dd&gt;
+          &lt;/li&gt;
+          ...
+        &lt;/dl&gt;

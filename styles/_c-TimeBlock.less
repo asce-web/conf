@@ -11,6 +11,8 @@
 // ^subcomponents
 // __Times - contains start and end times
 // __Desc  - the description
+// __Item - (optional) contains both times and description,
+//          in case TimeBlock has a list-like structure
 // __Link  - link in the description, if any
 // ^author
 // Chris Harvey
@@ -23,13 +25,14 @@
   padding: @l-vru @g-boxpadd_kilo_h 0;
 }
 
-
+.c-TimeBlock__Item {
+}
 .c-TimeBlock__Times,
 .c-TimeBlock__Desc {
-  position: relative; // for psuedo-elements in viz
   padding: 0 @g-boxpadd_kilo_h (2*@l-vru);
   @media screen and (min-width: 30em) {
     .flex(50%);
+    max-width: 50%;
   }
 }
 .c-TimeBlock__Times {
@@ -49,6 +52,10 @@
 
 // Timeline Visualization
 @media screen {
+  .c-TimeBlock__Times,
+  .c-TimeBlock__Desc {
+    position: relative; // for psuedo-elements in viz
+  }
   .c-TimeBlock__Times::before,
   .c-TimeBlock__Desc:not(.c-TimeBlock__Desc--last)::before {
     content: '';
@@ -83,5 +90,6 @@
 }
 
 .c-TimeBlock__Link {
+  // REVIEW put this with material icon styles?
   position: relative; // for icon in link
 }

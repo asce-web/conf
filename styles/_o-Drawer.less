@@ -2,8 +2,8 @@
 /*################################*\
     conf  |  _o-Drawer.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transform.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
+@import (reference) url('../node_modules/xmeter/src/__fallback.transform.less');
+@import (reference) url('../node_modules/xmeter/src/__fallback.transition.less');
 @import (reference) url('__settings.less');
 
 
@@ -25,6 +25,7 @@
 // 2016-07-03
 .o-Drawer {
   .transitions(@g-prefix_transform, opacity; @p-trans_dura);
+  // animation for *closing* drawer
   .transition-timing-function(@google-accel);
   // .transition-timing-function(@g-accel_hard);
   // .transition-timing-function(@g-accel_dram);
@@ -36,7 +37,6 @@
     z-index: 2; // over hero and sub menus
     width: @width;
     height: 100%;
-    background-color: @g-color_site_gray_lt;
     border-left: 1px solid currentColor;
     opacity: 0;
   }
@@ -45,6 +45,7 @@
   @media screen and (max-width: 44.999em) {
     .transform(translateX(-100%));
     opacity: 1;
+    // animation for *opening* drawer
     .transition-timing-function(@google-decel);
     // .transition-timing-function(@g-decel_hard);
     // .transition-timing-function(@g-decel_dram);

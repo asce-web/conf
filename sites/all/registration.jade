@@ -1,33 +1,38 @@
 extends _sites.tpl.jade
 
-block append varsPage
-  - var page = site.getPage('registration.html')
+block append vars
+  - var page = site.find('registration.html')
 
 block mainHeader
-  header.o-Runner.o-Runner--pageHeader: div.o-ContentWrapper
+  header.o-Runner.o-Runner--pageHeader: div.o-Constrain
     //- soft hyphen (U+00ad, `&shy;`)
     h1.c-PageTitle Registra&shy;tion
 
 block mainReference
-  section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
+  section.o-Runner.o-Runner--highlight.c-Banner: div.o-Constrain
     h1.-d-n#full-registration Full Registration
-    ul.o-ListBare.o-GridFlex.o-ListStacked
-      include /includes/components/_c-Pass.jade
-      each pass0 in site.getCurrentConference().getPassesAll()
-        li.o-GridFlex__Item.o-ListStacked__Item
-          +pass(pass0, site.getCurrentConference())
-    ul.o-ListBare.o-GridFlex.o-ListAction.c-Callout
-      each item,index in site.getCurrentConference().getRegistrationPeriodsAll()
-        li.o-GridFlex__Item.o-ListAction__Item.c-Callout__Item.c-RegPeriodLegendItem
-          i.material-icons= item.getIcon()
+    +passList(site.currentConference(), true)
+    ul.o-List.o-ListAction.c-Callout._regLegend
+      each $registrationPeriod in site.currentConference().getRegistrationPeriodsAll()
+        li.o-List__Item.o-ListAction__Item.c-Callout__Item
+          i.material-icons= $registrationPeriod.getIcon()
           small
-            - var start = Util.toDate(item.startDate)
-            - var end   = Util.toDate(item.endDate)
-            if item.startDate && item.endDate
-              = item.name + ': ' + Util.monthDay(start) + '–' + Util.monthDay(end)
-            else if item.startDate
-              = item.name + ' begins ' + Util.monthDay(start)
-            else if item.endDate
-              = item.name + ' ends '   + Util.monthDay(end)
-    +actionchoices([{text:'Register Today!', href:'#0'}], 'c-Btn c-Btn--hilite c-Btn--secondary')
+            -
+              var start = $registrationPeriod.startDate()
+                , end   = $registrationPeriod.endDate()
+              var date_start = Util.toDate(start)
+                , date_end   = Util.toDate(end)
+            b= $registrationPeriod.name()
+            if start && end
+              = ': '
+              time(datetime=start)= Util.monthDay(date_start)
+              | &ndash;
+              time(datetime=end)= Util.monthDay(date_end)
+            else if start
+              = ' begins '
+              time(datetime=start)= Util.monthDay(date_start)
+            else if end
+              = ' ends '
+              time(datetime=end)= Util.monthDay(date_end)
+    +highlightButtons([{text:'Register Today!', href:'#0'}], 'c-Btn--secondary')
     block additionalInfo

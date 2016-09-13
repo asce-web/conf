@@ -1,0 +1,22 @@
+mixin dateBlock(all_dates)
+  dl.o-List.c-DateBlock
+    each $importantDate in all_dates
+      unless $importantDate.isHidden()
+        li.o-List__Item.c-DateBlock__Item(itemprop="potentialAction" itemscope="" itemtype="http://schema.org/Action")
+          dt.c-DateBlock__Date
+            time(datetime=$importantDate.startTime() itemprop="startTime")
+              - var date = Util.toDate($importantDate.startTime())
+              = Util.monthDay(date) + ', ' + date.getFullYear()
+          dd.c-DateBlock__Desc(itemprop="name")
+            if $importantDate.url()
+              +linkWithIcon({
+                classes : 'c-DateBlock__Link h-Block'
+              , url     : $importantDate.url()
+              , text    : $importantDate.name()
+              , attr   : { itemprop: 'url' }
+              }, {
+                is_on : true
+              , text  : 'arrow_forward'
+              })
+            else
+              = $importantDate.name()

@@ -1,19 +1,24 @@
 extends /sites/all/registration.jade
 
-block append varsSite
-  include includes/_data.jade
-
 block mainMinimal
   include includes/_text-block-minimal.jade
 
 block additionalInfo
   div.c-Overlay
     h1 Additional Events and Pricing
-    +actionchoices([{text:'Short Courses', href:''}, {text:'Technical Tours', href:''}, {text:'Optional Tours', href:''}])
-      i.material-icons arrow_forward
+    ul.o-List.o-ListAction
+      li.o-List__Item.o-ListAction__Item: a(href="#0")
+        span Short Courses
+        i.material-icons arrow_forward
+      li.o-List__Item.o-ListAction__Item: a(href="#0")
+        span Technical Tours
+        i.material-icons arrow_forward
+      li.o-List__Item.o-ListAction__Item: a(href="#0")
+        span Optional Tours
+        i.material-icons arrow_forward
 
 block mainRich
-  div.o-Runner.o-Runner--highlight.rich-text: div.o-ContentWrapper
+  div.o-Runner.o-Runner--highlight.rich-text: div.o-Constrain
     h2 Registration Information
     p: mark: strong.
       #[strong Important:] Please do not use
@@ -60,4 +65,4 @@ block mainRich
 
 block callouts
   +highlight('c-Banner')
-    include includes/highlights/_volunteer.jade
+    include /sites/default/_includes/highlights/_volunteer.jade

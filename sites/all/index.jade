@@ -1,28 +1,23 @@
 extends _sites.tpl.jade
 
-block append varsPage
-  - var page = site.getPage('index.html')
+block append vars
+  - var page = site.find('index.html')
 
 block mainHeader
-  header.-d-n: h1#home #{page.name} Homepage
+  header.-d-n: h1 #{site.name()} Homepage
 
-block mainBody
-  mixin otherYearBlock(event0, classes)
-    section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-OtherYear(class=classes itemscope="" itemtype="http://schema.org/Event")
-      div.o-ContentWrapper
-        div.c-Overlay.c-Overlay--callout
-          h1.c-OtherYear__Name(itemprop="name")= event0.name
-          meta(content=event0.startDate itemprop="startDate")
-          p.c-OtherYear__Detail(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-            +event-location-name(event0.location)
-          p.c-OtherYear__Desc
-            block
-          +actionchoices([{text:'Event Details', href:event0.url}], 'c-Btn c-Btn--hilite c-Btn--ghost c-Btn--ghost--dark')
-  section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing.c-Hero(itemscope="" itemtype="http://schema.org/Event"): div.o-ContentWrapper
-    +heroContent(site.getCurrentConference())
-    +actionchoices([{text:'Find Out More', href:'home.html'}], 'c-Btn c-Btn--hilite c-Btn--primary')
-  block introText
-  +otherYearBlock(site.getPrevConference(), 'c-Banner--prev')
-    block content_otherYearDesc_prev
-  +otherYearBlock(site.getNextConference(), 'c-Banner--next')
-    block content_otherYearDesc_next
+block prepend mainBody
+  section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing: div.o-Constrain
+    include /_views/c-Hero.view.jade
+    +hero(site.currentConference(), {itemscope:'', itemtype:'http://schema.org/Event'})
+      +highlightButtons([{text:'Find Out More', href:'home.html'}], 'c-Btn--primary')
+
+block mainReference
+  section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--prev: div.o-Constrain
+    div.c-Overlay.c-Overlay--callout
+      include /_views/c-OtherYear.view.jade
+      +otherYear(site.prevConference(), 'c-Btn--ghost c-Btn--ghost--dark')
+  section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--next: div.o-Constrain
+    div.c-Overlay.c-Overlay--callout
+      include /_views/c-OtherYear.view.jade
+      +otherYear(site.nextConference(), 'c-Btn--ghost c-Btn--ghost--dark')

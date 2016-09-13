@@ -21,6 +21,14 @@
     border-width: 1px;
   }
 }
+
+// Don’t know where to put this; using cosmetic styles on Object
+.o-Drawer {
+  @media screen and (max-width: 44.999em) {
+    background-color: @g-color_site_gray_lt;
+  }
+}
+
 // TODO move this to a component file
 // A Label component adds a small inline-level tag to a span or block of text.
 // This can be used to indicate a type of file linked, for example, a PDF or
@@ -58,24 +66,24 @@
 
 .material-icons {
   vertical-align: middle; // fixes Google’s material icons
-  .c-MenuUniversal & {
+  .c-MenuTop & {
     margin-right: 1rem;
     @media screen and (min-width: 45em) {
       display: none;
     }
   }
-  .c-MenuStandard & {
+  .c-MenuMain & {
     display: block;
-    @media screen and (min-width: @g-bp_menu_standard_normaltext) {
+    @media screen and (min-width: @g-bp_menu_main_normaltext) {
       display: none;
     }
     & + span {
-      @media screen and (max-width: (@g-bp_menu_standard_normaltext - 1)) {
+      @media screen and (max-width: (@g-bp_menu_main_normaltext - 1)) {
         display: block;
         .font-size-el(0.75);
         font-weight: 400;
       }
-      @media screen and (max-width: (@g-bp_menu_standard_smalltext - 1)) {
+      @media screen and (max-width: (@g-bp_menu_main_smalltext - 1)) {
         .font-size-el(0);
         line-height: 0; // override Infinity
       }
@@ -89,9 +97,17 @@
   .c-DateBlock__Link & {
     top: -0.5em;
   }
-  .c-RegPeriodLegendItem & {
+  ._regLegend & {
     display: block;
     // line-height is determined in `.material-icons`
     font-size: 2.25em;
+    @media screen and (max-width: 44.999em) {
+      display: none;
+    }
+  }
+  ._regLegend & + small {
+    @media screen and (max-width: 44.999em) {
+      font-size: 1rem;
+    }
   }
 }

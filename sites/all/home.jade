@@ -1,9 +1,10 @@
 extends _sites.tpl.jade
 
-block append varsPage
-  - var page = site.getPage('home.html')
+block append vars
+  - var page = site.find('home.html')
 
 block mainHeader
-  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--home.c-Hero: div.o-ContentWrapper
-    +heroContent(site.getCurrentConference())
-    block actionButtons
+  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--home: div.o-Constrain
+    include /_views/c-Hero.view.jade
+    +hero(site.currentConference())
+      block actionButtons

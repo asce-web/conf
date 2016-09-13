@@ -6,18 +6,22 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "jade": "jade --obj {basedir:\\\"./\\\"}",
-    "jade:index": "npm run jade index.jade",
-    "jade:lib": "npm run jade lib/{index,base,obj,comp,comp-typo,comp-ui,helpers,atoms}.jade",
-    "jade:sites": "npm run jade sites/all/{index,about,sponsor,exhibit,contact,home,registration,program,location,speakers}.jade",
-    "jade:default": "npm run jade sites/default/{index,about,sponsor,exhibit,contact,home,registration,program,location,speakers}.jade",
-    "jade:all": "npm run jade:index  &&  npm run jade:sites  &&  npm run jade:default",
+    "jade:index": "pug index.jade",
+    "jade:docs": "pug -O docs/models/options.js docs/{index,visual,base,obj,comp,help,atom}.jade",
+    "jade:sites": "pug -O sites/all/models/options.js sites/all/{index,about,sponsor,exhibit,contact,home,registration,program,location,speakers}.jade",
+    "jade:default": "pug -O sites/default/models/options.js sites/default/{index,about,sponsor,exhibit,contact,home,registration,program,location,speakers}.jade",
+    "jade:all": "npm run jade:index  &&  npm run jade:docs  &&  npm run jade:sites  &&  npm run jade:default",
     "lessc": "lessc",
     "lessc:conf": "lessc styles/conf.less styles/conf.css",
-    "lessc:lib": "lessc lib/styles/lib.less lib/styles/lib.css",
-    "lessc:sample": "lessc sites/default/styles/site.less sites/default/styles/site.css",
-    "lessc:all": "npm run lessc:conf  &&  npm run lessc:lib  &&  npm run lessc:sample",
+    "lessc:docs": "lessc docs/styles/docs.less docs/styles/docs.css",
+    "lessc:default": "lessc sites/default/styles/site.less sites/default/styles/site.css",
+    "lessc:all": "npm run lessc:conf  &&  npm run lessc:docs  &&  npm run lessc:default",
     "minify": "cleancss styles/conf.css -o styles/conf.min.css",
+    "unbuild:root": "rm index.html docs/{index,visual,base,obj,comp,help,atom}.html",
+    "unbuild:sites": "rm sites/all/{index,about,sponsor,exhibit,contact,home,registration,program,location,speakers}.html",
+    "unbuild:default": "rm sites/default/{index,about,sponsor,exhibit,contact,home,registration,program,location,speakers}.html",
+    "unbuild:css": "rm styles/conf.css styles/conf.min.css docs/styles/docs.css sites/default/styles/site.css",
+    "unbuild": "npm run unbuild:root  &&  npm run unbuild:sites  &&  npm run unbuild:default  &&  npm run unbuild:css",
     "build": "npm run jade:all  &&  npm run lessc:all  &&  npm run minify"
   },
   "repository": {
@@ -34,7 +38,8 @@
     "clean-css": "^3.4.9",
     "jade": "^1.11.0",
     "less": "^2.6.0",
-    "xmeter": "^4.0.0"
+    "pug-cli": "^1.0.0-alpha6",
+    "xmeter": "^5.0.0"
   },
   "dependencies": {}
 }

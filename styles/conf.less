@@ -26,41 +26,36 @@
  *
  * # SETTINGS & TOOLS-----------------------PROJECT SETTINGS & MIXINS
  * __settings.less..........................variables
- * __tool.module.border-radius.less.........useful mixins for grouping border-radii
- * __tool.module.menubar.less...............typographical styles for menu bars
- * __tool.module.logo.less..................background-image styles for logos
+ * __tool.border-radius.less................useful mixins for grouping border-radii
+ * __tool.menubar.less......................typographical styles for menu bars
+ * __tool.logo.less.........................background-image styles for logos
  *
  * # BASE-----------------------------------BARE UNCLASSED ELEMENTS
  * _dev.less................................development code
  * _base.less...............................bare, unclassed elements
  *
  * # OBJECTS--------------------------------REUSABLE STRUCTURAL PATTERNS
- * Block....................................a simple block object
- * Inline...................................a simple inline object
- * ListBare.................................plain, unstyled, blocky list
- * GridFlex.................................grid of items
  * GridFloat................................grid of items; legacy support
  * Runner...................................header and footer
- * ContentWrapper...........................keeps content at max width
+ * Constrain................................keeps content at max width
  * ListAction...............................list of actionable choices
  * ListStacked..............................row of stackable items (Sponsors, Passes, Speakers, etc.)
- * SiteHead.................................container for SiteTitle and MenuUniversal components
  * Drawer...................................pull-out container
  *
  * # COMPONENTS-----------------------------SPECIFIC STYLE PATTERNS
  * Mast.....................................masthead for the site
  * SiteTitle................................area containg logo and site title and tagline
- * MenuUniversal............................universal main navigation
- * MenuStandard.............................top-level navigation for a conference
+ * MenuTop..................................site-level navigation
+ * MenuMain.................................main-level navigation for a conference
  * MenuSub..................................secondary-level navigation for a conference
- * Sitemap..................................sitemap for universal or internal sites
+ * Sitemap..................................sitemap for top (site) pages or main (internal) pages
  * PageTitle................................title of entire page
  * Banner...................................full-width block with a background image
  * Hero.....................................advertisment for current year conference
  * OtherYear................................advertisment for other year conference
  * Overlay..................................a translucent slide inside a banner
+ * SponsorLogo..............................a logo for a sponsoring company
  * SponsorBlock.............................block containing one level of sponsors on Sponsors page
- * SponsorCarousel..........................list of all sponsors on most pages
  * DateBlock................................list of important dates
  * Pass.....................................a listing of prices for one Pass Type
  * Program..................................block containing all program info
@@ -86,9 +81,9 @@
 //    # SETTINGS & TOOLS
 //++++++++++++++++++++++++++++++++//
 @import url('__settings.less');
-@import url('__tool.module.border-radius.less');
-// @import url('__tool.module.menubar.less');
-// @import url('__tool.module.logo.less');
+@import url('__tool.border-radius.less');
+// @import url('__tool.menubar.less');
+// @import url('__tool.logo.less');
 //++++ end # SETTINGS & TOOLS ++++//
 
 
@@ -103,16 +98,11 @@
 //++++++++++++++++++++++++++++++++//
 //    # OBJECTS
 //++++++++++++++++++++++++++++++++//
-@import url('_o-Block.less');
-@import url('_o-Inline.less');
-@import url('_o-ListBare.less');
-@import url('_o-GridFlex.less');
 @import url('_o-GridFloat.less');
 @import url('_o-Runner.less');
-@import url('_o-ContentWrapper.less');
+@import url('_o-Constrain.less');
 @import url('_o-ListAction.less');
 @import url('_o-ListStacked.less');
-@import url('_o-SiteHead.less');
 @import url('_o-Drawer.less');
 //++++ end # OBJECTS ++++//
 
@@ -122,8 +112,8 @@
 //++++++++++++++++++++++++++++++++//
 @import url('_c-Mast.less');
 @import url('_c-SiteTitle.less');
-@import url('_c-MenuUniversal.less');
-@import url('_c-MenuStandard.less');
+@import url('_c-MenuTop.less');
+@import url('_c-MenuMain.less');
 @import url('_c-MenuSub.less');
 @import url('_c-Sitemap.less');
 @import url('_c-PageTitle.less');
@@ -131,8 +121,8 @@
 @import url('_c-Hero.less');
 @import url('_c-OtherYear.less');
 @import url('_c-Overlay.less');
+@import url('_c-SponsorLogo.less');
 @import url('_c-SponsorBlock.less');
-@import url('_c-SponsorCarousel.less');
 @import url('_c-DateBlock.less');
 @import url('_c-Pass.less');
 @import url('_c-Program.less');

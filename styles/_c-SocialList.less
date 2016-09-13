@@ -2,7 +2,7 @@
 /*################################*\
     conf  |  _c-SocialList.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__tool.fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__fallback.flexbox.less');
 @import (reference) url('__settings.less');
 
 
@@ -16,13 +16,12 @@
 // ^updated
 // 2016-04-23
 .c-SocialList {
-  .flex-justify-content(space-between);
   width: 50%;
   margin-left: auto; margin-right: auto;
   text-align: center;
 }
 .c-SocialList__Item {
-  width: auto;
+  .flex(0);
 }
 .c-SocialList__Link {
   @width: (100vw/10);

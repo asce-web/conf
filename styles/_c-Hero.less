@@ -2,9 +2,7 @@
 /*################################*\
     conf  |  _c-Hero.less
 \*################################*/
-// @import (reference) url('../node_modules/xmeter/src/__tool.fallback.transition.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.module.clearfix.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.fontsize.less');
 
 
 // advertisement for this year’s conference
@@ -19,16 +17,20 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-04-22
+// 2016-08-12
 .c-Hero {
-  font-weight: 600;
   text-align: center;
+  text-shadow: 0 0 0.25rem @g-color_asce_black;
+  .c-Btn {
+    text-shadow: none;
+  }
 }
 
 .c-Hero__Name {
 }
 
 .c-Hero__Detail {
+  font-weight: 600;
   .font-size-el(2; 2);
 }
 
@@ -38,7 +40,12 @@
 }
 .c-Hero__Place {
   @media screen and (max-width: 44.999em) {
-    .clearfix();
+    &::after {
+      // duplicating Xmeter’s .h-Clearfix Helper
+      content: '';
+      display: block;
+      clear: both;
+    }
   }
   @media screen and (min-width: 45em) {
     padding-right: 2rem;

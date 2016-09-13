@@ -1,13 +1,9 @@
 extends _sites.tpl.jade
 
-block append varsPage
-  - var page = site.getPage('speakers.html')
+block append vars
+  - var page = site.find('speakers.html')
 
 block mainReference
-  section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
+  section.o-Runner.o-Runner--highlight.c-Banner: div.o-Constrain
     h1.-d-n#all-speakers All Speakers
-    ul.o-ListBare.o-GridFlex.o-ListStacked
-      include /includes/components/_c-Speaker.jade
-      each speaker in new Array(6)
-        li.o-GridFlex__Item.o-ListStacked__Item
-          +speaker()
+    +speakerList(site.currentConference().getSpeakersAll())

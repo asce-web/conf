@@ -1,0 +1,26 @@
+
+//- ///////////////////////////////////////////////////////////////////////////////
+//- //
+//- // This file holds 'local' data for the styleguide pattern library.
+//- //
+//- ///////////////////////////////////////////////////////////////////////////////
+
+
+mixin doctoc(args)
+  //- NOTE parameter validation
+  -
+    var pages   = args.pages   || []
+    var classes = args.classes || {}
+    var depth   = +args.depth  || 0
+  ol(class=classes.listclasses)
+    each item in pages
+      li(class=classes.itemclasses)
+        a(class=classes.linkclasses href=item.url())= item.name()
+        if item.findAll().length && depth > 0
+          +doctoc({pages: item.findAll(), classes: (classes.sub || {}), depth: depth-1})
+
+mixin microdataCheckbox(id)
+  div.docs-c-Togglable
+    input.docs-c-Togglable__Check(id=id+'-check' type="checkbox" value=id+'-md-true')
+    label(for=id+'-check') show microdata
+    block

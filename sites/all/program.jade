@@ -1,17 +1,17 @@
 extends _sites.tpl.jade
 
-block append varsPage
-  - var page = site.getPage('program.html')
+block append vars
+  - var page = site.find('program.html')
 
 block mainReference
-  section.o-Runner.o-Runner--highlight.c-Banner: div.o-ContentWrapper
+  section.o-Runner.o-Runner--highlight.c-Banner: div.o-Constrain
     h1.-d-n#full-program Full Program
-    - var groupings = site.getCurrentConference().groupProgramEvents()
-    include /includes/components/_c-Program.jade
+    - var groupings = site.currentConference().groupProgramEvents()
+    include /_views/c-Program.view.jade
     +program(groupings.length, {id:'full-program-block', class:'c-Overlay'})
       mixin heading(i)
         +programHeading(groupings[i].date)
       mixin content(i)
-        include /includes/components/_c-TimeBlock.jade
+        include /_views/c-TimeBlock.view.jade
         +timeBlock(groupings[i].events, true)
     p: small Program subject to change.

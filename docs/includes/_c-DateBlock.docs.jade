@@ -1,5 +1,8 @@
 section#date-block
   h2 The Date Block
+  p.
+    #[strong Note:] the markup below is invalid, as there ae #[code.docs-code li] elements directly
+    within a #[code.docs-code dl]. However, this is the only way to structure the microdata properly.
   figure.docs-figure
     include /_views/c-DateBlock.view.jade
     +dateBlock([
@@ -7,20 +10,24 @@ section#date-block
     , new ImportantDate({name:'Early-Bird Registration Closes', start_time:'2015-12-17'}).url('#0')
     ])
     pre.docs-pre.
-      &lt;dl class="#[u c-DateBlock]"&gt;
-        &lt;dt class="#[u c-DateBlock__Date]"&gt;
-          &lt;time datetime="2015-10-12"&gt;Oct 12, 2015&lt;/time&gt;
-        &lt;/dt&gt;
-        &lt;dd class="#[u c-DateBlock__Desc]"&gt;
-          Optional Final Papers Due
-        &lt;/dd&gt;
-        &lt;dt class="#[u c-DateBlock__Date]"&gt;
-          &lt;time datetime="2015-12-17"&gt;Dec 17, 2015&lt;/time&gt;
-        &lt;/dt&gt;
-        &lt;dd class="#[u c-DateBlock__Desc]"&gt;
-          &lt;a class="#[u c-DateBlock__Link]  h-Block"&gt;
-            &lt;i class="material-icons"&gt;arrow_forward&lt;/i&gt;
-            &lt;span&gt;Early-Bird Registration Closes&lt;/span&gt;
-          &lt;/a&gt;
-        &lt;/dd&gt;
+      &lt;dl class="o-List  #[u c-DateBlock]"&gt;
+        &lt;li class="o-List__Item #[u c-DateBlock__Item]" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/Action"&gt;
+          &lt;dt class="#[u c-DateBlock__Date]"&gt;
+            &lt;time datetime="2015-10-12" itemprop="startTime"&gt;Oct 12, 2015&lt;/time&gt;
+          &lt;/dt&gt;
+          &lt;dd class="#[u c-DateBlock__Desc]" itemprop="name"&gt;
+            Optional Final Papers Due
+          &lt;/dd&gt;
+        &lt;/li&gt;
+        &lt;li class="o-List__Item #[u c-DateBlock__Item]" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/Action"&gt;
+          &lt;dt class="#[u c-DateBlock__Date]"&gt;
+            &lt;time datetime="2015-12-17" itemprop="startTime"&gt;Dec 17, 2015&lt;/time&gt;
+          &lt;/dt&gt;
+          &lt;dd class="#[u c-DateBlock__Desc]" itemprop="name"&gt;
+            &lt;a class="#[u c-DateBlock__Link]  h-Block"&gt;
+              &lt;i class="material-icons"&gt;arrow_forward&lt;/i&gt;
+              &lt;span&gt;Early-Bird Registration Closes&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/dd&gt;
+        &lt;/li&gt;
       &lt;/dl&gt;

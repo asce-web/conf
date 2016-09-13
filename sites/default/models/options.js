@@ -272,24 +272,24 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
 
     site.currentConference()
       .addVenue('Conference Venue', {
-        name           : 'Oregon Convention Center'
-      , streetAddress  : '777 NE Martin Luther King, Jr. Blvd.'
-      , addressLocality: 'Portland'
-      , addressRegion  : 'OR'
-      , postalCode     : '97232'
-      , url            : 'https://www.oregoncc.org/'
+        name            : 'Oregon Convention Center'
+      , street_address  : '777 NE Martin Luther King, Jr. Blvd.'
+      , address_locality: 'Portland'
+      , address_region  : 'OR'
+      , postal_code     : '97232'
+      , url             : 'https://www.oregoncc.org/'
       }).addVenue('Official Hotel', {
-        name           : 'DoubleTree by Hilton Portland'
-      , streetAddress  : '1000 NE Multnomah St'
-      , addressLocality: 'Portland'
-      , addressRegion  : 'OR'
-      , postalCode     : '97232'
+        name            : 'DoubleTree by Hilton Portland'
+      , street_address  : '1000 NE Multnomah St'
+      , address_locality: 'Portland'
+      , address_region  : 'OR'
+      , postal_code     : '97232'
       }).addVenue('Overflows', {
-        name           : 'Courtyard Portland City Center'
-      , streetAddress  : '550 SW Oak St'
-      , addressLocality: 'Portland'
-      , addressRegion  : 'OR'
-      , postalCode     : '97204'
+        name            : 'Courtyard Portland City Center'
+      , street_address  : '550 SW Oak St'
+      , address_locality: 'Portland'
+      , address_region  : 'OR'
+      , postal_code     : '97204'
       })
 
     site.currentConference()

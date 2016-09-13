@@ -1,12 +1,12 @@
 mixin timeBlock(events, show_all)
   dl.o-Grid.c-TimeBlock
-    each $programEvent in events
+    each $programEvent,index in events
       if show_all || $programEvent.isStarred()
         dt.o-Grid__Item.c-TimeBlock__Times
           time(datetime=$programEvent.startDate())= Util.hourTime12(Util.toDate($programEvent.startDate()))
           | &ndash;
           time(datetime=$programEvent.endDate())= Util.hourTime12(Util.toDate($programEvent.endDate()))
-        dd.o-Grid__Item.c-TimeBlock__Desc
+        dd.o-Grid__Item.c-TimeBlock__Desc(class={'c-TimeBlock__Desc--last':index===events.length-1})
           if $programEvent.url()
             +linkWithIcon({
               classes : 'c-TimeBlock__Link h-Block'

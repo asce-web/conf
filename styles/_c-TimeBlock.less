@@ -50,7 +50,7 @@
 // Timeline Visualization
 @media screen {
   .c-TimeBlock__Times::before,
-  .c-TimeBlock__Desc:not(:last-of-type)::before {
+  .c-TimeBlock__Desc:not(.c-TimeBlock__Desc--last)::before {
     content: '';
     display: block;
     position: absolute;
@@ -70,7 +70,7 @@
       right: (-0.5 * @width);
     }
   }
-  .c-TimeBlock__Desc:not(:last-of-type)::before {
+  .c-TimeBlock__Desc:not(.c-TimeBlock__Desc--last)::before {
     // This is the line on the viz
     left: 0;
     top: (-0.5 * @l-vru);

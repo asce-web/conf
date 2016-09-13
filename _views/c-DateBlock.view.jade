@@ -13,6 +13,7 @@ mixin dateBlock(all_dates)
                 classes : 'c-DateBlock__Link h-Block'
               , url     : $importantDate.url()
               , text    : $importantDate.name()
+              , attr   : { itemprop: 'url' }
               }, {
                 is_on : true
               , text  : 'arrow_forward'

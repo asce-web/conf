@@ -3,9 +3,8 @@ section#site-title
   p Use with #[a(href="#camo-link") the Camo Link].
   figure.docs-figure
     include /_views/c-SiteTitle.view.jade
-    +siteTitle(new ConfSite('CI Summit', '#0')
-      .setDescription('Innovations In Construction')
-      .setLogo('http://cisummit.org/sites/cisummit.org/files/ci-shield-logo.png')
+    +siteTitle(new ConfSite('CI Summit', '#0', 'Innovations In Construction')
+      .logo('http://cisummit.org/sites/cisummit.org/files/ci-shield-logo.png')
       .init())
     pre.docs-pre.
       &lt;a class="o-GridFloat  #[u c-SiteTitle]  c-Camo  h-Block"&gt;

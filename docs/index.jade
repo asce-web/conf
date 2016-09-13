@@ -5,7 +5,7 @@ block append vars
 
 block main
   header
-    h1= page.getTitle()
+    h1= page.title()
   p.
     This pattern library contains demos of components
     that live on conference website pages. These components are shown out of context,
@@ -16,10 +16,10 @@ block main
     placed in #[code &lt;figure&gt;] elements to separate them from the surrounding documentation.
   nav#table-contents
     h2 Table of Contents
-    each item in ConfDocs.DOCS.getPagesAll().slice(1)
+    each item in ConfDocs.DOCS.findAll().slice(1)
       section
-        h3: a(href=item.getURL())= item.getName()
-        p= item.getDescription()
-        +doctoc({pages: item.getPagesAll(), depth: 0})
+        h3: a(href=item.url())= item.name()
+        p= item.description()
+        +doctoc({pages: item.findAll(), depth: 0})
 
 block subsitemap

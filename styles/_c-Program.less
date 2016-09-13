@@ -57,7 +57,23 @@
   .transform(scale(1.2));
 }
 
+// A schedule for events in a date.
+//
+// ^subclasses
+// --js           - use when JS is enabled (for animation)
+// --hiddenBefore - the schedule before the one selected
+// --hiddenAfter  - the schedule after the one selected
+// --shown        - the selected schedule
+// ^author
+// Chris Harvey
+// ^updated
+// 2016-05-05
 .c-Program__Schedule {
+}
+.c-Program__Schedule--js {
+  position: absolute;
+  left: 0; right: 0;
+  .flex-order(1);
 }
 .c-Program__Schedule--hiddenBefore {
   .transform(translateX(-100%) scale(0));

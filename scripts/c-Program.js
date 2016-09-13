@@ -9,7 +9,7 @@ function resizeProgram() {
       return program_total_height + (n * heading_total_height)
     })
   }
-  $('.c-Program__Schedule').css('bottom', function () {
+  $('.c-Program__Schedule--js').css('bottom', function () {
     return parseInt($(this).parents('.c-Program').css('padding-bottom'))
   })
   if ($(window).width() < 480) { // @media screen and (min-width: 30em)
@@ -34,7 +34,6 @@ function updateProgram() {
 $(window).resize(resizeProgram)
 $('.js-h-Block-sK').addClass('h-Block-sK')
   .parentsUntil('.c-Program__Hn').addClass('h-Block-sK')
-$('.c-Program .c-Program__Schedule').addClass('-xo-1') // fallback `order: 1;`
-  .css('position','absolute').css('left', 0)
+$('.c-Program .c-Program__Schedule').addClass('c-Program__Schedule--js')
 $('.c-Program .c-Program__Check:checked').each(updateProgram)
 $('.c-Program .c-Program__Check').change(updateProgram)

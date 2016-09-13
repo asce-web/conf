@@ -1,6 +1,0 @@
-mixin sponsorCarousel(sponsor_list)
-  ol.o-ListBare.c-SponsorCarousel
-    each item in sponsor_list
-      li.c-SponsorCarousel__Item
-        a.o-Block.c-SponsorCarousel__Logo(href=item.getURL() style='background-image: url(\'' + item.getImg() + '\');')= item.name
-        small.c-SponsorCarousel__Label= item.getLevel().name

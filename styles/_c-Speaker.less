@@ -2,9 +2,9 @@
 /*################################*\
     conf  |  _c-Speaker.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.fontsize.less');
 @import (reference) url('__settings.less');
-@import (reference) url('__tool.module.logo.less');
+@import (reference) url('__tool.logo.less');
 
 
 .transform(@transform) {
@@ -23,7 +23,8 @@
 // __Body     - body of speaker info containing bio and social media links
 // __Img      - the speaker’s headshot photo
 // __Name     - the speaker’s name and suffix (e.g. M.ASCE)
-// __JobTitle - affiliation
+// __JobTitle - speaker’s job title
+// __Affiliation - speaker’s organization
 // __Bio      - a block of content further describing information about the speaker
 // __Link     - link to speaker’s email, LinkedIn, and/or Twitter
 // ^author
@@ -42,9 +43,13 @@
     color: inherit;
   }
   .c-Speaker__Name,
-  .c-Speaker__JobTitle {
+  .c-Speaker__JobTitle,
+  .c-Speaker__Affiliation {
     // HACK override `.c-Speaker >> h1`, `.c-Speaker >> p`
     margin-bottom: 0;
+  }
+  .c-Speaker__Name {
+    // HACK override `.c-Speaker >> h1`
     padding-top: 0;
   }
 }
@@ -85,8 +90,13 @@
   font-weight: 700;
 }
 
-.c-Speaker__JobTitle {
+.c-Speaker__JobTitle,
+.c-Speaker__Affiliation {
   font-weight: 300;
+}
+
+.c-Speaker__Affiliation {
+  font-style: italic;
 }
 
 .c-Speaker__Bio {
@@ -94,5 +104,3 @@
 
 .c-Speaker__Link {
 }
-
-.-h-z { height: 0 !important; }

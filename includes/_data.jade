@@ -7,26 +7,35 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
-
-include class/_Util.class.jade
-include class/_Site.class.jade
-include class/_Page.class.jade
-include class/_Conference.class.jade
-include class/_SupporterLevel.class.jade
-include class/_Supporter.class.jade
-include class/_Person.class.jade
-include class/_RegistrationPeriod.class.jade
-include class/_Pass.class.jade
-include class/_Membership.class.jade
-include class/_ProgramEvent.class.jade
-include class/_ImportantDate.class.jade
+mixin place($place, attr)
+  p(itemscope="" itemtype="http://schema.org/Place")&attributes(attr || {})
+    if $place.name
+      span.-fw-7(itemprop="name")= $place.name
+    if $place.street_address
+      br
+      span(itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
+        span(itemprop="streetAddress")= $place.street_address
+        br
+        span(itemprop="addressLocality")= $place.address_locality
+        = ', '
+        span(itemprop="addressRegion")= $place.address_region
+        = ' '
+        span(itemprop="postalCode")= $place.postal_code
+        if $place.address_country
+          span(itemprop="addressCountry")= $place.address_country
+    if $place.telephone
+      br
+      a(href='tel:'+$place.telephone itemprop="telephone")= $place.telephone
+    if $place.url
+      br
+      a(href=$place.url itemprop="url")= $place.url
 
 mixin linkWithIcon(link, icon)
   //- NOTE parameter validation
   -
     link = link || {}
     icon = icon || {}
-  a(class=link.classes href=link.url)&attributes(link.attr || {})
+  a(class=link.classes href=link.url title=(link.title || null))&attributes(link.attr || {})
     if icon.is_on
       i.material-icons= icon.text
     span= link.text
@@ -34,60 +43,77 @@ mixin linkWithIcon(link, icon)
 mixin sitetoc(args)
   //- NOTE parameter validation
   -
-    var pages     = args.pages     || []
-    var class_obj = args.class_obj || {}
-    var depth     = +args.depth    || 0
-    var icons     = !!args.icons
-  ul(class=class_obj.listclasses)
+    var pages   = args.pages   || []
+    var classes = args.classes || {}
+    var depth   = +args.depth  || 0
+    var icons   = !!args.icons
+  ul(class=classes.listclasses)
     each item in pages
       unless item.isHidden()
-        li(class=class_obj.itemclasses)
+        li(class=classes.itemclasses)
           +linkWithIcon({
-            classes : class_obj.linkclasses
-          , url     : item.url
-          , text    : item.name
+            classes : classes.linkclasses
+          , url     : item.url()
+          , text    : item.name()
+          , title   : item.name()
           }, {
             is_on : args.icons && item.getIcon()
           , text  : item.getIcon()
           })
-          if item.getSubpagesAll().length && depth > 0
-            +sitetoc({pages: item.getSubpagesAll(), class_obj: (class_obj.sub || {}), depth: depth-1})
+          if item.findAll().length && depth > 0
+            +sitetoc({pages: item.findAll(), classes: (classes.sub || {}), depth: depth-1})
 
-mixin event-location-name(loc)
-  span(itemprop="name")
-    span(itemprop="addressLocality")= loc.addressLocality + ', '
-    abbr(title=loc.addressRegion_title itemprop="addressRegion")
-      = loc.addressRegion
+mixin promotedLocation(promoloc)
+  - promoloc = promoloc || {} // NOTE parameter validation
+  if promoloc.title && promoloc.text
+    abbr(title=promoloc.title)= promoloc.text
+  else
+    = (promoloc.text || promoloc)
 
-mixin heroContent(event0)
-  h1.c-PageTitle.c-Hero__Name(itemprop="name")= event0.name
-  meta(content=event0.url itemprop="url")
-  p.c-Hero__Detail
-    span.c-Hero__Place(itemprop="location" itemscope="" itemtype="http://schema.org/PostalAddress")
-      +event-location-name(event0.location)
-    span.c-Hero__Dates
-      time(datetime=event0.startDate itemprop="startDate")
-        - var start = (event0.startDate) ? new Date(event0.startDate) : new Date()
-        = Util.monthDay(start)
-      | &ndash;
-      time(datetime=event0.endDate itemprop="endDate")
-        - var end = (event0.endDate) ? new Date(event0.endDate) : new Date()
-        = Util.monthDay(end)
-  p.c-Hero__Theme(itemprop="description")
-    if event0.theme
-      = event0.theme
-    else
-      | &nbsp;
-
-mixin actionchoices(items, classes, list_attr)
-  ul.o-ListBare.o-GridFlex.o-ListAction&attributes(list_attr || {})
-    each obj in items
-      li.o-GridFlex__Item.o-ListAction__Item
-        a(class=classes href=obj.href)&attributes(obj.attr || {})
-          = obj.text
-          block
+mixin highlightButtons(links, more_classes)
+  ul.o-List.o-ListAction
+    each item in links
+      li.o-List__Item.o-ListAction__Item
+        a.c-Btn.c-Btn--hilite(class=' '+(more_classes || '') href=item.href)&attributes(item.attr || {})
+          = item.text
 
 mixin highlight(classes)
   aside.o-Runner.o-Runner--highlight(class=classes)
-    div.o-ContentWrapper
+    div.o-Constrain
       block
+
+mixin passList(conference, show_all)
+  ul.o-List.o-ListStacked
+    include /_views/c-Pass.view.jade
+    each $pass in conference.getPassesAll()
+      if show_all || $pass.isStarred()
+        li.o-List__Item.o-ListStacked__Item
+          +pass($pass, conference)
+
+mixin speakerList(speakers)
+  ul.o-List.o-ListStacked
+    include /_views/c-Speaker.view.jade
+    each person in speakers
+      li.o-List__Item.o-ListStacked__Item
+        +speaker(person)
+
+mixin chairList(chairs)
+  ul
+    each $person in chairs
+      li(itemprop="organizer" itemscope="" itemtype="http://schema.org/Person")
+        +personEntireName($person)
+
+mixin personEntireName($person)
+  if $person.name().honorific_prefix
+    span(itemprop="honorificPrefix")= $person.name().honorific_prefix
+    = ' '
+  span(itemprop="name")
+    span(itemprop="givenName")= $person.name().given_name
+    = ' '
+    if $person.name().additional_name
+      span(itemprop="additionalName")= $person.name().additional_name
+      = ' '
+    span(itemprop="familyName")= $person.name().family_name
+  if $person.name().honorific_suffix
+    = ', '
+    span(itemprop="honorificSuffix")= $person.name().honorific_suffix

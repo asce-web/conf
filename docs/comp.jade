@@ -1,0 +1,37 @@
+extends _docs.tpl.jade
+
+block append vars
+  - var page = ConfDocs.DOCS.find('comp.html')
+
+block append main
+  include includes/_c-Mast.docs.jade
+  include includes/_c-SiteTitle.docs.jade
+  include includes/_c-MenuTop.docs.jade
+  include includes/_c-MenuMain.docs.jade
+  include includes/_c-MenuSub.docs.jade
+  include includes/_c-Sitemap.docs.jade
+  include includes/_c-PageTitle.docs.jade
+  include includes/_c-Banner.docs.jade
+  include includes/_c-Hero.docs.jade
+  include includes/_c-OtherYear.docs.jade
+  include includes/_c-Overlay.docs.jade
+  include includes/_c-SponsorLogo.docs.jade
+  include includes/_c-SponsorBlock.docs.jade
+  include includes/_c-DateBlock.docs.jade
+  include includes/_c-Pass.docs.jade
+  include includes/_c-Program.docs.jade
+  include includes/_c-TimeBlock.docs.jade
+  include includes/_c-Speaker.docs.jade
+  include includes/_c-SocialList.docs.jade
+  include includes/_c-Callout.docs.jade
+  include includes/_c-Btn.docs.jade
+  include includes/_c-Toggle.docs.jade
+  include includes/_c-Camo.docs.jade
+  section
+    h2 Non-CSS Component Displays
+    section
+      h3 Place
+      include includes/_place.docs.jade
+
+block append scripts
+  script(src="/scripts/c-Program.js")

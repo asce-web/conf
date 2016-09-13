@@ -2,7 +2,8 @@
 /*################################*\
     conf  |  _c-TimeBlock.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__tool.module.fontsize.less');
+@import (reference) url('../node_modules/xmeter/src/__fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__tool.fontsize.less');
 
 
 // A list of program events for a single day.
@@ -10,6 +11,8 @@
 // ^subcomponents
 // __Times - contains start and end times
 // __Desc  - the description
+// __Item - (optional) contains both times and description,
+//          in case TimeBlock has a list-like structure
 // __Link  - link in the description, if any
 // ^author
 // Chris Harvey
@@ -22,13 +25,14 @@
   padding: @l-vru @g-boxpadd_kilo_h 0;
 }
 
-
+.c-TimeBlock__Item {
+}
 .c-TimeBlock__Times,
 .c-TimeBlock__Desc {
-  position: relative; // for psuedo-elements in viz
   padding: 0 @g-boxpadd_kilo_h (2*@l-vru);
   @media screen and (min-width: 30em) {
-    width: 50%;
+    .flex(50%);
+    max-width: 50%;
   }
 }
 .c-TimeBlock__Times {
@@ -43,13 +47,18 @@
 .c-TimeBlock__Desc {
   @media screen and (max-width: 29.999em) {
     .font-size-el(1.25);
+    font-weight: 600;
   }
 }
 
 // Timeline Visualization
 @media screen {
+  .c-TimeBlock__Times,
+  .c-TimeBlock__Desc {
+    position: relative; // for psuedo-elements in viz
+  }
   .c-TimeBlock__Times::before,
-  .c-TimeBlock__Desc:not(:last-of-type)::before {
+  .c-TimeBlock__Desc:not(.c-TimeBlock__Desc--last)::before {
     content: '';
     display: block;
     position: absolute;
@@ -69,7 +78,7 @@
       right: (-0.5 * @width);
     }
   }
-  .c-TimeBlock__Desc:not(:last-of-type)::before {
+  .c-TimeBlock__Desc:not(.c-TimeBlock__Desc--last)::before {
     // This is the line on the viz
     left: 0;
     top: (-0.5 * @l-vru);
@@ -82,5 +91,6 @@
 }
 
 .c-TimeBlock__Link {
+  // REVIEW put this with material icon styles?
   position: relative; // for icon in link
 }

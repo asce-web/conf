@@ -527,23 +527,23 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .setOtherYearBlurb('Access the 2015 program to see which sessions qualify for \
         <abbr title="professional development hours">PDH</abbr>s and other documentation.')
       .addVenue('Conference Venue', {
-        name           : 'New York Marriott Marquis'
-      , streetAddress  : '1535 Broadway'
-      , addressLocality: 'New York'
-      , addressRegion  : 'NY'
-      , postalCode     : '10036'
-      , url            : 'http://www.marriott.com/hotels/travel/nycmq-new-york-marriott-marquis/'
+        name            : 'New York Marriott Marquis'
+      , street_address  : '1535 Broadway'
+      , address_locality: 'New York'
+      , address_region  : 'NY'
+      , postal_code     : '10036'
+      , url             : 'http://www.marriott.com/hotels/travel/nycmq-new-york-marriott-marquis/'
       })
 
     site.getConference('2017')
       .setOtherYearBlurb('Plan ahead to attend, sponsor, or exhibit at the annual convention \
         for civil engineering professionals.')
       .addVenue('Conference Venue', {
-        name           : 'New Orleans Mariott'
-      , streetAddress  : '555 Canal Street'
-      , addressLocality: 'New Orleans'
-      , addressRegion  : 'LA'
-      , postalCode     : '70130'
+        name            : 'New Orleans Mariott'
+      , street_address  : '555 Canal Street'
+      , address_locality: 'New Orleans'
+      , address_region  : 'LA'
+      , postal_code     : '70130'
       })
 
     //- site

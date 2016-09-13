@@ -1,20 +1,22 @@
 mixin timeBlock(events, show_all)
-  dl.o-Grid.c-TimeBlock
+  dl.o-List.c-TimeBlock
     each $programEvent,index in events
       if show_all || $programEvent.isStarred()
-        dt.o-Grid__Item.c-TimeBlock__Times
-          time(datetime=$programEvent.startDate())= Util.hourTime12(Util.toDate($programEvent.startDate()))
-          | &ndash;
-          time(datetime=$programEvent.endDate())= Util.hourTime12(Util.toDate($programEvent.endDate()))
-        dd.o-Grid__Item.c-TimeBlock__Desc(class={'c-TimeBlock__Desc--last':index===events.length-1})
-          if $programEvent.url()
-            +linkWithIcon({
-              classes : 'c-TimeBlock__Link h-Block'
-            , url     : $programEvent.url()
-            , text    : $programEvent.name()
-            }, {
-              is_on : true
-            , text  : 'arrow_forward'
-            })
-          else
-            = $programEvent.name()
+        li.o-List__Item.o-Grid(itemprop="subEvent" itemscope="" itemtype="http://schema.org/Event")
+          dt.o-Grid__Item.c-TimeBlock__Times
+            time(datetime=$programEvent.startDate() itemprop="startDate")= Util.hourTime12(Util.toDate($programEvent.startDate()))
+            | &ndash;
+            time(datetime=$programEvent.endDate() itemprop="endDate")= Util.hourTime12(Util.toDate($programEvent.endDate()))
+          dd.o-Grid__Item.c-TimeBlock__Desc(class={'c-TimeBlock__Desc--last':index===events.length-1} itemprop="name")
+            if $programEvent.url()
+              +linkWithIcon({
+                classes: 'c-TimeBlock__Link h-Block'
+              , url    : $programEvent.url()
+              , text   : $programEvent.name()
+              , attr   : { itemprop: 'url' }
+              }, {
+                is_on: true
+              , text : 'arrow_forward'
+              })
+            else
+              = $programEvent.name()

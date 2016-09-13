@@ -1,8 +1,16 @@
+/**
+ * A set of static values and functions used site-wide.
+ * @type {Util}
+ */
 module.exports = (function () {
   // CONSTRUCTOR
   function Util() {}
 
   // STATIC MEMBERS
+  /**
+   * List of full month names.
+   * @type {Array}
+   */
   Util.MONTH_NAMES = [
     'January'
   , 'February'
@@ -17,6 +25,11 @@ module.exports = (function () {
   , 'November'
   , 'December'
   ]
+
+  /**
+   * List of full day names.
+   * @type {Array}
+   */
   Util.DAY_NAMES = [
     'Sunday'
   , 'Monday'
@@ -26,6 +39,17 @@ module.exports = (function () {
   , 'Friday'
   , 'Saturday'
   ]
+
+  /**
+   * List of US State objects.
+   * Each object has:
+   * - index              : @type {string}
+   * - name               : @type {string}
+   * - pop  (in people)   : @type {number}
+   * - area (in square km): @type {number}
+   * - region             : @type {string}
+   * @type {Array}
+   */
   Util.STATE_DATA = [
     { index: 'AL',  name: 'Alabama',         pop:  4779736,  area:  52419, region: 'South'     }
   , { index: 'AK',  name: 'Alaska',          pop:   710231,  area: 663267, region: 'West'      }
@@ -78,6 +102,15 @@ module.exports = (function () {
   , { index: 'WI',  name: 'Wisconsin',       pop:  5686986,  area:  65498, region: 'Midwest'   }
   , { index: 'WY',  name: 'Wyoming',         pop:   563626,  area:  97814, region: 'West'      }
   ]
+
+  /**
+   * List of icon objects used in Conf styles.
+   * Each object has:
+   * - content : @type {string}: keyword
+   * - fallback: @type {string}: unicode code point
+   * - html    : @type {string}: html entity
+   * @type {Array}
+   */
   Util.ICON_DATA = [
     { content: 'info_outline'   , fallback: '\uE88F', html: '&#xE88F;' }
   , { content: 'people'         , fallback: '\uE7FB', html: '&#xE7FB;' }
@@ -93,6 +126,11 @@ module.exports = (function () {
   , { content: 'account_balance', fallback: '\uE84F', html: '&#xE84F;' }
   , { content: 'insert_drive_file', fallback: '\uE24D', html: '&#xE24D;' }
   ]
+
+  /**
+   * Data for social media networks.
+   * @type {Object}
+   */
   Util.SOCIAL_DATA = {
     twitter : {
       name: 'Twitter'
@@ -117,32 +155,85 @@ module.exports = (function () {
     }
   }
 
+  /**
+   * Display a Date object as a string of the format 'HH:MMrr', where
+   * - 'HH' is the 12-hour format hour of day ('1'–'12')
+   * - 'MM' is the minutes of the hour
+   * - 'rr' is 'am' or 'pm' (“Ante Meridiem” or “Post Meridiem”)
+   * @param  {Date} date the datetime to display
+   * @return {string} a string of the format HH:MM[am|pm]
+   */
   Util.hourTime12 = function hourTime12(date) {
     var hour = '' + ((date.getHours() - 1)%12 + 1)
     var minute = ((date.getMinutes() < 10) ? '0' : '') + date.getMinutes()
     var meridiem = (date.getHours() < 12) ? 'am' : 'pm'
     return hour + ((minute !== '00') ? ':' + minute : '') + meridiem
   }
+
+  /**
+   * Display a Date object as a string of the format 'HHHH:MM', where
+   * - 'HHHH' is the 24-hour format hour of day ('00'–'23')
+   * - 'MM' is the minutes of the hour
+   * @param  {Date} date the datetime to display
+   * @return {string} a string of the format HHHH:MM
+   */
   Util.hourTime24 = function hourTime24(date) {
     var hour =   ((date.getHours()   < 10) ? '0' : '') + date.getHours()
     var minute = ((date.getMinutes() < 10) ? '0' : '') + date.getMinutes()
     return hour + ':' + minute
   }
+
+  /**
+   * Return an abbreviated form of a date.
+   * The format is 'MMM DD', where
+   * - 'MMM' is the first 3 letters of the month in English
+   * - 'DD' is the date (one or two digits)
+   * @param  {Date} date the datetime to display
+   * @return {string} a string of the format 'MMM DD'
+   */
   Util.monthDay = function monthDay(date) {
     return Util.MONTH_NAMES[date.getUTCMonth()].slice(0,3) + ' ' + date.getUTCDate()
   }
-  Util.toURL = function toURL(string) {
-    return encodeURIComponent(string.toLowerCase().replace(/[\W]+/g, '-'))
+
+  /**
+   * Return a URL-friendly string.
+   * @param  {string} str a string to convert
+   * @return {string} a URL-safe variant of the string given
+   */
+  Util.toURL = function toURL(str) {
+    return encodeURIComponent(str.toLowerCase().replace(/[\W]+/g, '-'))
   }
-  Util.toDate = function toDate(string) {
-    return (string) ? new Date(string) : new Date()
+
+  /**
+   * Return a new Date object from a given datetime string.
+   * @param  {string} str a string in any acceptable datetime format
+   * @return {Date} a new Date object representation of the argument
+   */
+  Util.toDate = function toDate(str) {
+    return (str) ? new Date(str) : new Date()
   }
-  Util.spliceFromArray = function spliceFromArray(array, item) {
-    var index = array.indexOf(item)
-    if (index >= 0) array.splice(index, 1)
+
+  /**
+   * Remove an item from an array.
+   * This method is destructive: it modifies the given argument.
+   * @param  {Array} arr the array to modify
+   * @param  {unknown} item  the item to remove from the array
+   */
+  Util.spliceFromArray = function spliceFromArray(arr, item) {
+    var index = arr.indexOf(item)
+    if (index >= 0) arr.splice(index, 1)
   }
-  Util.iconToString = function iconToString(icon0, fallback0) {
-    return (fallback0) ? icon0.fallback : icon0.content
+
+  /**
+   * Return a string part of an icon.
+   * @param  {Object} icon          the icon object to parse
+   * @param  {string} icon.content  the keyword of the icon
+   * @param  {string} icon.fallback the unicode codepoint of the icon
+   * @param  {boolean=} fallback    true if the fallback is preferred over the content
+   * @return {string}               `icon.fallback` if fallback==true, else `icon.content`
+   */
+  Util.iconToString = function iconToString(icon, fallback) {
+    return (fallback) ? icon.fallback : icon.content
   }
 
   return Util

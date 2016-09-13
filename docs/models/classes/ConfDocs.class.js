@@ -1,6 +1,11 @@
 var Page = require('sitepage').Page
   , StyleGuide = require('sitepage').StyleGuide
 
+/**
+ * A set of static members used for the Conf style guide.
+ * Similar to a utility class.
+ * @type {ConfDocs}
+ */
 module.exports = (function () {
   // CONSTRUCTOR
   function ConfDocs() {}
@@ -8,23 +13,26 @@ module.exports = (function () {
   // METHODS
 
   // STATIC MEMBERS
-  ConfDocs.DOCS = new StyleGuide('ASCE Conferences Style Guide', '/docs/')
+  /**
+   * The style guide site for this project.
+   * @type {StyleGuide}
+   */
+  ConfDocs.DOCS = (function () {
+    var docs = new StyleGuide('ASCE Conferences Style Guide', '/docs/')
     .title('ASCE Conferences Style Guide')
     .description('Pattern Library for conference microsites.')
     .init()
-  ;(function () {
-    //- adding pages to ConfDocs.DOCS
-    ConfDocs.DOCS.find('visual.html')
+    docs.find('visual.html')
       .add(new Page({ name: 'ASCE'     , url: 'visual.html#asce' }))
       .add(new Page({ name: 'ASCE 2016', url: 'visual.html#asce2016' }))
-    ConfDocs.DOCS.find('obj.html')
+    docs.find('obj.html')
       .add(new Page({ name: 'The Float Grid'     , url: 'obj.html#float-grid' }))
       .add(new Page({ name: 'The Runner Object'  , url: 'obj.html#runner-object' }))
       .add(new Page({ name: 'Constrain'          , url: 'obj.html#constrain' }))
       .add(new Page({ name: 'The Action List'    , url: 'obj.html#action-list' }))
       .add(new Page({ name: 'The Stacked List'   , url: 'obj.html#stacked-list' }))
       .add(new Page({ name: 'The Drawer Object'  , url: 'obj.html#drawer-object' }))
-    ConfDocs.DOCS.find('comp.html')
+    docs.find('comp.html')
       .add(new Page({ name: 'The Masthead and Mastfoot', url: 'comp.html#masthead-mastfoot' }))
       .add(new Page({ name: 'The Site Title'           , url: 'comp.html#site-title' }))
       .add(new Page({ name: 'The Top Menu'             , url: 'comp.html#top-menu' }))
@@ -48,9 +56,15 @@ module.exports = (function () {
       .add(new Page({ name: 'Buttons'                  , url: 'comp.html#buttons' }))
       .add(new Page({ name: 'The Toggle Button'        , url: 'comp.html#toggle-button' }))
       .add(new Page({ name: 'The Camo Link'            , url: 'comp.html#camo-link'}))
+    return docs
   })()
 
+
+  /**
+   * Static classes for Conf style guide elements.
   // REVIEW may not need this with new xmeter
+   * @type {Object}
+   */
   ConfDocs.DOCS_CLASSES = {
     figure : 'docs-figure'
   , pre    : 'docs-pre'

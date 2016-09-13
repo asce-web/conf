@@ -210,10 +210,10 @@ module.exports = (function () {
    * @param {string} venue_label key for accessing the venue
    * @param {Object} $place the venue to add. properties:
    * @param {string} $place.name            the name of the venue or business
-   * @param {string} $place.streetAddress   the venue’s street address
-   * @param {string} $place.addressLocality the venue’s city or town
-   * @param {string} $place.addressRegion   the venue’s state or province
-   * @param {string} $place.postalCode      the venue’s zip code
+   * @param {string} $place.street_address   the venue’s street address
+   * @param {string} $place.address_locality the venue’s city or town
+   * @param {string} $place.address_region   the venue’s state or province
+   * @param {string} $place.postal_code      the venue’s zip code
    * @param {string} $place.url             the venue’s url
    */
   Conference.prototype.addVenue = function addVenue(venue_label, $place) {

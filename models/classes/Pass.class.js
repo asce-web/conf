@@ -68,10 +68,10 @@ module.exports = (function () {
   /**
    * Retrieve an attendee type of this pass.
    * @param  {string} name the name of the attendee type to get
-   * @return {AtendeeType=} the specified attendee type
+   * @return {?AtendeeType} the specified attendee type
    */
   Pass.prototype.getAttendeeType = function getAttendeeType(name) {
-    return this._attend_types.find(function ($attendeeType) { return $attendeeType.name() === name })
+    return this._attend_types.find(function ($attendeeType) { return $attendeeType.name() === name }) || null
   }
   /**
    * Remove an attendee type from this pass.

@@ -181,10 +181,10 @@ module.exports = (function () {
   /**
    * Retrieve a supporter level of this site.
    * @param  {string} name the name of the supporter level
-   * @return {SupporterLevel=} the specified supporter level
+   * @return {?SupporterLevel} the specified supporter level
    */
   ConfSite.prototype.getSupporterLevel = function getSupporterLevel(name) {
-    return this._supporter_levels.find(function ($supporterLevel) { return $supporterLevel.name() === name })
+    return this._supporter_levels.find(function ($supporterLevel) { return $supporterLevel.name() === name }) || null
   }
   /**
    * Remove a supporter level from this site.
@@ -214,10 +214,10 @@ module.exports = (function () {
   /**
    * Retrieve a supporter of this site.
    * @param  {string} name the name of the supporter
-   * @return {Supporter=} the specified supporter
+   * @return {?Supporter} the specified supporter
    */
   ConfSite.prototype.getSupporter = function getSupporter(name) {
-    return this._supporters.find(function ($supporter) { return $supporter.name() === name })
+    return this._supporters.find(function ($supporter) { return $supporter.name() === name }) || null
   }
   /**
    * Remove a supporter of this site.

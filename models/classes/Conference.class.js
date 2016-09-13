@@ -102,10 +102,10 @@ module.exports = (function () {
   /**
    * Retrieve a registration period of this conference.
    * @param  {string} name the name of the registration period
-   * @return {RegistrationPeriod=} the specified registration period
+   * @return {?RegistrationPeriod} the specified registration period
    */
   Conference.prototype.getRegistrationPeriod = function getRegistrationPeriod(name) {
-    return this._reg_periods.find(function ($registrationPeriod) { return $registrationPeriod.name() === name })
+    return this._reg_periods.find(function ($registrationPeriod) { return $registrationPeriod.name() === name }) || null
   }
   /**
    * Remove a registration period from this conference.
@@ -150,10 +150,10 @@ module.exports = (function () {
   /**
    * Retrieve a pass of this conference.
    * @param  {string} name the name of the pass
-   * @return {Pass=} the specified pass
+   * @return {?Pass} the specified pass
    */
   Conference.prototype.getPass = function getPass(name) {
-    return this._passes.find(function ($pass) { return $pass.name() === name })
+    return this._passes.find(function ($pass) { return $pass.name() === name }) || null
   }
   /**
    * Remove a pass of this conference.
@@ -183,10 +183,10 @@ module.exports = (function () {
   /**
    * Retrieve a program event of this conference.
    * @param  {string} name the name of the program event
-   * @return {ProgramEvent=} the specified program event
+   * @return {?ProgramEvent} the specified program event
    */
   Conference.prototype.getProgramEvent = function getProgramEvent(name) {
-    return this._program_events.find(function ($programEvent) { return $programEvent.name() === name })
+    return this._program_events.find(function ($programEvent) { return $programEvent.name() === name }) || null
   }
   /**
    * Remove a program event of this conference.
@@ -272,10 +272,10 @@ module.exports = (function () {
   /**
    * Retrieve a speaker of this conference.
    * @param  {string} id the id of the speaker
-   * @return {Person=} the specified speaker
+   * @return {?Person} the specified speaker
    */
   Conference.prototype.getSpeaker = function getSpeaker(id) {
-    return this._speakers.find(function ($person) { return $person.id() === id })
+    return this._speakers.find(function ($person) { return $person.id() === id }) || null
   }
   /**
    * Remove a speaker of this conference.
@@ -305,10 +305,10 @@ module.exports = (function () {
   /**
    * Retrieve an important date of this conference.
    * @param  {string} name the name of the important date
-   * @return {ImportantDate=} the specified important date
+   * @return {?ImportantDate} the specified important date
    */
   Conference.prototype.getImportantDate = function getImportantDate(name) {
-    return this._important_dates.find(function ($importantDate) { return $importantDate.name() === name })
+    return this._important_dates.find(function ($importantDate) { return $importantDate.name() === name }) || null
   }
   /**
    * Remove an important date of this conference.
@@ -339,10 +339,10 @@ module.exports = (function () {
   /**
    * Retrieve a chair of this conference.
    * @param  {string} id the name of the chair
-   * @return {Person=} the specified chair
+   * @return {?Person} the specified chair
    */
   Conference.prototype.getChair = function getChair(id) {
-    return this._chairs.find(function ($person) { return $person.id() === id })
+    return this._chairs.find(function ($person) { return $person.id() === id }) || null
   }
   /**
    * Remove a chair of this conference.

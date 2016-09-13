@@ -17,6 +17,12 @@ block append main
       , gray_dk   : { code: '#373c36', bg_class: '-bc-site_gray_dk'  , name: 'ASCE 2016 Dark Gray' }
       , gray_lt   : { code: '#9fa5a8', bg_class: '-bc-site_gray_lt'  , name: 'ASCE 2016 Light Gray' }
       }
+    , other: {
+        primary   : { code: '#9c0041', bg_class: '-bc-site_primary'  , name: 'Other Primary' }
+      , secondary : { code: '#c67100', bg_class: '-bc-site_secondary', name: 'Other Secondary' }
+      , gray_dk   : { code: '#1e181b', bg_class: '-bc-site_gray_dk'  , name: 'Other Dark Gray' }
+      , gray_lt   : { code: '#a1978c', bg_class: '-bc-site_gray_lt'  , name: 'Other Light Gray' }
+      }
     }
   mixin colorsamples(colors)
     - var boxwidth = '96px'
@@ -47,4 +53,13 @@ block append main
     , scheme.asce2016.secondary
     , scheme.asce2016.gray_dk
     , scheme.asce2016.gray_lt
+    ])
+  section#other
+    h2 Other
+    h3 Colors
+    +colorsamples([
+      scheme.other.primary
+    , scheme.other.secondary
+    , scheme.other.gray_dk
+    , scheme.other.gray_lt
     ])

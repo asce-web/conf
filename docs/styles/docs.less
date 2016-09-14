@@ -11,6 +11,7 @@
 @import (reference) url('../../node_modules/xmeter/src/__fallback.flexbox.less');
 @import (reference) url('../../node_modules/xmeter/src/__fallback.transition.less');
 @import (reference) url('../../node_modules/xmeter/src/__tool.borders.less');
+@import (reference) url('../../styles/__tool.site-colors.less');
 
 
 // This stylesheet is used on all styleguide documentation files.
@@ -19,30 +20,6 @@
 // This is a stand-alone stylesheet.
 
 
-.defineSiteColors(@primary; @secondary) {
-  @gray1_dk:  darken(desaturate(@primary,   90%, relative), 20%);
-  @gray1_lt: lighten(desaturate(@primary,   90%, relative), 20%);
-  @gray2_dk:  darken(desaturate(@secondary, 90%, relative), 20%);
-  @gray2_lt: lighten(desaturate(@secondary, 90%, relative), 20%);
-  --color-primary:   @primary;
-  --color-secondary: @secondary;
-  --color-gray-dk:   @gray1_dk;
-  --color-gray-lt:   @gray2_lt;
-
-  --color-primary-darken1:     darken(@primary, 25%, relative);
-  --color-primary-darken2:     darken(@primary, 50%, relative);
-  --color-primary-fadeout1:   fadeout(@primary, 25%);
-
-  --color-secondary-lighten1: lighten(@secondary, 25%, relative);
-  --color-secondary-lighten2: lighten(@secondary, 50%, relative);
-
-  --color-gray-dk-darken1:   darken(@gray1_dk, 25%, relative);
-  --color-gray-dk-lighten1: lighten(@gray1_dk, 25%, relative);
-
-  --color-gray-lt-darken1:   darken(@gray2_lt, 25%, relative);
-  --color-gray-lt-lighten1: lighten(@gray2_lt, 25%, relative);
-  --color-gray-lt-lighten2: lighten(@gray2_lt, 50%, relative);
-}
 body {
   .defineSiteColors(#9c0041; #c67100);
 }

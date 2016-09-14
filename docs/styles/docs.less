@@ -17,6 +17,8 @@
 // NOTE that this style sheet does NOT use any variables, settings, tools, or styles
 // of any kind from the Conf stylesheet (conf.less and its partials).
 // This is a stand-alone stylesheet.
+
+
 .defineSiteColors(@primary; @secondary) {
   @gray1_dk:  darken(desaturate(@primary,   90%, relative), 20%);
   @gray1_lt: lighten(desaturate(@primary,   90%, relative), 20%);
@@ -30,7 +32,9 @@
 body {
   .defineSiteColors(#9c0041; #c67100);
 }
-// TODO move these
+
+
+// TODO move these to visual.html
 #asce {
   .defineSiteColors(#000; #aaa);
 }

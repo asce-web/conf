@@ -68,7 +68,7 @@
 //++++++++++++++++++++++++++++++++//
 .c-Btn {
   // generic button color styles
-  background-color: lighten(@g-color_site_gray_lt, 25%, relative); // TODO color var
+  background-color: var(--color-gray-lt-lighten1);
   &,
   &:hover,
   &:focus,
@@ -84,7 +84,7 @@
   }
   &:active,
   &._active {
-    background-color: darken(@g-color_site_gray_lt, 25%, relative); // TODO color var
+    background-color: var(--color-gray-lt-darken1);
   }
   a&:not([href]),
   button&:disabled {
@@ -101,7 +101,7 @@
 }
 
 .c-Btn--dark {
-  background-color: darken(@g-color_site_gray_dk, 25%, relative); // TODO color var
+  background-color: var(--color-gray-dk-darken1);
   &,
   &:hover,
   &:focus,
@@ -117,7 +117,7 @@
   }
   &:active,
   &._active {
-    background-color: lighten(@g-color_site_gray_dk, 25%, relative); // TODO color var
+    background-color: var(--color-gray-dk-lighten1);
   }
 }
 
@@ -138,11 +138,11 @@
   &:hover,
   &:focus,
   &._hover {
-    background-color: darken(@g-color_site_primary, 25%, relative); // TODO color var
+    background-color: var(--color-primary-darken1);
   }
   &:active,
   &._active {
-    background-color: darken(@g-color_site_primary, 50%, relative); // TODO color var
+    background-color: var(--color-primary-darken2);
   }
 }
 
@@ -151,11 +151,11 @@
   &:hover,
   &:focus,
   &._hover {
-    background-color: lighten(@g-color_site_secondary, 25%, relative); // TODO color var
+    background-color: var(--color-secondary-lighten1);
   }
   &:active,
   &._active {
-    background-color: lighten(@g-color_site_secondary, 50%, relative); // TODO color var
+    background-color: var(--color-secondary-lighten2);
   }
 }
 

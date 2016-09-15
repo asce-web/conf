@@ -9,8 +9,8 @@
 
 
 var ConfSite = require('../../../models/classes/ConfSite.class.js')
-  , ConfPage = require('../../../models/classes/ConfPage.class.js')
-  , Conference = require('../../../models/classes/Conference.class.js')
+var ConfPage = require('../../../models/classes/ConfPage.class.js')
+var Conference = require('../../../models/classes/Conference.class.js')
 
 module.exports = Object.assign(require('../../../models/options.js'), {
   site: new ConfSite()

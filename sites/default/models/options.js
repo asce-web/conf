@@ -23,8 +23,9 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
   site: (function () {
     var site = new ConfSite('An ASCE Event', '/sites/default/', 'Optional Brand Tagline')
       .keywords(['ASCE', 'civil engineering', 'convention'])
-      .logo('img/site-logo-white.png')
       .init()
+      .logo('img/site-logo-white.png')
+      .colors('#7f8e39', '#a5904f')
 
     site
       .addConference('2016', new Conference({

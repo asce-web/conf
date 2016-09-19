@@ -1,5 +1,6 @@
 var Page = require('sitepage').Page
 var ConfPage = require('./ConfPage.class.js')
+var Color = require('./Color.class.js')
 
 /**
  * A conference site.
@@ -23,6 +24,7 @@ module.exports = (function () {
     Page.call(self, { name: name, url: url })
     Page.prototype.description.call(self, tagline)
     self._logo             = ''
+    self._colors           = {}
     self._conferences      = {}
     self._supporter_levels = []
     self._supporters       = []
@@ -67,6 +69,51 @@ module.exports = (function () {
     } else {
       return this._logo
     }
+  }
+
+  /**
+   * Set or get the colors for this site.
+   * TODO use Color params instead of string params
+   * @param {string=} primary   a hex string (#rrggbb) for the primary color
+   * @param {string=} secondary a hex string (#rrggbb) for the secondary color
+   * @return {(ConfSite|Object)} this || a CSS style object containg custom properties and color string values
+   */
+  ConfSite.prototype.colors = function colors(primary, secondary) {
+    var self = this
+    if (arguments.length) {
+      primary     = Color.fromHex(primary)
+      secondary   = Color.fromHex(secondary)
+      var gray_dk = primary.desaturate(0.9, true).darken(0.2)
+      var gray_lt = secondary.desaturate(0.9, true).brighten(0.2)
+      this._colors = {
+        '--color-primary'  : primary.toString()
+      , '--color-secondary': secondary.toString()
+      , '--color-gray-dk'  : gray_dk.toString()
+      , '--color-gray-lt'  : gray_lt.toString()
+
+      , '--color-primary-darken1' : primary.darken(0.25, true).toString()
+      , '--color-primary-darken2' : primary.darken(0.50, true).toString()
+      , '--color-primary-lighten1': primary.brighten(0.25, true).toString()
+      , '--color-primary-lighten2': primary.brighten(0.50, true).toString()
+      , '--color-primary-fadeout1': 'rgba(130,130,130,0.6)'
+
+      , '--color-secondary-darken1' : secondary.darken(0.25, true).toString()
+      , '--color-secondary-darken2' : secondary.darken(0.50, true).toString()
+      , '--color-secondary-lighten1': secondary.brighten(0.25, true).toString()
+      , '--color-secondary-lighten2': secondary.brighten(0.50, true).toString()
+
+      , '--color-gray-dk-darken1' : gray_dk.darken(0.25, true).toString()
+      , '--color-gray-dk-darken2' : gray_dk.darken(0.50, true).toString()
+      , '--color-gray-dk-lighten1': gray_dk.brighten(0.25, true).toString()
+      , '--color-gray-dk-lighten2': gray_dk.brighten(0.50, true).toString()
+
+      , '--color-gray-lt-darken1' : gray_lt.darken(0.25, true).toString()
+      , '--color-gray-lt-darken2' : gray_lt.darken(0.50, true).toString()
+      , '--color-gray-lt-lighten1': gray_lt.brighten(0.25, true).toString()
+      , '--color-gray-lt-lighten2': gray_lt.brighten(0.50, true).toString()
+      }
+      return this
+    } else return this._colors
   }
 
   /**
@@ -304,6 +351,7 @@ module.exports = (function () {
           )
         )
         .add(new Page({ name: 'Main', url: '#main-menu' }))
+        .colors('#3fae2a', '#00a1e1') // default ASCE 2016 colors
     } else return
   }
 

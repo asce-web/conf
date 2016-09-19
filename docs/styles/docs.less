@@ -21,19 +21,8 @@
 
 
 body {
-  .defineSiteColors(#9c0041; #c67100);
-}
-
-
-// TODO move these to visual.html
-#asce {
-  .defineSiteColors(#000; #aaa);
-}
-#asce2016 {
-  .defineSiteColors(#3fae2a; #00a1e1);
-}
-#other {
-  .defineSiteColors(#9c0041; #c67100);
+  .defineSiteColors(#660000; #ff6600);
+  .defineSiteColors(#3b421b; #a5904f);
 }
 
 
@@ -105,6 +94,9 @@ body {
 
 
 .docs-c-ColorBox {
+  @boxwidth: 96px;
+  width:  @boxwidth;
+  height: @boxwidth;
   text-align: center;
   box-shadow: 0 2px 0.5rem 0 fadeout(#222, 50%); // #222 is `currentColor`
   p {

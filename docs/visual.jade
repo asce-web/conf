@@ -17,19 +17,24 @@ block append main
       , gray_dk   : { code: '#373c36', bg_class: '-bc-site_gray_dk'  , name: 'ASCE 2016 Dark Gray' }
       , gray_lt   : { code: '#9fa5a8', bg_class: '-bc-site_gray_lt'  , name: 'ASCE 2016 Light Gray' }
       }
+    , docs: {
+        primary   : { code: '#660000', bg_class: '-bc-site_primary'  , name: 'Docs Primary' }
+      , secondary : { code: '#ff6600', bg_class: '-bc-site_secondary', name: 'Docs Secondary' }
+      , gray_dk   : { code: '#000000', bg_class: '-bc-site_gray_dk'  , name: 'Docs Dark Gray' }
+      , gray_lt   : { code: '#bab1ab', bg_class: '-bc-site_gray_lt'  , name: 'Docs Light Gray' }
+      }
     , other: {
-        primary   : { code: '#9c0041', bg_class: '-bc-site_primary'  , name: 'Other Primary' }
-      , secondary : { code: '#c67100', bg_class: '-bc-site_secondary', name: 'Other Secondary' }
-      , gray_dk   : { code: '#1e181b', bg_class: '-bc-site_gray_dk'  , name: 'Other Dark Gray' }
-      , gray_lt   : { code: '#a1978c', bg_class: '-bc-site_gray_lt'  , name: 'Other Light Gray' }
+        primary   : { code: '#3b421b', bg_class: '-bc-site_primary'  , name: 'Other Primary' }
+      , secondary : { code: '#a5904f', bg_class: '-bc-site_secondary', name: 'Other Secondary' }
+      , gray_dk   : { code: '#000000', bg_class: '-bc-site_gray_dk'  , name: 'Other Dark Gray' }
+      , gray_lt   : { code: '#b0aeaa', bg_class: '-bc-site_gray_lt'  , name: 'Other Light Gray' }
       }
     }
   mixin colorsamples(colors)
-    - var boxwidth = '96px'
     ul.o-List.o-Flex.docs-o-ColorList
       each color in colors
         li.o-List__Item.o-Flex__Item.docs-o-ColorList__Item
-          div.docs-c-ColorBox(class=color.bg_class style={ width:boxwidth, height:boxwidth })
+          div.docs-c-ColorBox(style={ 'background-color': color.code })
             p
               each foreground,index in [scheme.asce.black.code, scheme.asce.white.code]
                 code(style={color:foreground})= color.code
@@ -53,6 +58,15 @@ block append main
     , scheme.asce2016.secondary
     , scheme.asce2016.gray_dk
     , scheme.asce2016.gray_lt
+    ])
+  section#docs
+    h2 Docs (this style guide)
+    h3 Colors
+    +colorsamples([
+      scheme.docs.primary
+    , scheme.docs.secondary
+    , scheme.docs.gray_dk
+    , scheme.docs.gray_lt
     ])
   section#other
     h2 Other

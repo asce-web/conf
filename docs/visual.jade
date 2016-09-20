@@ -4,62 +4,50 @@ block append vars
   - var page = ConfDocs.DOCS.find('visual.html')
 
 block append main
-  mixin siteColorBlocks(sitename, primary_hex, secondary_hex)
-    - var site_colors = ConfSite.colorStyles(Color.fromHex(primary_hex), Color.fromHex(secondary_hex))
-    +colorsamples([
-      { name: 'Primary s2'   , color: Color.fromRGB(site_colors['--color-primary-shade2']) }
-    , { name: 'Primary s1'   , color: Color.fromRGB(site_colors['--color-primary-shade1']) }
-    , { name: 'Primary'      , color: Color.fromRGB(site_colors['--color-primary']) }
-    , { name: 'Primary t1'   , color: Color.fromRGB(site_colors['--color-primary-tint1']) }
-    , { name: 'Primary t2'   , color: Color.fromRGB(site_colors['--color-primary-tint2']) }
-    ])
-    +colorsamples([
-      { name: 'Secondary s2' , color: Color.fromRGB(site_colors['--color-secondary-shade2']) }
-    , { name: 'Secondary s1' , color: Color.fromRGB(site_colors['--color-secondary-shade1']) }
-    , { name: 'Secondary'    , color: Color.fromRGB(site_colors['--color-secondary']) }
-    , { name: 'Secondary t1' , color: Color.fromRGB(site_colors['--color-secondary-tint1']) }
-    , { name: 'Secondary t2' , color: Color.fromRGB(site_colors['--color-secondary-tint2']) }
-    ])
-    +colorsamples([
-      { name: 'Dark Gray s2' , color: Color.fromRGB(site_colors['--color-gray_dk-shade2']) }
-    , { name: 'Dark Gray s1' , color: Color.fromRGB(site_colors['--color-gray_dk-shade1']) }
-    , { name: 'Dark Gray'    , color: Color.fromRGB(site_colors['--color-gray_dk']) }
-    , { name: 'Dark Gray t1' , color: Color.fromRGB(site_colors['--color-gray_dk-tint1']) }
-    , { name: 'Dark Gray t2' , color: Color.fromRGB(site_colors['--color-gray_dk-tint2']) }
-    ])
-    +colorsamples([
-      { name: 'Light Gray s2', color: Color.fromRGB(site_colors['--color-gray_lt-shade2']) }
-    , { name: 'Light Gray s1', color: Color.fromRGB(site_colors['--color-gray_lt-shade1']) }
-    , { name: 'Light Gray'   , color: Color.fromRGB(site_colors['--color-gray_lt']) }
-    , { name: 'Light Gray t1', color: Color.fromRGB(site_colors['--color-gray_lt-tint1']) }
-    , { name: 'Light Gray t2', color: Color.fromRGB(site_colors['--color-gray_lt-tint2']) }
-    ])
-  mixin colorsamples(colors)
-    ul.o-List.docs-o-ColorList
-      each $item in colors
-        li.o-List__Item.docs-o-ColorList__Item
-          figure
-            - var side = 96
-            svg.docs-c-ColorBox(viewbox=`0 0 ${side} ${side}`)
-              rect(width=side height=side fill=$item.color.toString())
-            p
-              b= $item.name
-              br
-              code= $item.color.toString('hex')
+  mixin colorItem(arg)
+    li.o-List__Item.docs-o-ColorList__Item
+      figure
+        svg.docs-c-ColorBox(viewbox=`0 0 ${arg.side} ${arg.side}`)
+          rect(width=arg.side height=arg.side style=`fill: ${arg.fill}`)
+        p
+          b= arg.name
+          br
+          code= arg.code
+  mixin siteColorList(primary_hex, secondary_hex)
+    -
+      var side = 96
+      var site_colors = ConfSite.colorStyles(Color.fromHex(primary_hex), Color.fromHex(secondary_hex))
+    ul.o-List.docs-o-ColorList(style=site_colors)
+      each $item in ConfDocs.COLOR_NAMES
+        +colorItem({
+          side: side
+        , fill: `var(${$item.prop})`
+        , name: $item.name
+        , code: Color.fromRGB(site_colors[$item.prop]).toString('hex')
+        })
   section#asce
     h2 ASCE
     h3 Colors
-    +colorsamples([
-      { name: 'ASCE Black', color: Color.fromHex('#222222') }
-    , { name: 'ASCE White', color: Color.fromHex('#ffffff') }
-    , { name: 'ASCE Blue' , color: Color.fromHex('#0c5fa8') }
-    ])
+    -
+      var core_colors = [
+        { name: 'ASCE Black', color: Color.fromHex('#222222') }
+      , { name: 'ASCE White', color: Color.fromHex('#ffffff') }
+      , { name: 'ASCE Blue' , color: Color.fromHex('#0c5fa8') }
+      ]
+    ul.o-List.docs-o-ColorList
+      each $item in core_colors
+        +colorItem({
+          side: 96
+        , fill: $item.color.toString()
+        , name: $item.name
+        , code: $item.color.toString('hex')
+        })
   section#docs
     h2 Docs
     p (this style guide)
     h3 Colors
-    +siteColorBlocks('Docs', '#660000', '#ff6600')
+    +siteColorList('#660000', '#ff6600')
   section#asce2016
     h2 ASCE 2016
     h3 Colors
-    +siteColorBlocks('ASCE 2016', '#3fae2a', '#00a1e1')
+    +siteColorList('#3fae2a', '#00a1e1')

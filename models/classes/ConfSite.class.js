@@ -73,15 +73,14 @@ module.exports = (function () {
 
   /**
    * Set or get the colors for this site.
-   * TODO use Color params instead of string params
-   * @param {string=} primary   a hex string (#rrggbb) for the primary color
-   * @param {string=} secondary a hex string (#rrggbb) for the secondary color
+   * @param {Color=} $primary   a Color object for the primary color
+   * @param {Color=} $secondary a Color object for the secondary color
    * @return {(ConfSite|Object)} this || a CSS style object containg custom properties and color string values
    */
-  ConfSite.prototype.colors = function colors(primary, secondary) {
+  ConfSite.prototype.colors = function colors($primary, $secondary) {
     var self = this
     if (arguments.length) {
-      this._colors = ConfSite.colorStyles(Color.fromHex(primary), Color.fromHex(secondary))
+      this._colors = ConfSite.colorStyles($primary, $secondary)
       return this
     } else return this._colors
   }
@@ -321,7 +320,7 @@ module.exports = (function () {
           )
         )
         .add(new Page({ name: 'Main', url: '#main-menu' }))
-        .colors('#3fae2a', '#00a1e1') // default ASCE 2016 colors
+        .colors(Color.fromHex('#3fae2a'), Color.fromHex('#00a1e1')) // default ASCE 2016 colors
     } else return
   }
 

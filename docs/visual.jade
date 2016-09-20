@@ -7,26 +7,32 @@ block append main
   mixin siteColorBlocks(sitename, primary_hex, secondary_hex)
     - var site_colors = ConfSite.colorStyles(Color.fromHex(primary_hex), Color.fromHex(secondary_hex))
     +colorsamples([
-      { name: 'Primary'      , color: Color.fromRGB(site_colors['--color-primary']) }
-    , { name: 'Primary 01'   , color: Color.fromRGB(site_colors['--color-primary-darken1']) }
-    , { name: 'Primary 02'   , color: Color.fromRGB(site_colors['--color-primary-darken2']) }
-    , { name: 'Primary 1'    , color: Color.fromRGB(site_colors['--color-primary-lighten1']) }
-    , { name: 'Primary 2'    , color: Color.fromRGB(site_colors['--color-primary-lighten2']) }
+      { name: 'Primary s2'   , color: Color.fromRGB(site_colors['--color-primary-darken2']) }
+    , { name: 'Primary s1'   , color: Color.fromRGB(site_colors['--color-primary-darken1']) }
+    , { name: 'Primary'      , color: Color.fromRGB(site_colors['--color-primary']) }
+    , { name: 'Primary t1'   , color: Color.fromRGB(site_colors['--color-primary-lighten1']) }
+    , { name: 'Primary t2'   , color: Color.fromRGB(site_colors['--color-primary-lighten2']) }
+    ])
+    +colorsamples([
+      { name: 'Secondary s2' , color: Color.fromRGB(site_colors['--color-secondary-darken2']) }
+    , { name: 'Secondary s1' , color: Color.fromRGB(site_colors['--color-secondary-darken1']) }
     , { name: 'Secondary'    , color: Color.fromRGB(site_colors['--color-secondary']) }
-    , { name: 'Secondary 01' , color: Color.fromRGB(site_colors['--color-secondary-darken1']) }
-    , { name: 'Secondary 02' , color: Color.fromRGB(site_colors['--color-secondary-darken2']) }
-    , { name: 'Secondary 1'  , color: Color.fromRGB(site_colors['--color-secondary-lighten1']) }
-    , { name: 'Secondary 2'  , color: Color.fromRGB(site_colors['--color-secondary-lighten2']) }
+    , { name: 'Secondary t1' , color: Color.fromRGB(site_colors['--color-secondary-lighten1']) }
+    , { name: 'Secondary t2' , color: Color.fromRGB(site_colors['--color-secondary-lighten2']) }
+    ])
+    +colorsamples([
+      { name: 'Dark Gray s2' , color: Color.fromRGB(site_colors['--color-gray-dk-darken2']) }
+    , { name: 'Dark Gray s1' , color: Color.fromRGB(site_colors['--color-gray-dk-darken1']) }
     , { name: 'Dark Gray'    , color: Color.fromRGB(site_colors['--color-gray-dk']) }
-    , { name: 'Dark Gray 01' , color: Color.fromRGB(site_colors['--color-gray-dk-darken1']) }
-    , { name: 'Dark Gray 02' , color: Color.fromRGB(site_colors['--color-gray-dk-darken2']) }
-    , { name: 'Dark Gray 1'  , color: Color.fromRGB(site_colors['--color-gray-dk-lighten1']) }
-    , { name: 'Dark Gray 2'  , color: Color.fromRGB(site_colors['--color-gray-dk-lighten2']) }
+    , { name: 'Dark Gray t1' , color: Color.fromRGB(site_colors['--color-gray-dk-lighten1']) }
+    , { name: 'Dark Gray t2' , color: Color.fromRGB(site_colors['--color-gray-dk-lighten2']) }
+    ])
+    +colorsamples([
+      { name: 'Light Gray s2', color: Color.fromRGB(site_colors['--color-gray-lt-darken2']) }
+    , { name: 'Light Gray s1', color: Color.fromRGB(site_colors['--color-gray-lt-darken1']) }
     , { name: 'Light Gray'   , color: Color.fromRGB(site_colors['--color-gray-lt']) }
-    , { name: 'Light Gray 01', color: Color.fromRGB(site_colors['--color-gray-lt-darken1']) }
-    , { name: 'Light Gray 02', color: Color.fromRGB(site_colors['--color-gray-lt-darken2']) }
-    , { name: 'Light Gray 1' , color: Color.fromRGB(site_colors['--color-gray-lt-lighten1']) }
-    , { name: 'Light Gray 2' , color: Color.fromRGB(site_colors['--color-gray-lt-lighten2']) }
+    , { name: 'Light Gray t1', color: Color.fromRGB(site_colors['--color-gray-lt-lighten1']) }
+    , { name: 'Light Gray t2', color: Color.fromRGB(site_colors['--color-gray-lt-lighten2']) }
     ])
   mixin colorsamples(colors)
     ul.o-List.docs-o-ColorList

@@ -5,33 +5,33 @@
 
 
 .defineSiteColors(@primary; @secondary) {
-  @gray1_dk:  darken(desaturate(@primary,   90%, relative), 20%);
-  @gray1_lt: lighten(desaturate(@primary,   90%, relative), 20%);
-  @gray2_dk:  darken(desaturate(@secondary, 90%, relative), 20%);
-  @gray2_lt: lighten(desaturate(@secondary, 90%, relative), 20%);
+  @gray_dk1:  darken(desaturate(@primary,   90%, relative), 20%);
+  @gray_lt1: lighten(desaturate(@primary,   90%, relative), 20%);
+  @gray_dk2:  darken(desaturate(@secondary, 90%, relative), 20%);
+  @gray_lt2: lighten(desaturate(@secondary, 90%, relative), 20%);
   --color-primary:   @primary;
   --color-secondary: @secondary;
-  --color-gray-dk:   @gray1_dk;
-  --color-gray-lt:   @gray2_lt;
+  --color-gray_dk:   @gray_dk1;
+  --color-gray_lt:   @gray_lt2;
 
-  --color-primary-darken1:     darken(@primary, 25%, relative);
-  --color-primary-darken2:     darken(@primary, 50%, relative);
-  --color-primary-lighten1:   lighten(@primary, 25%, relative);
-  --color-primary-lighten2:   lighten(@primary, 50%, relative);
+  --color-primary-shade1: darken(@primary, 25%, relative);
+  --color-primary-shade2: darken(@primary, 50%, relative);
+  --color-primary-tint1: lighten(@primary, 25%, relative);
+  --color-primary-tint2: lighten(@primary, 50%, relative);
   --color-primary-fadeout1:   fadeout(@primary, 25%);
 
-  --color-secondary-darken1:   darken(@secondary, 25%, relative);
-  --color-secondary-darken2:   darken(@secondary, 50%, relative);
-  --color-secondary-lighten1: lighten(@secondary, 25%, relative);
-  --color-secondary-lighten2: lighten(@secondary, 50%, relative);
+  --color-secondary-shade1: darken(@secondary, 25%, relative);
+  --color-secondary-shade2: darken(@secondary, 50%, relative);
+  --color-secondary-tint1: lighten(@secondary, 25%, relative);
+  --color-secondary-tint2: lighten(@secondary, 50%, relative);
 
-  --color-gray-dk-darken1:   darken(@gray1_dk, 25%, relative);
-  --color-gray-dk-darken2:   darken(@gray1_dk, 50%, relative);
-  --color-gray-dk-lighten1: lighten(@gray1_dk, 25%, relative);
-  --color-gray-dk-lighten2: lighten(@gray1_dk, 50%, relative);
+  --color-gray_dk-shade1: darken(@gray_dk1, 25%, relative);
+  --color-gray_dk-shade2: darken(@gray_dk1, 50%, relative);
+  --color-gray_dk-tint1: lighten(@gray_dk1, 25%, relative);
+  --color-gray_dk-tint2: lighten(@gray_dk1, 50%, relative);
 
-  --color-gray-lt-darken1:   darken(@gray2_lt, 25%, relative);
-  --color-gray-lt-darken2:   darken(@gray2_lt, 50%, relative);
-  --color-gray-lt-lighten1: lighten(@gray2_lt, 25%, relative);
-  --color-gray-lt-lighten2: lighten(@gray2_lt, 50%, relative);
+  --color-gray_lt-shade1: darken(@gray_lt2, 25%, relative);
+  --color-gray_lt-shade2: darken(@gray_lt2, 50%, relative);
+  --color-gray_lt-tint1: lighten(@gray_lt2, 25%, relative);
+  --color-gray_lt-tint2: lighten(@gray_lt2, 50%, relative);
 }

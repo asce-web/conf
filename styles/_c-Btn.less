@@ -102,15 +102,15 @@
 
 .c-Btn {
   // specific button color styles
-  --button-color:        var(--color-gray-lt);
-  --button-color-hover:  var(--color-gray-lt-lighten1);
-  --button-color-active: var(--color-gray-lt-darken1);
+  --button-color:        var(--color-gray_lt);
+  --button-color-hover:  var(--color-gray_lt-tint1);
+  --button-color-active: var(--color-gray_lt-shade1);
 }
 
 .c-Btn--dark {
-  --button-color:        var(--color-gray-dk);
-  --button-color-hover:  var(--color-gray-dk-lighten1);
-  --button-color-active: var(--color-gray-dk-darken1);
+  --button-color:        var(--color-gray_dk);
+  --button-color-hover:  var(--color-gray_dk-tint1);
+  --button-color-active: var(--color-gray_dk-shade1);
   &,
   &:hover,
   &:focus,
@@ -134,20 +134,20 @@
 }
 
 .c-Btn--primary {
-  --button-color:        var(--color-primary-lighten1);
-  --button-color-hover:  var(--color-primary-lighten2);
+  --button-color:        var(--color-primary-tint1);
+  --button-color-hover:  var(--color-primary-tint2);
   --button-color-active: var(--color-primary);
 }
 
 .c-Btn--secondary {
-  --button-color:        var(--color-secondary-darken1);
+  --button-color:        var(--color-secondary-shade1);
   --button-color-hover:  var(--color-secondary);
-  --button-color-active: var(--color-secondary-darken2);
+  --button-color-active: var(--color-secondary-shade2);
 }
 
 .c-Btn--ghost {
   --button-color:        transparent;
-  --button-color-hover:  var(--color-gray-dk);
+  --button-color-hover:  var(--color-gray_dk);
   --button-color-active: transparent;
   &:hover,
   &:focus,
@@ -169,7 +169,7 @@
   &:focus,
   &._hover {
     &:not(:active) { // HACK because :hover will override :active
-      color: var(--color-gray-dk);
+      color: var(--color-gray_dk);
     }
   }
 }
@@ -211,11 +211,11 @@
   &:hover,
   &:focus,
   &._hover {
-    color: var(--color-gray-lt); // same as link
+    color: var(--color-gray_lt); // same as link
   }
   &:active,
   &._active {
-    color: var(--color-gray-dk);
+    color: var(--color-gray_dk);
   }
 }
 //++++ end # BUTTON TEXTURE STYLES ++++//

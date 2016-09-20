@@ -48,6 +48,10 @@ block append main
     h2 Docs
     p (this style guide)
     h3 Colors
+    p Use the color pickers to experiment with different combinations!
+    ol.o-List.o-Flex
+      li.o-Flex__Item Primary   color: #[input.js-picker.js-picker-primary(type="color" style="width:3rem;" value="#660000")]
+      li.o-Flex__Item Secondary color: #[input.js-picker.js-picker-secondary(type="color" style="width:3rem;" value="#ff6600")]
     +siteColorList('#660000', '#ff6600')
   section#asce2016
     h2 ASCE 2016
@@ -57,3 +61,6 @@ block append main
     h2 ASCE 2017
     h3 Colors
     +siteColorList('#00737b', '#694890')
+
+block append scripts
+  script(src="./scripts/color-themes.js")

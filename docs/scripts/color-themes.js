@@ -536,7 +536,6 @@ var colorStyles = function colorStyles($primary, $secondary) {
   , '--color-primary-shade2': $primary.darken(0.50, true).toString()
   , '--color-primary-tint1' : $primary.brighten(0.25, true).toString()
   , '--color-primary-tint2' : $primary.brighten(0.50, true).toString()
-  , '--color-primary-fadeout1': 'rgba(130,130,130,0.6)'
 
   , '--color-secondary-shade1': $secondary.darken(0.25, true).toString()
   , '--color-secondary-shade2': $secondary.darken(0.50, true).toString()
@@ -552,6 +551,8 @@ var colorStyles = function colorStyles($primary, $secondary) {
   , '--color-gray_lt-shade2': gray_lt.darken(0.50, true).toString()
   , '--color-gray_lt-tint1' : gray_lt.brighten(0.25, true).toString()
   , '--color-gray_lt-tint2' : gray_lt.brighten(0.50, true).toString()
+
+  , '--color-primary-fadeout1': 'rgba(130,130,130,0.6)'
   }
 }
 
@@ -563,7 +564,8 @@ $('#docs input.js-picker').change(function () {
     document.querySelector('#docs .docs-o-ColorList').style.setProperty(prop, styleobj[prop])
   }
   $('#docs code').each(function () {
-    var prop = $(this).parents('figure').find('rect').attr('style').slice(10,-1)
-    $(this).text(Color.fromRGB(styleobj[prop]).toString('hex'))
+    $(this).text(Color.fromRGB(styleobj[
+      $(this).parents('figure').find('svg').attr('data-prop')
+    ]).toString('hex'))
   })
 })

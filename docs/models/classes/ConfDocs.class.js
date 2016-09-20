@@ -78,26 +78,26 @@ module.exports = (function () {
   ConfDocs.COLORS = ConfSite.colorStyles(Color.fromHex('#660000'), Color.fromHex('#ff6600'))
 
   ConfDocs.COLOR_NAMES = [
-    { name: 'Primary s2'   , prop: '--color-primary-shade2'   }
-  , { name: 'Primary s1'   , prop: '--color-primary-shade1'   }
-  , { name: 'Primary'      , prop: '--color-primary'          }
-  , { name: 'Primary t1'   , prop: '--color-primary-tint1'    }
-  , { name: 'Primary t2'   , prop: '--color-primary-tint2'    }
-  , { name: 'Secondary s2' , prop: '--color-secondary-shade2' }
-  , { name: 'Secondary s1' , prop: '--color-secondary-shade1' }
-  , { name: 'Secondary'    , prop: '--color-secondary'        }
-  , { name: 'Secondary t1' , prop: '--color-secondary-tint1'  }
-  , { name: 'Secondary t2' , prop: '--color-secondary-tint2'  }
-  , { name: 'Dark Gray s2' , prop: '--color-gray_dk-shade2'   }
-  , { name: 'Dark Gray s1' , prop: '--color-gray_dk-shade1'   }
-  , { name: 'Dark Gray'    , prop: '--color-gray_dk'          }
-  , { name: 'Dark Gray t1' , prop: '--color-gray_dk-tint1'    }
-  , { name: 'Dark Gray t2' , prop: '--color-gray_dk-tint2'    }
-  , { name: 'Light Gray s2', prop: '--color-gray_lt-shade2'   }
-  , { name: 'Light Gray s1', prop: '--color-gray_lt-shade1'   }
-  , { name: 'Light Gray'   , prop: '--color-gray_lt'          }
-  , { name: 'Light Gray t1', prop: '--color-gray_lt-tint1'    }
-  , { name: 'Light Gray t2', prop: '--color-gray_lt-tint2'    }
+    { name: 'Primary s2'   , suffix: '-primary-shade2'   }
+  , { name: 'Primary s1'   , suffix: '-primary-shade1'   }
+  , { name: 'Primary'      , suffix: '-primary'          }
+  , { name: 'Primary t1'   , suffix: '-primary-tint1'    }
+  , { name: 'Primary t2'   , suffix: '-primary-tint2'    }
+  , { name: 'Secondary s2' , suffix: '-secondary-shade2' }
+  , { name: 'Secondary s1' , suffix: '-secondary-shade1' }
+  , { name: 'Secondary'    , suffix: '-secondary'        }
+  , { name: 'Secondary t1' , suffix: '-secondary-tint1'  }
+  , { name: 'Secondary t2' , suffix: '-secondary-tint2'  }
+  , { name: 'Dark Gray s2' , suffix: '-gray_dk-shade2'   }
+  , { name: 'Dark Gray s1' , suffix: '-gray_dk-shade1'   }
+  , { name: 'Dark Gray'    , suffix: '-gray_dk'          }
+  , { name: 'Dark Gray t1' , suffix: '-gray_dk-tint1'    }
+  , { name: 'Dark Gray t2' , suffix: '-gray_dk-tint2'    }
+  , { name: 'Light Gray s2', suffix: '-gray_lt-shade2'   }
+  , { name: 'Light Gray s1', suffix: '-gray_lt-shade1'   }
+  , { name: 'Light Gray'   , suffix: '-gray_lt'          }
+  , { name: 'Light Gray t1', suffix: '-gray_lt-tint1'    }
+  , { name: 'Light Gray t2', suffix: '-gray_lt-tint2'    }
   ]
 
   return ConfDocs

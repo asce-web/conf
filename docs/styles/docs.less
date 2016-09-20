@@ -19,7 +19,10 @@
 // This is a stand-alone stylesheet.
 
 
-@p-color_asce_primary: #0c5fa8; // copied from conf
+// HACK copied from conf
+@p-color_asce_blue: #0c5fa8;
+@p-color_asce_black: #222;
+@p-color_asce_white: #fff;
 .docs-main {
   margin: 0 1rem @g-vru;
 }
@@ -30,9 +33,9 @@
 .docs-pre {
   padding: (@g-vru*0.50) 1.00rem;
   .border-vert(all; 1px);
-  border-color: @p-color_asce_primary;
+  border-color: @p-color_asce_blue;
   border-radius: 4px;
-  background-color: lighten(desaturate(@p-color_asce_primary, 25%), 50%);
+  background-color: lighten(desaturate(@p-color_asce_blue, 25%), 50%);
   small {
     font-size: inherit;
     color: #666;
@@ -48,7 +51,7 @@
 .docs-code {
   padding: 1px 2px;
   border-radius: 3px;
-  background-color: desaturate(lighten(@p-color_asce_primary, 40%), 25%);
+  background-color: desaturate(lighten(@p-color_asce_blue, 40%), 25%);
 }
 .docs-figure {
   position: relative; // for containing other relative things
@@ -113,3 +116,39 @@ h1, h2, h3, h4, h5, h6 {
     visibility: hidden;
   }
 }
+
+
+//--------------------------------//
+//    # Fill
+//--------------------------------//
+.-f-asce_black { fill: @p-color_asce_black; }
+.-f-asce_white { fill: @p-color_asce_white; }
+.-f-asce_blue  { fill: @p-color_asce_blue ; }
+
+.-f-primary   { fill: var(--color-primary); }
+.-f-secondary { fill: var(--color-secondary); }
+.-f-gray_dk   { fill: var(--color-gray_dk); }
+.-f-gray_lt   { fill: var(--color-gray_lt); }
+
+.-f-primary-shade1 { fill: var(--color-primary-shade1); }
+.-f-primary-shade2 { fill: var(--color-primary-shade2); }
+.-f-primary-tint1  { fill: var(--color-primary-tint1); }
+.-f-primary-tint2  { fill: var(--color-primary-tint2); }
+
+.-f-secondary-shade1 { fill: var(--color-secondary-shade1); }
+.-f-secondary-shade2 { fill: var(--color-secondary-shade2); }
+.-f-secondary-tint1  { fill: var(--color-secondary-tint1); }
+.-f-secondary-tint2  { fill: var(--color-secondary-tint2); }
+
+.-f-gray_dk-shade1 { fill: var(--color-gray_dk-shade1); }
+.-f-gray_dk-shade2 { fill: var(--color-gray_dk-shade2); }
+.-f-gray_dk-tint1  { fill: var(--color-gray_dk-tint1); }
+.-f-gray_dk-tint2  { fill: var(--color-gray_dk-tint2); }
+
+.-f-gray_lt-shade1 { fill: var(--color-gray_lt-shade1); }
+.-f-gray_lt-shade2 { fill: var(--color-gray_lt-shade2); }
+.-f-gray_lt-tint1  { fill: var(--color-gray_lt-tint1); }
+.-f-gray_lt-tint2  { fill: var(--color-gray_lt-tint2); }
+
+.-bc-primary-fadeout1 { background-color: var(--color-primary-fadeout1); }
+//---- end # Fill ----//

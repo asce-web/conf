@@ -371,7 +371,6 @@ module.exports = (function () {
     , '--color-primary-shade2': $primary.darken(0.50, true).toString()
     , '--color-primary-tint1' : $primary.brighten(0.25, true).toString()
     , '--color-primary-tint2' : $primary.brighten(0.50, true).toString()
-    , '--color-primary-fadeout1': 'rgba(130,130,130,0.6)'
 
     , '--color-secondary-shade1': $secondary.darken(0.25, true).toString()
     , '--color-secondary-shade2': $secondary.darken(0.50, true).toString()
@@ -387,6 +386,8 @@ module.exports = (function () {
     , '--color-gray_lt-shade2': gray_lt.darken(0.50, true).toString()
     , '--color-gray_lt-tint1' : gray_lt.brighten(0.25, true).toString()
     , '--color-gray_lt-tint2' : gray_lt.brighten(0.50, true).toString()
+
+    , '--color-primary-fadeout1': 'rgba(130,130,130,0.6)'
     }
   }
 

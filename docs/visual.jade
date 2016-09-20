@@ -10,8 +10,8 @@ block append main
         -
           var _width  = arg.side
           var _height = arg.side * (Math.sqrt(5)-1)/2
-        svg.docs-c-ColorBox(viewbox=`0 0 ${_width} ${_height}`)
-          rect(width=_width height=_height style=`fill: ${arg.fill}`)
+        svg.docs-c-ColorBox(viewbox=`0 0 ${_width} ${_height}` data-prop=arg.data_prop)
+          rect(class=arg.classname width=_width height=_height)
         p
           b= arg.name
           br
@@ -23,32 +23,34 @@ block append main
       each $item in ConfDocs.COLOR_NAMES
         +colorItem({
           side: 96
-        , fill: `var(${$item.prop})`
+        , classname: '-f' + $item.suffix
+        , data_prop: '--color' + $item.suffix
         , name: $item.name
-        , code: Color.fromRGB(site_colors[$item.prop]).toString('hex')
+        , code: Color.fromRGB(site_colors['--color' + $item.suffix]).toString('hex')
         })
   section#asce
     h2 ASCE
     h3 Colors
     -
       var core_colors = [
-        { name: 'ASCE Black', color: Color.fromHex('#222222') }
-      , { name: 'ASCE White', color: Color.fromHex('#ffffff') }
-      , { name: 'ASCE Blue' , color: Color.fromHex('#0c5fa8') }
+        { name: 'ASCE Black', color_hex: '#222222', classname: '-f-asce_black' }
+      , { name: 'ASCE White', color_hex: '#ffffff', classname: '-f-asce_white' }
+      , { name: 'ASCE Blue' , color_hex: '#0c5fa8', classname: '-f-asce_blue'  }
       ]
     ul.o-List.docs-o-ColorList
       each $item in core_colors
         +colorItem({
           side: 96
-        , fill: $item.color.toString()
+        , classname: $item.classname
         , name: $item.name
-        , code: $item.color.toString('hex')
+        , code: $item.color_hex
         })
   section#docs
     h2 Docs
     p (this style guide)
     h3 Colors
     p Use the color pickers to experiment with different combinations!
+      small  (Javascript must be enabled.)
     ol.o-List.o-Flex
       li.o-Flex__Item Primary   color: #[input.js-picker.js-picker-primary(type="color" style="width:3rem;" value="#660000")]
       li.o-Flex__Item Secondary color: #[input.js-picker.js-picker-secondary(type="color" style="width:3rem;" value="#ff6600")]

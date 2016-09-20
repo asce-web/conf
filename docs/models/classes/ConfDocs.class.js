@@ -26,6 +26,7 @@ module.exports = (function () {
     .init()
     docs.find('visual.html')
       .add(new Page({ name: 'ASCE'     , url: 'visual.html#asce' }))
+      .add(new Page({ name: 'Docs'     , url: 'visual.html#docs' }))
       .add(new Page({ name: 'ASCE 2016', url: 'visual.html#asce2016' }))
     docs.find('obj.html')
       .add(new Page({ name: 'The Float Grid'     , url: 'obj.html#float-grid' }))

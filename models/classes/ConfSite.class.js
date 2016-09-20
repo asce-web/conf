@@ -357,10 +357,10 @@ module.exports = (function () {
    * @return {Object} a style object containg custom properties and color string values
    */
   ConfSite.colorStyles = function colorStyles($primary, $secondary) {
-    var gray_dk =   $primary.desaturate(0.9, true).darken(0.2)
-    var gray_lt = $secondary.desaturate(0.9, true).brighten(0.2)
-    var gray_dk_alt = $secondary.desaturate(0.9, true).darken(0.2)   // alternate dark, using secondary
-    var gray_lt_alt =   $primary.desaturate(0.9, true).brighten(0.2) // alternate lite, using primary
+    var gray_dk = $primary.mix($secondary, 0.2).desaturate(0.9, true).darken(0.2)
+    var gray_lt = $secondary.mix($primary, 0.2).desaturate(0.9, true).brighten(0.2)
+    var gray_dk_alt = $secondary.mix($primary, 0.2).desaturate(0.9, true).darken(0.2)   // alternate dark
+    var gray_lt_alt = $primary.mix($secondary, 0.2).desaturate(0.9, true).brighten(0.2) // alternate lite
     return {
       '--color-primary'  : $primary.toString()
     , '--color-secondary': $secondary.toString()

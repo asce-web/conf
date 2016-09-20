@@ -5,10 +5,10 @@
 
 
 .defineSiteColors(@primary; @secondary) {
-  @gray_dk1:  darken(desaturate(@primary,   90%, relative), 20%);
-  @gray_lt1: lighten(desaturate(@primary,   90%, relative), 20%);
-  @gray_dk2:  darken(desaturate(@secondary, 90%, relative), 20%);
-  @gray_lt2: lighten(desaturate(@secondary, 90%, relative), 20%);
+  @gray_dk1:  darken(desaturate(mix(@primary, @secondary, 80%), 90%, relative), 20%);
+  @gray_lt1: lighten(desaturate(mix(@primary, @secondary, 80%), 90%, relative), 20%);
+  @gray_dk2:  darken(desaturate(mix(@secondary, @primary, 80%), 90%, relative), 20%);
+  @gray_lt2: lighten(desaturate(mix(@secondary, @primary, 80%), 90%, relative), 20%);
   --color-primary:   @primary;
   --color-secondary: @secondary;
   --color-gray_dk:   @gray_dk1;

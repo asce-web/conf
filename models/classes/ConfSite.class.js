@@ -320,7 +320,7 @@ module.exports = (function () {
           )
         )
         .add(new Page({ name: 'Main', url: '#main-menu' }))
-        .colors(Color.fromHex('#3fae2a'), Color.fromHex('#00a1e1')) // default ASCE 2016 colors
+        .colors(Color.fromHex('#660000'), Color.fromHex('#ff6600')) // default Hokie colors
     } else return
   }
 

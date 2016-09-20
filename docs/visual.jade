@@ -4,76 +4,62 @@ block append vars
   - var page = ConfDocs.DOCS.find('visual.html')
 
 block append main
-  -
-    var scheme = {
-      asce: {
-        black : { code: '#222222', bg_class: '-bc-asce_black', name: 'ASCE Black' }
-      , white : { code: '#ffffff', bg_class: '-bc-asce_white', name: 'ASCE White' }
-      , blue  : { code: '#0c5fa8', bg_class: '-bc-asce_blue' , name: 'ASCE Blue' }
-      }
-    , asce2016: {
-        primary   : { code: '#3fae2a', bg_class: '-bc-site_primary'  , name: 'ASCE 2016 Primary' }
-      , secondary : { code: '#00a1e1', bg_class: '-bc-site_secondary', name: 'ASCE 2016 Secondary' }
-      , gray_dk   : { code: '#373c36', bg_class: '-bc-site_gray_dk'  , name: 'ASCE 2016 Dark Gray' }
-      , gray_lt   : { code: '#9fa5a8', bg_class: '-bc-site_gray_lt'  , name: 'ASCE 2016 Light Gray' }
-      }
-    , docs: {
-        primary   : { code: '#660000', bg_class: '-bc-site_primary'  , name: 'Docs Primary' }
-      , secondary : { code: '#ff6600', bg_class: '-bc-site_secondary', name: 'Docs Secondary' }
-      , gray_dk   : { code: '#000000', bg_class: '-bc-site_gray_dk'  , name: 'Docs Dark Gray' }
-      , gray_lt   : { code: '#bab1ab', bg_class: '-bc-site_gray_lt'  , name: 'Docs Light Gray' }
-      }
-    , other: {
-        primary   : { code: '#3b421b', bg_class: '-bc-site_primary'  , name: 'Other Primary' }
-      , secondary : { code: '#a5904f', bg_class: '-bc-site_secondary', name: 'Other Secondary' }
-      , gray_dk   : { code: '#000000', bg_class: '-bc-site_gray_dk'  , name: 'Other Dark Gray' }
-      , gray_lt   : { code: '#b0aeaa', bg_class: '-bc-site_gray_lt'  , name: 'Other Light Gray' }
-      }
-    }
+  mixin siteColorBlocks(sitename, primary_hex, secondary_hex)
+    - var site_colors = ConfSite.colorStyles(Color.fromHex(primary_hex), Color.fromHex(secondary_hex))
+    +colorsamples([
+      { name: 'Primary s2'   , color: Color.fromRGB(site_colors['--color-primary-darken2']) }
+    , { name: 'Primary s1'   , color: Color.fromRGB(site_colors['--color-primary-darken1']) }
+    , { name: 'Primary'      , color: Color.fromRGB(site_colors['--color-primary']) }
+    , { name: 'Primary t1'   , color: Color.fromRGB(site_colors['--color-primary-lighten1']) }
+    , { name: 'Primary t2'   , color: Color.fromRGB(site_colors['--color-primary-lighten2']) }
+    ])
+    +colorsamples([
+      { name: 'Secondary s2' , color: Color.fromRGB(site_colors['--color-secondary-darken2']) }
+    , { name: 'Secondary s1' , color: Color.fromRGB(site_colors['--color-secondary-darken1']) }
+    , { name: 'Secondary'    , color: Color.fromRGB(site_colors['--color-secondary']) }
+    , { name: 'Secondary t1' , color: Color.fromRGB(site_colors['--color-secondary-lighten1']) }
+    , { name: 'Secondary t2' , color: Color.fromRGB(site_colors['--color-secondary-lighten2']) }
+    ])
+    +colorsamples([
+      { name: 'Dark Gray s2' , color: Color.fromRGB(site_colors['--color-gray-dk-darken2']) }
+    , { name: 'Dark Gray s1' , color: Color.fromRGB(site_colors['--color-gray-dk-darken1']) }
+    , { name: 'Dark Gray'    , color: Color.fromRGB(site_colors['--color-gray-dk']) }
+    , { name: 'Dark Gray t1' , color: Color.fromRGB(site_colors['--color-gray-dk-lighten1']) }
+    , { name: 'Dark Gray t2' , color: Color.fromRGB(site_colors['--color-gray-dk-lighten2']) }
+    ])
+    +colorsamples([
+      { name: 'Light Gray s2', color: Color.fromRGB(site_colors['--color-gray-lt-darken2']) }
+    , { name: 'Light Gray s1', color: Color.fromRGB(site_colors['--color-gray-lt-darken1']) }
+    , { name: 'Light Gray'   , color: Color.fromRGB(site_colors['--color-gray-lt']) }
+    , { name: 'Light Gray t1', color: Color.fromRGB(site_colors['--color-gray-lt-lighten1']) }
+    , { name: 'Light Gray t2', color: Color.fromRGB(site_colors['--color-gray-lt-lighten2']) }
+    ])
   mixin colorsamples(colors)
-    ul.o-List.o-Flex.docs-o-ColorList
-      each color in colors
-        li.o-List__Item.o-Flex__Item.docs-o-ColorList__Item
-          div.docs-c-ColorBox(style={ 'background-color': color.code })
+    ul.o-List.docs-o-ColorList
+      each $item in colors
+        li.o-List__Item.docs-o-ColorList__Item
+          figure
+            - var side = 96
+            svg.docs-c-ColorBox(viewbox=`0 0 ${side} ${side}`)
+              rect(width=side height=side fill=$item.color.toString())
             p
-              each foreground,index in [scheme.asce.black.code, scheme.asce.white.code]
-                code(style={color:foreground})= color.code
-                unless index == 1
-                  br
-          p(style="font-size: 0.8rem; line-height:1.875;")
-            span.h-Block= color.name
+              b= $item.name
+              br
+              code= $item.color.toString('hex')
   section#asce
     h2 ASCE
     h3 Colors
     +colorsamples([
-      scheme.asce.black
-    , scheme.asce.white
-    , scheme.asce.blue
+      { name: 'ASCE Black', color: Color.fromHex('#222222') }
+    , { name: 'ASCE White', color: Color.fromHex('#ffffff') }
+    , { name: 'ASCE Blue' , color: Color.fromHex('#0c5fa8') }
     ])
+  section#docs
+    h2 Docs
+    p (this style guide)
+    h3 Colors
+    +siteColorBlocks('Docs', '#660000', '#ff6600')
   section#asce2016
     h2 ASCE 2016
     h3 Colors
-    +colorsamples([
-      scheme.asce2016.primary
-    , scheme.asce2016.secondary
-    , scheme.asce2016.gray_dk
-    , scheme.asce2016.gray_lt
-    ])
-  section#docs
-    h2 Docs (this style guide)
-    h3 Colors
-    +colorsamples([
-      scheme.docs.primary
-    , scheme.docs.secondary
-    , scheme.docs.gray_dk
-    , scheme.docs.gray_lt
-    ])
-  section#other
-    h2 Other
-    h3 Colors
-    +colorsamples([
-      scheme.other.primary
-    , scheme.other.secondary
-    , scheme.other.gray_dk
-    , scheme.other.gray_lt
-    ])
+    +siteColorBlocks('ASCE 2016', '#3fae2a', '#00a1e1')

@@ -28,6 +28,7 @@ module.exports = (function () {
       .add(new Page({ name: 'ASCE'     , url: 'visual.html#asce' }))
       .add(new Page({ name: 'Docs'     , url: 'visual.html#docs' }))
       .add(new Page({ name: 'ASCE 2016', url: 'visual.html#asce2016' }))
+      .add(new Page({ name: 'ASCE 2017', url: 'visual.html#asce2017' }))
     docs.find('obj.html')
       .add(new Page({ name: 'The Float Grid'     , url: 'obj.html#float-grid' }))
       .add(new Page({ name: 'The Runner Object'  , url: 'obj.html#runner-object' }))

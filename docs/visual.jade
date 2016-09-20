@@ -7,20 +7,22 @@ block append main
   mixin colorItem(arg)
     li.o-List__Item.docs-o-ColorList__Item
       figure
-        svg.docs-c-ColorBox(viewbox=`0 0 ${arg.side} ${arg.side}`)
-          rect(width=arg.side height=arg.side style=`fill: ${arg.fill}`)
+        -
+          var _width  = arg.side
+          var _height = arg.side * (Math.sqrt(5)-1)/2
+        svg.docs-c-ColorBox(viewbox=`0 0 ${_width} ${_height}`)
+          rect(width=_width height=_height style=`fill: ${arg.fill}`)
         p
           b= arg.name
           br
           code= arg.code
   mixin siteColorList(primary_hex, secondary_hex)
     -
-      var side = 96
       var site_colors = ConfSite.colorStyles(Color.fromHex(primary_hex), Color.fromHex(secondary_hex))
     ul.o-List.docs-o-ColorList(style=site_colors)
       each $item in ConfDocs.COLOR_NAMES
         +colorItem({
-          side: side
+          side: 96
         , fill: `var(${$item.prop})`
         , name: $item.name
         , code: Color.fromRGB(site_colors[$item.prop]).toString('hex')
@@ -51,3 +53,7 @@ block append main
     h2 ASCE 2016
     h3 Colors
     +siteColorList('#3fae2a', '#00a1e1')
+  section#asce2017
+    h2 ASCE 2017
+    h3 Colors
+    +siteColorList('#00737b', '#694890')

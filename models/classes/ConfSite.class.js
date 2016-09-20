@@ -81,37 +81,7 @@ module.exports = (function () {
   ConfSite.prototype.colors = function colors(primary, secondary) {
     var self = this
     if (arguments.length) {
-      primary     = Color.fromHex(primary)
-      secondary   = Color.fromHex(secondary)
-      var gray_dk = primary.desaturate(0.9, true).darken(0.2)
-      var gray_lt = secondary.desaturate(0.9, true).brighten(0.2)
-      this._colors = {
-        '--color-primary'  : primary.toString()
-      , '--color-secondary': secondary.toString()
-      , '--color-gray-dk'  : gray_dk.toString()
-      , '--color-gray-lt'  : gray_lt.toString()
-
-      , '--color-primary-darken1' : primary.darken(0.25, true).toString()
-      , '--color-primary-darken2' : primary.darken(0.50, true).toString()
-      , '--color-primary-lighten1': primary.brighten(0.25, true).toString()
-      , '--color-primary-lighten2': primary.brighten(0.50, true).toString()
-      , '--color-primary-fadeout1': 'rgba(130,130,130,0.6)'
-
-      , '--color-secondary-darken1' : secondary.darken(0.25, true).toString()
-      , '--color-secondary-darken2' : secondary.darken(0.50, true).toString()
-      , '--color-secondary-lighten1': secondary.brighten(0.25, true).toString()
-      , '--color-secondary-lighten2': secondary.brighten(0.50, true).toString()
-
-      , '--color-gray-dk-darken1' : gray_dk.darken(0.25, true).toString()
-      , '--color-gray-dk-darken2' : gray_dk.darken(0.50, true).toString()
-      , '--color-gray-dk-lighten1': gray_dk.brighten(0.25, true).toString()
-      , '--color-gray-dk-lighten2': gray_dk.brighten(0.50, true).toString()
-
-      , '--color-gray-lt-darken1' : gray_lt.darken(0.25, true).toString()
-      , '--color-gray-lt-darken2' : gray_lt.darken(0.50, true).toString()
-      , '--color-gray-lt-lighten1': gray_lt.brighten(0.25, true).toString()
-      , '--color-gray-lt-lighten2': gray_lt.brighten(0.50, true).toString()
-      }
+      this._colors = ConfSite.colorStyles(Color.fromHex(primary), Color.fromHex(secondary))
       return this
     } else return this._colors
   }
@@ -378,6 +348,44 @@ module.exports = (function () {
         listclasses: 'o-List c-Sitemap__SubList'
       , itemclasses: 'o-List__Item c-Sitemap__SubItem'
       }
+    }
+  }
+
+  /**
+   * Generate a color palette and return a style object with custom properties.
+   * @param  {Color} $primary   the primary color for the site
+   * @param  {Color} $secondary the secondary color for the site
+   * @return {Object} a style object containg custom properties and color string values
+   */
+  ConfSite.colorStyles = function colorStyles($primary, $secondary) {
+    var gray_dk = $primary.desaturate(0.9, true).darken(0.2)
+    var gray_lt = $secondary.desaturate(0.9, true).brighten(0.2)
+    return {
+      '--color-primary'  : $primary.toString()
+    , '--color-secondary': $secondary.toString()
+    , '--color-gray-dk'  : gray_dk.toString()
+    , '--color-gray-lt'  : gray_lt.toString()
+
+    , '--color-primary-darken1' : $primary.darken(0.25, true).toString()
+    , '--color-primary-darken2' : $primary.darken(0.50, true).toString()
+    , '--color-primary-lighten1': $primary.brighten(0.25, true).toString()
+    , '--color-primary-lighten2': $primary.brighten(0.50, true).toString()
+    , '--color-primary-fadeout1': 'rgba(130,130,130,0.6)'
+
+    , '--color-secondary-darken1' : $secondary.darken(0.25, true).toString()
+    , '--color-secondary-darken2' : $secondary.darken(0.50, true).toString()
+    , '--color-secondary-lighten1': $secondary.brighten(0.25, true).toString()
+    , '--color-secondary-lighten2': $secondary.brighten(0.50, true).toString()
+
+    , '--color-gray-dk-darken1' : gray_dk.darken(0.25, true).toString()
+    , '--color-gray-dk-darken2' : gray_dk.darken(0.50, true).toString()
+    , '--color-gray-dk-lighten1': gray_dk.brighten(0.25, true).toString()
+    , '--color-gray-dk-lighten2': gray_dk.brighten(0.50, true).toString()
+
+    , '--color-gray-lt-darken1' : gray_lt.darken(0.25, true).toString()
+    , '--color-gray-lt-darken2' : gray_lt.darken(0.50, true).toString()
+    , '--color-gray-lt-lighten1': gray_lt.brighten(0.25, true).toString()
+    , '--color-gray-lt-lighten2': gray_lt.brighten(0.50, true).toString()
     }
   }
 

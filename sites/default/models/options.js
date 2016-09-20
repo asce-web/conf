@@ -8,6 +8,7 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
+var Color              = require('../../../models/classes/Color.class.js')
 var Util               = require('../../../models/classes/Util.class.js')
   , ConfSite           = require('../../../models/classes/ConfSite.class.js')
   , Conference         = require('../../../models/classes/Conference.class.js')
@@ -25,7 +26,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .keywords(['ASCE', 'civil engineering', 'convention'])
       .init()
       .logo('img/site-logo-white.png')
-      .colors('#7f8e39', '#a5904f')
+      .colors(Color.fromHex('#7f8e39'), Color.fromHex('#a5904f'))
 
     site
       .addConference('2016', new Conference({

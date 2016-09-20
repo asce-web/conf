@@ -10,15 +10,15 @@
 
 var Color              = require('../../../models/classes/Color.class.js')
 var Util               = require('../../../models/classes/Util.class.js')
-  , ConfSite           = require('../../../models/classes/ConfSite.class.js')
-  , Conference         = require('../../../models/classes/Conference.class.js')
-  , SupporterLevel     = require('../../../models/classes/SupporterLevel.class.js')
-  , Supporter          = require('../../../models/classes/Supporter.class.js')
-  , Person             = require('../../../models/classes/Person.class.js')
-  , RegistrationPeriod = require('../../../models/classes/RegistrationPeriod.class.js')
-  , Pass               = require('../../../models/classes/Pass.class.js')
-  , ProgramEvent       = require('../../../models/classes/ProgramEvent.class.js')
-  , ImportantDate      = require('../../../models/classes/ImportantDate.class.js')
+var ConfSite           = require('../../../models/classes/ConfSite.class.js')
+var Conference         = require('../../../models/classes/Conference.class.js')
+var SupporterLevel     = require('../../../models/classes/SupporterLevel.class.js')
+var Supporter          = require('../../../models/classes/Supporter.class.js')
+var Person             = require('../../../models/classes/Person.class.js')
+var RegistrationPeriod = require('../../../models/classes/RegistrationPeriod.class.js')
+var Pass               = require('../../../models/classes/Pass.class.js')
+var ProgramEvent       = require('../../../models/classes/ProgramEvent.class.js')
+var ImportantDate      = require('../../../models/classes/ImportantDate.class.js')
 
 module.exports = Object.assign(require('../../all/models/options.js'), {
   site: (function () {

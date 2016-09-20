@@ -31,17 +31,17 @@ block append main
       }
     }
   mixin colorsamples(colors)
-    ul.o-List.o-Flex.docs-o-ColorList
+    ul.o-List.docs-o-ColorList
       each color in colors
-        li.o-List__Item.o-Flex__Item.docs-o-ColorList__Item
-          div.docs-c-ColorBox(style={ 'background-color': color.code })
+        li.o-List__Item.docs-o-ColorList__Item
+          figure
+            - var side = 96
+            svg.docs-c-ColorBox(viewbox=`0 0 ${side} ${side}`)
+              rect(width=side height=side fill=color.code)
             p
-              each foreground,index in [scheme.asce.black.code, scheme.asce.white.code]
-                code(style={color:foreground})= color.code
-                unless index == 1
-                  br
-          p(style="font-size: 0.8rem; line-height:1.875;")
-            span.h-Block= color.name
+              b= color.name
+              br
+              code= color.code
   section#asce
     h2 ASCE
     h3 Colors

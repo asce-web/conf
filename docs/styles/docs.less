@@ -63,11 +63,12 @@
 
 
 .docs-o-ColorList {
-  .flex-justify-content(flex-start);
 }
 .docs-o-ColorList__Item {
-  .flex(0);
-  margin-right: 1rem;
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+  padding: 0 0.5rem;
 }
 
 
@@ -87,15 +88,8 @@
 
 
 .docs-c-ColorBox {
-  @boxwidth: 96px;
-  width:  @boxwidth;
-  height: @boxwidth;
-  text-align: center;
+  width: 100%;
   box-shadow: 0 2px 0.5rem 0 fadeout(#222, 50%); // #222 is `currentColor`
-  p {
-    position: relative;
-    top: 24px;
-  }
 }
 
 

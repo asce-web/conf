@@ -31,4 +31,4 @@ node_modules
 # temporary! remove when done
 /models/classes/Color.class.js
 /models/classes/ColorUtil.class.js
-/docs/scripts/imports.js
+/scripts/imports.js

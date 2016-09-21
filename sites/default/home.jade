@@ -41,7 +41,7 @@ block callouts
     include /sites/all/_includes/highlights/_contact.jade
 
 block append scripts
-  script(src="../../docs/scripts/imports.js")
+  script(src="/scripts/imports.js")
   script.
     $('input.js-picker').change(function () {
       var primary = Color.fromString($('input.js-picker-primary').val())

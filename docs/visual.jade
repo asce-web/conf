@@ -7,11 +7,12 @@ block append main
   mixin colorItem(arg)
     li.o-List__Item.docs-o-ColorList__Item
       figure
-        -
-          var _width  = arg.side
-          var _height = arg.side * (Math.sqrt(5)-1)/2
-        svg.docs-c-ColorBox(viewbox=`0 0 ${_width} ${_height}` data-prop=arg.data_prop)
-          rect(class=arg.classname width=_width height=_height)
+        //- -
+        //-   var _width  = arg.side
+        //-   var _height = arg.side * (Math.sqrt(5)-1)/2
+        //- svg.docs-c-ColorBox(viewbox=`0 0 ${_width} ${_height}` data-prop=arg.data_prop)
+        //-   rect(class=arg.classname width=_width height=_height)
+        div.docs-c-ColorBox(class=arg.classname data-prop=arg.data_prop)
         p
           b= arg.name
           br
@@ -23,7 +24,7 @@ block append main
       each $item in ConfDocs.COLOR_NAMES
         +colorItem({
           side: 96
-        , classname: '-f' + $item.suffix
+        , classname: '-bc' + $item.suffix
         , data_prop: '--color' + $item.suffix
         , name: $item.name
         , code: Color.fromRGB(site_colors['--color' + $item.suffix]).toString('hex')

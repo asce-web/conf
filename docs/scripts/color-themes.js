@@ -565,7 +565,7 @@ $('#docs input.js-picker').change(function () {
   }
   $('#docs code').each(function () {
     $(this).text(Color.fromRGB(styleobj[
-      $(this).parents('figure').find('svg').attr('data-prop')
+      $(this).parents('figure').find('[data-prop]').attr('data-prop')
     ]).toString('hex'))
   })
 })

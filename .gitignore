@@ -25,3 +25,10 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
+
+
+# imported source files
+# temporary! remove when done
+/models/classes/Color.class.js
+/models/classes/ColorUtil.class.js
+/docs/scripts/imports.js

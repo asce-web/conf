@@ -26,7 +26,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .keywords(['ASCE', 'civil engineering', 'convention'])
       .init()
       .logo('img/site-logo-white.png')
-      .colors(Color.fromHex('#3fae2a'), Color.fromHex('#00a1e1'))
+      .colors(Color.fromString('#3fae2a'), Color.fromString('#00a1e1'))
 
     site
       .addConference('2016', new Conference({

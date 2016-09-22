@@ -21,9 +21,9 @@
 // 2016-04-27
 .c-Mast {
   .font-size-mod(14/16);
-  background-color: @g-color_site_gray_dk;
+  background-color: var(--color-gray_dk);
   color: @g-color_asce_white;
-  border-color: @g-color_site_primary;
+  border-color: var(--color-primary);
   h1,
   a:not(:hover):not(:focus):not(._hover) {
     color: inherit;
@@ -47,12 +47,12 @@
 // ^updated
 // 2016-08-14
 .c-Mast--main {
-  background-color: @g-color_site_primary;
+  background-color: var(--color-primary);
   a:not(:active):not(._active) {
     &:hover,
     &:focus,
     &._hover {
-      color: @g-color_site_gray_dk;
+      color: var(--color-gray_dk);
     }
   }
 }

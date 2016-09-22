@@ -27,7 +27,7 @@
       &:hover,
       &:focus,
       &:active {
-        color: @g-color_site_gray_lt;
+        color: var(--color-gray_lt);
         background-color: @g-color_asce_white;
       }
     }
@@ -54,7 +54,7 @@
   @media screen and (min-width: 45em) {
     border-radius: 0.25rem; // same as `.c-Btn`
   }
-  background-color: @g-color_site_primary;
+  background-color: var(--color-primary-tint1);
   &,
   &:hover,
   &:focus,
@@ -66,10 +66,10 @@
   &:hover,
   &:focus,
   &._hover {
-    background-color: darken(@g-color_site_primary, 25%, relative);
+    background-color: var(--color-primary-tint2);
   }
   &:active,
   &._active {
-    background-color: darken(@g-color_site_primary, 50%, relative);
+    background-color: var(--color-primary);
   }
 }

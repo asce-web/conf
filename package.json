@@ -36,6 +36,7 @@
   "homepage": "http://conf.style.asce.org/",
   "devDependencies": {
     "clean-css": "^3.4.9",
+    "csscolor": "^1.0.0",
     "jade": "^1.11.0",
     "less": "^2.6.0",
     "pug-cli": "^1.0.0-alpha6",

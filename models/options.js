@@ -8,7 +8,7 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 module.exports = {
-  basedir: './'
+  basedir : './'
 , Util    : require('./classes/Util.class.js')
 , ConfSite: require('./classes/ConfSite.class.js')
 }

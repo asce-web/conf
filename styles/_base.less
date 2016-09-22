@@ -40,7 +40,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: @g-fontfam_hn;
   font-weight: 900;
-  color: @g-color_site_primary;
+  color: var(--color-primary);
 }
 h1 {
   text-align: center;
@@ -54,6 +54,11 @@ h1 {
   //--------------------------------//
   //    ## Paragraphs
   //--------------------------------//
+  figcaption {
+    font-style: italic;
+    font-weight: 300;
+    .font-size-el(@g-font_size_mill);
+  }
   //---- end ## Paragraphs ----//
 
   //--------------------------------//
@@ -97,12 +102,12 @@ h1 {
   //    ## Links
   //--------------------------------//
   a {
-    color: @g-color_site_secondary;
+    color: var(--color-secondary);
     .transitions(color, background-color; 125ms);
     &:hover,
     &:focus,
     &._hover {
-      color: @g-color_site_gray_lt;
+      color: var(--color-gray_lt);
     }
     &:active,
     &._active {

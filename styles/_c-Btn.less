@@ -68,7 +68,7 @@
 //++++++++++++++++++++++++++++++++//
 .c-Btn {
   // generic button color styles
-  background-color: lighten(@g-color_site_gray_lt, 25%, relative);
+  background-color: var(--button-color);
   &,
   &:hover,
   &:focus,
@@ -80,11 +80,11 @@
   &:hover,
   &:focus,
   &._hover {
-    background-color: @g-color_site_gray_lt;
+    background-color: var(--button-color-hover);
   }
   &:active,
   &._active {
-    background-color: darken(@g-color_site_gray_lt, 25%, relative);
+    background-color: var(--button-color-active);
   }
   a&:not([href]),
   button&:disabled {
@@ -100,8 +100,17 @@
   }
 }
 
+.c-Btn {
+  // specific button color styles
+  --button-color:        var(--color-gray_lt);
+  --button-color-hover:  var(--color-gray_lt-tint1);
+  --button-color-active: var(--color-gray_lt-shade1);
+}
+
 .c-Btn--dark {
-  background-color: darken(@g-color_site_gray_dk, 25%, relative);
+  --button-color:        var(--color-gray_dk);
+  --button-color-hover:  var(--color-gray_dk-tint1);
+  --button-color-active: var(--color-gray_dk-shade1);
   &,
   &:hover,
   &:focus,
@@ -109,15 +118,6 @@
   &._hover,
   &._active {
     color: #fff;
-  }
-  &:hover,
-  &:focus,
-  &._hover {
-    background-color: @g-color_site_gray_dk;
-  }
-  &:active,
-  &._active {
-    background-color: lighten(@g-color_site_gray_dk, 25%, relative);
   }
 }
 
@@ -134,55 +134,42 @@
 }
 
 .c-Btn--primary {
-  background-color: @g-color_site_primary;
-  &:hover,
-  &:focus,
-  &._hover {
-    background-color: darken(@g-color_site_primary, 25%, relative);
-  }
-  &:active,
-  &._active {
-    background-color: darken(@g-color_site_primary, 50%, relative);
-  }
+  --button-color:        var(--color-primary-tint1);
+  --button-color-hover:  var(--color-primary-tint2);
+  --button-color-active: var(--color-primary);
 }
 
 .c-Btn--secondary {
-  background-color: @g-color_site_secondary;
-  &:hover,
-  &:focus,
-  &._hover {
-    background-color: lighten(@g-color_site_secondary, 25%, relative);
-  }
-  &:active,
-  &._active {
-    background-color: lighten(@g-color_site_secondary, 50%, relative);
-  }
+  --button-color:        var(--color-secondary-shade1);
+  --button-color-hover:  var(--color-secondary);
+  --button-color-active: var(--color-secondary-shade2);
 }
 
 .c-Btn--ghost {
+  --button-color:        transparent;
+  --button-color-hover:  var(--color-gray_dk);
+  --button-color-active: transparent;
   &:hover,
   &:focus,
   &._hover {
     color: @g-color_asce_white;
     border-color: transparent;
-    background-color: @g-color_site_gray_dk;
   }
   &,
   &:active,
   &._active {
     color: inherit;
     border: 2px solid currentColor;
-    background-color: transparent;
   }
 }
 
 .c-Btn--ghost--dark {
+  --button-color-hover: @g-color_asce_white;
   &:hover,
   &:focus,
   &._hover {
     &:not(:active) { // HACK because :hover will override :active
-      color: @g-color_site_gray_dk;
-      background-color: @g-color_asce_white;
+      color: var(--color-gray_dk);
     }
   }
 }
@@ -207,6 +194,9 @@
 }
 
 .c-Btn--flat {
+  --button-color:        transparent;
+  --button-color-hover:  var(--button-color);
+  --button-color-active: var(--button-color);
   .menubar();
   font-size: (14em/16); // same as Mast
   letter-spacing: 1px;
@@ -216,17 +206,16 @@
   &:active,
   &._hover,
   &._active {
-    color: @g-color_site_secondary; // same as link
-    background-color: transparent;
+    color: var(--color-secondary); // same as link
   }
   &:hover,
   &:focus,
   &._hover {
-    color: @g-color_site_gray_lt; // same as link
+    color: var(--color-gray_lt); // same as link
   }
   &:active,
   &._active {
-    color: @g-color_site_gray_dk;
+    color: var(--color-gray_dk);
   }
 }
 //++++ end # BUTTON TEXTURE STYLES ++++//

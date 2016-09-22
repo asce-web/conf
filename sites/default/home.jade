@@ -7,6 +7,14 @@ block actionButtons
   , { text: 'Submit a Paper' }
   ], 'c-Btn c-Btn--hilite c-Btn--primary')
 
+block prepend mainBody
+  +highlight()
+    p Use the color pickers to experiment with different combinations!
+      small  (Javascript must be enabled.)
+    ol.o-List.o-Flex
+      li.o-Flex__Item Primary   color: #[input.js-picker.js-picker-primary(type="color" style="width:3rem;" value="#3fae2a")]
+      li.o-Flex__Item Secondary color: #[input.js-picker.js-picker-secondary(type="color" style="width:3rem;" value="#00a1e1")]
+
 block mainMinimal
   include includes/_text-block-minimal.jade
 
@@ -31,3 +39,15 @@ block callouts
     include /sites/default/_includes/highlights/_volunteer.jade
   +highlight('c-Banner')
     include /sites/all/_includes/highlights/_contact.jade
+
+block append scripts
+  script(src="/scripts/imports.js")
+  script.
+    $('input.js-picker').change(function () {
+      var primary = Color.fromString($('input.js-picker-primary').val())
+      var secondary = Color.fromString($('input.js-picker-secondary').val())
+      var styleobj = colorStyles(primary, secondary)
+      for (var prop in styleobj) {
+        document.querySelector('body').style.setProperty(prop, styleobj[prop])
+      }
+    })

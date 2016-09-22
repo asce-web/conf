@@ -4,47 +4,79 @@ block append vars
   - var page = ConfDocs.DOCS.find('visual.html')
 
 block append main
-  -
-    var scheme = {
-      asce: {
-        black : { code: '#222222', bg_class: '-bc-asce_black', name: 'ASCE Black' }
-      , white : { code: '#ffffff', bg_class: '-bc-asce_white', name: 'ASCE White' }
-      , blue  : { code: '#0c5fa8', bg_class: '-bc-asce_blue' , name: 'ASCE Blue' }
-      }
-    , asce2016: {
-        primary   : { code: '#3fae2a', bg_class: '-bc-site_primary'  , name: 'ASCE 2016 Primary' }
-      , secondary : { code: '#00a1e1', bg_class: '-bc-site_secondary', name: 'ASCE 2016 Secondary' }
-      , gray_dk   : { code: '#373c36', bg_class: '-bc-site_gray_dk'  , name: 'ASCE 2016 Dark Gray' }
-      , gray_lt   : { code: '#9fa5a8', bg_class: '-bc-site_gray_lt'  , name: 'ASCE 2016 Light Gray' }
-      }
-    }
-  mixin colorsamples(colors)
-    - var boxwidth = '96px'
-    ul.o-List.o-Flex.docs-o-ColorList
-      each color in colors
-        li.o-List__Item.o-Flex__Item.docs-o-ColorList__Item
-          div.docs-c-ColorBox(class=color.bg_class style={ width:boxwidth, height:boxwidth })
-            p
-              each foreground,index in [scheme.asce.black.code, scheme.asce.white.code]
-                code(style={color:foreground})= color.code
-                unless index == 1
-                  br
-          p(style="font-size: 0.8rem; line-height:1.875;")
-            span.h-Block= color.name
+  mixin colorItem(arg)
+    li.o-List__Item.docs-o-ColorList__Item
+      figure
+        -
+          var _width  = arg.side
+          var _height = arg.side * (Math.sqrt(5)-1)/2
+        svg.docs-c-ColorBox(viewbox=`0 0 ${_width} ${_height}` data-prop=arg.data_prop)
+          rect(class=arg.classname width=_width height=_height)
+        p
+          b= arg.name
+          br
+          code= arg.code
+  mixin siteColorList(primary_str, secondary_str)
+    -
+      var site_colors = ConfSite.colorStyles(Color.fromString(primary_str), Color.fromString(secondary_str))
+    ul.o-List.docs-o-ColorList(style=site_colors)
+      each $item in ConfDocs.COLOR_NAMES
+        +colorItem({
+          side: 96
+        , classname: '-f' + $item.suffix
+        , data_prop: '--color' + $item.suffix
+        , name: $item.name
+        , code: Color.fromString(site_colors['--color' + $item.suffix]).toString('hex')
+        })
   section#asce
     h2 ASCE
     h3 Colors
-    +colorsamples([
-      scheme.asce.black
-    , scheme.asce.white
-    , scheme.asce.blue
-    ])
+    -
+      var core_colors = [
+        { name: 'ASCE Black', color_hex: '#222222', classname: '-f-asce_black' }
+      , { name: 'ASCE White', color_hex: '#ffffff', classname: '-f-asce_white' }
+      , { name: 'ASCE Blue' , color_hex: '#0c5fa8', classname: '-f-asce_blue'  }
+      ]
+    ul.o-List.docs-o-ColorList
+      each $item in core_colors
+        +colorItem({
+          side: 96
+        , classname: $item.classname
+        , name: $item.name
+        , code: $item.color_hex
+        })
+  section#docs
+    h2 Docs
+    p (this style guide)
+    h3 Colors
+    p Use the color pickers to experiment with different combinations!
+      small  (Javascript must be enabled.)
+    ol.o-List.o-Flex
+      li.o-Flex__Item Primary   color: #[input.js-picker.js-picker-primary(type="color" style="width:3rem;" value="#660000")]
+      li.o-Flex__Item Secondary color: #[input.js-picker.js-picker-secondary(type="color" style="width:3rem;" value="#ff6600")]
+    +siteColorList('#660000', '#ff6600')
   section#asce2016
     h2 ASCE 2016
     h3 Colors
-    +colorsamples([
-      scheme.asce2016.primary
-    , scheme.asce2016.secondary
-    , scheme.asce2016.gray_dk
-    , scheme.asce2016.gray_lt
-    ])
+    +siteColorList('#3fae2a', '#00a1e1')
+  section#asce2017
+    h2 ASCE 2017
+    h3 Colors
+    +siteColorList('#00737b', '#694890')
+
+block append scripts
+  script(src="/scripts/imports.js")
+  script.
+    $('#docs input.js-picker').change(function () {
+      var primary = Color.fromString($('#docs input.js-picker-primary').val())
+      var secondary = Color.fromString($('#docs input.js-picker-secondary').val())
+      var styleobj = colorStyles(primary, secondary)
+      for (var prop in styleobj) {
+        document.querySelector('#docs .docs-o-ColorList').style.setProperty(prop, styleobj[prop])
+      }
+      $('#docs code').each(function () {
+        $(this).text(Color.fromString(styleobj[
+          $(this).parents('figure').find('svg').attr('data-prop')
+        ]).toString('hex'))
+      })
+    })

@@ -11,19 +11,6 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-.defineSiteColors(@primary; @secondary) {
-  @gray1_dk:  darken(desaturate(@primary,   90%, relative), 20%);
-  @gray1_lt: lighten(desaturate(@primary,   90%, relative), 20%);
-  @gray2_dk:  darken(desaturate(@secondary, 90%, relative), 20%);
-  @gray2_lt: lighten(desaturate(@secondary, 90%, relative), 20%);
-  --color-primary:   @primary;
-  --color-secondary: @secondary;
-  --color-gray-dk:   @gray1_dk;
-  --color-gray-lt:   @gray2_lt;
-}
-body {
-  .defineSiteColors(#3fae2a; #00a1e1);
-}
 
 .c-SiteTitle__Name {
   // padding-bottom -> margin-bottom for background-image

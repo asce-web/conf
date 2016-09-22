@@ -19,7 +19,10 @@
 // This is a stand-alone stylesheet.
 
 
-@p-color_asce_primary: #0c5fa8; // copied from conf
+// HACK copied from conf
+@p-color_asce_blue: #0c5fa8;
+@p-color_asce_black: #222;
+@p-color_asce_white: #fff;
 .docs-main {
   margin: 0 1rem @g-vru;
 }
@@ -30,9 +33,9 @@
 .docs-pre {
   padding: (@g-vru*0.50) 1.00rem;
   .border-vert(all; 1px);
-  border-color: @p-color_asce_primary;
+  border-color: @p-color_asce_blue;
   border-radius: 4px;
-  background-color: lighten(desaturate(@p-color_asce_primary, 25%), 50%);
+  background-color: lighten(desaturate(@p-color_asce_blue, 25%), 50%);
   small {
     font-size: inherit;
     color: #666;
@@ -48,7 +51,7 @@
 .docs-code {
   padding: 1px 2px;
   border-radius: 3px;
-  background-color: desaturate(lighten(@p-color_asce_primary, 40%), 25%);
+  background-color: desaturate(lighten(@p-color_asce_blue, 40%), 25%);
 }
 .docs-figure {
   position: relative; // for containing other relative things
@@ -63,11 +66,15 @@
 
 
 .docs-o-ColorList {
-  .flex-justify-content(flex-start);
 }
 .docs-o-ColorList__Item {
-  .flex(0);
-  margin-right: 1rem;
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+  padding: 0.375rem 0.5rem;
+  main > section:not(#asce) &:nth-child(5n+3) {
+    background-color: rgba(0,0,0,0.0625);
+  }
 }
 
 
@@ -87,12 +94,8 @@
 
 
 .docs-c-ColorBox {
-  text-align: center;
+  width: 100%;
   box-shadow: 0 2px 0.5rem 0 fadeout(#222, 50%); // #222 is `currentColor`
-  p {
-    position: relative;
-    top: 24px;
-  }
 }
 
 

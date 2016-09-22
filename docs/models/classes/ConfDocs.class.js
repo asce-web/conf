@@ -1,5 +1,7 @@
 var Page = require('sitepage').Page
-  , StyleGuide = require('sitepage').StyleGuide
+var StyleGuide = require('sitepage').StyleGuide
+var Color = require('csscolor').Color
+var ConfSite = require('../../../models/classes/ConfSite.class.js')
 
 /**
  * A set of static members used for the Conf style guide.
@@ -24,7 +26,9 @@ module.exports = (function () {
     .init()
     docs.find('visual.html')
       .add(new Page({ name: 'ASCE'     , url: 'visual.html#asce' }))
+      .add(new Page({ name: 'Docs'     , url: 'visual.html#docs' }))
       .add(new Page({ name: 'ASCE 2016', url: 'visual.html#asce2016' }))
+      .add(new Page({ name: 'ASCE 2017', url: 'visual.html#asce2017' }))
     docs.find('obj.html')
       .add(new Page({ name: 'The Float Grid'     , url: 'obj.html#float-grid' }))
       .add(new Page({ name: 'The Runner Object'  , url: 'obj.html#runner-object' }))
@@ -70,6 +74,31 @@ module.exports = (function () {
   , pre    : 'docs-pre'
   , code   : 'docs-code'
   }
+
+  ConfDocs.COLORS = ConfSite.colorStyles(Color.fromString('#660000'), Color.fromString('#ff6600'))
+
+  ConfDocs.COLOR_NAMES = [
+    { name: 'Primary s2'   , suffix: '-primary-shade2'   }
+  , { name: 'Primary s1'   , suffix: '-primary-shade1'   }
+  , { name: 'Primary'      , suffix: '-primary'          }
+  , { name: 'Primary t1'   , suffix: '-primary-tint1'    }
+  , { name: 'Primary t2'   , suffix: '-primary-tint2'    }
+  , { name: 'Secondary s2' , suffix: '-secondary-shade2' }
+  , { name: 'Secondary s1' , suffix: '-secondary-shade1' }
+  , { name: 'Secondary'    , suffix: '-secondary'        }
+  , { name: 'Secondary t1' , suffix: '-secondary-tint1'  }
+  , { name: 'Secondary t2' , suffix: '-secondary-tint2'  }
+  , { name: 'Dark Gray s2' , suffix: '-gray_dk-shade2'   }
+  , { name: 'Dark Gray s1' , suffix: '-gray_dk-shade1'   }
+  , { name: 'Dark Gray'    , suffix: '-gray_dk'          }
+  , { name: 'Dark Gray t1' , suffix: '-gray_dk-tint1'    }
+  , { name: 'Dark Gray t2' , suffix: '-gray_dk-tint2'    }
+  , { name: 'Light Gray s2', suffix: '-gray_lt-shade2'   }
+  , { name: 'Light Gray s1', suffix: '-gray_lt-shade1'   }
+  , { name: 'Light Gray'   , suffix: '-gray_lt'          }
+  , { name: 'Light Gray t1', suffix: '-gray_lt-tint1'    }
+  , { name: 'Light Gray t2', suffix: '-gray_lt-tint2'    }
+  ]
 
   return ConfDocs
 })()

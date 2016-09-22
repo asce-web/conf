@@ -8,23 +8,25 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
+var Color              = require('csscolor').Color
 var Util               = require('../../../models/classes/Util.class.js')
-  , ConfSite           = require('../../../models/classes/ConfSite.class.js')
-  , Conference         = require('../../../models/classes/Conference.class.js')
-  , SupporterLevel     = require('../../../models/classes/SupporterLevel.class.js')
-  , Supporter          = require('../../../models/classes/Supporter.class.js')
-  , Person             = require('../../../models/classes/Person.class.js')
-  , RegistrationPeriod = require('../../../models/classes/RegistrationPeriod.class.js')
-  , Pass               = require('../../../models/classes/Pass.class.js')
-  , ProgramEvent       = require('../../../models/classes/ProgramEvent.class.js')
-  , ImportantDate      = require('../../../models/classes/ImportantDate.class.js')
+var ConfSite           = require('../../../models/classes/ConfSite.class.js')
+var Conference         = require('../../../models/classes/Conference.class.js')
+var SupporterLevel     = require('../../../models/classes/SupporterLevel.class.js')
+var Supporter          = require('../../../models/classes/Supporter.class.js')
+var Person             = require('../../../models/classes/Person.class.js')
+var RegistrationPeriod = require('../../../models/classes/RegistrationPeriod.class.js')
+var Pass               = require('../../../models/classes/Pass.class.js')
+var ProgramEvent       = require('../../../models/classes/ProgramEvent.class.js')
+var ImportantDate      = require('../../../models/classes/ImportantDate.class.js')
 
 module.exports = Object.assign(require('../../all/models/options.js'), {
   site: (function () {
     var site = new ConfSite('An ASCE Event', '/sites/default/', 'Optional Brand Tagline')
       .keywords(['ASCE', 'civil engineering', 'convention'])
-      .logo('img/site-logo-white.png')
       .init()
+      .logo('img/site-logo-white.png')
+      .colors(Color.fromString('#3fae2a'), Color.fromString('#00a1e1'))
 
     site
       .addConference('2016', new Conference({
@@ -145,11 +147,13 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .addRegistrationPeriod(new RegistrationPeriod({
         name      : 'Early Bird'
       , end_date  : '2016-07-28'
-      }).setIcon('stars')).addRegistrationPeriod(new RegistrationPeriod({
+      }).setIcon('stars')
+      ).addRegistrationPeriod(new RegistrationPeriod({
         name      : 'Advance'
       , start_date: '2016-07-29'
       , end_date  : '2016-08-25'
-      }).setIcon('date_range')).addRegistrationPeriod(new RegistrationPeriod({
+      }).setIcon('date_range')
+      ).addRegistrationPeriod(new RegistrationPeriod({
         name      : 'Onsite'
       , start_date: '2016-08-26'
       }).setIcon('account_balance'))
@@ -329,7 +333,8 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
         , additional_name : 'J.'
         , family_name     : 'McCollough'
         , honorific_suffix: 'P.E., M.ASCE'
-      })).addChair(new Person('stephen-dickenson', {
+      })
+      ).addChair(new Person('stephen-dickenson', {
           given_name      : 'Stephen'
         , additional_name : 'E.'
         , family_name     : 'Dickenson'

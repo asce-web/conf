@@ -3,9 +3,9 @@
     conf  |  _c-Pass.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__fallback.flexbox.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.borders.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.fontsize.less');
 @import (reference) url('__settings.less');
+@import (reference) url('__tool.ticket.less');
 
 
 // A listing of prices for one Pass Type
@@ -25,22 +25,15 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-05-03
+// 2016-09-22
 .c-Pass {
+  .ticket();
   text-align: center;
   background-color: var(--color-gray_dk);
-  .border-vert(all; 1px);
-  border-style: solid;
-  border-color: @g-color_asce_black;
-  .font-size-mod(0.75);
   color: @g-color_asce_white;
   overflow: hidden;
-  h1 {
-    font-family: inherit;
-    color: inherit;
-  }
   .c-Pass__Period__Hn {
-    margin-bottom: 0; // specificity HACK: override `.c-Pass >> h1`
+    margin-bottom: 0; // HACK override `.font-size-mod() >> h1`
   }
   // HACK using variables
   .c-Pass__Foot .c-Pass__Period:not(:last-child)::after {
@@ -48,16 +41,15 @@
   }
 }
 
-.c-Pass__Head {
+.c-Pass__Head,
+.c-Pass__Body,
+.c-Pass__Foot {
   padding: @g-boxpadd_micr;
 }
 
 .c-Pass__Body {
   background-color: @g-color_asce_white;
   color: @g-color_asce_black;
-}
-
-.c-Pass__Foot {
 }
 
 .c-Pass__Hn,
@@ -107,11 +99,11 @@
 // ^updated
 // 2016-07-15
 .c-Pass__Period {
-  padding: @g-boxpadd_micr;
   .c-Pass__Foot & {
     .flex(1); // override Flex__Item (auto)
     &:not(:last-child) {
       position: relative; // for the ::after
+      padding-right: @g-boxpadd_micr_h;
       &::after {
         @rw: 1px;
         content: '';
@@ -123,11 +115,14 @@
         opacity: 0.5;
       }
     }
+    &:last-child {
+      padding-left:  @g-boxpadd_micr_h;
+    }
   }
 }
 
 .c-Pass__Period__Hn {
-  font-weight: 700;
+  font-weight: 700; // override base 900
   .font-size-el(@g-font_size_h3);
   .c-Pass__Body & {
     .font-size-el(@g-font_size_h2);

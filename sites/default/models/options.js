@@ -53,12 +53,12 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       })).addConference('2017', new Conference({
         name      : 'A 2017 Event'
       , theme     : ''
-      , start_date: '2017-10-04'
-      , end_date  : ''
+      , start_date: '2017-10-08'
+      , end_date  : '2017-10-11'
       , url       : 'http://2017.asceconvention.org/'
       , promo_loc : {
-          text : 'Charlotte, NC'
-        , title: 'Charlotte, North Carolina'
+          text : 'New Orleans, LA'
+        , title: 'New Orleans, Louisiana'
         }
       }))
 
@@ -530,25 +530,23 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .setOtherYearBlurb('Access the 2015 program to see which sessions qualify for \
         <abbr title="professional development hours">PDH</abbr>s and other documentation.')
       .addVenue('Conference Venue', {
-        name           : 'New York Marriott Marquis'
-      , streetAddress  : '1535 Broadway'
-      , addressLocality: 'New York'
-      , addressRegion  : 'NY'
-      , postalCode     : '10036'
-      , url            : 'http://www.marriott.com/hotels/travel/nycmq-new-york-marriott-marquis/'
+        name            : 'New York Marriott Marquis'
+      , street_address  : '1535 Broadway'
+      , address_locality: 'New York'
+      , address_region  : 'NY'
+      , postal_code     : '10036'
+      , url             : 'http://www.marriott.com/hotels/travel/nycmq-new-york-marriott-marquis/'
       })
 
     site.getConference('2017')
       .setOtherYearBlurb('Plan ahead to attend, sponsor, or exhibit at the annual convention \
         for civil engineering professionals.')
       .addVenue('Conference Venue', {
-        name           : 'Westin Charlotte'
-      , streetAddress  : '601 South College Street'
-      , addressLocality: 'Charlotte'
-      , addressRegion  : 'NC'
-      , postalCode     : '28202'
-      , telephone      : '+1-866-837-4148'
-      , url            : 'http://www.westincharlottehotel.com/'
+        name            : 'New Orleans Mariott'
+      , street_address  : '555 Canal Street'
+      , address_locality: 'New Orleans'
+      , address_region  : 'LA'
+      , postal_code     : '70130'
       })
 
     //- site

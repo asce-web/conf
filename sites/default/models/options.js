@@ -8,7 +8,7 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
-var Color              = require('../../../models/classes/Color.class.js')
+var Color              = require('csscolor').Color
 var Util               = require('../../../models/classes/Util.class.js')
 var ConfSite           = require('../../../models/classes/ConfSite.class.js')
 var Conference         = require('../../../models/classes/Conference.class.js')

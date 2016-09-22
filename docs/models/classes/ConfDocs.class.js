@@ -1,6 +1,6 @@
 var Page = require('sitepage').Page
 var StyleGuide = require('sitepage').StyleGuide
-var Color = require('../../../models/classes/Color.class.js')
+var Color = require('csscolor').Color
 var ConfSite = require('../../../models/classes/ConfSite.class.js')
 
 /**

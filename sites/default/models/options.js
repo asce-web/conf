@@ -26,7 +26,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .keywords(['ASCE', 'civil engineering', 'convention'])
       .init()
       .logo('img/site-logo-white.png')
-      .colors(Color.fromHex('#3fae2a'), Color.fromHex('#00a1e1'))
+      .colors(Color.fromString('#3fae2a'), Color.fromString('#00a1e1'))
 
     site
       .addConference('2016', new Conference({
@@ -147,11 +147,13 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .addRegistrationPeriod(new RegistrationPeriod({
         name      : 'Early Bird'
       , end_date  : '2016-07-28'
-      }).setIcon('stars')).addRegistrationPeriod(new RegistrationPeriod({
+      }).setIcon('stars')
+      ).addRegistrationPeriod(new RegistrationPeriod({
         name      : 'Advance'
       , start_date: '2016-07-29'
       , end_date  : '2016-08-25'
-      }).setIcon('date_range')).addRegistrationPeriod(new RegistrationPeriod({
+      }).setIcon('date_range')
+      ).addRegistrationPeriod(new RegistrationPeriod({
         name      : 'Onsite'
       , start_date: '2016-08-26'
       }).setIcon('account_balance'))
@@ -331,7 +333,8 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
         , additional_name : 'J.'
         , family_name     : 'McCollough'
         , honorific_suffix: 'P.E., M.ASCE'
-      })).addChair(new Person('stephen-dickenson', {
+      })
+      ).addChair(new Person('stephen-dickenson', {
           given_name      : 'Stephen'
         , additional_name : 'E.'
         , family_name     : 'Dickenson'

@@ -320,7 +320,7 @@ module.exports = (function () {
           )
         )
         .add(new Page({ name: 'Main', url: '#main-menu' }))
-        .colors(Color.fromHex('#660000'), Color.fromHex('#ff6600')) // default Hokie colors
+        .colors(Color.fromString('#660000'), Color.fromString('#ff6600')) // default Hokie colors
     } else return
   }
 
@@ -386,8 +386,6 @@ module.exports = (function () {
     , '--color-gray_lt-shade2': gray_lt.darken(0.50, true).toString()
     , '--color-gray_lt-tint1' : gray_lt.brighten(0.25, true).toString()
     , '--color-gray_lt-tint2' : gray_lt.brighten(0.50, true).toString()
-
-    , '--color-primary-fadeout1': 'rgba(130,130,130,0.6)'
     }
   }
 

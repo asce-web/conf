@@ -75,7 +75,7 @@ module.exports = (function () {
   , code   : 'docs-code'
   }
 
-  ConfDocs.COLORS = ConfSite.colorStyles(Color.fromHex('#660000'), Color.fromHex('#ff6600'))
+  ConfDocs.COLORS = ConfSite.colorStyles(Color.fromString('#660000'), Color.fromString('#ff6600'))
 
   ConfDocs.COLOR_NAMES = [
     { name: 'Primary s2'   , suffix: '-primary-shade2'   }

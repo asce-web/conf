@@ -17,9 +17,9 @@ block append main
           b= arg.name
           br
           code= arg.code
-  mixin siteColorList(primary_hex, secondary_hex)
+  mixin siteColorList(primary_str, secondary_str)
     -
-      var site_colors = ConfSite.colorStyles(Color.fromHex(primary_hex), Color.fromHex(secondary_hex))
+      var site_colors = ConfSite.colorStyles(Color.fromString(primary_str), Color.fromString(secondary_str))
     ul.o-List.docs-o-ColorList(style=site_colors)
       each $item in ConfDocs.COLOR_NAMES
         +colorItem({
@@ -27,7 +27,7 @@ block append main
         , classname: '-bc' + $item.suffix
         , data_prop: '--color' + $item.suffix
         , name: $item.name
-        , code: Color.fromRGB(site_colors['--color' + $item.suffix]).toString('hex')
+        , code: Color.fromString(site_colors['--color' + $item.suffix]).toString('hex')
         })
   section#asce
     h2 ASCE
@@ -66,4 +66,18 @@ block append main
     +siteColorList('#00737b', '#694890')
 
 block append scripts
-  script(src="./scripts/color-themes.js")
+  script(src="/scripts/imports.js")
+  script.
+    $('#docs input.js-picker').change(function () {
+      var primary = Color.fromString($('#docs input.js-picker-primary').val())
+      var secondary = Color.fromString($('#docs input.js-picker-secondary').val())
+      var styleobj = colorStyles(primary, secondary)
+      for (var prop in styleobj) {
+        document.querySelector('#docs .docs-o-ColorList').style.setProperty(prop, styleobj[prop])
+      }
+      $('#docs code').each(function () {
+        $(this).text(Color.fromString(styleobj[
+          $(this).parents('figure').find('[data-prop]').attr('data-prop')
+        ]).toString('hex'))
+      })
+    })

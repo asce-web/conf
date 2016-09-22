@@ -386,8 +386,6 @@ module.exports = (function () {
     , '--color-gray_lt-shade2': gray_lt.darken(0.50, true).toString()
     , '--color-gray_lt-tint1' : gray_lt.brighten(0.25, true).toString()
     , '--color-gray_lt-tint2' : gray_lt.brighten(0.50, true).toString()
-
-    , '--color-primary-fadeout1': 'rgba(130,130,130,0.6)'
     }
   }
 

@@ -3,7 +3,58 @@ extends _docs.tpl.jade
 block append vars
   - var page = ConfDocs.DOCS.find('visual.html')
 
+block append styles
+  style.
+    #derivation-color-palettes li.docs-o-ColorList__Item { margin-right: 3rem; }
+
 block append main
+  section#derivation-color-palettes
+    h2 Derivation of Color Palettes
+    mixin block($color)
+      svg.docs-c-ColorBox(viewbox=`0 0 96 ${(96 * (Math.sqrt(5)-1)/2)}`)
+        rect(style={fill: $color.toString('hex')} width="96" height=(96 * (Math.sqrt(5)-1)/2))
+      p: code= $color.toString('hsl')
+    mixin list(color1, color2)
+      ul.o-List.docs-o-ColorList
+        li.o-List__Item.docs-o-ColorList__Item: +block(color1)
+        li.o-List__Item.docs-o-ColorList__Item: +block(color2)
+    -
+      var primary   = Color.fromString('#00737b')
+      var secondary = Color.fromString('#694890')
+    ol
+      li Start with two colors.
+        -
+          var a1 = primary
+          var a2 = secondary
+        +list(a1, a2)
+      li Normalize the lightness of each of them.
+        -
+          var b1 = a1.brighten(0.5 - a1.hslLum())
+          var b2 = a2.brighten(0.5 - a2.hslLum())
+        +list(b1, b2)
+      li Mix in 25% of the other color.
+        -
+          var c1 = b1.mix(b2, 1/4)
+          var c2 = b2.mix(b1, 1/4)
+        +list(c1, c2)
+      li Desaturate each by 87.5%.
+        -
+          var d1 = c1.desaturate(7/8, true)
+          var d2 = c2.desaturate(7/8, true)
+        +list(d1, d2)
+      li Darken (primary) / lighten (secondary) by 50%.
+        -
+          var e1 = d1.darken  (1/2, true)
+          var e2 = d2.brighten(1/2, true)
+        +list(e1, e2)
+      li
+        | For each of these four main colors (primary, secondary, dark gray, light gray), the following
+        |  operations will yield the shades and tints:
+        ul
+          li Shade 1 (s1): darken by 25%
+          li Shade 2 (s2): darken by 50%
+          li Tint 1 (t1): lighten by 25%
+          li Tint 2 (t2): lighten by 50%
   mixin colorItem(arg)
     li.o-List__Item.docs-o-ColorList__Item
       figure

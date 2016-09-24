@@ -11,9 +11,16 @@ block append main
   section#derivation-color-palettes
     h2 Derivation of Color Palettes
     mixin block($color)
+      -
+        var code = (function ($c) {
+          var h = Math.round($c.hslHue() *  10) /  10
+          var s = Math.round($c.hslSat() * 100) / 100
+          var l = Math.round($c.hslLum() * 100) / 100
+          return 'hsl(' + h + ', ' + s + ', ' + l + ')'
+        })($color)
       svg.docs-c-ColorBox(viewbox=`0 0 96 ${(96 * (Math.sqrt(5)-1)/2)}`)
         rect(style={fill: $color.toString('hex')} width="96" height=(96 * (Math.sqrt(5)-1)/2))
-      p: code= $color.toString('hsl')
+      p: code= code
     mixin list(color1, color2)
       ul.o-List.docs-o-ColorList
         li.o-List__Item.docs-o-ColorList__Item: +block(color1)

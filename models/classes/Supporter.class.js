@@ -36,9 +36,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._url = url
       return this
-    } else {
-      return this._url
-    }
+    } else return this._url
   }
 
   /**
@@ -50,9 +48,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._img = img
       return this
-    } else {
-      return this._img
-    }
+    } else return this._img
   }
 
   /**
@@ -64,9 +60,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._level = $supporterLevel
       return this
-    } else {
-      return this._level
-    }
+    } else return this._level
   }
 
   return Supporter

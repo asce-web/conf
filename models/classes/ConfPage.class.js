@@ -55,9 +55,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._pagetype = str
       return this
-    } else {
-      return this._pagetype
-    }
+    } else return this._pagetype
   }
 
   return ConfPage

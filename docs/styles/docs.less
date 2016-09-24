@@ -66,15 +66,27 @@
 
 
 .docs-o-ColorList {
+  // HACK override conf.css
+  font-size: inherit;
+  th, td {
+    padding: 0;
+    border: 0;
+    text-align: left;
+  }
+  th {
+    background-color: #f4f4f4; // HACK copied from conf.css
+  }
 }
 .docs-o-ColorList__Item {
-  display: inline-block;
   vertical-align: top;
   width: 20%;
-  padding: 0.375rem 0.5rem;
-  main > section:not(#asce) &:nth-child(5n+3) {
-    background-color: rgba(0,0,0,0.0625);
+  li& {
+    display: inline-block;
+    margin-right: 3rem;
   }
+  &, th&, td& {
+    padding: 0.375rem 0.5rem;
+  } // HACK specificity
 }
 
 
@@ -94,6 +106,7 @@
 
 
 .docs-c-ColorBox {
+  display: block;
   width: 100%;
   box-shadow: 0 2px 0.5rem 0 fadeout(#222, 50%); // #222 is `currentColor`
 }

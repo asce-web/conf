@@ -3,28 +3,65 @@ extends _docs.tpl.jade
 block append vars
   - var page = ConfDocs.DOCS.find('visual.html')
 
-block append styles
-  style.
-    #derivation-color-palettes li.docs-o-ColorList__Item { margin-right: 3rem; }
-
 block append main
+  mixin colorFig(arg)
+    figure
+      -
+        var _width  = arg.side
+        var _height = arg.side * (Math.sqrt(5)-1)/2
+      svg.docs-c-ColorBox(viewbox=`0 0 ${_width} ${_height}` data-prop=arg.data_prop)
+        rect(class=arg.classname width=_width height=_height)
+      p
+        b= arg.name
+        br
+        code= arg.code
+  mixin siteColorList(primary_str, secondary_str)
+    mixin cell($item, index)
+      mixin fig($item)
+        +colorFig({
+          side: 96
+        , classname: '-f' + $item.suffix
+        , data_prop: '--color' + $item.suffix
+        , name: $item.name
+        , code: Color.fromString(site_colors['--color' + $item.suffix]).toString('hex')
+        })
+      if (index - 2) % 5 === 0
+        th.o-List__Item.docs-o-ColorList__Item
+          +fig($item)
+      else
+        td.o-List__Item.docs-o-ColorList__Item
+          +fig($item)
+    -
+      var site_colors = ConfSite.colorStyles(Color.fromString(primary_str), Color.fromString(secondary_str))
+    table.docs-o-ColorList(style=site_colors)
+      thead: tr
+        th(title="Shade 2")
+        th(title="Shade 1")
+        th(title="Main Color")
+        th(title="Tint 1")
+        th(title="Tint 2")
+      tbody
+        - for (var i = 0; i < ConfDocs.COLOR_NAMES.length; i += 5)
+          tr
+            each $item,index in ConfDocs.COLOR_NAMES.slice(i, i+5)
+              +cell($item,index)
   section#derivation-color-palettes
     h2 Derivation of Color Palettes
-    mixin block($color)
-      -
-        var code = (function ($c) {
-          var h = Math.round($c.hslHue() *  10) /  10
-          var s = Math.round($c.hslSat() * 100) / 100
-          var l = Math.round($c.hslLum() * 100) / 100
-          return 'hsl(' + h + ', ' + s + ', ' + l + ')'
-        })($color)
-      svg.docs-c-ColorBox(viewbox=`0 0 96 ${(96 * (Math.sqrt(5)-1)/2)}`)
-        rect(style={fill: $color.toString('hex')} width="96" height=(96 * (Math.sqrt(5)-1)/2))
-      p: code= code
-    mixin list(color1, color2)
+    mixin derivList(color1, color2)
+      mixin derivBlock($color)
+        -
+          var code = (function ($c) {
+            var h = Math.round($c.hslHue() *  10) /  10
+            var s = Math.round($c.hslSat() * 100) / 100
+            var l = Math.round($c.hslLum() * 100) / 100
+            return 'hsl(' + h + ', ' + s + ', ' + l + ')'
+          })($color)
+        svg.docs-c-ColorBox(viewbox=`0 0 96 ${(96 * (Math.sqrt(5)-1)/2)}`)
+          rect(style={fill: $color.toString('hex')} width="96" height=(96 * (Math.sqrt(5)-1)/2))
+        p: code= code
       ul.o-List.docs-o-ColorList
-        li.o-List__Item.docs-o-ColorList__Item: +block(color1)
-        li.o-List__Item.docs-o-ColorList__Item: +block(color2)
+        li.o-List__Item.docs-o-ColorList__Item: +derivBlock(color1)
+        li.o-List__Item.docs-o-ColorList__Item: +derivBlock(color2)
     -
       var primary   = Color.fromString('#00737b')
       var secondary = Color.fromString('#694890')
@@ -33,27 +70,27 @@ block append main
         -
           var a1 = primary
           var a2 = secondary
-        +list(a1, a2)
+        +derivList(a1, a2)
       li Normalize the lightness of each of them.
         -
           var b1 = a1.brighten(0.5 - a1.hslLum())
           var b2 = a2.brighten(0.5 - a2.hslLum())
-        +list(b1, b2)
+        +derivList(b1, b2)
       li Mix in 25% of the other color.
         -
           var c1 = b1.mix(b2, 1/4)
           var c2 = b2.mix(b1, 1/4)
-        +list(c1, c2)
+        +derivList(c1, c2)
       li Desaturate each by 87.5%.
         -
           var d1 = c1.desaturate(7/8, true)
           var d2 = c2.desaturate(7/8, true)
-        +list(d1, d2)
+        +derivList(d1, d2)
       li Darken (primary) / lighten (secondary) by 50%.
         -
           var e1 = d1.darken  (1/2, true)
           var e2 = d2.brighten(1/2, true)
-        +list(e1, e2)
+        +derivList(e1, e2)
       li
         | For each of these four main colors (primary, secondary, dark gray, light gray), the following
         |  operations will yield the shades and tints:
@@ -62,30 +99,6 @@ block append main
           li Shade 2 (s2): darken by 50%
           li Tint 1 (t1): lighten by 25%
           li Tint 2 (t2): lighten by 50%
-  mixin colorItem(arg)
-    li.o-List__Item.docs-o-ColorList__Item
-      figure
-        -
-          var _width  = arg.side
-          var _height = arg.side * (Math.sqrt(5)-1)/2
-        svg.docs-c-ColorBox(viewbox=`0 0 ${_width} ${_height}` data-prop=arg.data_prop)
-          rect(class=arg.classname width=_width height=_height)
-        p
-          b= arg.name
-          br
-          code= arg.code
-  mixin siteColorList(primary_str, secondary_str)
-    -
-      var site_colors = ConfSite.colorStyles(Color.fromString(primary_str), Color.fromString(secondary_str))
-    ul.o-List.docs-o-ColorList(style=site_colors)
-      each $item in ConfDocs.COLOR_NAMES
-        +colorItem({
-          side: 96
-        , classname: '-f' + $item.suffix
-        , data_prop: '--color' + $item.suffix
-        , name: $item.name
-        , code: Color.fromString(site_colors['--color' + $item.suffix]).toString('hex')
-        })
   section#asce
     h2 ASCE
     h3 Colors
@@ -97,12 +110,13 @@ block append main
       ]
     ul.o-List.docs-o-ColorList
       each $item in core_colors
-        +colorItem({
-          side: 96
-        , classname: $item.classname
-        , name: $item.name
-        , code: $item.color_hex
-        })
+        li.o-List__Item.docs-o-ColorList__Item
+          +colorFig({
+            side: 96
+          , classname: $item.classname
+          , name: $item.name
+          , code: $item.color_hex
+          })
   section#docs
     h2 Docs
     p (this style guide)

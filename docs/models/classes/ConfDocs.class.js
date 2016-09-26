@@ -59,17 +59,5 @@ module.exports = (function () {
     return docs
   })()
 
-
-  /**
-   * Static classes for Conf style guide elements.
-  // REVIEW may not need this with new xmeter
-   * @type {Object}
-   */
-  ConfDocs.DOCS_CLASSES = {
-    figure : 'docs-figure'
-  , pre    : 'docs-pre'
-  , code   : 'docs-code'
-  }
-
   return ConfDocs
 })()

@@ -4,10 +4,8 @@ block append vars
   - var page = ConfDocs.DOCS.find('help.html')
 
 block append main
-  div.docs-t-Xmeter
-    include /node_modules/xmeter/docs/includes/_h-Block.docs.jade
-    +docs_block(ConfDocs.DOCS_CLASSES)
-    include /node_modules/xmeter/docs/includes/_h-Inline.docs.jade
-    +docs_inline(ConfDocs.DOCS_CLASSES)
-    include /node_modules/xmeter/docs/includes/_h-Clearfix.docs.jade
-    +docs_clearfix(ConfDocs.DOCS_CLASSES)
+  p.
+    This style guide imports styles from the Xmeter stylesheet.
+    See the
+    #[a(href="https://cdn.rawgit.com/chharvey/xmeter/master/docs/help.html") Xmeter style guide]
+    for more information.

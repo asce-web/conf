@@ -1,56 +1,54 @@
-section#speaker-component
-  h2 The Speaker Component
-  figure.docs-figure
-    div(style="margin-bottom: 1.5rem;")
-      include /_views/c-Speaker.view.jade
-      +speaker(new Person('donna-fulman', {
-          given_name      : 'Donna'
-        , additional_name : 'A.'
-        , family_name     : 'Fulman'
-        , honorific_suffix: 'P.ASCE'
-      }).jobTitle('Administrator of Interior Engineering')
-        .affiliation('German Chamber of Architects')
-        .img('/img/Blue-Geometric-Background-3.jpg')
-        .email('example@asce.org')
-        .phone('+1(703)555-5555')
-        .url('#0')
-        .addSocial('linkedin', 'https://www.linkedin.com/groups/143956/profile')
-        .addSocial('twitter', Util.SOCIAL_DATA.twitter.toURL('@ASCETweets'), '@ASCETweets')
-        .setBio('<p>Speaker bio goes here. <b>HTML</b> is allowed.\
-          Block- and text-level elements.</p>')
-      )
-    +microdataCheckbox('speaker')
-      pre.docs-pre.
-        &lt;article class="#[u c-Speaker]"#[mark.docs-c-Togglable__Text  itemprop="performer" itemscope="" itemtype="http://schema.org/Person"]&gt;
-          &lt;div class="#[u c-Speaker__Img]" #[u style="background-image: url('headshot.jpg');"]&gt;
-            &lt;header class="#[u c-Speaker__Head]"&gt;
-              &lt;h1 class="#[u c-Speaker__Name]"&gt;
-                #[mark.docs-c-Togglable__Text &lt;span itemprop="name"&gt;]
-                  #[mark.docs-c-Togglable__Text &lt;span itemprop="givenName"&gt;]Donna#[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']#{' '}
-                  #[mark.docs-c-Togglable__Text &lt;span itemprop="additionalName"&gt;]A.#[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']#{' '}
-                  #[mark.docs-c-Togglable__Text &lt;span itemprop="familyName"&gt;]Fulman#[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
-                #[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
-                #{', '}
-                #[mark.docs-c-Togglable__Text &lt;span itemprop="honorificSuffix"&gt;]P.ASCE#[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
-              &lt;/h1&gt;
-              &lt;p class="#[u c-Speaker__JobTitle]"#[mark.docs-c-Togglable__Text  itemprop="jobTitle"]&gt;Administrator of Interior Engineering&lt;/p&gt;
-              &lt;p class="#[u c-Speaker__Affiliation]"#[mark.docs-c-Togglable__Text  itemprop="affiliation" itemscope="" itemtype="http://schema.org/Organization"]&gt;
-                #[mark.docs-c-Togglable__Text &lt;span itemprop="name"&gt;]German Chamber of Architects#[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
-              &lt;/p&gt;
-            &lt;/header&gt;
+figure.docs-figure
+  div(style="margin-bottom: 1.5rem;")
+    include /_views/c-Speaker.view.jade
+    +speaker(new Person('donna-fulman', {
+        given_name      : 'Donna'
+      , additional_name : 'A.'
+      , family_name     : 'Fulman'
+      , honorific_suffix: 'P.ASCE'
+    }).jobTitle('Administrator of Interior Engineering')
+      .affiliation('German Chamber of Architects')
+      .img('/img/Blue-Geometric-Background-3.jpg')
+      .email('example@asce.org')
+      .phone('+1(703)555-5555')
+      .url('#0')
+      .addSocial('linkedin', 'https://www.linkedin.com/groups/143956/profile')
+      .addSocial('twitter', Util.SOCIAL_DATA.twitter.toURL('@ASCETweets'), '@ASCETweets')
+      .setBio('<p>Speaker bio goes here. <b>HTML</b> is allowed.\
+        Block- and text-level elements.</p>')
+    )
+  +microdataCheckbox('speaker')
+    pre.docs-pre.
+      &lt;article class="#[u c-Speaker]"#[mark.docs-c-Togglable__Text  itemprop="performer" itemscope="" itemtype="http://schema.org/Person"]&gt;
+        &lt;div class="#[u c-Speaker__Img]" #[u style="background-image: url('headshot.jpg');"]&gt;
+          &lt;header class="#[u c-Speaker__Head]"&gt;
+            &lt;h1 class="#[u c-Speaker__Name]"&gt;
+              #[mark.docs-c-Togglable__Text &lt;span itemprop="name"&gt;]
+                #[mark.docs-c-Togglable__Text &lt;span itemprop="givenName"&gt;]Donna#[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']#{' '}
+                #[mark.docs-c-Togglable__Text &lt;span itemprop="additionalName"&gt;]A.#[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']#{' '}
+                #[mark.docs-c-Togglable__Text &lt;span itemprop="familyName"&gt;]Fulman#[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
+              #[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
+              #{', '}
+              #[mark.docs-c-Togglable__Text &lt;span itemprop="honorificSuffix"&gt;]P.ASCE#[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
+            &lt;/h1&gt;
+            &lt;p class="#[u c-Speaker__JobTitle]"#[mark.docs-c-Togglable__Text  itemprop="jobTitle"]&gt;Administrator of Interior Engineering&lt;/p&gt;
+            &lt;p class="#[u c-Speaker__Affiliation]"#[mark.docs-c-Togglable__Text  itemprop="affiliation" itemscope="" itemtype="http://schema.org/Organization"]&gt;
+              #[mark.docs-c-Togglable__Text &lt;span itemprop="name"&gt;]German Chamber of Architects#[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
+            &lt;/p&gt;
+          &lt;/header&gt;
+        &lt;/div&gt;
+        &lt;div class="#[u c-Speaker__Body]"&gt;
+          &lt;div class="#[u c-Speaker__Bio]"#[mark.docs-c-Togglable__Text  itemprop="description"]&gt;
+            &lt;p&gt;Speaker bio ...&lt;/p&gt;
           &lt;/div&gt;
-          &lt;div class="#[u c-Speaker__Body]"&gt;
-            &lt;div class="#[u c-Speaker__Bio]"#[mark.docs-c-Togglable__Text  itemprop="description"]&gt;
-              &lt;p&gt;Speaker bio ...&lt;/p&gt;
-            &lt;/div&gt;
-            &lt;ul class="o-List"&gt;
-              &lt;li class="o-List__Item"&gt;&lt;a class="#[u c-Speaker__Link]"#[mark.docs-c-Togglable__Text  itemprop="email"]&gt;example@asce.org&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="o-List__Item"&gt;&lt;a class="#[u c-Speaker__Link]"#[mark.docs-c-Togglable__Text  itemprop="telephone"]&gt;+1(703)555-5555&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="o-List__Item"&gt;&lt;a class="#[u c-Speaker__Link]"#[mark.docs-c-Togglable__Text  itemprop="url"]&gt;Homepage&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-            &lt;ul class="o-List"&gt;
-              &lt;li class="o-List__Item  h-Inline"&gt;&lt;a class="#[u c-Speaker__Link]#[mark.docs-c-Togglable__Text  itemprop="sameAs"]"&gt;LinkedIn&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="o-List__Item  h-Inline"&gt;&lt;a class="#[u c-Speaker__Link]#[mark.docs-c-Togglable__Text  itemprop="sameAs"]"&gt;Twitter&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/div&gt;
-        &lt;/article&gt;
+          &lt;ul class="o-List"&gt;
+            &lt;li class="o-List__Item"&gt;&lt;a class="#[u c-Speaker__Link]"#[mark.docs-c-Togglable__Text  itemprop="email"]&gt;example@asce.org&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="o-List__Item"&gt;&lt;a class="#[u c-Speaker__Link]"#[mark.docs-c-Togglable__Text  itemprop="telephone"]&gt;+1(703)555-5555&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="o-List__Item"&gt;&lt;a class="#[u c-Speaker__Link]"#[mark.docs-c-Togglable__Text  itemprop="url"]&gt;Homepage&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+          &lt;ul class="o-List"&gt;
+            &lt;li class="o-List__Item  h-Inline"&gt;&lt;a class="#[u c-Speaker__Link]#[mark.docs-c-Togglable__Text  itemprop="sameAs"]"&gt;LinkedIn&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="o-List__Item  h-Inline"&gt;&lt;a class="#[u c-Speaker__Link]#[mark.docs-c-Togglable__Text  itemprop="sameAs"]"&gt;Twitter&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/article&gt;

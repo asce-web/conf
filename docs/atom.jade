@@ -4,11 +4,11 @@ block append vars
   - var page = ConfDocs.DOCS.find('atom.html')
 
 block append main
-  div.docs-t-Xmeter
-    include /node_modules/xmeter/docs/includes/_atom.margin-bottom.docs.jade
-    +docs_marginBottom(ConfDocs.DOCS_CLASSES)
-    include /node_modules/xmeter/docs/includes/_atom.padding-top.docs.jade
-    +docs_paddingTop(ConfDocs.DOCS_CLASSES)
+  p.
+    This style guide imports styles from the Xmeter stylesheet.
+    See the
+    #[a(href="https://cdn.rawgit.com/chharvey/xmeter/master/docs/atom.html") Xmeter style guide]
+    for more information.
 
 //- block append main
   p.

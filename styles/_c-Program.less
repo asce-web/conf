@@ -41,6 +41,7 @@
   .font-size-el(1);
   cursor: pointer;
   &:not(.c-Program__Hn--selected) {
+    color: @g-color-gray_lt; // HACK fallback
     color: var(--color-gray_lt);
   }
   @media screen and (min-width: 30em) {

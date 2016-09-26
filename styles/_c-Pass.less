@@ -29,6 +29,7 @@
 .c-Pass {
   .ticket();
   text-align: center;
+  background-color: @g-color-gray_dk; // HACK fallback
   background-color: var(--color-gray_dk);
   color: @g-color_asce_white;
   overflow: hidden;
@@ -85,6 +86,7 @@
 .c-Pass__Price--featured {
   .font-size-el(@g-font_size_h1; 2);
   font-weight: 600;
+  color: @g-color-primary; // HACK fallback
   color: var(--color-primary);
 }
 

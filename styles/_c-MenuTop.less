@@ -27,6 +27,7 @@
       &:hover,
       &:focus,
       &:active {
+        color: @g-color-gray_lt; // HACK fallback
         color: var(--color-gray_lt);
         background-color: @g-color_asce_white;
       }
@@ -54,6 +55,7 @@
   @media screen and (min-width: 45em) {
     border-radius: 0.25rem; // same as `.c-Btn`
   }
+  background-color: @g-color-primary-tint1; // HACK fallback
   background-color: var(--color-primary-tint1);
   &,
   &:hover,
@@ -66,10 +68,12 @@
   &:hover,
   &:focus,
   &._hover {
+    background-color: @g-color-primary-tint2; // HACK fallback
     background-color: var(--color-primary-tint2);
   }
   &:active,
   &._active {
+    background-color: @g-color-primary; // HACK fallback
     background-color: var(--color-primary);
   }
 }

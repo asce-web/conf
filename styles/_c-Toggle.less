@@ -69,6 +69,7 @@
   .c-Toggle__Check:checked ~ .c-Toggle__Viz & {
     &:nth-child(1) {
       .transform(scale((24/18),12));
+      fill: @g-color-gray_dk; // HACK fallback
       fill: var(--color-gray_dk);
     }
     &:nth-child(2),

@@ -68,6 +68,7 @@
 //++++++++++++++++++++++++++++++++//
 .c-Btn {
   // generic button color styles
+  background-color: @g-color-gray_lt; // HACK fallback
   background-color: var(--button-color);
   &,
   &:hover,
@@ -80,10 +81,12 @@
   &:hover,
   &:focus,
   &._hover {
+    background-color: @g-color-gray_lt-tint1; // HACK fallback
     background-color: var(--button-color-hover);
   }
   &:active,
   &._active {
+    background-color: @g-color-gray_lt-shade1; // HACK fallback
     background-color: var(--button-color-active);
   }
   a&:not([href]),
@@ -169,6 +172,7 @@
   &:focus,
   &._hover {
     &:not(:active) { // HACK because :hover will override :active
+      color: @g-color-gray_dk; // HACK fallback
       color: var(--color-gray_dk);
     }
   }
@@ -206,15 +210,18 @@
   &:active,
   &._hover,
   &._active {
+    color: @g-color-secondary; // HACK fallback // same as link
     color: var(--color-secondary); // same as link
   }
   &:hover,
   &:focus,
   &._hover {
+    color: @g-color-gray_lt; // HACK fallback // same as link
     color: var(--color-gray_lt); // same as link
   }
   &:active,
   &._active {
+    color: @g-color-gray_dk; // HACK fallback
     color: var(--color-gray_dk);
   }
 }

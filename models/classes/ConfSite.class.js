@@ -66,9 +66,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._logo = logo
       return this
-    } else {
-      return this._logo
-    }
+    } else return this._logo
   }
 
   /**
@@ -187,9 +185,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._conf_prev_key = conf_label
       return this
-    } else {
-      return this.getConference(this._conf_prev_key)
-    }
+    } else return this.getConference(this._conf_prev_key)
   }
   /**
    * Set or get the next conference of this site.
@@ -203,9 +199,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._conf_next_key = conf_label
       return this
-    } else {
-      return this.getConference(this._conf_next_key)
-    }
+    } else return this.getConference(this._conf_next_key)
   }
 
   /**

@@ -65,9 +65,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._jobTitle = text
       return this
-    } else {
-      return this._jobTitle
-    }
+    } else return this._jobTitle
   }
 
   /**
@@ -79,9 +77,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._affiliation = text
       return this
-    } else {
-      return this._affiliation
-    }
+    } else return this._affiliation
   }
 
   /**
@@ -93,9 +89,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._img = url
       return this
-    } else {
-      return this._img
-    }
+    } else return this._img
   }
 
   /**
@@ -107,9 +101,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._email = text
       return this
-    } else {
-      return this._email
-    }
+    } else return this._email
   }
 
   /**
@@ -121,9 +113,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._telephone = text
       return this
-    } else {
-      return this._telephone
-    }
+    } else return this._telephone
   }
 
   /**
@@ -135,9 +125,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._url = text
       return this
-    } else {
-      return this._url
-    }
+    } else return this._url
   }
 
   /**

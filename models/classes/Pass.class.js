@@ -35,9 +35,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._description = text
       return this
-    } else {
-      return this._description
-    }
+    } else return this._description
   }
 
   /**

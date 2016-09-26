@@ -49,9 +49,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._url = url
       return this
-    } else {
-      return this._url
-    }
+    } else return this._url
   }
 
   /**

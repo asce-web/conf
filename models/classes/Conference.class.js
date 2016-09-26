@@ -134,9 +134,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._regpd_curr_index = this._reg_periods.indexOf(this.getRegistrationPeriod(reg_period_name))
       return this
-    } else {
-      return this._reg_periods[this._regpd_curr_index]
-    }
+    } else return this._reg_periods[this._regpd_curr_index]
   }
 
   /**
@@ -256,9 +254,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._venue_conf_key = venue_label
       return this
-    } else {
-      return this.getVenue(this._venue_conf_key)
-    }
+    } else return this.getVenue(this._venue_conf_key)
   }
 
   /**

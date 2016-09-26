@@ -36,9 +36,7 @@ module.exports = (function () {
     if (arguments.length) {
       this._classname = classname
       return this
-    } else {
-      return this._classname
-    }
+    } else return this._classname
   }
 
   return SupporterLevel

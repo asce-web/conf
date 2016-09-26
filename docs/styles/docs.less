@@ -112,23 +112,17 @@
 }
 
 
-.docs-t-Xmeter {
-  padding: (0.25*@g-vru) 0.5rem;
-  background: fadeout(#000, 90%);
-}
-
-
 .docs-_fragid {
   display: inline;
   line-height: 0;
   margin-left: 1rem;
   font-weight: 100;
   &::before {
-    content: '\00a7';
+    content: '';
   }
 }
 h1, h2, h3, h4, h5, h6 {
-  &:not(:hover) > .docs-_fragid {
-    visibility: hidden;
+  &:hover > .docs-_fragid::before {
+    content: '\00a7';
   }
 }

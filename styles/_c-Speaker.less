@@ -28,6 +28,10 @@
 .c-Speaker {
   .ticket();
   position: relative; // for the background image
+  background-color: @g-color-gray_lt-tint2; // HACK fallback
+  background-color: var(--color-gray_lt-tint2);
+  color: @g-color-gray_dk-shade2; // HACK fallback
+  color: var(--color-gray_dk-shade2);
   .c-Speaker__JobTitle,
   .c-Speaker__Affiliation {
     // HACK override `.font-size-mod() >> p`
@@ -54,13 +58,12 @@
   white-space: nowrap;
   background-color: @g-color-gray_dk; // HACK fallback
   background-color: var(--color-gray_dk);
-  color: @g-color_asce_white;
+  color: @g-color-gray_lt-tint2; // HACK fallback
+  color: var(--color-gray_lt-tint2);
 }
 
 .c-Speaker__Body {
   padding: @g-boxpadd_mill;
-  background-color: @g-color_asce_white;
-  color: @g-color_asce_black;
   & > footer > ul {
     margin-bottom: 0;
   }

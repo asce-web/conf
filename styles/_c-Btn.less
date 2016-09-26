@@ -120,7 +120,8 @@
   &:active,
   &._hover,
   &._active {
-    color: #fff;
+    color: @g-color-gray_lt-tint2; // HACK fallback
+    color: var(--color-gray_lt-tint2);
   }
 }
 
@@ -132,7 +133,8 @@
   &:active,
   &._hover,
   &._active {
-    color: @g-color_asce_white;
+    color: @g-color-gray_lt-tint2; // HACK fallback
+    color: var(--color-gray_lt-tint2);
   }
 }
 
@@ -150,12 +152,13 @@
 
 .c-Btn--ghost {
   --button-color:        transparent;
-  --button-color-hover:  var(--color-gray_dk);
+  --button-color-hover:  var(--color-gray_dk-shade2);
   --button-color-active: transparent;
   &:hover,
   &:focus,
   &._hover {
-    color: @g-color_asce_white;
+    color: @g-color-gray_lt-tint2; // HACK fallback
+    color: var(--color-gray_lt-tint2);
     border-color: transparent;
   }
   &,
@@ -167,13 +170,13 @@
 }
 
 .c-Btn--ghost--dark {
-  --button-color-hover: @g-color_asce_white;
+  --button-color-hover: var(--color-gray_lt-tint2);
   &:hover,
   &:focus,
   &._hover {
-    &:not(:active) { // HACK because :hover will override :active
-      color: @g-color-gray_dk; // HACK fallback
-      color: var(--color-gray_dk);
+    &:not(:active) { // HACK because :hover will override :active on --ghost
+      color: @g-color-gray_dk-shade2; // HACK fallback
+      color: var(--color-gray_dk-shade2);
     }
   }
 }

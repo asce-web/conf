@@ -30,20 +30,15 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: @g-color-gray_dk; // HACK fallback
-  background-color: var(--color-gray_dk);
   &:hover,
   &:active,
   &._hover,
   &._active {
-    background-color: @g-color-secondary; // HACK fallback
-    background-color: var(--color-secondary);
   }
   footer & {
     @width: (100vw/15);
     width:  @width;
     height: @width;
-    background-color: @g-color_asce_white;
   }
 }
 

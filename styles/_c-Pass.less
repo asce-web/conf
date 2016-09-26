@@ -31,7 +31,8 @@
   text-align: center;
   background-color: @g-color-gray_dk; // HACK fallback
   background-color: var(--color-gray_dk);
-  color: @g-color_asce_white;
+  color: @g-color-gray_lt-tint2; // HACK fallback
+  color: var(--color-gray_lt-tint2);
   overflow: hidden;
   .c-Pass__Period__Hn {
     margin-bottom: 0; // HACK override `.font-size-mod() >> h1`
@@ -49,8 +50,10 @@
 }
 
 .c-Pass__Body {
-  background-color: @g-color_asce_white;
-  color: @g-color_asce_black;
+  background-color: @g-color-gray_lt-tint2; // HACK fallback
+  background-color: var(--color-gray_lt-tint2);
+  color: @g-color-gray_dk-shade2; // HACK fallback
+  color: var(--color-gray_dk-shade2);
 }
 
 .c-Pass__Hn,

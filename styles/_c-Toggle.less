@@ -60,7 +60,8 @@
 }
 
 .c-Toggle__Viz__Bar {
-  fill: @g-color_asce_white;
+  fill: @g-color-gray_lt-tint2; // HACK fallback
+  fill: var(--color-gray_lt-tint2);
   .transform-origin(center);
   .transitions(@g-prefix_transform, fill; @p-trans_dura);
   &:nth-child(1) {}

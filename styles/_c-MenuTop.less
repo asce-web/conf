@@ -29,7 +29,8 @@
       &:active {
         color: @g-color-gray_lt; // HACK fallback
         color: var(--color-gray_lt);
-        background-color: @g-color_asce_white;
+        background-color: @g-color-gray_lt-tint2; // HACK fallback
+        background-color: var(--color-gray_lt-tint2);
       }
     }
   }
@@ -63,7 +64,8 @@
   &:active,
   &._hover,
   &._active {
-    color: @g-color_asce_white;
+    color: @g-color-gray_lt-tint2; // HACK fallback
+    color: var(--color-gray_lt-tint2);
   }
   &:hover,
   &:focus,

@@ -44,7 +44,8 @@
   width: 75%;
   margin-left:  auto;
   margin-right: auto;
-  color: @g-color_asce_black;
+  color: @g-color-gray_dk-shade2; // HACK fallback
+  color: var(--color-gray_dk-shade2); // override if inside Banner
 }
 
 @p-rw: 1px;
@@ -53,6 +54,8 @@
 .c-DateBlock > .c-DateBlock__Desc {
   background-color: @g-color-gray_lt-tint2; // HACK fallback
   background-color: var(--color-gray_lt-tint2);
+  border-color: @g-color-gray_dk; // HACK fallback
+  border-color: var(--color-gray_dk);
   @media screen                       { padding: @g-boxpadd_micr; }
   @media screen and (min-width: 30em) { padding: @g-boxpadd_mill; }
   @media screen and (min-width: 45em) { padding: @g-boxpadd_norm; }
@@ -62,7 +65,6 @@
   margin-bottom: @g-vru;
   .border-vert(all, @p-rw);
   border-style: solid;
-  border-color: @g-color_asce_black;
 }
 
 .c-DateBlock__Date,
@@ -70,7 +72,6 @@
   .c-DateBlock > & {
     border-width: 0 @p-rw;
     border-style: solid;
-    border-color: @g-color_asce_black;
   }
 }
 

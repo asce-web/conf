@@ -1,23 +1,21 @@
-section#camo-link
-  h2 The Camo Link
-  p.
-    A Camo Link is a link that blends with its surrounding text.
-    It unsets the default styles assigned to unclassed #[code.docs-code a] elements
-    (also known as anchors).
-    You should use it when you need a hyperlink but don&rsquo;t
-    want it visually exposed to the user.
-    In fact, this class can be used on any element, not just anchors.
-  figure.docs-figure
-    p Inside this paragraph is a #[a.c-Camo(href="") camouflaged link]. See where you can find it.
-    pre.docs-pre.
-      &lt;p&gt;Inside this paragraph is a
-        &lt;a class="#[u c-Camo]"&gt;camouflaged link&lt;/a&gt;.
-        See where you can find it.&lt;p&gt;
-  p.
-    #[strong Note to developers:] the #[code.docs-code .c-Camo]
-    class uses #[code.docs-code !important] on
-    all its styles, so use only when necessary. And if possible, use on the
-    innermost element. E.g.:
+p.
+  A Camo Link is a link that blends with its surrounding text.
+  It unsets the default styles assigned to unclassed #[code.docs-code a] elements
+  (also known as anchors).
+  You should use it when you need a hyperlink but don&rsquo;t
+  want it visually exposed to the user.
+  In fact, this class can be used on any element, not just anchors.
+figure.docs-figure
+  p Inside this paragraph is a #[a.c-Camo(href="") camouflaged link]. See where you can find it.
   pre.docs-pre.
-    &lt;span&gt;&lt;a class="c-Camo"&gt;correct&lt;/a&gt;&lt;/span&gt;
-    #[small!= '&lt;!-- a class="c-Camo"&gt;&lt;span&gt;incorrect&lt;/span&gt;&lt;/a --&gt;']
+    &lt;p&gt;Inside this paragraph is a
+      &lt;a class="#[u c-Camo]"&gt;camouflaged link&lt;/a&gt;.
+      See where you can find it.&lt;p&gt;
+p.
+  #[strong Note to developers:] the #[code.docs-code .c-Camo]
+  class uses #[code.docs-code !important] on
+  all its styles, so use only when necessary. And if possible, use on the
+  innermost element. E.g.:
+pre.docs-pre.
+  &lt;span&gt;&lt;a class="c-Camo"&gt;correct&lt;/a&gt;&lt;/span&gt;
+  #[small!= '&lt;!-- a class="c-Camo"&gt;&lt;span&gt;incorrect&lt;/span&gt;&lt;/a --&gt;']

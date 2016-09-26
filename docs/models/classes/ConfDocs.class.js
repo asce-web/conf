@@ -55,7 +55,7 @@ module.exports = (function () {
       .add(new Page({ name: 'The Callout Component'    , url: 'comp.html#callout-component' }))
       .add(new Page({ name: 'Buttons'                  , url: 'comp.html#buttons' }))
       .add(new Page({ name: 'The Toggle Button'        , url: 'comp.html#toggle-button' }))
-      .add(new Page({ name: 'The Camo Link'            , url: 'comp.html#camo-link'}))
+      .add(new Page({ name: 'The Camo Link'            , url: 'comp.html#camo-link' }))
     return docs
   })()
 

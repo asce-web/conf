@@ -25,7 +25,6 @@ module.exports = (function () {
     .description('Pattern Library for conference microsites.')
     .init()
     docs.find('visual.html')
-      .add(new Page({ name: 'ASCE'     , url: 'visual.html#asce' }))
       .add(new Page({ name: 'Docs'     , url: 'visual.html#docs' }))
       .add(new Page({ name: 'ASCE 2016', url: 'visual.html#asce2016' }))
       .add(new Page({ name: 'ASCE 2017', url: 'visual.html#asce2017' }))

@@ -113,24 +113,6 @@ block append main
           should be used for most components.
           #[b Dark Gray s2] may be used for black where necessary, and
           #[b Light Gray t2] should be used for white where necessary.
-  section#asce
-    h2 ASCE
-    h3 Colors
-    -
-      var core_colors = [
-        { name: 'ASCE Black', color_hex: '#222222', classname: '-f-asce_black' }
-      , { name: 'ASCE White', color_hex: '#ffffff', classname: '-f-asce_white' }
-      , { name: 'ASCE Blue' , color_hex: '#0c5fa8', classname: '-f-asce_blue'  }
-      ]
-    ul.o-List.docs-o-ColorList
-      each $item in core_colors
-        li.o-List__Item.docs-o-ColorList__Item
-          +colorFig({
-            side: 96
-          , classname: $item.classname
-          , name: $item.name
-          , code: $item.color_hex
-          })
   section#docs
     h2 Docs
     p (this style guide)

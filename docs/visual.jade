@@ -66,39 +66,53 @@ block append main
       var primary   = Color.fromString('#00737b')
       var secondary = Color.fromString('#694890')
     ol
-      li Start with two colors.
+      li
+        p Start with two colors: a #[b Primary] and a #[b Secondary].
         -
           var a1 = primary
           var a2 = secondary
         +derivList(a1, a2)
-      li Normalize the lightness of each of them.
+      li
+        p Normalize the lightness of each of them.
         -
           var b1 = a1.brighten(0.5 - a1.hslLum())
           var b2 = a2.brighten(0.5 - a2.hslLum())
         +derivList(b1, b2)
-      li Mix in 25% of the other color.
+      li
+        p Mix in 25% of the other color.
         -
           var c1 = b1.mix(b2, 1/4)
           var c2 = b2.mix(b1, 1/4)
         +derivList(c1, c2)
-      li Desaturate each by 87.5%.
+      li
+        p Desaturate each by 87.5%.
         -
           var d1 = c1.desaturate(7/8, true)
           var d2 = c2.desaturate(7/8, true)
         +derivList(d1, d2)
-      li Darken (primary) / lighten (secondary) by 50%.
+      li
+        p Darken (primary) / lighten (secondary) by 50%.
         -
           var e1 = d1.darken  (1/2, true)
           var e2 = d2.brighten(1/2, true)
         +derivList(e1, e2)
+        p These results are the final #[b Dark Gray] and #[b Light Gray] colors.
       li
-        | For each of these four main colors (primary, secondary, dark gray, light gray), the following
-        |  operations will yield the shades and tints:
-        ul
+        p.
+          For each of these four main colors
+          (#[b Primary], #[b Secondary], #[b Dark Gray], #[b Light Gray]),
+          the following operations will yield the shades and tints:
+        ul.-mb-1vru
           li Shade 1 (s1): darken by 25%
           li Shade 2 (s2): darken by 50%
           li Tint 1 (t1): lighten by 25%
           li Tint 2 (t2): lighten by 50%
+      li
+        p.
+          The four main colors (#[b Primary], #[b Secondary], #[b Dark Gray], #[b Light Gray])
+          should be used for most components.
+          #[b Dark Gray s2] may be used for black where necessary, and
+          #[b Light Gray t2] should be used for white where necessary.
   section#asce
     h2 ASCE
     h3 Colors

@@ -11,7 +11,7 @@ block append main
       var _height = _width * (Math.sqrt(5)-1)/2
     svg.docs-c-ColorBox(viewbox=`0 0 ${_width} ${_height}`)&attributes(attrs.svg || {})
       rect(width=_width height=_height)&attributes(attrs.rect || {})
-  mixin siteColorList(primary_str, secondary_str)
+  mixin siteColorList(primary_str, secondary_str, attr_table)
     - var site_colors = ConfSite.colorStyles(Color.fromString(primary_str), Color.fromString(secondary_str))
     mixin cell(item, index)
       mixin fig($pairing)
@@ -30,7 +30,7 @@ block append main
       else
         td.o-List__Item.docs-o-ColorList__Item
           +fig(item)
-    table.docs-o-ColorList(style=site_colors)
+    table.docs-o-ColorList(style=site_colors)&attributes(attr_table || {})
       thead: tr
         th(title="Shade 2")
         th(title="Shade 1")
@@ -42,107 +42,102 @@ block append main
           tr
             each item,index in ConfDocs.COLOR_NAMES.slice(i, i+5)
               +cell(item,index)
-  section#derivation-color-palettes
-    h2 Derivation of Color Palettes
-    -
-      var primary   = Color.fromString('#00737b')
-      var secondary = Color.fromString('#694890')
-    mixin derivList(color1, color2)
-      mixin derivBlock($color)
-        -
-          function polyfillHSL($c) {
-            var h = Math.round($c.hslHue() *  10) /  10
-            var s = Math.round($c.hslSat() * 100) / 100
-            var l = Math.round($c.hslLum() * 100) / 100
-            return 'hsl(' + h + ', ' + s + ', ' + l + ')'
-          }
-        +colorBox(96, {
-          rect: { 'style': `fill: ${$color.toString('hex')}` }
-        })
-        p: code= polyfillHSL($color)
-        //- TODO on csscolor v1.1.0:
-        //- p: code= $color.toString('hsl')
-      ul.o-List.docs-o-ColorList
-        li.o-List__Item.docs-o-ColorList__Item: +derivBlock(color1)
-        li.o-List__Item.docs-o-ColorList__Item: +derivBlock(color2)
-    ol
-      li
-        p Start with two colors: a #[b Primary] and a #[b Secondary].
-        -
-          var a1 = primary
-          var a2 = secondary
-        +derivList(a1, a2)
-      li
-        p Normalize the lightness of each of them.
-        -
-          var b1 = a1.brighten(0.5 - a1.hslLum())
-          var b2 = a2.brighten(0.5 - a2.hslLum())
-        +derivList(b1, b2)
-      li
-        p Mix in 25% of the other color.
-        -
-          var c1 = b1.mix(b2, 1/4)
-          var c2 = b2.mix(b1, 1/4)
-        +derivList(c1, c2)
-      li
-        p Desaturate each by 87.5%.
-        -
-          var d1 = c1.desaturate(7/8, true)
-          var d2 = c2.desaturate(7/8, true)
-        +derivList(d1, d2)
-      li
-        p Darken (primary) / lighten (secondary) by 50%.
-        -
-          var e1 = d1.darken  (1/2, true)
-          var e2 = d2.brighten(1/2, true)
-        +derivList(e1, e2)
-        p These results are the final #[b Dark Gray] and #[b Light Gray] colors.
-      li
-        p.
-          For each of these four main colors
-          (#[b Primary], #[b Secondary], #[b Dark Gray], #[b Light Gray]),
-          the following operations will yield the shades and tints:
-        ul.-mb-1vru
-          li Shade 1 (s1): darken by 25%
-          li Shade 2 (s2): darken by 50%
-          li Tint 1 (t1): lighten by 25%
-          li Tint 2 (t2): lighten by 50%
-      li
-        p.
-          The four main colors (#[b Primary], #[b Secondary], #[b Dark Gray], #[b Light Gray])
-          should be used for most components.
-          #[b Dark Gray s2] may be used for black where necessary, and
-          #[b Light Gray t2] should be used for white where necessary.
-  section#docs
-    h2 Docs
-    p (this style guide)
-    h3 Colors
-    p Use the color pickers to experiment with different combinations!
-      small  (Javascript must be enabled.)
-    ol.o-List.o-Flex
-      li.o-Flex__Item Primary   color: #[input.js-picker.js-picker-primary(type="color" style="width:3rem;" value="#660000")]
-      li.o-Flex__Item Secondary color: #[input.js-picker.js-picker-secondary(type="color" style="width:3rem;" value="#ff6600")]
-    +siteColorList('#660000', '#ff6600')
-  section#asce2016
-    h2 ASCE 2016
-    h3 Colors
-    +siteColorList('#3fae2a', '#00a1e1')
-  section#asce2017
-    h2 ASCE 2017
-    h3 Colors
-    +siteColorList('#00737b', '#694890')
+  +newSection(2, ConfDocs.DOCS.find('visual.html#colors'))
+    +newSection(3, ConfDocs.DOCS.find('visual.html#derivation-color-palettes'))
+      -
+        var primary   = Color.fromString('#00737b')
+        var secondary = Color.fromString('#694890')
+      mixin derivList(color1, color2)
+        mixin derivBlock($color)
+          -
+            function polyfillHSL($c) {
+              var h = Math.round($c.hslHue() *  10) /  10
+              var s = Math.round($c.hslSat() * 100) / 100
+              var l = Math.round($c.hslLum() * 100) / 100
+              return 'hsl(' + h + ', ' + s + ', ' + l + ')'
+            }
+          +colorBox(96, {
+            rect: { 'style': `fill: ${$color.toString('hex')}` }
+          })
+          p: code= polyfillHSL($color)
+          //- TODO on csscolor v1.1.0:
+          //- p: code= $color.toString('hsl')
+        ul.o-List.docs-o-ColorList
+          li.o-List__Item.docs-o-ColorList__Item: +derivBlock(color1)
+          li.o-List__Item.docs-o-ColorList__Item: +derivBlock(color2)
+      ol
+        li
+          p Start with two colors: a #[b Primary] and a #[b Secondary].
+          -
+            var a1 = primary
+            var a2 = secondary
+          +derivList(a1, a2)
+        li
+          p Normalize the lightness of each of them.
+          -
+            var b1 = a1.brighten(0.5 - a1.hslLum())
+            var b2 = a2.brighten(0.5 - a2.hslLum())
+          +derivList(b1, b2)
+        li
+          p Mix in 25% of the other color.
+          -
+            var c1 = b1.mix(b2, 1/4)
+            var c2 = b2.mix(b1, 1/4)
+          +derivList(c1, c2)
+        li
+          p Desaturate each by 87.5%.
+          -
+            var d1 = c1.desaturate(7/8, true)
+            var d2 = c2.desaturate(7/8, true)
+          +derivList(d1, d2)
+        li
+          p Darken (primary) / lighten (secondary) by 50%.
+          -
+            var e1 = d1.darken  (1/2, true)
+            var e2 = d2.brighten(1/2, true)
+          +derivList(e1, e2)
+          p These results are the final #[b Dark Gray] and #[b Light Gray] colors.
+        li
+          p.
+            For each of these four main colors
+            (#[b Primary], #[b Secondary], #[b Dark Gray], #[b Light Gray]),
+            the following operations will yield the shades and tints:
+          ul.-mb-1vru
+            li Shade 1 (s1): darken by 25%
+            li Shade 2 (s2): darken by 50%
+            li Tint 1 (t1): lighten by 25%
+            li Tint 2 (t2): lighten by 50%
+        li
+          p.
+            The four main colors (#[b Primary], #[b Secondary], #[b Dark Gray], #[b Light Gray])
+            should be used for most components.
+            #[b Dark Gray s2] may be used for black where necessary, and
+            #[b Light Gray t2] should be used for white where necessary.
+    +newSection(3, ConfDocs.DOCS.find('visual.html#site-colors'))
+      h4 Docs
+      p (this style guide)
+      p Use the color pickers to experiment with different combinations!
+        small  (Javascript must be enabled.)
+      ol.o-List.o-Flex
+        li.o-Flex__Item Primary   color: #[input.js-picker.js-picker-primary(type="color" style="width:3rem;" value="#660000")]
+        li.o-Flex__Item Secondary color: #[input.js-picker.js-picker-secondary(type="color" style="width:3rem;" value="#ff6600")]
+      +siteColorList('#660000', '#ff6600', {id: 'docs-colors'})
+      h4 ASCE 2016
+      +siteColorList('#3fae2a', '#00a1e1')
+      h4 ASCE 2017
+      +siteColorList('#00737b', '#694890')
 
 block append scripts
   script(src="/scripts/imports.js")
   script.
-    $('#docs input.js-picker').change(function () {
-      var primary = Color.fromString($('#docs input.js-picker-primary').val())
-      var secondary = Color.fromString($('#docs input.js-picker-secondary').val())
+    $('input.js-picker').change(function () {
+      var primary = Color.fromString($('input.js-picker-primary').val())
+      var secondary = Color.fromString($('input.js-picker-secondary').val())
       var styleobj = colorStyles(primary, secondary)
       for (var prop in styleobj) {
-        document.querySelector('#docs .docs-o-ColorList').style.setProperty(prop, styleobj[prop])
+        document.querySelector('.docs-o-ColorList#docs-colors').style.setProperty(prop, styleobj[prop])
       }
-      $('#docs code').each(function () {
+      $('#docs-colors code').each(function () {
         $(this).text(Color.fromString(styleobj[
           $(this).parents('figure').find('svg').attr('data-prop')
         ]).toString('hex'))

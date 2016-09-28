@@ -550,6 +550,26 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       , postal_code     : '70130'
       })
 
+    site.find('sponsor.html')
+      .addSubpage({
+        name       : 'Partnering Orgs'
+      , url        : '#0'
+      , description: 'Partnering Organizations at ' + site.name() + '.'
+      , $confsite  : site
+      })
+      .addSubpage({
+        name       : 'Cooperating Orgs'
+      , url        : '#0'
+      , description: 'Cooperating Organizations at ' + site.name() + '.'
+      , $confsite  : site
+      })
+    site.find('exhibit.html')
+      .addSubpage({
+        name       : 'Exhibitor List'
+      , url        : '#0'
+      , description: 'Listing of all Exhibitors at ' + site.name() + '.'
+      , $confsite  : site
+      })
     site.find('registration.html')
       .addSubpage({
         name       : 'Why Attend'

@@ -7,13 +7,13 @@ var ConfPage = require('./ConfPage.class.js')
  * with a name, url, taglinne,
  * logo, supporter levels and supporters, exhibitors, and contact information.
  * @type {ConfSite}
+ * @extends Page
  */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
    * Construct a ConfSite object, given a name and url.
    * @constructor
-   * @extends Page
    * @param {string} name name of this site
    * @param {string} url url of the landing page for this site
    * @param {string} tagline the tagline, or slogan, of this site

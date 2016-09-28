@@ -5,13 +5,13 @@ var Util = require('./Util.class.js')
  * Any page or subpage within a ConfSite.
  * @see ConfSite
  * @type {ConfPage}
+ * @extends Page
  */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
    * Construct a ConfPage object, given a name and url.
    * @constructor
-   * @extends Page
    * @param {string} name name of this page
    * @param {string} url  url of this page
    */

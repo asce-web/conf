@@ -9,11 +9,8 @@ block actionButtons
 
 block prepend mainBody
   +highlight()
-    p Use the color pickers to experiment with different combinations!
-      small  (Javascript must be enabled.)
-    ol.o-List.o-Flex
-      li.o-Flex__Item Primary   color: #[input.js-picker.js-picker-primary(type="color" style="width:3rem;" value="#3fae2a")]
-      li.o-Flex__Item Secondary color: #[input.js-picker.js-picker-secondary(type="color" style="width:3rem;" value="#00a1e1")]
+    include /_includes/colorpickers.jade
+    +colorPickers('#3fae2a', '#00a1e1')
 
 block mainMinimal
   include includes/_text-block-minimal.jade

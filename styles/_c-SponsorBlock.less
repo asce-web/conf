@@ -42,12 +42,14 @@
 .c-SponsorBlock--separate {
   .border-vert(bottom; 1px);
   border-style: solid;
+  border-color: @g-color-gray_lt; // HACK fallback
   border-color: var(--color-gray_lt);
 }
 
 .c-SponsorBlock__Hn {
   .font-size-el(@g-font_size_h2);
   font-family: inherit;
+  color: @g-color-gray_dk; // HACK fallback
   color: var(--color-gray_dk);
 }
 

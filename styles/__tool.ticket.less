@@ -18,7 +18,8 @@
   .font-size-mod(0.75);
   .border-vert(all; 1px);
   border-style: solid;
-  border-color: @g-color_asce_black;
+  border-color: @g-color-gray_dk; // HACK fallback
+  border-color: var(--color-gray_dk);
   h1 {
     font-family: inherit;
     color: inherit;

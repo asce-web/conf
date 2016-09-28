@@ -7,13 +7,13 @@ var ConfPage = require('./ConfPage.class.js')
  * with a name, url, taglinne,
  * logo, supporter levels and supporters, exhibitors, and contact information.
  * @type {ConfSite}
+ * @extends Page
  */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
    * Construct a ConfSite object, given a name and url.
    * @constructor
-   * @extends Page
    * @param {string} name name of this site
    * @param {string} url url of the landing page for this site
    * @param {string} tagline the tagline, or slogan, of this site
@@ -117,36 +117,35 @@ module.exports = (function () {
       this._conf_curr_key = conf_label
       ;(function (self) {
         if (self._was_initialized) {
-          var cur_conf_name = self.currentConference().name()
           self.find('#main-menu')
             .removeAll() //- NOTE IMPORTANT
             .add(new ConfPage('Home', 'home.html')
-              .title(cur_conf_name)
+              .title(self.currentConference().name())
               .description(self.currentConference().theme())
               .setIcon('home')
               .pagetype('main')
             )
             .add(new ConfPage('Registration', 'registration.html')
-              .title(function () { return this.name() + ' | ' + cur_conf_name })
-              .description('Register for ' + cur_conf_name + ' here.')
+              .title(ConfPage.pageTitle(self, 'main'))
+              .description('Register for ' + self.currentConference().name() + ' here.')
               .setIcon('shopping_cart')
               .pagetype('main')
             )
             .add(new ConfPage('Program', 'program.html')
-              .title(function () { return this.name() + ' | ' + cur_conf_name })
-              .description('Program and agenda of ' + cur_conf_name + '.')
+              .title(ConfPage.pageTitle(self, 'main'))
+              .description('Program and agenda of ' + self.currentConference().name() + '.')
               .setIcon('event')
               .pagetype('main')
             )
             .add(new ConfPage('Hotel & Travel', 'location.html')
-              .title(function () { return this.name() + ' | ' + cur_conf_name })
-              .description('Location and where to stay for ' + cur_conf_name + '.')
+              .title(ConfPage.pageTitle(self, 'main'))
+              .description('Location and where to stay for ' + self.currentConference().name() + '.')
               .setIcon('flight')
               .pagetype('main')
             )
             .add(new ConfPage('Speakers', 'speakers.html')
-              .title(function () { return this.name() + ' | ' + cur_conf_name })
-              .description('Current and prospective speakers at ' + cur_conf_name + '.')
+              .title(ConfPage.pageTitle(self, 'main'))
+              .description('Current and prospective speakers at ' + self.currentConference().name() + '.')
               .setIcon('account_box')
               .pagetype('main')
             )
@@ -263,7 +262,6 @@ module.exports = (function () {
     var self = this
     if (!self._was_initialized) {
       self._was_initialized = true
-      var pageTitle = function () { return this.name() + ' | ' + self.name() }
       return self
         .add(new Page({ name: 'Top', url: '#top-menu' })
           .add(new ConfPage(self.name(), 'index.html')
@@ -273,25 +271,25 @@ module.exports = (function () {
             .pagetype('top')
           )
           .add(new ConfPage('About', 'about.html')
-            .title(pageTitle)
+            .title(ConfPage.pageTitle(self, 'top'))
             .description('About ' + self.name() + '.')
             .setIcon('info_outline')
             .pagetype('top')
           )
           .add(new ConfPage('Sponsor', 'sponsor.html')
-            .title(pageTitle)
+            .title(ConfPage.pageTitle(self, 'top'))
             .description('Sponsors of ' + self.name() + '.')
             .setIcon('people')
             .pagetype('top')
           )
           .add(new ConfPage('Exhibit', 'exhibit.html')
-            .title(pageTitle)
+            .title(ConfPage.pageTitle(self, 'top'))
             .description('Exhibitors at ' + self.name() + '.')
             .setIcon('work')
             .pagetype('top')
           )
           .add(new ConfPage('Contact', 'contact.html')
-            .title(pageTitle)
+            .title(ConfPage.pageTitle(self, 'top'))
             .description('Contact us for questions and comments about ' + self.name() + '.')
             .setIcon('email')
             .pagetype('top')

@@ -58,5 +58,24 @@ module.exports = (function () {
     } else return this._pagetype
   }
 
+  // STATIC MEMBERS
+  /**
+   * Return the title of a Top page or one of its subpages.
+   * @param  {ConfSite} $site any ConfSite object, whose name will be part of the title
+   * @return {Function} a function that should be passed to {@link ConfPage#title()} to set its title
+   */
+  ConfPage.pageTitleTop = function pageTitleTop($site) {
+    return function () { return this.name() + ' | ' + $site.name() }
+  }
+
+  /**
+   * Return the title of a Main page or one of its subpages.
+   * @param  {ConfSite} $site any ConfSite object, whose current conference’s name will be part of the title
+   * @return {Function} a function that should be passed to {@link ConfPage#title()} to set its title
+   */
+  ConfPage.pageTitleMain = function pageTitleMain($site) {
+    return function () { return this.name() + ' | ' + $site.currentConference().name() }
+  }
+
   return ConfPage
 })()

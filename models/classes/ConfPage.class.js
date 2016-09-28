@@ -58,9 +58,28 @@ module.exports = (function () {
     } else return this._pagetype
   }
 
+  /**
+   * Add a sub-page to this page. The sub-page will be equipped for menus.
+   * @param {Object} args information about the sub-page. see below
+   * @param {string} args.name the name of the sub-page
+   * @param {string} args.url the url of the sub-page
+   * @param {string} args.description the description of the sub-page
+   * @param {ConfSite} args.$confsite the instance of ConfSite on which this sub-page lives
+   */
+  ConfPage.prototype.addSubpage = function addSubpage(args) {
+    args = args || {}
+    var self = this
+    return self
+      .add(new ConfPage(args.name, args.url)
+        .title(ConfPage.pageTitle(args.$confsite, self.pagetype()))
+        .description(args.description)
+        .pagetype(self.pagetype())
+      )
+  }
+
   // STATIC MEMBERS
   /**
-   * Define the title of a ConfPage object.
+   * Shortcut method for defining the title of a ConfPage object.
    * Call this static function and pass its return value to a ConfPage object’s `.title()` method
    * in order to set its title as one of the following:
    * - `${pagename} | ${sitename}`

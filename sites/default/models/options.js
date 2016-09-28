@@ -551,38 +551,44 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       })
 
     site.find('registration.html')
-      .add(new ConfPage('Why Attend', '#0')
-        .title(ConfPage.pageTitle(site, 'main'))
-        .description('Why you should attend ' + site.currentConference().name() + '.')
-        .pagetype('main')
-      )
-      .add(new ConfPage('Volunteer', '#0')
-        .title(ConfPage.pageTitle(site, 'main'))
-        .description('Volunteer at ' + site.currentConference().name() + '.')
-        .pagetype('main')
-      )
+      .addSubpage({
+        name       : 'Why Attend'
+      , url        : '#0'
+      , description: 'Why you should attend ' + site.currentConference().name() + '.'
+      , $confsite  : site
+      })
+      .addSubpage({
+        name       : 'Volunteer'
+      , url        : '#0'
+      , description: 'Volunteer at ' + site.currentConference().name() + '.'
+      , $confsite  : site
+      })
     site.find('program.html')
-      .add(new ConfPage('Short Courses', '#0')
-        .title(ConfPage.pageTitle(site, 'main'))
-        .description('Short Courses for ' + site.currentConference().name() + '.')
-        .pagetype('main')
-      )
-      .add(new ConfPage('Technical Tours', '#0')
-        .title(ConfPage.pageTitle(site, 'main'))
-        .description('Technical Tours for ' + site.currentConference().name() + '.')
-        .pagetype('main')
-      )
-      .add(new ConfPage('Optional Tours', '#0')
-        .title(ConfPage.pageTitle(site, 'main'))
-        .description('Optional Tours for ' + site.currentConference().name() + '.')
-        .pagetype('main')
-      )
+      .addSubpage({
+        name       : 'Short Courses'
+      , url        : '#0'
+      , description: 'Short Courses for ' + site.currentConference().name() + '.'
+      , $confsite  : site
+      })
+      .addSubpage({
+        name       : 'Technical Tours'
+      , url        : '#0'
+      , description: 'Technical Tours for ' + site.currentConference().name() + '.'
+      , $confsite  : site
+      })
+      .addSubpage({
+        name       : 'Optional Tours'
+      , url        : '#0'
+      , description: 'Optional Tours for ' + site.currentConference().name() + '.'
+      , $confsite  : site
+      })
     site.find('speakers.html')
-      .add(new ConfPage('Distinguished Lecture Series', '#0')
-        .title(ConfPage.pageTitle(site, 'main'))
-        .description('Distinguished lecturers at ' + site.currentConference().name() + '.')
-        .pagetype('main')
-      )
+      .addSubpage({
+        name       : 'Distinguished Lecture Series'
+      , url        : '#0'
+      , description: 'Distinguished lecturers at ' + site.currentConference().name() + '.'
+      , $confsite  : site
+      })
 
     return site
   })()

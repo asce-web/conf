@@ -28,5 +28,5 @@ node_modules
 
 
 # imported source files
-# temporary! remove when done
-/scripts/imports.js
+# browserify generated bundles
+**/scripts/*.b.js

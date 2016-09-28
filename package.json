@@ -17,6 +17,9 @@
     "lessc:default": "lessc sites/default/styles/site.less sites/default/styles/site.css",
     "lessc:all": "npm run lessc:conf  &&  npm run lessc:docs  &&  npm run lessc:default",
     "minify": "cleancss styles/conf.css -o styles/conf.min.css",
+    "browserify:visual": "browserify --no-commondir docs/scripts/visual.js > docs/scripts/visual.b.js",
+    "browserify:home": "browserify --no-commondir sites/default/scripts/home.js > sites/default/scripts/home.b.js",
+    "browserify:all": "npm run browserify:visual && npm run browserify:home",
     "unbuild:root": "rm index.html docs/{index,visual,base,obj,comp,help,atom}.html",
     "unbuild:sites": "rm sites/all/{index,about,sponsor,exhibit,contact,home,registration,program,location,speakers}.html",
     "unbuild:default": "rm sites/default/{index,about,sponsor,exhibit,contact,home,registration,program,location,speakers}.html",
@@ -35,6 +38,7 @@
   },
   "homepage": "http://conf.style.asce.org/",
   "devDependencies": {
+    "browserify": "^13.1.0",
     "clean-css": "^3.4.9",
     "csscolor": "^1.0.0",
     "jade": "^1.11.0",

@@ -65,6 +65,15 @@ block append main
         ul.o-List.docs-o-ColorList
           li.o-List__Item.docs-o-ColorList__Item: +derivBlock(color1)
           li.o-List__Item.docs-o-ColorList__Item: +derivBlock(color2)
+      p.
+        Each site uses four main colors: #[b Primary], #[b Secondary], #[b Dark Gray], and #[b Light Gray].
+        The #[b Primary] and #[b Secondary] are given, and the #[b Dark Gray] and #[b Light Gray]
+        are derived from those; see the formula below.
+        Each of the four main colors is accompanied by two shades (lighter) and two tints (darker).
+        The four main colors should be used for most design components, while the shades and tints may be
+        used for smaller or less important components. Specifically, where necessary,
+        #[b Dark Gray s2] may be used for black, and #[b Light Gray t2] should be used for white.
+      p The following formula is used to calcuate the gray colors from the given main colors.
       ol
         li
           p Start with two colors: a #[b Primary] and a #[b Secondary].
@@ -102,17 +111,11 @@ block append main
             For each of these four main colors
             (#[b Primary], #[b Secondary], #[b Dark Gray], #[b Light Gray]),
             the following operations will yield the shades and tints:
-          ul.-mb-1vru
+          ul
             li Shade 1 (s1): darken by 25%
             li Shade 2 (s2): darken by 50%
             li Tint 1 (t1): lighten by 25%
             li Tint 2 (t2): lighten by 50%
-        li
-          p.
-            The four main colors (#[b Primary], #[b Secondary], #[b Dark Gray], #[b Light Gray])
-            should be used for most components.
-            #[b Dark Gray s2] may be used for black where necessary, and
-            #[b Light Gray t2] should be used for white where necessary.
     +newSection(3, ConfDocs.DOCS.find('visual.html#site-colors'))
       h4 Docs
       p (this style guide)

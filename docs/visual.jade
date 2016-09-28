@@ -116,11 +116,8 @@ block append main
     +newSection(3, ConfDocs.DOCS.find('visual.html#site-colors'))
       h4 Docs
       p (this style guide)
-      p Use the color pickers to experiment with different combinations!
-        small  (Javascript must be enabled.)
-      ol.o-List.o-Flex
-        li.o-Flex__Item Primary   color: #[input.js-picker.js-picker-primary(type="color" style="width:3rem;" value="#660000")]
-        li.o-Flex__Item Secondary color: #[input.js-picker.js-picker-secondary(type="color" style="width:3rem;" value="#ff6600")]
+      include /_includes/colorpickers.jade
+      +colorPickers('#660000', '#ff6600')
       +siteColorList('#660000', '#ff6600', {id: 'docs-colors'})
       h4 ASCE 2016
       +siteColorList('#3fae2a', '#00a1e1')

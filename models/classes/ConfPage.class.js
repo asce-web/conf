@@ -60,21 +60,22 @@ module.exports = (function () {
 
   // STATIC MEMBERS
   /**
-   * Return the title of a Top page or one of its subpages.
-   * @param  {ConfSite} $site any ConfSite object, whose name will be part of the title
-   * @return {Function} a function that should be passed to {@link ConfPage#title()} to set its title
+   * Define the title of a ConfPage object.
+   * Call this static function and pass its return value to a ConfPage object’s `.title()` method
+   * in order to set its title as one of the following:
+   * - `${pagename} | ${sitename}`
+   * - `${pagename} | ${conferencename}`
+   * The return value of this function will itself be a function, which should be passed to `.title()`.
+   * @see ConfPage#title()
+   * @param  {ConfSite} $confsite any ConfSite object, whose name will be part of the title
+   * @param  {string} pagetype the type of the page whose title to set (must be 'top' or 'main')
+   * @return {Function} a function that should be passed to ConfPage#title() to set its title
    */
-  ConfPage.pageTitleTop = function pageTitleTop($site) {
-    return function () { return this.name() + ' | ' + $site.name() }
-  }
-
-  /**
-   * Return the title of a Main page or one of its subpages.
-   * @param  {ConfSite} $site any ConfSite object, whose current conference’s name will be part of the title
-   * @return {Function} a function that should be passed to {@link ConfPage#title()} to set its title
-   */
-  ConfPage.pageTitleMain = function pageTitleMain($site) {
-    return function () { return this.name() + ' | ' + $site.currentConference().name() }
+  ConfPage.pageTitle = function pageTitle($confsite, pagetype) {
+    return ({
+      top : function () { return this.name() + ' | ' + $confsite.name() }
+    , main: function () { return this.name() + ' | ' + $confsite.currentConference().name() }
+    })[pagetype]
   }
 
   return ConfPage

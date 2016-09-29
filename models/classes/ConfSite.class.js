@@ -1,6 +1,6 @@
 var Page = require('sitepage').Page
-var ConfPage = require('./ConfPage.class.js')
 var Color = require('csscolor').Color
+var ConfPage = require('./ConfPage.class.js')
 
 /**
  * A conference site.

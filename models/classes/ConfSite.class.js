@@ -351,17 +351,24 @@ module.exports = (function () {
    * @return {Object} a style object containg custom properties and color string values
    */
   ConfSite.colorStyles = function colorStyles($primary, $secondary) {
-    // normalize the luminosity of primary and secondary colors
-    var   primary_norm =   $primary.brighten(0.5 -   $primary.hslLum())
-    var secondary_norm = $secondary.brighten(0.5 - $secondary.hslLum())
-    // choose the grays
-    var gray_dk =   primary_norm.mix(secondary_norm, 1/4).desaturate(7/8, true).darken  (1/2, true)
-    var gray_lt = secondary_norm.mix(primary_norm  , 1/4).desaturate(7/8, true).brighten(1/2, true)
+    var gray_primary   = $primary.mix($secondary, 1/4).desaturate(7/8, true)
+    var gray_secondary = $secondary.mix($primary, 1/4).desaturate(7/8, true)
+
+    var gray_shade5 = gray_primary.brighten(1/12 - gray_primary.hslLum(), false)
+    var gray_shade4 = gray_primary.brighten(2/12 - gray_primary.hslLum(), false)
+    var gray_shade3 = gray_primary.brighten(3/12 - gray_primary.hslLum(), false)
+    var gray_shade2 = gray_primary.brighten(4/12 - gray_primary.hslLum(), false)
+    var gray_shade1 = gray_primary.brighten(5/12 - gray_primary.hslLum(), false)
+    var gray_tint1 = gray_secondary.brighten( 7/12 - gray_secondary.hslLum(), false)
+    var gray_tint2 = gray_secondary.brighten( 8/12 - gray_secondary.hslLum(), false)
+    var gray_tint3 = gray_secondary.brighten( 9/12 - gray_secondary.hslLum(), false)
+    var gray_tint4 = gray_secondary.brighten(10/12 - gray_secondary.hslLum(), false)
+    var gray_tint5 = gray_secondary.brighten(11/12 - gray_secondary.hslLum(), false)
     return {
-      '--color-primary'  :   $primary.toString()
-    , '--color-secondary': $secondary.toString()
-    , '--color-gray_dk'  :    gray_dk.toString()
-    , '--color-gray_lt'  :    gray_lt.toString()
+      '--color-primary'  :    $primary.toString()
+    , '--color-secondary':  $secondary.toString()
+    , '--color-gray_dk'  : gray_shade3.toString()
+    , '--color-gray_lt'  :  gray_tint3.toString()
 
     , '--color-primary-shade1'  :   $primary.darken  (0.25, true).toString()
     , '--color-primary-shade2'  :   $primary.darken  (0.50, true).toString()
@@ -373,15 +380,17 @@ module.exports = (function () {
     , '--color-secondary-tint1' : $secondary.brighten(0.25, true).toString()
     , '--color-secondary-tint2' : $secondary.brighten(0.50, true).toString()
 
-    , '--color-gray_dk-shade1'  :    gray_dk.darken  (0.25, true).toString()
-    , '--color-gray_dk-shade2'  :    gray_dk.darken  (0.50, true).toString()
-    , '--color-gray_dk-tint1'   :    gray_dk.brighten(0.25, true).toString()
-    , '--color-gray_dk-tint2'   :    gray_dk.brighten(0.50, true).toString()
+    , '--color-gray_dk-shade2'  : gray_shade5.toString()
+    , '--color-gray_dk-shade1'  : gray_shade4.toString()
+    , '--color-gray-shade3'     : gray_shade3.toString()
+    , '--color-gray_dk-tint1'   : gray_shade2.toString()
+    , '--color-gray_dk-tint2'   : gray_shade1.toString()
 
-    , '--color-gray_lt-shade1'  :    gray_lt.darken  (0.25, true).toString()
-    , '--color-gray_lt-shade2'  :    gray_lt.darken  (0.50, true).toString()
-    , '--color-gray_lt-tint1'   :    gray_lt.brighten(0.25, true).toString()
-    , '--color-gray_lt-tint2'   :    gray_lt.brighten(0.50, true).toString()
+    , '--color-gray_lt-shade2'  :  gray_tint1.toString()
+    , '--color-gray_lt-shade1'  :  gray_tint2.toString()
+    , '--color-gray-tint3'      :  gray_tint3.toString()
+    , '--color-gray_lt-tint1'   :  gray_tint4.toString()
+    , '--color-gray_lt-tint2'   :  gray_tint5.toString()
     }
   }
 

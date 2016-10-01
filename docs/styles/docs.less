@@ -80,13 +80,17 @@
 .docs-o-ColorList__Item {
   vertical-align: top;
   width: 20%;
+  &, th&, td& {
+    // HACK specificity
+    padding: 0.375rem 0.5rem;
+  }
   li& {
-    display: inline-block;
     margin-right: 3rem;
   }
-  &, th&, td& {
-    padding: 0.375rem 0.5rem;
-  } // HACK specificity
+  #derivation-color-palettes & {
+    display: inline-block;
+    width:25%;
+  }
 }
 
 

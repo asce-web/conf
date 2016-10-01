@@ -4,11 +4,11 @@ block append vars
   - var page = ConfDocs.DOCS.find('visual.html')
 
 block append main
-  mixin colorBox(w, attrs)
+  mixin colorBox(w, attrs, half)
     -
       attrs = attrs || {}
       var _width  = w
-      var _height = _width * (Math.sqrt(5)-1)/2
+      var _height = _width * (Math.sqrt(5)-1)/2 * (half ? 0.5 : 1)
     svg.docs-c-ColorBox(viewbox=`0 0 ${_width} ${_height}`)&attributes(attrs.svg || {})
       rect(width=_width height=_height)&attributes(attrs.rect || {})
   mixin siteColorList(primary_str, secondary_str, attr_table)
@@ -45,77 +45,89 @@ block append main
   +newSection(2, ConfDocs.DOCS.find('visual.html#colors'))
     +newSection(3, ConfDocs.DOCS.find('visual.html#derivation-color-palettes'))
       -
-        var primary   = Color.fromString('#00737b')
-        var secondary = Color.fromString('#694890')
-      mixin derivList(color1, color2)
-        mixin derivBlock($color)
-          -
-            function polyfillHSL($c) {
-              var h = Math.round($c.hslHue() *  10) /  10
-              var s = Math.round($c.hslSat() * 100) / 100
-              var l = Math.round($c.hslLum() * 100) / 100
-              return 'hsl(' + h + ', ' + s + ', ' + l + ')'
-            }
-          +colorBox(96, {
-            rect: { 'style': `fill: ${$color.toString('hex')}` }
-          })
-          p: code= polyfillHSL($color)
-          //- TODO on csscolor v1.1.0:
-          //- p: code= $color.toString('hsl')
-        ul.o-List.docs-o-ColorList
-          li.o-List__Item.docs-o-ColorList__Item: +derivBlock(color1)
-          li.o-List__Item.docs-o-ColorList__Item: +derivBlock(color2)
+        var primary   = Color.fromString('#0066cc')
+        var secondary = Color.fromString('#ff80a0')
+      mixin derivBlock($color, name)
+        +colorBox(96, {
+          rect: { 'style': `fill: ${$color.toString('hex')}` }
+        }, 'half')
+        p
+          if name
+            b= name
+            br
+          code= $color.toString('hsl')
       p.
         Each site uses four main colors: #[b Primary], #[b Secondary], #[b Dark Gray], and #[b Light Gray].
         The #[b Primary] and #[b Secondary] are given, and the #[b Dark Gray] and #[b Light Gray]
         are derived from those; see the formula below.
-        Each of the four main colors is accompanied by two shades (lighter) and two tints (darker).
+        Each of the four main colors is accompanied by two shades (darker) and two tints (lighter).
         The four main colors should be used for most design components, while the shades and tints may be
         used for smaller or less important components. Specifically, where necessary,
         #[b Dark Gray s2] may be used for black, and #[b Light Gray t2] should be used for white.
-      p The following formula is used to calcuate the gray colors from the given main colors.
-      ol
-        li
-          p Start with two colors: a #[b Primary] and a #[b Secondary].
-          -
-            var a1 = primary
-            var a2 = secondary
-          +derivList(a1, a2)
-        li
-          p Normalize the lightness of each of them.
-          -
-            var b1 = a1.brighten(0.5 - a1.hslLum())
-            var b2 = a2.brighten(0.5 - a2.hslLum())
-          +derivList(b1, b2)
-        li
-          p Mix in 25% of the other color.
-          -
-            var c1 = b1.mix(b2, 1/4)
-            var c2 = b2.mix(b1, 1/4)
-          +derivList(c1, c2)
-        li
-          p Desaturate each by 87.5%.
-          -
-            var d1 = c1.desaturate(7/8, true)
-            var d2 = c2.desaturate(7/8, true)
-          +derivList(d1, d2)
-        li
-          p Darken (primary) / lighten (secondary) by 50%.
-          -
-            var e1 = d1.darken  (1/2, true)
-            var e2 = d2.brighten(1/2, true)
-          +derivList(e1, e2)
-          p These results are the final #[b Dark Gray] and #[b Light Gray] colors.
-        li
-          p.
-            For each of these four main colors
-            (#[b Primary], #[b Secondary], #[b Dark Gray], #[b Light Gray]),
-            the following operations will yield the shades and tints:
-          ul
-            li Shade 1 (s1): darken by 25%
-            li Shade 2 (s2): darken by 50%
-            li Tint 1 (t1): lighten by 25%
-            li Tint 2 (t2): lighten by 50%
+      details
+        summary This formula generates the gray colors from the given main colors.
+        ol
+          li
+            p Start with two colors: a #[b Primary] and a #[b Secondary].
+            -
+              var a1 = primary
+              var a2 = secondary
+            ul.o-List.docs-o-ColorList
+              li.o-List__Item.docs-o-ColorList__Item: +derivBlock(a1, 'Primary')
+              li.o-List__Item.docs-o-ColorList__Item: +derivBlock(a2, 'Secondary')
+          li
+            p Mix in 25% of the other color.
+            -
+              var b1 = a1.mix(a2, 1/4)
+              var b2 = a2.mix(a1, 1/4)
+            ul.o-List.docs-o-ColorList
+              li.o-List__Item.docs-o-ColorList__Item: +derivBlock(b1)
+              li.o-List__Item.docs-o-ColorList__Item: +derivBlock(b2)
+          li
+            p Desaturate each by 87.5%.
+            -
+              var c1 = b1.desaturate(7/8, true)
+              var c2 = b2.desaturate(7/8, true)
+            ul.o-List.docs-o-ColorList
+              li.o-List__Item.docs-o-ColorList__Item: +derivBlock(c1)
+              li.o-List__Item.docs-o-ColorList__Item: +derivBlock(c2)
+          li
+            p Darken to 0.25 (#[b Dark Gray]) or lighten to 0.75 (#[b Light Gray]).
+            -
+              var d1 = c1.brighten(1/4 - c1.hslLum(), false)
+              var d2 = c2.brighten(3/4 - c2.hslLum(), false)
+            ul.o-List.docs-o-ColorList
+              li.o-List__Item.docs-o-ColorList__Item: +derivBlock(d1)
+              li.o-List__Item.docs-o-ColorList__Item: +derivBlock(d2)
+      details
+        summary Shades and tints are generated by lightness.
+        table.docs-o-ColorList
+          tbody
+            tr
+              td.docs-o-ColorList__Item: +derivBlock(a1.darken(2/3, true), 'Primary s2')
+              td.docs-o-ColorList__Item: +derivBlock(a2.darken(2/3, true), 'Secondary s2')
+              td.docs-o-ColorList__Item: +derivBlock(c1.brighten( 1/12 - c1.hslLum(), false), 'Dark Gray s2')
+              td.docs-o-ColorList__Item: +derivBlock(c2.brighten( 7/12 - c2.hslLum(), false), 'Light Gray s2')
+            tr
+              td.docs-o-ColorList__Item: +derivBlock(a1.darken(1/3, true), 'Primary s1')
+              td.docs-o-ColorList__Item: +derivBlock(a2.darken(1/3, true), 'Secondary s1')
+              td.docs-o-ColorList__Item: +derivBlock(c1.brighten( 2/12 - c1.hslLum(), false), 'Dark Gray s1')
+              td.docs-o-ColorList__Item: +derivBlock(c2.brighten( 8/12 - c2.hslLum(), false), 'Light Gray s1')
+            tr
+              th.docs-o-ColorList__Item: +derivBlock(a1, 'Primary')
+              th.docs-o-ColorList__Item: +derivBlock(a2, 'Secondary')
+              th.docs-o-ColorList__Item: +derivBlock(c1.brighten( 3/12 - c1.hslLum(), false), 'Dark Gray')
+              th.docs-o-ColorList__Item: +derivBlock(c2.brighten( 9/12 - c2.hslLum(), false), 'Light Gray')
+            tr
+              td.docs-o-ColorList__Item: +derivBlock(a1.darken(1/3, true).brighten(1/3, false), 'Primary t1')
+              td.docs-o-ColorList__Item: +derivBlock(a2.darken(1/3, true).brighten(1/3, false), 'Secondary t1')
+              td.docs-o-ColorList__Item: +derivBlock(c1.brighten( 4/12 - c1.hslLum(), false), 'Dark Gray t2')
+              td.docs-o-ColorList__Item: +derivBlock(c2.brighten(10/12 - c2.hslLum(), false), 'Light Gray t1')
+            tr
+              td.docs-o-ColorList__Item: +derivBlock(a1.darken(2/3, true).brighten(2/3, false), 'Primary t2')
+              td.docs-o-ColorList__Item: +derivBlock(a2.darken(2/3, true).brighten(2/3, false), 'Secondary t2')
+              td.docs-o-ColorList__Item: +derivBlock(c1.brighten( 5/12 - c1.hslLum(), false), 'Dark Gray t1')
+              td.docs-o-ColorList__Item: +derivBlock(c2.brighten(11/12 - c2.hslLum(), false), 'Light Gray t2')
     +newSection(3, ConfDocs.DOCS.find('visual.html#site-colors'))
       h4 Docs
       p (this style guide)

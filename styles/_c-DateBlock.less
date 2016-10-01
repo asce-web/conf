@@ -62,8 +62,9 @@
 }
 
 .c-DateBlock__Item {
-  margin-bottom: @g-vru;
-  .border-vert(all, @p-rw);
+  margin-bottom: @g-vru; // HACK fallback
+  margin-bottom: var(--vru);
+  .border-vert(all; @p-rw);
   border-style: solid;
 }
 
@@ -89,7 +90,8 @@
   .c-DateBlock > & {
     .border-vert(bottom, @p-rw);
     padding-top: 0;
-    margin-bottom: @g-vru;
+    margin-bottom: @g-vru; // HACK fallback
+    margin-bottom: var(--vru);
   }
 }
 

@@ -24,6 +24,15 @@
 }
 
 
+// set urls for each background-image here
+.c-Banner {
+  --bi-landing : url('http://img04.deviantart.net/e300/i/2006/277/b/c/portland_skyline_ii_by_hottoku.jpg');
+  --bi-home    : url('../img/cable-car.jpg');
+  --bi-location: url('../img/portland.jpg');
+  --bi-prev    : url('../img/new-york-city.jpg');
+  --bi-next    : url('../img/cable-stayed-bridge.jpg');
+}
+// HACK fallbacks
 // need the `::before` pseudo for the blur effect
 .c-Banner--landing::before  { background-image: url('http://img04.deviantart.net/e300/i/2006/277/b/c/portland_skyline_ii_by_hottoku.jpg'); }
 .c-Banner--home::before     { background-image: url('../img/cable-car.jpg'); }

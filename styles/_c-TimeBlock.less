@@ -18,8 +18,12 @@
 // Chris Harvey
 // ^updated
 // 2016-05-18
-@p-font_size_mod: (14/16); // NOTE taken from `Program.less`
+
+// HACK fallbacks
+// TODO remove these vars once css custom properties supported
+@p-font_size_mod: (14/16); // taken from `Program.less` // TODO remove comment in that file once done
 @l-vru: @p-font_size_mod * @g-vru; // module vru
+
 .c-TimeBlock {
   padding: @l-vru @g-boxpadd_kilo_h 0; // HACK fallback
   padding: var(--vru) @g-boxpadd_kilo_h 0;

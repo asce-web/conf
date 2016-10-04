@@ -20,8 +20,10 @@
   --padding-sK: @g-boxpadd_mill;
   --padding-sM: @g-boxpadd_norm;
   --padding-sG: @g-boxpadd_kilo;
-  padding: @g-boxpadd_micr; // HACK fallback
-  padding: var(--padding);
+  @media screen {
+    padding: @g-boxpadd_micr; // HACK fallback
+    padding: var(--padding);
+  }
   @media screen and (min-width: 30em) {
     padding: @g-boxpadd_mill; // HACK fallback
     padding: var(--padding-sK);
@@ -42,7 +44,7 @@
   --padding-sM: @g-boxpadd_mega;
   --padding-sG: @g-boxpadd_giga;
   // HACK fallbacks
-  padding: @g-boxpadd_norm;
+  @media screen                       { padding: @g-boxpadd_norm; }
   @media screen and (min-width: 30em) { padding: @g-boxpadd_norm; } // needs to override .o-Runner @sK (when minified)
   @media screen and (min-width: 45em) { padding: @g-boxpadd_mega; }
   @media screen and (min-width: 60em) { padding: @g-boxpadd_giga; }
@@ -54,7 +56,7 @@
   --padding-sM: @g-boxpadd_giga;
   --padding-sG: @g-boxpadd_peta;
   // HACK fallbacks
-  padding: @g-boxpadd_norm;
+  @media screen                       { padding: @g-boxpadd_norm; }
   @media screen and (min-width: 30em) { padding: @g-boxpadd_kilo; }
   @media screen and (min-width: 45em) { padding: @g-boxpadd_giga; }
   @media screen and (min-width: 60em) { padding: @g-boxpadd_peta; }

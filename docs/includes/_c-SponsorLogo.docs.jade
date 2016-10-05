@@ -1,10 +1,13 @@
 p.
-  A Sponsor Logo is a logo for a sponsoring organiation.
+  A Supporter Logo is a logo for a sponsoring or supporting organization.
   Typically, it is a link with a background image.
-  This Component can be a child of a #[a(href="#sponsor-block") Sponsor Block].
+  This Component defines only visual and graphical styles, not structural styles such as
+  width, height, padding, or margin.
+  Those styles are set in the #[a(href="#sponsor-block") Sponsor Block],
+  of which this Component can be a child (though it may not always be).
 figure.docs-figure
   include /_views/c-SponsorLogo.view.jade
-  div(style="margin-bottom:1.5rem;"): +sponsorLogo(new Supporter('Bank of America')
+  div(style="margin-bottom:1.5rem;"): +supporterLogo(new Supporter('Bank of America')
     .url('#0')
     .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg')
     .level(new SupporterLevel('Titanium').classname('c-SponsorBlock__Logo--lrg'))

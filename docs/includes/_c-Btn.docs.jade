@@ -171,6 +171,10 @@ section
 section
   h3 Button Summary Table
   table
+    mixin buttonCell(title, classnames)
+      a(class=classnames href="#0")= title
+      br
+      code= `class="${classnames}"`
     thead: tr
       th Button Style
       th Default Size
@@ -179,153 +183,54 @@ section
     tbody
       tr
         th Generic
-        td
-          a.c-Btn(href="#0") Generic Default
-          br
-          span .c-Btn
-        td
-          a.c-Btn.c-Btn--hilite(href="#0") Generic Highlight
-          br
-          span .c-Btn.c-Btn--hilite
-        td
-          a.c-Btn.c-Btn--inline(href="#0") Generic Inline
-          br
-          span .c-Btn.c-Btn--inline
+        td: +buttonCell('Generic Default'  , 'c-Btn')
+        td: +buttonCell('Generic Highlight', 'c-Btn c-Btn--hilite')
+        td: +buttonCell('Generic Inline'   , 'c-Btn c-Btn--inline')
       tr
         th Generic Dark
-        td
-          a.c-Btn.c-Btn--dark(href="#0") Generic Dark Default
-          br
-          span .c-Btn.c-Btn--dark
-        td
-          a.c-Btn.c-Btn--dark.c-Btn--hilite(href="#0") Generic Dark Highlight
-          br
-          span .c-Btn.c-Btn--dark.c-Btn--hilite
-        td
-          a.c-Btn.c-Btn--dark.c-Btn--inline(href="#0") Generic Dark Inline
-          br
-          span .c-Btn.c-Btn--dark.c-Btn--inline
+        td: +buttonCell('Generic Dark Default'  , 'c-Btn c-Btn--dark')
+        td: +buttonCell('Generic Dark Highlight', 'c-Btn c-Btn--dark c-Btn--hilite')
+        td: +buttonCell('Generic Dark Inline'   , 'c-Btn c-Btn--dark c-Btn--inline')
       tr
         th Primary
-        td
-          a.c-Btn.c-Btn--primary(href="#0") Primary Default
-          br
-          span .c-Btn.c-Btn--primary
-        td
-          a.c-Btn.c-Btn--primary.c-Btn--hilite(href="#0") Primary Highlight
-          br
-          span .c-Btn.c-Btn--primary.c-Btn--hilite
-        td
-          a.c-Btn.c-Btn--primary.c-Btn--inline(href="#0") Primary Inline
-          br
-          span .c-Btn.c-Btn--primary.c-Btn--inline
+        td: +buttonCell('Primary Default'  , 'c-Btn c-Btn--primary')
+        td: +buttonCell('Primary Highlight', 'c-Btn c-Btn--primary c-Btn--hilite')
+        td: +buttonCell('Primary Inline'   , 'c-Btn c-Btn--primary c-Btn--inline')
       tr
         th Secondary
-        td
-          a.c-Btn.c-Btn--secondary(href="#0") Secondary Default
-          br
-          span .c-Btn.c-Btn--secondary
-        td
-          a.c-Btn.c-Btn--secondary.c-Btn--hilite(href="#0") Secondary Highlight
-          br
-          span .c-Btn.c-Btn--secondary.c-Btn--hilite
-        td
-          a.c-Btn.c-Btn--secondary.c-Btn--inline(href="#0") Secondary Inline
-          br
-          span .c-Btn.c-Btn--secondary.c-Btn--inline
+        td: +buttonCell('Secondary Default'  , 'c-Btn c-Btn--secondary')
+        td: +buttonCell('Secondary Highlight', 'c-Btn c-Btn--secondary c-Btn--hilite')
+        td: +buttonCell('Secondary Inline'   , 'c-Btn c-Btn--secondary c-Btn--inline')
       tr
         th Ghost
-        td
-          a.c-Btn.c-Btn--ghost(href="#0") Ghost Default
-          br
-          span .c-Btn.c-Btn--ghost
-        td
-          a.c-Btn.c-Btn--ghost.c-Btn--hilite(href="#0") Ghost Highlight
-          br
-          span .c-Btn.c-Btn--ghost.c-Btn--hilite
-        td
-          a.c-Btn.c-Btn--ghost.c-Btn--inline(href="#0") Ghost Inline
-          br
-          span .c-Btn.c-Btn--ghost.c-Btn--inline
+        td: +buttonCell('Ghost Default'  , 'c-Btn c-Btn--ghost')
+        td: +buttonCell('Ghost Highlight', 'c-Btn c-Btn--ghost c-Btn--hilite')
+        td: +buttonCell('Ghost Inline'   , 'c-Btn c-Btn--ghost c-Btn--inline')
       tr(style="background-color: #555; color: #eee;")
         th Ghost Dark
-        td
-          a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark(href="#0") Ghost Dark Default
-          br
-          span .c-Btn.c-Btn--ghost.c-Btn--ghost--dark
-        td
-          a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--hilite(href="#0") Ghost Dark Highlight
-          br
-          span .c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--hilite
-        td
-          a.c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--inline(href="#0") Ghost Dark Inline
-          br
-          span .c-Btn.c-Btn--ghost.c-Btn--ghost--dark.c-Btn--inline
+        td: +buttonCell('Ghost Dark Default'  , 'c-Btn c-Btn--ghost c-Btn--ghost--dark')
+        td: +buttonCell('Ghost Dark Highlight', 'c-Btn c-Btn--ghost c-Btn--ghost--dark c-Btn--hilite')
+        td: +buttonCell('Ghost Dark Inline'   , 'c-Btn c-Btn--ghost c-Btn--ghost--dark c-Btn--inline')
     tbody
       tr
         th(rowspan="4") Glossy
-        td
-          a.c-Btn.c-Btn--glossy(href="#0") Glossy Default
-          br
-          span .c-Btn.c-Btn--glossy
-        td
-          a.c-Btn.c-Btn--glossy.c-Btn--hilite(href="#0") Glossy Highlight
-          br
-          span .c-Btn.c-Btn--glossy.c-Btn--hilite
-        td
-          a.c-Btn.c-Btn--glossy.c-Btn--inline(href="#0") Glossy Inline
-          br
-          span .c-Btn.c-Btn--glossy.c-Btn--inline
+        td: +buttonCell('Glossy Default'  , 'c-Btn c-Btn--glossy')
+        td: +buttonCell('Glossy Highlight', 'c-Btn c-Btn--glossy c-Btn--hilite')
+        td: +buttonCell('Glossy Inline'   , 'c-Btn c-Btn--glossy c-Btn--inline')
       tr
-        td
-          a.c-Btn.c-Btn--glossy.c-Btn--dark(href="#0") Glossy Dark Default
-          br
-          span .c-Btn.c-Btn--glossy.c-Btn--dark
-        td
-          a.c-Btn.c-Btn--glossy.c-Btn--dark.c-Btn--hilite(href="#0") Glossy Dark Highlight
-          br
-          span .c-Btn.c-Btn--glossy.c-Btn--dark.c-Btn--hilite
-        td
-          a.c-Btn.c-Btn--glossy.c-Btn--dark.c-Btn--inline(href="#0") Glossy Dark Inline
-          br
-          span .c-Btn.c-Btn--glossy.c-Btn--dark.c-Btn--inline
+        td: +buttonCell('Glossy Dark Default'  , 'c-Btn c-Btn--glossy c-Btn--dark')
+        td: +buttonCell('Glossy Dark Highlight', 'c-Btn c-Btn--glossy c-Btn--dark c-Btn--hilite')
+        td: +buttonCell('Glossy Dark Inline'   , 'c-Btn c-Btn--glossy c-Btn--dark c-Btn--inline')
       tr
-        td
-          a.c-Btn.c-Btn--glossy.c-Btn--primary(href="#0") Glossy Primary Default
-          br
-          span .c-Btn.c-Btn--glossy.c-Btn--primary
-        td
-          a.c-Btn.c-Btn--glossy.c-Btn--primary.c-Btn--hilite(href="#0") Glossy Primary Highlight
-          br
-          span .c-Btn.c-Btn--glossy.c-Btn--primary.c-Btn--hilite
-        td
-          a.c-Btn.c-Btn--glossy.c-Btn--primary.c-Btn--inline(href="#0") Glossy Primary Inline
-          br
-          span .c-Btn.c-Btn--glossy.c-Btn--primary.c-Btn--inline
+        td: +buttonCell('Glossy Primary Default'  , 'c-Btn c-Btn--glossy c-Btn--primary')
+        td: +buttonCell('Glossy Primary Highlight', 'c-Btn c-Btn--glossy c-Btn--primary c-Btn--hilite')
+        td: +buttonCell('Glossy Primary Inline'   , 'c-Btn c-Btn--glossy c-Btn--primary c-Btn--inline')
       tr
-        td
-          a.c-Btn.c-Btn--glossy.c-Btn--secondary(href="#0") Glossy Secondary Default
-          br
-          span .c-Btn.c-Btn--glossy.c-Btn--secondary
-        td
-          a.c-Btn.c-Btn--glossy.c-Btn--secondary.c-Btn--hilite(href="#0") Glossy Secondary Highlight
-          br
-          span .c-Btn.c-Btn--glossy.c-Btn--secondary.c-Btn--hilite
-        td
-          a.c-Btn.c-Btn--glossy.c-Btn--secondary.c-Btn--inline(href="#0") Glossy Secondary Inline
-          br
-          span .c-Btn.c-Btn--glossy.c-Btn--secondary.c-Btn--inline
+        td: +buttonCell('Glossy Secondary Default'  , 'c-Btn c-Btn--glossy c-Btn--secondary')
+        td: +buttonCell('Glossy Secondary Highlight', 'c-Btn c-Btn--glossy c-Btn--secondary c-Btn--hilite')
+        td: +buttonCell('Glossy Secondary Inline'   , 'c-Btn c-Btn--glossy c-Btn--secondary c-Btn--inline')
       tr
         th Flat
-        td
-          a.c-Btn.c-Btn--flat(href="#0") Flat Default
-          br
-          span .c-Btn.c-Btn--flat
-        td
-          a.c-Btn.c-Btn--flat.c-Btn--hilite(href="#0") Flat Highlight
-          br
-          span .c-Btn.c-Btn--flat.c-Btn--hilite
-        td
-          a.c-Btn.c-Btn--flat.c-Btn--inline(href="#0") Flat Inline
-          br
-          span .c-Btn.c-Btn--flat.c-Btn--inline
+        td: +buttonCell('Flat Default'  , 'c-Btn c-Btn--flat')
+        td: +buttonCell('Flat Highlight', 'c-Btn c-Btn--flat c-Btn--hilite')
+        td: +buttonCell('Flat Inline'   , 'c-Btn c-Btn--flat c-Btn--inline')

@@ -178,35 +178,6 @@
     box-shadow: @bs_x (-0.5*@bs_y) @bs_blur @bs_color inset;
   }
 }
-
-.c-Btn--flat {
-  --button-color:        transparent;
-  --button-color-hover:  var(--button-color);
-  --button-color-active: var(--button-color);
-  .menubar();
-  font-size: (14em/16); // same as Mast
-  letter-spacing: 1px;
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    color: @g-color-secondary; // HACK fallback // same as link
-    color: var(--color-secondary); // same as link
-  }
-  &:hover,
-  &:focus,
-  &._hover {
-    color: @g-color-gray_lt; // HACK fallback // same as link
-    color: var(--color-gray_lt); // same as link
-  }
-  &:active,
-  &._active {
-    color: @g-color-gray_dk; // HACK fallback
-    color: var(--color-gray_dk);
-  }
-}
 //++++ end # BUTTON TEXTURE STYLES ++++//
 
 

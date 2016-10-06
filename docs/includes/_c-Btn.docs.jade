@@ -125,26 +125,10 @@ section
       li.o-List__Item(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--glossy glossy button disabled
     pre.docs-pre.
       &lt;a class="#[u c-Btn]  #[u c-Btn--glossy]"&gt;glossy button&lt;/a&gt;
-  h4 Flat Button Texture
-  p Flat, link-ish buttons.
-  figure.docs-figure
-    ul.o-List
-      li.o-List__Item(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0") flat button
-      li.o-List__Item(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover
-      li.o-List__Item(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0")._active flat button active
-      li.o-List__Item(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat flat button disabled
-    div.o-Highlight.c-Banner(style="z-index:1;")
-      ul.o-List
-        li.o-List__Item(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0") flat button inside a banner
-        li.o-List__Item(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0")._hover flat button hover inside a banner
-        li.o-List__Item(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat(href="#0")._active flat button active inside a banner
-        li.o-List__Item(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--flat flat button disabled inside a banner
-    pre.docs-pre.
-      &lt;a class="#[u c-Btn]  #[u c-Btn--flat]"&gt;flat button&lt;/a&gt;
 section
   h3 Button Sizing Styles
   p These styles are for different sized buttons. Use with any color or texture style.
-  h4 Highlight Button Structure
+  h4 Highlight Button Size
   p Highlight buttons, for large buttons in highlight block.
   figure.docs-figure
     ul.o-List
@@ -154,7 +138,7 @@ section
       li.o-List__Item(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--hilite highlight button disabled
     pre.docs-pre.
       &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;highlight button&lt;/a&gt;
-  h4 Inline Buttons Structure
+  h4 Inline Buttons Size
   p Inline buttons, for buttons in line with text.
   figure.docs-figure
     p.
@@ -229,8 +213,3 @@ section
         td: +buttonCell('Glossy Secondary Default'  , 'c-Btn c-Btn--glossy c-Btn--secondary')
         td: +buttonCell('Glossy Secondary Highlight', 'c-Btn c-Btn--glossy c-Btn--secondary c-Btn--hilite')
         td: +buttonCell('Glossy Secondary Inline'   , 'c-Btn c-Btn--glossy c-Btn--secondary c-Btn--inline')
-      tr
-        th Flat
-        td: +buttonCell('Flat Default'  , 'c-Btn c-Btn--flat')
-        td: +buttonCell('Flat Highlight', 'c-Btn c-Btn--flat c-Btn--hilite')
-        td: +buttonCell('Flat Inline'   , 'c-Btn c-Btn--flat c-Btn--inline')

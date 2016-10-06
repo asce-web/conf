@@ -6,7 +6,96 @@
 // DEV STYLESHEET. FOR FIXING IMPORTED PROJECTS.
 
 // TODO xmeter v5.1+
-// .-fz-el-kilo {
-//   .font-size-el(1.5);
-// }
-// @g-font_size_mill: 12/16; // 0.75 // lines: 1
+///////////////////////////////////////////////////////////////////////////////
+// THE FOLLOWING CODE IS COPIED FROM STAGING BRANCH `xmeter:origin/stage-v5.1.0` ON XMETER.
+// REMOVE IT WHEN XMETER v5.1 IS RELEASED AND INSTALLED
+///////////////////////////////////////////////////////////////////////////////
+@g-font_size_peta: 96/16; // 6.00 // lines: ceil(6.00/@g-line_height) == 4
+@g-font_size_tera: 64/16; // 4.00 // lines: ceil(4.00/@g-line_height) == 3
+@g-font_size_giga: 48/16; // 3.00 // lines: ceil(3.00/@g-line_height) == 2
+@g-font_size_mega: 32/16; // 2.00 // lines: ceil(2.00/@g-line_height) == 2
+@g-font_size_kilo: 24/16; // 1.50 // lines: ceil(1.50/@g-line_height) == 1
+@g-font_size_norm: 16/16; // 1.00 // lines: ceil(1.00/@g-line_height) == 1
+@g-font_size_mill: 12/16; // 0.75 // lines: ceil(0.75/@g-line_height) == 1
+@g-font_size_micr:  8/16; // 0.50 // lines: ceil(0.50/@g-line_height) == 1
+@g-font_size_h1: @g-font_size_giga;
+@g-font_size_h2: @g-font_size_mega;
+@g-font_size_h3: @g-font_size_kilo;
+@g-font_size_h4: @g-font_size_norm;
+@g-font_size_h5: @g-font_size_mill;
+@g-font_size_h6: @g-font_size_micr;
+.vertspacing();
+h1 { .font-size-el(@g-font_size_h1; 2); }
+h2 { .font-size-el(@g-font_size_h2; 2); }
+h3 { .font-size-el(@g-font_size_h3); }
+h4 { .font-size-el(@g-font_size_h4); }
+h5 { .font-size-el(@g-font_size_h5); }
+h6 { .font-size-el(@g-font_size_h6); }
+.-fz-micr { font-size: @g-font_size_micr * 1em; }
+.-fz-mill { font-size: @g-font_size_mill * 1em; }
+.-fz-norm { font-size: @g-font_size_norm * 1em; }
+.-fz-kilo { font-size: @g-font_size_kilo * 1em; }
+.-fz-mega { font-size: @g-font_size_mega * 1em; }
+.-fz-giga { font-size: @g-font_size_giga * 1em; }
+.-fz-tera { font-size: @g-font_size_tera * 1em; }
+.-fz-peta { font-size: @g-font_size_peta * 1em; }
+.-fz-el-micr { .font-size-el(@g-font_size_micr); }
+.-fz-el-mill { .font-size-el(@g-font_size_mill); }
+.-fz-el-norm { .font-size-el(@g-font_size_norm); }
+.-fz-el-kilo { .font-size-el(@g-font_size_kilo); }
+.-fz-el-mega { .font-size-el(@g-font_size_mega; 2); }
+.-fz-el-giga { .font-size-el(@g-font_size_giga; 2); }
+.-fz-el-tera { .font-size-el(@g-font_size_tera; 3); }
+.-fz-el-peta { .font-size-el(@g-font_size_peta; 4); }
+
+// TODO xmeter v5.2+
+///////////////////////////////////////////////////////////////////////////////
+// THE FOLLOWING CODE IS COPIED FROM FEATURE   BRANCH `xmeter:origin/feat-vruvar` ON XMETER.
+// REMOVE IT WHEN XMETER v5.2+ IS RELEASED AND INSTALLED
+///////////////////////////////////////////////////////////////////////////////
+.font-size-mod(@ratio: 1) {
+  @l-vru: @ratio * @g-vru; // in rems // CHANGED DEPRECATED! will be dropped in favor of CSS Custom Properties
+  font-size: (@ratio * @g-1rem); // legacy browsers (see __settings for more info)
+  font-size: (@ratio *    1rem);
+  // line-height: inherit; // NOTE clarification
+  & > * {
+    --vru: calc(~'var(--line-height) * ' @ratio*1rem);
+  }
+  .vertspacing(@l-vru); // CHANGED DEPRECATED! will be dropped in favor of CSS Custom Properties
+}
+.font-size-el(@ratio: 1; @lines: 1; @line_height_parent: @g-line_height) {
+  font-size: (@ratio * 1em);
+  line-height: (@g-line_height / (@ratio/@lines)); // HACK fallback
+  line-height: calc(~'var(--line-height) / ' (@ratio/@lines));
+}
+.vertspacing(@spacing: @g-vru) {
+  h1, h2, h3, h4, h5, h6,
+  p, pre, figure, blockquote,
+  ol, ul, dl,
+  table,
+  fieldset {
+    margin-bottom: @spacing; // HACK fallback
+    margin-bottom: var(--vru);
+  }
+  h1 {
+    padding-top: @spacing; // HACK fallback
+    padding-top: var(--vru);
+  }
+}
+.-mb-1vru {
+  margin-bottom: @g-vru; // HACK fallback
+  margin-bottom: var(--vru);
+}
+.-pt-1vru {
+  padding-top: @g-vru; // HACK fallback
+  padding-top: var(--vru);
+}
+html {
+  --line-height: @g-line_height;
+  --vru: calc(~'var(--line-height) * 1rem');
+  // addresses support for `rem` units (otherwise these would be in `body` selector)
+  font-size: 100%; // defined by user agent
+  font-size: @g-1rem; // HACK fixes Chrome inheritance bug
+  line-height: @g-line_height; // HACK fallback
+  line-height: var(--line-height);
+}

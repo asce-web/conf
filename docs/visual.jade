@@ -4,8 +4,7 @@ block append vars
   - var page = ConfDocs.DOCS.find('visual.html')
 
 block append main
-  section#fonts
-    h2 Fonts
+  +newSection(2, ConfDocs.DOCS.find('visual.html#fonts'))
     h3 Font Sizes
     p.
       Please use only the font sizes listed below.
@@ -44,51 +43,51 @@ block append main
       Headings use the #[b Bitter] typeface, designed at Huerta Tipogr&aacute;fica.
       Only four fonts are available: normal and bold weights, with normal and italic style.
       The italic style is a #[i true italic].
-    figure.-fz-el-giga.docs-figure
-      ul.o-List.o-Grid
+    figure.docs-figure
+      ul.o-List.o-Grid.-fz-el-giga
         li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Bitter'; font-weight:400;") Bitter 400
         li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Bitter'; font-weight:400; font-style: italic;") Bitter 400 italic
         li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Bitter'; font-weight:700;") Bitter 700
         li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Bitter'; font-weight:700; font-style: italic;") Bitter 700 italic
-  mixin colorBox(w, attrs, half)
-    -
-      attrs = attrs || {}
-      var _width  = w
-      var _height = _width * (Math.sqrt(5)-1)/2 * (half ? 0.5 : 1)
-    svg.docs-c-ColorBox(viewbox=`0 0 ${_width} ${_height}`)&attributes(attrs.svg || {})
-      rect(width=_width height=_height)&attributes(attrs.rect || {})
-  mixin siteColorList(primary_str, secondary_str, attr_table)
-    - var site_colors = ConfSite.colorStyles(Color.fromString(primary_str), Color.fromString(secondary_str))
-    mixin cell(item, index)
-      mixin fig($pairing)
-        figure
-          +colorBox(96, {
-            svg: { 'data-prop': '--color' + $pairing.suffix }
-          , rect: { 'class': '-f' + $pairing.suffix }
-          })
-          p
-            b= $pairing.name
-            br
-            code= Color.fromString(site_colors['--color' + $pairing.suffix]).toString('hex')
-      if (index - 2) % 5 === 0
-        th.o-List__Item.docs-o-ColorList__Item
-          +fig(item)
-      else
-        td.o-List__Item.docs-o-ColorList__Item
-          +fig(item)
-    table.docs-o-ColorList(style=site_colors)&attributes(attr_table || {})
-      thead: tr
-        th(title="Shade 2")
-        th(title="Shade 1")
-        th(title="Main Color")
-        th(title="Tint 1")
-        th(title="Tint 2")
-      tbody
-        - for (var i = 0; i < ConfDocs.COLOR_NAMES.length; i += 5)
-          tr
-            each item,index in ConfDocs.COLOR_NAMES.slice(i, i+5)
-              +cell(item,index)
   +newSection(2, ConfDocs.DOCS.find('visual.html#colors'))
+    mixin colorBox(w, attrs, half)
+      -
+        attrs = attrs || {}
+        var _width  = w
+        var _height = _width * (Math.sqrt(5)-1)/2 * (half ? 0.5 : 1)
+      svg.docs-c-ColorBox(viewbox=`0 0 ${_width} ${_height}`)&attributes(attrs.svg || {})
+        rect(width=_width height=_height)&attributes(attrs.rect || {})
+    mixin siteColorList(primary_str, secondary_str, attr_table)
+      - var site_colors = ConfSite.colorStyles(Color.fromString(primary_str), Color.fromString(secondary_str))
+      mixin cell(item, index)
+        mixin fig($pairing)
+          figure
+            +colorBox(96, {
+              svg: { 'data-prop': '--color' + $pairing.suffix }
+            , rect: { 'class': '-f' + $pairing.suffix }
+            })
+            p
+              b= $pairing.name
+              br
+              code= Color.fromString(site_colors['--color' + $pairing.suffix]).toString('hex')
+        if (index - 2) % 5 === 0
+          th.o-List__Item.docs-o-ColorList__Item
+            +fig(item)
+        else
+          td.o-List__Item.docs-o-ColorList__Item
+            +fig(item)
+      table.docs-o-ColorList(style=site_colors)&attributes(attr_table || {})
+        thead: tr
+          th(title="Shade 2")
+          th(title="Shade 1")
+          th(title="Main Color")
+          th(title="Tint 1")
+          th(title="Tint 2")
+        tbody
+          - for (var i = 0; i < ConfDocs.COLOR_NAMES.length; i += 5)
+            tr
+              each item,index in ConfDocs.COLOR_NAMES.slice(i, i+5)
+                +cell(item,index)
     +newSection(3, ConfDocs.DOCS.find('visual.html#derivation-color-palettes'))
       -
         var primary   = Color.fromString('#0066cc')

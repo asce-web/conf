@@ -11,6 +11,7 @@
 var Color              = require('csscolor').Color
 var Util               = require('../../../models/classes/Util.class.js')
 var ConfSite           = require('../../../models/classes/ConfSite.class.js')
+var ConfPage           = require('../../../models/classes/ConfPage.class.js')
 var Conference         = require('../../../models/classes/Conference.class.js')
 var SupporterLevel     = require('../../../models/classes/SupporterLevel.class.js')
 var Supporter          = require('../../../models/classes/Supporter.class.js')
@@ -551,19 +552,65 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       , postal_code     : '70130'
       })
 
-    //- site
-    //-   .addSubpage('about.html'       , new ConfPage({name:'Cooperating Orgs'            , url:''}))
-    //-   .addSubpage('about.html'       , new ConfPage({name:'Partnering Orgs '            , url:''}))
-    //-   .addSubpage('about.html'       , new ConfPage({name:'Volunteer'                   , url:''}))
-    //-   .addSubpage('about.html'       , new ConfPage({name:'Why Attend'                  , url:''}))
-    //-   .addSubpage('registration.html', new ConfPage({name:'Why Attend'                  , url:''}))
-    //-   .addSubpage('registration.html', new ConfPage({name:'Short Courses'               , url:''}))
-    //-   .addSubpage('registration.html', new ConfPage({name:'Technical Tours'             , url:''}))
-    //-   .addSubpage('registration.html', new ConfPage({name:'Optional Tours'              , url:''}))
-    //-   .addSubpage('program.html'     , new ConfPage({name:'Events'                      , url:''}))
-    //-   .addSubpage('location.html'    , new ConfPage({name:'International Travel'        , url:''}))
-    //-   .addSubpage('speakers.html'    , new ConfPage({name:'Distinguished Lecture Series', url:''}))
-    //-   .addSubpage('speakers.html'    , new ConfPage({name:'Exhibitor List'              , url:''}))
+    site.find('sponsor.html')
+      .addSubpage({
+        name       : 'Partnering Orgs'
+      , url        : '#0'
+      , description: 'Partnering Organizations at ' + site.name() + '.'
+      , $confsite  : site
+      })
+      .addSubpage({
+        name       : 'Cooperating Orgs'
+      , url        : '#0'
+      , description: 'Cooperating Organizations at ' + site.name() + '.'
+      , $confsite  : site
+      })
+    site.find('exhibit.html')
+      .addSubpage({
+        name       : 'Exhibitor List'
+      , url        : '#0'
+      , description: 'Listing of all Exhibitors at ' + site.name() + '.'
+      , $confsite  : site
+      })
+    site.find('registration.html')
+      .addSubpage({
+        name       : 'Why Attend'
+      , url        : '#0'
+      , description: 'Why you should attend ' + site.currentConference().name() + '.'
+      , $confsite  : site
+      })
+      .addSubpage({
+        name       : 'Volunteer'
+      , url        : '#0'
+      , description: 'Volunteer at ' + site.currentConference().name() + '.'
+      , $confsite  : site
+      })
+    site.find('program.html')
+      .addSubpage({
+        name       : 'Short Courses'
+      , url        : '#0'
+      , description: 'Short Courses for ' + site.currentConference().name() + '.'
+      , $confsite  : site
+      })
+      .addSubpage({
+        name       : 'Technical Tours'
+      , url        : '#0'
+      , description: 'Technical Tours for ' + site.currentConference().name() + '.'
+      , $confsite  : site
+      })
+      .addSubpage({
+        name       : 'Optional Tours'
+      , url        : '#0'
+      , description: 'Optional Tours for ' + site.currentConference().name() + '.'
+      , $confsite  : site
+      })
+    site.find('speakers.html')
+      .addSubpage({
+        name       : 'Distinguished Lecture Series'
+      , url        : '#0'
+      , description: 'Distinguished lecturers at ' + site.currentConference().name() + '.'
+      , $confsite  : site
+      })
 
     return site
   })()

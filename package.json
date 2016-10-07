@@ -39,6 +39,7 @@
     "jade": "^1.11.0",
     "less": "^2.6.0",
     "pug-cli": "^1.0.0-alpha6",
+    "sitepage": "^1.0.0",
     "xmeter": "^5.0.0"
   },
   "dependencies": {}

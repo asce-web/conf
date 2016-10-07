@@ -37,23 +37,23 @@
   color: inherit; // everything inside the link looks like part of the same link
 }
 .c-SiteTitle__Logo {
-  width: var(--logosize); height: var(--logosize);
   // HACK fallbacks
   width: @p-logosize-s; height: @p-logosize-s;
   @media screen and (min-width: 30em) { width: @p-logosize-sK; height: @p-logosize-sK; }
   @media screen and (min-width: 45em) { width: @p-logosize-sM; height: @p-logosize-sM; }
+  width: var(--logosize); height: var(--logosize);
   .logo();
 }
 .c-SiteTitle__Name,
 .c-SiteTitle__Tagline {
+  padding-left: 0.5rem;
+  // HACK fallbacks
+  @media screen and (min-width: 30em) { width: calc(~'100% - '@p-logosize-sK); }
+  @media screen and (min-width: 45em) { width: calc(~'100% - '@p-logosize-sM); }
   @media screen and (min-width: 30em) {
     // NOTE no need to override (max-width:29em) with width:100%;
     width: calc(~'100% - var(--logosize)');
   }
-  // HACK fallbacks
-  @media screen and (min-width: 30em) { width: calc(~'100% - '@p-logosize-sK); }
-  @media screen and (min-width: 45em) { width: calc(~'100% - '@p-logosize-sM); }
-  padding-left: 0.5rem;
 }
 .c-SiteTitle__Name {
   text-align: inherit; // override h1 center

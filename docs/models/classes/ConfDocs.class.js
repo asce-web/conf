@@ -23,6 +23,7 @@ module.exports = (function () {
     .description('Pattern Library for conference microsites.')
     .init()
     docs.find('visual.html')
+      .add(new Page({ name: 'Fonts'    , url: 'visual.html#fonts' }))
       .add(new Page({ name: 'ASCE'     , url: 'visual.html#asce' }))
       .add(new Page({ name: 'ASCE 2016', url: 'visual.html#asce2016' }))
     docs.find('obj.html')

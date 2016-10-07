@@ -4,6 +4,54 @@ block append vars
   - var page = ConfDocs.DOCS.find('visual.html')
 
 block append main
+  section#fonts
+    h2 Fonts
+    h3 Font Sizes
+    p.
+      Please use only the font sizes listed below.
+      Sticking with a pre-determined set of font sizes will ensure a consistent look-and-feel,
+      while at the same time providing a sense of even vertical rhythm.
+    figure.docs-figure
+      ul.o-List(style="overflow:auto;white-space:nowrap;")
+        li.o-List__Item.-fz-el-peta universe / peta / 6.00
+        li.o-List__Item.-fz-el-tera galaxy   / tera / 4.00
+        li.o-List__Item.-fz-el-giga star     / giga / 3.00
+        li.o-List__Item.-fz-el-mega planet   / mega / 2.00
+        li.o-List__Item.-fz-el-kilo asteroid / kilo / 1.50
+        li.o-List__Item.-fz-el-norm molecule / norm / 1.00
+        li.o-List__Item.-fz-el-mill atom     / mill / 0.75
+        li.o-List__Item.-fz-el-micr quark    / micr / 0.50
+    h3 Font Families
+    h4 Body Copy
+    p.
+      Body copy use the #[b Open Sans] typeface, designed by Steve Matteson.
+      There are 10 fonts available: 5 weights, with 2 styles each.
+      The italic style is a #[i true italic].
+    figure.docs-figure
+      ul.o-List.o-Grid
+        li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Open Sans'; font-weight:300;") Open Sans 300
+        li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Open Sans'; font-weight:300; font-style: italic;") Open Sans 300 italic
+        li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Open Sans'; font-weight:400;") Open Sans 400
+        li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Open Sans'; font-weight:400; font-style: italic;") Open Sans 400 italic
+        li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Open Sans'; font-weight:600;") Open Sans 600
+        li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Open Sans'; font-weight:600; font-style: italic;") Open Sans 600 italic
+        li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Open Sans'; font-weight:700;") Open Sans 700
+        li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Open Sans'; font-weight:700; font-style: italic;") Open Sans 700 italic
+        li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Open Sans'; font-weight:800;") Open Sans 800
+        li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Open Sans'; font-weight:800; font-style: italic;") Open Sans 800 italic
+    h4 Headings
+    p.
+      Headings use the #[b Bitter] typeface, designed at Huerta Tipogr&aacute;fica.
+      Only four fonts are available: normal and bold weights, with normal and italic style.
+      The italic style is a #[i true italic].
+    figure.-fz-el-giga.docs-figure
+      ul.o-List.o-Grid
+        li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Bitter'; font-weight:400;") Bitter 400
+        li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Bitter'; font-weight:400; font-style: italic;") Bitter 400 italic
+        li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Bitter'; font-weight:700;") Bitter 700
+        li.o-List__Item.o-Grid__Item.-x-1o2(style="font-family:'Bitter'; font-weight:700; font-style: italic;") Bitter 700 italic
+
+block append main
   -
     var scheme = {
       asce: {

@@ -33,6 +33,8 @@
 //    # SECTIONS
 //++++++++++++++++++++++++++++++++//
 body {
+  --link-color: var(--color-secondary);
+  --link-color-hover: var(--color-gray_lt);
   font-family: @g-fontfam_body;
   background: #fff;
   color: #222;
@@ -104,13 +106,13 @@ h1 {
   //--------------------------------//
   a {
     color: @g-color-secondary; // HACK fallback
-    color: var(--color-secondary);
+    color: var(--link-color);
     .transitions(color, background-color; 125ms);
     &:hover,
     &:focus,
     &._hover {
       color: @g-color-gray_lt; // HACK fallback
-      color: var(--color-gray_lt);
+      color: var(--link-color-hover);
     }
     &:active,
     &._active {

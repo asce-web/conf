@@ -1,3 +1,0 @@
-mixin sponsorLogo($supporter, classes, attr_link, attr_name)
-  a.c-SponsorLogo(class=classes href=$supporter.url() style='background-image: url(\'' + ($supporter.img() || '') + '\');')&attributes(attr_link|| {})
-    span&attributes(attr_name|| {})= $supporter.name()

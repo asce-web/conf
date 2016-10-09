@@ -20,6 +20,7 @@
 // ^updated
 // 2016-04-22
 .c-Banner {
+  --heading-color: currentColor;
   position: relative; // for ::before
   color: #fff;
   &::before {
@@ -34,7 +35,7 @@
     background-size: cover;
   }
   h1, h2, h3, h4, h5, h6 {
-    color: inherit;
+    color: inherit; // HACK fallback
   }
 }
 

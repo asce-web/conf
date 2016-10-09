@@ -20,6 +20,7 @@
 // ^updated
 // 2016-04-27
 .c-Mast {
+  --heading-color: currentColor;
   --link-color: currentColor;
   --link-color-hover: var(--link-color);
   .font-size-mod(14/16);
@@ -29,7 +30,7 @@
   color: var(--color-gray_lt-tint2);
   border-color: @g-color-primary; // HACK fallback
   border-color: var(--color-primary);
-  h1,
+  h1, h2, h3, h4, h5, h6,
   a:not(:hover):not(:focus):not(._hover):not(:active):not(._active) {
     color: inherit; // HACK fallback
   }

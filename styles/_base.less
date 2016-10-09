@@ -33,6 +33,7 @@
 //    # SECTIONS
 //++++++++++++++++++++++++++++++++//
 body {
+  --heading-color: var(--color-primary);
   --link-color: var(--color-secondary);
   --link-color-hover: var(--color-gray_lt);
   font-family: @g-fontfam_body;
@@ -43,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: @g-fontfam_hn;
   font-weight: 900;
   color: @g-color-primary; // HACK fallback
-  color: var(--color-primary);
+  color: var(--heading-color);
 }
 h1 {
   text-align: center;

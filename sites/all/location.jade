@@ -4,8 +4,9 @@ block append vars
   - var page = site.find('location.html')
 
 block mainHeader
-  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--location(style="height: 13.5rem;"): div.o-Constrain
-    h1.c-PageTitle.c-PageTitle--special= page.name()
+  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--location: div.o-Constrain
+    div.c-Hero
+      h1.c-Hero__Name.c-PageTitle= page.name()
   section.o-Runner.o-Runner--highlight.-ta-c: div.o-Constrain
     h1.-d-n Important Locations
     ul.o-List.o-ListAction.c-Callout

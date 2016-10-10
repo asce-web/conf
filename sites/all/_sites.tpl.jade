@@ -97,6 +97,13 @@ html(lang="en")
       //- else if page.pagetype() === 'main'
       //-   +sitemap(site.find('#main-menu').findAll())
       +sitemap(site.find('#' + page.pagetype() + '-menu').findAll())
+      a.c-Btn(href="#top" title="go to top" style={
+        'position': 'fixed'
+      , 'bottom'  : '1.5rem'
+      , 'right'   : '2rem'
+      , 'z-index' : 1
+      , 'color'   : '#000'
+      }): i.material-icons arrow_upward
     footer.o-Runner.c-Mast.c-Mast--copyright: div.o-Constrain
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")

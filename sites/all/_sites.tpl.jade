@@ -95,7 +95,7 @@ html(lang="en")
             include /_views/c-SponsorBlock.view.jade
             each $supporterLevel,index in site.getSupporterLevelsAll('org')
               +sponsorBlock($supporterLevel
-              , site.getSupportersAll().filter(function ($supporter) { return $supporter.level() === $supporterLevel })
+              , site.getSupportersAll().filter(function ($supporter) { return $supporter.level() === $supporterLevel.name() })
               , (index < site.getSupporterLevelsAll('org').length-1) ? 'c-SponsorBlock--separate' : ''
               )
     footer.o-Runner.c-Mast(class='c-Mast--'+page.pagetype()): nav.o-Constrain

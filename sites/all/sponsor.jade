@@ -7,8 +7,8 @@ block sponsors
   section.o-Runner.o-Runner--highlight: div.o-Constrain
     h1#thank-you-sponsors Thank You to Our Sponsors
     include /_views/c-SponsorBlock.view.jade
-    each $supporterLevel,index in site.getSupporterLevelsAll()
+    each $supporterLevel,index in site.getSupporterLevelsAll('sponsor')
       +sponsorBlock($supporterLevel
       , site.getSupportersAll().filter(function ($supporter) { return $supporter.level() === $supporterLevel })
-      , (index < site.getSupporterLevelsAll().length-1) ? 'c-SponsorBlock--separate' : ''
+      , (index < site.getSupporterLevelsAll('sponsor').length-1) ? 'c-SponsorBlock--separate' : ''
       )

@@ -1,16 +1,18 @@
-p A Sponsor Block holds one group of sponsors.
+p A Supporter Block holds one group of supporters.
 p.
-  On the Sponsor page, each Sponsor Block corresponds to one level,
+  On the Sponsor page, each Supporter Block corresponds to one level,
   e.g., Platinum, Gold, or Corporate.
+  On all other pages, this block may be used to group additional organizations,
+  such as Cooperating Organizations.
   This block is a #[code.docs-code section] containing a heading
-  (the name of the sponsor level)
-  followed by an unordered list of sponsor logo items.
+  (the name of the level)
+  followed by an unordered list of logos.
 p.
-  To separate multiple sponsor blocks, add class #[code.docs-code .c-SponsorBlock--separate]
+  To separate multiple supporter blocks, add class #[code.docs-code .c-SupporterBlock--separate]
   for a thin bottom border.
 figure.docs-figure
   -
-    var sponsor_list = [
+    var supporters = [
       new Supporter('Bank of America')
         .url('#0')
         .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/bank-of-america-logo.jpg')
@@ -22,33 +24,33 @@ figure.docs-figure
         .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png')
     ]
   include /_views/c-SupporterBlock.view.jade
-  +supporterBlock(new SupporterLevel('Titanium').classname('c-SponsorBlock__Logo--lrg')
+  +supporterBlock(new SupporterLevel('Titanium').classname('c-SupporterBlock__Logo--lrg')
   , new ConfSite()
-      .addSupporter(sponsor_list[0].level('Titanium'))
-      .addSupporter(sponsor_list[1].level('Titanium'))
-      .addSupporter(sponsor_list[2].level('Titanium'))
-  , 'c-SponsorBlock--separate'
+      .addSupporter(supporters[0].level('Titanium'))
+      .addSupporter(supporters[1].level('Titanium'))
+      .addSupporter(supporters[2].level('Titanium'))
+  , 'c-SupporterBlock--separate'
   )
-  +supporterBlock(new SupporterLevel('Platinum').classname('c-SponsorBlock__Logo--med')
+  +supporterBlock(new SupporterLevel('Platinum').classname('c-SupporterBlock__Logo--med')
   , new ConfSite()
-      .addSupporter(sponsor_list[0].level('Platinum'))
-      .addSupporter(sponsor_list[1].level('Platinum'))
-      .addSupporter(sponsor_list[2].level('Platinum'))
-  , 'c-SponsorBlock--separate'
+      .addSupporter(supporters[0].level('Platinum'))
+      .addSupporter(supporters[1].level('Platinum'))
+      .addSupporter(supporters[2].level('Platinum'))
+  , 'c-SupporterBlock--separate'
   )
-  +supporterBlock(new SupporterLevel('Silver').classname('c-SponsorBlock__Logo--sml')
+  +supporterBlock(new SupporterLevel('Silver').classname('c-SupporterBlock__Logo--sml')
   , new ConfSite()
-      .addSupporter(sponsor_list[0].level('Silver'))
-      .addSupporter(sponsor_list[1].level('Silver'))
-      .addSupporter(sponsor_list[2].level('Silver'))
+      .addSupporter(supporters[0].level('Silver'))
+      .addSupporter(supporters[1].level('Silver'))
+      .addSupporter(supporters[2].level('Silver'))
   )
-  +microdataCheckbox('sponsorblock')
+  +microdataCheckbox('supporterblock')
     pre.docs-pre.
-      &lt;section class="#[u c-SponsorBlock]  #[u c-SponsorBlock--separate]"&gt;
-        &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Titanium&lt;/h1&gt;
+      &lt;section class="#[u c-SupporterBlock]  #[u c-SupporterBlock--separate]"&gt;
+        &lt;h1 class="#[u c-SupporterBlock__Hn]"&gt;Titanium&lt;/h1&gt;
         &lt;ul class="o-List  o-ListStacked"&gt;
           &lt;li class="o-List__Item  o-ListStacked__Item"#[mark.docs-c-Togglable__Text  itemprop="sponsor" itemscope="" itemtype="http://schema.org/Organization"]&gt;
-            &lt;a class="c-SponsorLogo  #[u c-SponsorBlock__Logo]  #[u c-SponsorBlock__Logo--lrg]"#[mark.docs-c-Togglable__Text  itemprop="url"]&gt;
+            &lt;a class="c-SupporterLogo  #[u c-SupporterBlock__Logo]  #[u c-SupporterBlock__Logo--lrg]"#[mark.docs-c-Togglable__Text  itemprop="url"]&gt;
               #[mark.docs-c-Togglable__Text &lt;span itemprop="name"&gt;]Bank of America#[mark.docs-c-Togglable__Text!= '&lt;/span&gt;']
             &lt;/a&gt;
           &lt;/li&gt;
@@ -56,8 +58,8 @@ figure.docs-figure
         &lt;/ul&gt;
       &lt;/section&gt;
 
-      &lt;section class="#[u c-SponsorBlock]"&gt;
-        &lt;h1 class="#[u c-SponsorBlock__Hn]"&gt;Silver&lt;/h1&gt;
+      &lt;section class="#[u c-SupporterBlock]"&gt;
+        &lt;h1 class="#[u c-SupporterBlock__Hn]"&gt;Silver&lt;/h1&gt;
         ...
       &lt;/section&gt;
       ...

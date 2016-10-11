@@ -94,7 +94,7 @@ html(lang="en")
             h1#additional-supporters.-d-n Additional Supporters
             include /_views/c-SupporterBlock.view.jade
             each $supporterLevel,index in site.getSupporterLevelsAll('org')
-              +supporterBlock($supporterLevel, site, { 'c-SponsorBlock--separate': index < site.getSupporterLevelsAll('org').length-1 })
+              +supporterBlock($supporterLevel, site, { 'c-SupporterBlock--separate': index < site.getSupporterLevelsAll('org').length-1 })
     footer.o-Runner.c-Mast(class='c-Mast--'+page.pagetype()): nav.o-Constrain
       h1.-d-n#site-map Site Map
       include /_views/c-Sitemap.view.jade

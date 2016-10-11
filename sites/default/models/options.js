@@ -69,13 +69,13 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .nextConference('2017')
 
     site
-      .addSupporterLevel(new SupporterLevel('Platinum' ).classname('c-SponsorBlock__Logo--lrg'), 'sponsor')
-      .addSupporterLevel(new SupporterLevel('Corporate').classname('c-SponsorBlock__Logo--med'), 'sponsor')
-      .addSupporterLevel(new SupporterLevel('Silver'   ).classname('c-SponsorBlock__Logo--med'), 'sponsor')
-      .addSupporterLevel(new SupporterLevel('Bronze'   ).classname('c-SponsorBlock__Logo--sml'), 'sponsor')
-      .addSupporterLevel(new SupporterLevel('Copper'   ).classname('c-SponsorBlock__Logo--sml'), 'sponsor')
-      .addSupporterLevel(new SupporterLevel('Charter Members').classname('c-SponsorBlock__Logo--lrg'), 'org')
-      .addSupporterLevel(new SupporterLevel('Cooperating Organizations').classname('c-SponsorBlock__Logo--lrg'), 'org')
+      .addSupporterLevel(new SupporterLevel('Platinum' ).classname('c-SupporterBlock__Logo--lrg'), 'sponsor')
+      .addSupporterLevel(new SupporterLevel('Corporate').classname('c-SupporterBlock__Logo--med'), 'sponsor')
+      .addSupporterLevel(new SupporterLevel('Silver'   ).classname('c-SupporterBlock__Logo--med'), 'sponsor')
+      .addSupporterLevel(new SupporterLevel('Bronze'   ).classname('c-SupporterBlock__Logo--sml'), 'sponsor')
+      .addSupporterLevel(new SupporterLevel('Copper'   ).classname('c-SupporterBlock__Logo--sml'), 'sponsor')
+      .addSupporterLevel(new SupporterLevel('Charter Members').classname('c-SupporterBlock__Logo--lrg'), 'org')
+      .addSupporterLevel(new SupporterLevel('Cooperating Organizations').classname('c-SupporterBlock__Logo--lrg'), 'org')
 
     site
       .addSupporter(new Supporter('ASCE Foundation')

@@ -15,7 +15,7 @@ module.exports = (function () {
     self._NAME = name
     self._url   = ''
     self._img   = ''
-    self._level = null
+    self._level = ''
   }
 
   // ACCESSOR FUNCTIONS
@@ -53,12 +53,13 @@ module.exports = (function () {
 
   /**
    * Set or get the supporter level in which this supporter belongs.
-   * @param  {SupporterLevel=} $supporterLevel the supporter level of this supporter
+   * @see SupporterLevel
+   * @param  {string=} level a string matching a the name of a SupporterLevel; the level this supporter belongs in
    * @return {(Supporter|SupporterLevel)} this supporter || the supporter level of this supporter
    */
-  Supporter.prototype.level = function level($supporterLevel) {
+  Supporter.prototype.level = function level(level) {
     if (arguments.length) {
-      this._level = $supporterLevel
+      this._level = level
       return this
     } else return this._level
   }

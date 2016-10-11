@@ -12,6 +12,7 @@
 // --location - 〃 Hotel & Travel page
 // --prev     - banner for previous year’s conference
 // --next     - banner for next year’s conference
+// --orgs     - banner for cooperating organizations (or similar groups)
 // ^subcomponents
 // __Overlay  - an element with a translucent background color
 // __Hn       - a heading inside a banner section
@@ -51,3 +52,11 @@
 .c-Banner--location::before { background-image: var(--bi-location); }
 .c-Banner--prev::before     { background-image: var(--bi-prev); }
 .c-Banner--next::before     { background-image: var(--bi-next); }
+
+.c-Banner--orgs {
+  &::before {
+    background: lighten(@g-color_site_gray_lt, 40%, relative); // override Banner
+  }
+  h1 { color: @g-color_site_primary; } // HACK fallback & override inherit
+  .c-SupporterBlock__Hn { color: @g-color_site_gray_dk; } // HACK fallback & override
+}

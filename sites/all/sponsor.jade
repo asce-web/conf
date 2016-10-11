@@ -6,6 +6,6 @@ block append vars
 block sponsors
   section.o-Runner.o-Runner--highlight: div.o-Constrain
     h1#thank-you-sponsors Thank You to Our Sponsors
-    include /_views/c-SponsorBlock.view.jade
+    include /_views/c-SupporterBlock.view.jade
     each $supporterLevel,index in site.getSupporterLevelsAll('sponsor')
       +supporterBlock($supporterLevel, site, { 'c-SponsorBlock--separate': index < site.getSupporterLevelsAll('sponsor').length-1 })

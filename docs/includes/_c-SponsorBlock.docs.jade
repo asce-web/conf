@@ -22,21 +22,21 @@ figure.docs-figure
         .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png')
     ]
   include /_views/c-SponsorBlock.view.jade
-  +sponsorBlock(new SupporterLevel('Titanium').classname('c-SponsorBlock__Logo--lrg')
+  +supporterBlock(new SupporterLevel('Titanium').classname('c-SponsorBlock__Logo--lrg')
   , new ConfSite()
       .addSupporter(sponsor_list[0].level('Titanium'))
       .addSupporter(sponsor_list[1].level('Titanium'))
       .addSupporter(sponsor_list[2].level('Titanium'))
   , 'c-SponsorBlock--separate'
   )
-  +sponsorBlock(new SupporterLevel('Platinum').classname('c-SponsorBlock__Logo--med')
+  +supporterBlock(new SupporterLevel('Platinum').classname('c-SponsorBlock__Logo--med')
   , new ConfSite()
       .addSupporter(sponsor_list[0].level('Platinum'))
       .addSupporter(sponsor_list[1].level('Platinum'))
       .addSupporter(sponsor_list[2].level('Platinum'))
   , 'c-SponsorBlock--separate'
   )
-  +sponsorBlock(new SupporterLevel('Silver').classname('c-SponsorBlock__Logo--sml')
+  +supporterBlock(new SupporterLevel('Silver').classname('c-SponsorBlock__Logo--sml')
   , new ConfSite()
       .addSupporter(sponsor_list[0].level('Silver'))
       .addSupporter(sponsor_list[1].level('Silver'))

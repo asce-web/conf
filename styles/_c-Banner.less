@@ -54,9 +54,14 @@
 .c-Banner--next::before     { background-image: var(--bi-next); }
 
 .c-Banner--orgs {
+  --heading-color: inherit; // override Banner
+  background: @g-color-gray_lt-tint2; // HACK fallback
+  background: var(--color-gray_lt-tint2);
   &::before {
-    background: lighten(@g-color_site_gray_lt, 40%, relative); // override Banner
+    content: none; // override Banner
   }
-  h1 { color: @g-color_site_primary; } // HACK fallback & override inherit
-  .c-SupporterBlock__Hn { color: @g-color_site_gray_dk; } // HACK fallback & override
+  h1 { // HACK override `.c-Banner >> h1`
+    color: @g-color-primary; // HACK fallback
+    color: var(--heading-color);
+  }
 }

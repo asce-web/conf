@@ -49,8 +49,11 @@
 .c-SupporterBlock__Hn {
   .font-size-el(@g-font_size_h2);
   font-family: inherit;
+  &,
+  .c-Banner & { // HACK specificity TODO remove when .c-Banner >> h1 can be removed
   color: @g-color-gray_dk; // HACK fallback
   color: var(--color-gray_dk);
+  }
 }
 
 .c-SupporterBlock__Logo {

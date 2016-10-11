@@ -10,11 +10,6 @@ p.
   for a thin bottom border.
 figure.docs-figure
   -
-    var levels = [
-      new SupporterLevel('Titanium').classname('c-SponsorBlock__Logo--lrg')
-    , new SupporterLevel('Platinum').classname('c-SponsorBlock__Logo--med')
-    , new SupporterLevel('Silver').classname('c-SponsorBlock__Logo--sml')
-    ]
     var sponsor_list = [
       new Supporter('Bank of America')
         .url('#0')
@@ -27,9 +22,26 @@ figure.docs-figure
         .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png')
     ]
   include /_views/c-SponsorBlock.view.jade
-  +sponsorBlock(levels[0], sponsor_list, 'c-SponsorBlock--separate')
-  +sponsorBlock(levels[1], sponsor_list, 'c-SponsorBlock--separate')
-  +sponsorBlock(levels[2], sponsor_list)
+  +sponsorBlock(new SupporterLevel('Titanium').classname('c-SponsorBlock__Logo--lrg')
+  , new ConfSite()
+      .addSupporter(sponsor_list[0].level('Titanium'))
+      .addSupporter(sponsor_list[1].level('Titanium'))
+      .addSupporter(sponsor_list[2].level('Titanium'))
+  , 'c-SponsorBlock--separate'
+  )
+  +sponsorBlock(new SupporterLevel('Platinum').classname('c-SponsorBlock__Logo--med')
+  , new ConfSite()
+      .addSupporter(sponsor_list[0].level('Platinum'))
+      .addSupporter(sponsor_list[1].level('Platinum'))
+      .addSupporter(sponsor_list[2].level('Platinum'))
+  , 'c-SponsorBlock--separate'
+  )
+  +sponsorBlock(new SupporterLevel('Silver').classname('c-SponsorBlock__Logo--sml')
+  , new ConfSite()
+      .addSupporter(sponsor_list[0].level('Silver'))
+      .addSupporter(sponsor_list[1].level('Silver'))
+      .addSupporter(sponsor_list[2].level('Silver'))
+  )
   +microdataCheckbox('sponsorblock')
     pre.docs-pre.
       &lt;section class="#[u c-SponsorBlock]  #[u c-SponsorBlock--separate]"&gt;

@@ -8,7 +8,4 @@ block sponsors
     h1#thank-you-sponsors Thank You to Our Sponsors
     include /_views/c-SponsorBlock.view.jade
     each $supporterLevel,index in site.getSupporterLevelsAll('sponsor')
-      +sponsorBlock($supporterLevel
-      , site.getSupportersAll().filter(function ($supporter) { return $supporter.level() === $supporterLevel.name() })
-      , (index < site.getSupporterLevelsAll('sponsor').length-1) ? 'c-SponsorBlock--separate' : ''
-      )
+      +sponsorBlock($supporterLevel, site, { 'c-SponsorBlock--separate': index < site.getSupporterLevelsAll('sponsor').length-1 })

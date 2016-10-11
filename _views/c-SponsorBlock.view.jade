@@ -1,8 +1,8 @@
-mixin sponsorBlock($supporterLevel, sponsor_list, classes)
+mixin sponsorBlock($supporterLevel, $confSite, classes)
   section.c-SponsorBlock(class=classes)
     h1.c-SponsorBlock__Hn= $supporterLevel.name()
     ul.o-List.o-ListStacked
-      each $supporter in sponsor_list
+      each $supporter in $confSite.getSupportersAll().filter(function ($supporter) { return $supporter.level() === $supporterLevel.name() })
         li.o-List__Item.o-ListStacked__Item(itemprop="sponsor" itemscope="" itemtype="http://schema.org/Organization")
           include ./c-SupporterLogo.view.jade
           +supporterLogo($supporter, 'c-SponsorBlock__Logo ' + $supporterLevel.classname(), {itemprop:'url'}, {itemprop:'name'})

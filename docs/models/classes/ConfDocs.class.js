@@ -46,7 +46,7 @@ module.exports = (function () {
       .add(new Page({ name: 'The Other Year Block'     , url: 'comp.html#other-year-block' }))
       .add(new Page({ name: 'The Overlay Component'    , url: 'comp.html#overlay-component' }))
       .add(new Page({ name: 'The Supporter Logo'       , url: 'comp.html#supporter-logo' }))
-      .add(new Page({ name: 'The Sponsor Block'        , url: 'comp.html#sponsor-block' }))
+      .add(new Page({ name: 'The Supporter Block'      , url: 'comp.html#supporter-block' }))
       .add(new Page({ name: 'The Date Block'           , url: 'comp.html#date-block' }))
       .add(new Page({ name: 'The Pass Component'       , url: 'comp.html#pass-component' }))
       .add(new Page({ name: 'The Program Component'    , url: 'comp.html#program-component' }))

@@ -28,14 +28,15 @@
   .flex(0 0 auto);
   @media screen and (max-width: 44.999em) {
     &:not(:last-child) {
-      margin-bottom: (@p-fz * @g-vru); // FIXME uses module vru
+      margin-bottom: (@p-fz * @g-vru); // HACK fallback // uses module vru
+      margin-bottom: var(--vru);
     }
   }
 }
 .c-Sitemap__SubList {
-  text-transform: none; // override .menubar()
   font-weight: 300;
   .font-size-el(12/14);
+  text-transform: none; // override .menubar()
   @media screen and (max-width: 44.999em) {
     .font-size-el(16/20);
   }

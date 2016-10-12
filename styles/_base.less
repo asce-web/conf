@@ -91,7 +91,8 @@ h1 {
   }
   th,
   td {
-    padding: (0.5 * @g-vru) 0.5rem;
+    padding: (0.5 * 0.75*@g-vru) 0.5rem; // HACK fallback
+    padding: calc(~'0.5 * var(--vru)') 0.5rem;
     border: 0 solid @g-color_asce_table_border;
     border-width: 0 0 1px;
   }

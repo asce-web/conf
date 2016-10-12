@@ -18,18 +18,23 @@
 // Chris Harvey
 // ^updated
 // 2016-05-18
-@p-font_size_mod: (14/16); // NOTE taken from `Program.less`
-@l-mem: @p-font_size_mod * 1rem; // module em (like root em if the module were the root)
+
+// HACK fallbacks
+// TODO remove these vars once css custom properties supported
+@p-font_size_mod: (14/16); // taken from `Program.less` // TODO remove comment in that file once done
 @l-vru: @p-font_size_mod * @g-vru; // module vru
+
 .c-TimeBlock {
-  padding: @l-vru @g-boxpadd_kilo_h 0;
+  padding: @l-vru @g-boxpadd_kilo_h 0; // HACK fallback
+  padding: var(--vru) @g-boxpadd_kilo_h 0;
 }
 
 .c-TimeBlock__Item {
 }
 .c-TimeBlock__Times,
 .c-TimeBlock__Desc {
-  padding: 0 @g-boxpadd_kilo_h (2*@l-vru);
+  padding: 0 @g-boxpadd_kilo_h (2*@l-vru); // HACK fallback
+  padding: 0 @g-boxpadd_kilo_h calc(~'2 * var(--vru)');
   @media screen and (min-width: 30em) {
     .flex(50%);
     max-width: 50%;
@@ -68,25 +73,36 @@
   }
   .c-TimeBlock__Times::before {
     // This is the disc on the viz
-    @width: @l-mem;
-    left: (-0.5 * @width);
-    top: (-0.5*@width + 0.5*@l-vru);
-    width:  @width;
-    height: @width;
+    @width: @p-font_size_mod * 1rem; // module em (like root em if the module were the root)
+    @_width: calc(~'var(--vru) / var(--line-height)');
+    @_side : calc(~'-0.5 * var(--vru) / var(--line-height)');
+    @_top  : calc(~'-0.5 * var(--vru) / var(--line-height) + 0.5 * var(--vru)');
+    left: (-0.5 * @width); // HACK fallback
+    top: (-0.5*@width + 0.5*@l-vru); // HACK fallback
+    width: @width; // HACK fallback
+    height: @width; // HACK fallback
+    left: @_side;
+    top: @_top;
+    width: @_width;
+    height: @_width;
     border-radius: 100%;
     @media (min-width: 30em) {
       left: auto;
-      right: (-0.5 * @width);
+      right: (-0.5 * @width); // HACK fallback
+      right: @_side;
     }
   }
   .c-TimeBlock__Desc:not(.c-TimeBlock__Desc--last)::before {
     // This is the line on the viz
     left: 0;
-    top: (-0.5 * @l-vru);
-    bottom: (-0.5 * @l-vru);
+    top   : (-0.5 * @l-vru); // HACK fallback
+    bottom: (-0.5 * @l-vru); // HACK fallback
+    top   : calc(~'-0.5 * var(--vru)');
+    bottom: calc(~'-0.5 * var(--vru)');
     border-left: 1px solid;
     @media (min-width: 30em) {
-      top: (0.5 * @l-vru);
+      top: (0.5 * @l-vru); // HACK fallback
+      top: calc(~'0.5 * var(--vru)');
     }
   }
 }

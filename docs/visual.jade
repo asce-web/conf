@@ -4,23 +4,22 @@ block append vars
   - var page = ConfDocs.DOCS.find('visual.html')
 
 block append main
-  section#fonts
-    h2 Fonts
+  +newSection(2, ConfDocs.DOCS.find('visual.html#fonts'))
     h3 Font Sizes
     p.
       Please use only the font sizes listed below.
       Sticking with a pre-determined set of font sizes will ensure a consistent look-and-feel,
       while at the same time providing a sense of even vertical rhythm.
     figure.docs-figure
-      ul.o-List(style="overflow:auto;white-space:nowrap;")
-        li.o-List__Item.-fz-el-peta universe / peta / 6.00
-        li.o-List__Item.-fz-el-tera galaxy   / tera / 4.00
-        li.o-List__Item.-fz-el-giga star     / giga / 3.00
-        li.o-List__Item.-fz-el-mega planet   / mega / 2.00
-        li.o-List__Item.-fz-el-kilo asteroid / kilo / 1.50
-        li.o-List__Item.-fz-el-norm molecule / norm / 1.00
-        li.o-List__Item.-fz-el-mill atom     / mill / 0.75
-        li.o-List__Item.-fz-el-micr quark    / micr / 0.50
+      ul.o-List
+        li.o-List__Item.-fz-el-peta peta 6.00
+        li.o-List__Item.-fz-el-tera tera 4.00
+        li.o-List__Item.-fz-el-giga giga 3.00
+        li.o-List__Item.-fz-el-mega mega 2.00
+        li.o-List__Item.-fz-el-kilo kilo 1.50
+        li.o-List__Item.-fz-el-norm norm 1.00
+        li.o-List__Item.-fz-el-mill mill 0.75
+        li.o-List__Item.-fz-el-micr micr 0.50
     h3 Font Families
     h4 Body Copy
     p.

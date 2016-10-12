@@ -51,10 +51,8 @@
   .c-MenuSub,
   .c-Sitemap,
   .c-Sitemap__SubList {
-    margin-bottom: 0; // override `.font-size-mod() >> h1` and `.font-size-mod() >> ul`
-  }
-  .c-ASCELogo {
-    margin-top: @l-vru; // HACK need local variable
+    // HACK specificity
+    margin-bottom: 0; // override `.font-size-mod() >> ul`
   }
 }
 
@@ -106,6 +104,8 @@
 // 2016-08-17
 .c-ASCELogo {
   text-indent: -999999px;
+  margin-top: (14/16 * @g-vru); // HACK fallback uses `.c-Mast` module vru
+  margin-top: var(--vru);
   margin-left:  auto;
   margin-right: auto;
   width: 233px; // 73px;

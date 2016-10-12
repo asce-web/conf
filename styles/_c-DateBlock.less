@@ -62,8 +62,9 @@
 }
 
 .c-DateBlock__Item {
-  margin-bottom: @g-vru;
-  .border-vert(all, @p-rw);
+  margin-bottom: @g-vru; // HACK fallback
+  margin-bottom: var(--vru);
+  .border-vert(all; @p-rw);
   border-style: solid;
 }
 
@@ -78,7 +79,7 @@
 .c-DateBlock__Date {
   font-weight: 300;
   .c-DateBlock > & {
-    .border-vert(top, @p-rw);
+    .border-vert(top; @p-rw);
     padding-bottom: 0;
   }
 }
@@ -87,9 +88,10 @@
   .font-size-el(1.25);
   font-weight: 600;
   .c-DateBlock > & {
-    .border-vert(bottom, @p-rw);
+    .border-vert(bottom; @p-rw);
     padding-top: 0;
-    margin-bottom: @g-vru;
+    margin-bottom: @g-vru; // HACK fallback
+    margin-bottom: var(--vru);
   }
 }
 

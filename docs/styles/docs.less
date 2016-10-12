@@ -24,14 +24,14 @@
 @p-color_asce_black: #222;
 @p-color_asce_white: #fff;
 .docs-main {
-  margin: 0 1rem @g-vru;
+  margin: 0 1rem var(--vru);
 }
 .docs-pre,
 .docs-code {
   color: #000;
 }
 .docs-pre {
-  padding: (@g-vru*0.50) 1.00rem;
+  padding: calc(~'0.5 * var(--vru)') 1rem;
   .border-vert(all; 1px);
   border-color: @p-color_asce_blue;
   border-radius: 4px;

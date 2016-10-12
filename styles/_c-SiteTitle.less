@@ -47,11 +47,13 @@
 .c-SiteTitle__Name,
 .c-SiteTitle__Tagline {
   padding-left: 0.5rem;
+  // @media screen and (max-width: 29.999em) {
+  //   width: 100%; // NOTE not necessary (default)
+  // }
   // HACK fallbacks
   @media screen and (min-width: 30em) { width: calc(~'100% - '@p-logosize-sK); }
   @media screen and (min-width: 45em) { width: calc(~'100% - '@p-logosize-sM); }
   @media screen and (min-width: 30em) {
-    // NOTE no need to override (max-width:29em) with width:100%;
     width: calc(~'100% - var(--logosize)');
   }
 }

@@ -1,6 +1,6 @@
 
 /*################################*\
-    conf  |  _c-SponsorBlock.less
+    conf  |  _c-SupporterBlock.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__fallback.flexbox.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.borders.less');
@@ -36,27 +36,30 @@
 // @p-color_copper:    #d6a985; // CH chose this; may be changed at any time <charvey@asce.org>
 // @p-color_coop_bg:   #e8eaeb; // bgcolor for coop orgs
 
-.c-SponsorBlock {
+.c-SupporterBlock {
   text-align: center;
 }
-.c-SponsorBlock--separate {
+.c-SupporterBlock--separate {
   .border-vert(bottom; 1px);
   border-style: solid;
   border-color: @g-color-gray_lt; // HACK fallback
   border-color: var(--color-gray_lt);
 }
 
-.c-SponsorBlock__Hn {
+.c-SupporterBlock__Hn {
   .font-size-el(@g-font_size_h2);
   font-family: inherit;
+  &,
+  .c-Banner & { // HACK specificity TODO remove when .c-Banner >> h1 can be removed
   color: @g-color-gray_dk; // HACK fallback
   color: var(--color-gray_dk);
+  }
 }
 
-.c-SponsorBlock__Logo {
+.c-SupporterBlock__Logo {
   margin: auto;
 }
-.c-SponsorBlock__Logo--sml {
+.c-SupporterBlock__Logo--sml {
   .p-dimensions(68px; 36px);
   @media screen and (min-width: 45em) {
     .p-dimensions(140px; 62px);
@@ -65,7 +68,7 @@
     .p-dimensions(202px; 90px);
   }
 }
-.c-SponsorBlock__Logo--med {
+.c-SupporterBlock__Logo--med {
   .p-dimensions(90px; 48px);
   @media screen and (min-width: 45em) {
     .p-dimensions(188px; 82px);
@@ -74,7 +77,7 @@
     .p-dimensions(270px; 120px);
   }
 }
-.c-SponsorBlock__Logo--lrg {
+.c-SupporterBlock__Logo--lrg {
   .p-dimensions(120px; 65px);
   @media screen and (min-width: 45em) {
     .p-dimensions(250px; 110px);

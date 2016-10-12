@@ -89,6 +89,12 @@ html(lang="en")
               #[a(href="http://go.asce.org/static/sponsors/") sponsors carousel]
               by rank)
             +highlightButtons([{text:'All Sponsors', href:'sponsor.html'}])
+        block additionalSupporters
+          +highlight('c-Banner c-Banner--orgs')
+            h1#additional-supporters.-d-n Additional Supporters
+            include /_views/c-SupporterBlock.view.jade
+            each $supporterLevel,index in site.getSupporterLevelsAll('org')
+              +supporterBlock($supporterLevel, site, { 'c-SupporterBlock--separate': index < site.getSupporterLevelsAll('org').length-1 })
     footer.o-Runner.c-Mast(class='c-Mast--'+page.pagetype()): nav.o-Constrain
       h1.-d-n#site-map Site Map
       include /_views/c-Sitemap.view.jade
@@ -97,6 +103,13 @@ html(lang="en")
       //- else if page.pagetype() === 'main'
       //-   +sitemap(site.find('#main-menu').findAll())
       +sitemap(site.find('#' + page.pagetype() + '-menu').findAll())
+      a.c-Btn(href="#top" title="go to top" style={
+        'position': 'fixed'
+      , 'bottom'  : '1.5rem'
+      , 'right'   : '2rem'
+      , 'z-index' : 1
+      , 'color'   : '#000'
+      }): i.material-icons arrow_upward
     footer.o-Runner.c-Mast.c-Mast--copyright: div.o-Constrain
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")

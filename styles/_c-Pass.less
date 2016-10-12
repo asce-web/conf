@@ -53,6 +53,12 @@
 }
 
 .c-Pass__Hn,
+.c-Pass__Period__Hn {
+  font-family: inherit; // override h1
+  color: inherit; // override h1
+}
+
+.c-Pass__Hn,
 .c-Pass__Desc {
   white-space: nowrap;
 }
@@ -69,8 +75,8 @@
   font-weight: 300;
   font-style: italic;
   .font-size-el(14/16);
-  white-space: normal; // fallback
-  white-space: initial; // override __Desc
+  white-space: normal; // HACK fallback for IE
+  white-space: initial;
 }
 
 .c-Pass__Attendee {

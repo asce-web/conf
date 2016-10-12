@@ -12,6 +12,7 @@
 // --location - 〃 Hotel & Travel page
 // --prev     - banner for previous year’s conference
 // --next     - banner for next year’s conference
+// --orgs     - banner for cooperating organizations (or similar groups)
 // ^subcomponents
 // __Overlay  - an element with a translucent background color
 // __Hn       - a heading inside a banner section
@@ -20,6 +21,7 @@
 // ^updated
 // 2016-04-22
 .c-Banner {
+  --heading-color: currentColor;
   position: relative; // for ::before
   color: #fff;
   &::before {
@@ -34,7 +36,7 @@
     background-size: cover;
   }
   h1, h2, h3, h4, h5, h6 {
-    color: inherit;
+    color: inherit; // HACK fallback
   }
 }
 
@@ -44,9 +46,23 @@
 .c-Banner--prev,
 .c-Banner--next {
 }
-// override background-image in site-specific stylesheet
-.c-Banner--landing::before {}
-.c-Banner--home::before {}
-.c-Banner--location::before {}
-.c-Banner--prev::before {}
-.c-Banner--next::before {}
+// override actual urls in site-specific stylesheet
+.c-Banner--landing::before  { background-image: var(--bi-landing); }
+.c-Banner--home::before     { background-image: var(--bi-home); }
+.c-Banner--location::before { background-image: var(--bi-location); }
+.c-Banner--prev::before     { background-image: var(--bi-prev); }
+.c-Banner--next::before     { background-image: var(--bi-next); }
+
+.c-Banner--orgs {
+  --heading-color: inherit; // override Banner
+  background-color: @g-color-gray_lt-tint2; // HACK fallback
+  background-color: var(--color-gray_lt-tint2);
+  background: linear-gradient(to bottom, var(--color-gray_lt-tint2), var(--color-gray_lt-tint1));
+  &::before {
+    content: none; // override Banner
+  }
+  h1 { // HACK override `.c-Banner >> h1`
+    color: @g-color-primary; // HACK fallback
+    color: var(--heading-color);
+  }
+}

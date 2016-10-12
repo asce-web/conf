@@ -59,25 +59,23 @@
 .c-Btn {
   // generic button color styles
   background-color: @g-color-gray_lt; // HACK fallback
+  color: @g-color-gray_dk-shade2; // HACK fallback
   background-color: var(--button-color);
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    color: #000;
-  }
+  color: var(--button-text);
   &:hover,
   &:focus,
   &._hover {
     background-color: @g-color-gray_lt-tint1; // HACK fallback
+    // color: @g-color-gray_dk-shade2; // HACK fallback // don’t need: inherits from above
     background-color: var(--button-color-hover);
+    color: var(--button-text-hover);
   }
   &:active,
   &._active {
     background-color: @g-color-gray_lt-shade1; // HACK fallback
+    // color: @g-color-gray_dk-shade2; // HACK fallback // don’t need: inherits from above
     background-color: var(--button-color-active);
+    color: var(--button-text-active);
   }
   a&:not([href]),
   button&:disabled {
@@ -98,34 +96,21 @@
   --button-color:        var(--color-gray_lt);
   --button-color-hover:  var(--color-gray_lt-tint1);
   --button-color-active: var(--color-gray_lt-shade1);
+  --button-text:         var(--color-gray_dk-shade2);
+  --button-text-hover:   var(--button-text);
+  --button-text-active:  var(--button-text);
 }
 
 .c-Btn--dark {
   --button-color:        var(--color-gray_dk);
   --button-color-hover:  var(--color-gray_dk-tint1);
   --button-color-active: var(--color-gray_dk-shade1);
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    color: @g-color-gray_lt-tint2; // HACK fallback
-    color: var(--color-gray_lt-tint2);
-  }
+  --button-text: var(--color-gray_lt-tint2);
 }
 
 .c-Btn--primary,
 .c-Btn--secondary {
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    color: @g-color-gray_lt-tint2; // HACK fallback
-    color: var(--color-gray_lt-tint2);
-  }
+  --button-text: var(--color-gray_lt-tint2);
 }
 
 .c-Btn--primary {
@@ -142,33 +127,27 @@
 
 .c-Btn--ghost {
   --button-color:        transparent;
-  --button-color-hover:  var(--color-gray_dk-shade2);
-  --button-color-active: transparent;
+  --button-color-hover:  #222;
+  --button-color-active: var(--button-color);
+  --button-text-hover: #fff;
+  border: 2px solid currentColor;
   &:hover,
   &:focus,
   &._hover {
-    color: @g-color-gray_lt-tint2; // HACK fallback
-    color: var(--color-gray_lt-tint2);
-    border-color: transparent;
+    &:not(:active):not(._active) {
+      border-color: transparent;
+    }
   }
   &,
   &:active,
   &._active {
-    color: inherit;
-    border: 2px solid currentColor;
+    color: inherit; // HACK override `.c-Btn` // do not use `--button-text: inherit;`
   }
 }
 
 .c-Btn--ghost--dark {
-  --button-color-hover: var(--color-gray_lt-tint2);
-  &:hover,
-  &:focus,
-  &._hover {
-    &:not(:active) { // HACK because :hover will override :active on --ghost
-      color: @g-color-gray_dk-shade2; // HACK fallback
-      color: var(--color-gray_dk-shade2);
-    }
-  }
+  --button-color-hover: #fff;
+  --button-text-hover: #222;
 }
 //++++ end # BUTTON COLOR STYLES ++++//
 
@@ -187,35 +166,6 @@
   &._active {
     border-style: inset;
     box-shadow: @bs_x (-0.5*@bs_y) @bs_blur @bs_color inset;
-  }
-}
-
-.c-Btn--flat {
-  --button-color:        transparent;
-  --button-color-hover:  var(--button-color);
-  --button-color-active: var(--button-color);
-  .menubar();
-  font-size: (14em/16); // same as Mast
-  letter-spacing: 1px;
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    color: @g-color-secondary; // HACK fallback // same as link
-    color: var(--color-secondary); // same as link
-  }
-  &:hover,
-  &:focus,
-  &._hover {
-    color: @g-color-gray_lt; // HACK fallback // same as link
-    color: var(--color-gray_lt); // same as link
-  }
-  &:active,
-  &._active {
-    color: @g-color-gray_dk; // HACK fallback
-    color: var(--color-gray_dk);
   }
 }
 //++++ end # BUTTON TEXTURE STYLES ++++//

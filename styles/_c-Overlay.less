@@ -16,26 +16,31 @@
 // Chris Harvey
 // ^updated
 // 2016-05-06
+@p-color-bg-dark: fadeout(#000, 37.5%);
+@p-color-bg-lite: fadeout(#fff, 37.5%);
+@p-color-txt-dark: fadeout(#000, 12.5%);
+@p-color-txt-lite: fadeout(#fff, 12.5%);
 .c-Overlay {
   padding: @g-boxpadd_micr;
   margin-left:  auto;
   margin-right: auto;
-  background-color: fadeout(#000, 25%);
-  color: fadeout(#fff, 12.5%);
+  background-color: @p-color-bg-dark;
+  color: @p-color-txt-lite;
   @media screen and (min-width: 30em) { padding: @g-boxpadd_mill; }
   @media screen and (min-width: 45em) { padding: @g-boxpadd_norm; }
   @media screen and (min-width: 60em) { padding: @g-boxpadd_kilo; }
 }
 
-.c-Overlay--callout {
-  @media screen and (min-width: 45em) {
-    width: 75%;
-  }
-}
+// .c-Overlay--callout {
+//   // use `.-w-3o4-sM` instead
+//   @media screen and (min-width: 45em) {
+//     width: 75%;
+//   }
+// }
 
 .c-Overlay--inv {
-  background-color: fadeout(#fff, 25%);
-  color: fadeout(#000, 25%);
+  background-color: @p-color-bg-lite;
+  color: @p-color-txt-dark;
 }
 
 // An overlay that is a link.

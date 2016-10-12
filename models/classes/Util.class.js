@@ -125,6 +125,7 @@ module.exports = (function () {
   , { content: 'date_range'     , fallback: '\uE916', html: '&#xE916;' }
   , { content: 'account_balance', fallback: '\uE84F', html: '&#xE84F;' }
   , { content: 'insert_drive_file', fallback: '\uE24D', html: '&#xE24D;' }
+  , { content: 'arrow_upward'   , fallback: '\uE5D8', html: '&#xE5D8;' }
   ]
 
   /**

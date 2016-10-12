@@ -9,14 +9,6 @@ mixin dateBlock(all_dates)
               = Util.monthDay(date) + ', ' + date.getFullYear()
           dd.c-DateBlock__Desc(itemprop="name")
             if $importantDate.url()
-              +linkWithIcon({
-                classes : 'c-DateBlock__Link h-Block'
-              , url     : $importantDate.url()
-              , text    : $importantDate.name()
-              , attr   : { itemprop: 'url' }
-              }, {
-                is_on : true
-              , text  : 'arrow_forward'
-              })
+              a.c-DateBlock__Link(href=$importantDate.url() itemprop="url")= $importantDate.name()
             else
               = $importantDate.name()

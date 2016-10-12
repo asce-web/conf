@@ -14,19 +14,21 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-07-14
+// 2016-10-12
+@p-fz: 20/16;
 .c-Sitemap {
   .flex-justify-content(space-around); // override Flex `space-between`
   .menubar();
   @media screen and (max-width: 44.999em) {
     .flex-direction(column);
+    .font-size-mod(@p-fz);
   }
 }
 .c-Sitemap__Item {
   .flex(0 0 auto);
   @media screen and (max-width: 44.999em) {
     &:not(:last-child) {
-      margin-bottom: (14/16 * @g-vru); // HACK fallback uses `.c-Mast` module vru
+      margin-bottom: (@p-fz * @g-vru); // HACK fallback // uses module vru
       margin-bottom: var(--vru);
     }
   }

@@ -1,7 +1,7 @@
 mixin program(n, $attrs)
   //- NOTE parameter validation
   - $attrs = $attrs || {id: 'id'+n}
-  section.o-Grid.c-Program&attributes($attrs)
+  article.o-Grid.c-Program&attributes($attrs)
     mixin heading(i)
       | heading #{i}
     mixin content(i)

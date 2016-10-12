@@ -29,15 +29,13 @@
 .c-Pass {
   .ticket();
   text-align: center;
-  background-color: @g-color_site_gray_dk;
-  color: @g-color_asce_white;
+  background-color: @g-color-gray_dk; // HACK fallback
+  color: @g-color-gray_lt-tint2; // HACK fallback
+  background-color: var(--color-gray_dk);
+  color: var(--color-gray_lt-tint2);
   overflow: hidden;
   .c-Pass__Period__Hn {
     margin-bottom: 0; // HACK override `.font-size-mod() >> h1`
-  }
-  // HACK using variables
-  .c-Pass__Foot .c-Pass__Period:not(:last-child)::after {
-    margin: @l-vru 0; // FIXME IE10 does not support rems on pseudo-elements!!!
   }
 }
 
@@ -48,8 +46,16 @@
 }
 
 .c-Pass__Body {
-  background-color: @g-color_asce_white;
-  color: @g-color_asce_black;
+  background-color: @g-color-gray_lt-tint2; // HACK fallback
+  color: @g-color-gray_dk-shade2; // HACK fallback
+  background-color: var(--color-gray_lt-tint2);
+  color: var(--color-gray_dk-shade2);
+}
+
+.c-Pass__Hn,
+.c-Pass__Period__Hn {
+  font-family: inherit; // override h1
+  color: inherit; // override h1
 }
 
 .c-Pass__Hn,
@@ -69,8 +75,8 @@
   font-weight: 300;
   font-style: italic;
   .font-size-el(14/16);
-  white-space: normal; // fallback
-  white-space: initial; // override __Desc
+  white-space: normal; // HACK fallback for IE `initial`
+  white-space: initial;
 }
 
 .c-Pass__Attendee {
@@ -85,7 +91,8 @@
 .c-Pass__Price--featured {
   .font-size-el(2; 2);
   font-weight: 600;
-  color: @g-color_site_primary;
+  color: @g-color-primary; // HACK fallback
+  color: var(--color-primary);
 }
 
 
@@ -110,7 +117,9 @@
         display: block;
         position: absolute;
         right: 0; top: 0; bottom: 0;
-        // margin (see Pass module above)
+        margin: (0.75 * @g-vru_px) 0; // HACK fallback // IE10 does not support rems on pseudo-elements!!!
+        margin: (0.75 * @g-vru) 0; // HACK fallback // from .ticket();
+        margin: var(--vru) 0;
         border-right-width: @rw;
         opacity: 0.5;
       }

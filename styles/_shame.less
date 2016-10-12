@@ -22,13 +22,6 @@
   }
 }
 
-// Don’t know where to put this; using cosmetic styles on Object
-.o-Drawer {
-  @media screen and (max-width: 44.999em) {
-    background-color: @g-color_site_gray_lt;
-  }
-}
-
 // TODO move this to a component file
 // A Label component adds a small inline-level tag to a span or block of text.
 // This can be used to indicate a type of file linked, for example, a PDF or
@@ -88,14 +81,6 @@
         line-height: 0; // override Infinity
       }
     }
-  }
-  .c-TimeBlock__Link &,
-  .c-DateBlock__Link & {
-    position: absolute;
-    right: 0;
-  }
-  .c-DateBlock__Link & {
-    top: -0.5em;
   }
   ._regLegend & {
     display: block;

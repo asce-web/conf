@@ -8,6 +8,7 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
+var Color              = require('csscolor').Color
 var Util               = require('../../../models/classes/Util.class.js')
 var ConfSite           = require('../../../models/classes/ConfSite.class.js')
 var ConfPage           = require('../../../models/classes/ConfPage.class.js')
@@ -24,8 +25,9 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
   site: (function () {
     var site = new ConfSite('An ASCE Event', '/sites/default/', 'Optional Brand Tagline')
       .keywords(['ASCE', 'civil engineering', 'convention'])
-      .logo('img/site-logo-white.png')
       .init()
+      .logo('img/site-logo-white.png')
+      .colors(Color.fromString('#3fae2a'), Color.fromString('#00a1e1'))
 
     site
       .addConference('2016', new Conference({
@@ -656,7 +658,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       })
     site.find('speakers.html')
       .addSubpage({
-        name       : 'Distinguished Lecture Series'
+        name       : 'Distinguished Lecturers'
       , url        : '#0'
       , description: 'Distinguished lecturers at ' + site.currentConference().name() + '.'
       , $confsite  : site

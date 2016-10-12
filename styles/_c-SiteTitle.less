@@ -7,6 +7,7 @@
 
 
 // variable sizes for site logo
+// HACK fallbacks for css vars
 @p-logosize-s: 0;
 @p-logosize-sK: 21px*3; // 21px is taken from the `.c-Mast` line height
 @p-logosize-sM: 21px*5; // 21px is taken from the `.c-Mast` line height
@@ -23,6 +24,10 @@
 // 2016-06-29
 .c-SiteTitle {
   white-space: nowrap;
+  --logosize: 0;
+  @media screen                       { --logosize: 0; }
+  @media screen and (min-width: 30em) { --logosize: (21px*3); } // 21px is taken from the `.c-Mast` line height
+  @media screen and (min-width: 45em) { --logosize: (21px*5); } // 21px is taken from the `.c-Mast` line height
 }
 
 .c-SiteTitle__Logo,
@@ -32,16 +37,25 @@
   color: inherit; // everything inside the link looks like part of the same link
 }
 .c-SiteTitle__Logo {
+  // HACK fallbacks
   width: @p-logosize-s; height: @p-logosize-s;
   @media screen and (min-width: 30em) { width: @p-logosize-sK; height: @p-logosize-sK; }
   @media screen and (min-width: 45em) { width: @p-logosize-sM; height: @p-logosize-sM; }
+  width: var(--logosize); height: var(--logosize);
   .logo();
 }
 .c-SiteTitle__Name,
 .c-SiteTitle__Tagline {
+  padding-left: 0.5rem;
+  // @media screen and (max-width: 29.999em) {
+  //   width: 100%; // NOTE not necessary (default)
+  // }
+  // HACK fallbacks
   @media screen and (min-width: 30em) { width: calc(~'100% - '@p-logosize-sK); }
   @media screen and (min-width: 45em) { width: calc(~'100% - '@p-logosize-sM); }
-  padding-left: 0.5rem;
+  @media screen and (min-width: 30em) {
+    width: calc(~'100% - var(--logosize)');
+  }
 }
 .c-SiteTitle__Name {
   .font-size-el(2);

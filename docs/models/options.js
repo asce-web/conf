@@ -8,7 +8,8 @@
 
 
 module.exports = Object.assign(require('../../models/options.js'), {
-  ConfPage          : require('../../models/classes/ConfPage.class.js')
+  Color             : require('csscolor').Color
+, ConfPage          : require('../../models/classes/ConfPage.class.js')
 , Conference        : require('../../models/classes/Conference.class.js')
 , SupporterLevel    : require('../../models/classes/SupporterLevel.class.js')
 , Supporter         : require('../../models/classes/Supporter.class.js')

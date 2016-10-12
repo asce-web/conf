@@ -1,4 +1,5 @@
 var Page = require('sitepage').Page
+var Color = require('csscolor').Color
 var ConfPage = require('./ConfPage.class.js')
 
 /**
@@ -23,6 +24,7 @@ module.exports = (function () {
     Page.call(self, { name: name, url: url })
     Page.prototype.description.call(self, tagline)
     self._logo             = ''
+    self._colors           = {}
     self._conferences      = {}
     self._sponsor_levels   = []
     self._org_levels       = []
@@ -66,6 +68,20 @@ module.exports = (function () {
       this._logo = logo
       return this
     } else return this._logo
+  }
+
+  /**
+   * Set or get the colors for this site.
+   * @param {Color=} $primary   a Color object for the primary color
+   * @param {Color=} $secondary a Color object for the secondary color
+   * @return {(ConfSite|Object)} this || a CSS style object containg custom properties and color string values
+   */
+  ConfSite.prototype.colors = function colors($primary, $secondary) {
+    var self = this
+    if (arguments.length) {
+      this._colors = ConfSite.colorStyles($primary, $secondary)
+      return this
+    } else return this._colors
   }
 
   /**
@@ -317,6 +333,7 @@ module.exports = (function () {
           )
         )
         .add(new Page({ name: 'Main', url: '#main-menu' }))
+        .colors(Color.fromString('#660000'), Color.fromString('#ff6600')) // default Hokie colors
     } else return
   }
 
@@ -343,6 +360,64 @@ module.exports = (function () {
         listclasses: 'o-List c-Sitemap__SubList'
       , itemclasses: 'o-List__Item c-Sitemap__SubItem'
       }
+    }
+  }
+
+  /**
+   * Generate a color palette and return a style object with custom properties.
+   * @param  {Color} $primary   the primary color for the site
+   * @param  {Color} $secondary the secondary color for the site
+   * @return {Object} a style object containg custom properties and color string values
+   */
+  ConfSite.colorStyles = function colorStyles($primary, $secondary) {
+    var   primary_s2  =   $primary.darken(2/3, true)
+    var   primary_s1  =   $primary.darken(1/3, true)
+    var   primary_t1  =   $primary.darken(1/3, true).brighten(1/3, false) // one-third to white
+    var   primary_t2  =   $primary.darken(2/3, true).brighten(2/3, false) // two-thirds to white
+    var secondary_s2  = $secondary.darken(2/3, true)
+    var secondary_s1  = $secondary.darken(1/3, true)
+    var secondary_t1  = $secondary.darken(1/3, true).brighten(1/3, false) // one-third to white
+    var secondary_t2  = $secondary.darken(2/3, true).brighten(2/3, false) // two-thirds to white
+
+    var _gp = $primary.mix($secondary, 1/4).desaturate(7/8, true)
+    var _gs = $secondary.mix($primary, 1/4).desaturate(7/8, true)
+
+    var gray_dk_s2 = _gp.brighten( 1/12 - _gp.hslLum(), false)
+    var gray_dk_s1 = _gp.brighten( 2/12 - _gp.hslLum(), false)
+    var gray_dk    = _gp.brighten( 3/12 - _gp.hslLum(), false)
+    var gray_dk_t1 = _gp.brighten( 4/12 - _gp.hslLum(), false)
+    var gray_dk_t2 = _gp.brighten( 5/12 - _gp.hslLum(), false)
+    var gray_lt_s2 = _gs.brighten( 7/12 - _gs.hslLum(), false)
+    var gray_lt_s1 = _gs.brighten( 8/12 - _gs.hslLum(), false)
+    var gray_lt    = _gs.brighten( 9/12 - _gs.hslLum(), false)
+    var gray_lt_t1 = _gs.brighten(10/12 - _gs.hslLum(), false)
+    var gray_lt_t2 = _gs.brighten(11/12 - _gs.hslLum(), false)
+
+    return {
+      '--color-primary'  :   $primary.toString('hex')
+    , '--color-secondary': $secondary.toString('hex')
+    , '--color-gray_dk'  :    gray_dk.toString('hex')
+    , '--color-gray_lt'  :    gray_lt.toString('hex')
+
+    , '--color-primary-shade2'  :   primary_s2.toString('hex')
+    , '--color-primary-shade1'  :   primary_s1.toString('hex')
+    , '--color-primary-tint1'   :   primary_t1.toString('hex')
+    , '--color-primary-tint2'   :   primary_t2.toString('hex')
+
+    , '--color-secondary-shade2': secondary_s2.toString('hex')
+    , '--color-secondary-shade1': secondary_s1.toString('hex')
+    , '--color-secondary-tint1' : secondary_t1.toString('hex')
+    , '--color-secondary-tint2' : secondary_t2.toString('hex')
+
+    , '--color-gray_dk-shade2'  :   gray_dk_s2.toString('hex')
+    , '--color-gray_dk-shade1'  :   gray_dk_s1.toString('hex')
+    , '--color-gray_dk-tint1'   :   gray_dk_t1.toString('hex')
+    , '--color-gray_dk-tint2'   :   gray_dk_t2.toString('hex')
+
+    , '--color-gray_lt-shade2'  :   gray_lt_s2.toString('hex')
+    , '--color-gray_lt-shade1'  :   gray_lt_s1.toString('hex')
+    , '--color-gray_lt-tint1'   :   gray_lt_t1.toString('hex')
+    , '--color-gray_lt-tint2'   :   gray_lt_t2.toString('hex')
     }
   }
 

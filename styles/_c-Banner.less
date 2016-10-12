@@ -21,8 +21,9 @@
 // ^updated
 // 2016-04-22
 .c-Banner {
+  --heading-color: currentColor;
   position: relative; // for ::before
-  color: @g-color_asce_white;
+  color: #fff;
   &::before {
     // need `::before` for filter effects
     content: '';
@@ -35,7 +36,7 @@
     background-size: cover;
   }
   h1, h2, h3, h4, h5, h6 {
-    color: inherit;
+    color: inherit; // HACK fallback
   }
 }
 
@@ -45,17 +46,23 @@
 .c-Banner--prev,
 .c-Banner--next {
 }
-// override background-image in site-specific stylesheet
-.c-Banner--landing::before {}
-.c-Banner--home::before {}
-.c-Banner--location::before {}
-.c-Banner--prev::before {}
-.c-Banner--next::before {}
+// override actual urls in site-specific stylesheet
+.c-Banner--landing::before  { background-image: var(--bi-landing); }
+.c-Banner--home::before     { background-image: var(--bi-home); }
+.c-Banner--location::before { background-image: var(--bi-location); }
+.c-Banner--prev::before     { background-image: var(--bi-prev); }
+.c-Banner--next::before     { background-image: var(--bi-next); }
 
 .c-Banner--orgs {
+  --heading-color: inherit; // override Banner
+  background-color: @g-color-gray_lt-tint2; // HACK fallback
+  background-color: var(--color-gray_lt-tint2);
+  background: linear-gradient(to bottom, var(--color-gray_lt-tint2), var(--color-gray_lt-tint1));
   &::before {
-    background: lighten(@g-color_site_gray_lt, 40%, relative); // override Banner
+    content: none; // override Banner
   }
-  h1 { color: @g-color_site_primary; } // HACK fallback & override inherit
-  .c-SupporterBlock__Hn { color: @g-color_site_gray_dk; } // HACK fallback & override
+  h1 { // HACK override `.c-Banner >> h1`
+    color: @g-color-primary; // HACK fallback
+    color: var(--heading-color);
+  }
 }

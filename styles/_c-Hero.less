@@ -20,7 +20,8 @@
 // 2016-08-12
 .c-Hero {
   text-align: center;
-  text-shadow: 0 0 0.25rem @g-color_asce_black;
+  text-shadow: 0 0 0.25rem @g-color-gray_dk-shade2; // HACK fallback
+  text-shadow: 0 0 0.25rem var(--color-gray_dk-shade2);
   .c-Btn {
     text-shadow: none;
   }
@@ -41,7 +42,7 @@
 .c-Hero__Place {
   @media screen and (max-width: 44.999em) {
     &::after {
-      // duplicating Xmeter’s .h-Clearfix Helper
+      // duplicating Xmeter’s .h-Clearfix Helper (not available for max-widths)
       content: '';
       display: block;
       clear: both;

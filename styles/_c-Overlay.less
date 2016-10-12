@@ -62,21 +62,25 @@
 //   border-color: transparent;
 //   &:hover,
 //   &:focus {
-//     border-color: @g-color_site_secondary;
+//     border-color: @g-color-secondary; // HACK fallback
+//     border-color: var(--color-secondary);
 //   }
 // }
 // .c-Btn--hilite,
 // .c-Overlay--link {
-//   box-shadow: 0 0 1rem 0 @g-color_site_secondary;
+//   box-shadow: 0 0 1rem 0 @g-color-secondary; // HACK fallback
+//   box-shadow: 0 0 1rem 0 var(--color-secondary);
 //   &:hover,
 //   &:focus {
-//     box-shadow: 0 0 1rem 0.5rem @g-color_site_secondary;
+//     box-shadow: 0 0 1rem 0.5rem @g-color-secondary; // HACK fallback
+//     box-shadow: 0 0 1rem 0.5rem var(--color-secondary);
 //   }
 //   &.c-Btn--hero {
-//     box-shadow: 0 0 1rem 0 @g-color_site_primary;
+//     box-shadow: 0 0 1rem 0 var(--color-primary);
 //     &:hover,
 //     &:focus {
-//       box-shadow: 0 0 1rem 0.5rem @g-color_site_primary;
+//       box-shadow: 0 0 1rem 0.5rem @g-color-primary; // HACK fallback
+//       box-shadow: 0 0 1rem 0.5rem var(--color-primary);
 //     }
 //   }
 // }

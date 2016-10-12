@@ -21,6 +21,7 @@
 // ^updated
 // 2016-08-12
 .c-MenuMain {
+  --link-color-hover: var(--color-secondary);
   .flex-justify-content(flex-start); // override .o-Flex `space-between`
   .menubar();
   @media screen and (max-width: (@g-bp_menu_main_normaltext - 1)) {
@@ -34,9 +35,15 @@
   .flex(0 0 auto);
   .transition(background-color @trans_dura);
   &:hover,
+  &._hover {
+    color: @g-color-gray_dk; // HACK fallback
+    color: var(--color-gray_dk);
+  }
+  &:hover,
   &._hover,
   .c-MenuSub {
-    background-color: @g-color_site_gray_lt;
+    background-color: @g-color-gray_lt-tint2; // HACK fallback
+    background-color: var(--color-gray_lt-tint2);
   }
   .c-MenuSub {
     .transform-origin(left top);

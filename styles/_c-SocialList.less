@@ -16,32 +16,37 @@
 // ^updated
 // 2016-04-23
 .c-SocialList {
+  --iconsize: (100vw/10);
   width: 50%;
   margin-left: auto; margin-right: auto;
   text-align: center;
+  footer & {
+    // NOTE temporary (may use different compoent for footer social list)
+    --iconsize: (100vw/15);
+  }
 }
 .c-SocialList__Item {
   .flex(0);
 }
 .c-SocialList__Link {
-  @width: (100vw/10);
-  width:  @width;
-  height: @width;
+  @width: (100vw/10); // HACK fallback
+  width:  @width; // HACK fallback
+  height: @width; // HACK fallback
+  width:  var(--iconsize);
+  height: var(--iconsize);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: @g-color_site_gray_dk;
   &:hover,
   &:active,
   &._hover,
   &._active {
-    background-color: @g-color_site_secondary;
   }
   footer & {
-    @width: (100vw/15);
-    width:  @width;
-    height: @width;
-    background-color: @g-color_asce_white;
+    // NOTE temporary (may use different compoent for footer social list)
+    @width: (100vw/15); // HACK fallback
+    width:  @width; // HACK fallback
+    height: @width; // HACK fallback
   }
 }
 

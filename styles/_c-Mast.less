@@ -51,7 +51,8 @@
   .c-MenuSub,
   .c-Sitemap,
   .c-Sitemap__SubList {
-    margin-bottom: 0; // override `.font-size-mod() >> h1` and `.font-size-mod() >> ul`
+    // HACK specificity
+    margin-bottom: 0; // override `.font-size-mod() >> ul`
   }
 }
 

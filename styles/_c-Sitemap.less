@@ -35,7 +35,10 @@
 .c-Sitemap__SubList {
   text-transform: none; // override .menubar()
   font-weight: 300;
-  .font-size-el(12/14)
+  .font-size-el(12/14);
+  @media screen and (max-width: 44.999em) {
+    .font-size-el(16/20);
+  }
 }
 .c-Sitemap__SubItem {
 }

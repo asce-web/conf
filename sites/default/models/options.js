@@ -658,7 +658,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       })
     site.find('speakers.html')
       .addSubpage({
-        name       : 'Distinguished Lecture Series'
+        name       : 'Distinguished Lecturers'
       , url        : '#0'
       , description: 'Distinguished lecturers at ' + site.currentConference().name() + '.'
       , $confsite  : site

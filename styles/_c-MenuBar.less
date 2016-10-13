@@ -41,15 +41,15 @@
   }
   &:hover,
   &._hover,
-  .c-MenuSub {
+  .c-MenuBar__Sub {
     background-color: @g-color-gray_lt-tint2; // HACK fallback
     background-color: var(--color-gray_lt-tint2);
   }
-  .c-MenuSub {
+  .c-MenuBar__Sub {
     .transform-origin(left top);
     .transitions(@g-prefix_transform, opacity; @trans_dura);
   }
-  &:not(:hover) .c-MenuSub {
+  &:not(:hover) .c-MenuBar__Sub {
     .transform(scale(0));
     opacity: 0;
   }

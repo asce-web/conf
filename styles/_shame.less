@@ -59,27 +59,10 @@
 
 .material-icons {
   vertical-align: middle; // fixes Google’s material icons
-  .c-MenuMobile & {
+  #main-menu + ul & {
     margin-right: 1rem;
-    // @media screen and (min-width: 45em) {
-    //   display: none;
-    // }
-  }
-  .c-MenuBar & {
-    display: block;
-    @media screen and (min-width: @g-bp_menu_main_normaltext) {
+    @media screen and (min-width: 45em) {
       display: none;
-    }
-    & + span {
-      @media screen and (max-width: (@g-bp_menu_main_normaltext - 1)) {
-        display: block;
-        .font-size-el(0.75);
-        font-weight: 400;
-      }
-      @media screen and (max-width: (@g-bp_menu_main_smalltext - 1)) {
-        .font-size-el(0);
-        line-height: 0; // override Infinity
-      }
     }
   }
   ._regLegend & {

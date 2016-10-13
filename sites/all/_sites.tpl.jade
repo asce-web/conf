@@ -61,13 +61,13 @@ html(lang="en")
       nav.o-Drawer
         h1.-d-n#main-menu Main Menu
         +sitetoc({pages: site.findAll(), classes: {
-          listclasses: 'o-List o-Flex c-MenuMobile c-MenuBar'
-        , itemclasses: 'o-List__Item o-Flex__Item c-MenuMobile__Item c-MenuBar__Item'
-        , linkclasses: 'c-MenuMobile__Link c-MenuBar__Link h-Block'
+          listclasses: 'o-List o-Flex c-MenuMobile-nsM c-MenuBar-sM'
+        , itemclasses: 'o-List__Item o-Flex__Item c-MenuMobile__Item-nsM c-MenuBar__Item-sM'
+        , linkclasses: 'c-MenuMobile__Link-nsM c-MenuBar__Link-sM h-Block'
         , sub: {
-            listclasses: 'o-List c-MenuBar__Sub'
-          , itemclasses: 'o-List__Item c-MenuBar__Sub__Item'
-          , linkclasses: 'c-MenuBar__Sub__Link h-Block'
+            listclasses: 'o-List c-MenuMobile__Sub-nsM c-MenuBar__Sub-sM'
+          , itemclasses: 'o-List__Item c-MenuMobile__Sub__Item-nsM c-MenuBar__Sub__Item-sM'
+          , linkclasses: 'c-MenuMobile__Link-nsM c-MenuMobile_Sub_Link-nsM c-MenuBar__Link-sM c-MenuBar__Sub__Link-sM h-Block'
           }
         }, depth: 1, icons: true})
     main

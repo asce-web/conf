@@ -39,7 +39,8 @@
     color: var(--color-gray_dk);
     background-color: var(--color-gray_lt-tint2);
   }
-  &:not(:hover) .c-MenuBar__Sub {
+  &:not(:hover) .c-MenuBar__Sub,
+  &:not(:hover) .c-MenuBar__Sub-sM {
     .transform(scale(0));
     opacity: 0;
   }
@@ -82,4 +83,13 @@
 
 .c-MenuBar__Sub__Link {
   padding: @g-boxpadd_micr;
+}
+
+@media screen and (min-width: 45em) {
+  .c-MenuBar-sM            { .c-MenuBar; }
+  .c-MenuBar__Item-sM      { .c-MenuBar__Item; }
+  .c-MenuBar__Link-sM      { .c-MenuBar__Link; }
+  .c-MenuBar__Sub-sM       { .c-MenuBar__Sub; }
+  .c-MenuBar__Sub__Item-sM { .c-MenuBar__Sub__Item; }
+  .c-MenuBar__Sub__Link-sM { .c-MenuBar__Sub__Link; }
 }

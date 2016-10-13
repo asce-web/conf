@@ -1,14 +1,13 @@
 figure.docs-figure
-  include /_views/c-MenuMain.view.jade
   +sitetoc({pages: [
-    new ConfPage('Home'          , '#0').setIcon('insert_drive_file')
-  , new ConfPage('Registration'  , '#0').setIcon('insert_drive_file')
+    new ConfPage('Home', '#0').setIcon('insert_drive_file')
+  , new ConfPage('Registration', '#0').setIcon('insert_drive_file')
       .add(new ConfPage('Why Attend', '#0'))
-  , new ConfPage('Program'       , '#0').setIcon('insert_drive_file')
-      .add(new ConfPage('Short Courses'  , '#0'))
+  , new ConfPage('Program', '#0').setIcon('insert_drive_file')
+      .add(new ConfPage('Short Courses', '#0'))
       .add(new ConfPage('Technical Tours', '#0'))
   , new ConfPage('Location', '#0').setIcon('insert_drive_file')
-  , new ConfPage('Speakers'      , '#0').setIcon('insert_drive_file')
+  , new ConfPage('Speakers', '#0').setIcon('insert_drive_file')
   ], classes: {
     listclasses: 'o-List o-Flex c-MenuBar'
   , itemclasses: 'o-List__Item o-Flex__Item c-MenuBar__Item'

@@ -60,8 +60,16 @@ html(lang="en")
         noscript: p Oops! Looks like you need to enable Javascript for the main menu.
       nav.o-Drawer
         h1.-d-n#main-menu Main Menu
-        include /_views/c-MenuMain.view.jade
-        +menuMain(site.findAll())
+        +sitetoc({pages: site.findAll(), classes: {
+          listclasses: 'o-List o-Flex c-MenuMobile c-MenuBar'
+        , itemclasses: 'o-List__Item o-Flex__Item c-MenuMobile__Item c-MenuBar__Item'
+        , linkclasses: 'c-MenuMobile__Link c-MenuBar__Link h-Block'
+        , sub: {
+            listclasses: 'o-List c-MenuBar__Sub'
+          , itemclasses: 'o-List__Item c-MenuBar__Sub__Item'
+          , linkclasses: 'c-MenuBar__Sub__Link h-Block'
+          }
+        }, depth: 1, icons: true})
     main
       article(itemscope="" itemtype="http://schema.org/Event")
         block mainHeader

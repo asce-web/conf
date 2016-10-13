@@ -27,6 +27,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .keywords(['ASCE', 'civil engineering', 'convention'])
       .logo('img/site-logo-white.png')
       .colors(Color.fromString('#3fae2a'), Color.fromString('#00a1e1'))
+      .init()
 
     site
       .addConference('2016', new Conference({
@@ -68,7 +69,6 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .currentConference('2016')
       .prevConference('2015')
       .nextConference('2017')
-      .init()
 
     site
       .addSupporterLevel(new SupporterLevel('Platinum' ).classname('c-SupporterBlock__Logo--lrg'), 'sponsor')

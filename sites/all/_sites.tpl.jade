@@ -45,10 +45,10 @@ html(lang="en")
         }
         .-h-z { height: 0 !important; }
   body(style=site.colors())
-    header.o-Runner.c-Mast: div.o-Constrain
+    header.o-Runner.c-Mast.c-Mast--head: div.o-Constrain
       include /_views/c-SiteTitle.view.jade
       +siteTitle(site)
-    header.o-Runner.c-Mast.c-Mast--main: div.o-Constrain
+    header.o-Runner.c-Mast.-bc-primary: div.o-Constrain
       label.c-Toggle(title="toggle main menu")
         input.c-Toggle__Check(type="checkbox" value="open main menu")
         span.-d-n toggle main menu
@@ -60,8 +60,16 @@ html(lang="en")
         noscript: p Oops! Looks like you need to enable Javascript for the main menu.
       nav.o-Drawer
         h1.-d-n#main-menu Main Menu
-        include /_views/c-MenuMain.view.jade
-        +menuMain(site.findAll())
+        +sitetoc({pages: site.findAll(), classes: {
+          listclasses: 'o-List o-Flex c-MenuMobile-nsM c-MenuBar-sM'
+        , itemclasses: 'o-List__Item o-Flex__Item c-MenuMobile__Item-nsM c-MenuBar__Item-sM'
+        , linkclasses: 'c-MenuMobile__Link-nsM c-MenuBar__Link-sM h-Block'
+        , sub: {
+            listclasses: 'o-List c-MenuMobile__Sub-nsM c-MenuBar__Sub-sM'
+          , itemclasses: 'o-List__Item c-MenuMobile__Sub__Item-nsM c-MenuBar__Sub__Item-sM'
+          , linkclasses: 'c-MenuMobile__Link-nsM c-MenuMobile_Sub_Link-nsM c-MenuBar__Link-sM c-MenuBar__Sub__Link-sM h-Block'
+          }
+        }, depth: 1, icons: true})
     main
       article(itemscope="" itemtype="http://schema.org/Event")
         block mainHeader
@@ -86,7 +94,7 @@ html(lang="en")
             include /_views/c-SupporterBlock.view.jade
             each $supporterLevel,index in site.getSupporterLevelsAll('org')
               +supporterBlock($supporterLevel, site, { 'c-SupporterBlock--separate': index < site.getSupporterLevelsAll('org').length-1 })
-    footer.o-Runner.c-Mast.c-Mast--main: nav.o-Constrain
+    footer.o-Runner.c-Mast.-bc-primary: nav.o-Constrain
       h1.-d-n#site-map Site Map
       include /_views/c-Sitemap.view.jade
       +sitemap(site.findAll())
@@ -97,7 +105,7 @@ html(lang="en")
       , 'z-index' : 1
       , 'color'   : '#000'
       }): i.material-icons arrow_upward
-    footer.o-Runner.c-Mast.c-Mast--copyright: div.o-Constrain
+    footer.o-Runner.c-Mast.c-Mast--foot: div.o-Constrain
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
         p.c-ASCELogo(itemprop="name"): a(href="http://www.asce.org" itemprop="url").

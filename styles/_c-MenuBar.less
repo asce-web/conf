@@ -23,13 +23,10 @@
 // 2016-10-13
 @p-trans_dura: 250ms;
 .c-MenuBar {
-  --link-color-hover: var(--color-secondary);
   .flex-justify-content(flex-start); // override .o-Flex `space-between`
   .menubar();
-  @media screen and (max-width: (@g-bp_menu_main_normaltext - 1)) {
-    .flex-justify-content(space-around);
-    text-align: center;
-  }
+  color: @g-color-gray_lt-tint2; // HACK fallback
+  color: var(--color-gray_lt-tint2);
 }
 
 .c-MenuBar__Item {
@@ -38,15 +35,9 @@
   &:hover,
   &._hover {
     color: @g-color-gray_dk; // HACK fallback
-    color: var(--color-gray_dk);
-  }
-  &:hover,
-  &._hover,
-  .c-MenuBar__Sub {
     background-color: @g-color-gray_lt-tint2; // HACK fallback
+    color: var(--color-gray_dk);
     background-color: var(--color-gray_lt-tint2);
-  }
-  .c-MenuBar__Sub {
   }
   &:not(:hover) .c-MenuBar__Sub {
     .transform(scale(0));
@@ -56,6 +47,13 @@
 
 .c-MenuBar__Link {
   padding: @g-boxpadd_mill;
+  color: currentColor;
+  &:hover,
+  &:focus,
+  &._hover {
+    color: @g-color-secondary; // HACK fallback
+    color: var(--color-secondary);
+  }
 }
 
 // Secondary-level navigation components for current year site.
@@ -74,7 +72,8 @@
   padding: @g-boxpadd_mill;
   font-weight: 400;     // override `.menubar();`
   text-transform: none; // override `.menubar();`
-  text-align: left;     // override `.c-MenuBar @media screen`
+  background-color: @g-color-gray_lt-tint2; // HACK fallback
+  background-color: var(--color-gray_lt-tint2);
   .transitions(@g-prefix_transform, opacity; @p-trans_dura);
 }
 

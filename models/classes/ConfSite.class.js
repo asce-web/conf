@@ -310,30 +310,6 @@ module.exports = (function () {
   }
 
   // STATIC MEMBERS
-  /**
-   * An object describing the menu structures of the Main, Sub, and Sitemap menus.
-   * @type {Object}
-   */
-  ConfSite.MENU_CLASS = {
-    main: {
-      listclasses: 'o-List o-Flex c-MenuMain'
-    , itemclasses: 'o-List__Item o-Flex__Item c-MenuMain__Item'
-    , linkclasses: 'c-MenuMain__Link h-Block'
-    , sub: {
-        listclasses: 'o-List c-MenuSub'
-      , itemclasses: 'o-List__Item c-MenuSub__Item'
-      , linkclasses: 'c-MenuSub__Link h-Block'
-      }
-    }
-  , sitemap: {
-      listclasses: 'o-List o-Flex c-Sitemap'
-    , itemclasses: 'o-List__Item o-Flex__Item c-Sitemap__Item'
-    , sub: {
-        listclasses: 'o-List c-Sitemap__SubList'
-      , itemclasses: 'o-List__Item c-Sitemap__SubItem'
-      }
-    }
-  }
 
   /**
    * Generate a color palette and return a style object with custom properties.

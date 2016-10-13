@@ -1,2 +1,11 @@
 mixin menuMain(pages)
-  +sitetoc({pages: pages, classes: ConfSite.MENU_CLASS.main, depth: 1, icons: true})
+  +sitetoc({pages: pages, classes: {
+    listclasses: 'o-List o-Flex c-MenuMain'
+  , itemclasses: 'o-List__Item o-Flex__Item c-MenuMain__Item'
+  , linkclasses: 'c-MenuMain__Link h-Block'
+  , sub: {
+      listclasses: 'o-List c-MenuSub'
+    , itemclasses: 'o-List__Item c-MenuSub__Item'
+    , linkclasses: 'c-MenuSub__Link h-Block'
+    }
+  }, depth: 1, icons: true})

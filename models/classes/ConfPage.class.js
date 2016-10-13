@@ -42,21 +42,6 @@ module.exports = (function () {
   }
 
   // STATIC MEMBERS
-  /**
-   * Shortcut method for defining the title of a ConfPage object.
-   * Call this static function and pass its return value to a ConfPage object’s `.title()` method
-   * in order to set its title as one of the following:
-   * - `${pagename} | ${sitename}`
-   * - `${pagename} | ${conferencename}`
-   * The return value of this function will itself be a function, which should be passed to `.title()`.
-   * @see ConfPage#title()
-   * @param  {ConfSite} $confsite any ConfSite object, whose name will be part of the title
-   * @return {Function} a function that should be passed to ConfPage#title() to set its title
-   */
-  ConfPage.pageTitle = function pageTitle($confsite) {
-    return function () { return this.name() + ' | ' + $confsite.currentConference().name() }
-    // return function () { return this.name() + ' | ' + $confsite.name() }
-  }
 
   return ConfPage
 })()

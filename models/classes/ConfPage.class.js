@@ -41,24 +41,6 @@ module.exports = (function () {
     return (this._icon) ? Util.iconToString(this._icon, fallback) : ''
   }
 
-  /**
-   * Add a sub-page to this page. The sub-page will be equipped for menus.
-   * @param {Object} args information about the sub-page. see below
-   * @param {string} args.name the name of the sub-page
-   * @param {string} args.url the url of the sub-page
-   * @param {string} args.description the description of the sub-page
-   * @param {ConfSite} args.$confsite the instance of ConfSite on which this sub-page lives
-   */
-  ConfPage.prototype.addSubpage = function addSubpage(args) {
-    args = args || {}
-    var self = this
-    return self
-      .add(new ConfPage(args.name, args.url)
-        .title(ConfPage.pageTitle(args.$confsite))
-        .description(args.description)
-      )
-  }
-
   // STATIC MEMBERS
   /**
    * Shortcut method for defining the title of a ConfPage object.

@@ -62,17 +62,16 @@ html(lang="en")
         nav.o-Drawer
           h1.-d-n#top-menu Top Menu
           include /_views/c-MenuTop.view.jade
-          +menuTop(site.find('#top-menu').findAll().slice(1)
-          , site.find('#main-menu').findAll().slice(0,1)
+          +menuTop(site.findAll().slice(1)
+          , site.findAll().slice(0,1)
           , site.currentConference().name()
           )
-    if page.pagetype() === 'main'
-      header.o-Runner.c-Mast.c-Mast--main: nav.o-Constrain
-        h1.-d-n#main-menu Main Menu
-        include /_views/c-MenuMain.view.jade
-        +menuMain(site.find('#main-menu').findAll())
+    header.o-Runner.c-Mast.c-Mast--main: nav.o-Constrain
+      h1.-d-n#main-menu Main Menu
+      include /_views/c-MenuMain.view.jade
+      +menuMain(site.findAll())
     main
-      article&attributes((page.pagetype()==='main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
+      article(itemscope="" itemtype="http://schema.org/Event")
         block mainHeader
           header.o-Runner.o-Runner--pageHeader: div.o-Constrain
             h1.c-PageTitle= page.name()
@@ -95,14 +94,10 @@ html(lang="en")
             include /_views/c-SupporterBlock.view.jade
             each $supporterLevel,index in site.getSupporterLevelsAll('org')
               +supporterBlock($supporterLevel, site, { 'c-SupporterBlock--separate': index < site.getSupporterLevelsAll('org').length-1 })
-    footer.o-Runner.c-Mast(class='c-Mast--'+page.pagetype()): nav.o-Constrain
+    footer.o-Runner.c-Mast.c-Mast--main: nav.o-Constrain
       h1.-d-n#site-map Site Map
       include /_views/c-Sitemap.view.jade
-      //- if page.pagetype() === 'top'
-      //-   +sitemap(site.find('#top-menu').findAll())
-      //- else if page.pagetype() === 'main'
-      //-   +sitemap(site.find('#main-menu').findAll())
-      +sitemap(site.find('#' + page.pagetype() + '-menu').findAll())
+      +sitemap(site.findAll())
       a.c-Btn(href="#top" title="go to top" style={
         'position': 'fixed'
       , 'bottom'  : '1.5rem'

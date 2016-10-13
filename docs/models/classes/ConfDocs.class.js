@@ -66,6 +66,7 @@ module.exports = (function () {
           .add(new Page({ name: 'The Masthead and Mastfoot', url: 'comp.html#masthead-mastfoot' }))
           .add(new Page({ name: 'The Site Title'           , url: 'comp.html#site-title' }))
           .add(new Page({ name: 'The Menu Bar'             , url: 'comp.html#menu-bar' }))
+          .add(new Page({ name: 'The Mobile Menu'          , url: 'comp.html#mobile-menu' }))
           .add(new Page({ name: 'The Sitemap Component'    , url: 'comp.html#sitemap-component' }))
           .add(new Page({ name: 'The Page Title'           , url: 'comp.html#page-title' }))
           .add(new Page({ name: 'The Banner Component'     , url: 'comp.html#banner-component' }))

@@ -65,7 +65,7 @@ module.exports = (function () {
           .description('Patterns of look-and-feel that are each only used for one purpose.')
           .add(new Page({ name: 'The Masthead and Mastfoot', url: 'comp.html#masthead-mastfoot' }))
           .add(new Page({ name: 'The Site Title'           , url: 'comp.html#site-title' }))
-          .add(new Page({ name: 'The Main Menu'            , url: 'comp.html#main-menu' }))
+          .add(new Page({ name: 'The Menu Bar'             , url: 'comp.html#menu-bar' }))
           .add(new Page({ name: 'The Sub Menu'             , url: 'comp.html#sub-menu' }))
           .add(new Page({ name: 'The Sitemap Component'    , url: 'comp.html#sitemap-component' }))
           .add(new Page({ name: 'The Page Title'           , url: 'comp.html#page-title' }))

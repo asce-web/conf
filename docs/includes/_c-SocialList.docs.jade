@@ -1,57 +1,21 @@
 p.
-  There are two Social List styles: one is a normal list, placeable anywhere,
-  and the second is inside a #[code.docs-code footer] element.
+  There are two Social List styles. The first is meant for a light background. The logos are
+  each encompassed in a dark gray circle.
 figure.docs-figure
-  p new svg logos
   ul.o-List.o-Flex.c-SocialList
     li.o-List__Item.o-Flex__Item.c-SocialList__Item
-      a.c-SocialList__Link.c-SocialList__Link--svg.h-Block(href="" title="Follow #ASCE2016 on Twitter" style="background-image:url('/img/twitter.svg');")
+      a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="#0")
     li.o-List__Item.o-Flex__Item.c-SocialList__Item
-      a.c-SocialList__Link.c-SocialList__Link--svg.h-Block(href="" title="Follow #ASCE2016 on Google+" style="background-image:url('/img/google.svg');")
+      a.c-SocialList__Link.c-SocialList__Link--google.h-Block(href="#0")
     li.o-List__Item.o-Flex__Item.c-SocialList__Item
-      a.c-SocialList__Link.c-SocialList__Link--svg.h-Block(href="" title="Follow #ASCE2016 on Facebook" style="background-image:url('/img/facebook.svg');")
+      a.c-SocialList__Link.c-SocialList__Link--facebook.h-Block(href="#0")
   ul.o-List.o-Flex.c-SocialList
     li.o-List__Item.o-Flex__Item.c-SocialList__Item
-      span menu item hover:
-      a.c-SocialList__Link.c-SocialList__Link--svg.h-Block(href="" title="Follow #ASCE2016 on Twitter" style="background-image:url('/img/twitter.svg');")._hover
+      span hover:
+      a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="#0")._hover
     li.o-List__Item.o-Flex__Item.c-SocialList__Item
-      span menu item active:
-      a.c-SocialList__Link.c-SocialList__Link--svg.h-Block(href="" title="Follow #ASCE2016 on Twitter" style="background-image:url('/img/twitter.svg');")._active
-  p old png logos
-  ul.o-List.o-Flex.c-SocialList
-    li.o-List__Item.o-Flex__Item.c-SocialList__Item
-      a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="" title="Follow #ASCE2016 on Twitter")
-    li.o-List__Item.o-Flex__Item.c-SocialList__Item
-      a.c-SocialList__Link.c-SocialList__Link--google.h-Block(href="" title="Follow #ASCE2016 on Google+")
-    li.o-List__Item.o-Flex__Item.c-SocialList__Item
-      a.c-SocialList__Link.c-SocialList__Link--facebook.h-Block(href="" title="Follow #ASCE2016 on Facebook")
-  ul.o-List.o-Flex.c-SocialList
-    li.o-List__Item.o-Flex__Item.c-SocialList__Item
-      span menu item hover:
-      a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="" title="Follow #ASCE2016 on Twitter")._hover
-    li.o-List__Item.o-Flex__Item.c-SocialList__Item
-      span menu item active:
-      a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="" title="Follow #ASCE2016 on Twitter")._active
-  footer
-    p This is a #[code.docs-code footer] element.
-    ul.o-List.o-Flex.c-SocialList
-      li.o-List__Item.o-Flex__Item.c-SocialList__Item
-        a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="" itemprop="sameAs" title="Follow ASCE on Twitter")
-      li.o-List__Item.o-Flex__Item.c-SocialList__Item
-        a.c-SocialList__Link.c-SocialList__Link--google.h-Block(href="" itemprop="sameAs" title="Follow ASCE on Google+")
-      li.o-List__Item.o-Flex__Item.c-SocialList__Item
-        a.c-SocialList__Link.c-SocialList__Link--facebook.h-Block(href="" itemprop="sameAs" title="Follow ASCE on Facebook")
-      li.o-List__Item.o-Flex__Item.c-SocialList__Item
-        a.c-SocialList__Link.c-SocialList__Link--linkedin.h-Block(href="" itemprop="sameAs" title="Follow ASCE on LinkedIn")
-      li.o-List__Item.o-Flex__Item.c-SocialList__Item
-        a.c-SocialList__Link.c-SocialList__Link--youtube.h-Block(href="" itemprop="sameAs" title="Follow ASCE on YouTube")
-    ul.o-List.o-Flex.c-SocialList
-      li.o-List__Item.o-Flex__Item.c-SocialList__Item
-        span in footer menu item hover:
-        a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="" title="Follow #ASCE2016 on Twitter")._hover
-      li.o-List__Item.o-Flex__Item.c-SocialList__Item
-        span in footer menu item active:
-        a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="" title="Follow #ASCE2016 on Twitter")._active
+      span active:
+      a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="#0")._active
   pre.docs-pre.
     &lt;ul class="o-List  o-Flex  #[u c-SocialList]"&gt;
       &lt;li class="o-List__Item  o-Flex__Item  #[u c-SocialList__Item]"&gt;
@@ -59,6 +23,33 @@ figure.docs-figure
       &lt;/li&gt;
       ...
     &lt;/ul&gt;
-    &lt;footer&gt;
-      #[small &lt;!-- second social list exactly the same structure as above --&gt;]
-    &lt;/footer&gt;
+p.
+  The second type of Social List is meant for a dark background or banner.
+  It also uses smaller logos, so it may hold more of them.
+figure.docs-figure
+  div.c-Banner(style="z-index:1;")
+    ul.o-List.o-Flex.c-SocialList.c-SocialList--dark
+      li.o-List__Item.o-Flex__Item.c-SocialList__Item
+        a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="#0")
+      li.o-List__Item.o-Flex__Item.c-SocialList__Item
+        a.c-SocialList__Link.c-SocialList__Link--google.h-Block(href="#0")
+      li.o-List__Item.o-Flex__Item.c-SocialList__Item
+        a.c-SocialList__Link.c-SocialList__Link--facebook.h-Block(href="#0")
+      li.o-List__Item.o-Flex__Item.c-SocialList__Item
+        a.c-SocialList__Link.c-SocialList__Link--linkedin.h-Block(href="#0")
+      li.o-List__Item.o-Flex__Item.c-SocialList__Item
+        a.c-SocialList__Link.c-SocialList__Link--youtube.h-Block(href="#0")
+    ul.o-List.o-Flex.c-SocialList.c-SocialList--dark
+      li.o-List__Item.o-Flex__Item.c-SocialList__Item
+        span in banner hover:
+        a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="#0")._hover
+      li.o-List__Item.o-Flex__Item.c-SocialList__Item
+        span in banner active:
+        a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="#0")._active
+  pre.docs-pre.
+    &lt;ul class="o-List  o-Flex  #[u c-SocialList]  #[u c-SocialList--dark]"&gt;
+      &lt;li class="o-List__Item  o-Flex__Item  #[u c-SocialList__Item]"&gt;
+        &lt;a class="#[u c-SocialList__Link]  #[u c-SocialList__Link--twitter]  h-Block"&gt;&lt;/a&gt;
+      &lt;/li&gt;
+      ...
+    &lt;/ul&gt;

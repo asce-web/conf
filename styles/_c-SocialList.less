@@ -3,6 +3,7 @@
     conf  |  _c-SocialList.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__fallback.filter.less');
 @import (reference) url('../node_modules/xmeter/src/__fallback.transition.less');
 @import (reference) url('__settings.less');
 @import (reference) url('__tool.logo.less');
@@ -10,6 +11,8 @@
 
 // List of social media icons
 //
+// ^subclasses
+// --dark - social list inside footer of home page or speaker component
 // ^subcomponents
 // __Item - each item in the list
 // __Link - each link inside an __Item in the menu
@@ -20,59 +23,65 @@
 .c-SocialList {
   --iconsize: (100vw/10);
   width: 50%;
-  margin-left: auto; margin-right: auto;
+  margin-left:  auto;
+  margin-right: auto;
   text-align: center;
-  footer & {
-    // NOTE temporary (may use different compoent for footer social list)
-    --iconsize: (100vw/15);
-  }
 }
+.c-SocialList--dark {
+  --iconsize: (100vw/15);
+}
+
 .c-SocialList__Item {
   .flex(0);
 }
+
 .c-SocialList__Link {
   @width: (100vw/10); // HACK fallback
   width:  @width; // HACK fallback
   height: @width; // HACK fallback
   width:  var(--iconsize);
   height: var(--iconsize);
+  border-radius: 100%;
   .logo();
-  background-color: @g-color_site_gray_dk;
+  background-size: ((2/3) * 100%) ((2/3) * 100%);
+  background-color: @g-color-gray_dk;
+  background-color: var(--color-gray_dk);
+  .transition-duration(250ms); // override base `a`
+  .transitions(background-color, opacity, filter; 500ms); // override base `a`
   &:hover,
-  &:active,
+  &:focus,
   &._hover,
+  &:active,
   &._active {
+    background-color: @g-color-secondary;
+    background-color: var(--color-secondary);
   }
-  footer & {
-    // NOTE temporary (may use different compoent for footer social list)
+  .c-SocialList--dark & {
     @width: (100vw/15); // HACK fallback
     width:  @width; // HACK fallback
     height: @width; // HACK fallback
   }
 }
-footer .c-SocialList__Link {
-  @width: (100vw/15);
-  width:  @width;
-  height: @width;
-  background-color: @g-color_asce_white;
+.c-SocialList--dark .c-SocialList__Link {
+  background-color: transparent;
+  &:hover,
+  &:focus,
+  &._hover,
+  &:active,
+  &._active {
+    .filter(blur(2px));
+  }
 }
-
-.c-SocialList__Link--svg {
-  border-radius: 100%;
-  background-size: 60% 60%;
-  .transition-duration(250ms); // override that in base `a`
-}
-
 
 // these subclasses will use negative images
 // (white icons inside transparent circles)
 // then change the background-color on hover
 .c-SocialList__Link--twitter {
-  background-image: url('../img/twitter.png');
+  background-image: url('../img/twitter.svg');
 }
 .c-SocialList__Link--google {
-  background-image: url('../img/google.png');
+  background-image: url('../img/google.svg');
 }
 .c-SocialList__Link--facebook {
-  background-image: url('../img/facebook.png');
+  background-image: url('../img/facebook.svg');
 }

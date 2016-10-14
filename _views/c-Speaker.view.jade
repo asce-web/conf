@@ -8,7 +8,7 @@ mixin speaker($person)
         span(itemprop="name")= $person.affiliation()
     div.c-Speaker__Body
       div.c-Speaker__Bio(itemprop="description")!= $person.getBio(true)
-      footer
+    footer.c-Speaker__Foot
         ul.o-List
           if $person.email()
             li.o-List__Item: a.c-Speaker__Link(href='mailto:'+$person.email() title="send email" itemprop="email")= $person.email()

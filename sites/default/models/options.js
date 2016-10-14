@@ -25,9 +25,9 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
   site: (function () {
     var site = new ConfSite('An ASCE Event', '/sites/default/', 'Optional Brand Tagline')
       .keywords(['ASCE', 'civil engineering', 'convention'])
-      .init()
       .logo('img/site-logo-white.png')
       .colors(Color.fromString('#3fae2a'), Color.fromString('#00a1e1'))
+      .init()
 
     site
       .addConference('2016', new Conference({
@@ -605,64 +605,46 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       })
 
     site.find('sponsor.html')
-      .addSubpage({
-        name       : 'Partnering Orgs'
-      , url        : '#0'
-      , description: 'Partnering Organizations at ' + site.name() + '.'
-      , $confsite  : site
-      })
-      .addSubpage({
-        name       : 'Cooperating Orgs'
-      , url        : '#0'
-      , description: 'Cooperating Organizations at ' + site.name() + '.'
-      , $confsite  : site
-      })
+      .add(new ConfPage('Partnering Orgs', '#0')
+        .title(function () { return this.name() + ' | ' + site.name() })
+        .description('Partnering Organizations at ' + site.name() + '.')
+      )
+      .add(new ConfPage('Cooperating Orgs', '#0')
+        .title(function () { return this.name() + ' | ' + site.name() })
+        .description('Cooperating Organizations at ' + site.name() + '.')
+      )
     site.find('exhibit.html')
-      .addSubpage({
-        name       : 'Exhibitor List'
-      , url        : '#0'
-      , description: 'Listing of all Exhibitors at ' + site.name() + '.'
-      , $confsite  : site
-      })
+      .add(new ConfPage('Exhibitor List', '#0')
+        .title(function () { return this.name() + ' | ' + site.name() })
+        .description('Listing of all Exhibitors at ' + site.name() + '.')
+      )
     site.find('registration.html')
-      .addSubpage({
-        name       : 'Why Attend'
-      , url        : '#0'
-      , description: 'Why you should attend ' + site.currentConference().name() + '.'
-      , $confsite  : site
-      })
-      .addSubpage({
-        name       : 'Volunteer'
-      , url        : '#0'
-      , description: 'Volunteer at ' + site.currentConference().name() + '.'
-      , $confsite  : site
-      })
+      .add(new ConfPage('Why Attend', '#0')
+        .title(function () { return this.name() + ' | ' + site.currentConference().name() })
+        .description('Why you should attend ' + site.currentConference().name() + '.')
+      )
+      .add(new ConfPage('Volunteer', '#0')
+        .title(function () { return this.name() + ' | ' + site.currentConference().name() })
+        .description('Volunteer at ' + site.currentConference().name() + '.')
+      )
     site.find('program.html')
-      .addSubpage({
-        name       : 'Short Courses'
-      , url        : '#0'
-      , description: 'Short Courses for ' + site.currentConference().name() + '.'
-      , $confsite  : site
-      })
-      .addSubpage({
-        name       : 'Technical Tours'
-      , url        : '#0'
-      , description: 'Technical Tours for ' + site.currentConference().name() + '.'
-      , $confsite  : site
-      })
-      .addSubpage({
-        name       : 'Optional Tours'
-      , url        : '#0'
-      , description: 'Optional Tours for ' + site.currentConference().name() + '.'
-      , $confsite  : site
-      })
+      .add(new ConfPage('Short Courses', '#0')
+        .title(function () { return this.name() + ' | ' + site.currentConference().name() })
+        .description('Short Courses for ' + site.currentConference().name() + '.')
+      )
+      .add(new ConfPage('Technical Tours', '#0')
+        .title(function () { return this.name() + ' | ' + site.currentConference().name() })
+        .description('Technical Tours for ' + site.currentConference().name() + '.')
+      )
+      .add(new ConfPage('Optional Tours', '#0')
+        .title(function () { return this.name() + ' | ' + site.currentConference().name() })
+        .description('Optional Tours for ' + site.currentConference().name() + '.')
+      )
     site.find('speakers.html')
-      .addSubpage({
-        name       : 'Distinguished Lecturers'
-      , url        : '#0'
-      , description: 'Distinguished lecturers at ' + site.currentConference().name() + '.'
-      , $confsite  : site
-      })
+      .add(new ConfPage('Distinguished Lecturers', '#0')
+        .title(function () { return this.name() + ' | ' + site.currentConference().name() })
+        .description('Distinguished lecturers at ' + site.currentConference().name() + '.')
+      )
 
     return site
   })()

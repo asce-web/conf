@@ -29,7 +29,6 @@ module.exports = (function () {
     self._sponsor_levels   = []
     self._org_levels       = []
     self._supporters       = []
-    self._was_initialized = false
     self._conf_curr_key   = null
     self._conf_prev_key   = null
     self._conf_next_key   = null
@@ -132,42 +131,6 @@ module.exports = (function () {
   ConfSite.prototype.currentConference = function currentConference(conf_label) {
     if (arguments.length) {
       this._conf_curr_key = conf_label
-      ;(function (self) {
-        if (self._was_initialized) {
-          self.find('#main-menu')
-            .removeAll() //- NOTE IMPORTANT
-            .add(new ConfPage('Home', 'home.html')
-              .title(self.currentConference().name())
-              .description(self.currentConference().theme())
-              .setIcon('home')
-              .pagetype('main')
-            )
-            .add(new ConfPage('Registration', 'registration.html')
-              .title(ConfPage.pageTitle(self, 'main'))
-              .description('Register for ' + self.currentConference().name() + ' here.')
-              .setIcon('shopping_cart')
-              .pagetype('main')
-            )
-            .add(new ConfPage('Program', 'program.html')
-              .title(ConfPage.pageTitle(self, 'main'))
-              .description('Program and agenda of ' + self.currentConference().name() + '.')
-              .setIcon('event')
-              .pagetype('main')
-            )
-            .add(new ConfPage('Hotel & Travel', 'location.html')
-              .title(ConfPage.pageTitle(self, 'main'))
-              .description('Location and where to stay for ' + self.currentConference().name() + '.')
-              .setIcon('flight')
-              .pagetype('main')
-            )
-            .add(new ConfPage('Speakers', 'speakers.html')
-              .title(ConfPage.pageTitle(self, 'main'))
-              .description('Current and prospective speakers at ' + self.currentConference().name() + '.')
-              .setIcon('account_box')
-              .pagetype('main')
-            )
-        }
-      })(this)
       return this
     } else {
       return this.getConference(this._conf_curr_key)
@@ -290,78 +253,63 @@ module.exports = (function () {
 
   // METHODS
   /**
-   * Initialize this site: add the proper top-level pages.
-   * Return this initialized site, if it had not been initialized before,
-   * else return `undefined`.
-   * @return {ConfSite=} this site || undefined
+   * Initialize this site: add the proper pages.
+   * This method should only be called once; it resets pages every time called.
+   * @return {ConfSite} this site
    */
   ConfSite.prototype.init = function init() {
     var self = this
-    if (!self._was_initialized) {
-      self._was_initialized = true
-      return self
-        .add(new Page({ name: 'Top', url: '#top-menu' })
-          .add(new ConfPage(self.name(), 'index.html')
-            .title(self.name())
-            .description(self.tagline())
-            .setIcon('')
-            .pagetype('top')
-          )
-          .add(new ConfPage('About', 'about.html')
-            .title(ConfPage.pageTitle(self, 'top'))
-            .description('About ' + self.name() + '.')
-            .setIcon('info_outline')
-            .pagetype('top')
-          )
-          .add(new ConfPage('Sponsor', 'sponsor.html')
-            .title(ConfPage.pageTitle(self, 'top'))
-            .description('Sponsors of ' + self.name() + '.')
-            .setIcon('people')
-            .pagetype('top')
-          )
-          .add(new ConfPage('Exhibit', 'exhibit.html')
-            .title(ConfPage.pageTitle(self, 'top'))
-            .description('Exhibitors at ' + self.name() + '.')
-            .setIcon('work')
-            .pagetype('top')
-          )
-          .add(new ConfPage('Contact', 'contact.html')
-            .title(ConfPage.pageTitle(self, 'top'))
-            .description('Contact us for questions and comments about ' + self.name() + '.')
-            .setIcon('email')
-            .pagetype('top')
-          )
-        )
-        .add(new Page({ name: 'Main', url: '#main-menu' }))
-        .colors(Color.fromString('#660000'), Color.fromString('#ff6600')) // default Hokie colors
-    } else return
+    function pageTitle() { return this.name() + ' | ' + self.name() }
+    return self
+      .removeAll() //- NOTE IMPORTANT
+      .add(new ConfPage('Home', 'index.html')
+        .title(self.name())
+        .description(self.tagline())
+        .setIcon('home')
+      )
+      .add(new ConfPage('Registration', 'registration.html')
+        .title(pageTitle)
+        .description('Register for ' + self.name() + ' here.')
+        .setIcon('shopping_cart')
+      )
+      .add(new ConfPage('Program', 'program.html')
+        .title(pageTitle)
+        .description('Program and agenda of ' + self.name() + '.')
+        .setIcon('event')
+      )
+      .add(new ConfPage('Location', 'location.html')
+        .title(pageTitle)
+        .description('Location and where to stay for ' + self.name() + '.')
+        .setIcon('flight')
+      )
+      .add(new ConfPage('Speakers', 'speakers.html')
+        .title(pageTitle)
+        .description('Current and prospective speakers at ' + self.name() + '.')
+        .setIcon('account_box')
+      )
+      .add(new ConfPage('Sponsor', 'sponsor.html')
+        .title(pageTitle)
+        .description('Sponsors of ' + self.name() + '.')
+        .setIcon('people')
+      )
+      .add(new ConfPage('Exhibit', 'exhibit.html')
+        .title(pageTitle)
+        .description('Exhibitors at ' + self.name() + '.')
+        .setIcon('work')
+      )
+      .add(new ConfPage('About', 'about.html')
+        .title(pageTitle)
+        .description('About ' + self.name() + '.')
+        .setIcon('info_outline')
+      )
+      .add(new ConfPage('Contact', 'contact.html')
+        .title(pageTitle)
+        .description('Contact us for questions and comments about ' + self.name() + '.')
+        .setIcon('email')
+      )
   }
 
   // STATIC MEMBERS
-  /**
-   * An object describing the menu structures of the Main, Sub, and Sitemap menus.
-   * @type {Object}
-   */
-  ConfSite.MENU_CLASS = {
-    main: {
-      listclasses: 'o-List o-Flex c-MenuMain'
-    , itemclasses: 'o-List__Item o-Flex__Item c-MenuMain__Item'
-    , linkclasses: 'c-MenuMain__Link h-Block'
-    , sub: {
-        listclasses: 'o-List c-MenuSub'
-      , itemclasses: 'o-List__Item c-MenuSub__Item'
-      , linkclasses: 'c-MenuSub__Link h-Block'
-      }
-    }
-  , sitemap: {
-      listclasses: 'o-List o-Flex c-Sitemap'
-    , itemclasses: 'o-List__Item o-Flex__Item c-Sitemap__Item'
-    , sub: {
-        listclasses: 'o-List c-Sitemap__SubList'
-      , itemclasses: 'o-List__Item c-Sitemap__SubItem'
-      }
-    }
-  }
 
   /**
    * Generate a color palette and return a style object with custom properties.

@@ -146,12 +146,12 @@ module.exports = (function () {
       name: 'Google+'
     , icon: Util.ICON_DATA[-1]
     }
-  , youtube: {
-      name: 'YouTube'
-    , icon: Util.ICON_DATA[-1]
-    }
   , linkedin: {
       name: 'LinkedIn'
+    , icon: Util.ICON_DATA[-1]
+    }
+  , youtube: {
+      name: 'YouTube'
     , icon: Util.ICON_DATA[-1]
     }
   }

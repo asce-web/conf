@@ -16,8 +16,5 @@ mixin speaker($person)
           li.o-List__Item: a.c-Speaker__Link(href='tel:'+Util.toURL($person.phone()) title="call" itemprop="telephone")= $person.phone()
         if $person.url()
           li.o-List__Item: a.c-Speaker__Link(href=$person.url() title="homepage" itemprop="url") Homepage
-      ul.o-List.o-Flex.c-SocialList.c-SocialList--dark
-        each $val,key in $person.getSocialAll()
-          li.o-List__Item.o-Flex__Item.c-SocialList__Item
-            a.c-SocialList__Link.h-Block(class='c-SocialList__Link--'+key href=$val.url itemprop="sameAs")
-              = $val.text || Util.SOCIAL_DATA[key].name
+      include /_views/c-SocialList.view.jade
+      +socialList($person.getSocialAll(), { is_dark: true, has_microdata: true })

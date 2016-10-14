@@ -2,13 +2,12 @@ p.
   There are two Social List styles. The first is meant for a light background. The logos are
   each encompassed in a dark gray circle.
 figure.docs-figure
-  ul.o-List.o-Flex.c-SocialList
-    li.o-List__Item.o-Flex__Item.c-SocialList__Item
-      a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="#0")
-    li.o-List__Item.o-Flex__Item.c-SocialList__Item
-      a.c-SocialList__Link.c-SocialList__Link--google.h-Block(href="#0")
-    li.o-List__Item.o-Flex__Item.c-SocialList__Item
-      a.c-SocialList__Link.c-SocialList__Link--facebook.h-Block(href="#0")
+  include /_views/c-SocialList.view.jade
+  +socialList({
+    twitter : { url: '#0', text: 'example Twitter link' }
+  , google  : { url: '#0', text: 'example Google+ link' }
+  , facebook: { url: '#0', text: 'example Facebook link' }
+  }, { is_dark: false, has_microdata: false })
   ul.o-List.o-Flex.c-SocialList
     li.o-List__Item.o-Flex__Item.c-SocialList__Item
       span hover:
@@ -28,17 +27,14 @@ p.
   It also uses smaller logos, so it may hold more of them.
 figure.docs-figure
   div.c-Banner(style="z-index:1;")
-    ul.o-List.o-Flex.c-SocialList.c-SocialList--dark
-      li.o-List__Item.o-Flex__Item.c-SocialList__Item
-        a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="#0")
-      li.o-List__Item.o-Flex__Item.c-SocialList__Item
-        a.c-SocialList__Link.c-SocialList__Link--google.h-Block(href="#0")
-      li.o-List__Item.o-Flex__Item.c-SocialList__Item
-        a.c-SocialList__Link.c-SocialList__Link--facebook.h-Block(href="#0")
-      li.o-List__Item.o-Flex__Item.c-SocialList__Item
-        a.c-SocialList__Link.c-SocialList__Link--linkedin.h-Block(href="#0")
-      li.o-List__Item.o-Flex__Item.c-SocialList__Item
-        a.c-SocialList__Link.c-SocialList__Link--youtube.h-Block(href="#0")
+    include /_views/c-SocialList.view.jade
+    +socialList({
+      twitter : { url: '#0', text: 'example Twitter link' }
+    , google  : { url: '#0', text: 'example Google+ link' }
+    , facebook: { url: '#0', text: 'example Facebook link' }
+    , linkedin: { url: '#0', text: 'example LinkedIn link' }
+    , youtube : { url: '#0', text: 'example YouTube link' }
+    }, { is_dark: true, has_microdata: false })
     ul.o-List.o-Flex.c-SocialList.c-SocialList--dark
       li.o-List__Item.o-Flex__Item.c-SocialList__Item
         span in banner hover:

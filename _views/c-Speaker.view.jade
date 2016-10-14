@@ -8,7 +8,8 @@ mixin speaker($person)
         span(itemprop="name")= $person.affiliation()
     div.c-Speaker__Body(itemprop="description")!= $person.getBio(true)
     footer.c-Speaker__Foot
-      ul.o-List.o-Flex.c-SocialList.c-SocialList--speaker
+      include /_views/c-SocialList.view.jade
+      +socialList($person.getSocialAll(), { classes: 'c-SocialList--speaker', has_microdata: true })
         if $person.email()
           li.o-List__Item.o-Flex__Item.c-SocialList__Item
             a.c-SocialList__Link.c-SocialList__Link--email.h-Block(href='mailto:'+$person.email() title=$person.email() itemprop="email") send email
@@ -21,5 +22,3 @@ mixin speaker($person)
           li.o-List__Item.o-Flex__Item.c-SocialList__Item
             a.c-SocialList__Link.c-SocialList__Link--homepage.h-Block(href=$person.url() title="visit homepage" itemprop="url") visit homepage
               i.material-icons explore
-      include /_views/c-SocialList.view.jade
-      +socialList($person.getSocialAll(), { classes: 'c-SocialList--speaker', has_microdata: true })

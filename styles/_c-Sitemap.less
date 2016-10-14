@@ -17,21 +17,11 @@
 // 2016-10-12
 @p-fz: 20/16;
 .c-Sitemap {
-  --link-color: currentColor;
-  --link-color-hover: var(--link-color);
   .flex-justify-content(space-around); // override Flex `space-between`
   .menubar();
   @media screen and (max-width: 44.999em) {
     .flex-direction(column);
     .font-size-mod(@p-fz);
-  }
-  a {
-    color: inherit; // HACK fallback
-    &:hover,
-    &:focus,
-    &._hover {
-      text-decoration: underline;
-    }
   }
 }
 .c-Sitemap__Item {

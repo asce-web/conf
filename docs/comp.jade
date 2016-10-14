@@ -4,7 +4,7 @@ block append vars
   - var page = ConfDocs.DOCS.find('comp.html')
 
 block append main
-  +newSection(2, ConfDocs.DOCS.find('comp.html#masthead-mastfoot'))
+  +newSection(2, ConfDocs.DOCS.find('comp.html#mast-component'))
     include includes/_c-Mast.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#site-title'))
     include includes/_c-SiteTitle.docs.jade

@@ -3,62 +3,120 @@
     conf  |  _c-SocialList.less
 \*################################*/
 @import (reference) url('../node_modules/xmeter/src/__fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/src/__fallback.filter.less');
+@import (reference) url('../node_modules/xmeter/src/__fallback.transition.less');
 @import (reference) url('__settings.less');
+@import (reference) url('__tool.logo.less');
 
 
 // List of social media icons
 //
+// ^subclasses
+// --footer - social list inside home page footer
+// --speaker - social list inside speaker component
+// --highlight - social list inside "Join the Conversation" callout
 // ^subcomponents
 // __Item - each item in the list
 // __Link - each link inside an __Item in the menu
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-04-23
+// 2016-10-14
 .c-SocialList {
-  --iconsize: (100vw/10);
-  width: 50%;
-  margin-left: auto; margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
-  footer & {
-    // NOTE temporary (may use different compoent for footer social list)
-    --iconsize: (100vw/15);
-  }
-}
-.c-SocialList__Item {
-  .flex(0);
-}
-.c-SocialList__Link {
-  @width: (100vw/10); // HACK fallback
-  width:  @width; // HACK fallback
-  height: @width; // HACK fallback
-  width:  var(--iconsize);
-  height: var(--iconsize);
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  &:hover,
-  &:active,
-  &._hover,
-  &._active {
-  }
-  footer & {
-    // NOTE temporary (may use different compoent for footer social list)
-    @width: (100vw/15); // HACK fallback
-    width:  @width; // HACK fallback
-    height: @width; // HACK fallback
+  &:last-child {
+    margin-bottom: 0; // HACK override base ul
   }
 }
 
-// these subclasses will use negative images
-// (white icons inside transparent circles)
-// then change the background-color on hover
-.c-SocialList__Link--twitter {
-  background-image: url('../img/twitter.png');
+.c-SocialList--footer {
+  width: 50%;
+  @iconsize: 5vw;
+  --iconsize: @iconsize; // TODO remove after fallback
+  // HACK fallbacks
+  .c-SocialList__Link {
+    width:  @iconsize;
+    height: @iconsize;
+  }
+  @media screen and (min-width: 60em) {
+    @iconsize: 2 * @g-vru;
+    --iconsize: calc(~'2 * var(--vru)');
+    // HACK fallbacks
+    .c-SocialList__Link {
+      width:  @iconsize;
+      height: @iconsize;
+    }
+  }
+  @media screen and (min-width: 75em) {
+    width: (100%/3);
+  }
 }
-.c-SocialList__Link--google {
-  background-image: url('../img/google.png');
+
+.c-SocialList--speaker {
+  @iconsize: @g-vru;
+  --iconsize: var(--vru);
+  // HACK fallbacks
+  .c-SocialList__Link {
+    width:  @iconsize;
+    height: @iconsize;
+  }
 }
-.c-SocialList__Link--facebook {
-  background-image: url('../img/facebook.png');
+
+.c-SocialList--highlight {
+  width: 50%;
+  @iconsize: 10vw;
+  --iconsize: @iconsize; // TODO update after fallback
+  // HACK fallbacks
+  .c-SocialList__Link {
+    width:  @iconsize;
+    height: @iconsize;
+  }
 }
+
+.c-SocialList__Item {
+  .flex(0);
+}
+
+.c-SocialList__Link {
+  width:  var(--iconsize);
+  height: var(--iconsize);
+  text-indent: -999999px;
+  .logo();
+  .transitions(background-color, opacity, filter; 500ms); // override base `a`
+  .c-SocialList--footer &,
+  .c-SocialList--speaker & {
+    &:hover,
+    &:focus,
+    &._hover,
+    &:active,
+    &._active {
+      .filter(blur(2px));
+    }
+  }
+  .c-SocialList--highlight & {
+    border-radius: 100%;
+    background-size: ((2/3) * 100%) ((2/3) * 100%);
+    background-color: @g-color-gray_dk; // HACK fallback
+    background-color: var(--color-gray_dk);
+    &:hover,
+    &:focus,
+    &._hover,
+    &:active,
+    &._active {
+      background-color: @g-color-secondary; // HACK fallback
+      background-color: var(--color-secondary);
+    }
+  }
+}
+
+.c-SocialList__Link--email    { background-image: url('../img/envelope.svg'); }
+.c-SocialList__Link--phone    { background-image: url('../img/phone.svg'); }
+.c-SocialList__Link--homepage { background-image: url('../img/compass.svg'); }
+
+.c-SocialList__Link--twitter  { background-image: url('../img/twitter.svg'); }
+.c-SocialList__Link--google   { background-image: url('../img/google.svg'); }
+.c-SocialList__Link--facebook { background-image: url('../img/facebook.svg'); }
+.c-SocialList__Link--linkedin { background-image: url('../img/linkedin.svg'); }
+.c-SocialList__Link--youtube  { background-image: url('../img/youtube.svg'); }

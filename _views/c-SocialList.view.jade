@@ -1,0 +1,8 @@
+mixin socialList($social_obj, $options)
+  - var $options = $options || { classes: '', has_microdata: false }
+  ul.o-List.o-Flex.c-SocialList(class=$options.classes)
+    block
+    each $val,key in $social_obj
+      li.o-List__Item.o-Flex__Item.c-SocialList__Item
+        a.c-SocialList__Link.h-Block(class='c-SocialList__Link--'+key href=$val.url)&attributes($options.has_microdata ? {itemprop:'sameAs'} : {})
+          = $val.text || Util.SOCIAL_DATA[key].name

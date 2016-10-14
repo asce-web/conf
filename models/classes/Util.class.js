@@ -126,6 +126,10 @@ module.exports = (function () {
   , { content: 'account_balance', fallback: '\uE84F', html: '&#xE84F;' }
   , { content: 'insert_drive_file', fallback: '\uE24D', html: '&#xE24D;' }
   , { content: 'arrow_upward'   , fallback: '\uE5D8', html: '&#xE5D8;' }
+  , { content: 'email'       , fallback: '\uE0BE', html: '&#xE0BE;' }
+  , { content: 'phone'       , fallback: '\uE0CD', html: '&#xE0CD;' }
+  , { content: 'phone_iphone', fallback: '\uE325', html: '&#xE325;' }
+  , { content: 'explore'     , fallback: '\uE87A', html: '&#xE87A;' }
   ]
 
   /**
@@ -133,25 +137,25 @@ module.exports = (function () {
    * @type {Object}
    */
   Util.SOCIAL_DATA = {
-    twitter : {
+    twitter: {
       name: 'Twitter'
     , icon: Util.ICON_DATA[-1]
-    , toURL: function (handle) { return 'https://twitter.com/' + handle }
+    // , toURL: function (handle) { return 'https://twitter.com/' + (handle || '') } // NOTE param validation
     }
   , facebook: {
       name: 'Faceboook'
     , icon: Util.ICON_DATA[-1]
     }
-  , google  : {
+  , google: {
       name: 'Google+'
-    , icon: Util.ICON_DATA[-1]
-    }
-  , youtube : {
-      name: 'YouTube'
     , icon: Util.ICON_DATA[-1]
     }
   , linkedin: {
       name: 'LinkedIn'
+    , icon: Util.ICON_DATA[-1]
+    }
+  , youtube: {
+      name: 'YouTube'
     , icon: Util.ICON_DATA[-1]
     }
   }

@@ -22,17 +22,14 @@
 // __Attendee - attendee type (membership status)
 // __Price    - any price for any pass
 //   __Price--featured - highlighted price of some sort (usually membership price)
+//
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-09-22
+// 2016-10-14
 .c-Pass {
   .ticket();
   text-align: center;
-  background-color: @g-color-gray_dk; // HACK fallback
-  color: @g-color-gray_lt-tint2; // HACK fallback
-  background-color: var(--color-gray_dk);
-  color: var(--color-gray_lt-tint2);
   overflow: hidden;
   .c-Pass__Period__Hn {
     margin-bottom: 0; // HACK override `.font-size-mod() >> h1`
@@ -46,10 +43,7 @@
 }
 
 .c-Pass__Body {
-  background-color: @g-color-gray_lt-tint2; // HACK fallback
-  color: @g-color-gray_dk-shade2; // HACK fallback
-  background-color: var(--color-gray_lt-tint2);
-  color: var(--color-gray_dk-shade2);
+  .ticket-body()
 }
 
 .c-Pass__Hn,

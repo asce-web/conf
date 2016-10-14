@@ -12,8 +12,11 @@ figure.docs-figure
       .email('example@asce.org')
       .phone('+1(703)555-5555')
       .url('#0')
-      .addSocial('linkedin', 'https://www.linkedin.com/groups/143956/profile')
-      .addSocial('twitter', Util.SOCIAL_DATA.twitter.toURL('@ASCETweets'), '@ASCETweets')
+      .addSocial('linkedin', '#0')
+      .addSocial('twitter', '#0', 'Follow @Donna on Twitter')
+      .addSocial('facebook', '#0', 'Donna’s Facebook Profile')
+      .addSocial('google', '#0', 'Donna’s Google+ Profile')
+      .addSocial('youtube', '#0', 'Donna’s YouTube Channel')
       .setBio('<p>Speaker bio goes here. <b>HTML</b> is allowed.\
         Block- and text-level elements.</p>')
     )
@@ -37,18 +40,10 @@ figure.docs-figure
             &lt;/p&gt;
           &lt;/header&gt;
         &lt;/div&gt;
-        &lt;div class="#[u c-Speaker__Body]"&gt;
-          &lt;div class="#[u c-Speaker__Bio]"#[mark.docs-c-Togglable__Text  itemprop="description"]&gt;
-            &lt;p&gt;Speaker bio ...&lt;/p&gt;
-          &lt;/div&gt;
-          &lt;ul class="o-List"&gt;
-            &lt;li class="o-List__Item"&gt;&lt;a class="#[u c-Speaker__Link]"#[mark.docs-c-Togglable__Text  itemprop="email"]&gt;example@asce.org&lt;/a&gt;&lt;/li&gt;
-            &lt;li class="o-List__Item"&gt;&lt;a class="#[u c-Speaker__Link]"#[mark.docs-c-Togglable__Text  itemprop="telephone"]&gt;+1(703)555-5555&lt;/a&gt;&lt;/li&gt;
-            &lt;li class="o-List__Item"&gt;&lt;a class="#[u c-Speaker__Link]"#[mark.docs-c-Togglable__Text  itemprop="url"]&gt;Homepage&lt;/a&gt;&lt;/li&gt;
-          &lt;/ul&gt;
-          &lt;ul class="o-List"&gt;
-            &lt;li class="o-List__Item  h-Inline"&gt;&lt;a class="#[u c-Speaker__Link]#[mark.docs-c-Togglable__Text  itemprop="sameAs"]"&gt;LinkedIn&lt;/a&gt;&lt;/li&gt;
-            &lt;li class="o-List__Item  h-Inline"&gt;&lt;a class="#[u c-Speaker__Link]#[mark.docs-c-Togglable__Text  itemprop="sameAs"]"&gt;Twitter&lt;/a&gt;&lt;/li&gt;
-          &lt;/ul&gt;
+        &lt;div class="#[u c-Speaker__Body]"#[mark.docs-c-Togglable__Text  itemprop="description"]&gt;
+          &lt;p&gt;Speaker bio ...&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="#[u c-Speaker__Foot]"&gt;
+          &lt;ul class="o-List  o-Flex  c-SocialList"&gt;...&lt;/ul&gt;
         &lt;/div&gt;
       &lt;/article&gt;

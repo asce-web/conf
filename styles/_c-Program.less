@@ -36,9 +36,11 @@
 .c-Program__Hn {
   font-family: inherit; // override h1
   .font-size-el(1);
-  color: @g-color-gray_lt; // HACK fallback
-  color: var(--color-gray_lt);
   cursor: pointer;
+  &:not(.c-Program__Hn--selected) {
+    color: @g-color-gray_lt; // HACK fallback
+    color: var(--color-gray_lt);
+  }
   @media screen and (min-width: 30em) {
     .flex(1);
   }
@@ -51,7 +53,6 @@
 }
 .c-Program__Hn--selected {
   .transform(scale(1.2));
-  color: inherit; // override .c-Program__Hn
 }
 
 // A schedule for events in a date.

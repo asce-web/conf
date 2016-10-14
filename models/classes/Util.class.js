@@ -126,6 +126,10 @@ module.exports = (function () {
   , { content: 'account_balance', fallback: '\uE84F', html: '&#xE84F;' }
   , { content: 'insert_drive_file', fallback: '\uE24D', html: '&#xE24D;' }
   , { content: 'arrow_upward'   , fallback: '\uE5D8', html: '&#xE5D8;' }
+  , { content: 'email'       , fallback: '\uE0BE', html: '&#xE0BE;' }
+  , { content: 'phone'       , fallback: '\uE0CD', html: '&#xE0CD;' }
+  , { content: 'phone_iphone', fallback: '\uE325', html: '&#xE325;' }
+  , { content: 'explore'     , fallback: '\uE87A', html: '&#xE87A;' }
   ]
 
   /**

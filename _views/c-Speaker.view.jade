@@ -9,14 +9,15 @@ mixin speaker($person)
     div.c-Speaker__Body
       div.c-Speaker__Bio(itemprop="description")!= $person.getBio(true)
     footer.c-Speaker__Foot
-        ul.o-List
-          if $person.email()
-            li.o-List__Item: a.c-Speaker__Link(href='mailto:'+$person.email() title="send email" itemprop="email")= $person.email()
-          if $person.phone()
-            li.o-List__Item: a.c-Speaker__Link(href='tel:'+Util.toURL($person.phone()) title="call" itemprop="telephone")= $person.phone()
-          if $person.url()
-            li.o-List__Item: a.c-Speaker__Link(href=$person.url() title="homepage" itemprop="url") Homepage
-          each $val,key in $person.getSocialAll()
-            li.o-List__Item.h-Inline
-              a.c-Speaker__Link(href=$val.url title=($val.title || Util.SOCIAL_DATA[key].name) itemprop="sameAs")
-                = Util.SOCIAL_DATA[key].name
+      ul.o-List
+        if $person.email()
+          li.o-List__Item: a.c-Speaker__Link(href='mailto:'+$person.email() title="send email" itemprop="email")= $person.email()
+        if $person.phone()
+          li.o-List__Item: a.c-Speaker__Link(href='tel:'+Util.toURL($person.phone()) title="call" itemprop="telephone")= $person.phone()
+        if $person.url()
+          li.o-List__Item: a.c-Speaker__Link(href=$person.url() title="homepage" itemprop="url") Homepage
+      ul.o-List.o-Flex.c-SocialList.c-SocialList--dark
+        each $val,key in $person.getSocialAll()
+          li.o-List__Item.o-Flex__Item.c-SocialList__Item
+            a.c-SocialList__Link.h-Block(class='c-SocialList__Link--'+key href=$val.url itemprop="sameAs")
+              = $val.text || Util.SOCIAL_DATA[key].name

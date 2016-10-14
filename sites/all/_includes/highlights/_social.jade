@@ -3,4 +3,5 @@ p.-ta-c Follow ASCE on social media for real-time conversation.
 ul.o-List.o-Flex.c-SocialList
   each $val,key in site.currentConference().getSocialAll()
     li.o-List__Item.o-Flex__Item.c-SocialList__Item
-      a.c-SocialList__Link.h-Block(class='c-SocialList__Link--'+key href=$val.url title=($val.title || Util.SOCIAL_DATA[key].name) itemprop="sameAs")
+      a.c-SocialList__Link.h-Block(class='c-SocialList__Link--'+key href=$val.url itemprop="sameAs")
+        = $val.text || Util.SOCIAL_DATA[key].name

@@ -54,38 +54,38 @@ module.exports = (function () {
         )
         .add(new Page({ name: 'Objects', url: 'obj.html' })
           .description('Patterns of structure that can be reused many times for many different purposes.')
-          .add(new Page({ name: 'The Float Grid'     , url: 'obj.html#float-grid' }))
-          .add(new Page({ name: 'The Runner Object'  , url: 'obj.html#runner-object' }))
-          .add(new Page({ name: 'Constrain'          , url: 'obj.html#constrain' }))
-          .add(new Page({ name: 'The Action List'    , url: 'obj.html#action-list' }))
-          .add(new Page({ name: 'The Stacked List'   , url: 'obj.html#stacked-list' }))
-          .add(new Page({ name: 'The Drawer Object'  , url: 'obj.html#drawer-object' }))
+          .add(new Page({ name: 'The Float Grid'   , url: 'obj.html#float-grid' }))
+          .add(new Page({ name: 'The Runner Object', url: 'obj.html#runner-object' }))
+          .add(new Page({ name: 'Constrain'        , url: 'obj.html#constrain' }))
+          .add(new Page({ name: 'The Action List'  , url: 'obj.html#action-list' }))
+          .add(new Page({ name: 'The Stacked List' , url: 'obj.html#stacked-list' }))
+          .add(new Page({ name: 'The Drawer Object', url: 'obj.html#drawer-object' }))
         )
         .add(new Page({ name: 'Components', url: 'comp.html' })
           .description('Patterns of look-and-feel that are each only used for one purpose.')
           .add(new Page({ name: 'The Mast Component'   , url: 'comp.html#mast-component' }))
-          .add(new Page({ name: 'The Site Title'           , url: 'comp.html#site-title' }))
-          .add(new Page({ name: 'The Mobile Menu'          , url: 'comp.html#mobile-menu' }))
-          .add(new Page({ name: 'The Menu Bar'             , url: 'comp.html#menu-bar' }))
-          .add(new Page({ name: 'The Sitemap Component'    , url: 'comp.html#sitemap-component' }))
-          .add(new Page({ name: 'The Page Title'           , url: 'comp.html#page-title' }))
-          .add(new Page({ name: 'The Banner Component'     , url: 'comp.html#banner-component' }))
-          .add(new Page({ name: 'The Hero Block'           , url: 'comp.html#hero-block' }))
-          .add(new Page({ name: 'The Other Year Block'     , url: 'comp.html#other-year-block' }))
-          .add(new Page({ name: 'The Overlay Component'    , url: 'comp.html#overlay-component' }))
-          .add(new Page({ name: 'The Supporter Logo'       , url: 'comp.html#supporter-logo' }))
-          .add(new Page({ name: 'The Supporter Block'      , url: 'comp.html#supporter-block' }))
-          .add(new Page({ name: 'The Date Block'           , url: 'comp.html#date-block' }))
-          .add(new Page({ name: 'The Pass Component'       , url: 'comp.html#pass-component' }))
-          .add(new Page({ name: 'The Program Component'    , url: 'comp.html#program-component' }))
-          .add(new Page({ name: 'The Time Block'           , url: 'comp.html#time-block' }))
-          .add(new Page({ name: 'The Speaker Component'    , url: 'comp.html#speaker-component' }))
-          .add(new Page({ name: 'The Social List'          , url: 'comp.html#social-list' }))
-          .add(new Page({ name: 'The Callout Component'    , url: 'comp.html#callout-component' }))
-          .add(new Page({ name: 'Buttons'                  , url: 'comp.html#buttons' }))
-          .add(new Page({ name: 'The Toggle Button'        , url: 'comp.html#toggle-button' }))
-          .add(new Page({ name: 'The Camo Link'            , url: 'comp.html#camo-link' }))
-          .add(new Page({ name: 'The Caps Link'            , url: 'comp.html#caps-link' }))
+          .add(new Page({ name: 'The Site Title'       , url: 'comp.html#site-title' }))
+          .add(new Page({ name: 'The Mobile Menu'      , url: 'comp.html#mobile-menu' }))
+          .add(new Page({ name: 'The Menu Bar'         , url: 'comp.html#menu-bar' }))
+          .add(new Page({ name: 'The Sitemap Component', url: 'comp.html#sitemap-component' }))
+          .add(new Page({ name: 'The Page Title'       , url: 'comp.html#page-title' }))
+          .add(new Page({ name: 'The Banner Component' , url: 'comp.html#banner-component' }))
+          .add(new Page({ name: 'The Hero Block'       , url: 'comp.html#hero-block' }))
+          .add(new Page({ name: 'The Other Year Block' , url: 'comp.html#other-year-block' }))
+          .add(new Page({ name: 'The Overlay Component', url: 'comp.html#overlay-component' }))
+          .add(new Page({ name: 'The Supporter Logo'   , url: 'comp.html#supporter-logo' }))
+          .add(new Page({ name: 'The Supporter Block'  , url: 'comp.html#supporter-block' }))
+          .add(new Page({ name: 'The Date Block'       , url: 'comp.html#date-block' }))
+          .add(new Page({ name: 'The Pass Component'   , url: 'comp.html#pass-component' }))
+          .add(new Page({ name: 'The Program Component', url: 'comp.html#program-component' }))
+          .add(new Page({ name: 'The Time Block'       , url: 'comp.html#time-block' }))
+          .add(new Page({ name: 'The Speaker Component', url: 'comp.html#speaker-component' }))
+          .add(new Page({ name: 'The Social List'      , url: 'comp.html#social-list' }))
+          .add(new Page({ name: 'The Callout Component', url: 'comp.html#callout-component' }))
+          .add(new Page({ name: 'Buttons'              , url: 'comp.html#buttons' }))
+          .add(new Page({ name: 'The Toggle Button'    , url: 'comp.html#toggle-button' }))
+          .add(new Page({ name: 'The Camo Link'        , url: 'comp.html#camo-link' }))
+          .add(new Page({ name: 'The Caps Link'        , url: 'comp.html#caps-link' }))
         )
         .add(new Page({ name: 'Helpers', url: 'help.html' })
           .description('Somewhat explicit classes used for enhancing default styles.')
@@ -100,26 +100,26 @@ module.exports = (function () {
   ConfDocs.COLORS = ConfSite.colorStyles(Color.fromString('#660000'), Color.fromString('#ff6600'))
 
   ConfDocs.COLOR_NAMES = [
-    { name: 'Primary s2'   , suffix: '-primary-shade2'   }
-  , { name: 'Primary s1'   , suffix: '-primary-shade1'   }
-  , { name: 'Primary'      , suffix: '-primary'          }
-  , { name: 'Primary t1'   , suffix: '-primary-tint1'    }
-  , { name: 'Primary t2'   , suffix: '-primary-tint2'    }
+    { name: 'Primary s2'   , suffix: '-primary-shade2' }
+  , { name: 'Primary s1'   , suffix: '-primary-shade1' }
+  , { name: 'Primary'      , suffix: '-primary' }
+  , { name: 'Primary t1'   , suffix: '-primary-tint1' }
+  , { name: 'Primary t2'   , suffix: '-primary-tint2' }
   , { name: 'Secondary s2' , suffix: '-secondary-shade2' }
   , { name: 'Secondary s1' , suffix: '-secondary-shade1' }
-  , { name: 'Secondary'    , suffix: '-secondary'        }
-  , { name: 'Secondary t1' , suffix: '-secondary-tint1'  }
-  , { name: 'Secondary t2' , suffix: '-secondary-tint2'  }
-  , { name: 'Dark Gray s2' , suffix: '-gray_dk-shade2'   }
-  , { name: 'Dark Gray s1' , suffix: '-gray_dk-shade1'   }
-  , { name: 'Dark Gray'    , suffix: '-gray_dk'          }
-  , { name: 'Dark Gray t1' , suffix: '-gray_dk-tint1'    }
-  , { name: 'Dark Gray t2' , suffix: '-gray_dk-tint2'    }
-  , { name: 'Light Gray s2', suffix: '-gray_lt-shade2'   }
-  , { name: 'Light Gray s1', suffix: '-gray_lt-shade1'   }
-  , { name: 'Light Gray'   , suffix: '-gray_lt'          }
-  , { name: 'Light Gray t1', suffix: '-gray_lt-tint1'    }
-  , { name: 'Light Gray t2', suffix: '-gray_lt-tint2'    }
+  , { name: 'Secondary'    , suffix: '-secondary' }
+  , { name: 'Secondary t1' , suffix: '-secondary-tint1' }
+  , { name: 'Secondary t2' , suffix: '-secondary-tint2' }
+  , { name: 'Dark Gray s2' , suffix: '-gray_dk-shade2' }
+  , { name: 'Dark Gray s1' , suffix: '-gray_dk-shade1' }
+  , { name: 'Dark Gray'    , suffix: '-gray_dk' }
+  , { name: 'Dark Gray t1' , suffix: '-gray_dk-tint1' }
+  , { name: 'Dark Gray t2' , suffix: '-gray_dk-tint2' }
+  , { name: 'Light Gray s2', suffix: '-gray_lt-shade2' }
+  , { name: 'Light Gray s1', suffix: '-gray_lt-shade1' }
+  , { name: 'Light Gray'   , suffix: '-gray_lt' }
+  , { name: 'Light Gray t1', suffix: '-gray_lt-tint1' }
+  , { name: 'Light Gray t2', suffix: '-gray_lt-tint2' }
   ]
 
   return ConfDocs

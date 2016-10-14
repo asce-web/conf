@@ -13,13 +13,13 @@ p.
   to look like Button Components.
 p Every Button Component must have styles available for each of the following states:
 dl
-  dt.-fw-7 default
+  dt.-fw-700 default
   dd the button does something or the link goes somewhere, but the user is not interacting with the component
-  dt.-fw-7 hover/focus
+  dt.-fw-700 hover/focus
   dd the user&rsquo;s cursor is hovering over the component, or the user agent is focusing on the component
-  dt.-fw-7 active
+  dt.-fw-700 active
   dd the user is in the process of clicking/activating the component
-  dt.-fw-7 disabled
+  dt.-fw-700 disabled
   dd
     | the component is inaccessable and/or does nothing, and the user
     |  may not interact with it.
@@ -28,7 +28,7 @@ dl
       li a #[code.docs-code button] with the #[code.docs-code disabled] attribute, or
       li.
         an #[code.docs-code a] with the #[code.docs-code href] attribute #[em absent]
-        (this is not the same as an empty attribute #[code.docs-code [href=""]]).
+        (this is not the same as an empty attribute #[code.docs-code= '[href=""]']).
 p.
   Each of these states is demonstrated in the sections below, however
   only the code for the default state is shown.
@@ -136,7 +136,7 @@ section
       li.o-List__Item(style="margin-bottom:0.375rem;"): a.c-Btn.c-Btn--hilite highlight button disabled
     pre.docs-pre.
       &lt;a class="#[u c-Btn]  #[u c-Btn--hilite]"&gt;highlight button&lt;/a&gt;
-  h4 Inline Buttons Size
+  h4 Inline Button Size
   p Inline buttons, for buttons in line with text.
   figure.docs-figure
     p.

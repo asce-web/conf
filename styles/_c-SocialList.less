@@ -12,22 +12,66 @@
 // List of social media icons
 //
 // ^subclasses
-// --dark - social list inside footer of home page or speaker component
+// --footer - social list inside home page footer
+// --speaker - social list inside speaker component
+// --highlight - social list inside "Join the Conversation" callout
 // ^subcomponents
 // __Item - each item in the list
 // __Link - each link inside an __Item in the menu
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-04-23
+// 2016-10-14
 .c-SocialList {
-  --iconsize: (100vw/10);
-  margin-left:  auto;
-  margin-right: auto;
+  margin: 0 auto;
   text-align: center;
+  &:last-child {
+    margin-bottom: 0; // HACK override base ul
+  }
 }
-.c-SocialList--dark {
-  --iconsize: (100vw/15);
+
+.c-SocialList--footer {
+  width: 50%;
+  @iconsize: 5vw;
+  --iconsize: @iconsize; // TODO remove after fallback
+  // HACK fallbacks
+  .c-SocialList__Link {
+    width:  @iconsize;
+    height: @iconsize;
+  }
+  @media screen and (min-width: 60em) {
+    @iconsize: 2 * @g-vru;
+    --iconsize: calc(~'2 * var(--vru)');
+    // HACK fallbacks
+    .c-SocialList__Link {
+      width:  @iconsize;
+      height: @iconsize;
+    }
+  }
+  @media screen and (min-width: 75em) {
+    width: (100%/3);
+  }
+}
+
+.c-SocialList--speaker {
+  @iconsize: @g-vru;
+  --iconsize: var(--vru);
+  // HACK fallbacks
+  .c-SocialList__Link {
+    width:  @iconsize;
+    height: @iconsize;
+  }
+}
+
+.c-SocialList--highlight {
+  width: 50%;
+  @iconsize: 10vw;
+  --iconsize: @iconsize; // TODO update after fallback
+  // HACK fallbacks
+  .c-SocialList__Link {
+    width:  @iconsize;
+    height: @iconsize;
+  }
 }
 
 .c-SocialList__Item {
@@ -35,41 +79,34 @@
 }
 
 .c-SocialList__Link {
-  @width: (100vw/10); // HACK fallback
-  width:  @width; // HACK fallback
-  height: @width; // HACK fallback
   width:  var(--iconsize);
   height: var(--iconsize);
-  border-radius: 100%;
   text-indent: -999999px;
   .logo();
-  background-size: ((2/3) * 100%) ((2/3) * 100%);
-  background-color: @g-color-gray_dk;
-  background-color: var(--color-gray_dk);
-  .transition-duration(250ms); // override base `a`
   .transitions(background-color, opacity, filter; 500ms); // override base `a`
-  &:hover,
-  &:focus,
-  &._hover,
-  &:active,
-  &._active {
-    background-color: @g-color-secondary;
-    background-color: var(--color-secondary);
+  .c-SocialList--footer &,
+  .c-SocialList--speaker & {
+    &:hover,
+    &:focus,
+    &._hover,
+    &:active,
+    &._active {
+      .filter(blur(2px));
+    }
   }
-  .c-SocialList--dark & {
-    @width: (100vw/15); // HACK fallback
-    width:  @width; // HACK fallback
-    height: @width; // HACK fallback
-  }
-}
-.c-SocialList--dark .c-SocialList__Link {
-  background-color: transparent;
-  &:hover,
-  &:focus,
-  &._hover,
-  &:active,
-  &._active {
-    .filter(blur(2px));
+  .c-SocialList--highlight & {
+    border-radius: 100%;
+    background-size: ((2/3) * 100%) ((2/3) * 100%);
+    background-color: @g-color-gray_dk; // HACK fallback
+    background-color: var(--color-gray_dk);
+    &:hover,
+    &:focus,
+    &._hover,
+    &:active,
+    &._active {
+      background-color: @g-color-secondary; // HACK fallback
+      background-color: var(--color-secondary);
+    }
   }
 }
 

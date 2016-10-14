@@ -133,20 +133,20 @@ module.exports = (function () {
    * @type {Object}
    */
   Util.SOCIAL_DATA = {
-    twitter : {
+    twitter: {
       name: 'Twitter'
     , icon: Util.ICON_DATA[-1]
-    , toURL: function (handle) { return 'https://twitter.com/' + (handle || '') } // NOTE param validation
+    // , toURL: function (handle) { return 'https://twitter.com/' + (handle || '') } // NOTE param validation
     }
   , facebook: {
       name: 'Faceboook'
     , icon: Util.ICON_DATA[-1]
     }
-  , google  : {
+  , google: {
       name: 'Google+'
     , icon: Util.ICON_DATA[-1]
     }
-  , youtube : {
+  , youtube: {
       name: 'YouTube'
     , icon: Util.ICON_DATA[-1]
     }

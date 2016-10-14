@@ -133,6 +133,7 @@ module.exports = (function () {
    * @param {string} network_name the name of the social network
    * @param {string} url the URL of this person’s profile on the network
    * @param {title=} title optional advisory text
+   * @return {Person} this person
    */
   Person.prototype.addSocial = function addSocial(network_name, url, title) {
     this._social[network_name] = { url: url, title: title }

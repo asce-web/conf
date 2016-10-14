@@ -364,7 +364,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
         .phone('+1(703)555-5555')
         .url('#0')
         .addSocial('linkedin', 'https://www.linkedin.com/groups/143956/profile')
-        .addSocial('twitter', Util.SOCIAL_DATA.twitter.toURL('@ASCETweets'), '@ASCETweets')
+        .addSocial('twitter', 'https://twitter.com/ASCETweets', '@ASCETweets')
         .setBio('<p>Donna Fulman is an award-winning, German designer raised in Austria\
           and currently living in New York City.</p>\
           <p>Former Lead Product Designer and Art Director at Spotify, she recently founded\
@@ -393,6 +393,11 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
         , family_name     : 'Dickenson'
         , honorific_suffix: 'Ph.D., P.E., D.PE, M.ASCE'
       }))
+
+    site.currentConference()
+      .addSocial('twitter', 'https://twitter.com/hashtag/#asce2016', 'Follow #ASCE2016 on Twitter')
+      .addSocial('google', '#0', 'Follow #ASCE2016 on Google+')
+      .addSocial('facebook', '#0', 'Follow #ASCE2016 on Facebook')
 
     var rawdata = {
       comment: 'this is draft data that I don’t want to delete yet'

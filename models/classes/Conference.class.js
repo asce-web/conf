@@ -35,6 +35,7 @@ module.exports = (function () {
     self._speakers        = []
     self._important_dates = []
     self._chairs          = []
+    self._social          = {}
     self._other_year_blurb = ''
     self._regpd_curr_index = NaN
     self._venue_conf_key   = null
@@ -355,6 +356,43 @@ module.exports = (function () {
    */
   Conference.prototype.getChairsAll = function getChairsAll() {
     return this._chairs.slice()
+  }
+
+  /**
+   * Add a social network profile to this conference.
+   * @param {string} network_name the name of the social network
+   * @param {string} url the URL of this conference’s profile on the network
+   * @param {title=} title optional advisory text
+   * @return {Conference} this conference
+   */
+  Conference.prototype.addSocial = function addSocial(network_name, url, title) {
+    this._social[network_name] = { url: url, title: title }
+    return this
+  }
+  /**
+   * Retrieve a social network profile of this conference.
+   * @param  {string} network_name the name of the social network
+   * @return {Object} an object representing the social network profile
+   */
+  Conference.prototype.getSocial = function getSocial(network_name) {
+    return this._social[network_name]
+  }
+  /**
+   * Remove a social network profile from this conference.
+   * @param  {string} network_name the name of the social network
+   * @return {Conference} this conference
+   */
+  Conference.prototype.removeSocial = function removeSocial(network_name) {
+    this._social[network_name] = null
+    return this
+  }
+  /**
+   * Return an object representing all social network profiles of this conference.
+   * @return {Object} shallow clone of this conference’s social object
+   */
+  Conference.prototype.getSocialAll = function getSocialAll() {
+    //- NOTE returns shallow clone (like arr.slice())
+    return Object.assign({}, this._social) // shallow clone this.social into {}
   }
 
   /**

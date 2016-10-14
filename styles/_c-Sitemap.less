@@ -7,10 +7,10 @@
 // Sitemap for top (site) pages or main (internal) pages.
 //
 // ^Subcomponents:
-// __Item    - each item in the list
-// __SubList - a sub menu list
-// __SubItem - an item within the SubList
-//             (too complicated to use `__SubList__Item`)
+// __Item - each item in the list
+// __Sub  - a sub menu list
+// __Sub__Item - an item within the SubList
+//
 // ^author
 // Chris Harvey
 // ^updated
@@ -24,6 +24,7 @@
     .font-size-mod(@p-fz);
   }
 }
+
 .c-Sitemap__Item {
   .flex(0 0 auto);
   @media screen and (max-width: 44.999em) {
@@ -33,13 +34,15 @@
     }
   }
 }
-.c-Sitemap__SubList {
+
+.c-Sitemap__Sub {
   font-weight: 300;
-  .font-size-el(12/14);
+  .font-size-el(16/20);
   text-transform: none; // override .menubar()
-  @media screen and (max-width: 44.999em) {
-    .font-size-el(16/20);
+  @media screen and (min-width: 45em) {
+    .font-size-el(12/14);
   }
 }
-.c-Sitemap__SubItem {
+
+.c-Sitemap__Sub__Item {
 }

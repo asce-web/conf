@@ -16,7 +16,6 @@ mixin speaker($person)
             li.o-List__Item: a.c-Speaker__Link(href='tel:'+Util.toURL($person.phone()) title="call" itemprop="telephone")= $person.phone()
           if $person.url()
             li.o-List__Item: a.c-Speaker__Link(href=$person.url() title="homepage" itemprop="url") Homepage
-        ul.o-List
           each $val,key in $person.getSocialAll()
             li.o-List__Item.h-Inline
               a.c-Speaker__Link(href=$val.url title=($val.title || Util.SOCIAL_DATA[key].name) itemprop="sameAs")

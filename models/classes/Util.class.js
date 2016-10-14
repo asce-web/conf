@@ -136,7 +136,7 @@ module.exports = (function () {
     twitter : {
       name: 'Twitter'
     , icon: Util.ICON_DATA[-1]
-    , toURL: function (handle) { return 'https://twitter.com/' + handle }
+    , toURL: function (handle) { return 'https://twitter.com/' + (handle || '') } // NOTE param validation
     }
   , facebook: {
       name: 'Faceboook'

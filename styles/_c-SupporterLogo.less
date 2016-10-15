@@ -2,10 +2,7 @@
 /*################################*\
     conf  |  _c-SupporterLogo.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__fallback.filter.less');
-@import (reference) url('../node_modules/xmeter/src/__fallback.transition.less');
 @import (reference) url('__settings.less');
-@import (reference) url('__tool.logo.less');
 
 
 // A logo for a sponsor or supporter. May be a child of SupporterBlock.
@@ -14,14 +11,5 @@
 // ^author
 // : Chris Harvey
 // ^updated
-// 2016-10-05
 .c-SupporterLogo {
-  display: block;
-  line-height: inherit;
-  text-indent: -999999px;
-  .logo();
-  .transitions(@g-prefix_filter; 1000ms);
-  &:not(:hover) {
-    .filter(grayscale(100%));
-  }
 }

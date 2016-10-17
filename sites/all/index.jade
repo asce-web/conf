@@ -5,6 +5,22 @@ block append vars
 
 block mainHeader
   header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--home: div.o-Constrain
-    include /_views/c-Hero.view.jade
-    +hero(site.currentConference())
+    div.c-Hero
+      h1.c-PageTitle.c-Hero__Name(itemprop="name")= site.currentConference().name()
+      meta(content=site.currentConference().url() itemprop="url")
+      p.c-Hero__Detail
+        span.c-Hero__Place.h-Clearfix-nsM(itemprop="location")
+          - var loc = site.currentConference().promoLoc()
+          if loc.title && loc.text
+            abbr(title=loc.title)= loc.text
+          else
+            = loc.text || loc
+        span.c-Hero__Dates
+          time(datetime=site.currentConference().startDate() itemprop="startDate")
+            = Util.monthDay(Util.toDate(site.currentConference().startDate()))
+          | &ndash;
+          time(datetime=site.currentConference().endDate() itemprop="endDate")
+            = Util.monthDay(Util.toDate(site.currentConference().endDate()))
+      p.c-Hero__Blurb.c-Hero__Theme(itemprop="description")
+        = site.currentConference().theme() || '\00a0'
       block actionButtons

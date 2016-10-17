@@ -63,7 +63,7 @@ mixin sitetoc(args)
           if item.findAll().length && depth > 0
             +sitetoc({pages: item.findAll(), classes: (classes.sub || {}), depth: depth-1, icons: false})
 
-mixin promotedLocation(promoloc)
+//- mixin promotedLocation(promoloc)
   - promoloc = promoloc || {} // NOTE parameter validation
   if promoloc.title && promoloc.text
     abbr(title=promoloc.title)= promoloc.text

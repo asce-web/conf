@@ -3,7 +3,12 @@ mixin hero($conference, attrs)
     h1.c-PageTitle.c-Hero__Name(itemprop="name")= $conference.name()
     meta(content=$conference.url() itemprop="url")
     p.c-Hero__Detail
-      span.c-Hero__Place.h-Clearfix-nsM(itemprop="location"): +promotedLocation($conference.promoLoc())
+      span.c-Hero__Place.h-Clearfix-nsM(itemprop="location")
+        - var loc = $conference.promoLoc()
+        if loc.title && loc.text
+          abbr(title=loc.title)= loc.text
+        else
+          = loc.text || loc
       span.c-Hero__Dates
         time(datetime=$conference.startDate() itemprop="startDate")
           = Util.monthDay(Util.toDate($conference.startDate()))

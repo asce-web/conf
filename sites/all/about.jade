@@ -16,11 +16,9 @@ block mainReference
           = loc.text || loc
       p.c-Hero__Blurb!= $conference.getOtherYearBlurb(true)
       block
-  section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--prev: div.o-Constrain
-    div.c-Overlay.-w-3o4-sM
-      +otherYear(site.prevConference())
-        +highlightButtons([{text:'Event Details', href:site.prevConference().url(), attr:{itemprop:'url'}}], 'c-Btn--ghost c-Btn--ghost--dark')
-  section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--next: div.o-Constrain
-    div.c-Overlay.-w-3o4-sM
-      +otherYear(site.nextConference())
-        +highlightButtons([{text:'Event Details', href:site.prevConference().url(), attr:{itemprop:'url'}}], 'c-Btn--ghost c-Btn--ghost--dark')
+  section.o-Runner.o-Runner--highlight.c-Banner.c-Banner--prev: div.o-Constrain
+    +otherYear(site.prevConference())
+      +highlightButtons([{text:'Event Details', href:site.prevConference().url(), attr:{itemprop:'url'}}], 'c-Btn--ghost c-Btn--ghost--dark')
+  section.o-Runner.o-Runner--highlight.c-Banner.c-Banner--next: div.o-Constrain
+    +otherYear(site.nextConference())
+      +highlightButtons([{text:'Event Details', href:site.prevConference().url(), attr:{itemprop:'url'}}], 'c-Btn--ghost c-Btn--ghost--dark')

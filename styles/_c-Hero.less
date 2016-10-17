@@ -12,19 +12,16 @@
 // __Detail - contains place and dates of conference
 // __Place  - place of conference
 // __Dates  - dates of conference
+// __Blurb  - paragraph containing add’l text and/or Theme
 // __Theme  - conference theme
-// __SpecialHn  - special heading of internal page
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-08-12
+// 2016-10-17
 .c-Hero {
   text-align: center;
   text-shadow: 0 0 0.25rem @g-color-gray_dk-shade2; // HACK fallback
   text-shadow: 0 0 0.25rem var(--color-gray_dk-shade2);
-  .c-Btn {
-    text-shadow: none;
-  }
 }
 
 .c-Hero__Name {
@@ -32,7 +29,7 @@
 
 .c-Hero__Detail {
   font-weight: 600;
-  .font-size-el(2; 2);
+  .font-size-el(@g-font_size_mega; 2);
 }
 
 .c-Hero__Place,
@@ -40,14 +37,6 @@
   white-space: nowrap;
 }
 .c-Hero__Place {
-  @media screen and (max-width: 44.999em) {
-    &::after {
-      // duplicating Xmeter’s .h-Clearfix Helper (not available for max-widths)
-      content: '';
-      display: block;
-      clear: both;
-    }
-  }
   @media screen and (min-width: 45em) {
     padding-right: 2rem;
     border-right: 1px solid;
@@ -57,10 +46,13 @@
 .c-Hero__Dates {
 }
 
-.c-Hero__Theme  {
-  .font-size-el(1.5; 2);
-  font-style: italic;
+.c-Hero__Blurb {
   @media screen and (max-width: 44.999em) {
     display: none;
   }
+}
+
+.c-Hero__Theme {
+  .font-size-el(1.5; 2);
+  font-style: italic;
 }

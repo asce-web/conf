@@ -2,6 +2,7 @@
 /*################################*\
     conf  |  _c-Banner.less
 \*################################*/
+@import (reference) url('../node_modules/xmeter/src/__fallback.filter.less');
 @import (reference) url('__settings.less');
 
 // Any major section on any page with a full-width background image.
@@ -13,13 +14,10 @@
 // --prev     - banner for previous year’s conference
 // --next     - banner for next year’s conference
 // --orgs     - banner for cooperating organizations (or similar groups)
-// ^subcomponents
-// __Overlay  - an element with a translucent background color
-// __Hn       - a heading inside a banner section
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-04-22
+// 2016-10-17
 .c-Banner {
   --heading-color: currentColor;
   position: relative; // for ::before
@@ -44,6 +42,13 @@
 .c-Banner--location,
 .c-Banner--prev,
 .c-Banner--next {
+}
+aside.c-Banner--location, // FIXME
+.c-Banner--prev,
+.c-Banner--next {
+  &::before {
+    .filter(blur(2px));
+  }
 }
 // override actual urls in site-specific stylesheet
 .c-Banner--home::before     { background-image: var(--bi-home); }

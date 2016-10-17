@@ -1,5 +1,5 @@
-mixin hero($conference, attrs)
-  div.c-Hero&attributes(attrs || {})
+mixin hero($conference)
+  div.c-Hero
     h1.c-PageTitle.c-Hero__Name(itemprop="name")= $conference.name()
     meta(content=$conference.url() itemprop="url")
     p.c-Hero__Detail
@@ -16,8 +16,5 @@ mixin hero($conference, attrs)
         time(datetime=$conference.endDate() itemprop="endDate")
           = Util.monthDay(Util.toDate($conference.endDate()))
     p.c-Hero__Blurb.c-Hero__Theme(itemprop="description")
-      if $conference.theme()
-        = $conference.theme()
-      else
-        | &nbsp;
+      = $conference.theme() || '\00a0'
     block

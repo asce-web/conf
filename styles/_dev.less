@@ -6,6 +6,18 @@
 // DEV STYLESHEET. FOR FIXING IMPORTED PROJECTS.
 
 
+// TODO move into Xmeter
+@media not all and (min-width: 45em) {
+  .h-Clearfix-nsM {
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+}
+
+
 // TODO remove upon install of xmeter v5.2.1+
 details {
   margin-bottom: var(--vru);

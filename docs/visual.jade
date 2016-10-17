@@ -125,11 +125,11 @@ block append main
         li.o-List__Item.o-Grid__Item.-x-1o2.-fw-700       Futura 700
         li.o-List__Item.o-Grid__Item.-x-1o2.-fw-700.-fs-t Futura 700 italic
   +newSection(2, ConfDocs.DOCS.find('visual.html#colors'))
-    mixin colorBox(w, attrs, half)
+    mixin colorBox(w, attrs, factor)
       -
         attrs = attrs || {}
         var _width  = w
-        var _height = _width * (Math.sqrt(5)-1)/2 * (half ? 0.5 : 1)
+        var _height = _width * (Math.sqrt(5)-1)/2 * (factor || 1)
       svg.docs-c-ColorBox(viewbox=`0 0 ${_width} ${_height}`)&attributes(attrs.svg || {})
         rect(width=_width height=_height)&attributes(attrs.rect || {})
     +newSection(3, ConfDocs.DOCS.find('visual.html#derivation-color-palettes'))
@@ -138,8 +138,8 @@ block append main
         var secondary = Color.fromString('#ff80a0')
       mixin derivBlock($color, name)
         +colorBox(96, {
-          rect: { 'style': `fill: ${$color.toString('hex')}` }
-        }, 'half')
+          rect: { style: { fill: $color.toString('hex') } }
+        }, 0.5)
         p
           if name
             b= name
@@ -227,7 +227,7 @@ block append main
             figure
               +colorBox(96, {
                 svg: { 'data-prop': '--color' + $pairing.suffix }
-              , rect: { 'class': '-f' + $pairing.suffix }
+              , rect: { class: '-f' + $pairing.suffix }
               })
               p
                 b= $pairing.name

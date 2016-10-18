@@ -327,19 +327,19 @@ module.exports = (function () {
     var secondary_t1  = $secondary.darken(1/3, true).lighten(1/3, false) // one-third to white
     var secondary_t2  = $secondary.darken(2/3, true).lighten(2/3, false) // two-thirds to white
 
-    var _gp = $primary.mix($secondary, 1/4).desaturate(7/8, true)
-    var _gs = $secondary.mix($primary, 1/4).desaturate(7/8, true)
+    var _g1 = $primary.mix($secondary, 1/4).desaturate(7/8, true)
+    var _g2 = $secondary.mix($primary, 1/4).desaturate(7/8, true)
 
-    var gray_dk_s2 = _gp.lighten( 1/12 - _gp.hslLum(), false)
-    var gray_dk_s1 = _gp.lighten( 2/12 - _gp.hslLum(), false)
-    var gray_dk    = _gp.lighten( 3/12 - _gp.hslLum(), false)
-    var gray_dk_t1 = _gp.lighten( 4/12 - _gp.hslLum(), false)
-    var gray_dk_t2 = _gp.lighten( 5/12 - _gp.hslLum(), false)
-    var gray_lt_s2 = _gs.lighten( 7/12 - _gs.hslLum(), false)
-    var gray_lt_s1 = _gs.lighten( 8/12 - _gs.hslLum(), false)
-    var gray_lt    = _gs.lighten( 9/12 - _gs.hslLum(), false)
-    var gray_lt_t1 = _gs.lighten(10/12 - _gs.hslLum(), false)
-    var gray_lt_t2 = _gs.lighten(11/12 - _gs.hslLum(), false)
+    var gray_dk_s2 = _g1.lighten( 1/12 - _g1.hslLum(), false)
+    var gray_dk_s1 = _g1.lighten( 2/12 - _g1.hslLum(), false)
+    var gray_dk    = _g1.lighten( 3/12 - _g1.hslLum(), false)
+    var gray_dk_t1 = _g1.lighten( 4/12 - _g1.hslLum(), false)
+    var gray_dk_t2 = _g1.lighten( 5/12 - _g1.hslLum(), false)
+    var gray_lt_s2 = _g2.lighten( 7/12 - _g2.hslLum(), false)
+    var gray_lt_s1 = _g2.lighten( 8/12 - _g2.hslLum(), false)
+    var gray_lt    = _g2.lighten( 9/12 - _g2.hslLum(), false)
+    var gray_lt_t1 = _g2.lighten(10/12 - _g2.hslLum(), false)
+    var gray_lt_t2 = _g2.lighten(11/12 - _g2.hslLum(), false)
 
     return {
       '--color-primary'  :   $primary.toString('hex')

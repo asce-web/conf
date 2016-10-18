@@ -30,14 +30,9 @@
 .c-Speaker {
   .ticket();
   position: relative; // for the background image
-  .c-Speaker__JobTitle,
-  .c-Speaker__Affiliation {
+  .c-Speaker__JobTitle {
     // HACK override `.font-size-mod() >> p`
     margin-bottom: 0;
-  }
-  .c-Speaker__Name {
-    // HACK override `.font-size-mod() >> h1`
-    padding-top: 0;
   }
 }
 
@@ -54,6 +49,12 @@
 .c-Speaker__Body,
 .c-Speaker__Foot {
   padding: @g-boxpadd_norm;
+  & > *:last-child {
+    margin-bottom: 0; // override base typog
+  }
+  & > h1:first-child {
+    padding-top: 0; // override base h1
+  }
 }
 
 .c-Speaker__Head {

@@ -39,7 +39,13 @@
 .c-Pass__Head,
 .c-Pass__Body,
 .c-Pass__Foot {
-  padding: @g-boxpadd_micr;
+  padding: @g-boxpadd_norm_v @g-boxpadd_mill_h;
+  & > *:last-child {
+    margin-bottom: 0; // override base typog
+  }
+  & > h1:first-child {
+    padding-top: 0; // override base h1
+  }
 }
 
 .c-Pass__Body {
@@ -100,6 +106,12 @@
 // ^updated
 // 2016-07-15
 .c-Pass__Period {
+  & > *:last-child {
+    margin-bottom: 0; // override base typog
+  }
+  & > h1:first-child {
+    padding-top: 0; // override base h1
+  }
   .c-Pass__Foot & {
     .flex(1); // override Flex__Item (auto)
     &:not(:last-child) {

@@ -449,10 +449,11 @@ module.exports = (function () {
    * Categorize all the program events of this conference by date and return the grouping.
    * Program events with the same date (excluding time of day) are grouped together.
    * @see ProgramEvent
+   * @param  {boolean=} starred if true, only consider program events that are starred
    * @return {ProgramEventGrouping} an object grouping program events together
    */
-  Conference.prototype.groupProgramEvents = function groupProgramEvents() {
-    var all_events = this.getProgramEventsAll()
+  Conference.prototype.groupProgramEvents = function groupProgramEvents(starred) {
+    var all_events = this.getProgramEventsAll(starred)
     return (function ($groupings) {
       for ($programEvent of all_events) {
         function dateOf($programEvent1) { return $programEvent1.startDate().slice(0,10) }

@@ -71,7 +71,6 @@ module.exports = (function () {
           .add(new Page({ name: 'The Page Title'       , url: 'comp.html#page-title' }))
           .add(new Page({ name: 'The Banner Component' , url: 'comp.html#banner-component' }))
           .add(new Page({ name: 'The Hero Block'       , url: 'comp.html#hero-block' }))
-          .add(new Page({ name: 'The Overlay Component', url: 'comp.html#overlay-component' }))
           .add(new Page({ name: 'The Supporter Block'  , url: 'comp.html#supporter-block' }))
           .add(new Page({ name: 'The Date Block'       , url: 'comp.html#date-block' }))
           .add(new Page({ name: 'The Pass Component'   , url: 'comp.html#pass-component' }))

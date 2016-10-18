@@ -19,7 +19,7 @@ module.exports = (function () {
     self._NAME  = $actioninfo.name
     self._START = $actioninfo.start_time
     self._url       = ''
-    self._is_hidden = false
+    self._is_starred = false
   }
 
   // ACCESSOR FUNCTIONS
@@ -53,20 +53,20 @@ module.exports = (function () {
   }
 
   /**
-   * Hide or show this important date.
-   * @param  {boolean=true} bool hides or shows this imporant date
+   * Mark this important date as starred.
+   * @param  {boolean=true} bool if true, mark as starred
    * @return {ImportantDate} this important date
    */
-  ImportantDate.prototype.hide = function hide(bool) {
-    this._is_hidden = (arguments.length) ? bool : true
+  ImportantDate.prototype.star = function star(bool) {
+    this._is_starred = (arguments.length) ? bool : true
     return this
   }
   /**
-   * Get the hidden status of this important date.
-   * @return {boolean} whether this important date is hidden
+   * Get the starred status of this important date.
+   * @return {boolean} whether this important date is starred
    */
-  ImportantDate.prototype.isHidden = function isHidden() {
-    return this._is_hidden
+  ImportantDate.prototype.isStarred = function isStarred() {
+    return this._is_starred
   }
 
   return ImportantDate

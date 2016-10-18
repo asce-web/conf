@@ -334,7 +334,7 @@ module.exports = (function () {
    * @return {Array<ImportantDate>} a shallow array of all important dates of this conference
    */
   Conference.prototype.getImportantDatesAll = function getImportantDatesAll(starred) {
-    return this._important_dates.filter(function ($importantDate) { return (starred) ? !$importantDate.isHidden() : true })
+    return this._important_dates.filter(function ($importantDate) { return (starred) ? $importantDate.isStarred() : true })
   }
 
   /**

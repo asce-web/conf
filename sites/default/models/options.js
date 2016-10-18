@@ -377,11 +377,11 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       )
 
     site.currentConference()
-      .addImportantDate(new ImportantDate({start_time:'2015-10-12', name:'Optional Final Papers Due'     }))
-      .addImportantDate(new ImportantDate({start_time:'2015-12-17', name:'Early-Bird Registration Closes'}).url('registration.html'))
-      .addImportantDate(new ImportantDate({start_time:'2016-01-12', name:'Advance Registration Closes'   }).url('registration.html'))
-      .addImportantDate(new ImportantDate({start_time:'2016-06-12', name:'Convention Begins'             }))
-      .addImportantDate(new ImportantDate({start_time:'2016-06-15', name:'Convention Ends'               }).hide())
+      .addImportantDate(new ImportantDate({start_time:'2015-10-12', name:'Optional Final Papers Due'     }).star())
+      .addImportantDate(new ImportantDate({start_time:'2015-12-17', name:'Early-Bird Registration Closes'}).star().url('registration.html'))
+      .addImportantDate(new ImportantDate({start_time:'2016-01-12', name:'Advance Registration Closes'   }).star().url('registration.html'))
+      .addImportantDate(new ImportantDate({start_time:'2016-06-12', name:'Convention Begins'             }).star())
+      .addImportantDate(new ImportantDate({start_time:'2016-06-15', name:'Convention Ends'               }))
 
     site.currentConference()
       .addChair(new Person('thomas-mccollough', {

@@ -8,7 +8,7 @@ block mainReference
     h1.-d-n#full-program Full Program
     - var groupings = site.currentConference().groupProgramEvents()
     include /_views/c-Program.view.jade
-    +program(groupings.length, {id:'full-program-block', class:'c-Overlay'})
+    +program(groupings.length, {id:'full-program-block'})
       mixin heading(i)
         +programHeading(groupings[i].date)
       mixin content(i)

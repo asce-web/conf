@@ -85,33 +85,11 @@
 
 
 //++++++++++++++++++++++++++++++++//
-//    # CONFERENCE SITE-SPECIFIC COLORS
+//    # DEFAULT CONFERENCE COLORS
 //++++++++++++++++++++++++++++++++//
-@g-color-primary         : #3fae2a;
-@g-color-secondary       : #00a1e1;
-@g-color-gray_dk         : #3c443e;
-@g-color-gray_lt         : #9eafb0;
-@g-color-primary         : #660000; // NOTE testing colors
-@g-color-secondary       : #ff6600; // NOTE testing colors
-@g-color-gray_dk         : #483a38; // NOTE testing colors
-@g-color-gray_lt         : #c7bcb8; // NOTE testing colors
-@g-color-primary-shade1  : darken(@g-color-primary   , 25%, relative);
-@g-color-primary-shade2  : darken(@g-color-primary   , 50%, relative);
-@g-color-primary-tint1   : lighten(@g-color-primary  , 25%, relative);
-@g-color-primary-tint2   : lighten(@g-color-primary  , 50%, relative);
-@g-color-secondary-shade1: darken(@g-color-secondary , 25%, relative);
-@g-color-secondary-shade2: darken(@g-color-secondary , 50%, relative);
-@g-color-secondary-tint1 : lighten(@g-color-secondary, 25%, relative);
-@g-color-secondary-tint2 : lighten(@g-color-secondary, 50%, relative);
-@g-color-gray_dk-shade1  : darken(@g-color-gray_dk   , 25%, relative);
-@g-color-gray_dk-shade2  : darken(@g-color-gray_dk   , 50%, relative);
-@g-color-gray_dk-tint1   : lighten(@g-color-gray_dk  , 25%, relative);
-@g-color-gray_dk-tint2   : lighten(@g-color-gray_dk  , 50%, relative);
-@g-color-gray_lt-shade1  : darken(@g-color-gray_lt   , 25%, relative);
-@g-color-gray_lt-shade2  : darken(@g-color-gray_lt   , 50%, relative);
-@g-color-gray_lt-tint1   : lighten(@g-color-gray_lt  , 25%, relative);
-@g-color-gray_lt-tint2   : lighten(@g-color-gray_lt  , 50%, relative);
-//++++ end # CONFERENCE SITE-SPECIFIC COLORS ++++//
+@import (reference) url('__tool.site-colors.less');
+.site-colors(#660000; #ff6600);
+//++++ end # DEFAULT CONFERENCE COLORS ++++//
 
 
 //++++++++++++++++++++++++++++++++//

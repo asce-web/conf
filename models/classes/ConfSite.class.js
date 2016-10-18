@@ -320,26 +320,26 @@ module.exports = (function () {
   ConfSite.colorStyles = function colorStyles($primary, $secondary) {
     var   primary_s2  =   $primary.darken(2/3, true)
     var   primary_s1  =   $primary.darken(1/3, true)
-    var   primary_t1  =   $primary.darken(1/3, true).brighten(1/3, false) // one-third to white
-    var   primary_t2  =   $primary.darken(2/3, true).brighten(2/3, false) // two-thirds to white
+    var   primary_t1  =   $primary.darken(1/3, true).lighten(1/3, false) // one-third to white
+    var   primary_t2  =   $primary.darken(2/3, true).lighten(2/3, false) // two-thirds to white
     var secondary_s2  = $secondary.darken(2/3, true)
     var secondary_s1  = $secondary.darken(1/3, true)
-    var secondary_t1  = $secondary.darken(1/3, true).brighten(1/3, false) // one-third to white
-    var secondary_t2  = $secondary.darken(2/3, true).brighten(2/3, false) // two-thirds to white
+    var secondary_t1  = $secondary.darken(1/3, true).lighten(1/3, false) // one-third to white
+    var secondary_t2  = $secondary.darken(2/3, true).lighten(2/3, false) // two-thirds to white
 
-    var _gp = $primary.mix($secondary, 1/4).desaturate(7/8, true)
-    var _gs = $secondary.mix($primary, 1/4).desaturate(7/8, true)
+    var _g1 = $primary.mix($secondary, 1/4).desaturate(7/8, true)
+    var _g2 = $secondary.mix($primary, 1/4).desaturate(7/8, true)
 
-    var gray_dk_s2 = _gp.brighten( 1/12 - _gp.hslLum(), false)
-    var gray_dk_s1 = _gp.brighten( 2/12 - _gp.hslLum(), false)
-    var gray_dk    = _gp.brighten( 3/12 - _gp.hslLum(), false)
-    var gray_dk_t1 = _gp.brighten( 4/12 - _gp.hslLum(), false)
-    var gray_dk_t2 = _gp.brighten( 5/12 - _gp.hslLum(), false)
-    var gray_lt_s2 = _gs.brighten( 7/12 - _gs.hslLum(), false)
-    var gray_lt_s1 = _gs.brighten( 8/12 - _gs.hslLum(), false)
-    var gray_lt    = _gs.brighten( 9/12 - _gs.hslLum(), false)
-    var gray_lt_t1 = _gs.brighten(10/12 - _gs.hslLum(), false)
-    var gray_lt_t2 = _gs.brighten(11/12 - _gs.hslLum(), false)
+    var gray_dk_s2 = _g1.lighten( 1/12 - _g1.hslLum(), false)
+    var gray_dk_s1 = _g1.lighten( 2/12 - _g1.hslLum(), false)
+    var gray_dk    = _g1.lighten( 3/12 - _g1.hslLum(), false)
+    var gray_dk_t1 = _g1.lighten( 4/12 - _g1.hslLum(), false)
+    var gray_dk_t2 = _g1.lighten( 5/12 - _g1.hslLum(), false)
+    var gray_lt_s2 = _g2.lighten( 7/12 - _g2.hslLum(), false)
+    var gray_lt_s1 = _g2.lighten( 8/12 - _g2.hslLum(), false)
+    var gray_lt    = _g2.lighten( 9/12 - _g2.hslLum(), false)
+    var gray_lt_t1 = _g2.lighten(10/12 - _g2.hslLum(), false)
+    var gray_lt_t2 = _g2.lighten(11/12 - _g2.hslLum(), false)
 
     return {
       '--color-primary'  :   $primary.toString('hex')

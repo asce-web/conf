@@ -288,7 +288,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 13:00', end_date: '2016-09-28 17:00', name: 'Short Courses'                                               }).url('#0').star())
       .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 12:00', end_date: '2016-09-28 17:00', name: 'Optional Tours'                                              }).url('#0').star())
       .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 17:30', end_date: '2016-09-28 19:30', name: 'Opening Welcome Reception'                                   }))
-      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 13:00', end_date: '2016-09-28 17:00', name: 'Community Service Project'                                   }).star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 13:00', end_date: '2016-09-28 17:00', name: 'Community Service Project'                                   }))
 
       .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 07:00', end_date: '2016-09-29 16:30', name: 'Registration'                                                }))
       .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 07:30', end_date: '2016-09-29 08:30', name: 'Student & Emerging Leaders Welcome Breakfast and Orientation'}))
@@ -377,11 +377,11 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       )
 
     site.currentConference()
-      .addImportantDate(new ImportantDate({start_time:'2015-10-12', name:'Optional Final Papers Due'     }))
-      .addImportantDate(new ImportantDate({start_time:'2015-12-17', name:'Early-Bird Registration Closes'}).url('registration.html'))
-      .addImportantDate(new ImportantDate({start_time:'2016-01-12', name:'Advance Registration Closes'   }).url('registration.html'))
-      .addImportantDate(new ImportantDate({start_time:'2016-06-12', name:'Convention Begins'             }))
-      .addImportantDate(new ImportantDate({start_time:'2016-06-15', name:'Convention Ends'               }).hide())
+      .addImportantDate(new ImportantDate({start_time:'2015-10-12', name:'Optional Final Papers Due'     }).star())
+      .addImportantDate(new ImportantDate({start_time:'2015-12-17', name:'Early-Bird Registration Closes'}).star().url('registration.html'))
+      .addImportantDate(new ImportantDate({start_time:'2016-01-12', name:'Advance Registration Closes'   }).star().url('registration.html'))
+      .addImportantDate(new ImportantDate({start_time:'2016-06-12', name:'Convention Begins'             }).star())
+      .addImportantDate(new ImportantDate({start_time:'2016-06-15', name:'Convention Ends'               }))
 
     site.currentConference()
       .addChair(new Person('thomas-mccollough', {

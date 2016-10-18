@@ -63,7 +63,7 @@ module.exports = (function () {
   /**
    * Mark this program event as starred.
    * @param  {boolean=true} bool if true, mark as starred
-   * @return {Pass} this program event
+   * @return {ProgramEvent} this program event
    */
   ProgramEvent.prototype.star = function star(bool) {
     this._is_starred = (arguments.length) ? bool : true

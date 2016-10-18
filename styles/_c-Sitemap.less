@@ -17,6 +17,7 @@
 // 2016-10-12
 @p-fz: 20/16;
 .c-Sitemap {
+  margin-bottom: 0 !important; // HACK override `.font-size-mod() >> ul`
   .menubar();
   @media screen and (max-width: 44.999em) {
     .flex-direction(column);
@@ -35,6 +36,7 @@
 }
 
 .c-Sitemap__Sub {
+  margin-bottom: 0 !important; // HACK override `.font-size-mod() >> ul`
   font-weight: 300;
   .font-size-el(16/20);
   text-transform: none; // override .menubar()

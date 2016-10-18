@@ -171,10 +171,15 @@ module.exports = (function () {
   }
   /**
    * Retrieve all passes of this conference.
+   * @param  {boolean=} starred if true, only retrieve passes that are starred
    * @return {Array<Pass>} a shallow array of all passes of this conference
    */
-  Conference.prototype.getPassesAll = function getPassesAll() {
-    return this._passes.slice()
+  Conference.prototype.getPassesAll = function getPassesAll(starred) {
+    // NOTE method overloading convention is redundant for boolean parameters
+    // if (arguments.length) {
+    //   ;
+    // } else return this.getPassesAll(false)
+    return this._passes.filter(function ($pass) { return (starred) ? $pass.isStarred() : true })
   }
 
   /**
@@ -204,10 +209,11 @@ module.exports = (function () {
   }
   /**
    * Retrieve all program events of this conference.
+   * @param  {boolean=} starred if true, only retrieve program events that are starred
    * @return {Array<ProgramEvent>} a shallow array of all program events of this conference
    */
-  Conference.prototype.getProgramEventsAll = function getProgramEventsAll() {
-    return this._program_events.slice()
+  Conference.prototype.getProgramEventsAll = function getProgramEventsAll(starred) {
+    return this._program_events.filter(function ($programEvent) { return (starred) ? $programEvent.isStarred() : true })
   }
 
   /**
@@ -324,10 +330,11 @@ module.exports = (function () {
   }
   /**
    * Retrieve all important dates of this conference.
+   * @param  {boolean=} starred if true, only retrieve important dates that are starred
    * @return {Array<ImportantDate>} a shallow array of all important dates of this conference
    */
-  Conference.prototype.getImportantDatesAll = function getImportantDatesAll() {
-    return this._important_dates.slice()
+  Conference.prototype.getImportantDatesAll = function getImportantDatesAll(starred) {
+    return this._important_dates.filter(function ($importantDate) { return (starred) ? !$importantDate.isHidden() : true })
   }
 
   /**

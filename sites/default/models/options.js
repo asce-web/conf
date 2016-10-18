@@ -288,7 +288,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 13:00', end_date: '2016-09-28 17:00', name: 'Short Courses'                                               }).url('#0').star())
       .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 12:00', end_date: '2016-09-28 17:00', name: 'Optional Tours'                                              }).url('#0').star())
       .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 17:30', end_date: '2016-09-28 19:30', name: 'Opening Welcome Reception'                                   }))
-      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 13:00', end_date: '2016-09-28 17:00', name: 'Community Service Project'                                   }).star())
+      .addProgramEvent(new ProgramEvent({ start_date: '2016-09-28 13:00', end_date: '2016-09-28 17:00', name: 'Community Service Project'                                   }))
 
       .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 07:00', end_date: '2016-09-29 16:30', name: 'Registration'                                                }))
       .addProgramEvent(new ProgramEvent({ start_date: '2016-09-29 07:30', end_date: '2016-09-29 08:30', name: 'Student & Emerging Leaders Welcome Breakfast and Orientation'}))

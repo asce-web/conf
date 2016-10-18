@@ -7,7 +7,7 @@
 @import (reference) url('../node_modules/xmeter/src/__fallback.transform-origin.less');
 @import (reference) url('../node_modules/xmeter/src/__fallback.transition.less');
 @import (reference) url('__settings.less');
-@import (reference) url('__tool.menubar.less');
+@import (reference) url('__tool.menufont.less');
 
 
 // Main-level navigation for current year site.
@@ -24,7 +24,7 @@
 .c-MenuBar {
   .flex-justify-content(flex-start); // override .o-Flex `space-between`
   margin-bottom: 0 !important; // HACK override `.font-size-mod() >> ul`
-  .menubar();
+  .menufont();
   color: @g-color-gray_lt-tint2; // HACK fallback
   color: var(--color-gray_lt-tint2);
   // REVIEW using .material-icons out of component
@@ -75,8 +75,8 @@
   z-index: 1; // atop of c-Banner which is relative
   .transform-origin(left top);
   padding: @g-boxpadd_mill;
-  font-weight: 400;     // override `.menubar();`
-  text-transform: none; // override `.menubar();`
+  font-weight: 400;     // override `.menufont();`
+  text-transform: none; // override `.menufont();`
   background-color: @g-color-gray_lt-tint2; // HACK fallback
   background-color: var(--color-gray_lt-tint2);
   .transitions(@g-prefix_transform, opacity; @p-trans_dura);

@@ -2,6 +2,7 @@
 /*################################*\
     conf  |  _c-Sitemap.less
 \*################################*/
+@import (reference) url('__tool.menufont.less');
 
 
 // Sitemap for top (site) pages or main (internal) pages.
@@ -18,7 +19,7 @@
 @p-fz: 20/16;
 .c-Sitemap {
   margin-bottom: 0 !important; // HACK override `.font-size-mod() >> ul`
-  .menubar();
+  .menufont();
   @media screen and (max-width: 44.999em) {
     .flex-direction(column);
     .font-size-mod(@p-fz);
@@ -39,7 +40,7 @@
   margin-bottom: 0 !important; // HACK override `.font-size-mod() >> ul`
   font-weight: 300;
   .font-size-el(16/20);
-  text-transform: none; // override .menubar()
+  text-transform: none; // override .menufont()
   @media screen and (min-width: 45em) {
     .font-size-el(12/14);
   }

@@ -5,50 +5,91 @@ block append vars
 
 block append main
   +newSection(2, ConfDocs.DOCS.find('comp.html#mast-component'))
-    include includes/_c-Mast.docs.jade
+    include _includes/c-Mast.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#site-title'))
-    include includes/_c-SiteTitle.docs.jade
+    include _includes/c-SiteTitle.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#mobile-menu'))
-    include includes/_c-MenuMobile.docs.jade
+    include _includes/c-MenuMobile.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#menu-bar'))
-    include includes/_c-MenuBar.docs.jade
+    include _includes/c-MenuBar.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#sitemap-component'))
-    include includes/_c-Sitemap.docs.jade
+    include _includes/c-Sitemap.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#page-title'))
-    include includes/_c-PageTitle.docs.jade
+    include _includes/c-PageTitle.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#banner-component'))
-    include includes/_c-Banner.docs.jade
+    include _includes/c-Banner.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#hero-block'))
-    include includes/_c-Hero.docs.jade
+    include _includes/c-Hero.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#supporter-block'))
-    include includes/_c-SupporterBlock.docs.jade
+    include _includes/c-SupporterBlock.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#date-block'))
-    include includes/_c-DateBlock.docs.jade
+    include _includes/c-DateBlock.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#pass-component'))
-    include includes/_c-Pass.docs.jade
+    include _includes/c-Pass.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#program-component'))
-    include includes/_c-Program.docs.jade
+    include _includes/c-Program.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#time-block'))
-    include includes/_c-TimeBlock.docs.jade
+    include _includes/c-TimeBlock.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#speaker-component'))
-    include includes/_c-Speaker.docs.jade
+    include _includes/c-Speaker.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#social-list'))
-    include includes/_c-SocialList.docs.jade
+    include _includes/c-SocialList.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#callout-component'))
-    include includes/_c-Callout.docs.jade
+    include _includes/c-Callout.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#buttons'))
-    include includes/_c-Btn.docs.jade
+    include _includes/c-Btn.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#toggle-button'))
-    include includes/_c-Toggle.docs.jade
+    include _includes/c-Toggle.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#camo-link'))
-    include includes/_c-LinkCamo.docs.jade
+    include _includes/c-LinkCamo.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#caps-link'))
-    include includes/_c-LinkCaps.docs.jade
+    include _includes/c-LinkCaps.docs.jade
   section
     h2 Non-CSS Component Displays
     section
       h3 Place
-      include includes/_place.docs.jade
+      p.
+        A place can have a name, physical address, telephone, or url.
+        Wrap with #[code.docs-code &lt;address&gt;] only if the place represents
+        contact information for the article or document author.
+      figure.docs-figure
+        +place({
+          name            : 'ASCE World Headquarters'
+        , street_address  : '1801 Alexander Bell Drive'
+        , address_locality: 'Reston'
+        , address_region  : 'VA'
+        , postal_code     : '22901-4382'
+        , telephone       : '+1-800-548-2723'
+        , url             : 'http://www.asce.org/'
+        })
+        pre.docs-pre.
+          &lt;p itemscope="" itemtype="http://schema.org/Place"&gt;
+            &lt;span class="-fw-7" itemprop="name"&gt;ASCE World Headquarters&lt;/span&gt;
+            &lt;br/&gt;
+            &lt;span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"&gt;
+              &lt;span itemprop="streetAddress"&gt;1801 Alexander Bell Drive&lt;/span&gt;
+              &lt;br/&gt;
+              &lt;span itemprop="addressLocality"&gt;Reston&lt;/span&gt;,
+              &lt;span itemprop="addressRegion"&gt;VA&lt;/span&gt;
+              &lt;span itemprop="postalCode"&gt;22901-4382&lt;/span&gt;
+            &lt;/span&gt;
+            &lt;br/&gt;
+            &lt;a href="tel:+1-800-548-2723" itemprop="telephone"&gt;+1-800-548-2723&lt;/span&gt;
+            &lt;br/&gt;
+            &lt;a href="http://www.asce.org/" itemprop="url"&gt;http://www.asce.org/&lt;/a&gt;
+          &lt;/p&gt;
+      //- p.
+        Use the following CSS selectors to add styling.
+      //- pre.docs-pre.
+        [itemtype="http://schema.org/Place"]                               { /* for the place */ }
+        [itemtype="http://schema.org/Place"] [itemprop*="name"]            { /* for the place name */ }
+        [itemtype="http://schema.org/Place"] [itemprop*="address"]         { /* for the place address */ }
+        [itemtype="http://schema.org/Place"] [itemprop*="streetAddress"]   { /* for the place address&rsquo;s street */ }
+        [itemtype="http://schema.org/Place"] [itemprop*="addressLocality"] { /* for the place address&rsquo;s city */ }
+        [itemtype="http://schema.org/Place"] [itemprop*="addressRegion"]   { /* for the place address&rsquo;s state */ }
+        [itemtype="http://schema.org/Place"] [itemprop*="postalCode"]      { /* for the place address&rsquo;s zip */ }
+        [itemtype="http://schema.org/Place"] [itemprop*="telephone"]       { /* for the place telephone*/ }
+        [itemtype="http://schema.org/Place"] a                             { /* for the place url */ }
 
 block append scripts
   script(src="/scripts/c-Program.js")

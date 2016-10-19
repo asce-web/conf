@@ -30,38 +30,23 @@ mixin place($place, attr)
       br
       a(href=$place.url itemprop="url")= $place.url
 
-mixin linkWithIcon(link, icon)
+mixin sitetoc(arg)
   //- NOTE parameter validation
   -
-    link = link || {}
-    icon = icon || {}
-  a(class=link.classes href=link.url title=(link.title || null))&attributes(link.attr || {})
-    if icon.is_on
-      i.material-icons= icon.text
-    span= link.text
-
-mixin sitetoc(args)
-  //- NOTE parameter validation
-  -
-    var pages   = args.pages   || []
-    var classes = args.classes || {}
-    var depth   = +args.depth  || 0
-    var icons   = !!args.icons
-  ul(class=classes.listclasses)
-    each item in pages
-      unless item.isHidden()
-        li(class=classes.itemclasses)
-          +linkWithIcon({
-            classes : classes.linkclasses
-          , url     : item.url()
-          , text    : item.name()
-          , title   : item.name()
-          }, {
-            is_on : args.icons && item.getIcon()
-          , text  : item.getIcon()
-          })
-          if item.findAll().length && depth > 0
-            +sitetoc({pages: item.findAll(), classes: (classes.sub || {}), depth: depth-1, icons: false})
+    arg.pages   = arg.pages   || []
+    arg.classes = arg.classes || {}
+    arg.depth   = +arg.depth  || 0
+    arg.icons   = !!arg.icons
+  ul(class=arg.classes.listclasses)
+    each $confPage in arg.pages
+      unless $confPage.isHidden()
+        li(class=arg.classes.itemclasses)
+          a(class=arg.classes.linkclasses href=$confPage.url() title=$confPage.name())
+            if arg.icons && $confPage.getIcon()
+              i.material-icons= $confPage.getIcon()
+            span= $confPage.name()
+          if $confPage.findAll().length && arg.depth > 0
+            +sitetoc({pages: $confPage.findAll(), classes: arg.classes.sub, depth: arg.depth-1, icons: false})
 
 //- mixin promotedLocation(promoloc)
   - promoloc = promoloc || {} // NOTE parameter validation

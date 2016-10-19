@@ -88,6 +88,7 @@ module.exports = (function () {
           .description('Compositions of Objects and Components that act as a single organism.')
           .add(new Page({ name: 'Site Headers', url: 'agg.html#site-headers' }))
           .add(new Page({ name: 'Highlighted Content Block', url: 'agg.html#highlighted-content-block' }))
+          .add(new Page({ name: 'Hero Image', url: 'agg.html#hero-image' }))
         )
         .add(new Page({ name: 'Helpers', url: 'help.html' })
           .description('Somewhat explicit classes used for enhancing default styles.')

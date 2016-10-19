@@ -1,10 +1,15 @@
 p.
   The Hero Image is the largest image on the home page, containing
   the current conference name and information. It is comprised of the
-  #[a(href="conf.html#hero-block") Hero Component], call-to-action buttons,
+  #[a(href="comp.html#hero-block") Hero Component], call-to-action buttons,
   and other patterns.
   Most importantly, the Hero Image Aggregate contains microdata HTML,
   which is unstyled and not considered part of the Hero Component design.
+p.-fs-t This Aggregate uses:
+ul.-fs-t
+  li: +internalLink(ConfDocs.DOCS.find('comp.html#hero-block'))
+  li: +internalLink(ConfDocs.DOCS.find('obj.html#action-list'))
+  li: +internalLink(ConfDocs.DOCS.find('comp.html#buttons'))
 figure.docs-figure
   header.o-Runner.o-Runner--pageHeader.c-Banner.-z-1(style=""): div.o-Constrain
     div.c-Hero

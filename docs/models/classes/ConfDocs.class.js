@@ -87,6 +87,7 @@ module.exports = (function () {
         .add(new Page({ name: 'Aggregates', url: 'agg.html' })
           .description('Compositions of Objects and Components that act as a single organism.')
           .add(new Page({ name: 'Site Headers', url: 'agg.html#site-headers' }))
+          .add(new Page({ name: 'Page Header', url: 'agg.html#page-header' }))
           .add(new Page({ name: 'Highlighted Content Block', url: 'agg.html#highlighted-content-block' }))
           .add(new Page({ name: 'Hero Image', url: 'agg.html#hero-image' }))
         )

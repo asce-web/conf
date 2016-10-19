@@ -10,7 +10,7 @@
 mixin place($place, attr)
   p(itemscope="" itemtype="http://schema.org/Place")&attributes(attr || {})
     if $place.name
-      span.-fw-7(itemprop="name")= $place.name
+      span.-fw-700(itemprop="name")= $place.name
     if $place.street_address
       br
       span(itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")

@@ -91,6 +91,7 @@ module.exports = (function () {
           .add(new Page({ name: 'Highlighted Content Block', url: 'agg.html#highlighted-content-block' }))
           .add(new Page({ name: 'Hero Image', url: 'agg.html#hero-image' }))
           .add(new Page({ name: 'Speaker', url: 'agg.html#speaker' }))
+          .add(new Page({ name: 'Place', url: 'agg.html#place' }))
         )
         .add(new Page({ name: 'Helpers', url: 'help.html' })
           .description('Somewhat explicit classes used for enhancing default styles.')

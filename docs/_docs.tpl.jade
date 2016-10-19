@@ -32,6 +32,8 @@ html(lang="en")
       else
         p #{text}
       block
+  mixin internalLink($page)
+    a(href=$page.url())= $page.name()
   block vars
   head
     title= page.title() || (page.name() + ' | ' + ConfDocs.DOCS.name())

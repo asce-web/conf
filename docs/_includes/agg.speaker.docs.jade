@@ -1,4 +1,8 @@
 p This Aggregate demonstrates markup for the #[a(href="comp.html#speaker-component") Speaker Component].
+p.-fs-t This Aggregate uses:
+ul.-fs-t
+  li: +internalLink(ConfDocs.DOCS.find('comp.html#speaker-component'))
+  li: +internalLink(ConfDocs.DOCS.find('comp.html#social-list'))
 figure.docs-figure
   div(style="margin-bottom: 1.5rem;")
     include /_views/c-Speaker.view.jade

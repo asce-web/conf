@@ -12,12 +12,15 @@ block append main
     include _includes/agg.highlighted-content-block.docs.jade
   +newSection(2, ConfDocs.DOCS.find('agg.html#hero-image'))
     include _includes/agg.hero-image.docs.jade
+  +newSection(2, ConfDocs.DOCS.find('agg.html#program'))
+    include _includes/agg.program.docs.jade
   +newSection(2, ConfDocs.DOCS.find('agg.html#speaker'))
     include _includes/agg.speaker.docs.jade
   +newSection(2, ConfDocs.DOCS.find('agg.html#place'))
     include _includes/agg.place.docs.jade
 
 block append scripts
+  script(src="/scripts/c-Program.js")
   script.
     $('.c-Toggle__Check').change(function () {
       $(this).parents('.c-Toggle').siblings('.o-Drawer').toggleClass('o-Drawer--open')

@@ -92,6 +92,7 @@ module.exports = (function () {
           .add(new Page({ name: 'Hero Image', url: 'agg.html#hero-image' }))
           .add(new Page({ name: 'Program', url: 'agg.html#program' }))
           .add(new Page({ name: 'Speaker', url: 'agg.html#speaker' }))
+          .add(new Page({ name: 'Important Dates', url: 'agg.html#important-dates' }))
           .add(new Page({ name: 'Place', url: 'agg.html#place' }))
         )
         .add(new Page({ name: 'Helpers', url: 'help.html' })

@@ -4,8 +4,8 @@ block append vars
   - var page = ConfDocs.DOCS.find('agg.html')
 
 block append main
-  +newSection(2, ConfDocs.DOCS.find('agg.html#site-headers'))
-    include _includes/agg.site-headers.docs.jade
+  +newSection(2, ConfDocs.DOCS.find('agg.html#site-header'))
+    include _includes/agg.site-header.docs.jade
   +newSection(2, ConfDocs.DOCS.find('agg.html#page-header'))
     include _includes/agg.page-header.docs.jade
   +newSection(2, ConfDocs.DOCS.find('agg.html#highlighted-content-block'))

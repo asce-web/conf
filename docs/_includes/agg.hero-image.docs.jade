@@ -1,52 +1,52 @@
 p.
   The Hero Image is the largest image on the home page, containing
-  the current conference name and information. It is comprised of the
-  #[a(href="comp.html#hero-block") Hero Component], call-to-action buttons,
+  the current conference name and information, call-to-action buttons,
   and other patterns.
-  Most importantly, the Hero Image Aggregate contains microdata HTML,
-  which is unstyled and not considered part of the Hero Component design.
+  The Hero Image Aggregate also contains microdata HTML,
+  which is unstyled and not considered part of any design component.
 p.-fs-t This Aggregate uses:
 ul.-fs-t
-  li: +internalLink(ConfDocs.DOCS.find('comp.html#hero-block'))
+  li: +internalLink(ConfDocs.DOCS.find('obj.html#runner-object'))
+  li: +internalLink(ConfDocs.DOCS.find('comp.html#banner-component'))
+  li: +internalLink(ConfDocs.DOCS.find('comp.html#conference-header'))
+  li: +internalLink(ConfDocs.DOCS.find('obj.html#constrain'))
+  li: +internalLink(ConfDocs.DOCS.find('comp.html#page-title'))
   li: +internalLink(ConfDocs.DOCS.find('obj.html#action-list'))
   li: +internalLink(ConfDocs.DOCS.find('comp.html#buttons'))
 figure.docs-figure
-  header.o-Runner.o-Runner--pageHeader.c-Banner.-z-1(style=""): div.o-Constrain
-    div.c-Hero
-      h1.c-PageTitle.c-Hero__Name(itemprop="name") Geo-Risk 2017
-      meta(content="http://2017.georiskconference.org/" itemprop="url")
-      p.c-Hero__Detail
-        span.c-Hero__Place.h-Clearfix-nsM(itemprop="location")
-          abbr(title="Denver, Colorado") Denver, CO
-        span.c-Hero__Dates
-          time(datetime="2017-06-04" itemprop="startDate") Jun 4
-          | &ndash;
-          time(datetime="2017-06-07" itemprop="endDate") Jun 7
-      p.c-Hero__Blurb.c-Hero__Theme(itemprop="description") Geotechincal risk from theory to practice.
+  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--hero.c-ConfHed: div.o-Constrain
+    h1.c-PageTitle.c-ConfHed__Name(itemprop="name") Geo-Risk 2017
+    meta(content="http://2017.georiskconference.org/" itemprop="url")
+    p.o-Flex.c-ConfHed__Detail
+      span.o-Flex__Item.c-ConfHed__Place.h-Block(itemprop="location")
+        abbr(title="Denver, Colorado") Denver, CO
+      span.o-Flex__Item.c-ConfHed__Dates.h-Block
+        time(datetime="2017-06-04" itemprop="startDate") Jun 4
+        | &ndash;
+        time(datetime="2017-06-07" itemprop="endDate") Jun 7
+    p.c-ConfHed__Theme.-d-n-nsM(itemprop="description") Geotechincal risk from theory to practice.
     +highlightButtons([
       { text: 'Register'      , href:'#0' }
     , { text: 'Sponsor'       , href:'#0' }
     , { text: 'Submit a Paper', href:'#0' }
-    ], 'c-Btn c-Btn--hilite c-Btn--primary')
+    ], 'c-Btn--primary')
   +microdataCheckbox('hero')
     pre.docs-pre.
-      &lt;header class="o-Runner  o-Runner--pageHeader  c-Banner  c-Banner--home"&gt;
+      &lt;header class="o-Runner  o-Runner--pageHeader  c-Banner  c-Banner--hero  c-ConfHed"&gt;
         &lt;div class="o-Constrain"&gt;
-          &lt;div class="c-Hero"&gt;
-            &lt;h1 class="c-PageTitle c-Hero__Name"#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;Geo-Risk 2017&lt;/h1&gt;
-            #[mark.docs-c-Togglable__Text!= '&lt;meta content="http://2017.georiskconference.org/" itemprop="url"/&gt;']
-            &lt;p class="c-Hero__Detail"&gt;
-              &lt;span class="c-Hero__Place  h-Clearfix-nsM"#[mark.docs-c-Togglable__Text  itemprop="location"]&gt;
-                #[mark.docs-c-Togglable__Text &lt;abbr title="Denver, Colorado"&gt;]Denver, CO#[mark.docs-c-Togglable__Text!= '&lt;/abbr&gt;']
-              &lt;/span&gt;
-              &lt;span class="c-Hero__Dates"&gt;
-                #[mark.docs-c-Togglable__Text &lt;time datetime="2017-06-04" itemprop="startDate"&gt;]Jun 4#[mark.docs-c-Togglable__Text!= '&lt;/time&gt;']
-                &ndash;
-                #[mark.docs-c-Togglable__Text &lt;time datetime="2017-06-07" itemprop="endDate"&gt;]Jun 7#[mark.docs-c-Togglable__Text!= '&lt;/time&gt;']
-              &lt;/span&gt;
-            &lt;/p&gt;
-            &lt;p class="c-Hero__Blurb  c-Hero__Theme"#[mark.docs-c-Togglable__Text  itemprop="description"]&gt;Geotechincal risk ...&lt;/p&gt;
-          &lt;/div&gt;
+          &lt;h1 class="c-PageTitle c-ConfHed__Name"#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;Geo-Risk 2017&lt;/h1&gt;
+          #[mark.docs-c-Togglable__Text!= '&lt;meta content="http://2017.georiskconference.org/" itemprop="url"/&gt;']
+          &lt;p class="o-Flex  c-ConfHed__Detail"&gt;
+            &lt;span class="o-Flex__Item  c-ConfHed__Place  h-Block"#[mark.docs-c-Togglable__Text  itemprop="location"]&gt;
+              #[mark.docs-c-Togglable__Text &lt;abbr title="Denver, Colorado"&gt;]Denver, CO#[mark.docs-c-Togglable__Text!= '&lt;/abbr&gt;']
+            &lt;/span&gt;
+            &lt;span class="o-Flex__Item  c-ConfHed__Dates  h-Block"&gt;
+              #[mark.docs-c-Togglable__Text &lt;time datetime="2017-06-04" itemprop="startDate"&gt;]Jun 4#[mark.docs-c-Togglable__Text!= '&lt;/time&gt;']
+              &ndash;
+              #[mark.docs-c-Togglable__Text &lt;time datetime="2017-06-07" itemprop="endDate"&gt;]Jun 7#[mark.docs-c-Togglable__Text!= '&lt;/time&gt;']
+            &lt;/span&gt;
+          &lt;/p&gt;
+          &lt;p class="c-ConfHed__Theme  -d-n-nsM"#[mark.docs-c-Togglable__Text  itemprop="description"]&gt;Geotechincal risk ...&lt;/p&gt;
           &lt;ul class="o-List  o-ListAction"&gt;
             &lt;li class="o-List__Item  o-ListAction__Item"&gt;
               &lt;a class="c-Btn  c-Btn--hilite  c-Btn--primary" href="#0"&gt;Register&lt;/a&gt;

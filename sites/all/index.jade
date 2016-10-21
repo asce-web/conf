@@ -4,7 +4,7 @@ block append vars
   - var page = site.find('index.html')
 
 block mainHeader
-  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--home: div.o-Constrain
+  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--hero: div.o-Constrain
     div.c-Hero
       h1.c-PageTitle.c-Hero__Name(itemprop="name")= site.currentConference().name()
       meta(content=site.currentConference().url() itemprop="url")

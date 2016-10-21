@@ -14,7 +14,7 @@ block mainReference
           abbr(title=loc.title)= loc.text
         else
           = loc.text || loc
-      p.c-ConfHed__Blurb!= $conference.getOtherYearBlurb(true)
+      p.-d-n-nsM!= $conference.getOtherYearBlurb(true)
       block
   +otherYear('c-Banner--prev', site.prevConference())
     +highlightButtons([{text:'Event Details', href:site.prevConference().url(), attr:{itemprop:'url'}}], 'c-Btn--ghost c-Btn--ghost--dark')

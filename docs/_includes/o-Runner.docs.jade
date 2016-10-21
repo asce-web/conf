@@ -33,3 +33,84 @@ figure.docs-figure
       &lt;h1&gt;highlight block heading&lt;/h1&gt;
       &lt;p&gt;highlight content&lt;/p&gt;
     &lt;/div&gt;
+h3 Table of Runner Padding
+table
+  thead: tr
+    th Runner type
+    th(scope="col" colspan="2") X-Small (s)
+    th(scope="col" colspan="2") Small (sK)
+    th(scope="col" colspan="2") Medium (sM)
+    th(scope="col" colspan="2") Large (sG)
+  tbody
+    tr
+      th(scope="row" rowspan="3") Runner
+      td(colspan="2"): code.docs-code @g-boxpadd_micr
+      td(colspan="2"): code.docs-code @g-boxpadd_mill
+      td(colspan="2"): code.docs-code @g-boxpadd_norm
+      td(colspan="2"): code.docs-code @g-boxpadd_kilo
+    tr
+      td 0.125vru
+      td 0.25rem
+      td 0.25vru
+      td 0.5rem
+      td 0.5vru
+      td 1rem
+      td 1vru
+      td 2rem
+    tr
+      td 3px
+      td 4px
+      td 6px
+      td 8px
+      td 12px
+      td 16px
+      td 24px
+      td 32px
+    tr
+      th(scope="row" rowspan="3") Runner--pageHeader
+      td(colspan="2"): code.docs-code @g-boxpadd_norm
+      td(colspan="2"): code.docs-code @g-boxpadd_norm
+      td(colspan="2"): code.docs-code @g-boxpadd_mega
+      td(colspan="2"): code.docs-code @g-boxpadd_giga
+    tr
+      td 0.5vru
+      td 1rem
+      td 0.5vru
+      td 1rem
+      td 1.5vru
+      td 3rem
+      td 2vru
+      td 4rem
+    tr
+      td 12px
+      td 16px
+      td 12px
+      td 16px
+      td 36px
+      td 48px
+      td 48px
+      td 64px
+    tr
+      th(scope="row" rowspan="3") Runner--highlight
+      td(colspan="2"): code.docs-code @g-boxpadd_norm
+      td(colspan="2"): code.docs-code @g-boxpadd_kilo
+      td(colspan="2"): code.docs-code @g-boxpadd_giga
+      td(colspan="2"): code.docs-code @g-boxpadd_peta
+    tr
+      td 0.5vru
+      td 1rem
+      td 1vru
+      td 2rem
+      td 2vru
+      td 4rem
+      td 4vru
+      td 8rem
+    tr
+      td 12px
+      td 16px
+      td 24px
+      td 32px
+      td 48px
+      td 64px
+      td 96px
+      td 128px

@@ -90,6 +90,7 @@ module.exports = (function () {
           .add(new Page({ name: 'Page Header', url: 'agg.html#page-header' }))
           .add(new Page({ name: 'Highlighted Content Block', url: 'agg.html#highlighted-content-block' }))
           .add(new Page({ name: 'Hero Image', url: 'agg.html#hero-image' }))
+          .add(new Page({ name: 'Other Year Callout', url: 'agg.html#other-year-callout' }))
           .add(new Page({ name: 'Speaker', url: 'agg.html#speaker' }))
           .add(new Page({ name: 'Place', url: 'agg.html#place' }))
         )

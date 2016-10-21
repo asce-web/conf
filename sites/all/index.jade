@@ -7,14 +7,14 @@ block mainHeader
   header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--hero.c-ConfHed: div.o-Constrain
     h1.c-PageTitle.c-ConfHed__Name(itemprop="name")= site.currentConference().name()
     meta(content=site.currentConference().url() itemprop="url")
-    p.c-ConfHed__Detail
-      span.c-ConfHed__Place.h-Clearfix-nsM(itemprop="location")
+    p.o-Flex.c-ConfHed__Detail
+      span.o-Flex__Item.c-ConfHed__Place.h-Block(itemprop="location")
         - var loc = site.currentConference().promoLoc()
         if loc.title && loc.text
           abbr(title=loc.title)= loc.text
         else
           = loc.text || loc
-      span.c-ConfHed__Dates
+      span.o-Flex__Item.c-ConfHed__Dates.h-Block
         time(datetime=site.currentConference().startDate() itemprop="startDate")
           = Util.monthDay(Util.toDate(site.currentConference().startDate()))
         | &ndash;

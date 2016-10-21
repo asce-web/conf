@@ -21,23 +21,22 @@
 // 2016-10-21
 .c-ConfHed {
   text-align: center;
+  white-space: nowrap;
 }
 
 .c-ConfHed__Name {
 }
 
 .c-ConfHed__Detail {
+  .flex-justify-content(space-around);
   font-weight: 600;
   .font-size-el(@g-font_size_mega; 2);
-  white-space: nowrap;
+  @media screen and (max-width: 44.999em) {
+    .flex-direction(column);
+  }
 }
 
 .c-ConfHed__Place {
-  @media screen and (min-width: 45em) {
-    padding-right: 2rem;
-    // border-right: 1px solid;
-    margin-right: 2rem;
-  }
 }
 .c-ConfHed__Dates {
 }

@@ -42,6 +42,8 @@
   font-weight: 700;
   white-space: nowrap;
   border-radius: 0.25rem;
+  text-shadow: none; // fallback for initial
+  text-shadow: initial; // override .c-Banner
   cursor: pointer;
   .transitions(color, background-color, border-color; 250ms);
   a&:not([href]),

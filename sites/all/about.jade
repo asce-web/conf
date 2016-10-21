@@ -4,21 +4,19 @@ block append vars
   - var page = site.find('about.html')
 
 block mainReference
-  mixin otherYear($conference)
-    div.c-Hero(itemscope="" itemtype="http://schema.org/Event")
-      h1.c-Hero__Name(itemprop="name")= $conference.name()
+  mixin otherYear(classes, $conference)
+    section.o-Runner.o-Runner--highlight.c-Banner.c-ConfHed(class=classes itemscope="" itemtype="http://schema.org/Event"): div.o-Constrain
+      h1.c-ConfHed__Name(itemprop="name")= $conference.name()
       meta(content=$conference.startDate() itemprop="startDate")
-      p.c-Hero__Detail.-fz-el-kilo(itemprop="location")
+      p.c-ConfHed__Detail.-fz-el-kilo(itemprop="location")
         - var loc = $conference.promoLoc()
         if loc.title && loc.text
           abbr(title=loc.title)= loc.text
         else
           = loc.text || loc
-      p.c-Hero__Blurb!= $conference.getOtherYearBlurb(true)
-    block
-  section.o-Runner.o-Runner--highlight.c-Banner.c-Banner--prev: div.o-Constrain
-    +otherYear(site.prevConference())
-      +highlightButtons([{text:'Event Details', href:site.prevConference().url(), attr:{itemprop:'url'}}], 'c-Btn--ghost c-Btn--ghost--dark')
-  section.o-Runner.o-Runner--highlight.c-Banner.c-Banner--next: div.o-Constrain
-    +otherYear(site.nextConference())
-      +highlightButtons([{text:'Event Details', href:site.prevConference().url(), attr:{itemprop:'url'}}], 'c-Btn--ghost c-Btn--ghost--dark')
+      p.-d-n-nsM!= $conference.getOtherYearBlurb(true)
+      block
+  +otherYear('c-Banner--prev', site.prevConference())
+    +highlightButtons([{text:'Event Details', href:site.prevConference().url(), attr:{itemprop:'url'}}], 'c-Btn--ghost c-Btn--ghost--dark')
+  +otherYear('c-Banner--next', site.nextConference())
+    +highlightButtons([{text:'Event Details', href:site.nextConference().url(), attr:{itemprop:'url'}}], 'c-Btn--ghost c-Btn--ghost--dark')

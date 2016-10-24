@@ -11,49 +11,37 @@ block append main
       Sticking with a pre-determined set of font sizes will ensure a consistent look-and-feel,
       while at the same time providing a sense of even vertical rhythm.
     figure.docs-figure
-      table(style="margin-top:var(--vru)")
-        colgroup
-          col.-w-z
+      table(style="margin-top:calc(2 * var(--vru));").-fz-i
         colgroup
           each n in new Array(8)
             col.-w-1o8
         tbody.-va-b
           -
             var sizes = [
-              { classname: '-fz-peta', rem: 6    }
-            , { classname: '-fz-tera', rem: 4    }
-            , { classname: '-fz-giga', rem: 3    }
-            , { classname: '-fz-mega', rem: 2    }
-            , { classname: '-fz-kilo', rem: 1.5  }
-            , { classname: '-fz-norm', rem: 1    }
-            , { classname: '-fz-mill', rem: 0.75 }
-            , { classname: '-fz-micr', rem: 0.5  }
+              { word: 'peta', rem: 6    }
+            , { word: 'tera', rem: 4    }
+            , { word: 'giga', rem: 3    }
+            , { word: 'mega', rem: 2    }
+            , { word: 'kilo', rem: 1.5  }
+            , { word: 'norm', rem: 1    }
+            , { word: 'mill', rem: 0.75 }
+            , { word: 'micr', rem: 0.5  }
             ]
-          tr
-            th.-d-n sample
+          tr(title="sample")
             each $item in sizes
-              td: span(class=$item.classname) Abq
-          tr
-            th.-d-n rems
+              td: span(class='-fz-'+$item.word) Abq
+          tr(title="keyword")
+            each $item in sizes
+              td= $item.word
+          tr(title="rems")
             each $item in sizes
               td #{$item.rem}rem
-          tr
-            th.-d-n pixels
+          tr(title="pixels")
             each $item in sizes
               td #{$item.rem*16}px
-          tr
-            th.-d-n points
+          tr(title="points")
             each $item in sizes
               td #{$item.rem*12}pt
-      ul.o-List
-        li.o-List__Item.-fz-el-peta peta 6.00
-        li.o-List__Item.-fz-el-tera tera 4.00
-        li.o-List__Item.-fz-el-giga giga 3.00
-        li.o-List__Item.-fz-el-mega mega 2.00
-        li.o-List__Item.-fz-el-kilo kilo 1.50
-        li.o-List__Item.-fz-el-norm norm 1.00
-        li.o-List__Item.-fz-el-mill mill 0.75
-        li.o-List__Item.-fz-el-micr micr 0.50
     h3 Font Families
     mixin letterforms()
       p.-fz-el-tera Rage Ghost Kip

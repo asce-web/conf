@@ -1,0 +1,68 @@
+p The Program Aggregate is used in the Program Highlights block and on the Program page.
+p.
+  Since the Program Component will be used to display program event information,
+  the headings will be dates. Each heading should have the following structure
+  and include similar data.
+  Elements with class #[code.docs-code .js-*] are required for Javascript.
+p.-fs-t This Aggregate uses:
+ul.-fs-t
+  li: +internalLink(ConfDocs.DOCS.find('comp.html#program-component'))
+  li: +internalLink(ConfDocs.DOCS.find('comp.html#time-block'))
+figure.docs-figure
+  include /_views/c-Program.view.jade
+  +program(2, {id:'demoprog'})
+    mixin heading(i)
+      +programHeading('2016-09-28')
+    mixin content(i)
+      include /_views/c-TimeBlock.view.jade
+      +timeBlock([
+        new ProgramEvent({start_date:'2016-09-28 10:00', end_date:'2016-09-28 19:00', name:'Registration'             })
+      , new ProgramEvent({start_date:'2016-09-28 10:30', end_date:'2016-09-28 16:30', name:'Technical Tours'          }).url('#0')
+      , new ProgramEvent({start_date:'2016-09-28 13:00', end_date:'2016-09-28 17:00', name:'Short Courses'            }).url('#0')
+      , new ProgramEvent({start_date:'2016-09-28 12:00', end_date:'2016-09-28 17:00', name:'Optional Tours'           }).url('#0')
+      , new ProgramEvent({start_date:'2016-09-28 17:30', end_date:'2016-09-28 19:30', name:'Opening Welcome Reception'})
+      , new ProgramEvent({start_date:'2016-09-28 13:00', end_date:'2016-09-28 17:00', name:'Community Service Project'})
+      ])
+  +microdataCheckbox('program')
+    pre.docs-pre.
+      &lt;article class="o-Grid  c-Program" #[mark id="demoprog"]&gt;
+        &lt;h1 class="o-Grid__Item  c-Program__Hn"&gt;
+          &lt;label&gt;
+            &lt;input class="c-Program__Check" type="radio" name="program-demoprog" value="0" checked=""/&gt;
+            &lt;time datetime="2016-09-28"&gt;
+              &lt;span class="#[u js-h-Block-sK]"&gt;Wednesday, &lt;/span&gt;
+              &lt;span class="#[u js-h-Block-sK]"&gt;Sep 28&lt;/span&gt;
+            &lt;/time&gt;
+          &lt;/label&gt;
+        &lt;/h1&gt;
+        &lt;div class="o-Grid__Item  c-Program__Schedule"&gt;
+          &lt;dl class="o-List  c-TimeBlock"&gt;
+            &lt;li class="o-List__Item  o-Grid  c-TimeBlock__Item"#[mark.docs-c-Togglable__Text  itemprop="subEvent" itemscope="" itemtype="http://schema.org/Event"]&gt;
+              &lt;dt class="o-Grid__Item  c-TimeBlock__Times"&gt;
+                &lt;time datetime="2016-09-28 10:00"#[mark.docs-c-Togglable__Text  itemprop="startDate"]&gt;10am&lt;/time&gt;
+                &ndash;
+                &lt;time datetime="2016-09-28 19:00"#[mark.docs-c-Togglable__Text  itemprop="endDate"]&gt;7pm&lt;/time&gt;
+              &lt;/dt&gt;
+              &lt;dd class="o-Grid__Item  c-TimeBlock__Desc"#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;
+                Registration
+              &lt;/dd&gt;
+            &lt;/li&gt;
+            &lt;li class="o-List__Item  o-Grid  c-TimeBlock__Item"#[mark.docs-c-Togglable__Text  itemprop="subEvent" itemscope="" itemtype="http://schema.org/Event"]&gt;
+              &lt;dt class="o-Grid__Item  c-TimeBlock__Times"&gt;
+                &lt;time datetime="2016-09-28 10:30"#[mark.docs-c-Togglable__Text  itemprop="startDate"]&gt;10:30am&lt;/time&gt;
+                &ndash;
+                &lt;time datetime="2016-09-28 16:30"#[mark.docs-c-Togglable__Text  itemprop="endDate"]&gt;4:30pm&lt;/time&gt;
+              &lt;/dt&gt;
+              &lt;dd class="o-Grid__Item  c-TimeBlock__Desc"#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;
+                &lt;a class="c-TimeBlock__Link" href="#0"#[mark.docs-c-Togglable__Text  itemprop="url"]&gt;Technical Tours&lt;/a&gt;
+              &lt;/dd&gt;
+            &lt;/li&gt;
+            &lt;li class="o-List__Item  o-Grid  c-TimeBlock__Item"#[mark.docs-c-Togglable__Text  itemprop="subEvent" itemscope="" itemtype="http://schema.org/Event"]&gt;
+              &lt;dt class="o-Grid__Item  c-TimeBlock__Times"&gt;...&lt;/dt&gt;
+              &lt;dd class="o-Grid__Item  c-TimeBlock__Desc"#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;...&lt;/dd&gt;
+            &lt;/li&gt;
+            ...
+          &lt;/dl&gt;
+        &lt;/div&gt;
+        ...
+      &lt;/article&gt;

@@ -1,3 +1,7 @@
 h1#conference-co-chairs Conference Co-Chairs
 div._text-block
-  +chairList(site.currentConference().getChairsAll())
+  ul
+    include /_views/person.view.jade
+    each $person in site.currentConference().getChairsAll()
+      li(itemprop="organizer" itemscope="" itemtype="http://schema.org/Person")
+        +personEntireName($person)

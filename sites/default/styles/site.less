@@ -59,6 +59,7 @@
 ._text-block,
 ._text-section {
   outline-width: 8px;
+  border-width: 0 8px;
   &::before {
     display: block;
     margin-bottom: var(--vru);
@@ -82,6 +83,7 @@
 }
 ._text-block {
   outline-color: @p-text-block-accent;
+  border-color: @p-text-block-accent;
   &::before {
     content: 'block text';
     color: @p-text-block-accent;
@@ -89,6 +91,7 @@
 }
 ._text-section {
   outline-color: @p-text-section-accent;
+  border-color: @p-text-section-accent;
   &::before {
     content: 'section text';
     color: @p-text-section-accent;

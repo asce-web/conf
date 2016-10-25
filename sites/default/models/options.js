@@ -389,13 +389,14 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
         , additional_name : 'J.'
         , family_name     : 'McCollough'
         , honorific_suffix: 'P.E., M.ASCE'
-      })
+      }).affiliation('HDR Engineering, Inc.')
       ).addOrganizer(new Person('stephen-dickenson', {
           given_name      : 'Stephen'
         , additional_name : 'E.'
         , family_name     : 'Dickenson'
+        , honorific_prefix: 'Dr.'
         , honorific_suffix: 'Ph.D., P.E., D.PE, M.ASCE'
-      }))
+      }).affiliation('HNTB Corporation'))
 
     site.currentConference()
       .addSocial('twitter', 'https://twitter.com/hashtag/#asce2016', 'Follow #ASCE2016 on Twitter')

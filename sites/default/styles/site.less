@@ -39,3 +39,58 @@
 .c-Banner--prev::before { background-image: url('../img/new-york-city.jpg'); }
 .c-Banner--next::before { background-image: url('http://2017.asceconvention.org/sites/2017.asceconvention.org/files/theme/images/convention-2017-hero.jpg'); }
 .c-Banner--loc::before  { background-image: url('../img/portland.jpg'); }
+
+
+// (bootstrap button colors)
+@p-text-plain-accent:   #28a4c9;
+@p-text-inline-accent:  #3e8f3e;
+@p-text-block-accent:   #e38d13;
+@p-text-section-accent: #b92c28;
+._text-plain,
+._text-inline,
+._text-block,
+._text-section {
+  outline-style: solid;
+}
+._text-plain,
+._text-inline {
+  outline-width: 2px;
+}
+._text-block,
+._text-section {
+  outline-width: 8px;
+  &::before {
+    display: block;
+    margin-bottom: var(--vru);
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+}
+._text-plain {
+  outline-color: @p-text-plain-accent;
+  &::before {
+    content: 'plain text:\ ';
+    color: @p-text-plain-accent;
+  }
+}
+._text-inline {
+  outline-color: @p-text-inline-accent;
+  &::before {
+    content: 'inline text:\ ';
+    color: @p-text-inline-accent;
+  }
+}
+._text-block {
+  outline-color: @p-text-block-accent;
+  &::before {
+    content: 'block text';
+    color: @p-text-block-accent;
+  }
+}
+._text-section {
+  outline-color: @p-text-section-accent;
+  &::before {
+    content: 'section text';
+    color: @p-text-section-accent;
+  }
+}

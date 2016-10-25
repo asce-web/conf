@@ -37,7 +37,7 @@ module.exports = (function () {
     self._venues          = {}
     self._speakers        = []
     self._important_dates = []
-    self._chairs          = []
+    self._organizers      = []
     self._social          = {}
     self._other_year_blurb = ''
     self._regpd_curr_index = NaN
@@ -338,37 +338,38 @@ module.exports = (function () {
   }
 
   /**
-   * Add a chair to this conference.
-   * A chair is a person who ... TODO FIXME
-   * @param {Person} $person the chair to add
+   * Add an organizer of this conference.
+   * An organizer is a chairperson, steering committee member, or other person who is
+   * responsible for organizing the conference.
+   * @param {Person} $person the organizer to add
    */
-  Conference.prototype.addChair = function addChair($person) {
-    this._chairs.push($person)
+  Conference.prototype.addOrganizer = function addOrganizer($person) {
+    this._organizers.push($person)
     return this
   }
   /**
-   * Retrieve a chair of this conference.
-   * @param  {string} id the name of the chair
-   * @return {?Person} the specified chair
+   * Retrieve an organizer of this conference.
+   * @param  {string} id the name of the organizer
+   * @return {?Person} the specified organizer
    */
-  Conference.prototype.getChair = function getChair(id) {
-    return this._chairs.find(function ($person) { return $person.id() === id }) || null
+  Conference.prototype.getOrganizer = function getOrganizer(id) {
+    return this._organizers.find(function ($person) { return $person.id() === id }) || null
   }
   /**
-   * Remove a chair of this conference.
-   * @param  {string} id the name of the chair
+   * Remove an organizer of this conference.
+   * @param  {string} id the name of the organizer
    * @return {Conference} this conference
    */
-  Conference.prototype.removeChair = function removeChair(id) {
-    Util.spliceFromArray(this._chairs, this.getChair(id))
+  Conference.prototype.removeOrganizer = function removeOrganizer(id) {
+    Util.spliceFromArray(this._organizers, this.getOrganizer(id))
     return this
   }
   /**
-   * Retrieve all chairs of this conference.
-   * @return {Array<Person>} a shallow array of all chairs of this conference
+   * Retrieve all organizers of this conference.
+   * @return {Array<Person>} a shallow array of all organizers of this conference
    */
-  Conference.prototype.getChairsAll = function getChairsAll() {
-    return this._chairs.slice()
+  Conference.prototype.getOrganizersAll = function getOrganizersAll() {
+    return this._organizers.slice()
   }
 
   /**

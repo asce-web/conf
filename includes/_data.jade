@@ -80,24 +80,3 @@ mixin speakerList(speakers)
     each person in speakers
       li.o-List__Item.o-ListStacked__Item
         +speaker(person)
-
-mixin chairList(chairs)
-  ul
-    each $person in chairs
-      li(itemprop="organizer" itemscope="" itemtype="http://schema.org/Person")
-        +personEntireName($person)
-
-mixin personEntireName($person)
-  if $person.name().honorific_prefix
-    span(itemprop="honorificPrefix")= $person.name().honorific_prefix
-    = ' '
-  span(itemprop="name")
-    span(itemprop="givenName")= $person.name().given_name
-    = ' '
-    if $person.name().additional_name
-      span(itemprop="additionalName")= $person.name().additional_name
-      = ' '
-    span(itemprop="familyName")= $person.name().family_name
-  if $person.name().honorific_suffix
-    = ', '
-    span(itemprop="honorificSuffix")= $person.name().honorific_suffix

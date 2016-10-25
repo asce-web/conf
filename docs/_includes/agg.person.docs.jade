@@ -1,0 +1,78 @@
+p.
+  The Person content type can be marked up many ways. We&rsquo;ve already seen one way, which is the
+  #[a(href="#speaker") Speaker Aggregate] above. The other ways are listed below and do not use
+  Components.
+p.-fs-t This Aggregate uses no other established patterns.
+include /_views/person.view.jade
+p This is a person&rsquo;s #[em full name]: first, middle (if applicable), and last.
+figure.docs-figure
+  +personFullName(new Person('drew-caracciolo', {
+      given_name      : 'Drew'
+    , additional_name : 'P.'
+    , family_name     : 'Caracciolo'
+  }))
+  +microdataCheckbox('person-full')
+    pre.docs-pre.
+      &lt;span#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;
+        &lt;span#[mark.docs-c-Togglable__Text  itemprop="givenName"]&gt;Drew&lt;/span&gt;
+        &lt;span#[mark.docs-c-Togglable__Text  itemprop="additionalName"]&gt;P.&lt;/span&gt;
+        &lt;span#[mark.docs-c-Togglable__Text  itemprop="familiyName"]&gt;Caracciolo&lt;/span&gt;
+      &lt;/span&gt;
+p This is a person&rsquo;s #[em entire name]: full name along with any honorific prefices or suffices.
+figure.docs-figure
+  +personEntireName(new Person('drew-caracciolo', {
+      given_name      : 'Drew'
+    , additional_name : 'P.'
+    , family_name     : 'Caracciolo'
+    , honorific_prefix: 'Dr.'
+    , honorific_suffix: 'Ph.D., M.ASCE'
+  }))
+  +microdataCheckbox('person-entire')
+    pre.docs-pre.
+      &lt;span#[mark.docs-c-Togglable__Text  itemprop="honorificPrefix"]&gt;Dr.&lt;/span&gt;
+      &lt;span#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;
+        &lt;span#[mark.docs-c-Togglable__Text  itemprop="givenName"]&gt;Drew&lt;/span&gt;
+        &lt;span#[mark.docs-c-Togglable__Text  itemprop="additionalName"]&gt;P.&lt;/span&gt;
+        &lt;span#[mark.docs-c-Togglable__Text  itemprop="familiyName"]&gt;Caracciolo&lt;/span&gt;
+      &lt;/span&gt;,
+      &lt;span#[mark.docs-c-Togglable__Text  itemprop="honorificSuffix"]&gt;Ph.D., M.ASCE&lt;/span&gt;
+p This is a person with #[em affiliation]: entire name along with any affiliation.
+figure.docs-figure
+  +personAffiliation(new Person('drew-caracciolo', {
+      given_name      : 'Drew'
+    , additional_name : 'P.'
+    , family_name     : 'Caracciolo'
+    , honorific_prefix: 'Dr.'
+    , honorific_suffix: 'Ph.D., M.ASCE'
+  }).affiliation('HDR Engineering, Inc.'))
+  +microdataCheckbox('person-affiliation')
+    pre.docs-pre.
+      &lt;span#[mark.docs-c-Togglable__Text  itemprop="honorificPrefix"]&gt;Dr.&lt;/span&gt;
+      &lt;span#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;
+        &lt;span#[mark.docs-c-Togglable__Text  itemprop="givenName"]&gt;Drew&lt;/span&gt;
+        &lt;span#[mark.docs-c-Togglable__Text  itemprop="additionalName"]&gt;P.&lt;/span&gt;
+        &lt;span#[mark.docs-c-Togglable__Text  itemprop="familiyName"]&gt;Caracciolo&lt;/span&gt;
+      &lt;/span&gt;,
+      &lt;span#[mark.docs-c-Togglable__Text  itemprop="honorificSuffix"]&gt;Ph.D., M.ASCE&lt;/span&gt;,
+      &lt;span class="-fs-t"#[mark.docs-c-Togglable__Text  itemprop="affiliation" itemscope="" itemtype="http://schema.org/Organization"]&gt;
+        &lt;span#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;HDR Engineering, Inc.&lt;/span&gt;
+      &lt;/span&gt;
+p This is a person with #[em contact information]: full name along with email (linked) and phone number.
+figure.docs-figure
+  +personContact(new Person('drew-caracciolo', {
+      given_name      : 'Drew'
+    , additional_name : 'P.'
+    , family_name     : 'Caracciolo'
+    , honorific_prefix: 'Dr.'
+    , honorific_suffix: 'Ph.D., M.ASCE'
+  }).jobTitle('Senior Coordinator, Conferences & Meetings').email('example@asce.org').phone('(703) 293-5555'))
+  +microdataCheckbox('person-contact')
+    pre.docs-pre.
+      &lt;a href="example@asce.org"#[mark.docs-c-Togglable__Text  itemprop="email"]&gt;example@asce.org&lt;/a&gt;
+      &lt;span#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;
+        &lt;span#[mark.docs-c-Togglable__Text  itemprop="givenName"]&gt;Drew&lt;/span&gt;
+        &lt;span#[mark.docs-c-Togglable__Text  itemprop="additionalName"]&gt;P.&lt;/span&gt;
+        &lt;span#[mark.docs-c-Togglable__Text  itemprop="familiyName"]&gt;Caracciolo&lt;/span&gt;
+      &lt;/span&gt;,
+      &lt;span#[mark.docs-c-Togglable__Text  itemprop="jobTitle"]&gt;Senior Coordinator, Conferences &amp; Meetings&lt;/span&gt; |
+      &lt;span#[mark.docs-c-Togglable__Text  itemprop="telephone"]&gt;(703) 293-5555&lt;/span&gt;

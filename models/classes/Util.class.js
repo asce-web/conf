@@ -112,24 +112,23 @@ module.exports = (function () {
    * @type {Array}
    */
   Util.ICON_DATA = [
-    { content: 'info_outline'   , fallback: '\uE88F', html: '&#xE88F;' }
-  , { content: 'people'         , fallback: '\uE7FB', html: '&#xE7FB;' }
-  , { content: 'work'           , fallback: '\uE8F9', html: '&#xE8F9;' }
-  , { content: 'email'          , fallback: '\uE0BE', html: '&#xE0BE;' }
-  , { content: 'home'           , fallback: '\uE88A', html: '&#xE88A;' }
-  , { content: 'shopping_cart'  , fallback: '\uE8CC', html: '&#xE8CC;' }
-  , { content: 'event'          , fallback: '\uE878', html: '&#xE878;' }
-  , { content: 'flight'         , fallback: '\uE539', html: '&#xE539;' }
-  , { content: 'account_box'    , fallback: '\uE851', html: '&#xE851;' }
-  , { content: 'stars'          , fallback: '\uE8D0', html: '&#xE8D0;' }
-  , { content: 'date_range'     , fallback: '\uE916', html: '&#xE916;' }
-  , { content: 'account_balance', fallback: '\uE84F', html: '&#xE84F;' }
-  , { content: 'insert_drive_file', fallback: '\uE24D', html: '&#xE24D;' }
-  , { content: 'arrow_upward'   , fallback: '\uE5D8', html: '&#xE5D8;' }
-  , { content: 'email'       , fallback: '\uE0BE', html: '&#xE0BE;' }
-  , { content: 'phone'       , fallback: '\uE0CD', html: '&#xE0CD;' }
-  , { content: 'phone_iphone', fallback: '\uE325', html: '&#xE325;' }
-  , { content: 'explore'     , fallback: '\uE87A', html: '&#xE87A;' }
+    { content: 'home'           , fallback: '\uE88A', html: '&#xE88A;' } // Home page
+  , { content: 'shopping_cart'  , fallback: '\uE8CC', html: '&#xE8CC;' } // Registration page
+  , { content: 'event'          , fallback: '\uE878', html: '&#xE878;' } // Program page
+  , { content: 'flight'         , fallback: '\uE539', html: '&#xE539;' } // Location page
+  , { content: 'account_box'    , fallback: '\uE851', html: '&#xE851;' } // Speakers page
+  , { content: 'people'         , fallback: '\uE7FB', html: '&#xE7FB;' } // Sponsor page
+  , { content: 'work'           , fallback: '\uE8F9', html: '&#xE8F9;' } // Exhibit page
+  , { content: 'info_outline'   , fallback: '\uE88F', html: '&#xE88F;' } // About page
+  , { content: 'email'          , fallback: '\uE0BE', html: '&#xE0BE;' } // Contact page / social list icon email
+  , { content: 'stars'          , fallback: '\uE8D0', html: '&#xE8D0;' } // Early Bird registration period icon
+  , { content: 'date_range'     , fallback: '\uE916', html: '&#xE916;' } // Advance registration period icon
+  , { content: 'account_balance', fallback: '\uE84F', html: '&#xE84F;' } // Onsite registration period icon
+  , { content: 'insert_drive_file', fallback: '\uE24D', html: '&#xE24D;' } // generic page file (only used in Docs)
+  , { content: 'arrow_upward'   , fallback: '\uE5D8', html: '&#xE5D8;' } // FIXME is this used??
+  , { content: 'phone'       , fallback: '\uE0CD', html: '&#xE0CD;' } // social list icon phone
+  , { content: 'phone_iphone', fallback: '\uE325', html: '&#xE325;' } // social list icon phone / mobile app callout
+  , { content: 'explore'     , fallback: '\uE87A', html: '&#xE87A;' } // social list icon homepage
   ]
 
   /**

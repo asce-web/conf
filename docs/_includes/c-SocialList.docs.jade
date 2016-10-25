@@ -75,6 +75,7 @@ figure.docs-figure
 p.
   The third is meant for a highlighted content block.
   The logos are larger and each encompassed in a circle.
+  Logos in a #[a(href="#banner-component") Banner] are slightly lighter.
 figure.docs-figure
   include /_views/c-SocialList.view.jade
   +socialList({
@@ -89,6 +90,12 @@ figure.docs-figure
     li.o-List__Item.o-Flex__Item.c-SocialList__Item
       span highlight active:
       a.c-SocialList__Link.c-SocialList__Link--phone_iphone.h-Block(href="#0")._active
+  div.c-Banner
+    +socialList({
+      twitter : { url: '#0', text: 'example Twitter link' }
+    , google  : { url: '#0', text: 'example Google+ link' }
+    , facebook: { url: '#0', text: 'example Facebook link' }
+    }, { classes: 'c-SocialList--highlight', has_microdata: false })
   pre.docs-pre.
     &lt;ul class="o-List  o-Flex  #[u c-SocialList]  #[u c-SocialList--highlight]"&gt;
       &lt;li class="o-List__Item  o-Flex__Item  #[u c-SocialList__Item]"&gt;

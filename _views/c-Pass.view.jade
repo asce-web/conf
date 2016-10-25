@@ -14,7 +14,7 @@ mixin pass($pass, $conference)
       p.c-Pass__Desc
         = $pass.description()
         if $pass.getFineprint()
-          small.c-Pass__Fine.h-Block!= $pass.getFineprint(true)
+          small.c-Pass__Fine.h-Block._text-inline!= $pass.getFineprint(true)
     if current_period
       div.c-Pass__Body
         section.c-Pass__Period

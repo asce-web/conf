@@ -20,30 +20,6 @@ html(lang="en")
       if site.name()
         //- if this site is an instance of the 'all' template
         link(rel="stylesheet" href="styles/site.css")
-      style.
-        .minimal-text {
-          border: 8px solid rgba(219, 255, 64, 0.64);
-        }
-        .minimal-text::before {
-          content: 'minimal text block (no headings inside)';
-          display: block;
-          margin-bottom: 1.5rem;
-          font-weight: 900;
-          text-transform: uppercase;
-          color: red;
-        }
-        .rich-text {
-          border: 8px solid rgba(255, 219, 64, 0.64);
-        }
-        .rich-text::before {
-          content: 'rich text block <div> with optional subheadings';
-          display: block;
-          margin-bottom: 1.5rem;
-          font-weight: 900;
-          text-transform: uppercase;
-          color: red;
-        }
-        .-h-z { height: 0 !important; }
   body(style=site.colors())
     header.o-Runner.c-Mast.c-Mast--head: div.o-Constrain
       include /_views/c-SiteTitle.view.jade

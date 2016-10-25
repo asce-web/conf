@@ -591,7 +591,7 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
 
     site.getConference('2015')
       .setOtherYearBlurb('Access the 2015 program to see which sessions qualify for \
-        <abbr title="professional development hours">PDH</abbr>s and other documentation.')
+        PDHs and other documentation.')
       .addVenue('Conference Venue', {
         name            : 'New York Marriott Marquis'
       , street_address  : '1535 Broadway'

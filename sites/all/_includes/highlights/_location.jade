@@ -1,3 +1,3 @@
 h1#hotel-travel= site.currentConference().promoLoc().text || site.currentConference().promoLoc()
-p= site.currentConference().promoLoc().blurb
+p._text-plain= site.currentConference().promoLoc().blurb
 +highlightButtons([{text:'Hotel & Travel', href:'location.html'}], 'c-Btn--ghost c-Btn--ghost--dark')

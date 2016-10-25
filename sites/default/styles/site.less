@@ -51,6 +51,10 @@
 ._text-block,
 ._text-section {
   outline-style: solid;
+  &::before {
+    font-weight: 900;
+    text-transform: uppercase;
+  }
 }
 ._text-plain,
 ._text-inline {
@@ -63,8 +67,6 @@
   &::before {
     display: block;
     margin-bottom: var(--vru);
-    font-weight: 900;
-    text-transform: uppercase;
   }
 }
 ._text-plain {

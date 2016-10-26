@@ -233,11 +233,11 @@ module.exports = (function () {
    * @param  {Object} icon          the icon object to parse
    * @param  {string} icon.content  the keyword of the icon
    * @param  {string} icon.fallback the unicode codepoint of the icon
-   * @param  {boolean=} fallback    true if the fallback is preferred over the content
+   * @param  {boolean=} fb          true if the fallback is preferred over the content
    * @return {string}               `icon.fallback` if fallback==true, else `icon.content`
    */
-  Util.iconToString = function iconToString(icon, fallback) {
-    return (fallback) ? icon.fallback : icon.content
+  Util.iconToString = function iconToString(icon, fb) {
+    return (fb) ? icon.fallback : icon.content
   }
 
   return Util

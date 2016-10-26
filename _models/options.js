@@ -10,5 +10,4 @@
 module.exports = {
   basedir : './'
 , Util    : require('./classes/Util.class.js')
-, ConfSite: require('./classes/ConfSite.class.js')
 }

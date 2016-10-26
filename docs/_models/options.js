@@ -9,6 +9,7 @@
 
 module.exports = Object.assign(require('../../_models/options.js'), {
   Color             : require('csscolor').Color
+, ConfSite          : require('../../_models/classes/ConfSite.class.js')
 , ConfPage          : require('../../_models/classes/ConfPage.class.js')
 , Conference        : require('../../_models/classes/Conference.class.js')
 , SupporterLevel    : require('../../_models/classes/SupporterLevel.class.js')

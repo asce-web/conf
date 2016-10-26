@@ -9,19 +9,19 @@
 
 
 var Color              = require('csscolor').Color
-var Util               = require('../../../models/classes/Util.class.js')
-var ConfSite           = require('../../../models/classes/ConfSite.class.js')
-var ConfPage           = require('../../../models/classes/ConfPage.class.js')
-var Conference         = require('../../../models/classes/Conference.class.js')
-var SupporterLevel     = require('../../../models/classes/SupporterLevel.class.js')
-var Supporter          = require('../../../models/classes/Supporter.class.js')
-var Person             = require('../../../models/classes/Person.class.js')
-var RegistrationPeriod = require('../../../models/classes/RegistrationPeriod.class.js')
-var Pass               = require('../../../models/classes/Pass.class.js')
-var ProgramEvent       = require('../../../models/classes/ProgramEvent.class.js')
-var ImportantDate      = require('../../../models/classes/ImportantDate.class.js')
+var Util               = require('../../../_models/classes/Util.class.js')
+var ConfSite           = require('../../../_models/classes/ConfSite.class.js')
+var ConfPage           = require('../../../_models/classes/ConfPage.class.js')
+var Conference         = require('../../../_models/classes/Conference.class.js')
+var SupporterLevel     = require('../../../_models/classes/SupporterLevel.class.js')
+var Supporter          = require('../../../_models/classes/Supporter.class.js')
+var Person             = require('../../../_models/classes/Person.class.js')
+var RegistrationPeriod = require('../../../_models/classes/RegistrationPeriod.class.js')
+var Pass               = require('../../../_models/classes/Pass.class.js')
+var ProgramEvent       = require('../../../_models/classes/ProgramEvent.class.js')
+var ImportantDate      = require('../../../_models/classes/ImportantDate.class.js')
 
-module.exports = Object.assign(require('../../all/models/options.js'), {
+module.exports = Object.assign(require('../../all/_models/options.js'), {
   site: (function () {
     var site = new ConfSite('An ASCE Event', '/sites/default/', 'Optional Brand Tagline')
       .keywords(['ASCE', 'civil engineering', 'convention'])

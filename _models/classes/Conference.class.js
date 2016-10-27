@@ -219,13 +219,7 @@ module.exports = (function () {
   /**
    * Add a venue to this conference.
    * @param {string} venue_label key for accessing the venue
-   * @param {Object} $place the venue to add. properties:
-   * @param {string} $place.name            the name of the venue or business
-   * @param {string} $place.street_address   the venue’s street address
-   * @param {string} $place.address_locality the venue’s city or town
-   * @param {string} $place.address_region   the venue’s state or province
-   * @param {string} $place.postal_code      the venue’s zip code
-   * @param {string} $place.url             the venue’s url
+   * @param {Place} $place the venue to add
    */
   Conference.prototype.addVenue = function addVenue(venue_label, $place) {
     this._venues[venue_label] = $place

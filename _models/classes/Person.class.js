@@ -9,7 +9,7 @@ module.exports = (function () {
   // CONSTRUCTOR
   /**
    * Constructs a Person object.
-   * @param {sring} id a unique identifier of the person.
+   * @param {string} id a unique identifier of the person
    * @param {Object} $name an object containing the following:
    * @param {string} $name.honorific_prefix a prefix, if any (e.g. 'Mr.', 'Ms.', 'Dr.')
    * @param {string} $name.given_name the person’s first name

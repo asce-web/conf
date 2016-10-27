@@ -13,4 +13,5 @@ block mainHeader
       each item,key in site.currentConference().getVenuesAll()
         li.o-List__Item.o-ListAction__Item.c-Callout__Item: section
           h1.-fz-el-mega= key
-          +place(item, (item===site.currentConference().conferenceVenue()) ? {itemprop:'location'} : {})
+          p(itemscope="" itemtype="http://schema.org/Place")&attributes((item===site.currentConference().conferenceVenue()) ? {itemprop:'location'} : {})
+            +place(item)

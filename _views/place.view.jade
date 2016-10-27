@@ -1,5 +1,5 @@
-mixin place($place, attr)
-  p(itemscope="" itemtype="http://schema.org/Place")&attributes(attr || {})
+mixin place($place)
+    //- REVIEW indentation
     if $place.name
       span.-fw-700(itemprop="name")= $place.name
     if $place.street_address

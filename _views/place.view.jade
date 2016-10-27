@@ -1,0 +1,22 @@
+mixin place($place, attr)
+  p(itemscope="" itemtype="http://schema.org/Place")&attributes(attr || {})
+    if $place.name
+      span.-fw-700(itemprop="name")= $place.name
+    if $place.street_address
+      br
+      span(itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress")
+        span(itemprop="streetAddress")= $place.street_address
+        br
+        span(itemprop="addressLocality")= $place.address_locality
+        = ', '
+        span(itemprop="addressRegion")= $place.address_region
+        = ' '
+        span(itemprop="postalCode")= $place.postal_code
+        if $place.address_country
+          span(itemprop="addressCountry")= $place.address_country
+    if $place.telephone
+      br
+      a(href='tel:'+$place.telephone itemprop="telephone")= $place.telephone
+    if $place.url
+      br
+      a(href=$place.url itemprop="url")= $place.url

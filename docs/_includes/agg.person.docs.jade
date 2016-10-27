@@ -3,9 +3,9 @@ p.
   #[a(href="#speaker") Speaker Aggregate] above. The other ways are listed below and do not use
   Components.
 p.-fs-t This Aggregate uses no other established patterns.
-include /_views/person.view.jade
-p This is a person&rsquo;s #[em full name]: first, middle (if applicable), and last.
 figure.docs-figure
+  figcaption This is a person&rsquo;s #[em full name]: first, middle (if applicable), and last.
+  include /_views/person.view.jade
   +personFullName(new Person('drew-caracciolo', {
       given_name      : 'Drew'
     , additional_name : 'P.'
@@ -18,8 +18,9 @@ figure.docs-figure
         &lt;span#[mark.docs-c-Togglable__Text  itemprop="additionalName"]&gt;P.&lt;/span&gt;
         &lt;span#[mark.docs-c-Togglable__Text  itemprop="familiyName"]&gt;Caracciolo&lt;/span&gt;
       &lt;/span&gt;
-p This is a person&rsquo;s #[em entire name]: full name along with any honorific prefices or suffices.
 figure.docs-figure
+  figcaption This is a person&rsquo;s #[em entire name]: full name along with any honorific prefices or suffices.
+  include /_views/person.view.jade
   +personEntireName(new Person('drew-caracciolo', {
       given_name      : 'Drew'
     , additional_name : 'P.'
@@ -36,8 +37,9 @@ figure.docs-figure
         &lt;span#[mark.docs-c-Togglable__Text  itemprop="familiyName"]&gt;Caracciolo&lt;/span&gt;
       &lt;/span&gt;,
       &lt;span#[mark.docs-c-Togglable__Text  itemprop="honorificSuffix"]&gt;Ph.D., M.ASCE&lt;/span&gt;
-p This is a person with #[em affiliation]: entire name along with any affiliation.
 figure.docs-figure
+  figcaption This is a person with #[em affiliation]: entire name along with any affiliation.
+  include /_views/person.view.jade
   +personAffiliation(new Person('drew-caracciolo', {
       given_name      : 'Drew'
     , additional_name : 'P.'
@@ -57,8 +59,9 @@ figure.docs-figure
       &lt;span class="-fs-t"#[mark.docs-c-Togglable__Text  itemprop="affiliation" itemscope="" itemtype="http://schema.org/Organization"]&gt;
         &lt;span#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;HDR Engineering, Inc.&lt;/span&gt;
       &lt;/span&gt;
-p This is a person with #[em contact information]: full name along with email (linked) and phone number.
 figure.docs-figure
+  figcaption This is a person with #[em contact information]: full name along with email (linked) and phone number.
+  include /_views/person.view.jade
   +personContact(new Person('drew-caracciolo', {
       given_name      : 'Drew'
     , additional_name : 'P.'

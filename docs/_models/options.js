@@ -15,6 +15,7 @@ module.exports = Object.assign(require('../../_models/options.js'), {
 , SupporterLevel    : require('../../_models/classes/SupporterLevel.class.js')
 , Supporter         : require('../../_models/classes/Supporter.class.js')
 , Person            : require('../../_models/classes/Person.class.js')
+, Place             : require('../../_models/classes/Place.class.js')
 , RegistrationPeriod: require('../../_models/classes/RegistrationPeriod.class.js')
 , Pass              : require('../../_models/classes/Pass.class.js')
 , ProgramEvent      : require('../../_models/classes/ProgramEvent.class.js')

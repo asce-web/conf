@@ -9,19 +9,20 @@
 
 
 var Color              = require('csscolor').Color
-var Util               = require('../../../models/classes/Util.class.js')
-var ConfSite           = require('../../../models/classes/ConfSite.class.js')
-var ConfPage           = require('../../../models/classes/ConfPage.class.js')
-var Conference         = require('../../../models/classes/Conference.class.js')
-var SupporterLevel     = require('../../../models/classes/SupporterLevel.class.js')
-var Supporter          = require('../../../models/classes/Supporter.class.js')
-var Person             = require('../../../models/classes/Person.class.js')
-var RegistrationPeriod = require('../../../models/classes/RegistrationPeriod.class.js')
-var Pass               = require('../../../models/classes/Pass.class.js')
-var ProgramEvent       = require('../../../models/classes/ProgramEvent.class.js')
-var ImportantDate      = require('../../../models/classes/ImportantDate.class.js')
+var Util               = require('../../../_models/classes/Util.class.js')
+var ConfSite           = require('../../../_models/classes/ConfSite.class.js')
+var ConfPage           = require('../../../_models/classes/ConfPage.class.js')
+var Conference         = require('../../../_models/classes/Conference.class.js')
+var SupporterLevel     = require('../../../_models/classes/SupporterLevel.class.js')
+var Supporter          = require('../../../_models/classes/Supporter.class.js')
+var Person             = require('../../../_models/classes/Person.class.js')
+var Place              = require('../../../_models/classes/Place.class.js')
+var RegistrationPeriod = require('../../../_models/classes/RegistrationPeriod.class.js')
+var Pass               = require('../../../_models/classes/Pass.class.js')
+var ProgramEvent       = require('../../../_models/classes/ProgramEvent.class.js')
+var ImportantDate      = require('../../../_models/classes/ImportantDate.class.js')
 
-module.exports = Object.assign(require('../../all/models/options.js'), {
+module.exports = Object.assign(require('../../all/_models/options.js'), {
   site: (function () {
     var site = new ConfSite('An ASCE Event', '/sites/default/', 'Optional Brand Tagline')
       .keywords(['ASCE', 'civil engineering', 'convention'])
@@ -328,26 +329,23 @@ module.exports = Object.assign(require('../../all/models/options.js'), {
       .addProgramEvent(new ProgramEvent({ start_date: '2016-10-01 14:30', end_date: '2016-10-01 17:30', name: 'Technical Tours'                                             }).url('#0'))
 
     site.currentConference()
-      .addVenue('Conference Venue', {
-        name            : 'Oregon Convention Center'
-      , street_address  : '777 NE Martin Luther King, Jr. Blvd.'
+      .addVenue('Conference Venue', new Place('Oregon Convention Center', {
+        street_address  : '777 NE Martin Luther King, Jr. Blvd.'
       , address_locality: 'Portland'
       , address_region  : 'OR'
       , postal_code     : '97232'
       , url             : 'https://www.oregoncc.org/'
-      }).addVenue('Official Hotel', {
-        name            : 'DoubleTree by Hilton Portland'
-      , street_address  : '1000 NE Multnomah St'
+      })).addVenue('Official Hotel', new Place('DoubleTree by Hilton Portland', {
+        street_address  : '1000 NE Multnomah St'
       , address_locality: 'Portland'
       , address_region  : 'OR'
       , postal_code     : '97232'
-      }).addVenue('Overflows', {
-        name            : 'Courtyard Portland City Center'
-      , street_address  : '550 SW Oak St'
+      })).addVenue('Overflows', new Place('Courtyard Portland City Center', {
+        street_address  : '550 SW Oak St'
       , address_locality: 'Portland'
       , address_region  : 'OR'
       , postal_code     : '97204'
-      })
+      }))
 
     site.currentConference()
       .conferenceVenue('Conference Venue')

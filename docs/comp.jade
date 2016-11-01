@@ -6,6 +6,8 @@ block append vars
 block append main
   +newSection(2, ConfDocs.DOCS.find('comp.html#mast-component'))
     include _includes/c-Mast.docs.jade
+  +newSection(2, ConfDocs.DOCS.find('comp.html#banner-component'))
+    include _includes/c-Banner.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#site-title'))
     include _includes/c-SiteTitle.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#mobile-menu'))
@@ -16,8 +18,6 @@ block append main
     include _includes/c-Sitemap.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#page-title'))
     include _includes/c-PageTitle.docs.jade
-  +newSection(2, ConfDocs.DOCS.find('comp.html#banner-component'))
-    include _includes/c-Banner.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#conference-header'))
     include _includes/c-ConfHed.docs.jade
   +newSection(2, ConfDocs.DOCS.find('comp.html#supporter-block'))

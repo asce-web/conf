@@ -257,7 +257,7 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
       ).addPass(new Pass('Student Pass')
         .description('Undergraduates 18–24')
         .addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
-        .setFineprint('Full-time students must show valid <abbr title="identification">ID</abbr>\
+        .fineprint('Full-time students must show valid ID\
           onsite at the registration desk when picking up name badge.')
         .star()
       ).addPass(new Pass('Guest Pass')

@@ -44,7 +44,8 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
             downtown full of shopping, locally sourced dining, and entertainment, \
             Portland is a wonderful destination for business and leisure.'
         }
-      })).addConference('2015', new Conference({
+      }))
+      .addConference('2015', new Conference({
         name      : 'A 2015 Event'
       , theme     : ''
       , start_date: '2015-10-11'
@@ -54,7 +55,18 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
           text : 'New York, NY'
         , title: 'New York, New York'
         }
-      })).addConference('2017', new Conference({
+      })
+        .otherYearBlurb('Access the 2015 program to see which sessions qualify for \
+          PDHs and other documentation.')
+        .addVenue('Conference Venue', new Place('New York Marriott Marquis', {
+          street_address  : '1535 Broadway'
+        , address_locality: 'New York'
+        , address_region  : 'NY'
+        , postal_code     : '10036'
+        , url             : 'http://www.marriott.com/hotels/travel/nycmq-new-york-marriott-marquis/'
+        }))
+      )
+      .addConference('2017', new Conference({
         name      : 'A 2017 Event'
       , theme     : ''
       , start_date: '2017-10-08'
@@ -64,7 +76,16 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
           text : 'New Orleans, LA'
         , title: 'New Orleans, Louisiana'
         }
-      }))
+      })
+        .otherYearBlurb('Plan ahead to attend, sponsor, or exhibit at the annual convention \
+          for civil engineering professionals.')
+        .addVenue('Conference Venue', new Place('New Orleans Mariott', {
+          street_address  : '555 Canal Street'
+        , address_locality: 'New Orleans'
+        , address_region  : 'LA'
+        , postal_code     : '70130'
+        }))
+      )
 
     site
       .currentConference('2016')
@@ -236,7 +257,7 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
       ).addPass(new Pass('Student Pass')
         .description('Undergraduates 18–24')
         .addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
-        .setFineprint('Full-time students must show valid <abbr title="identification">ID</abbr>\
+        .fineprint('Full-time students must show valid ID\
           onsite at the registration desk when picking up name badge.')
         .star()
       ).addPass(new Pass('Guest Pass')
@@ -587,29 +608,6 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
         }
       }
     }
-
-    site.getConference('2015')
-      .setOtherYearBlurb('Access the 2015 program to see which sessions qualify for \
-        PDHs and other documentation.')
-      .addVenue('Conference Venue', {
-        name            : 'New York Marriott Marquis'
-      , street_address  : '1535 Broadway'
-      , address_locality: 'New York'
-      , address_region  : 'NY'
-      , postal_code     : '10036'
-      , url             : 'http://www.marriott.com/hotels/travel/nycmq-new-york-marriott-marquis/'
-      })
-
-    site.getConference('2017')
-      .setOtherYearBlurb('Plan ahead to attend, sponsor, or exhibit at the annual convention \
-        for civil engineering professionals.')
-      .addVenue('Conference Venue', {
-        name            : 'New Orleans Mariott'
-      , street_address  : '555 Canal Street'
-      , address_locality: 'New Orleans'
-      , address_region  : 'LA'
-      , postal_code     : '70130'
-      })
 
     site.find('sponsor.html')
       .add(new ConfPage('Partnering Orgs', '#0')

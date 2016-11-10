@@ -91,7 +91,7 @@ module.exports = (function () {
           .add(new Page({ name: 'Highlighted Content Block', url: 'agg.html#highlighted-content-block' }))
           .add(new Page({ name: 'Hero Image', url: 'agg.html#hero-image' }))
           .add(new Page({ name: 'Other Year Callout', url: 'agg.html#other-year-callout' }))
-          .add(new Page({ name: 'Program', url: 'agg.html#program' }))
+          .add(new Page({ name: 'The Program Carousel', url: 'agg.html#program-carousel' }))
           .add(new Page({ name: 'Speaker', url: 'agg.html#speaker' }))
           .add(new Page({ name: 'Important Dates', url: 'agg.html#important-dates' }))
           .add(new Page({ name: 'Person', url: 'agg.html#person' }))

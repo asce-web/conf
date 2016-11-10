@@ -29,7 +29,7 @@ module.exports = (function () {
   /**
    * Set or get the description of this pass.
    * @param  {string=} text the description of this pass
-   * @return {(Pass|sring)} this pass || the description of this pass
+   * @return {(Pass|string)} this pass || the description of this pass
    */
   Pass.prototype.description = function description(text) {
     if (arguments.length) {
@@ -39,20 +39,15 @@ module.exports = (function () {
   }
 
   /**
-   * Set the fine print, if any, of this pass.
-   * @param {string} html html-friendly content
+   * Set or get the fine print of this pass.
+   * @param  {string=} text the fine print of this pass
+   * @return {(Pass|string)} this pass || the fine print of this pass
    */
-  Pass.prototype.setFineprint = function setFineprint(html) {
-    this._fineprint = html
-    return this
-  }
-  /**
-   * Get the fine print of this pass.
-   * @param  {boolean=} unescaped whether or not the returned string should be escaped
-   * @return {string} the fine print of this pass
-   */
-  Pass.prototype.getFineprint = function getFineprint(unescaped) {
-    return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this._fineprint
+  Pass.prototype.fineprint = function fineprint(text) {
+    if (arguments.length) {
+      this._fineprint = text
+      return this
+    } else return this._fineprint
   }
 
   /**

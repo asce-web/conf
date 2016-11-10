@@ -56,7 +56,7 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
         , title: 'New York, New York'
         }
       })
-        .setOtherYearBlurb('Access the 2015 program to see which sessions qualify for \
+        .otherYearBlurb('Access the 2015 program to see which sessions qualify for \
           PDHs and other documentation.')
         .addVenue('Conference Venue', new Place('New York Marriott Marquis', {
           street_address  : '1535 Broadway'
@@ -77,7 +77,7 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
         , title: 'New Orleans, Louisiana'
         }
       })
-        .setOtherYearBlurb('Plan ahead to attend, sponsor, or exhibit at the annual convention \
+        .otherYearBlurb('Plan ahead to attend, sponsor, or exhibit at the annual convention \
           for civil engineering professionals.')
         .addVenue('Conference Venue', new Place('New Orleans Mariott', {
           street_address  : '555 Canal Street'
@@ -257,7 +257,7 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
       ).addPass(new Pass('Student Pass')
         .description('Undergraduates 18–24')
         .addAttendeeType(new Pass.AttendeeType('Member/Non-Member', true))
-        .setFineprint('Full-time students must show valid <abbr title="identification">ID</abbr>\
+        .fineprint('Full-time students must show valid ID\
           onsite at the registration desk when picking up name badge.')
         .star()
       ).addPass(new Pass('Guest Pass')

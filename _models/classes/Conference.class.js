@@ -404,22 +404,16 @@ module.exports = (function () {
   }
 
   /**
-   * Set the other year blurb for this conference.
+   * Set or get the other year blurb of this conference.
    * This blurb is used if this conference occurs in another year (previous or next year).
-   * @param {string} html html-friendly content
-   * @return {Conferenct} this conference
+   * @param  {string=} text the other year blurb of this conference
+   * @return {(Conference|string)} this conference || the other year blurb of this conference
    */
-  Conference.prototype.setOtherYearBlurb = function setOtherYearBlurb(html) {
-    this._other_year_blurb = html
-    return this
-  }
-  /**
-   * Get the other year blurb of this conference.
-   * @param  {boolean=} unescaped whether or not the returned string should be escaped
-   * @return {string} the other year blurb of this pass
-   */
-  Conference.prototype.getOtherYearBlurb = function getOtherYearBlurb(unescaped) {
-    return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this._other_year_blurb
+  Conference.prototype.otherYearBlurb = function otherYearBlurb(text) {
+    if (arguments.length) {
+      this._other_year_blurb = text
+      return this
+    } else return this._other_year_blurb
   }
 
   // METHODS

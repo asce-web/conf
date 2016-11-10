@@ -6,8 +6,7 @@ figure.docs-figure
       .description('Speakers and Presenters')
       .addAttendeeType(new Pass.AttendeeType('Member', true))
       .addAttendeeType(new Pass.AttendeeType('Non-Member'))
-      .setFineprint('Side note or fine print goes here. <b>HTML</b> is allowed.\
-        Text-level elements only.')
+      .fineprint('Side note or fine print goes here. Only plain text is allowed.')
     , new Conference()
         .addRegistrationPeriod(new RegistrationPeriod({ name: 'Early Bird' }))
         .addRegistrationPeriod(new RegistrationPeriod({ name: 'Advance' }))

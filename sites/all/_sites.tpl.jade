@@ -51,11 +51,11 @@ html(lang="en")
                     i.material-icons.-mr-1.-d-n-sM= $confPage.getIcon()
                   span= $confPage.name()
                   if $confPage.findAll().length && arg.depth > 0
-                    i.material-icons.-d-n-nsM expand_more
+                    i.material-icons.-d-n-nsM.-fz-i expand_more
                   //- i.material-icons.-d-n-nsM(class={'-c-t':!$confPage.findAll().length}) expand_more
                 if $confPage.findAll().length && arg.depth > 0
                   +sitetoc({pages: $confPage.findAll(), classes: arg.classes.sub, depth: arg.depth-1})
-        +mainMenu({ pages: site.findAll(), classes: {
+        +mainMenu({ pages: site.findAll().slice(0, -1), classes: {
           listclasses: 'o-List o-Flex c-MenuMobile-nsM c-MenuBar-sM'
         , itemclasses: 'o-List__Item o-Flex__Item c-MenuMobile__Item-nsM c-MenuBar__Item-sM'
         , linkclasses: 'c-MenuMobile__Link-nsM c-MenuBar__Link-sM h-Block'
@@ -92,7 +92,7 @@ html(lang="en")
     footer.o-Runner.c-Mast.c-Mast--sitemap: nav.o-Constrain
       h1.-d-n#site-map Site Map
       include /_views/c-Sitemap.view.jade
-      +sitemap(site.findAll())
+      +sitemap(site.findAll().slice(1))
       a.c-Btn(href="#top" title="go to top" style={
         'position': 'fixed'
       , 'bottom'  : '1.5rem'

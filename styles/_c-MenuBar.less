@@ -15,6 +15,7 @@
 // ^subcomponents
 // __Item - each item in the list
 // __Link - each link inside an __Item in the menu
+// __Icon - icon down-chevron for drop-down
 // __Sub  - sub menu inside an item
 // ^author
 // Chris Harvey
@@ -61,6 +62,10 @@
   }
 }
 
+.c-MenuBar__Icon {
+  font-size: inherit; // override `.material-icons`
+}
+
 // Secondary-level navigation components for current year site.
 //
 // ^Subcomponents:
@@ -93,6 +98,7 @@
   .c-MenuBar-sM            { .c-MenuBar; }
   .c-MenuBar__Item-sM      { .c-MenuBar__Item; }
   .c-MenuBar__Link-sM      { .c-MenuBar__Link; }
+  .c-MenuBar__Icon-sM      { .c-MenuBar__Icon; }
   .c-MenuBar__Sub-sM       { .c-MenuBar__Sub; }
   .c-MenuBar__Sub__Item-sM { .c-MenuBar__Sub__Item; }
   .c-MenuBar__Sub__Link-sM { .c-MenuBar__Sub__Link; }

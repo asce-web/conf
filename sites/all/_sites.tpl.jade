@@ -48,11 +48,10 @@ html(lang="en")
               li(class=arg.classes.itemclasses)
                 a(class=arg.classes.linkclasses href=$confPage.url() title=$confPage.name())
                   if $confPage.getIcon()
-                    i.material-icons.-mr-1.-d-n-sM= $confPage.getIcon()
+                    i.material-icons.c-MenuMobile__Icon.-d-n-sM= $confPage.getIcon()
                   span= $confPage.name()
                   if $confPage.findAll().length && arg.depth > 0
-                    i.material-icons.-d-n-nsM.-fz-i expand_more
-                  //- i.material-icons.-d-n-nsM(class={'-c-t':!$confPage.findAll().length}) expand_more
+                    i.material-icons.c-MenuBar__Icon.-d-n-nsM expand_more
                 if $confPage.findAll().length && arg.depth > 0
                   +sitetoc({pages: $confPage.findAll(), classes: arg.classes.sub, depth: arg.depth-1})
         +mainMenu({ pages: site.findAll().slice(0, -1), classes: {

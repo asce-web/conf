@@ -129,6 +129,7 @@ module.exports = (function () {
   , { content: 'phone'       , fallback: '\uE0CD', html: '&#xE0CD;' } // social list icon phone
   , { content: 'phone_iphone', fallback: '\uE325', html: '&#xE325;' } // social list icon phone / mobile app callout
   , { content: 'explore'     , fallback: '\uE87A', html: '&#xE87A;' } // social list icon homepage
+  , { content: 'expand_more' , fallback: '\uE5CF', html: '&#xE5CF;' } // main menu drop-down
   ]
 
   /**

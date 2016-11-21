@@ -32,7 +32,8 @@ figure.docs-figure
         noscript: p Oops! Looks like you need to enable Javascript for the main menu.
       nav.o-Drawer
         h1.-d-n#main-menu Main Menu
-        +sitetoc({pages: [
+        include /_views/_main-menu.view.jade
+        +mainMenu({pages: [
           new ConfPage('Home', '#0').setIcon('insert_drive_file')
         , new ConfPage('Registration', '#0').setIcon('insert_drive_file')
             .add(new ConfPage('Why Attend', '#0'))

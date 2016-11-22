@@ -22,7 +22,7 @@ html(lang="en")
         link(rel="stylesheet" href="styles/site.css")
   body(style=site.colors())
     header.o-Runner.c-Mast.c-Mast--head: div.o-Constrain
-      include /_views/c-SiteTitle.view.jade
+      include /_views/_c-SiteTitle.view.jade
       +siteTitle(site)
     header.o-Runner.c-Mast.c-Mast--menu: div.o-Constrain
       label.c-Toggle(title="toggle main menu")
@@ -85,12 +85,12 @@ html(lang="en")
         block additionalSupporters
           +highlight('c-Banner c-Banner--orgs')
             h1#additional-supporters.-d-n Additional Supporters
-            include /_views/c-SupporterBlock.view.jade
+            include /_views/_c-SupporterBlock.view.jade
             each $supporterLevel,index in site.getSupporterLevelsAll('org')
               +supporterBlock($supporterLevel, site, { 'c-SupporterBlock--separate': index < site.getSupporterLevelsAll('org').length-1 })
     footer.o-Runner.c-Mast.c-Mast--sitemap: nav.o-Constrain
       h1.-d-n#site-map Site Map
-      include /_views/c-Sitemap.view.jade
+      include /_views/_c-Sitemap.view.jade
       +sitemap(site.findAll().slice(1))
       a.c-Btn(href="#top" title="go to top" style={
         'position': 'fixed'
@@ -121,7 +121,7 @@ html(lang="en")
           meta(content="+1-703-295-6300" itemprop="telephone")
           meta(content="United States of America" itemprop="areaServed")
           meta(content="customer support" itemprop="contactType")
-        include /_views/c-SocialList.view.jade
+        include /_views/_c-SocialList.view.jade
         +socialList({
           twitter : { url: '//twitter.com/ASCE'    , text: 'Follow ASCE on Twitter' }
         , google  : { url: '//plus.google.com/ASCE', text: 'Follow ASCE on Google+' }

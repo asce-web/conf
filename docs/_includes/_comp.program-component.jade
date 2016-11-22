@@ -2,7 +2,7 @@ p Enable Javascript to experience visual effects.
 p.
   Each Program Component must have a unique id for the carousel effect to work properly.
 figure.docs-figure
-  include /_views/c-Program.view.jade
+  include /_views/_c-Program.view.jade
   +program(3, {id:'demoprog'})
   pre.docs-pre.
     &lt;article class="o-Grid  #[u c-Program]" #[mark id="demoprog"]&gt;
@@ -20,7 +20,7 @@ figure.docs-figure
     &lt;/article&gt;
 p Program Components inside a #[a(href="#banner-component") Banner] have different-colored headings.
 figure.docs-figure
-  include /_views/c-Program.view.jade
+  include /_views/_c-Program.view.jade
   div.c-Banner.-z-1.-mb-1vru: +program(3, {id:'demoprog-banner'})
   pre.docs-pre.
     &lt;div class="c-Banner&gt;

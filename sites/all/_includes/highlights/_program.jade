@@ -1,10 +1,10 @@
 h1#program-highlights Program Highlights
-include /_views/c-Program.view.jade
+include /_views/_c-Program.view.jade
 - var groupings = site.currentConference().groupProgramEvents('starred')
 +program(groupings.length, {id:'program-highlights-block'})
   mixin heading(i)
     +programHeading(groupings[i].date)
   mixin content(i)
-    include /_views/c-TimeBlock.view.jade
+    include /_views/_c-TimeBlock.view.jade
     +timeBlock(groupings[i].events)
 +highlightButtons([{text:'Full Program', href:'program.html'}])

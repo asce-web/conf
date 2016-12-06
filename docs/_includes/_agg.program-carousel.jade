@@ -10,12 +10,12 @@ ul.-fs-t
   li: +internalLink(ConfDocs.DOCS.find('comp.html#program-component'))
   li: +internalLink(ConfDocs.DOCS.find('comp.html#time-block'))
 figure.docs-figure
-  include /_views/c-Program.view.jade
+  include /_views/_c-Program.view.jade
   +program(2, {id:'demoprog'})
     mixin heading(i)
       +programHeading('2016-09-28')
     mixin content(i)
-      include /_views/c-TimeBlock.view.jade
+      include /_views/_c-TimeBlock.view.jade
       +timeBlock([
         new ProgramEvent({start_date:'2016-09-28 10:00', end_date:'2016-09-28 19:00', name:'Registration'             })
       , new ProgramEvent({start_date:'2016-09-28 10:30', end_date:'2016-09-28 16:30', name:'Technical Tours'          }).url('#0')

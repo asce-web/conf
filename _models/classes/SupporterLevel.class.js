@@ -13,7 +13,7 @@ module.exports = (function () {
   function SupporterLevel(name) {
     var self = this
     self._NAME = name
-    self._classname = ''
+    self._size = ''
   }
 
   // ACCESSOR FUNCTIONS
@@ -26,17 +26,20 @@ module.exports = (function () {
   }
 
   /**
-   * Set or get the classname of this supporter level.
-   * The classname is a CSS class that will be used to determine the styling
-   * of the supporter logos in this supporter level.
-   * @param  {str=} classname the name of the CSS class
-   * @return {(SupporterLevel|string)} this supporter level | the classname of this supporter level
+   * Set or get the sizing of this supporter level.
+   * The sizing informs the size of the supporter logo in this supporter level.
+   * The parameter must be one of the following enumerated values:
+   * - 'lrg'
+   * - 'med'
+   * - 'sml'
+   * @param  {string=} str the sizing of this supporter level’s logos
+   * @return {(SupporterLevel|string)} this supporter level | the sizing
    */
-  SupporterLevel.prototype.classname = function classname(classname) {
+  SupporterLevel.prototype.size = function size(str) {
     if (arguments.length) {
-      this._classname = classname
+      this._size = str
       return this
-    } else return this._classname
+    } else return this._size
   }
 
   return SupporterLevel

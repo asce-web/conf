@@ -93,13 +93,13 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
       .nextConference('2017')
 
     site
-      .addSupporterLevel(new SupporterLevel('Platinum' ).classname('c-SupporterBlock__Logo--lrg'), 'sponsor')
-      .addSupporterLevel(new SupporterLevel('Corporate').classname('c-SupporterBlock__Logo--med'), 'sponsor')
-      .addSupporterLevel(new SupporterLevel('Silver'   ).classname('c-SupporterBlock__Logo--med'), 'sponsor')
-      .addSupporterLevel(new SupporterLevel('Bronze'   ).classname('c-SupporterBlock__Logo--sml'), 'sponsor')
-      .addSupporterLevel(new SupporterLevel('Copper'   ).classname('c-SupporterBlock__Logo--sml'), 'sponsor')
-      .addSupporterLevel(new SupporterLevel('Charter Members').classname('c-SupporterBlock__Logo--lrg'), 'org')
-      .addSupporterLevel(new SupporterLevel('Cooperating Organizations').classname('c-SupporterBlock__Logo--lrg'), 'org')
+      .addSupporterLevel(new SupporterLevel('Platinum' ).size('lrg'), 'sponsor')
+      .addSupporterLevel(new SupporterLevel('Corporate').size('med'), 'sponsor')
+      .addSupporterLevel(new SupporterLevel('Silver'   ).size('med'), 'sponsor')
+      .addSupporterLevel(new SupporterLevel('Bronze'   ).size('sml'), 'sponsor')
+      .addSupporterLevel(new SupporterLevel('Copper'   ).size('sml'), 'sponsor')
+      .addSupporterLevel(new SupporterLevel('Charter Members').size('lrg'), 'org')
+      .addSupporterLevel(new SupporterLevel('Cooperating Organizations').size('lrg'), 'org')
 
     site
       .addSupporter(new Supporter('ASCE Foundation')

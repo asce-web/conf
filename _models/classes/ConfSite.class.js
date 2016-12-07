@@ -87,6 +87,7 @@ module.exports = (function () {
    * Add a conference to this site.
    * @param {string} conf_label key for accessing the conference
    * @param {Conference} $conference the conference to add
+   * @return {ConfSite} this site
    */
   ConfSite.prototype.addConference = function addConference(conf_label, $conference) {
     this._conferences[conf_label] = $conference
@@ -169,6 +170,7 @@ module.exports = (function () {
    * Add a supporter level to this site.
    * @param {SupporterLevel} $supporterLevel the supporter level to add
    * @param {string} category 'sponsor' || 'org'
+   * @return {ConfSite} this site
    */
   ConfSite.prototype.addSupporterLevel = function addSupporterLevel($supporterLevel, category) {
     if (arguments.length >= 2) {
@@ -221,6 +223,7 @@ module.exports = (function () {
   /**
    * Add a supporter to this site.
    * @param {Supporter} $supporter the supporter to add
+   * @return {ConfSite} this site
    */
   ConfSite.prototype.addSupporter = function addSupporter($supporter) {
     this._supporters.push($supporter)

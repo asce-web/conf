@@ -9,9 +9,9 @@ module.exports = (function () {
    * The name, start date, and end date
    * are immutable and must be provided during construction.
    * @param {Object} $eventinfo an object with the following immutable properties:
-   * @param {Object} $eventinfo.name the name of the program event
-   * @param {Object} $eventinfo.start_date the start date of the program event
-   * @param {Object} $eventinfo.end_date the end date of the program event
+   * @param {string} $eventinfo.name the name of the program event
+   * @param {string} $eventinfo.start_date the start date of the program event
+   * @param {string} $eventinfo.end_date the end date of the program event
    */
   function ProgramEvent($eventinfo) {
     var self = this

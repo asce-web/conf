@@ -1,5 +1,5 @@
 /**
- * A set of prices for registeration.
+ * A set of prices for registration.
  * @type {Pass}
  */
 module.exports = (function () {

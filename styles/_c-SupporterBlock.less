@@ -28,7 +28,8 @@
 //   --sml - small logo size
 //   --med - medium logo size
 //   --lrg - large logo size
-// __OrgName  - name of org. marked up with `itemprop="name"`
+// __Logo__Img  - <img> element in logo
+// __Logo__Name - name of org. marked up with `itemprop="name"`
 // ^author
 // : Chris Harvey
 // ^updated
@@ -71,13 +72,6 @@
   &:not(:hover):not(:focus) {
     .filter(grayscale(100%));
   }
-  & > img {
-    max-height: 100%;
-  }
-  & > [itemprop~="name"] {
-    position: absolute;
-    left: -999999px;
-  }
 }
 .c-SupporterBlock__Logo--sml {
   .p-dimensions(68px; 36px);
@@ -105,4 +99,13 @@
   @media screen and (min-width: 60em) {
     .p-dimensions(360px; 160px);
   }
+}
+
+.c-SupporterBlock__Logo__Img {
+  max-height: 100%;
+}
+
+.c-SupporterBlock__Logo__Name {
+  position: absolute;
+  left: -999999px;
 }

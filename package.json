@@ -26,7 +26,7 @@
     "unbuild:css": "rm styles/conf.css styles/conf.min.css docs/styles/docs.css sites/default/styles/site.css",
     "unbuild:js": "rm docs/scripts/visual.b.js sites/default/scripts/home.b.js",
     "unbuild": "npm run unbuild:root  &&  npm run unbuild:sites  &&  npm run unbuild:default  &&  npm run unbuild:css  &&  npm run unbuild:js",
-    "build": "npm run jade:all  &&  npm run lessc:all  &&  npm run minify  &&  npm run browserify:all"
+    "build": "npm run pug:all  &&  npm run lessc:all  &&  npm run minify  &&  npm run browserify:all"
   },
   "repository": {
     "type": "git",

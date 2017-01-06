@@ -6,7 +6,7 @@ p.
   such as Cooperating Organizations.
   This block is a #[code.docs-code section] containing a heading
   (the name of the level)
-  followed by an unordered list of #[a(href="#supporter-logo") Supporter Logos].
+  followed by an unordered list of supporter logos.
 p.
   To separate multiple supporter blocks, add class #[code.docs-code .c-SupporterBlock--separate]
   for a thin bottom border.
@@ -32,21 +32,21 @@ figure.docs-figure
         .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/geico-asce-convention-logo.png')
     ]
   include /_views/_c-SupporterBlock.view.jade
-  +supporterBlock(new SupporterLevel('Titanium').classname('c-SupporterBlock__Logo--lrg')
+  +supporterBlock(new SupporterLevel('Titanium').size('lrg')
   , new ConfSite()
       .addSupporter(supporters[0].level('Titanium'))
       .addSupporter(supporters[1].level('Titanium'))
       .addSupporter(supporters[2].level('Titanium'))
   , 'c-SupporterBlock--separate'
   )
-  +supporterBlock(new SupporterLevel('Platinum').classname('c-SupporterBlock__Logo--med')
+  +supporterBlock(new SupporterLevel('Platinum').size('med')
   , new ConfSite()
       .addSupporter(supporters[0].level('Platinum'))
       .addSupporter(supporters[1].level('Platinum'))
       .addSupporter(supporters[2].level('Platinum'))
   , 'c-SupporterBlock--separate'
   )
-  +supporterBlock(new SupporterLevel('Silver').classname('c-SupporterBlock__Logo--sml')
+  +supporterBlock(new SupporterLevel('Silver').size('sml')
   , new ConfSite()
       .addSupporter(supporters[0].level('Silver'))
       .addSupporter(supporters[1].level('Silver'))

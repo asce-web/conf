@@ -10,8 +10,8 @@ module.exports = (function () {
    * The name and start time
    * are immutable and must be provided during construction.
    * @param {Object} $actioninfo an object with the following immutable properties:
-   * @param {Object} $actioninfo.name the name of the important date
-   * @param {Object} $actioninfo.start_time the start time of the important date
+   * @param {string} $actioninfo.name the name of the important date
+   * @param {string} $actioninfo.start_time the start time of the important date
    */
   function ImportantDate($actioninfo) {
     var self = this

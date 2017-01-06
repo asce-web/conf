@@ -41,7 +41,7 @@ module.exports = (function () {
     self._social          = {}
     self._other_year_blurb = ''
     self._regpd_curr_index = NaN
-    self._venue_conf_key   = null
+    self._venue_conf_key   = ''
   }
 
   // ACCESSOR FUNCTIONS

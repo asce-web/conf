@@ -9,11 +9,11 @@ block actionButtons
 
 block prepend mainBody
   +highlight()
-    include /_includes/colorpickers.jade
+    include /_includes/_colorpickers.pug
     +colorPickers('#3fae2a', '#00a1e1')
 
 block mainMinimal
-  include _includes/text-block.jade
+  include _includes/_text-block.pug
 
 block callouts
   +highlight('c-Banner')

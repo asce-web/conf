@@ -2,6 +2,7 @@
   var primary   = Color.fromString('#0066cc')
   var secondary = Color.fromString('#ff80a0')
 mixin derivBlock($color, name)
+  include /docs/_views/_c-ColorBox.view.pug
   +colorBox(96, {
     rect: { style: { fill: $color.toString('hex') } }
   }, 0.5)

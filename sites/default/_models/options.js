@@ -93,13 +93,17 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
       .nextConference('2017')
 
     site
-      .addSupporterLevel(new SupporterLevel('Platinum' ).size('lrg'), 'sponsor')
-      .addSupporterLevel(new SupporterLevel('Corporate').size('med'), 'sponsor')
-      .addSupporterLevel(new SupporterLevel('Silver'   ).size('med'), 'sponsor')
-      .addSupporterLevel(new SupporterLevel('Bronze'   ).size('sml'), 'sponsor')
-      .addSupporterLevel(new SupporterLevel('Copper'   ).size('sml'), 'sponsor')
-      .addSupporterLevel(new SupporterLevel('Charter Members').size('lrg'), 'org')
-      .addSupporterLevel(new SupporterLevel('Cooperating Organizations').size('lrg'), 'org')
+      .addSupporterLevel(new SupporterLevel('Platinum' ).size('lrg'))
+      .addSupporterLevel(new SupporterLevel('Corporate').size('med'))
+      .addSupporterLevel(new SupporterLevel('Silver'   ).size('med'))
+      .addSupporterLevel(new SupporterLevel('Bronze'   ).size('sml'))
+      .addSupporterLevel(new SupporterLevel('Copper'   ).size('sml'))
+      .addSupporterLevel(new SupporterLevel('Charter Members').size('lrg'))
+      .addSupporterLevel(new SupporterLevel('Cooperating Organizations').size('lrg'))
+
+    site
+      .addSupporterList('Sponsors', ['Platinum', 'Corporate', 'Silver', 'Bronze', 'Copper'])
+      .addSupporterList('Orgs', ['Charter Members', 'Cooperating Organizations'])
 
     site
       .addSupporter(new Supporter('ASCE Foundation')

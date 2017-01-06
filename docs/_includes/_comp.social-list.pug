@@ -2,7 +2,7 @@ p.
   A generic Social List Component is shown below. The generic form of this Component
   shouldn&rsquo;t be used on its own; there are three #[i flavors] of Social List shown below.
 figure.docs-figure
-  include /_views/_c-SocialList.view.jade
+  include /_views/_c-SocialList.view.pug
   +socialList({
     twitter : { url: '#0', text: 'example Twitter link' }
   , google  : { url: '#0', text: 'example Google+ link' }
@@ -25,7 +25,7 @@ figure.docs-figure
 p The first type of Social List is meant for the site mast footer.
 figure.docs-figure
   div.c-Banner(style="z-index:1;")
-    include /_views/_c-SocialList.view.jade
+    include /_views/_c-SocialList.view.pug
     +socialList({
       twitter : { url: '#0', text: 'example Twitter link' }
     , google  : { url: '#0', text: 'example Google+ link' }
@@ -50,7 +50,7 @@ figure.docs-figure
 p The second type, similar to the foooter, belongs in the #[a(href="#speaker-component") Speaker Component].
 figure.docs-figure
   div.c-Banner(style="z-index:1;")
-    include /_views/_c-SocialList.view.jade
+    include /_views/_c-SocialList.view.pug
     +socialList({
       twitter : { url: '#0', text: 'example Twitter link' }
     , google  : { url: '#0', text: 'example Google+ link' }
@@ -77,7 +77,7 @@ p.
   The logos are larger and each encompassed in a circle.
   Logos in a #[a(href="#banner-component") Banner] are slightly lighter.
 figure.docs-figure
-  include /_views/_c-SocialList.view.jade
+  include /_views/_c-SocialList.view.pug
   +socialList({
     twitter : { url: '#0', text: 'example Twitter link' }
   , google  : { url: '#0', text: 'example Google+ link' }

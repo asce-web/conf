@@ -9,18 +9,18 @@
 
 
 var Color              = require('csscolor').Color
-var Util               = require('../../../_models/classes/Util.class.js')
-var ConfSite           = require('../../../_models/classes/ConfSite.class.js')
-var ConfPage           = require('../../../_models/classes/ConfPage.class.js')
-var Conference         = require('../../../_models/classes/Conference.class.js')
-var SupporterLevel     = require('../../../_models/classes/SupporterLevel.class.js')
-var Supporter          = require('../../../_models/classes/Supporter.class.js')
-var Person             = require('../../../_models/classes/Person.class.js')
-var Place              = require('../../../_models/classes/Place.class.js')
-var RegistrationPeriod = require('../../../_models/classes/RegistrationPeriod.class.js')
-var Pass               = require('../../../_models/classes/Pass.class.js')
-var ProgramEvent       = require('../../../_models/classes/ProgramEvent.class.js')
-var ImportantDate      = require('../../../_models/classes/ImportantDate.class.js')
+var Util               = require('../../../_models/Util.class.js')
+var ConfSite           = require('../../../_models/ConfSite.class.js')
+var ConfPage           = require('../../../_models/ConfPage.class.js')
+var Conference         = require('../../../_models/Conference.class.js')
+var SupporterLevel     = require('../../../_models/SupporterLevel.class.js')
+var Supporter          = require('../../../_models/Supporter.class.js')
+var Person             = require('../../../_models/Person.class.js')
+var Place              = require('../../../_models/Place.class.js')
+var RegistrationPeriod = require('../../../_models/RegistrationPeriod.class.js')
+var Pass               = require('../../../_models/Pass.class.js')
+var ProgramEvent       = require('../../../_models/ProgramEvent.class.js')
+var ImportantDate      = require('../../../_models/ImportantDate.class.js')
 
 module.exports = Object.assign(require('../../all/_models/options.js'), {
   site: (function () {

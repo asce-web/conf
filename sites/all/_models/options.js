@@ -9,9 +9,9 @@
 
 
 var Color      = require('csscolor').Color
-var ConfSite   = require('../../../_models/classes/ConfSite.class.js')
-var ConfPage   = require('../../../_models/classes/ConfPage.class.js')
-var Conference = require('../../../_models/classes/Conference.class.js')
+var ConfSite   = require('../../../_models/ConfSite.class.js')
+var ConfPage   = require('../../../_models/ConfPage.class.js')
+var Conference = require('../../../_models/Conference.class.js')
 
 module.exports = Object.assign(require('../../../_models/options.js'), {
   site: new ConfSite()

@@ -1,6 +1,6 @@
 doctype html
 html(lang="en")
-  include /_includes/__snippets.jade
+  include /_includes/__snippets.pug
   mixin doctoc(args)
     //- NOTE parameter validation
     -
@@ -49,31 +49,22 @@ html(lang="en")
       link(rel="stylesheet" href="/styles/conf.css")
       link(rel="stylesheet" href="styles/docs.css")
   body(style=ConfDocs.COLORS)
+    header
+      h1= ConfDocs.DOCS.name()
+      p= ConfDocs.DOCS.description()
+      p: a(href="/index.html") Return to Landing Page
+      nav#sitemap
+        h1.-d-n Sitemap
+        +doctoc({pages: ConfDocs.DOCS.findAll()})
     main.docs-main
       block main
         header
-          //- h1= page.title() || (ConfDocs.DOCS.name() + ' — ' + page.name())
-          if page.title()
-            h1= page.title()
-          else
-            h1 #[a(href=ConfDocs.DOCS.url())= ConfDocs.DOCS.name()] &mdash; #{page.name()}
+          h1= page.name()
           p= page.description()
-          nav#table-contents
-            h2 Table of Contents
-            block toc
+          block toc
+            nav#table-contents
+              h2 Table of Contents
               +doctoc({pages: page.findAll(), depth: Infinity})
-    footer
-      block subsitemap
-        nav
-          h1 Subsitemap
-          +doctoc({pages: ConfDocs.DOCS.findAll()})
-      nav
-        h1 Sitemap
-        ol
-          li: a(href="/index.html") Home
-          li: a(href="index.html") Pattern Library
-          li: a(href="sites/all/index.html") Prototype Site &mdash; template only
-          li: a(href="sites/default/index.html") Prototype Site &mdash; populated with sample content
     block scripts
       script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
       //- script.

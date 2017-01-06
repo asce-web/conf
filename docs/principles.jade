@@ -10,13 +10,6 @@ block append main
     +newSection(3, ConfDocs.DOCS.find('principles.html#font-families'))
       include _includes/_principles.font-families.pug
   +newSection(2, ConfDocs.DOCS.find('principles.html#colors'))
-    mixin colorBox(w, attrs, factor)
-      -
-        attrs = attrs || {}
-        var _width  = w
-        var _height = _width * (Math.sqrt(5)-1)/2 * (factor || 1)
-      svg.docs-c-ColorBox(viewbox=`0 0 ${_width} ${_height}`)&attributes(attrs.svg || {})
-        rect(width=_width height=_height)&attributes(attrs.rect || {})
     +newSection(3, ConfDocs.DOCS.find('principles.html#derivation-color-palettes'))
       include _includes/_principles.derivation-color-palettes.pug
     +newSection(3, ConfDocs.DOCS.find('principles.html#site-colors'))

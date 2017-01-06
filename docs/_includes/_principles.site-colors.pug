@@ -3,6 +3,7 @@ mixin siteColorList(primary_str, secondary_str, attr_table)
   mixin cell(item, index)
     mixin fig($pairing)
       figure
+        include /docs/_views/_c-ColorBox.view.pug
         +colorBox(96, {
           svg: { 'data-prop': '--color' + $pairing.suffix }
         , rect: { class: '-f' + $pairing.suffix }

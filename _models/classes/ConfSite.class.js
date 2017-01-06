@@ -26,8 +26,7 @@ module.exports = (function () {
     self._logo             = ''
     self._colors           = {}
     self._conferences      = {}
-    self._sponsor_levels   = []
-    self._org_levels       = []
+    self._supporter_levels = []
     self._supporters       = []
     self._conf_curr_key   = null
     self._conf_prev_key   = null
@@ -168,16 +167,9 @@ module.exports = (function () {
   /**
    * Add a supporter level to this site.
    * @param {SupporterLevel} $supporterLevel the supporter level to add
-   * @param {string} category 'sponsor' || 'org'
    */
-  ConfSite.prototype.addSupporterLevel = function addSupporterLevel($supporterLevel, category) {
-    if (arguments.length >= 2) {
-      ;
-    } else return this.addSupporterLevel($supporterLevel, 'sponsor')
-    ;({
-      sponsor: function (self) { self._sponsor_levels.push($supporterLevel) }
-    , org    : function (self) { self._org_levels.push($supporterLevel) }
-    })[category](this)
+  ConfSite.prototype.addSupporterLevel = function addSupporterLevel($supporterLevel) {
+    this._supporter_levels.push($supporterLevel)
     return this
   }
   /**
@@ -186,9 +178,7 @@ module.exports = (function () {
    * @return {?SupporterLevel} the specified supporter level
    */
   ConfSite.prototype.getSupporterLevel = function getSupporterLevel(name) {
-    return this._sponsor_levels.find(function ($supporterLevel) { return $supporterLevel.name() === name })
-      || this._org_levels.find(function ($supporterLevel) { return $supporterLevel.name() === name })
-      || null
+    return this._supporter_levels.find(function ($supporterLevel) { return $supporterLevel.name() === name }) || null
   }
   /**
    * Remove a supporter level from this site.
@@ -196,26 +186,15 @@ module.exports = (function () {
    * @return {ConfSite} this site
    */
   ConfSite.prototype.removeSupporterLevel = function removeSupporterLevel(name) {
-    var arr = (function () {
-      if (this._sponsor_levels.find(function ($supporterLevel) { return $supporterLevel.name() === name })) return this._sponsor_levels
-      if (this._org_levels.find(function ($supporterLevel) { return $supporterLevel.name() === name })) return this._org_levels
-    })()
-    Util.spliceFromArray(arr, this.getSupporterLevel(name))
+    Util.spliceFromArray(this._supporter_levels, this.getSupporterLevel(name))
     return this
   }
   /**
    * Retrieve all supporter levels of this site.
-   * @param {string} category 'sponsor' || 'org'
    * @return {Array<SupporterLevel>} a shallow array of all supporter levels of this site
    */
-  ConfSite.prototype.getSupporterLevelsAll = function getSupporterLevelsAll(category) {
-    if (arguments.length >= 1) {
-      ;
-    } else return this.getSupporterLevelsAll('sponsor')
-    return ({
-      sponsor: this._sponsor_levels.slice()
-    , org    : this._org_levels.slice()
-    })[category]
+  ConfSite.prototype.getSupporterLevelsAll = function getSupporterLevelsAll() {
+    return this._supporter_levels.slice()
   }
 
   /**

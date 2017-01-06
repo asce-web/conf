@@ -7,13 +7,5 @@ block sponsors
   section.o-Runner.o-Runner--highlight: div.o-Constrain
     h1#thank-you-sponsors Thank You to Our Sponsors
     include /_views/_c-SupporterBlock.view.jade
-    -
-      var sponsors = site.getSupporterLevelsAll().filter(function (el) {
-        return el.name() === 'Platinum'
-          ||   el.name() === 'Corporate'
-          ||   el.name() === 'Silver'
-          ||   el.name() === 'Bronze'
-          ||   el.name() === 'Copper'
-      })
-    each $supporterLevel,index in sponsors
-      +supporterBlock($supporterLevel, site, { 'c-SupporterBlock--separate': index < sponsors.length-1 })
+    each $supporterLevel,index in site.getSupporterList('Sponsors')
+      +supporterBlock($supporterLevel, site, { 'c-SupporterBlock--separate': index < site.getSupporterList('Sponsors').length-1 })

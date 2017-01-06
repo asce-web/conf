@@ -86,13 +86,8 @@ html(lang="en")
           +highlight('c-Banner c-Banner--orgs')
             h1#additional-supporters.-d-n Additional Supporters
             include /_views/_c-SupporterBlock.view.jade
-            -
-              var coop_orgs = site.getSupporterLevelsAll().filter(function (el) {
-                return el.name() === 'Charter Members'
-                  ||   el.name() === 'Cooperating Organizations'
-              })
-            each $supporterLevel,index in coop_orgs
-              +supporterBlock($supporterLevel, site, { 'c-SupporterBlock--separate': index < coop_orgs.length-1 })
+            each $supporterLevel,index in site.getSupporterList('Orgs')
+              +supporterBlock($supporterLevel, site, { 'c-SupporterBlock--separate': index < site.getSupporterList('Orgs').length-1 })
     footer.o-Runner.c-Mast.c-Mast--sitemap: nav.o-Constrain
       h1.-d-n#site-map Site Map
       include /_views/_c-Sitemap.view.jade

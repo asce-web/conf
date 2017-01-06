@@ -27,6 +27,7 @@ module.exports = (function () {
     self._colors           = {}
     self._conferences      = {}
     self._supporter_levels = []
+    self._supporter_lists  = {}
     self._supporters       = []
     self._conf_curr_key   = null
     self._conf_prev_key   = null
@@ -195,6 +196,28 @@ module.exports = (function () {
    */
   ConfSite.prototype.getSupporterLevelsAll = function getSupporterLevelsAll() {
     return this._supporter_levels.slice()
+  }
+
+  /**
+   * Add a named subarray of supporter levels to this site.
+   * @param {string} type the name of the subarray
+   * @param {Array<string>} supporter_level_names an array of pre-existing SupporterLevel names
+   * @return {ConfSite} this site
+   */
+  ConfSite.prototype.addSupporterList = function addSupporterList(type, supporter_level_names) {
+    this._supporter_lists[type] = supporter_level_names
+    return this
+  }
+  /**
+   * Get a named subarray of supporter levels of this site.
+   * @param  {string} type the name of the subarray
+   * @return {Array<SupporterLevel>} the array of SupporterLevel objects belonging to the type
+   */
+  ConfSite.prototype.getSupporterList = function getSupporterList(type) {
+    var self = this
+    return self._supporter_lists[type].map(function (el) {
+      return self.getSupporterLevel(el)
+    })
   }
 
   /**

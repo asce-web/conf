@@ -2,14 +2,14 @@ mixin speaker($person)
   article.c-Speaker(itemprop="performer" itemscope="" itemtype="http://schema.org/Person")
     div.c-Speaker__Img(style='background-image:url(\'' + ($person.img() || '') + '\');')
     header.c-Speaker__Head
-      include ./_person.view.jade
+      include ./_person.view.pug
       h1.c-Speaker__Name(id=$person.id()): +personEntireName($person)
       p.c-Speaker__JobTitle(itemprop="jobTitle")= $person.jobTitle()
       p.c-Speaker__Affiliation(itemprop="affiliation" itemscope="" itemtype="http://schema.org/Organization")
         span(itemprop="name")= $person.affiliation()
     div.c-Speaker__Body(itemprop="description")._text-block!= $person.getBio(true)
     footer.c-Speaker__Foot
-      include /_views/_c-SocialList.view.jade
+      include /_views/_c-SocialList.view.pug
       +socialList($person.getSocialAll(), { classes: 'c-SocialList--speaker', has_microdata: true })
         if $person.email()
           li.o-List__Item.o-Flex__Item.c-SocialList__Item

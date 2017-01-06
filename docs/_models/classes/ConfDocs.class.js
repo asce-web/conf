@@ -19,10 +19,9 @@ module.exports = (function () {
    * @type {Page}
    */
   ConfDocs.DOCS = (function () {
-    var docs = new Page({ name: 'ASCE Conferences Pattern Library', url: '/docs/' })
+    return new Page({ name: 'ASCE Conferences Pattern Library', url: '/docs/' })
       .title('ASCE Conferences Pattern Library')
       .description('Pattern Library for conference microsites.')
-    docs
       .add(new Page({ name: 'Home', url: 'index.html' })
         .description('Pattern Library Homepage')
       )
@@ -105,7 +104,6 @@ module.exports = (function () {
       .add(new Page({ name: 'Atoms', url: 'atom.html' })
         .description('Very specific classes used for creating anomalies or fixing broken styles.')
       )
-    return docs
   })()
 
   ConfDocs.COLORS = ConfSite.colorStyles(Color.fromString('#660000'), Color.fromString('#ff6600'))

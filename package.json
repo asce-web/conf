@@ -20,11 +20,11 @@
     "browserify:principles": "browserify docs/scripts/principles.js > docs/scripts/principles.b.js",
     "browserify:home": "browserify sites/default/scripts/home.js > sites/default/scripts/home.b.js",
     "browserify:all": "npm run browserify:principles && npm run browserify:home",
-    "unbuild:root": "rm index.html docs/{index,visual,base,obj,comp,agg,help,atom}.html",
+    "unbuild:root": "rm index.html docs/{index,principles,base,obj,comp,agg,help,atom}.html",
     "unbuild:sites": "rm sites/all/{index,registration,program,location,speakers,sponsor,exhibit,about,contact}.html",
     "unbuild:default": "rm sites/default/{index,registration,program,location,speakers,sponsor,exhibit,about,contact}.html",
     "unbuild:css": "rm styles/conf.css styles/conf.min.css docs/styles/docs.css sites/default/styles/site.css",
-    "unbuild:js": "rm docs/scripts/visual.b.js sites/default/scripts/home.b.js",
+    "unbuild:js": "rm docs/scripts/principles.b.js sites/default/scripts/home.b.js",
     "unbuild": "npm run unbuild:root  &&  npm run unbuild:sites  &&  npm run unbuild:default  &&  npm run unbuild:css  &&  npm run unbuild:js",
     "build": "npm run pug:all  &&  npm run lessc:all  &&  npm run minify  &&  npm run browserify:all"
   },

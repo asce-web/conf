@@ -1,6 +1,6 @@
 var Page = require('sitepage').Page
 var Color = require('csscolor').Color
-var ConfSite = require('../../../_models/classes/ConfSite.class.js')
+var ConfSite = require('../../_models/ConfSite.class.js')
 
 /**
  * A set of static members used for the Conf style guide.

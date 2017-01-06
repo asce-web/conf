@@ -215,9 +215,7 @@ module.exports = (function () {
    */
   ConfSite.prototype.getSupporterList = function getSupporterList(type) {
     var self = this
-    return self._supporter_lists[type].map(function (el) {
-      return self.getSupporterLevel(el)
-    })
+    return (self._supporter_lists[type] || []).map(function (el) { return self.getSupporterLevel(el) })
   }
 
   /**

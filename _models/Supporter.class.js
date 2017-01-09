@@ -55,7 +55,7 @@ module.exports = (function () {
    * Set or get the supporter level in which this supporter belongs.
    * @see SupporterLevel
    * @param  {string=} level a string matching a the name of a SupporterLevel; the level this supporter belongs in
-   * @return {(Supporter|SupporterLevel)} this supporter || the supporter level of this supporter
+   * @return {(Supporter|string)} this supporter || name of the corresponding SupporterLevel object
    */
   Supporter.prototype.level = function level(level) {
     if (arguments.length) {

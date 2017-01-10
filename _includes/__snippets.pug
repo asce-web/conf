@@ -47,7 +47,7 @@ mixin highlight(classes)
 mixin passList(conference, starred)
   ul.o-List.o-ListStacked
     include /_views/_c-Pass.view.pug
-    each $pass in conference.getPassesAll(starred)
+    each $pass in conference.getPassesAll().filter(function ($pass) { return (starred) ? $pass.isStarred() : true })
       li.o-List__Item.o-ListStacked__Item
         +pass($pass, conference)
 

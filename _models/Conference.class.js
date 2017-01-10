@@ -171,15 +171,10 @@ module.exports = (function () {
   }
   /**
    * Retrieve all passes of this conference.
-   * @param  {boolean=} starred if true, only retrieve passes that are starred
    * @return {Array<Pass>} a shallow array of all passes of this conference
    */
-  Conference.prototype.getPassesAll = function getPassesAll(starred) {
-    // NOTE method overloading convention is redundant for boolean parameters
-    // if (arguments.length) {
-    //   ;
-    // } else return this.getPassesAll(false)
-    return this._passes.filter(function ($pass) { return (starred) ? $pass.isStarred() : true })
+  Conference.prototype.getPassesAll = function getPassesAll() {
+    return this._passes.slice()
   }
 
   /**
@@ -209,11 +204,10 @@ module.exports = (function () {
   }
   /**
    * Retrieve all program events of this conference.
-   * @param  {boolean=} starred if true, only retrieve program events that are starred
    * @return {Array<ProgramEvent>} a shallow array of all program events of this conference
    */
-  Conference.prototype.getProgramEventsAll = function getProgramEventsAll(starred) {
-    return this._program_events.filter(function ($programEvent) { return (starred) ? $programEvent.isStarred() : true })
+  Conference.prototype.getProgramEventsAll = function getProgramEventsAll() {
+    return this._program_events.slice()
   }
 
   /**
@@ -324,11 +318,10 @@ module.exports = (function () {
   }
   /**
    * Retrieve all important dates of this conference.
-   * @param  {boolean=} starred if true, only retrieve important dates that are starred
    * @return {Array<ImportantDate>} a shallow array of all important dates of this conference
    */
-  Conference.prototype.getImportantDatesAll = function getImportantDatesAll(starred) {
-    return this._important_dates.filter(function ($importantDate) { return (starred) ? $importantDate.isStarred() : true })
+  Conference.prototype.getImportantDatesAll = function getImportantDatesAll() {
+    return this._important_dates.slice()
   }
 
   /**
@@ -442,9 +435,9 @@ module.exports = (function () {
    * @return {ProgramEventGrouping} an object grouping program events together
    */
   Conference.prototype.groupProgramEvents = function groupProgramEvents(starred) {
-    var all_events = this.getProgramEventsAll(starred)
+    var all_events = this.getProgramEventsAll().filter(function ($programEvent) { return (starred) ? $programEvent.isStarred() : true })
     return (function ($groupings) {
-      for ($programEvent of all_events) {
+      for (var $programEvent of all_events) {
         function dateOf($programEvent1) { return $programEvent1.startDate().slice(0,10) }
         if (!$groupings.find(function ($obj) { return $obj.date === dateOf($programEvent) })) {
           $groupings.push({

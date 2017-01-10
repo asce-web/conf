@@ -47,13 +47,13 @@ mixin highlight(classes)
 mixin passList(conference, starred)
   ul.o-List.o-ListStacked
     include /_views/_c-Pass.view.pug
-    each $pass in conference.getPassesAll(starred)
+    each $pass in conference.getPassesAll().filter(function ($pass) { return (starred) ? $pass.isStarred() : true })
       li.o-List__Item.o-ListStacked__Item
         +pass($pass, conference)
 
 mixin speakerList(speakers)
   ul.o-List.o-ListStacked
     include /_views/_c-Speaker.view.pug
-    each person in speakers
+    each $person in speakers
       li.o-List__Item.o-ListStacked__Item
-        +speaker(person)
+        +speaker($person)

@@ -291,10 +291,11 @@ module.exports = (function () {
   }
   /**
    * Retrieve all speakers of this conference.
+   * @param  {boolean=} starred if true, only retrieve speakers that are starred
    * @return {Array<Person>} a shallow array of all speakers of this conference
    */
-  Conference.prototype.getSpeakersAll = function getSpeakersAll() {
-    return this._speakers.slice()
+  Conference.prototype.getSpeakersAll = function getSpeakersAll(starred) {
+    return this._speakers.filter(function ($person) { return (starred) ? $person.isStarred() : true })
   }
 
   /**

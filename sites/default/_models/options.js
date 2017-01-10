@@ -397,6 +397,7 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
           Semplice and at the same time serves on the\
           <abbr title="American Institute of Graphic Arts">AIGA</abbr>\
           Board of Directors in New York.</p>')
+        .star()
       )
 
     site.currentConference()

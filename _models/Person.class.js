@@ -36,6 +36,7 @@ module.exports = (function () {
     self._url         = ''
     self._social      = {}
     self._bio         = ''
+    self._is_starred  = false
   }
 
   // ACCESSOR FUNCTIONS
@@ -180,6 +181,23 @@ module.exports = (function () {
    */
   Person.prototype.getBio = function getBio(unescaped) {
     return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this._bio
+  }
+
+  /**
+   * Mark this person as starred.
+   * @param  {boolean=true} bool if true, mark as starred
+   * @return {Person} this person
+   */
+  Person.prototype.star = function star(bool) {
+    this._is_starred = (arguments.length) ? bool : true
+    return this
+  }
+  /**
+   * Get the starred status of this person.
+   * @return {boolean} whether this person is starred
+   */
+  Person.prototype.isStarred = function isStarred() {
+    return this._is_starred
   }
 
   // METHODS

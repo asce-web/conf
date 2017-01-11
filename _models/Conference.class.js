@@ -423,10 +423,10 @@ module.exports = (function () {
    * A group of sessions, all of which share the same date (excluding time of day).
    * Contains two properties:
    * - `date` is the date by which the sessions are grouped, and
-   * - `events` is an array of those sessions.
+   * - `sessions` is an array of those sessions.
    * @typedef {Object} SessionGroup
    * @property {string} date - the date of all the sessions in the group
-   * @property {Array<Session>} events - an array whose members all have the same date
+   * @property {Array<Session>} sessions - an array whose members all have the same date
    */
   /**
    * Categorize all the sessions of this conference by date and return the grouping.
@@ -442,8 +442,8 @@ module.exports = (function () {
     for (var $session of all_events) {
       if (!$groupings.find(function ($sessionGroup) { return $sessionGroup.date === dateOf($session) })) {
         $groupings.push({
-          date  : dateOf($session)
-        , events: all_events.filter(function (_event) {
+          date    : dateOf($session)
+        , sessions: all_events.filter(function (_event) {
             return dateOf(_event) === dateOf($session)
           })
         })

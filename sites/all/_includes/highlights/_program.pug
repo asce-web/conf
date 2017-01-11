@@ -6,5 +6,5 @@ include /_views/_c-Program.view.pug
     +programHeading(groupings[i].date)
   mixin content(i)
     include /_views/_c-TimeBlock.view.pug
-    +timeBlock(groupings[i].events)
+    +timeBlock(groupings[i].sessions)
 +highlightButtons([{text:'Full Program', href:'program.html'}])

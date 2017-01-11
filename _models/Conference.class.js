@@ -181,7 +181,7 @@ module.exports = (function () {
    * Add a session to this conference.
    * @param {Session} $session the session to add
    */
-  Conference.prototype.addProgramEvent = function addProgramEvent($session) {
+  Conference.prototype.addSession = function addSession($session) {
     this._sessions.push($session)
     return this
   }
@@ -190,7 +190,7 @@ module.exports = (function () {
    * @param  {string} name the name of the session
    * @return {?Session} the specified session
    */
-  Conference.prototype.getProgramEvent = function getProgramEvent(name) {
+  Conference.prototype.getSession = function getSession(name) {
     return this._sessions.find(function ($session) { return $session.name() === name }) || null
   }
   /**
@@ -198,15 +198,15 @@ module.exports = (function () {
    * @param  {string} name the name of the session
    * @return {Conference} this conference
    */
-  Conference.prototype.removeProgramEvent = function removeProgramEvent(name) {
-    Util.spliceFromArray(this._sessions, this.getProgramEvent(name))
+  Conference.prototype.removeSession = function removeSession(name) {
+    Util.spliceFromArray(this._sessions, this.getSession(name))
     return this
   }
   /**
    * Retrieve all sessions of this conference.
    * @return {Array<Session>} a shallow array of all sessions of this conference
    */
-  Conference.prototype.getProgramEventsAll = function getProgramEventsAll() {
+  Conference.prototype.getSessionsAll = function getSessionsAll() {
     return this._sessions.slice()
   }
 
@@ -435,8 +435,8 @@ module.exports = (function () {
    * @param  {boolean=} starred if true, only consider sessions that are starred
    * @return {Array<SessionGroup>} an array grouping the sessions together
    */
-  Conference.prototype.groupProgramEvents = function groupProgramEvents(starred) {
-    var all_events = this.getProgramEventsAll().filter(function ($session) { return (starred) ? $session.isStarred() : true })
+  Conference.prototype.groupSessions = function groupSessions(starred) {
+    var all_events = this.getSessionsAll().filter(function ($session) { return (starred) ? $session.isStarred() : true })
     function dateOf($session) { return $session.startDate().slice(0,10) }
     return (function ($groupings) {
       for (var $session of all_events) {

@@ -1,6 +1,6 @@
 h1#program-highlights Program Highlights
 include /_views/_c-Program.view.pug
-- var groupings = site.currentConference().groupProgramEvents('starred')
+- var groupings = site.currentConference().groupSessions('starred')
 +program(groupings.length, {id:'program-highlights-block'})
   mixin heading(i)
     +programHeading(groupings[i].date)

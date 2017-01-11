@@ -178,24 +178,24 @@ module.exports = (function () {
   }
 
   /**
-   * Add a program event to this conference.
-   * @param {ProgramEvent} $programEvent the program event to add
+   * Add a session to this conference.
+   * @param {Session} $programEvent the session to add
    */
   Conference.prototype.addProgramEvent = function addProgramEvent($programEvent) {
     this._program_events.push($programEvent)
     return this
   }
   /**
-   * Retrieve a program event of this conference.
-   * @param  {string} name the name of the program event
-   * @return {?ProgramEvent} the specified program event
+   * Retrieve a session of this conference.
+   * @param  {string} name the name of the session
+   * @return {?Session} the specified session
    */
   Conference.prototype.getProgramEvent = function getProgramEvent(name) {
     return this._program_events.find(function ($programEvent) { return $programEvent.name() === name }) || null
   }
   /**
-   * Remove a program event of this conference.
-   * @param  {string} name the name of the program event
+   * Remove a session of this conference.
+   * @param  {string} name the name of the session
    * @return {Conference} this conference
    */
   Conference.prototype.removeProgramEvent = function removeProgramEvent(name) {
@@ -203,8 +203,8 @@ module.exports = (function () {
     return this
   }
   /**
-   * Retrieve all program events of this conference.
-   * @return {Array<ProgramEvent>} a shallow array of all program events of this conference
+   * Retrieve all sessions of this conference.
+   * @return {Array<Session>} a shallow array of all sessions of this conference
    */
   Conference.prototype.getProgramEventsAll = function getProgramEventsAll() {
     return this._program_events.slice()
@@ -419,20 +419,21 @@ module.exports = (function () {
     return this
   }
   /**
-   * A group of program events, all of which share the same date (excluding time of day).
+   * NOTE: TYPE DEFINITION
+   * A group of sessions, all of which share the same date (excluding time of day).
    * Contains two properties:
-   * - `date` is the date by which the events are grouped, and
-   * - `events` is an array of those events.
-   * @typedef {Object} ProgramEventGrouping
-   * @property {string} date - the date of all the events in the group
-   * @property {Array<ProgramEvent>} events - an array whose members all have the same date
+   * - `date` is the date by which the sessions are grouped, and
+   * - `events` is an array of those sessions.
+   * @typedef {Object} SessionGroup
+   * @property {string} date - the date of all the sessions in the group
+   * @property {Array<Session>} events - an array whose members all have the same date
    */
   /**
-   * Categorize all the program events of this conference by date and return the grouping.
-   * Program events with the same date (excluding time of day) are grouped together.
-   * @see ProgramEvent
-   * @param  {boolean=} starred if true, only consider program events that are starred
-   * @return {ProgramEventGrouping} an object grouping program events together
+   * Categorize all the sessions of this conference by date and return the grouping.
+   * Sessions with the same date (excluding time of day) are grouped together.
+   * @see Session
+   * @param  {boolean=} starred if true, only consider sessions that are starred
+   * @return {Array<SessionGroup>} an array grouping the sessions together
    */
   Conference.prototype.groupProgramEvents = function groupProgramEvents(starred) {
     var all_events = this.getProgramEventsAll().filter(function ($programEvent) { return (starred) ? $programEvent.isStarred() : true })

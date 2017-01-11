@@ -1,13 +1,13 @@
 mixin timeBlock(events)
   dl.o-List.c-TimeBlock
-    each $programEvent,index in events
+    each $session,index in events
       li.o-List__Item.o-Grid.c-TimeBlock__Item(itemprop="subEvent" itemscope="" itemtype="http://schema.org/Event")
         dt.o-Grid__Item.c-TimeBlock__Times
-          time(datetime=$programEvent.startDate() itemprop="startDate")= Util.hourTime12(Util.toDate($programEvent.startDate()))
+          time(datetime=$session.startDate() itemprop="startDate")= Util.hourTime12(Util.toDate($session.startDate()))
           | &ndash;
-          time(datetime=$programEvent.endDate() itemprop="endDate")= Util.hourTime12(Util.toDate($programEvent.endDate()))
+          time(datetime=$session.endDate() itemprop="endDate")= Util.hourTime12(Util.toDate($session.endDate()))
         dd.o-Grid__Item.c-TimeBlock__Desc(class={'c-TimeBlock__Desc--last':index===events.length-1} itemprop="name")
-          if $programEvent.url()
-            a.c-TimeBlock__Link(href=$programEvent.url() itemprop="url")= $programEvent.name()
+          if $session.url()
+            a.c-TimeBlock__Link(href=$session.url() itemprop="url")= $session.name()
           else
-            = $programEvent.name()
+            = $session.name()

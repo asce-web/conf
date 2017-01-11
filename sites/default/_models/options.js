@@ -102,8 +102,8 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
       .addSupporterLevel(new SupporterLevel('Cooperating Organizations').size('lrg'))
 
     site
-      .addSupporterList('Sponsors', ['Platinum', 'Corporate', 'Silver', 'Bronze', 'Copper'])
-      .addSupporterList('Orgs', ['Charter Members', 'Cooperating Organizations'])
+      .addSupporterLevelList('Sponsors', ['Platinum', 'Corporate', 'Silver', 'Bronze', 'Copper'])
+      .addSupporterLevelList('Orgs', ['Charter Members', 'Cooperating Organizations'])
 
     site
       .addSupporter(new Supporter('ASCE Foundation')

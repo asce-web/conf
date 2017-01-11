@@ -206,7 +206,7 @@ module.exports = (function () {
    * @param {Array<string>} supporter_level_names an array of pre-existing SupporterLevel names
    * @return {ConfSite} this site
    */
-  ConfSite.prototype.addSupporterList = function addSupporterList(type, supporter_level_names) {
+  ConfSite.prototype.addSupporterLevelList = function addSupporterLevelList(type, supporter_level_names) {
     this._supporter_lists[type] = supporter_level_names
     return this
   }
@@ -215,7 +215,7 @@ module.exports = (function () {
    * @param  {string} type the name of the subarray
    * @return {Array<SupporterLevel>} the array of SupporterLevel objects belonging to the type
    */
-  ConfSite.prototype.getSupporterList = function getSupporterList(type) {
+  ConfSite.prototype.getSupporterLevelList = function getSupporterLevelList(type) {
     var self = this
     return (self._supporter_lists[type] || []).map(function (el) { return self.getSupporterLevel(el) })
   }

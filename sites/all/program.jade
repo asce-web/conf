@@ -6,12 +6,12 @@ block append vars
 block mainReference
   section.o-Runner.o-Runner--highlight.c-Banner: div.o-Constrain
     h1.-d-n#full-program Full Program
-    - var groupings = site.currentConference().groupProgramEvents(false)
+    - var groupings = site.currentConference().groupSessions(false)
     include /_views/_c-Program.view.pug
     +program(groupings.length, {id:'full-program-block'})
       mixin heading(i)
         +programHeading(groupings[i].date)
       mixin content(i)
         include /_views/_c-TimeBlock.view.pug
-        +timeBlock(groupings[i].events)
+        +timeBlock(groupings[i].sessions)
     p: small Program subject to change.

@@ -33,7 +33,7 @@ module.exports = (function () {
     self._PROMO_LOC = $confinfo.promo_loc
     self._reg_periods     = []
     self._passes          = []
-    self._program_events  = []
+    self._sessions        = []
     self._venues          = {}
     self._speakers        = []
     self._important_dates = []
@@ -179,10 +179,10 @@ module.exports = (function () {
 
   /**
    * Add a session to this conference.
-   * @param {Session} $programEvent the session to add
+   * @param {Session} $session the session to add
    */
-  Conference.prototype.addProgramEvent = function addProgramEvent($programEvent) {
-    this._program_events.push($programEvent)
+  Conference.prototype.addProgramEvent = function addProgramEvent($session) {
+    this._sessions.push($session)
     return this
   }
   /**
@@ -191,7 +191,7 @@ module.exports = (function () {
    * @return {?Session} the specified session
    */
   Conference.prototype.getProgramEvent = function getProgramEvent(name) {
-    return this._program_events.find(function ($programEvent) { return $programEvent.name() === name }) || null
+    return this._sessions.find(function ($session) { return $session.name() === name }) || null
   }
   /**
    * Remove a session of this conference.
@@ -199,7 +199,7 @@ module.exports = (function () {
    * @return {Conference} this conference
    */
   Conference.prototype.removeProgramEvent = function removeProgramEvent(name) {
-    Util.spliceFromArray(this._program_events, this.getProgramEvent(name))
+    Util.spliceFromArray(this._sessions, this.getProgramEvent(name))
     return this
   }
   /**
@@ -207,7 +207,7 @@ module.exports = (function () {
    * @return {Array<Session>} a shallow array of all sessions of this conference
    */
   Conference.prototype.getProgramEventsAll = function getProgramEventsAll() {
-    return this._program_events.slice()
+    return this._sessions.slice()
   }
 
   /**
@@ -436,15 +436,15 @@ module.exports = (function () {
    * @return {Array<SessionGroup>} an array grouping the sessions together
    */
   Conference.prototype.groupProgramEvents = function groupProgramEvents(starred) {
-    var all_events = this.getProgramEventsAll().filter(function ($programEvent) { return (starred) ? $programEvent.isStarred() : true })
+    var all_events = this.getProgramEventsAll().filter(function ($session) { return (starred) ? $session.isStarred() : true })
+    function dateOf($session) { return $session.startDate().slice(0,10) }
     return (function ($groupings) {
-      for (var $programEvent of all_events) {
-        function dateOf($programEvent1) { return $programEvent1.startDate().slice(0,10) }
-        if (!$groupings.find(function ($obj) { return $obj.date === dateOf($programEvent) })) {
+      for (var $session of all_events) {
+        if (!$groupings.find(function ($obj) { return $obj.date === dateOf($session) })) {
           $groupings.push({
-            date  : dateOf($programEvent)
-          , events: all_events.filter(function ($programEvent1) {
-              return dateOf($programEvent1) === dateOf($programEvent)
+            date  : dateOf($session)
+          , events: all_events.filter(function (_event) {
+              return dateOf(_event) === dateOf($session)
             })
           })
         }

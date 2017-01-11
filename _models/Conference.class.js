@@ -1,6 +1,6 @@
 /**
  * A conference event.
- * It may have a name, theme, dates, (promoted) location, passes, events, venues, speakers,
+ * It may have a name, theme, dates, (promoted) location, passes, sessions, venues, speakers,
  * important dates, chairs, and other properties.
  * @type {Conference}
  */
@@ -436,14 +436,14 @@ module.exports = (function () {
    * @return {Array<SessionGroup>} an array grouping the sessions together
    */
   Conference.prototype.groupSessions = function groupSessions(starred) {
-    var all_events = this.getSessionsAll().filter(function ($session) { return (starred) ? $session.isStarred() : true })
+    var all_sessions = this.getSessionsAll().filter(function ($session) { return (starred) ? $session.isStarred() : true })
     function dateOf($session) { return $session.startDate().slice(0,10) }
     var $groupings = []
-    for (var $session of all_events) {
+    for (var $session of all_sessions) {
       if (!$groupings.find(function ($sessionGroup) { return $sessionGroup.date === dateOf($session) })) {
         $groupings.push({
           date    : dateOf($session)
-        , sessions: all_events.filter(function (_event) {
+        , sessions: all_sessions.filter(function (_event) {
             return dateOf(_event) === dateOf($session)
           })
         })

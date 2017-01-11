@@ -1,12 +1,12 @@
-mixin timeBlock(events)
+mixin timeBlock(sessions)
   dl.o-List.c-TimeBlock
-    each $session,index in events
+    each $session,index in sessions
       li.o-List__Item.o-Grid.c-TimeBlock__Item(itemprop="subEvent" itemscope="" itemtype="http://schema.org/Event")
         dt.o-Grid__Item.c-TimeBlock__Times
           time(datetime=$session.startDate() itemprop="startDate")= Util.hourTime12(Util.toDate($session.startDate()))
           | &ndash;
           time(datetime=$session.endDate() itemprop="endDate")= Util.hourTime12(Util.toDate($session.endDate()))
-        dd.o-Grid__Item.c-TimeBlock__Desc(class={'c-TimeBlock__Desc--last':index===events.length-1} itemprop="name")
+        dd.o-Grid__Item.c-TimeBlock__Desc(class={'c-TimeBlock__Desc--last':index===sessions.length-1} itemprop="name")
           if $session.url()
             a.c-TimeBlock__Link(href=$session.url() itemprop="url")= $session.name()
           else

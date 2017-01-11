@@ -8,17 +8,17 @@ module.exports = (function () {
    * Construct a Session object.
    * The name, start date, and end date
    * are immutable and must be provided during construction.
-   * @param {Object} $eventinfo an object with the following immutable properties:
-   * @param {string} $eventinfo.name the name of the session
-   * @param {string} $eventinfo.start_date the start date of the session
-   * @param {string} $eventinfo.end_date the end date of the session
+   * @param {Object} $sessioninfo an object with the following immutable properties:
+   * @param {string} $sessioninfo.name the name of the session
+   * @param {string} $sessioninfo.start_date the start date of the session
+   * @param {string} $sessioninfo.end_date the end date of the session
    */
-  function Session($eventinfo) {
+  function Session($sessioninfo) {
     var self = this
-    $eventinfo = $eventinfo || {} // NOTE constructor overloading
-    self._NAME  = $eventinfo.name
-    self._START = $eventinfo.start_date
-    self._END   = $eventinfo.end_date
+    $sessioninfo = $sessioninfo || {} // NOTE constructor overloading
+    self._NAME  = $sessioninfo.name
+    self._START = $sessioninfo.start_date
+    self._END   = $sessioninfo.end_date
     self._url = ''
     self._is_starred = false
   }

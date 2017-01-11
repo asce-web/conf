@@ -438,19 +438,18 @@ module.exports = (function () {
   Conference.prototype.groupSessions = function groupSessions(starred) {
     var all_events = this.getSessionsAll().filter(function ($session) { return (starred) ? $session.isStarred() : true })
     function dateOf($session) { return $session.startDate().slice(0,10) }
-    return (function ($groupings) {
-      for (var $session of all_events) {
-        if (!$groupings.find(function ($obj) { return $obj.date === dateOf($session) })) {
-          $groupings.push({
-            date  : dateOf($session)
-          , events: all_events.filter(function (_event) {
-              return dateOf(_event) === dateOf($session)
-            })
+    var $groupings = []
+    for (var $session of all_events) {
+      if (!$groupings.find(function ($sessionGroup) { return $sessionGroup.date === dateOf($session) })) {
+        $groupings.push({
+          date  : dateOf($session)
+        , events: all_events.filter(function (_event) {
+            return dateOf(_event) === dateOf($session)
           })
-        }
+        })
       }
-      return $groupings
-    })([])
+    }
+    return $groupings
   }
 
   return Conference

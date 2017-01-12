@@ -18,19 +18,13 @@ block mainReference
           small
             -
               var start = $registrationPeriod.startDate()
-                , end   = $registrationPeriod.endDate()
-              var date_start = Util.toDate(start)
-                , date_end   = Util.toDate(end)
+              var end   = $registrationPeriod.endDate()
             b= $registrationPeriod.name()
+            = (start && end) ? ': ' : (start) ? ' begins ' : (end) ? ' ends ' : ''
+            if start
+              time(datetime=start)= Util.monthDay(start)
             if start && end
-              = ': '
-              time(datetime=start)= Util.monthDay(date_start)
               | &ndash;
-              time(datetime=end)= Util.monthDay(date_end)
-            else if start
-              = ' begins '
-              time(datetime=start)= Util.monthDay(date_start)
-            else if end
-              = ' ends '
-              time(datetime=end)= Util.monthDay(date_end)
+            if end
+              time(datetime=end)= Util.monthDay(end)
     +highlightButtons([{text:'Register Today!', href:'#0'}], 'c-Btn--secondary')

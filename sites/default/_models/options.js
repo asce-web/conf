@@ -223,19 +223,9 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
       )
 
     site.currentConference()
-      .addRegistrationPeriod(new RegistrationPeriod({
-        name      : 'Early Bird'
-      , end_date  : '2016-07-28'
-      }).setIcon('stars')
-      ).addRegistrationPeriod(new RegistrationPeriod({
-        name      : 'Advance'
-      , start_date: '2016-07-29'
-      , end_date  : '2016-08-25'
-      }).setIcon('date_range')
-      ).addRegistrationPeriod(new RegistrationPeriod({
-        name      : 'Onsite'
-      , start_date: '2016-08-26'
-      }).setIcon('account_balance'))
+      .addRegistrationPeriod(new RegistrationPeriod({name:'Early Bird',                                    end_date: new Date('2016-07-28')}).setIcon('stars'))
+      .addRegistrationPeriod(new RegistrationPeriod({name:'Advance'   , start_date:new Date('2016-07-29'), end_date: new Date('2016-08-25')}).setIcon('date_range'))
+      .addRegistrationPeriod(new RegistrationPeriod({name:'Onsite'    , start_date:new Date('2016-08-26')                                  }).setIcon('account_balance'))
 
     site.currentConference()
       .currentRegistrationPeriod('Early Bird')

@@ -34,8 +34,8 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
       .addConference('2016', new Conference({
         name      : 'A 2016 Event'
       , theme     : 'Theme for the conference is optional.'
-      , start_date: '2016-09-28'
-      , end_date  : '2016-10-01'
+      , start_date: new Date('2016-09-28')
+      , end_date  : new Date('2016-10-01')
       , url       : 'http://2016.asceconvention.org/'
       , promo_loc : {
           text : 'Portland, OR'
@@ -48,8 +48,8 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
       .addConference('2015', new Conference({
         name      : 'A 2015 Event'
       , theme     : ''
-      , start_date: '2015-10-11'
-      , end_date  : ''
+      , start_date: new Date('2015-10-11')
+      , end_date  : new Date('2015-10-14')
       , url       : 'http://2015.asceconvention.org/'
       , promo_loc : {
           text : 'New York, NY'
@@ -69,8 +69,8 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
       .addConference('2017', new Conference({
         name      : 'A 2017 Event'
       , theme     : ''
-      , start_date: '2017-10-08'
-      , end_date  : '2017-10-11'
+      , start_date: new Date('2017-10-08')
+      , end_date  : new Date('2017-10-11')
       , url       : 'http://2017.asceconvention.org/'
       , promo_loc : {
           text : 'New Orleans, LA'
@@ -223,19 +223,9 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
       )
 
     site.currentConference()
-      .addRegistrationPeriod(new RegistrationPeriod({
-        name      : 'Early Bird'
-      , end_date  : '2016-07-28'
-      }).setIcon('stars')
-      ).addRegistrationPeriod(new RegistrationPeriod({
-        name      : 'Advance'
-      , start_date: '2016-07-29'
-      , end_date  : '2016-08-25'
-      }).setIcon('date_range')
-      ).addRegistrationPeriod(new RegistrationPeriod({
-        name      : 'Onsite'
-      , start_date: '2016-08-26'
-      }).setIcon('account_balance'))
+      .addRegistrationPeriod(new RegistrationPeriod({name:'Early Bird',                                    end_date: new Date('2016-07-28')}).setIcon('stars'))
+      .addRegistrationPeriod(new RegistrationPeriod({name:'Advance'   , start_date:new Date('2016-07-29'), end_date: new Date('2016-08-25')}).setIcon('date_range'))
+      .addRegistrationPeriod(new RegistrationPeriod({name:'Onsite'    , start_date:new Date('2016-08-26')                                  }).setIcon('account_balance'))
 
     site.currentConference()
       .currentRegistrationPeriod('Early Bird')
@@ -309,49 +299,49 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
     //-   .setPrice('Onsite'    , 'Daily Pass'    , 'Non-Member',  745)
 
     site.currentConference()
-      .addSession(new Session({ start_date: '2016-09-28 10:00', end_date: '2016-09-28 19:00', name: 'Registration'                            }))
-      .addSession(new Session({ start_date: '2016-09-28 10:30', end_date: '2016-09-28 16:30', name: 'Technical Tours'                         }).url('#0').star())
-      .addSession(new Session({ start_date: '2016-09-28 13:00', end_date: '2016-09-28 17:00', name: 'Short Courses'                           }).url('#0').star())
-      .addSession(new Session({ start_date: '2016-09-28 12:00', end_date: '2016-09-28 17:00', name: 'Optional Tours'                          }).url('#0').star())
-      .addSession(new Session({ start_date: '2016-09-28 17:30', end_date: '2016-09-28 19:30', name: 'Opening Welcome Reception'               }))
-      .addSession(new Session({ start_date: '2016-09-28 13:00', end_date: '2016-09-28 17:00', name: 'Community Service Project'               }))
+      .addSession(new Session({start_date:new Date('2016-09-28 10:00'), end_date:new Date('2016-09-28 19:00'), name: 'Registration'                           }))
+      .addSession(new Session({start_date:new Date('2016-09-28 10:30'), end_date:new Date('2016-09-28 16:30'), name: 'Technical Tours'                        }).url('#0').star())
+      .addSession(new Session({start_date:new Date('2016-09-28 13:00'), end_date:new Date('2016-09-28 17:00'), name: 'Short Courses'                          }).url('#0').star())
+      .addSession(new Session({start_date:new Date('2016-09-28 12:00'), end_date:new Date('2016-09-28 17:00'), name: 'Optional Tours'                         }).url('#0').star())
+      .addSession(new Session({start_date:new Date('2016-09-28 17:30'), end_date:new Date('2016-09-28 19:30'), name: 'Opening Welcome Reception'              }))
+      .addSession(new Session({start_date:new Date('2016-09-28 13:00'), end_date:new Date('2016-09-28 17:00'), name: 'Community Service Project'              }))
 
-      .addSession(new Session({ start_date: '2016-09-29 07:00', end_date: '2016-09-29 16:30', name: 'Registration'                            }))
-      .addSession(new Session({ start_date: '2016-09-29 07:30', end_date: '2016-09-29 08:30', name: 'Student & Emerging Leaders Welcome'      }))
-      .addSession(new Session({ start_date: '2016-09-29 08:30', end_date: '2016-09-29 10:00', name: 'Opening Plenary Session'                 }).star())
-      .addSession(new Session({ start_date: '2016-09-29 09:30', end_date: '2016-09-29 15:30', name: 'Guest Program Orientation & Tour'        }).star())
-      .addSession(new Session({ start_date: '2016-09-29 10:00', end_date: '2016-09-29 10:30', name: 'Beverage Break'                          }))
-      .addSession(new Session({ start_date: '2016-09-29 10:30', end_date: '2016-09-29 11:30', name: 'Concurrent Sessions'                     }))
-      .addSession(new Session({ start_date: '2016-09-29 11:45', end_date: '2016-09-29 13:45', name: 'Celebration of Leaders Luncheon'         }).star())
-      .addSession(new Session({ start_date: '2016-09-29 14:00', end_date: '2016-09-29 15:30', name: 'Concurrent Sessions'                     }))
-      .addSession(new Session({ start_date: '2016-09-29 14:00', end_date: '2016-09-29 18:00', name: 'Communities and Pavilion'                }))
-      .addSession(new Session({ start_date: '2016-09-29 15:30', end_date: '2016-09-29 16:00', name: 'Beverage Break'                          }))
-      .addSession(new Session({ start_date: '2016-09-29 16:00', end_date: '2016-09-29 17:30', name: 'Concurrent Sessions'                     }))
-      .addSession(new Session({ start_date: '2016-09-29 18:45', end_date: '2016-09-29 21:45', name: 'Optional Tour'                           }).url('#0').star())
+      .addSession(new Session({start_date:new Date('2016-09-29 07:00'), end_date:new Date('2016-09-29 16:30'), name: 'Registration'                           }))
+      .addSession(new Session({start_date:new Date('2016-09-29 07:30'), end_date:new Date('2016-09-29 08:30'), name: 'Student & Emerging Leaders Welcome'     }))
+      .addSession(new Session({start_date:new Date('2016-09-29 08:30'), end_date:new Date('2016-09-29 10:00'), name: 'Opening Plenary Session'                }).star())
+      .addSession(new Session({start_date:new Date('2016-09-29 09:30'), end_date:new Date('2016-09-29 15:30'), name: 'Guest Program Orientation & Tour'       }).star())
+      .addSession(new Session({start_date:new Date('2016-09-29 10:00'), end_date:new Date('2016-09-29 10:30'), name: 'Beverage Break'                         }))
+      .addSession(new Session({start_date:new Date('2016-09-29 10:30'), end_date:new Date('2016-09-29 11:30'), name: 'Concurrent Sessions'                    }))
+      .addSession(new Session({start_date:new Date('2016-09-29 11:45'), end_date:new Date('2016-09-29 13:45'), name: 'Celebration of Leaders Luncheon'        }).star())
+      .addSession(new Session({start_date:new Date('2016-09-29 14:00'), end_date:new Date('2016-09-29 15:30'), name: 'Concurrent Sessions'                    }))
+      .addSession(new Session({start_date:new Date('2016-09-29 14:00'), end_date:new Date('2016-09-29 18:00'), name: 'Communities and Pavilion'               }))
+      .addSession(new Session({start_date:new Date('2016-09-29 15:30'), end_date:new Date('2016-09-29 16:00'), name: 'Beverage Break'                         }))
+      .addSession(new Session({start_date:new Date('2016-09-29 16:00'), end_date:new Date('2016-09-29 17:30'), name: 'Concurrent Sessions'                    }))
+      .addSession(new Session({start_date:new Date('2016-09-29 18:45'), end_date:new Date('2016-09-29 21:45'), name: 'Optional Tour'                          }).url('#0').star())
 
-      .addSession(new Session({ start_date: '2016-09-30 07:00', end_date: '2016-09-30 16:30', name: 'Registration'                            }))
-      .addSession(new Session({ start_date: '2016-09-30 07:30', end_date: '2016-09-30 08:30', name: 'Leadership & Society Awards Breakfast'   }))
-      .addSession(new Session({ start_date: '2016-09-30 08:30', end_date: '2016-09-30 17:00', name: 'Communities and Pavilion'                }))
-      .addSession(new Session({ start_date: '2016-09-30 08:45', end_date: '2016-09-30 09:45', name: 'ASCE Annual Business Meeting'            }).star())
-      .addSession(new Session({ start_date: '2016-09-30 09:45', end_date: '2016-09-30 10:15', name: 'Beverage Break'                          }))
-      .addSession(new Session({ start_date: '2016-09-30 10:15', end_date: '2016-09-30 11:45', name: 'Concurrent Sessions'                     }))
-      .addSession(new Session({ start_date: '2016-09-30 11:45', end_date: '2016-09-30 13:15', name: 'Lunch on Your Own'                       }))
-      .addSession(new Session({ start_date: '2016-09-30 11:45', end_date: '2016-09-30 13:15', name: 'International Luncheon (ticketed)'       }))
-      .addSession(new Session({ start_date: '2016-09-30 13:15', end_date: '2016-09-30 14:15', name: 'Concurrent Sessions'                     }))
-      .addSession(new Session({ start_date: '2016-09-30 13:00', end_date: '2016-09-30 17:15', name: 'Optional Tour'                           }).url('#0').star())
-      .addSession(new Session({ start_date: '2016-09-30 14:30', end_date: '2016-09-30 16:00', name: 'Industry Leaders Forum'                  }).star())
-      .addSession(new Session({ start_date: '2016-09-30 16:00', end_date: '2016-09-30 16:30', name: 'Beverage Break'                          }))
-      .addSession(new Session({ start_date: '2016-09-30 16:30', end_date: '2016-09-30 17:30', name: 'Concurrent Sessions'                     }))
-      .addSession(new Session({ start_date: '2016-09-30 18:30', end_date: '2016-09-30 21:30', name: 'Theater Night Out'                       }).star())
+      .addSession(new Session({start_date:new Date('2016-09-30 07:00'), end_date:new Date('2016-09-30 16:30'), name: 'Registration'                           }))
+      .addSession(new Session({start_date:new Date('2016-09-30 07:30'), end_date:new Date('2016-09-30 08:30'), name: 'Leadership & Society Awards Breakfast'  }))
+      .addSession(new Session({start_date:new Date('2016-09-30 08:30'), end_date:new Date('2016-09-30 17:00'), name: 'Communities and Pavilion'               }))
+      .addSession(new Session({start_date:new Date('2016-09-30 08:45'), end_date:new Date('2016-09-30 09:45'), name: 'ASCE Annual Business Meeting'           }).star())
+      .addSession(new Session({start_date:new Date('2016-09-30 09:45'), end_date:new Date('2016-09-30 10:15'), name: 'Beverage Break'                         }))
+      .addSession(new Session({start_date:new Date('2016-09-30 10:15'), end_date:new Date('2016-09-30 11:45'), name: 'Concurrent Sessions'                    }))
+      .addSession(new Session({start_date:new Date('2016-09-30 11:45'), end_date:new Date('2016-09-30 13:15'), name: 'Lunch on Your Own'                      }))
+      .addSession(new Session({start_date:new Date('2016-09-30 11:45'), end_date:new Date('2016-09-30 13:15'), name: 'International Luncheon (ticketed)'      }))
+      .addSession(new Session({start_date:new Date('2016-09-30 13:15'), end_date:new Date('2016-09-30 14:15'), name: 'Concurrent Sessions'                    }))
+      .addSession(new Session({start_date:new Date('2016-09-30 13:00'), end_date:new Date('2016-09-30 17:15'), name: 'Optional Tour'                          }).url('#0').star())
+      .addSession(new Session({start_date:new Date('2016-09-30 14:30'), end_date:new Date('2016-09-30 16:00'), name: 'Industry Leaders Forum'                 }).star())
+      .addSession(new Session({start_date:new Date('2016-09-30 16:00'), end_date:new Date('2016-09-30 16:30'), name: 'Beverage Break'                         }))
+      .addSession(new Session({start_date:new Date('2016-09-30 16:30'), end_date:new Date('2016-09-30 17:30'), name: 'Concurrent Sessions'                    }))
+      .addSession(new Session({start_date:new Date('2016-09-30 18:30'), end_date:new Date('2016-09-30 21:30'), name: 'Theater Night Out'                      }).star())
 
-      .addSession(new Session({ start_date: '2016-10-01 07:00', end_date: '2016-10-01 14:30', name: 'Registration'                            }))
-      .addSession(new Session({ start_date: '2016-10-01 07:30', end_date: '2016-10-01 08:15', name: 'Order of the Engineer Ceremony'          }).star())
-      .addSession(new Session({ start_date: '2016-10-01 08:45', end_date: '2016-10-01 11:45', name: 'Optional Tour'                           }).url('#0'))
-      .addSession(new Session({ start_date: '2016-10-01 08:30', end_date: '2016-10-01 10:00', name: 'Concurrent Sessions'                     }))
-      .addSession(new Session({ start_date: '2016-10-01 08:30', end_date: '2016-10-01 14:00', name: 'Communities and Pavilion'                }))
-      .addSession(new Session({ start_date: '2016-10-01 10:15', end_date: '2016-10-01 11:45', name: 'Concurrent Sessions'                     }))
-      .addSession(new Session({ start_date: '2016-10-01 12:00', end_date: '2016-10-01 14:00', name: 'ASCE Luncheon & Closing General Session' }).star())
-      .addSession(new Session({ start_date: '2016-10-01 14:30', end_date: '2016-10-01 17:30', name: 'Technical Tours'                         }).url('#0'))
+      .addSession(new Session({start_date:new Date('2016-10-01 07:00'), end_date:new Date('2016-10-01 14:30'), name: 'Registration'                           }))
+      .addSession(new Session({start_date:new Date('2016-10-01 07:30'), end_date:new Date('2016-10-01 08:15'), name: 'Order of the Engineer Ceremony'         }).star())
+      .addSession(new Session({start_date:new Date('2016-10-01 08:45'), end_date:new Date('2016-10-01 11:45'), name: 'Optional Tour'                          }).url('#0'))
+      .addSession(new Session({start_date:new Date('2016-10-01 08:30'), end_date:new Date('2016-10-01 10:00'), name: 'Concurrent Sessions'                    }))
+      .addSession(new Session({start_date:new Date('2016-10-01 08:30'), end_date:new Date('2016-10-01 14:00'), name: 'Communities and Pavilion'               }))
+      .addSession(new Session({start_date:new Date('2016-10-01 10:15'), end_date:new Date('2016-10-01 11:45'), name: 'Concurrent Sessions'                    }))
+      .addSession(new Session({start_date:new Date('2016-10-01 12:00'), end_date:new Date('2016-10-01 14:00'), name: 'ASCE Luncheon & Closing General Session'}).star())
+      .addSession(new Session({start_date:new Date('2016-10-01 14:30'), end_date:new Date('2016-10-01 17:30'), name: 'Technical Tours'                        }).url('#0'))
 
     site.currentConference()
       .addVenue('Conference Venue', new Place('Oregon Convention Center', {
@@ -401,11 +391,11 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
       )
 
     site.currentConference()
-      .addImportantDate(new ImportantDate({start_time:'2015-10-12', name:'Optional Final Papers Due'     }).star())
-      .addImportantDate(new ImportantDate({start_time:'2015-12-17', name:'Early-Bird Registration Closes'}).star().url('registration.html'))
-      .addImportantDate(new ImportantDate({start_time:'2016-01-12', name:'Advance Registration Closes'   }).star().url('registration.html'))
-      .addImportantDate(new ImportantDate({start_time:'2016-06-12', name:'Convention Begins'             }).star())
-      .addImportantDate(new ImportantDate({start_time:'2016-06-15', name:'Convention Ends'               }))
+      .addImportantDate(new ImportantDate({start_time:new Date('2015-10-12'), name:'Optional Final Papers Due'     }).star())
+      .addImportantDate(new ImportantDate({start_time:new Date('2015-12-17'), name:'Early-Bird Registration Closes'}).star().url('registration.html'))
+      .addImportantDate(new ImportantDate({start_time:new Date('2016-01-12'), name:'Advance Registration Closes'   }).star().url('registration.html'))
+      .addImportantDate(new ImportantDate({start_time:new Date('2016-06-12'), name:'Convention Begins'             }).star())
+      .addImportantDate(new ImportantDate({start_time:new Date('2016-06-15'), name:'Convention Ends'               }))
 
     site.currentConference()
       .addOrganizer(new Person('thomas-mccollough', {

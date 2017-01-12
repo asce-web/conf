@@ -15,8 +15,8 @@ module.exports = (function () {
    * @param {string} $confinfo.name the name of this conference
    * @param {string} $confinfo.url the url of this conference
    * @param {string} $confinfo.theme the theme, or slogan, of this conference
-   * @param {string} $confinfo.start_date the starting date of this conference
-   * @param {string} $confinfo.end_date the ending date of this conference
+   * @param {Date} $confinfo.start_date the starting date of this conference
+   * @param {Date} $confinfo.end_date the ending date of this conference
    * @param {(Object|string)} $confinfo.promo_loc the promoted location of this conference
    * @param {string=} $confinfo.promo_loc.text the promoted location displayed/abbreviated text (eg, "Portland, OR")
    * @param {string=} $confinfo.promo_loc.title the elongated version of the location (eg, "Portland, Oregon")
@@ -72,16 +72,16 @@ module.exports = (function () {
   }
 
   /**
-   * Get the name of this conference.
-   * @return {string} the name of this conference
+   * Get the start date of this conference.
+   * @return {Date} the start date of this conference
    */
   Conference.prototype.startDate = function startDate() {
     return this._START
   }
 
   /**
-   * Get the name of this conference.
-   * @return {string} the name of this conference
+   * Get the end date of this conference.
+   * @return {Date} the end date of this conference
    */
   Conference.prototype.endDate = function endDate() {
     return this._END
@@ -422,10 +422,10 @@ module.exports = (function () {
    * NOTE: TYPE DEFINITION
    * A group of sessions, all of which share the same date (excluding time of day).
    * Contains two properties:
-   * - `date` is the date by which the sessions are grouped, and
-   * - `sessions` is an array of those sessions.
+   * - `datestr` - a string representing the date by which the sessions are grouped
+   * - `sessions` - an array of those sessions
    * @typedef {Object} SessionGroup
-   * @property {string} date - the date of all the sessions in the group
+   * @property {string} datestr - string in 'YYYY-MM-DD' format of all the sessions in the group
    * @property {Array<Session>} sessions - an array whose members all have the same date
    */
   /**
@@ -437,12 +437,12 @@ module.exports = (function () {
    */
   Conference.prototype.groupSessions = function groupSessions(starred) {
     var all_sessions = this.getSessionsAll().filter(function ($session) { return (starred) ? $session.isStarred() : true })
-    function dateOf($session) { return $session.startDate().slice(0,10) }
+    function dateOf($session) { return $session.startDate().toISOString().slice(0,10) }
     var $groupings = []
     for (var $session of all_sessions) {
-      if (!$groupings.find(function ($sessionGroup) { return $sessionGroup.date === dateOf($session) })) {
+      if (!$groupings.find(function ($sessionGroup) { return $sessionGroup.datestr === dateOf($session) })) {
         $groupings.push({
-          date    : dateOf($session)
+          datestr : dateOf($session)
         , sessions: all_sessions.filter(function (_event) {
             return dateOf(_event) === dateOf($session)
           })

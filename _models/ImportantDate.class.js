@@ -6,12 +6,11 @@ module.exports = (function () {
   // CONSTRUCTOR
   /**
    * Construct an ImportantDate object.
-   * REVIEW IDEA start_time -> date
    * The name and start time
    * are immutable and must be provided during construction.
    * @param {Object} $actioninfo an object with the following immutable properties:
    * @param {string} $actioninfo.name the name of the important date
-   * @param {string} $actioninfo.start_time the start time of the important date
+   * @param {Date} $actioninfo.start_time the start time of the important date
    */
   function ImportantDate($actioninfo) {
     var self = this
@@ -32,9 +31,8 @@ module.exports = (function () {
   }
 
   /**
-   * Get the start time of this important date.
-   * REVIEW: TODO may change this method name to `.date()`
-   * @return {string} the start time of this important date
+   * Get the date value of this important date.
+   * @return {Date} the date of this important date
    */
   ImportantDate.prototype.startTime = function startTime() {
     return this._START

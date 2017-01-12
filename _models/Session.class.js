@@ -8,17 +8,17 @@ module.exports = (function () {
    * Construct a Session object.
    * The name, start date, and end date
    * are immutable and must be provided during construction.
-   * @param {Object} $sessioninfo an object with the following immutable properties:
-   * @param {string} $sessioninfo.name the name of the session
-   * @param {string} $sessioninfo.start_date the start date of the session
-   * @param {string} $sessioninfo.end_date the end date of the session
+   * @param {Object} $eventinfo an object with the following immutable properties:
+   * @param {string} $eventinfo.name the name of the session
+   * @param {Date} $eventinfo.start_date the start date of the session
+   * @param {Date} $eventinfo.end_date the end date of the session
    */
-  function Session($sessioninfo) {
+  function Session($eventinfo) {
     var self = this
-    $sessioninfo = $sessioninfo || {} // NOTE constructor overloading
-    self._NAME  = $sessioninfo.name
-    self._START = $sessioninfo.start_date
-    self._END   = $sessioninfo.end_date
+    $eventinfo = $eventinfo || {} // NOTE constructor overloading
+    self._NAME  = $eventinfo.name
+    self._START = $eventinfo.start_date
+    self._END   = $eventinfo.end_date
     self._url = ''
     self._is_starred = false
   }
@@ -34,7 +34,7 @@ module.exports = (function () {
 
   /**
    * Get the start date of this session.
-   * @return {string} the start date of this session
+   * @return {Date} the start date of this session
    */
   Session.prototype.startDate = function startDate() {
     return this._START
@@ -42,7 +42,7 @@ module.exports = (function () {
 
   /**
    * Get the end date of this session.
-   * @return {string} the end date of this session
+   * @return {Date} the end date of this session
    */
   Session.prototype.endDate = function endDate() {
     return this._END

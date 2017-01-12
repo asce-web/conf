@@ -16,10 +16,10 @@ block mainHeader
           = loc.text || loc
       span.o-Flex__Item.c-ConfHed__Dates.h-Block
         time(datetime=site.currentConference().startDate() itemprop="startDate")
-          = Util.monthDay(Util.toDate(site.currentConference().startDate()))
+          = Util.monthDay(site.currentConference().startDate())
         | &ndash;
         time(datetime=site.currentConference().endDate() itemprop="endDate")
-          = Util.monthDay(Util.toDate(site.currentConference().endDate()))
+          = Util.monthDay(site.currentConference().endDate())
     p.c-ConfHed__Theme.-d-n-nsM(itemprop="description")
       = site.currentConference().theme() || '\xa0'
       //- \xa0 == &nbsp;

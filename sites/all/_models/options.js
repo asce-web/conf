@@ -17,7 +17,10 @@ module.exports = Object.assign(require('../../../_models/options.js'), {
   site: new ConfSite()
     .colors(Color.fromString('#660000'), Color.fromString('#ff6600')) // default Hokie colors
     .init()
-    .addConference('sample', new Conference())
+    .addConference('sample', new Conference({
+      start_date: new Date()
+    , end_date  : new Date()
+    }))
     .currentConference('sample')
     .prevConference('sample')
     .nextConference('sample')

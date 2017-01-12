@@ -15,8 +15,8 @@ module.exports = (function () {
    * @param {string} $confinfo.name the name of this conference
    * @param {string} $confinfo.url the url of this conference
    * @param {string} $confinfo.theme the theme, or slogan, of this conference
-   * @param {string} $confinfo.start_date the starting date of this conference
-   * @param {string} $confinfo.end_date the ending date of this conference
+   * @param {Date} $confinfo.start_date the starting date of this conference
+   * @param {Date} $confinfo.end_date the ending date of this conference
    * @param {(Object|string)} $confinfo.promo_loc the promoted location of this conference
    * @param {string=} $confinfo.promo_loc.text the promoted location displayed/abbreviated text (eg, "Portland, OR")
    * @param {string=} $confinfo.promo_loc.title the elongated version of the location (eg, "Portland, Oregon")
@@ -72,16 +72,16 @@ module.exports = (function () {
   }
 
   /**
-   * Get the name of this conference.
-   * @return {string} the name of this conference
+   * Get the start date of this conference.
+   * @return {Date} the start date of this conference
    */
   Conference.prototype.startDate = function startDate() {
     return this._START
   }
 
   /**
-   * Get the name of this conference.
-   * @return {string} the name of this conference
+   * Get the end date of this conference.
+   * @return {Date} the end date of this conference
    */
   Conference.prototype.endDate = function endDate() {
     return this._END

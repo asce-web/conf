@@ -401,11 +401,11 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
       )
 
     site.currentConference()
-      .addImportantDate(new ImportantDate({start_time:'2015-10-12', name:'Optional Final Papers Due'     }).star())
-      .addImportantDate(new ImportantDate({start_time:'2015-12-17', name:'Early-Bird Registration Closes'}).star().url('registration.html'))
-      .addImportantDate(new ImportantDate({start_time:'2016-01-12', name:'Advance Registration Closes'   }).star().url('registration.html'))
-      .addImportantDate(new ImportantDate({start_time:'2016-06-12', name:'Convention Begins'             }).star())
-      .addImportantDate(new ImportantDate({start_time:'2016-06-15', name:'Convention Ends'               }))
+      .addImportantDate(new ImportantDate({start_time:new Date('2015-10-12'), name:'Optional Final Papers Due'     }).star())
+      .addImportantDate(new ImportantDate({start_time:new Date('2015-12-17'), name:'Early-Bird Registration Closes'}).star().url('registration.html'))
+      .addImportantDate(new ImportantDate({start_time:new Date('2016-01-12'), name:'Advance Registration Closes'   }).star().url('registration.html'))
+      .addImportantDate(new ImportantDate({start_time:new Date('2016-06-12'), name:'Convention Begins'             }).star())
+      .addImportantDate(new ImportantDate({start_time:new Date('2016-06-15'), name:'Convention Ends'               }))
 
     site.currentConference()
       .addOrganizer(new Person('thomas-mccollough', {

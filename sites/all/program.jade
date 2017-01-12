@@ -10,7 +10,7 @@ block mainReference
     include /_views/_c-Program.view.pug
     +program(groupings.length, {id:'full-program-block'})
       mixin heading(i)
-        +programHeading(groupings[i].date)
+        +programHeading(groupings[i].datestr)
       mixin content(i)
         include /_views/_c-TimeBlock.view.pug
         +timeBlock(groupings[i].sessions)

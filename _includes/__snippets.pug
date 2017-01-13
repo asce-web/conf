@@ -8,6 +8,12 @@
 
 
 mixin sitetoc(arg)
+  //- WHERE +sitetoc() is used:
+  //- - _sites.tpl.jade, inside of +mainMenu()
+  //- - _c-Sitemap.view.pug
+  //- - _comp.mobile-menu.pug
+  //- - _comp.menu-bar.pug
+  //- - _temp.site-header.pug (use +mainMenu() instead)
   //- NOTE parameter validation
   -
     arg.pages   = arg.pages   || []
@@ -18,9 +24,9 @@ mixin sitetoc(arg)
     each $confPage in arg.pages
       unless $confPage.isHidden()
         li(class=arg.classes.itemclasses)
-          a(class=arg.classes.linkclasses href=$confPage.url() title=$confPage.name())
+          a(class=arg.classes.linkclasses href=$confPage.url())
             if arg.icons && $confPage.getIcon()
-              i.material-icons= $confPage.getIcon()
+              i.material-icons(aria-hidden="true")= $confPage.getIcon()
             span= $confPage.name()
           if $confPage.findAll().length && arg.depth > 0
             +sitetoc({pages: $confPage.findAll(), classes: arg.classes.sub, depth: arg.depth-1, icons: false})

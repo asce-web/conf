@@ -15,14 +15,14 @@ mixin speaker($person)
           li.o-List__Item.o-Flex__Item.c-SocialList__Item
             a.c-SocialList__Link.c-SocialList__Link--email.h-Block(href='mailto:'+$person.email() title=$person.email() itemprop="email")
               | send email
-              i.material-icons email
+              i.material-icons(aria-hidden="true") email
         if $person.phone()
           li.o-List__Item.o-Flex__Item.c-SocialList__Item
             a.c-SocialList__Link.c-SocialList__Link--phone.h-Block(href='tel:'+Util.toURL($person.phone()) title=$person.phone() itemprop="telephone")
               | call
-              i.material-icons phone
+              i.material-icons(aria-hidden="true") phone
         if $person.url()
           li.o-List__Item.o-Flex__Item.c-SocialList__Item
             a.c-SocialList__Link.c-SocialList__Link--explore.h-Block(href=$person.url() title="visit homepage" itemprop="url")
               | visit homepage
-              i.material-icons explore
+              i.material-icons(aria-hidden="true") explore

@@ -21,6 +21,7 @@ html(lang="en")
         //- if this site is an instance of the 'all' template
         link(rel="stylesheet" href="styles/site.css")
   body(style=site.colors())
+    a.h-Hidden(href="#main") skip to main content
     header.o-Runner.c-Mast.c-Mast--head: div.o-Constrain
       include /_views/_c-SiteTitle.view.pug
       +siteTitle(site)
@@ -64,7 +65,7 @@ html(lang="en")
           , linkclasses: 'c-MenuMobile__Link-nsM c-MenuMobile_Sub_Link-nsM c-MenuBar__Link-sM c-MenuBar__Sub__Link-sM h-Block'
           }
         }, depth: 1 })
-    main
+    main#main
       article(itemscope="" itemtype="http://schema.org/Event")
         block mainHeader
           header.o-Runner.o-Runner--pageHeader: div.o-Constrain

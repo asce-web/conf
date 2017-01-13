@@ -49,6 +49,7 @@ html(lang="en")
       link(rel="stylesheet" href="/styles/conf.css")
       link(rel="stylesheet" href="styles/docs.css")
   body(style=ConfDocs.COLORS)
+    a.h-Hidden(href="#main") skip to main content
     header
       h1= ConfDocs.DOCS.name()
       p= ConfDocs.DOCS.description()
@@ -56,7 +57,7 @@ html(lang="en")
       nav#sitemap
         h1.-d-n Sitemap
         +doctoc({pages: ConfDocs.DOCS.findAll()})
-    main.docs-main
+    main.docs-main#main
       block main
         header
           h1= page.name()

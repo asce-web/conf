@@ -92,13 +92,6 @@ html(lang="en")
       h1.-d-n#site-map Site Map
       include /_views/_c-Sitemap.view.pug
       +sitemap(site.findAll().slice(1))
-      a.c-Btn(href="#top" title="go to top" style={
-        'position': 'fixed'
-      , 'bottom'  : '1.5rem'
-      , 'right'   : '2rem'
-      , 'z-index' : 1
-      , 'color'   : '#000'
-      }): i.material-icons arrow_upward
     footer.o-Runner.c-Mast.c-Mast--foot: div.o-Constrain
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
@@ -132,6 +125,13 @@ html(lang="en")
         p: small
           | &copy; #[time 1996]&ndash;#[time 2016],#{' '}
           span(itemprop="name") American Society of Civil Engineers
+    a.c-Btn(href="#top" title="go to top" aria-label="go to top" style={
+      'position': 'fixed'
+    , 'bottom'  : '1.5rem'
+    , 'right'   : '2rem'
+    , 'z-index' : 1
+    , 'color'   : '#000'
+    }): i.material-icons(aria-hidden="true") arrow_upward
     block scripts
       script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
       script(src="/scripts/c-Program.js")

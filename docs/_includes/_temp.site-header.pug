@@ -21,7 +21,7 @@ figure.docs-figure
         .logo('http://cisummit.org/sites/cisummit.org/files/ci-shield-logo.png')
       )
     header.o-Runner.c-Mast.c-Mast--menu: div.o-Constrain
-      label.c-Toggle(title="toggle main menu")
+      label.c-Toggle(aria-label="toggle main menu")
         input.c-Toggle__Check(type="checkbox" value="open main menu")
         span.-d-n toggle main menu
         svg.c-Toggle__Viz(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
@@ -65,9 +65,8 @@ figure.docs-figure
     &lt;header&gt;
     &lt;header class="o-Runner  c-Mast  c-Mast--head"&gt;
       &lt;div class="o-Constrain"&gt;
-        &lt;label class="c-Toggle" title="toggle main menu"&gt;
+        &lt;label class="c-Toggle" #[mark aria-label="toggle main menu"]&gt;
           &lt;input class="c-Toggle__Check" type="checkbox" value="open main menu"/&gt;
-          &lt;span.-d-n&gt;toggle main menu&lt;/span&gt;
           &lt;svg class="c-Toggle__Viz" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"&gt;
             &lt;path d="M0,0 H24 V24 H0 z" fill="transparent"&gt;&lt;/path&gt;
             &lt;g transform="translate(3,11)"&gt;

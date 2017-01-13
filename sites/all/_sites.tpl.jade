@@ -26,9 +26,8 @@ html(lang="en")
       include /_views/_c-SiteTitle.view.pug
       +siteTitle(site)
     header.o-Runner.c-Mast.c-Mast--menu: div.o-Constrain
-      label.c-Toggle(title="toggle main menu")
+      label.c-Toggle(aria-label="toggle main menu")
         input.c-Toggle__Check(type="checkbox" value="open main menu")
-        span.-d-n toggle main menu
         svg.c-Toggle__Viz(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
           path(d="M0,0 H24 V24 H0 z" fill="transparent")
           g(transform="translate(3,11)")

@@ -1,10 +1,10 @@
 extends /sites/all/registration.jade
 
 block mainMinimal
-  include _includes/text-block.jade
+  include _includes/_text-block.pug
 
 block mainRich
-  include _includes/text-section.jade
+  include _includes/_text-section.pug
 
 block callouts
   +highlight()
@@ -17,4 +17,4 @@ block callouts
       li.o-List__Item.o-ListAction__Item
         a.c-Btn.c-Btn--dark(href="#0") Optional Tours
   +highlight('c-Banner')
-    include /sites/default/_includes/highlights/_volunteer.jade
+    include _includes/highlights/_volunteer.pug

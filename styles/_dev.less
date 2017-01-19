@@ -12,3 +12,10 @@
     display: none;
   }
 }
+// TODO remove on install xmeter@5.4.0+
+.h-Hidden {
+  &:not(:focus) {
+    position: absolute;
+  }
+  left: -999999px;
+}

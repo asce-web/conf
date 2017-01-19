@@ -1,10 +1,10 @@
 extends /sites/all/location.jade
 
 block mainRich
-  include _includes/text-section.jade
+  include _includes/_text-section.pug
 
 block callouts
   +highlight('c-Banner')
-    include /sites/all/_includes/highlights/_important-dates.jade
+    include /sites/all/_includes/highlights/_important-dates.pug
   +highlight()
-    include /sites/all/_includes/highlights/_contact.jade
+    include /sites/all/_includes/highlights/_contact.pug

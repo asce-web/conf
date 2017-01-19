@@ -1,6 +1,6 @@
 doctype html
 html(lang="en")
-  include /_includes/__snippets.jade
+  include /_includes/__snippets.pug
   block vars
   head
     title= page.title()
@@ -21,13 +21,13 @@ html(lang="en")
         //- if this site is an instance of the 'all' template
         link(rel="stylesheet" href="styles/site.css")
   body(style=site.colors())
+    a.h-Hidden(href="#main") skip to main content
     header.o-Runner.c-Mast.c-Mast--head: div.o-Constrain
-      include /_views/c-SiteTitle.view.jade
+      include /_views/_c-SiteTitle.view.pug
       +siteTitle(site)
     header.o-Runner.c-Mast.c-Mast--menu: div.o-Constrain
-      label.c-Toggle(title="toggle main menu")
+      label.c-Toggle(aria-label="toggle main menu")
         input.c-Toggle__Check(type="checkbox" value="open main menu")
-        span.-d-n toggle main menu
         svg.c-Toggle__Viz(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
           path(d="M0,0 H24 V24 H0 z" fill="transparent")
           g(transform="translate(3,11)")
@@ -47,7 +47,7 @@ html(lang="en")
           , linkclasses: 'c-MenuMobile__Link-nsM c-MenuMobile_Sub_Link-nsM c-MenuBar__Link-sM c-MenuBar__Sub__Link-sM h-Block'
           }
         }, depth: 1 })
-    main
+    main#main
       article(itemscope="" itemtype="http://schema.org/Event")
         block mainHeader
           header.o-Runner.o-Runner--pageHeader: div.o-Constrain
@@ -68,20 +68,13 @@ html(lang="en")
         block additionalSupporters
           +highlight('c-Banner c-Banner--orgs')
             h1#additional-supporters.-d-n Additional Supporters
-            include /_views/c-SupporterBlock.view.jade
-            each $supporterLevel,index in site.getSupporterLevelsAll('org')
-              +supporterBlock($supporterLevel, site, { 'c-SupporterBlock--separate': index < site.getSupporterLevelsAll('org').length-1 })
+            include /_views/_c-SupporterBlock.view.pug
+            each $supporterLevel,index in site.getSupporterLevelList('Orgs')
+              +supporterBlock($supporterLevel, site, { 'c-SupporterBlock--separate': index < site.getSupporterLevelList('Orgs').length-1 })
     footer.o-Runner.c-Mast.c-Mast--sitemap: nav.o-Constrain
       h1.-d-n#site-map Site Map
-      include /_views/c-Sitemap.view.jade
+      include /_views/_c-Sitemap.view.pug
       +sitemap(site.findAll().slice(1))
-      a.c-Btn(href="#top" title="go to top" style={
-        'position': 'fixed'
-      , 'bottom'  : '1.5rem'
-      , 'right'   : '2rem'
-      , 'z-index' : 1
-      , 'color'   : '#000'
-      }): i.material-icons arrow_upward
     footer.o-Runner.c-Mast.c-Mast--foot: div.o-Constrain
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
@@ -104,7 +97,7 @@ html(lang="en")
           meta(content="+1-703-295-6300" itemprop="telephone")
           meta(content="United States of America" itemprop="areaServed")
           meta(content="customer support" itemprop="contactType")
-        include /_views/c-SocialList.view.jade
+        include /_views/_c-SocialList.view.pug
         +socialList({
           twitter : { url: '//twitter.com/ASCE'    , text: 'Follow ASCE on Twitter' }
         , google  : { url: '//plus.google.com/ASCE', text: 'Follow ASCE on Google+' }
@@ -115,6 +108,13 @@ html(lang="en")
         p: small
           | &copy; #[time 1996]&ndash;#[time 2016],#{' '}
           span(itemprop="name") American Society of Civil Engineers
+    a.c-Btn(href="#top" title="go to top" aria-label="go to top" style={
+      'position': 'fixed'
+    , 'bottom'  : '1.5rem'
+    , 'right'   : '2rem'
+    , 'z-index' : 1
+    , 'color'   : '#000'
+    }): i.material-icons(aria-hidden="true") arrow_upward
     block scripts
       script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
       script(src="/scripts/c-Program.js")

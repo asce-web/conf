@@ -9,5 +9,5 @@
 
 module.exports = {
   basedir : './'
-, Util    : require('./classes/Util.class.js')
+, Util    : require('./Util.class.js')
 }

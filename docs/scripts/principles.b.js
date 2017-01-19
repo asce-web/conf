@@ -553,7 +553,7 @@ module.exports = (function () {
   , { content: 'date_range'     , fallback: '\uE916', html: '&#xE916;' } // Advance registration period icon
   , { content: 'account_balance', fallback: '\uE84F', html: '&#xE84F;' } // Onsite registration period icon
   , { content: 'insert_drive_file', fallback: '\uE24D', html: '&#xE24D;' } // generic page file (only used in Docs)
-  , { content: 'arrow_upward'   , fallback: '\uE5D8', html: '&#xE5D8;' } // FIXME is this used??
+  , { content: 'arrow_upward'   , fallback: '\uE5D8', html: '&#xE5D8;' } // "return to top" button
   , { content: 'phone'       , fallback: '\uE0CD', html: '&#xE0CD;' } // social list icon phone
   , { content: 'phone_iphone', fallback: '\uE325', html: '&#xE325;' } // social list icon phone / mobile app callout
   , { content: 'explore'     , fallback: '\uE87A', html: '&#xE87A;' } // social list icon homepage

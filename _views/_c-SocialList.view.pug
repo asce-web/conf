@@ -1,5 +1,5 @@
 mixin socialList($social_obj, $options)
-  - var $options = $options || { classes: '', has_microdata: false }
+  - $options = $options || { classes: '', has_microdata: false }
   ul.o-List.o-Flex.c-SocialList(class=$options.classes)
     block
     each $val,key in $social_obj

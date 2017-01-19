@@ -21,7 +21,7 @@ figure.docs-figure
         .logo('http://cisummit.org/sites/cisummit.org/files/ci-shield-logo.png')
       )
     header.o-Runner.c-Mast.c-Mast--menu: div.o-Constrain
-      label.c-Toggle(title="toggle main menu")
+      label.c-Toggle(aria-label="toggle main menu")
         input.c-Toggle__Check(type="checkbox" value="open main menu")
         span.-d-n toggle main menu
         svg.c-Toggle__Viz(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
@@ -32,6 +32,8 @@ figure.docs-figure
         noscript: p Oops! Looks like you need to enable Javascript for the main menu.
       nav.o-Drawer
         h1.-d-n#main-menu Main Menu
+        //- NOTE use mixin +mainMenu() (from _sites.tpl.jade) for this template
+        //- due to the 'expand_more' (dropdown) icon
         +sitetoc({pages: [
           new ConfPage('Home', '#0').setIcon('insert_drive_file')
         , new ConfPage('Registration', '#0').setIcon('insert_drive_file')
@@ -63,9 +65,8 @@ figure.docs-figure
     &lt;header&gt;
     &lt;header class="o-Runner  c-Mast  c-Mast--head"&gt;
       &lt;div class="o-Constrain"&gt;
-        &lt;label class="c-Toggle" title="toggle main menu"&gt;
+        &lt;label class="c-Toggle" #[mark aria-label="toggle main menu"]&gt;
           &lt;input class="c-Toggle__Check" type="checkbox" value="open main menu"/&gt;
-          &lt;span.-d-n&gt;toggle main menu&lt;/span&gt;
           &lt;svg class="c-Toggle__Viz" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"&gt;
             &lt;path d="M0,0 H24 V24 H0 z" fill="transparent"&gt;&lt;/path&gt;
             &lt;g transform="translate(3,11)"&gt;
@@ -81,7 +82,7 @@ figure.docs-figure
           &lt;ul class="o-List  o-Flex  c-MenuMobile-nsM  c-MenuBar-sM"&gt;
             &lt;li class="o-List__Item  o-Flex__Item  c-MenuMobile__Item-nsM  c-MenuBar__Item-sM"&gt;
               &lt;a class="c-MenuMobile__Link-nsM  c-MenuBar__Link-sM  h-Block"&gt;
-                &lt;i class="material-icons"&gt;...&lt;/i&gt;
+                &lt;i class="material-icons" #[mark aria-hidden="true"]&gt;...&lt;/i&gt;
                 &lt;span&gt;Registration&lt;/span&gt;
               &lt;/a&gt;
               &lt;ul class="o-List  c-MenuBar__Sub-sM"&gt;

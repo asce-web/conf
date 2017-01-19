@@ -1,0 +1,59 @@
+
+//- ///////////////////////////////////////////////////////////////////////////////
+//- //
+//- // This file holds 'global' data for all files in this project,
+//- // including the pattern library and the sample sites.
+//- //
+//- ///////////////////////////////////////////////////////////////////////////////
+
+
+mixin sitetoc(arg)
+  //- NOTE parameter validation
+  -
+    arg.pages   = arg.pages   || []
+    arg.classes = arg.classes || {}
+    arg.depth   = +arg.depth  || 0
+    arg.icons   = !!arg.icons
+  ul(class=arg.classes.listclasses)
+    each $confPage in arg.pages
+      unless $confPage.isHidden()
+        li(class=arg.classes.itemclasses)
+          a(class=arg.classes.linkclasses href=$confPage.url() title=$confPage.name())
+            if arg.icons && $confPage.getIcon()
+              i.material-icons= $confPage.getIcon()
+            span= $confPage.name()
+          if $confPage.findAll().length && arg.depth > 0
+            +sitetoc({pages: $confPage.findAll(), classes: arg.classes.sub, depth: arg.depth-1, icons: false})
+
+//- mixin promotedLocation(promoloc)
+  - promoloc = promoloc || {} // NOTE parameter validation
+  if promoloc.title && promoloc.text
+    abbr(title=promoloc.title)= promoloc.text
+  else
+    = (promoloc.text || promoloc)
+
+mixin highlightButtons(links, more_classes)
+  ul.o-List.o-ListAction
+    each item in links
+      li.o-List__Item.o-ListAction__Item
+        a.c-Btn.c-Btn--hilite(class=(more_classes || '') href=item.href)&attributes(item.attr || {})
+          = item.text
+
+mixin highlight(classes)
+  aside.o-Runner.o-Runner--highlight(class=classes)
+    div.o-Constrain
+      block
+
+mixin passList(conference, starred)
+  ul.o-List.o-ListStacked
+    include /_views/_c-Pass.view.pug
+    each $pass in conference.getPassesAll(starred)
+      li.o-List__Item.o-ListStacked__Item
+        +pass($pass, conference)
+
+mixin speakerList(speakers)
+  ul.o-List.o-ListStacked
+    include /_views/_c-Speaker.view.pug
+    each person in speakers
+      li.o-List__Item.o-ListStacked__Item
+        +speaker(person)

@@ -4,20 +4,23 @@ block append vars
   - var page = site.find('index.html')
 
 block mainHeader
-  header.-d-n: h1 #{site.name()} Homepage
-
-block prepend mainBody
-  section.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--landing: div.o-Constrain
-    include /_views/c-Hero.view.jade
-    +hero(site.currentConference(), {itemscope:'', itemtype:'http://schema.org/Event'})
-      +highlightButtons([{text:'Find Out More', href:'home.html'}], 'c-Btn--primary')
-
-block mainReference
-  section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--prev: div.o-Constrain
-    div.c-Overlay.c-Overlay--callout
-      include /_views/c-OtherYear.view.jade
-      +otherYear(site.prevConference(), 'c-Btn--ghost c-Btn--ghost--dark')
-  section.o-Runner.o-Runner--highlight.o-Runner--wrappedInner.c-Banner.c-Banner--next: div.o-Constrain
-    div.c-Overlay.c-Overlay--callout
-      include /_views/c-OtherYear.view.jade
-      +otherYear(site.nextConference(), 'c-Btn--ghost c-Btn--ghost--dark')
+  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--hero.c-ConfHed: div.o-Constrain
+    h1.c-PageTitle.c-ConfHed__Name(itemprop="name")= site.currentConference().name()
+    meta(content=site.currentConference().url() itemprop="url")
+    p.o-Flex.c-ConfHed__Detail
+      span.o-Flex__Item.c-ConfHed__Place.h-Block(itemprop="location")
+        - var loc = site.currentConference().promoLoc()
+        if loc.title && loc.text
+          abbr(title=loc.title)= loc.text
+        else
+          = loc.text || loc
+      span.o-Flex__Item.c-ConfHed__Dates.h-Block
+        time(datetime=site.currentConference().startDate() itemprop="startDate")
+          = Util.monthDay(site.currentConference().startDate())
+        | &ndash;
+        time(datetime=site.currentConference().endDate() itemprop="endDate")
+          = Util.monthDay(site.currentConference().endDate())
+    p.c-ConfHed__Theme.-d-n-nsM(itemprop="description")
+      = site.currentConference().theme() || '\xa0'
+      //- \xa0 == &nbsp;
+    block actionButtons

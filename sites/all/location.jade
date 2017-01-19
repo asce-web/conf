@@ -4,12 +4,14 @@ block append vars
   - var page = site.find('location.html')
 
 block mainHeader
-  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--location(style="height: 13.5rem;"): div.o-Constrain
-    h1.c-PageTitle.c-PageTitle--special= page.name()
+  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--location: div.o-Constrain
+    h1.c-PageTitle= page.name()
   section.o-Runner.o-Runner--highlight.-ta-c: div.o-Constrain
     h1.-d-n Important Locations
     ul.o-List.o-ListAction.c-Callout
-      each item,key in site.currentConference().getVenuesAll()
+      include /_views/_place.view.pug
+      each $place,key in site.currentConference().getVenuesAll()
         li.o-List__Item.o-ListAction__Item.c-Callout__Item: section
-          h1= key
-          +place(item, (item===site.currentConference().conferenceVenue()) ? {itemprop:'location'} : {})
+          h1.-fz-el-mega= key
+          p(itemscope="" itemtype="http://schema.org/Place")&attributes(($place===site.currentConference().conferenceVenue()) ? {itemprop:'location'} : {})
+            +place($place)

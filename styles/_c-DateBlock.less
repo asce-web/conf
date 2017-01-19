@@ -10,26 +10,6 @@
 // The first column is the date,
 // the second column is the description.
 //
-// ^example1 - a dictionary list (implicit groups)
-// <dl class="c-DateBlock">
-//   <dt class="c-DateBlock__Date">...</dt>
-//   <dd class="c-DateBlock__Desc">...</dd>
-//   <dt class="c-DateBlock__Date">...</dt>
-//   <dd class="c-DateBlock__Desc">...</dd>
-// </dl>
-//
-// ^example2 - a normal list (explicit groups)
-// <ol class="c-DateBlock">
-//   <li class="c-DateBlock__Item">
-//     <span class="c-DateBlock__Date">...</span>
-//     <span class="c-DateBlock__Desc">...</span>
-//   </li>
-//   <li class="c-DateBlock__Item">
-//     <span class="c-DateBlock__Date">...</span>
-//     <span class="c-DateBlock__Desc">...</span>
-//   </li>
-// </ol>
-//
 // ^subcomponents
 // __Date - the date
 // __Desc - the description
@@ -44,24 +24,28 @@
   width: 75%;
   margin-left:  auto;
   margin-right: auto;
-  color: @g-color_asce_black;
+  color: @g-color-gray_dk-shade2; // HACK fallback
+  color: var(--color-gray_dk-shade2); // override if inside Banner
 }
 
 @p-rw: 1px;
 .c-DateBlock__Item,
 .c-DateBlock > .c-DateBlock__Date,
 .c-DateBlock > .c-DateBlock__Desc {
+  background-color: @g-color-gray_lt-tint2; // HACK fallback
+  border-color: @g-color-gray_dk; // HACK fallback
   background-color: var(--color-gray_lt-tint2);
+  border-color: var(--color-gray_dk);
   @media screen                       { padding: @g-boxpadd_micr; }
   @media screen and (min-width: 30em) { padding: @g-boxpadd_mill; }
   @media screen and (min-width: 45em) { padding: @g-boxpadd_norm; }
 }
 
 .c-DateBlock__Item {
-  margin-bottom: @g-vru;
-  .border-vert(all, @p-rw);
+  margin-bottom: @g-vru; // HACK fallback
+  margin-bottom: var(--vru);
+  .border-vert(all; @p-rw);
   border-style: solid;
-  border-color: @g-color_asce_black;
 }
 
 .c-DateBlock__Date,
@@ -69,14 +53,13 @@
   .c-DateBlock > & {
     border-width: 0 @p-rw;
     border-style: solid;
-    border-color: @g-color_asce_black;
   }
 }
 
 .c-DateBlock__Date {
   font-weight: 300;
   .c-DateBlock > & {
-    .border-vert(top, @p-rw);
+    .border-vert(top; @p-rw);
     padding-bottom: 0;
   }
 }
@@ -85,12 +68,13 @@
   .font-size-el(1.25);
   font-weight: 600;
   .c-DateBlock > & {
-    .border-vert(bottom, @p-rw);
+    .border-vert(bottom; @p-rw);
     padding-top: 0;
-    margin-bottom: @g-vru;
+    margin-bottom: @g-vru; // HACK fallback
+    margin-bottom: var(--vru);
   }
 }
 
 .c-DateBlock__Link {
-  position: relative; // for icon in link
+  text-decoration: underline;
 }

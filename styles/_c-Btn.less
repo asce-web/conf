@@ -2,10 +2,8 @@
 /*################################*\
     conf  |  _c-Btn.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__fallback.filter.less');
 @import (reference) url('../node_modules/xmeter/src/__fallback.transition.less');
 @import (reference) url('__settings.less');
-@import (reference) url('__tool.menubar.less');
 
 
 // Table of Contents
@@ -44,21 +42,14 @@
   font-weight: 700;
   white-space: nowrap;
   border-radius: 0.25rem;
+  text-shadow: none; // fallback for initial
+  text-shadow: initial; // override .c-Banner
   cursor: pointer;
-  .transitions(color, background-color, border-color, filter; 250ms);
+  .transitions(color, background-color, border-color; 250ms);
   a&:not([href]),
   button&:disabled {
     opacity: 0.75; // override xmeter
     cursor: not-allowed;
-  }
-  // resets
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    .filter();
   }
 }
 
@@ -68,23 +59,24 @@
 //++++++++++++++++++++++++++++++++//
 .c-Btn {
   // generic button color styles
+  background-color: @g-color-gray_lt; // HACK fallback
+  color: @g-color-gray_dk-shade2; // HACK fallback
   background-color: var(--button-color);
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    color: #000;
-  }
+  color: var(--button-text);
   &:hover,
   &:focus,
   &._hover {
+    background-color: @g-color-gray_lt-tint1; // HACK fallback
+    // color: @g-color-gray_dk-shade2; // HACK fallback // don’t need: inherits from above
     background-color: var(--button-color-hover);
+    color: var(--button-text-hover);
   }
   &:active,
   &._active {
+    background-color: @g-color-gray_lt-shade1; // HACK fallback
+    // color: @g-color-gray_dk-shade2; // HACK fallback // don’t need: inherits from above
     background-color: var(--button-color-active);
+    color: var(--button-text-active);
   }
   a&:not([href]),
   button&:disabled {
@@ -105,32 +97,21 @@
   --button-color:        var(--color-gray_lt);
   --button-color-hover:  var(--color-gray_lt-tint1);
   --button-color-active: var(--color-gray_lt-shade1);
+  --button-text:         var(--color-gray_dk-shade2);
+  --button-text-hover:   var(--button-text);
+  --button-text-active:  var(--button-text);
 }
 
 .c-Btn--dark {
   --button-color:        var(--color-gray_dk);
   --button-color-hover:  var(--color-gray_dk-tint1);
   --button-color-active: var(--color-gray_dk-shade1);
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    color: #fff;
-  }
+  --button-text: var(--color-gray_lt-tint2);
 }
 
 .c-Btn--primary,
 .c-Btn--secondary {
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    color: @g-color_asce_white;
-  }
+  --button-text: var(--color-gray_lt-tint2);
 }
 
 .c-Btn--primary {
@@ -147,31 +128,27 @@
 
 .c-Btn--ghost {
   --button-color:        transparent;
-  --button-color-hover:  var(--color-gray_dk);
-  --button-color-active: transparent;
+  --button-color-hover:  #222;
+  --button-color-active: var(--button-color);
+  --button-text-hover: #fff;
+  border: 2px solid currentColor;
   &:hover,
   &:focus,
   &._hover {
-    color: @g-color_asce_white;
-    border-color: transparent;
+    &:not(:active):not(._active) {
+      border-color: transparent;
+    }
   }
   &,
   &:active,
   &._active {
-    color: inherit;
-    border: 2px solid currentColor;
+    color: inherit; // HACK override `.c-Btn` // do not use `--button-text: inherit;`
   }
 }
 
 .c-Btn--ghost--dark {
-  --button-color-hover: @g-color_asce_white;
-  &:hover,
-  &:focus,
-  &._hover {
-    &:not(:active) { // HACK because :hover will override :active
-      color: var(--color-gray_dk);
-    }
-  }
+  --button-color-hover: #fff;
+  --button-text-hover: #222;
 }
 //++++ end # BUTTON COLOR STYLES ++++//
 
@@ -190,32 +167,6 @@
   &._active {
     border-style: inset;
     box-shadow: @bs_x (-0.5*@bs_y) @bs_blur @bs_color inset;
-  }
-}
-
-.c-Btn--flat {
-  --button-color:        transparent;
-  --button-color-hover:  var(--button-color);
-  --button-color-active: var(--button-color);
-  .menubar();
-  font-size: (14em/16); // same as Mast
-  letter-spacing: 1px;
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &._hover,
-  &._active {
-    color: var(--color-secondary); // same as link
-  }
-  &:hover,
-  &:focus,
-  &._hover {
-    color: var(--color-gray_lt); // same as link
-  }
-  &:active,
-  &._active {
-    color: var(--color-gray_dk);
   }
 }
 //++++ end # BUTTON TEXTURE STYLES ++++//

@@ -2,3 +2,21 @@ extends _sites.tpl.jade
 
 block append vars
   - var page = site.find('about.html')
+
+block mainReference
+  mixin otherYear($conference, classes)
+    section.o-Runner.o-Runner--highlight.c-Banner.c-ConfHed(class=classes itemscope="" itemtype="http://schema.org/Event"): div.o-Constrain
+      h1.c-ConfHed__Name(itemprop="name")= $conference.name()
+      meta(content=$conference.startDate() itemprop="startDate")
+      p.c-ConfHed__Detail.-fz-el-kilo(itemprop="location")
+        - var loc = $conference.promoLoc()
+        if loc.title && loc.text
+          abbr(title=loc.title)= loc.text
+        else
+          = loc.text || loc
+      p.-d-n-nsM._text-plain= $conference.otherYearBlurb()
+      block
+  +otherYear(site.prevConference(), 'c-Banner--prev')
+    +highlightButtons([{text:'Event Details', href:site.prevConference().url(), attr:{itemprop:'url'}}], 'c-Btn--ghost c-Btn--ghost--dark')
+  +otherYear(site.nextConference(), 'c-Banner--next')
+    +highlightButtons([{text:'Event Details', href:site.nextConference().url(), attr:{itemprop:'url'}}], 'c-Btn--ghost c-Btn--ghost--dark')

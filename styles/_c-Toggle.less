@@ -28,8 +28,9 @@
 
 .c-Toggle__Check {
   // can’t use `display:none` due to keyboard selection
+  // using `.h-Hidden` styles
   position: absolute;
-  opacity: 0;
+  left: -999999px;
 }
 
 
@@ -60,7 +61,8 @@
 }
 
 .c-Toggle__Viz__Bar {
-  fill: @g-color_asce_white;
+  fill: @g-color-gray_lt-tint2; // HACK fallback
+  fill: var(--color-gray_lt-tint2);
   .transform-origin(center);
   .transitions(@g-prefix_transform, fill; @p-trans_dura);
   &:nth-child(1) {}
@@ -69,6 +71,7 @@
   .c-Toggle__Check:checked ~ .c-Toggle__Viz & {
     &:nth-child(1) {
       .transform(scale((24/18),12));
+      fill: @g-color-gray_dk; // HACK fallback
       fill: var(--color-gray_dk);
     }
     &:nth-child(2),

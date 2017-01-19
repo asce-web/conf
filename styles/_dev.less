@@ -5,8 +5,17 @@
 
 // DEV STYLESHEET. FOR FIXING IMPORTED PROJECTS.
 
-// TODO xmeter v5.2+
-.-fz-el-kilo {
-  .font-size-el(1.5);
+
+// TODO move into Bangs
+@media not all and (min-width: 45em) {
+  .-d-n-nsM {
+    display: none;
+  }
 }
-@g-font_size_mill: 12/16; // 0.75 // lines: 1
+// TODO remove on install xmeter@5.4.0+
+.h-Hidden {
+  &:not(:focus) {
+    position: absolute;
+  }
+  left: -999999px;
+}

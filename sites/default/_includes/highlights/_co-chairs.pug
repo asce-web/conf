@@ -1,0 +1,8 @@
+h1#conference-co-chairs Conference Co-Chairs
+div._text-block
+  include /_views/_person.view.pug
+  ul
+    li(itemprop="organizer" itemscope="" itemtype="http://schema.org/Person")
+      +personAffiliation(site.currentConference().getOrganizer('thomas-mccollough'))
+    li(itemprop="organizer" itemscope="" itemtype="http://schema.org/Person")
+      +personEntireName(site.currentConference().getOrganizer('stephen-dickenson'))

@@ -1,0 +1,9 @@
+mixin sitemap(pages)
+  +sitetoc({pages: pages, classes: {
+    listclasses: 'o-List o-Flex c-Sitemap'
+  , itemclasses: 'o-List__Item o-Flex__Item c-Sitemap__Item'
+  , sub: {
+      listclasses: 'o-List c-Sitemap__Sub'
+    , itemclasses: 'o-List__Item c-Sitemap__Sub__Item'
+    }
+  }, depth:Infinity, icons: false})

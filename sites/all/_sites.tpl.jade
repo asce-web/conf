@@ -1,78 +1,70 @@
 doctype html
 html(lang="en")
-  include /includes/_data.jade
+  include /_includes/__snippets.pug
   block vars
   head
     title= page.title()
     block metas
       meta(charset="utf-8")
       meta(name="description" content=page.description())
-      meta(name="keywords" content=site.keywords())
+      meta(name="keywords" content=site.keywords().join())
       meta(name="viewport" content="width=device-width, initial-scale=1")
       meta(http-equiv="X-UA-Compatible" content="IE=edge")
     block styles
       link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic")
       link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,400italic,700")
       link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
-      link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v5.0.0/xmeter.css")
-      link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.8.0/bangs.min.css")
+      link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/xmeter/v5.3.0/xmeter.css")
+      link(rel="stylesheet" href="https://cdn.rawgit.com/chharvey/bangs/v0.9.0/bangs.min.css")
       link(rel="stylesheet" href="/styles/conf.css")
       if site.name()
         //- if this site is an instance of the 'all' template
         link(rel="stylesheet" href="styles/site.css")
-      style.
-        .minimal-text {
-          border: 8px solid rgba(219, 255, 64, 0.64);
-        }
-        .minimal-text::before {
-          content: 'minimal text block (no headings inside)';
-          display: block;
-          margin-bottom: 1.5rem;
-          font-weight: 900;
-          text-transform: uppercase;
-          color: red;
-        }
-        .rich-text {
-          border: 8px solid rgba(255, 219, 64, 0.64);
-        }
-        .rich-text::before {
-          content: 'rich text block <div> with optional subheadings';
-          display: block;
-          margin-bottom: 1.5rem;
-          font-weight: 900;
-          text-transform: uppercase;
-          color: red;
-        }
-        .-h-z { height: 0 !important; }
   body(style=site.colors())
-    header.o-Runner.c-Mast: div.o-Constrain: div.o-Flex.-xai-c
-      div.o-Flex__Item(style="max-width:50%;")
-        include /_views/c-SiteTitle.view.jade
-        +siteTitle(site)
-      div.o-Flex__Item(style="max-width:50%;")
-        label.c-Toggle(title="toggle top menu")
-          input.c-Toggle__Check(type="checkbox" value="open top menu")
-          span.-d-n toggle top menu
-          svg.c-Toggle__Viz(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
-            path(d="M0,0 H24 V24 H0 z" fill="transparent")
-            g(transform="translate(3,11)")
-              each val in new Array(3)
-                rect.c-Toggle__Viz__Bar(width="18" height="2")
-          noscript: p Oops! Looks like you need to enable Javascript for the top menu.
-        nav.o-Drawer
-          h1.-d-n#top-menu Top Menu
-          include /_views/c-MenuTop.view.jade
-          +menuTop(site.find('#top-menu').findAll().slice(1)
-          , site.find('#main-menu').findAll().slice(0,1)
-          , site.currentConference().name()
-          )
-    if page.pagetype() === 'main'
-      header.o-Runner.c-Mast.c-Mast--main: nav.o-Constrain
+    a.h-Hidden(href="#main") skip to main content
+    header.o-Runner.c-Mast.c-Mast--head: div.o-Constrain
+      include /_views/_c-SiteTitle.view.pug
+      +siteTitle(site)
+    header.o-Runner.c-Mast.c-Mast--menu: div.o-Constrain
+      label.c-Toggle(aria-label="toggle main menu")
+        input.c-Toggle__Check(type="checkbox" value="open main menu")
+        svg.c-Toggle__Viz(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
+          path(d="M0,0 H24 V24 H0 z" fill="transparent")
+          g(transform="translate(3,11)")
+            each val in new Array(3)
+              rect.c-Toggle__Viz__Bar(width="18" height="2")
+        noscript: p Oops! Looks like you need to enable Javascript for the main menu.
+      nav.o-Drawer
         h1.-d-n#main-menu Main Menu
-        include /_views/c-MenuMain.view.jade
-        +menuMain(site.find('#main-menu').findAll())
-    main
-      article&attributes((page.pagetype()==='main') ? {itemscope:'', itemtype:'http://schema.org/Event'} : {})
+        mixin mainMenu(arg)
+          //- NOTE parameter validation
+          -
+            arg.pages   = arg.pages   || []
+            arg.classes = arg.classes || {}
+            arg.depth   = +arg.depth  || 0
+          ul(class=arg.classes.listclasses)
+            each $confPage in arg.pages
+              li(class=arg.classes.itemclasses)
+                a(class=arg.classes.linkclasses href=$confPage.url())
+                  if $confPage.getIcon()
+                    i.material-icons.c-MenuMobile__Icon.-d-n-sM(aria-hidden="true")= $confPage.getIcon()
+                  span= $confPage.name()
+                  if $confPage.findAll().length && arg.depth > 0
+                    i.material-icons.c-MenuBar__Icon.-d-n-nsM(aria-hidden="true") expand_more
+                if $confPage.findAll().length && arg.depth > 0
+                  +sitetoc({pages: $confPage.findAll(), classes: arg.classes.sub, depth: arg.depth-1})
+        +mainMenu({ pages: site.findAll().slice(0, -1), classes: {
+          listclasses: 'o-List o-Flex c-MenuMobile-nsM c-MenuBar-sM'
+        , itemclasses: 'o-List__Item o-Flex__Item c-MenuMobile__Item-nsM c-MenuBar__Item-sM'
+        , linkclasses: 'c-MenuMobile__Link-nsM c-MenuBar__Link-sM h-Block'
+        , sub: {
+            listclasses: 'o-List c-MenuMobile__Sub-nsM c-MenuBar__Sub-sM'
+          , itemclasses: 'o-List__Item c-MenuMobile__Sub__Item-nsM c-MenuBar__Sub__Item-sM'
+          , linkclasses: 'c-MenuMobile__Link-nsM c-MenuMobile_Sub_Link-nsM c-MenuBar__Link-sM c-MenuBar__Sub__Link-sM h-Block'
+          }
+        }, depth: 1 })
+    main#main
+      article(itemscope="" itemtype="http://schema.org/Event")
         block mainHeader
           header.o-Runner.o-Runner--pageHeader: div.o-Constrain
             h1.c-PageTitle= page.name()
@@ -89,15 +81,17 @@ html(lang="en")
               #[a(href="http://go.asce.org/static/sponsors/") sponsors carousel]
               by rank)
             +highlightButtons([{text:'All Sponsors', href:'sponsor.html'}])
-    footer.o-Runner.c-Mast(class='c-Mast--'+page.pagetype()): nav.o-Constrain
+        block additionalSupporters
+          +highlight('c-Banner c-Banner--orgs')
+            h1#additional-supporters.-d-n Additional Supporters
+            include /_views/_c-SupporterBlock.view.pug
+            each $supporterLevel,index in site.getSupporterLevelList('Orgs')
+              +supporterBlock($supporterLevel, site, { 'c-SupporterBlock--separate': index < site.getSupporterLevelList('Orgs').length-1 })
+    footer.o-Runner.c-Mast.c-Mast--sitemap: nav.o-Constrain
       h1.-d-n#site-map Site Map
-      include /_views/c-Sitemap.view.jade
-      //- if page.pagetype() === 'top'
-      //-   +sitemap(site.find('#top-menu').findAll())
-      //- else if page.pagetype() === 'main'
-      //-   +sitemap(site.find('#main-menu').findAll())
-      +sitemap(site.find('#' + page.pagetype() + '-menu').findAll())
-    footer.o-Runner.c-Mast.c-Mast--copyright: div.o-Constrain
+      include /_views/_c-Sitemap.view.pug
+      +sitemap(site.findAll().slice(1))
+    footer.o-Runner.c-Mast.c-Mast--foot: div.o-Constrain
       h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
         p.c-ASCELogo(itemprop="name"): a(href="http://www.asce.org" itemprop="url").
@@ -119,20 +113,24 @@ html(lang="en")
           meta(content="+1-703-295-6300" itemprop="telephone")
           meta(content="United States of America" itemprop="areaServed")
           meta(content="customer support" itemprop="contactType")
-        ul.o-List.o-Flex.c-SocialList
-          li.o-List__Item.o-Flex__Item.c-SocialList__Item
-            a.c-SocialList__Link.c-SocialList__Link--twitter.h-Block(href="//twitter.com/ASCE" itemprop="sameAs" title="Follow ASCE on Twitter")
-          li.o-List__Item.o-Flex__Item.c-SocialList__Item
-            a.c-SocialList__Link.c-SocialList__Link--google.h-Block(href="//plus.google.com/ASCE" itemprop="sameAs" title="Follow ASCE on Google+")
-          li.o-List__Item.o-Flex__Item.c-SocialList__Item
-            a.c-SocialList__Link.c-SocialList__Link--facebook.h-Block(href="//facebook.com/ASCE" itemprop="sameAs" title="Follow ASCE on Facebook")
-          li.o-List__Item.o-Flex__Item.c-SocialList__Item
-            a.c-SocialList__Link.c-SocialList__Link--linkedin.h-Block(href="//linkedin.com/ASCE" itemprop="sameAs" title="Follow ASCE on LinkedIn")
-          li.o-List__Item.o-Flex__Item.c-SocialList__Item
-            a.c-SocialList__Link.c-SocialList__Link--youtube.h-Block(href="//youtube.com/ASCE" itemprop="sameAs" title="Follow ASCE on YouTube")
+        include /_views/_c-SocialList.view.pug
+        +socialList({
+          twitter : { url: '//twitter.com/ASCE'    , text: 'Follow ASCE on Twitter' }
+        , google  : { url: '//plus.google.com/ASCE', text: 'Follow ASCE on Google+' }
+        , facebook: { url: '//facebook.com/ASCE'   , text: 'Like ASCE on Facebook' }
+        , linkedin: { url: '//linkedin.com/ASCE'   , text: 'Connect with ASCE on LinkedIn' }
+        , youtube : { url: '//youtube.com/ASCE'    , text: 'Watch ASCE on YouTube' }
+        }, { classes: 'c-SocialList--footer', has_microdata: true })
         p: small
           | &copy; #[time 1996]&ndash;#[time 2016],#{' '}
           span(itemprop="name") American Society of Civil Engineers
+    a.c-Btn(href="#top" title="go to top" aria-label="go to top" style={
+      'position': 'fixed'
+    , 'bottom'  : '1.5rem'
+    , 'right'   : '2rem'
+    , 'z-index' : 1
+    , 'color'   : '#000'
+    }): i.material-icons(aria-hidden="true") arrow_upward
     block scripts
       script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
       script(src="/scripts/c-Program.js")

@@ -4,34 +4,46 @@ block append vars
   - var page = ConfDocs.DOCS.find('comp.html')
 
 block append main
-  include includes/_c-Mast.docs.jade
-  include includes/_c-SiteTitle.docs.jade
-  include includes/_c-MenuTop.docs.jade
-  include includes/_c-MenuMain.docs.jade
-  include includes/_c-MenuSub.docs.jade
-  include includes/_c-Sitemap.docs.jade
-  include includes/_c-PageTitle.docs.jade
-  include includes/_c-Banner.docs.jade
-  include includes/_c-Hero.docs.jade
-  include includes/_c-OtherYear.docs.jade
-  include includes/_c-Overlay.docs.jade
-  include includes/_c-SponsorLogo.docs.jade
-  include includes/_c-SponsorBlock.docs.jade
-  include includes/_c-DateBlock.docs.jade
-  include includes/_c-Pass.docs.jade
-  include includes/_c-Program.docs.jade
-  include includes/_c-TimeBlock.docs.jade
-  include includes/_c-Speaker.docs.jade
-  include includes/_c-SocialList.docs.jade
-  include includes/_c-Callout.docs.jade
-  include includes/_c-Btn.docs.jade
-  include includes/_c-Toggle.docs.jade
-  include includes/_c-Camo.docs.jade
-  section
-    h2 Non-CSS Component Displays
-    section
-      h3 Place
-      include includes/_place.docs.jade
+  +newSection(2, ConfDocs.DOCS.find('comp.html#mast-component'))
+    include _includes/_comp.mast-component.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#banner-component'))
+    include _includes/_comp.banner-component.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#site-title'))
+    include _includes/_comp.site-title.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#mobile-menu'))
+    include _includes/_comp.mobile-menu.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#menu-bar'))
+    include _includes/_comp.menu-bar.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#sitemap-component'))
+    include _includes/_comp.sitemap-component.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#page-title'))
+    include _includes/_comp.page-title.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#conference-header'))
+    include _includes/_comp.conference-header.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#supporter-block'))
+    include _includes/_comp.supporter-block.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#date-block'))
+    include _includes/_comp.date-block.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#pass-component'))
+    include _includes/_comp.pass-component.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#program-component'))
+    include _includes/_comp.program-component.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#time-block'))
+    include _includes/_comp.time-block.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#speaker-component'))
+    include _includes/_comp.speaker-component.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#social-list'))
+    include _includes/_comp.social-list.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#callout-component'))
+    include _includes/_comp.callout-component.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#buttons'))
+    include _includes/_comp.buttons.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#toggle-button'))
+    include _includes/_comp.toggle-button.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#camo-link'))
+    include _includes/_comp.camo-link.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#caps-link'))
+    include _includes/_comp.caps-link.pug
 
 block append scripts
   script(src="/scripts/c-Program.js")

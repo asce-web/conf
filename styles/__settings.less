@@ -11,9 +11,6 @@
 @g-prefix_transform: -webkit-transform, -moz-transform, -ms-transform, -o-transform, transform;
 @g-prefix_filter: -webkit-filter, -moz-filter, -ms-filter, -o-filter, filter;
 
-@g-bp_menu_main_smalltext: 375px;
-@g-bp_menu_main_normaltext: 487px;
-
 // Google’s Natural Easing Curves
 // <https://www.google.com/design/spec/motion/duration-easing.html#duration-easing-natural-easing-curves>
 @google-standard: cubic-bezier(0.4,  0,  0.2,  1); // css keyword `ease        == cubic-bezier(0.25,  0.1,  0.25,  1)`
@@ -60,23 +57,23 @@
 @g-boxpadd_tera_v: (@g-vru*3.00); // 4.5000rem // 72px
 @g-boxpadd_peta_v: (@g-vru*4.00); // 6.0000rem // 96px
 
-@g-boxpadd_micr: @g-boxpadd_micr_v @g-boxpadd_micr_h; //  3px   4px
-@g-boxpadd_mill: @g-boxpadd_mill_v @g-boxpadd_mill_h; //  6px   8px
-@g-boxpadd_norm: @g-boxpadd_norm_v @g-boxpadd_norm_h; // 12px  16px
-@g-boxpadd_kilo: @g-boxpadd_kilo_v @g-boxpadd_kilo_h; // 24px  32px
-@g-boxpadd_mega: @g-boxpadd_mega_v @g-boxpadd_mega_h; // 36px  48px
-@g-boxpadd_giga: @g-boxpadd_giga_v @g-boxpadd_giga_h; // 48px  64px
-@g-boxpadd_tera: @g-boxpadd_tera_v @g-boxpadd_tera_h; // 72px  96px
-@g-boxpadd_peta: @g-boxpadd_peta_v @g-boxpadd_peta_h; // 96px 128px
+@g-boxpadd_micr: @g-boxpadd_micr_v @g-boxpadd_micr_h; // 0.1875rem 0.25rem //  3px   4px
+@g-boxpadd_mill: @g-boxpadd_mill_v @g-boxpadd_mill_h; // 0.3750rem 0.50rem //  6px   8px
+@g-boxpadd_norm: @g-boxpadd_norm_v @g-boxpadd_norm_h; // 0.7500rem 1.00rem // 12px  16px
+@g-boxpadd_kilo: @g-boxpadd_kilo_v @g-boxpadd_kilo_h; // 1.5000rem 2.00rem // 24px  32px
+@g-boxpadd_mega: @g-boxpadd_mega_v @g-boxpadd_mega_h; // 2.2500rem 3.00rem // 36px  48px
+@g-boxpadd_giga: @g-boxpadd_giga_v @g-boxpadd_giga_h; // 3.0000rem 4.00rem // 48px  64px
+@g-boxpadd_tera: @g-boxpadd_tera_v @g-boxpadd_tera_h; // 4.5000rem 6.00rem // 72px  96px
+@g-boxpadd_peta: @g-boxpadd_peta_v @g-boxpadd_peta_h; // 6.0000rem 8.00rem // 96px 128px
 //++++ end # BOX PADDING ++++ //
 
 
 //++++++++++++++++++++++++++++++++//
 //    # ASCE COMPANY COLORS
 //++++++++++++++++++++++++++++++++//
-@g-color_asce_blue: #0c5fa8;
-@g-color_asce_black: #222;
-@g-color_asce_white: #fff;
+// @g-color_asce_blue: #0c5fa8;
+// @g-color_asce_black: #222;
+// @g-color_asce_white: #fff;
 
 // ASCE table colors
 @g-color_asce_table_border:  #e8e8e8;
@@ -88,9 +85,11 @@
 
 
 //++++++++++++++++++++++++++++++++//
-//    # CONFERENCE SITE-SPECIFIC COLORS
+//    # DEFAULT CONFERENCE COLORS
 //++++++++++++++++++++++++++++++++//
-//++++ end # CONFERENCE SITE-SPECIFIC COLORS ++++//
+@import (reference) url('__tool.site-colors.less');
+.site-colors(#660000; #ff6600);
+//++++ end # DEFAULT CONFERENCE COLORS ++++//
 
 
 //++++++++++++++++++++++++++++++++//

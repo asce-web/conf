@@ -6,6 +6,7 @@
 @import (reference) url('../node_modules/xmeter/src/__fallback.transform.less');
 @import (reference) url('../node_modules/xmeter/src/__fallback.transition.less');
 @import (reference) url('../node_modules/xmeter/src/__tool.fontsize.less');
+@import (reference) url('__settings.less');
 
 
 // A block containing the entire program.
@@ -27,10 +28,6 @@
   .font-size-mod(14/16); // NOTE this value is used in `TimeBlock.less`
   overflow: hidden;
   .transition(height @p-transdura);
-  h1 {
-    font-family: inherit;
-    color: inherit;
-  }
 }
 
 .c-Program__Hn,
@@ -38,10 +35,21 @@
   .transitions(@g-prefix_transform; @p-transdura);
 }
 .c-Program__Hn {
+  font-family: inherit; // override h1
   .font-size-el(1);
-  cursor: pointer;
+  color: @g-color-gray_dk-shade2; // HACK fallback
+  color: var(--color-gray_dk-shade2);
   &:not(.c-Program__Hn--selected) {
-    color: var(--color-gray_lt);
+    color: @g-color-gray_dk-tint2; // HACK fallback
+    color: var(--color-gray_dk-tint2);
+  }
+  .c-Banner & {
+    color: @g-color-gray_lt-tint2; // HACK fallback
+    color: var(--color-gray_lt-tint2);
+    &:not(.c-Program__Hn--selected) {
+      color: @g-color-gray_lt-shade2; // HACK fallback
+      color: var(--color-gray_lt-shade2);
+    }
   }
   @media screen and (min-width: 30em) {
     .flex(1);
@@ -49,15 +57,12 @@
   @media screen and (min-width: 45em) {
     .font-size-el(1.25);
   }
-  label {
-    cursor: inherit; // override browser default `default`
-  }
 }
 .c-Program__Hn--selected {
   .transform(scale(1.2));
 }
 
-// A schedule for events in a date.
+// A schedule for sessions in a date.
 //
 // ^subclasses
 // --js           - use when JS is enabled (for animation)

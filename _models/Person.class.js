@@ -169,6 +169,7 @@ module.exports = (function () {
   /**
    * Set a short, html-friendly biography (“bio”) for this person.
    * @param {string} html html-friendly content
+   * @return {Person} this person
    */
   Person.prototype.setBio = function setBio(html) {
     this._bio = html

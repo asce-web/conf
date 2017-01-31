@@ -2,3 +2,12 @@ extends _sites.tpl.jade
 
 block append vars
   - var page = site.find('exhibit.html')
+
+block mainReference
+  section.o-Runner.o-Runner--highlight.c-Banner: div.o-Constrain
+    h1#thank-you-exhibitors Thank You to Our Exhibitors
+    ul
+      each $exhibitor in site.getExhibitorsAll()
+        li
+          a(href=$exhibitor.url() class={'-fw-b':$exhibitor.isSponsor()})= $exhibitor.name() + ` (booth ${$exhibitor.booth()})`
+          img(src=$exhibitor.img() alt=`${$exhibitor.name()} logo`)

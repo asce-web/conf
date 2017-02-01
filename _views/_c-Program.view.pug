@@ -9,7 +9,7 @@ mixin program(n, $attrs)
     block
     each val,index in new Array(n)
       h1.o-Grid__Item.c-Program__Hn: label
-        input.c-Program__Check(type="radio" name='program-'+$attrs.id value=index)&attributes((index===0) ? {checked:''} : {})
+        input.c-Program__Check(type="radio" name=`program-${$attrs.id}` value=index)&attributes((index===0) ? {checked:''} : {})
         +heading(index)
       div.o-Grid__Item.c-Program__Schedule
         +content(index)

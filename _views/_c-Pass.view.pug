@@ -7,7 +7,7 @@ mixin pass($pass, $conference)
         each $attendeeType in $pass.getAttendeeTypesAll()
           - var price = 0;
           dt.c-Pass__Attendee= $attendeeType.name()
-          dd.c-Pass__Price(class=(is_body && $attendeeType.isFeatured()) ? 'c-Pass__Price--featured' : '')
+          dd.c-Pass__Price(class={'c-Pass__Price--featured': is_body && $attendeeType.isFeatured()})
             = price.toLocaleString('en', { style: 'currency', currency: 'USD' })
     header.c-Pass__Head
       h1.c-Pass__Hn= $pass.name()

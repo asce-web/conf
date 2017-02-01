@@ -172,7 +172,7 @@ module.exports = (function () {
     var hour = '' + ((date.getHours() - 1)%12 + 1)
     var minute = ((date.getMinutes() < 10) ? '0' : '') + date.getMinutes()
     var meridiem = (date.getHours() < 12) ? 'am' : 'pm'
-    return hour + ((minute !== '00') ? ':' + minute : '') + meridiem
+    return hour + ((minute !== '00') ? `:${minute}` : '') + meridiem
   }
 
   /**

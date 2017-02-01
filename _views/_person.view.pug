@@ -24,7 +24,7 @@ mixin personAffiliation($person)
       span(itemprop="name")= $person.affiliation()
 
 mixin personContact($person)
-  a(href='mailto:'+$person.email() itemprop="email")
+  a(href=`mailto:${$person.email()}` itemprop="email")
     +personFullName($person)
   if $person.jobTitle()
     = ', '

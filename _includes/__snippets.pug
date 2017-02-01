@@ -26,7 +26,7 @@ mixin sitetoc(arg)
         li(class=arg.classes.itemclasses)
           a(class=arg.classes.linkclasses href=$confPage.url())
             if arg.icons && $confPage.getIcon()
-              i.material-icons(aria-hidden="true")= $confPage.getIcon()
+              i.material-icons(role="none")= $confPage.getIcon()
             span= $confPage.name()
           if $confPage.findAll().length && arg.depth > 0
             +sitetoc({pages: $confPage.findAll(), classes: arg.classes.sub, depth: arg.depth-1, icons: false})

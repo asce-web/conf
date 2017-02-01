@@ -47,10 +47,10 @@ html(lang="en")
               li(class=arg.classes.itemclasses)
                 a(class=arg.classes.linkclasses href=$confPage.url())
                   if $confPage.getIcon()
-                    i.material-icons.c-MenuMobile__Icon.-d-n-sM(aria-hidden="true")= $confPage.getIcon()
+                    i.material-icons.c-MenuMobile__Icon.-d-n-sM(role="none")= $confPage.getIcon()
                   span= $confPage.name()
                   if $confPage.findAll().length && arg.depth > 0
-                    i.material-icons.c-MenuBar__Icon.-d-n-nsM(aria-hidden="true") expand_more
+                    i.material-icons.c-MenuBar__Icon.-d-n-nsM(role="none") expand_more
                 if $confPage.findAll().length && arg.depth > 0
                   +sitetoc({pages: $confPage.findAll(), classes: arg.classes.sub, depth: arg.depth-1})
         +mainMenu({ pages: site.findAll().slice(0, -1), classes: {
@@ -130,7 +130,7 @@ html(lang="en")
     , 'right'   : '2rem'
     , 'z-index' : 1
     , 'color'   : '#000'
-    }): i.material-icons(aria-hidden="true") arrow_upward
+    }): i.material-icons(role="none") arrow_upward
     block scripts
       script(src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous")
       script(src="/scripts/c-Program.js")

@@ -14,7 +14,7 @@ block mainReference
     ul.o-List.o-ListAction.c-Callout._regLegend
       each $registrationPeriod in site.currentConference().getRegistrationPeriodsAll()
         li.o-List__Item.o-ListAction__Item.c-Callout__Item
-          i.material-icons(aria-hidden="true")= $registrationPeriod.getIcon()
+          i.material-icons(role="none")= $registrationPeriod.getIcon()
           small
             -
               var start = $registrationPeriod.startDate()

@@ -8,10 +8,11 @@ mixin mainMenu(arg)
   -
     var pages   = arg.pages   || []
     var classes = arg.classes || {}
+    var icons   = arg.icons   || {}
   +sitetoc({
     pages: pages
   , depth: 1
-  , icons: true
+  , icons: icons
   , classes: {
       listclasses: 'o-Flex ' + classes.listclasses
     , itemclasses: 'o-Flex__Item ' + classes.itemclasses

@@ -33,7 +33,8 @@ figure.docs-figure
         h1.h-Hidden#main-menu Main Menu
         include /_views/_main-menu.view.pug
         +mainMenu({
-          pages: [
+          icons: { page: true, sub: true }
+        , pages: [
             new ConfPage('Home', '#0').setIcon('insert_drive_file')
           , new ConfPage('Registration', '#0').setIcon('insert_drive_file')
               .add(new ConfPage('Why Attend', '#0'))
@@ -83,8 +84,9 @@ figure.docs-figure
           &lt;ul class="o-List  o-Flex  c-MenuMobile-nsM  c-MenuBar-sM"&gt;
             &lt;li class="o-List__Item  o-Flex__Item  c-MenuMobile__Item-nsM  c-MenuBar__Item-sM"&gt;
               &lt;a class="c-MenuMobile__Link-nsM  c-MenuBar__Link-sM  h-Block"&gt;
-                &lt;i class="material-icons"#[mark  role="none"]&gt;...&lt;/i&gt;
+                &lt;i class="material-icons  c-MenuMobile__Icon  -d-n-sM"#[mark  role="none"]&gt;#[var.docs-var page_icon]&lt;/i&gt;
                 &lt;span&gt;Registration&lt;/span&gt;
+                &lt;i class="material-icons  c-MenuBar__Icon  -d-n-nsM"#[mark  role="none"]&gt;expand_more&lt;/i&gt;
               &lt;/a&gt;
               &lt;ul class="o-List  c-MenuBar__Sub-sM"&gt;
                 &lt;li class="o-List__Item  c-MenuBar__Sub__Item-sM"&gt;

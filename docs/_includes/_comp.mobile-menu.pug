@@ -1,19 +1,27 @@
 figure.docs-figure
   include /_views/_main-menu.view.pug
-  +mainMenu({pages: [
-    new ConfPage('Home', '#0').setIcon('insert_drive_file')
-  , new ConfPage('Registration', '#0').setIcon('insert_drive_file')
-      .add(new ConfPage('Why Attend', '#0'))
-  , new ConfPage('Program', '#0').setIcon('insert_drive_file')
-      .add(new ConfPage('Short Courses', '#0'))
-      .add(new ConfPage('Technical Tours', '#0'))
-  , new ConfPage('Location', '#0').setIcon('insert_drive_file')
-  , new ConfPage('Speakers', '#0').setIcon('insert_drive_file')
-  ], classes: {
-    listclasses: 'o-List o-Flex c-MenuMobile'
-  , itemclasses: 'o-List__Item o-Flex__Item c-MenuMobile__Item'
-  , linkclasses: 'c-MenuMobile__Link h-Block'
-  }, depth: 0, icons: true})
+  +mainMenu({
+    pages: [
+      new ConfPage('Home', '#0').setIcon('insert_drive_file')
+    , new ConfPage('Registration', '#0').setIcon('insert_drive_file')
+        .add(new ConfPage('Why Attend', '#0'))
+    , new ConfPage('Program', '#0').setIcon('insert_drive_file')
+        .add(new ConfPage('Short Courses', '#0'))
+        .add(new ConfPage('Technical Tours', '#0'))
+    , new ConfPage('Location', '#0').setIcon('insert_drive_file')
+    , new ConfPage('Speakers', '#0').setIcon('insert_drive_file')
+    ]
+  , classes: {
+      listclasses: 'c-MenuMobile'
+    , itemclasses: 'c-MenuMobile__Item'
+    , linkclasses: 'c-MenuMobile__Link h-Block'
+    , sub: {
+        listclasses: 'c-MenuMobile__Sub'
+      , itemclasses: 'c-MenuMobile__Sub__Item'
+      , linkclasses: 'c-MenuMobile__Link c-MenuMobile_Sub_Link h-Block'
+      }
+    }
+  })
   ul.o-List.o-Flex.c-MenuMobile(style="margin-bottom: 1.5rem;")
     li.o-List__Item.o-Flex__Item.c-MenuMobile__Item._hover
       a.c-MenuMobile__Link.h-Block(href="#0")._hover menu item hover

@@ -7,28 +7,28 @@
 //- ///////////////////////////////////////////////////////////////////////////////
 
 
-mixin sitetoc(arg)
+mixin sitetoc(args, inner)
   //- WHERE +sitetoc() is used:
   //- - _main-menu.view.pug, nested inside of +mainMenu()
   //- - _c-Sitemap.view.pug
   //- NOTE parameter validation
   -
-    arg.pages   = arg.pages   || []
-    arg.classes = arg.classes || {}
-    arg.depth   = +arg.depth  || 0
-    arg.icons   = arg.icons   || {}
-  ul.o-List(class=arg.classes.listclasses)
-    each $confPage in arg.pages
+    var pages   = args.pages   || []
+    var classes = args.classes || {}
+    var depth   = +args.depth  || 0
+    var icons   = args.icons   || {}
+  ul.o-List(class=classes.listclasses)&attributes(inner ? {} : { role: 'directory' })
+    each $confPage in pages
       unless $confPage.isHidden()
-        li.o-List__Item(class=arg.classes.itemclasses)
-          a(class=arg.classes.linkclasses href=$confPage.url())
-            if arg.icons && arg.icons.page && $confPage.getIcon()
+        li.o-List__Item(class=classes.itemclasses)
+          a(class=classes.linkclasses href=$confPage.url())
+            if icons && icons.page && $confPage.getIcon()
               i.material-icons.c-MenuMobile__Icon.-d-n-sM(role="none")= $confPage.getIcon()
             span= $confPage.name()
-            if arg.icons && arg.icons.sub && $confPage.findAll().length && arg.depth > 0
+            if icons && icons.sub && $confPage.findAll().length && depth > 0
               i.material-icons.c-MenuBar__Icon.-d-n-nsM(role="none") expand_more
-          if $confPage.findAll().length && arg.depth > 0
-            +sitetoc({pages: $confPage.findAll(), classes: arg.classes.sub, depth: arg.depth-1, icons: false})
+          if $confPage.findAll().length && depth > 0
+            +sitetoc({pages: $confPage.findAll(), classes: (classes.sub || {}), depth: depth-1, icons: false}, true)
 
 //- mixin promotedLocation(promoloc)
   - promoloc = promoloc || {} // NOTE parameter validation

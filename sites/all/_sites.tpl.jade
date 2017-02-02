@@ -35,7 +35,7 @@ html(lang="en")
               rect.c-Toggle__Viz__Bar(width="18" height="2")
         noscript: p Oops! Looks like you need to enable Javascript for the main menu.
       nav.o-Drawer
-        h1.-d-n#main-menu Main Menu
+        h1.h-Hidden#main-menu Main Menu
         include /_views/_main-menu.view.pug
         +mainMenu({ pages: site.findAll().slice(0, -1), classes: {
           listclasses: 'o-List o-Flex c-MenuMobile-nsM c-MenuBar-sM'
@@ -67,16 +67,16 @@ html(lang="en")
             +highlightButtons([{text:'All Sponsors', href:'sponsor.html'}])
         block additionalSupporters
           +highlight('c-Banner c-Banner--orgs')
-            h1#additional-supporters.-d-n Additional Supporters
+            h1#additional-supporters.h-Hidden Additional Supporters
             include /_views/_c-SupporterBlock.view.pug
             each $supporterLevel,index in site.getSupporterLevelList('Orgs')
               +supporterBlock($supporterLevel, site, { 'c-SupporterBlock--separate': index < site.getSupporterLevelList('Orgs').length-1 })
     footer.o-Runner.c-Mast.c-Mast--sitemap: nav.o-Constrain
-      h1.-d-n#site-map Site Map
+      h1.h-Hidden#site-map Site Map
       include /_views/_c-Sitemap.view.pug
       +sitemap(site.findAll().slice(1))
     footer.o-Runner.c-Mast.c-Mast--foot: div.o-Constrain
-      h1.-d-n#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
+      h1.h-Hidden#connect-with-asce Connect With #[abbr(title="American Society of Civil Engineers") ASCE]
       address(itemscope="" itemtype="http://schema.org/NGO")
         p.c-ASCELogo(itemprop="name"): a(href="http://www.asce.org" itemprop="url").
           American Society of Civil Engineers

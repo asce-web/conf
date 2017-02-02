@@ -1,5 +1,6 @@
 figure.docs-figure
-  +sitetoc({pages: [
+  include /_views/_main-menu.view.pug
+  +mainMenu({pages: [
     new ConfPage('Home', '#0').setIcon('insert_drive_file')
   , new ConfPage('Registration', '#0').setIcon('insert_drive_file')
       .add(new ConfPage('Why Attend', '#0'))
@@ -24,7 +25,7 @@ figure.docs-figure
     &lt;ul class="o-List  o-Flex  #[u c-MenuMobile]"&gt;
       &lt;li class="o-List__Item  o-Flex__Item  #[u c-MenuMobile__Item]"&gt;
         &lt;a class="#[u c-MenuMobile__Link]  h-Block"&gt;
-          &lt;i class="material-icons" #[mark aria-hidden="true"]&gt;...&lt;/i&gt;
+          &lt;i class="material-icons"#[mark  role="none"]&gt;...&lt;/i&gt;
           &lt;span&gt;Registration&lt;/span&gt;
         &lt;/a&gt;
       &lt;/li&gt;

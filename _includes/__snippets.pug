@@ -9,11 +9,8 @@
 
 mixin sitetoc(arg)
   //- WHERE +sitetoc() is used:
-  //- - _sites.tpl.jade, inside of +mainMenu()
+  //- - _main-menu.view.pug, nested inside of +mainMenu()
   //- - _c-Sitemap.view.pug
-  //- - _comp.mobile-menu.pug
-  //- - _comp.menu-bar.pug
-  //- - _temp.site-header.pug (use +mainMenu() instead)
   //- NOTE parameter validation
   -
     arg.pages   = arg.pages   || []
@@ -26,7 +23,7 @@ mixin sitetoc(arg)
         li(class=arg.classes.itemclasses)
           a(class=arg.classes.linkclasses href=$confPage.url())
             if arg.icons && $confPage.getIcon()
-              i.material-icons(aria-hidden="true")= $confPage.getIcon()
+              i.material-icons(role="none")= $confPage.getIcon()
             span= $confPage.name()
           if $confPage.findAll().length && arg.depth > 0
             +sitetoc({pages: $confPage.findAll(), classes: arg.classes.sub, depth: arg.depth-1, icons: false})
@@ -48,6 +45,7 @@ mixin highlightButtons(links, more_classes)
 mixin highlight(classes)
   aside.o-Runner.o-Runner--highlight(class=classes)
     div.o-Constrain
+      //- NOTE: the topmost-level heading insde this `block` shall have the frag id for the aside
       block
 
 mixin passList(conference, starred)

@@ -55,7 +55,7 @@ html(lang="en")
       p= ConfDocs.DOCS.description()
       p: a(href="/index.html") Return to Landing Page
       nav#sitemap
-        h1.-d-n Sitemap
+        h1.h-Hidden Sitemap
         +doctoc({pages: ConfDocs.DOCS.findAll()})
     main.docs-main#main
       block main

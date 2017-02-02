@@ -45,6 +45,7 @@ mixin highlightButtons(links, more_classes)
 mixin highlight(classes)
   aside.o-Runner.o-Runner--highlight(class=classes)
     div.o-Constrain
+      //- NOTE: the topmost-level heading insde this `block` shall have the frag id for the aside
       block
 
 mixin passList(conference, starred)

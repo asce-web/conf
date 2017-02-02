@@ -1,0 +1,22 @@
+mixin mainMenu(args)
+  //- WHERE +mainMenu() is used:
+  //- - _sites.tpl.jade
+  //- - _comp.mobile-menu.pug
+  //- - _comp.menu-bar.pug
+  //- - _temp.site-header.pug
+  //- NOTE parameter validation
+  -
+    var pages   = args.pages   || []
+    var classes = args.classes || {}
+    var icons   = args.icons   || {}
+  +sitetoc({
+    pages: pages
+  , depth: 1
+  , icons: icons
+  , classes: {
+      listclasses: 'o-Flex ' + classes.listclasses
+    , itemclasses: 'o-Flex__Item ' + classes.itemclasses
+    , linkclasses: classes.linkclasses
+    , sub: classes.sub
+    }
+  })

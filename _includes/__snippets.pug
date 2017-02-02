@@ -17,10 +17,10 @@ mixin sitetoc(arg)
     arg.classes = arg.classes || {}
     arg.depth   = +arg.depth  || 0
     arg.icons   = !!arg.icons
-  ul(class=arg.classes.listclasses)
+  ul.o-List(class=arg.classes.listclasses)
     each $confPage in arg.pages
       unless $confPage.isHidden()
-        li(class=arg.classes.itemclasses)
+        li.o-List__Item(class=arg.classes.itemclasses)
           a(class=arg.classes.linkclasses href=$confPage.url())
             if arg.icons && $confPage.getIcon()
               i.material-icons.c-MenuMobile__Icon.-d-n-sM(role="none")= $confPage.getIcon()

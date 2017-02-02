@@ -13,13 +13,9 @@ mixin mainMenu(arg)
   , depth: 1
   , icons: true
   , classes: {
-      listclasses: 'o-List o-Flex ' + classes.listclasses
-    , itemclasses: 'o-List__Item o-Flex__Item ' + classes.itemclasses
+      listclasses: 'o-Flex ' + classes.listclasses
+    , itemclasses: 'o-Flex__Item ' + classes.itemclasses
     , linkclasses: classes.linkclasses
-    , sub: {
-        listclasses: 'o-List ' + classes.sub.listclasses
-      , itemclasses: 'o-List__Item ' + classes.sub.itemclasses
-      , linkclasses: classes.sub.linkclasses
-      }
+    , sub: classes.sub
     }
   })

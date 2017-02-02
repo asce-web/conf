@@ -6,17 +6,17 @@ mixin mainMenu(arg)
   //- - _temp.site-header.pug
   //- NOTE parameter validation
   -
-    arg.pages   = arg.pages   || []
-    arg.classes = arg.classes || {}
-    arg.depth   = +arg.depth  || 0
-  ul(class=arg.classes.listclasses)
-    each $confPage in arg.pages
-      li(class=arg.classes.itemclasses)
-        a(class=arg.classes.linkclasses href=$confPage.url())
-          if $confPage.getIcon()
-            i.material-icons.c-MenuMobile__Icon.-d-n-sM(role="none")= $confPage.getIcon()
-          span= $confPage.name()
-          if $confPage.findAll().length && arg.depth > 0
-            i.material-icons.c-MenuBar__Icon.-d-n-nsM(role="none") expand_more
-        if $confPage.findAll().length && arg.depth > 0
-          +sitetoc({pages: $confPage.findAll(), classes: arg.classes.sub, depth: arg.depth-1})
+    var pages   = arg.pages   || []
+    var classes = arg.classes || {}
+    var icons   = arg.icons   || {}
+  +sitetoc({
+    pages: pages
+  , depth: 1
+  , icons: icons
+  , classes: {
+      listclasses: 'o-Flex ' + classes.listclasses
+    , itemclasses: 'o-Flex__Item ' + classes.itemclasses
+    , linkclasses: classes.linkclasses
+    , sub: classes.sub
+    }
+  })

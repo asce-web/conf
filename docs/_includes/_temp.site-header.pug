@@ -32,25 +32,29 @@ figure.docs-figure
       nav.o-Drawer
         h1.h-Hidden#main-menu Main Menu
         include /_views/_main-menu.view.pug
-        +mainMenu({pages: [
-          new ConfPage('Home', '#0').setIcon('insert_drive_file')
-        , new ConfPage('Registration', '#0').setIcon('insert_drive_file')
-            .add(new ConfPage('Why Attend', '#0'))
-        , new ConfPage('Program', '#0').setIcon('insert_drive_file')
-            .add(new ConfPage('Short Courses', '#0'))
-            .add(new ConfPage('Technical Tours', '#0'))
-        , new ConfPage('Location', '#0').setIcon('insert_drive_file')
-        , new ConfPage('Speakers', '#0').setIcon('insert_drive_file')
-        ], classes: {
-          listclasses: 'o-List o-Flex c-MenuMobile-nsM c-MenuBar-sM'
-        , itemclasses: 'o-List__Item o-Flex__Item c-MenuMobile__Item-nsM c-MenuBar__Item-sM'
-        , linkclasses: 'c-MenuMobile__Link-nsM c-MenuBar__Link-sM h-Block'
-        , sub: {
-            listclasses: 'o-List c-MenuMobile__Sub-nsM c-MenuBar__Sub-sM'
-          , itemclasses: 'o-List__Item c-MenuMobile__Sub__Item-nsM c-MenuBar__Sub__Item-sM'
-          , linkclasses: 'c-MenuMobile__Link-nsM c-MenuMobile_Sub_Link-nsM c-MenuBar__Link-sM c-MenuBar__Sub__Link-sM h-Block'
+        +mainMenu({
+          icons: { page: true, sub: true }
+        , pages: [
+            new ConfPage('Home', '#0').setIcon('insert_drive_file')
+          , new ConfPage('Registration', '#0').setIcon('insert_drive_file')
+              .add(new ConfPage('Why Attend', '#0'))
+          , new ConfPage('Program', '#0').setIcon('insert_drive_file')
+              .add(new ConfPage('Short Courses', '#0'))
+              .add(new ConfPage('Technical Tours', '#0'))
+          , new ConfPage('Location', '#0').setIcon('insert_drive_file')
+          , new ConfPage('Speakers', '#0').setIcon('insert_drive_file')
+          ]
+        , classes: {
+            listclasses: 'c-MenuMobile-nsM c-MenuBar-sM'
+          , itemclasses: 'c-MenuMobile__Item-nsM c-MenuBar__Item-sM'
+          , linkclasses: 'c-MenuMobile__Link-nsM c-MenuBar__Link-sM h-Block'
+          , sub: {
+              listclasses: 'c-MenuMobile__Sub-nsM c-MenuBar__Sub-sM'
+            , itemclasses: 'c-MenuMobile__Sub__Item-nsM c-MenuBar__Sub__Item-sM'
+            , linkclasses: 'c-MenuMobile__Link-nsM c-MenuMobile__Sub__Link-nsM c-MenuBar__Link-sM c-MenuBar__Sub__Link-sM h-Block'
+            }
           }
-        }, depth: 1, icons: true})
+        })
   pre.docs-pre.
     &lt;header class="o-Runner  c-Mast  c-Mast--head"&gt;
       &lt;div class="o-Constrain"&gt;
@@ -80,8 +84,9 @@ figure.docs-figure
           &lt;ul class="o-List  o-Flex  c-MenuMobile-nsM  c-MenuBar-sM"&gt;
             &lt;li class="o-List__Item  o-Flex__Item  c-MenuMobile__Item-nsM  c-MenuBar__Item-sM"&gt;
               &lt;a class="c-MenuMobile__Link-nsM  c-MenuBar__Link-sM  h-Block"&gt;
-                &lt;i class="material-icons"#[mark  role="none"]&gt;...&lt;/i&gt;
+                &lt;i class="material-icons  c-MenuMobile__Icon  -d-n-sM"#[mark  role="none"]&gt;#[var.docs-var page_icon]&lt;/i&gt;
                 &lt;span&gt;Registration&lt;/span&gt;
+                &lt;i class="material-icons  c-MenuBar__Icon  -d-n-nsM"#[mark  role="none"]&gt;expand_more&lt;/i&gt;
               &lt;/a&gt;
               &lt;ul class="o-List  c-MenuBar__Sub-sM"&gt;
                 &lt;li class="o-List__Item  c-MenuBar__Sub__Item-sM"&gt;

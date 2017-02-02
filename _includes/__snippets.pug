@@ -16,15 +16,17 @@ mixin sitetoc(arg)
     arg.pages   = arg.pages   || []
     arg.classes = arg.classes || {}
     arg.depth   = +arg.depth  || 0
-    arg.icons   = !!arg.icons
-  ul(class=arg.classes.listclasses)
+    arg.icons   = arg.icons   || {}
+  ul.o-List(class=arg.classes.listclasses)
     each $confPage in arg.pages
       unless $confPage.isHidden()
-        li(class=arg.classes.itemclasses)
+        li.o-List__Item(class=arg.classes.itemclasses)
           a(class=arg.classes.linkclasses href=$confPage.url())
-            if arg.icons && $confPage.getIcon()
-              i.material-icons(role="none")= $confPage.getIcon()
+            if arg.icons && arg.icons.page && $confPage.getIcon()
+              i.material-icons.c-MenuMobile__Icon.-d-n-sM(role="none")= $confPage.getIcon()
             span= $confPage.name()
+            if arg.icons && arg.icons.sub && $confPage.findAll().length && arg.depth > 0
+              i.material-icons.c-MenuBar__Icon.-d-n-nsM(role="none") expand_more
           if $confPage.findAll().length && arg.depth > 0
             +sitetoc({pages: $confPage.findAll(), classes: arg.classes.sub, depth: arg.depth-1, icons: false})
 

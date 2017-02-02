@@ -1,5 +1,6 @@
 figure.docs-figure
-  +sitetoc({pages: [
+  include /_views/_main-menu.view.pug
+  +mainMenu({pages: [
     new ConfPage('Home', '#0').setIcon('insert_drive_file')
   , new ConfPage('Registration', '#0').setIcon('insert_drive_file')
       .add(new ConfPage('Why Attend', '#0'))

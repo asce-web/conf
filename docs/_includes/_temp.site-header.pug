@@ -32,9 +32,8 @@ figure.docs-figure
         noscript: p Oops! Looks like you need to enable Javascript for the main menu.
       nav.o-Drawer
         h1.-d-n#main-menu Main Menu
-        //- NOTE use mixin +mainMenu() (from _sites.tpl.jade) for this template
-        //- due to the 'expand_more' (dropdown) icon
-        +sitetoc({pages: [
+        include /_views/_main-menu.view.pug
+        +mainMenu({pages: [
           new ConfPage('Home', '#0').setIcon('insert_drive_file')
         , new ConfPage('Registration', '#0').setIcon('insert_drive_file')
             .add(new ConfPage('Why Attend', '#0'))

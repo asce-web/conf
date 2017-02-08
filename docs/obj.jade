@@ -25,6 +25,7 @@ block append main
     include _includes/_obj.drawer-object.pug
 
 block append scripts
+  script(src="/scripts/o-Tabs.js")
   script.
     $('#drawer-check').change(function () {
       $(this).parents('.docs-c-Togglable').siblings('.o-Drawer').toggleClass('o-Drawer--open')

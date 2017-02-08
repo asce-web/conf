@@ -60,6 +60,7 @@ module.exports = (function () {
         .add(new Page({ name: 'Constrain'        , url: 'obj.html#constrain' }))
         .add(new Page({ name: 'The Action List'  , url: 'obj.html#action-list' }))
         .add(new Page({ name: 'The Stacked List' , url: 'obj.html#stacked-list' }))
+        .add(new Page({ name: 'Tabs'             , url: 'obj.html#tabs' }))
         .add(new Page({ name: 'The Drawer Object', url: 'obj.html#drawer-object' }))
       )
       .add(new Page({ name: 'Components', url: 'comp.html' })

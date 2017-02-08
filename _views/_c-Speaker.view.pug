@@ -10,7 +10,7 @@ mixin speaker($person)
     div.c-Speaker__Body(itemprop="description")._text-block!= $person.getBio(true)
     footer.c-Speaker__Foot
       include /_views/_c-SocialList.view.pug
-      +socialList($person.getSocialAll(), { classes: 'c-SocialList--speaker', has_microdata: true })
+      +socialList($person.getSocialAll()).c-SocialList--speaker
         if $person.email()
           li.o-List__Item.o-Flex__Item.c-SocialList__Item
             a.c-SocialList__Link.c-SocialList__Link--email.h-Block(href=`mailto:${$person.email()}` title=$person.email() itemprop="email")

@@ -3,7 +3,7 @@ p.
   Each Program Component must have a unique id for the carousel effect to work properly.
 figure.docs-figure
   include /_views/_c-Program.view.pug
-  +program(3, {id:'demoprog'})
+  +program(3)#demoprog
   pre.docs-pre.
     &lt;article class="o-Grid  #[u c-Program]" #[mark id="demoprog"]&gt;
       &lt;h1 class="o-Grid__Item  #[u c-Program__Hn]"&gt;
@@ -21,7 +21,7 @@ figure.docs-figure
 p Program Components inside a #[a(href="#banner-component") Banner] have different-colored headings.
 figure.docs-figure
   include /_views/_c-Program.view.pug
-  div.c-Banner.-z-1.-mb-1vru: +program(3, {id:'demoprog-banner'})
+  div.c-Banner.-z-1.-mb-1vru: +program(3)#demoprog-banner
   pre.docs-pre.
     &lt;div class="c-Banner&gt;
       &lt;article class="o-Grid  #[u c-Program]" #[mark id="demoprog-banner"]&gt;...&lt;/article&gt;

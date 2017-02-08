@@ -8,7 +8,7 @@ block mainReference
     h1.h-Hidden Full Program
     - var groupings = site.currentConference().groupSessions(false)
     include /_views/_c-Program.view.pug
-    +program(groupings.length, {id:'full-program-block'})
+    +program(groupings.length)#full-program-block
       mixin heading(i)
         +programHeading(groupings[i].datestr)
       mixin content(i)

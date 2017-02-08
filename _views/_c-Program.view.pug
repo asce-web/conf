@@ -1,7 +1,21 @@
-mixin program(n, $attrs)
-  //- NOTE parameter validation
-  - $attrs = $attrs || {id: 'id'+n}
-  article.o-Grid.c-Program&attributes($attrs)
+mixin program(n)
+  //-
+    NOTE this mixin *must* be called with an id attribute as shown below.
+    The id is required and is used to calculate the `name` attributes of the radio button inputs.
+    Without an id, the radio buttons may not work correctly.
+    The id is added to the mixin as any attribute would be added to an element:
+    ```
+    +program(3)(id="any-valid-id-string")
+      mixin heading(i)
+        ...
+      mixin content(i)
+        ...
+    ```
+    Or, you may use the shorthand id syntax:
+    ```
+    +program(3)#any-valid-id
+    ```
+  article.o-Grid.c-Program&attributes(attributes)
     mixin heading(i)
       | heading #{i}
     mixin content(i)
@@ -9,7 +23,7 @@ mixin program(n, $attrs)
     block
     each val,index in new Array(n)
       h1.o-Grid__Item.c-Program__Hn: label
-        input.c-Program__Check(type="radio" name=`program-${$attrs.id}` value=index)&attributes((index===0) ? {checked:''} : {})
+        input.c-Program__Check(type="radio" name=`program-${(attributes.id || `id${n}`)}` value=index)&attributes((index===0) ? {checked:''} : {})
         +heading(index)
       div.o-Grid__Item.c-Program__Schedule
         +content(index)

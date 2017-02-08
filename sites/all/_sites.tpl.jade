@@ -39,6 +39,7 @@ html(lang="en")
         include /_views/_main-menu.view.pug
         +mainMenu({
           pages: site.findAll().slice(0, -1)
+        , icons: { page: true, sub: true }
         , classes: {
             listclasses: 'c-MenuMobile-nsM c-MenuBar-sM'
           , itemclasses: 'c-MenuMobile__Item-nsM c-MenuBar__Item-sM'

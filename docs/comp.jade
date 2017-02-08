@@ -22,8 +22,6 @@ block append main
     include _includes/_comp.conference-header.pug
   +newSection(2, ConfDocs.DOCS.find('comp.html#supporter-block'))
     include _includes/_comp.supporter-block.pug
-  +newSection(2, ConfDocs.DOCS.find('comp.html#date-block'))
-    include _includes/_comp.date-block.pug
   +newSection(2, ConfDocs.DOCS.find('comp.html#pass-component'))
     include _includes/_comp.pass-component.pug
   +newSection(2, ConfDocs.DOCS.find('comp.html#program-component'))
@@ -34,6 +32,8 @@ block append main
     include _includes/_comp.speaker-component.pug
   +newSection(2, ConfDocs.DOCS.find('comp.html#social-list'))
     include _includes/_comp.social-list.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#date-block'))
+    include _includes/_comp.date-block.pug
   +newSection(2, ConfDocs.DOCS.find('comp.html#callout-component'))
     include _includes/_comp.callout-component.pug
   +newSection(2, ConfDocs.DOCS.find('comp.html#buttons'))

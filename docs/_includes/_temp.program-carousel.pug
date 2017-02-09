@@ -16,7 +16,7 @@ figure.docs-figure
   +tabs(2)#demoprogram
     mixin tab(i)
       include /_views/_c-Program.view.pug
-      +programHeading(['2016-09-28','2016-10-01'][i])
+      +programHeading([new Date('2016-09-28'),new Date('2016-10-01')][i])
     mixin panel(i)
       include /_views/_c-TimeBlock.view.pug
       +timeBlock([

@@ -436,15 +436,21 @@ module.exports = (function () {
    * @return {Array<SessionGroup>} an array grouping the sessions together
    */
   Conference.prototype.groupSessions = function groupSessions(starred) {
-    var all_sessions = this.getSessionsAll().filter(function ($session) { return (starred) ? $session.isStarred() : true })
-    function dateOf($session) { return $session.startDate().toISOString().slice(0,10) }
+    var all_sessions = this.getSessionsAll().filter(function ($session) {
+      return (starred) ? $session.isStarred() : true
+    })
     var $groupings = []
+    function equalDays(date1, date2) {
+      return date1.toISOString().slice(0,10) === date2.toISOString().slice(0,10)
+    }
     for (var $session of all_sessions) {
-      if (!$groupings.find(function ($sessionGroup) { return $sessionGroup.datestr === dateOf($session) })) {
+      if (!$groupings.find(function ($sessionGroup) {
+        return equalDays($sessionGroup.dateday, $session.startDate())
+      })) {
         $groupings.push({
-          datestr : dateOf($session)
+          dateday : $session.startDate()
         , sessions: all_sessions.filter(function (_event) {
-            return dateOf(_event) === dateOf($session)
+            return equalDays(_event.startDate(), $session.startDate())
           })
         })
       }

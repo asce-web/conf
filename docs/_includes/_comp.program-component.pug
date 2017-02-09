@@ -5,8 +5,8 @@ p.
   The first one is normal, the second one is &ldquo;selected&rdquo;.
 figure.docs-figure
   include /_views/_c-Program.view.pug
-  h1.c-ProgramHn: +programHeading('2017-10-08')
-  h1.c-ProgramHn.c-ProgramHn--selected: +programHeading('2017-10-08')
+  h1.c-ProgramHn: +programHeading(new Date('2017-10-08'))
+  h1.c-ProgramHn.c-ProgramHn--selected: +programHeading(new Date('2017-10-08'))
   pre.docs-pre.
     &lt;h1 class="#[u c-ProgramHn]"&gt;
       &lt;time class="#[u c-ProgramHn__Time]" datetime="2017-10-08"&gt;
@@ -26,8 +26,8 @@ p.
 figure.docs-figure
   include /_views/_c-Program.view.pug
   div.c-Banner.-mb-1vru
-    h1.c-ProgramHn: +programHeading('2017-10-08')
-    h1.c-ProgramHn.c-ProgramHn--selected: +programHeading('2017-10-08')
+    h1.c-ProgramHn: +programHeading(new Date('2017-10-08'))
+    h1.c-ProgramHn.c-ProgramHn--selected: +programHeading(new Date('2017-10-08'))
   pre.docs-pre.
     &lt;div class="c-Banner"&gt;
       &lt;h1 class="#[u c-ProgramHn]"&gt;

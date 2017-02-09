@@ -11,7 +11,7 @@ block mainReference
     +tabs(groupings.length)#full-program-block
       mixin tab(i)
         include /_views/_c-Program.view.pug
-        +programHeading(groupings[i].datestr)
+        +programHeading(groupings[i].dateday)
       mixin panel(i)
         include /_views/_c-TimeBlock.view.pug
         +timeBlock(groupings[i].sessions)

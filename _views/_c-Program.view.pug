@@ -1,14 +1,6 @@
-mixin program(n)
-  article.c-Program
-    mixin heading(i)
-      | heading #{i}
-    block
-    each val,index in new Array(1)
-      h1.c-Program__Hn
-        +heading(index)
-
 mixin programHeading(str)
-  time(datetime=str)
+  time.c-ProgramHn__Time(datetime=str)
     - var date = Util.toDate(str)
-    span.js-h-Block-sK= Util.DAY_NAMES[date.getUTCDay()] + ', '
-    span.js-h-Block-sK= Util.monthDay(date)
+    = Util.DAY_NAMES[date.getUTCDay()] + ','
+    br
+    = Util.monthDay(date)

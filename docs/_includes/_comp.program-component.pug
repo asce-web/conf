@@ -2,22 +2,44 @@ p.
   The Program Heading is a date that serves as the heading of a
   #[+internalLink(ConfDocs.DOCS.find('comp.html#time-block'))].
   It is of the format #[code.docs-code Ddddddd, Mmm DD].
+  The first one is normal, the second one is &ldquo;selected&rdquo;.
 figure.docs-figure
   include /_views/_c-Program.view.pug
-  +program(3)#demoprog
+  h1.c-ProgramHn: +programHeading('2017-10-08')
+  h1.c-ProgramHn.c-ProgramHn--selected: +programHeading('2017-10-08')
   pre.docs-pre.
-    &lt;article class="#[u c-Program]"&gt;
-      &lt;h1 class="#[u c-Program__Hn]"&gt;heading 0&lt;/h1&gt;
-    &lt;/article&gt;
+    &lt;h1 class="#[u c-ProgramHn]"&gt;
+      &lt;time class="#[u c-ProgramHn__Time]" datetime="2017-10-08"&gt;
+        Sunday,&lt;br/&gt;
+        Oct 8
+      &lt;/time&gt;
+    &lt;/h1&gt;
+    &lt;h1 class="#[u c-ProgramHn]  #[c-ProgramHn--selected]"&gt;
+      &lt;time class="#[u c-ProgramHn__Time]" datetime="2017-10-08"&gt;
+        Sunday,&lt;br/&gt;
+        Oct 8
+      &lt;/time&gt;
+    &lt;/h1&gt;
 p.
   Program Components inside a #[+internalLink(ConfDocs.DOCS.find('comp.html#banner-component'))]
   have different-colored headings.
 figure.docs-figure
   include /_views/_c-Program.view.pug
-  div.c-Banner.-z-1.-mb-1vru: +program(3)
+  div.c-Banner.-mb-1vru
+    h1.c-ProgramHn: +programHeading('2017-10-08')
+    h1.c-ProgramHn.c-ProgramHn--selected: +programHeading('2017-10-08')
   pre.docs-pre.
-    &lt;div class="c-Banner&gt;
-      &lt;article class="#[u c-Program]"&gt;
-        &lt;h1 class="#[u c-Program__Hn]"&gt;heading 0&lt;/h1&gt;
-      &lt;/article&gt;
+    &lt;div class="c-Banner"&gt;
+      &lt;h1 class="#[u c-ProgramHn]"&gt;
+        &lt;time class="#[u c-ProgramHn__Time]" datetime="2017-10-08"&gt;
+          Sunday,&lt;br/&gt;
+          Oct 8
+        &lt;/time&gt;
+      &lt;/h1&gt;
+      &lt;h1 class="#[u c-ProgramHn]  #[u c-ProgramHn--selected]"&gt;
+        &lt;time class="#[u c-ProgramHn__Time]" datetime="2017-10-08"&gt;
+          Sunday,&lt;br/&gt;
+          Oct 8
+        &lt;/time&gt;
+      &lt;/h1&gt;
     &lt;/div&gt;

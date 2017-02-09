@@ -6,6 +6,12 @@
 @import (reference) url('__settings.less');
 
 
+body {
+  --heading-color-unselected: var(--color-gray_dk-tint2);
+}
+.c-Banner {
+  --heading-color-unselected: var(--color-gray_lt-shade2);
+}
 // A heading for a program time block.
 // Contains the common date of the times.
 //
@@ -18,22 +24,17 @@
 .c-ProgramHn {
   font-family: inherit; // override h1
   .font-size-el(1); // override h1
-  color: @g-color-gray_dk-tint2; // HACK fallback
-  color: var(--color-gray_dk-tint2);
-  &.c-ProgramHn--selected {
-    color: @g-color-gray_dk-shade2; // HACK fallback
-    color: var(--color-gray_dk-shade2);
-  }
-  .c-Banner & {
-    color: @g-color-gray_lt-shade2; // HACK fallback
-    color: var(--color-gray_lt-shade2);
-    &.c-ProgramHn--selected {
-      color: @g-color-gray_lt-tint2; // HACK fallback
-      color: var(--color-gray_lt-tint2);
-    }
-  }
   @media screen and (min-width: 45em) {
     .font-size-el(1.25);
+  }
+  &:not(.c-ProgramHn--selected) {
+    --heading-color: var(--heading-color-unselected);
+    color: @g-color-gray_dk-tint2; // HACK fallback
+    color: var(--heading-color); // HACK override
+    .c-Banner & {
+      color: @g-color-gray_lt-shade2; // HACK fallback
+      color: var(--heading-color); // HACK override
+    }
   }
 }
 

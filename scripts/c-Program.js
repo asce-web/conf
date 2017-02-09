@@ -1,2 +1,12 @@
-$('.js-h-Block-sK').addClass('h-Block-sK')
-  .parentsUntil('h1').addClass('h-Block-sK')
+$('.c-ProgramHn__Time').parents('h1').addClass('c-ProgramHn')
+function styleSelectedProgramHn() {
+  $('.c-ProgramHn').each(function () {
+    if ($(this).find('input:checked').length) {
+      $(this).addClass('c-ProgramHn--selected')
+    } else if ($(this).find('input').length) {
+      $(this).removeClass('c-ProgramHn--selected')
+    }
+  })
+}
+$(document).ready(styleSelectedProgramHn)
+$('.c-ProgramHn input').change(styleSelectedProgramHn)

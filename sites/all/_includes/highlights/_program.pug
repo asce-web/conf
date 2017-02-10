@@ -1,10 +1,11 @@
 h1#program-highlights Program Highlights
-include /_views/_c-Program.view.pug
 - var groupings = site.currentConference().groupSessions('starred')
-+program(groupings.length)#program-highlights-block
-  mixin heading(i)
-    +programHeading(groupings[i].datestr)
-  mixin content(i)
+include /_views/_o-Tabs.view.pug
++tabs(groupings.length)#program-highlights-block
+  mixin tab(i)
+    include /_views/_c-ProgramHn.view.pug
+    +programHn(groupings[i].dateday)
+  mixin panel(i)
     include /_views/_c-TimeBlock.view.pug
     +timeBlock(groupings[i].sessions)
 +highlightButtons([{text:'Full Program', href:'program.html'}])

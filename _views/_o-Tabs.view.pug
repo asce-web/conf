@@ -22,7 +22,7 @@ mixin tabs(n)
       | panel #{i}
     block
     each val,index in new Array(n)
-      dt.o-Grid__Item.o-Tabs__Tab: h1: label
+      dt.o-Grid__Item.o-Tabs__Tab: label.h-Block
         input.o-Tabs__Check.h-Hidden.-ps-a(type="radio" name=attributes.id value=index)&attributes((index===0) ? {checked:''} : {})
         +tab(index)
       dd.o-Grid__Item.o-Tabs__Panel

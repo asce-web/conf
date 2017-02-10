@@ -1,4 +1,3 @@
-$('.c-ProgramHn__Time').parents('h1').addClass('c-ProgramHn')
 function styleSelectedProgramHn() {
   $('.c-ProgramHn').each(function () {
     if ($(this).find('input:checked').length) {
@@ -8,5 +7,5 @@ function styleSelectedProgramHn() {
     }
   })
 }
-$(document).ready(styleSelectedProgramHn)
-$('.c-ProgramHn input').change(styleSelectedProgramHn)
+// $(document).ready(styleSelectedProgramHn)
+// $('.c-ProgramHn input').change(styleSelectedProgramHn)

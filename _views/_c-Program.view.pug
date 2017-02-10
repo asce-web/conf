@@ -1,5 +1,5 @@
 mixin programHeading(date)
-  time.c-ProgramHn__Time(datetime=date)
+  time.c-ProgramHn(datetime=date)&attributes(attributes)
     = Util.DAY_NAMES[date.getUTCDay()] + ','
     br
     = Util.monthDay(date)

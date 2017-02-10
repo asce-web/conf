@@ -7,10 +7,10 @@
 
 
 body {
-  --heading-color-unselected: var(--color-gray_dk-tint2);
+  --heading-color-unselected: var(--color-gray_dk);
 }
 .c-Banner {
-  --heading-color-unselected: var(--color-gray_lt-shade2);
+  --heading-color-unselected: var(--color-gray_lt);
 }
 // A heading for a program time block.
 // Contains the common date of the sessions.
@@ -23,17 +23,18 @@ body {
   // some styles from h1
   font-weight: 900;
   text-align: center;
-  color: var(--heading-color);
+  color: @g-color-gray_dk; // HACK fallback
+  color: var(--heading-color-unselected);
+  .c-Banner & {
+    color: @g-color-gray_lt; // HACK fallback
+    color: var(--heading-color-unselected); // HACK override
+  }
   @media screen and (min-width: 45em) {
     .font-size-el(1.25);
   }
-  &:not(.c-ProgramHn--selected) {
-    --heading-color: var(--heading-color-unselected);
-    color: @g-color-gray_dk-tint2; // HACK fallback
-    color: var(--heading-color); // HACK override
-    .c-Banner & {
-      color: @g-color-gray_lt-shade2; // HACK fallback
-      color: var(--heading-color); // HACK override
-    }
+  // ‘selected’ look
+  input:checked + & {
+    color: @g-color-primary; // HACK fallback
+    color: var(--color-primary);
   }
 }

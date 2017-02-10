@@ -2,11 +2,14 @@ p.
   The Program Heading is a date that serves as the heading of a
   #[+internalLink(ConfDocs.DOCS.find('comp.html#time-block'))].
   It is of the format #[code.docs-code Ddddddd, Mmm DD].
-  The first one is normal, the second one is &ldquo;selected&rdquo;.
+  The first one is normal, the second one is &ldquo;selected&rdquo;&mdash;after
+  an #[code.docs-code input] that is checked.
 figure.docs-figure
   include /_views/_c-Program.view.pug
   p: +programHeading(new Date('2017-10-08'))
-  p: +programHeading(new Date('2017-10-08')).c-ProgramHn--selected
+  p
+    input(type="checkbox" checked="")
+    +programHeading(new Date('2017-10-08'))
   pre.docs-pre.
     &lt;p&gt;
       &lt;time class="#[u c-ProgramHn]" datetime="2017-10-08"&gt;
@@ -15,7 +18,8 @@ figure.docs-figure
       &lt;/time&gt;
     &lt;/p&gt;
     &lt;p&gt;
-      &lt;time class="#[u c-ProgramHn]  #[u c-ProgramHn--selected]" datetime="2017-10-08"&gt;
+      &lt;input checked=""/&gt;
+      &lt;time class="#[u c-ProgramHn]" datetime="2017-10-08"&gt;
         Sunday,&lt;br/&gt;
         Oct 8
       &lt;/time&gt;
@@ -27,7 +31,9 @@ figure.docs-figure
   include /_views/_c-Program.view.pug
   div.c-Banner.-mb-1vru
     p: +programHeading(new Date('2017-10-08'))
-    p: +programHeading(new Date('2017-10-08')).c-ProgramHn--selected
+    p
+      input(type="checkbox" checked="")
+      +programHeading(new Date('2017-10-08'))
   pre.docs-pre.
     &lt;div class="c-Banner"&gt;
       &lt;p&gt;
@@ -37,7 +43,8 @@ figure.docs-figure
         &lt;/time&gt;
       &lt;/p&gt;
       &lt;p&gt;
-        &lt;time class="#[u c-ProgramHn]  #[u c-ProgramHn--selected]" datetime="2017-10-08"&gt;
+        &lt;input checked=""/&gt;
+        &lt;time class="#[u c-ProgramHn]" datetime="2017-10-08"&gt;
           Sunday,&lt;br/&gt;
           Oct 8
         &lt;/time&gt;

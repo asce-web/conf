@@ -10,8 +10,8 @@ block mainReference
     include /_views/_o-Tabs.view.pug
     +tabs(groupings.length)#full-program-block
       mixin tab(i)
-        include /_views/_c-Program.view.pug
-        +programHeading(groupings[i].dateday)
+        include /_views/_c-ProgramHn.view.pug
+        +programHn(groupings[i].dateday)
       mixin panel(i)
         include /_views/_c-TimeBlock.view.pug
         +timeBlock(groupings[i].sessions)

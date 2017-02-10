@@ -1,22 +1,15 @@
-p The Program Carousel is used in the Program Highlights block and on the Program page.
-p.
-  Since the Program Component will be used to display program event information,
-  the headings will be dates. Each heading should have the following structure
-  and include similar data.
-  Elements with class #[code.docs-code .js-*] are required for Javascript.
-  Enable Javascript for the carousel animation effect.
-p.
-  Each Program Component must have a unique id for the carousel effect to work properly.
+p Program Tabs are used in the Program Highlights block and on the Program page.
 p.-fs-t This Template uses:
 ul.-fs-t
-  li: +internalLink(ConfDocs.DOCS.find('comp.html#program-component'))
+  li: +internalLink(ConfDocs.DOCS.find('obj.html#tabs-object'))
+  li: +internalLink(ConfDocs.DOCS.find('comp.html#program-heading'))
   li: +internalLink(ConfDocs.DOCS.find('comp.html#time-block'))
 figure.docs-figure
   include /_views/_o-Tabs.view.pug
   +tabs(2)#demoprogram
     mixin tab(i)
-      include /_views/_c-Program.view.pug
-      +programHeading([new Date('2016-09-28'),new Date('2016-10-01')][i])
+      include /_views/_c-ProgramHn.view.pug
+      +programHn([new Date('2016-09-28'),new Date('2016-10-01')][i])
     mixin panel(i)
       include /_views/_c-TimeBlock.view.pug
       +timeBlock([

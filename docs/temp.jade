@@ -14,8 +14,8 @@ block append main
     include _includes/_temp.hero-image.pug
   +newSection(2, ConfDocs.DOCS.find('temp.html#other-year-callout'))
     include _includes/_temp.other-year-callout.pug
-  +newSection(2, ConfDocs.DOCS.find('temp.html#program-carousel'))
-    include _includes/_temp.program-carousel.pug
+  +newSection(2, ConfDocs.DOCS.find('temp.html#program-tabs'))
+    include _includes/_temp.program-tabs.pug
   +newSection(2, ConfDocs.DOCS.find('temp.html#speaker'))
     include _includes/_temp.speaker.pug
   +newSection(2, ConfDocs.DOCS.find('temp.html#important-dates'))
@@ -27,7 +27,6 @@ block append main
 
 block append scripts
   script(src="/scripts/o-Tabs.js")
-  script(src="/scripts/c-Program.js")
   script.
     $('.c-Toggle__Check').change(function () {
       $(this).parents('.c-Toggle').siblings('.o-Drawer').toggleClass('o-Drawer--open')

@@ -24,8 +24,8 @@ block append main
     include _includes/_comp.supporter-block.pug
   +newSection(2, ConfDocs.DOCS.find('comp.html#pass-component'))
     include _includes/_comp.pass-component.pug
-  +newSection(2, ConfDocs.DOCS.find('comp.html#program-component'))
-    include _includes/_comp.program-component.pug
+  +newSection(2, ConfDocs.DOCS.find('comp.html#program-heading'))
+    include _includes/_comp.program-heading.pug
   +newSection(2, ConfDocs.DOCS.find('comp.html#time-block'))
     include _includes/_comp.time-block.pug
   +newSection(2, ConfDocs.DOCS.find('comp.html#speaker-component'))
@@ -44,6 +44,3 @@ block append main
     include _includes/_comp.camo-link.pug
   +newSection(2, ConfDocs.DOCS.find('comp.html#caps-link'))
     include _includes/_comp.caps-link.pug
-
-block append scripts
-  script(src="/scripts/c-Program.js")

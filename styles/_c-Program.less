@@ -13,17 +13,17 @@ body {
   --heading-color-unselected: var(--color-gray_lt-shade2);
 }
 // A heading for a program time block.
-// Contains the common date of the times.
+// Contains the common date of the sessions.
 //
-// ^subcomponents
-// __Time - time containing the date
 // ^author
 // Chris Harvey
 // ^updated
-// 2017-02-09
+// 2017-02-10
 .c-ProgramHn {
-  font-family: inherit; // override h1
-  .font-size-el(1); // override h1
+  // some styles from h1
+  font-weight: 900;
+  text-align: center;
+  color: var(--heading-color);
   @media screen and (min-width: 45em) {
     .font-size-el(1.25);
   }
@@ -36,7 +36,4 @@ body {
       color: var(--heading-color); // HACK override
     }
   }
-}
-
-.c-ProgramHn__Time {
 }

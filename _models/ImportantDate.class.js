@@ -35,7 +35,7 @@ module.exports = (function () {
    * @return {Date} the date of this important date
    */
   ImportantDate.prototype.startTime = function startTime() {
-    return this._START
+    return this._START || new Date()
   }
 
   /**

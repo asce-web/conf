@@ -76,7 +76,7 @@ module.exports = (function () {
    * @return {Date} the start date of this conference
    */
   Conference.prototype.startDate = function startDate() {
-    return this._START
+    return this._START || new Date()
   }
 
   /**
@@ -84,7 +84,7 @@ module.exports = (function () {
    * @return {Date} the end date of this conference
    */
   Conference.prototype.endDate = function endDate() {
-    return this._END
+    return this._END || new Date()
   }
 
   /**

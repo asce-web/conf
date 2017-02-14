@@ -40,7 +40,7 @@ module.exports = (function () {
    * @return {Date} the start date of this registration period
    */
   RegistrationPeriod.prototype.startDate = function startDate() {
-    return this._START
+    return this._START || new Date()
   }
 
   /**
@@ -48,7 +48,7 @@ module.exports = (function () {
    * @return {Date} the end date of this registration period
    */
   RegistrationPeriod.prototype.endDate = function endDate() {
-    return this._END
+    return this._END || new Date()
   }
 
   /**

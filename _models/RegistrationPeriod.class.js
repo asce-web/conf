@@ -1,13 +1,11 @@
 var Util = require('./Util.class.js')
 
-/**
- * An interval of dates in which registration prices are set.
- * Assigned at the conference level.
- * @type {RegistrationPeriod}
- */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
+   * REVIEW may not need this class
+   * An interval of dates in which registration prices are set.
+   * Assigned at the conference level.
    * Construct a RegistrationPeriod object.
    * The name, start date, and end date
    * are immutable and must be provided during construction.

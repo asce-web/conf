@@ -1,13 +1,11 @@
-/**
- * An important date.
- * @type {ImportantDate}
- */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
+   * An important date.
    * Construct an ImportantDate object.
    * The name and start time
    * are immutable and must be provided during construction.
+   * @constructor
    * @param {Object} $actioninfo an object with the following immutable properties:
    * @param {string} $actioninfo.name the name of the important date
    * @param {Date} $actioninfo.start_time the start time of the important date

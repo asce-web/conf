@@ -1,11 +1,8 @@
-/**
- * An organization supporting a conference or series of conferences.
- * Assigned at the site level, not at an individual conference.
- * @type {Supporter}
- */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
+   * An organization supporting a conference or series of conferences.
+   * Assigned at the site level, not at an individual conference.
    * Construct a supporter object, given an (immutable) name.
    * @constructor
    * @param {string} name the name of the supporting organization

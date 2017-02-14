@@ -1,13 +1,11 @@
-/**
- * A program event.
- * @type {Session}
- */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
+   * A program event.
    * Construct a Session object.
    * The name, start date, and end date
    * are immutable and must be provided during construction.
+   * @constructor
    * @param {Object} $eventinfo an object with the following immutable properties:
    * @param {string} $eventinfo.name the name of the session
    * @param {Date} $eventinfo.start_date the start date of the session

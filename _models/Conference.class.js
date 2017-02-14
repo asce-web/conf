@@ -17,8 +17,8 @@ module.exports = (function () {
    * @param {string} $confinfo.theme the theme, or slogan, of this conference
    * @param {Date} $confinfo.start_date the starting date of this conference
    * @param {Date} $confinfo.end_date the ending date of this conference
-   * @param {(Object|string)} $confinfo.promo_loc the promoted location of this conference
-   * @param {string=} $confinfo.promo_loc.text the promoted location displayed/abbreviated text (eg, "Portland, OR")
+   * @param {Object} $confinfo.promo_loc the promoted location of this conference
+   * @param {string} $confinfo.promo_loc.text the promoted location displayed/abbreviated text (eg, "Portland, OR")
    * @param {string=} $confinfo.promo_loc.title the elongated version of the location (eg, "Portland, Oregon")
    * @param {string=} $confinfo.promo_loc.blurb small paragraph about location. escaped plain-text (no HTML)
    */

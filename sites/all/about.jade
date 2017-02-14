@@ -9,11 +9,7 @@ block mainReference
       h1.c-ConfHed__Name(itemprop="name")= $conference.name()
       meta(content=$conference.startDate() itemprop="startDate")
       p.c-ConfHed__Detail.-fz-el-kilo(itemprop="location")
-        - var loc = $conference.promoLoc()
-        if loc.title && loc.text
-          abbr(title=loc.title)= loc.text
-        else
-          = loc.text || loc
+        +promoLoc($conference.promoLoc())
       p.h-Hidden-nsM._text-plain= $conference.otherYearBlurb()
       block
   +otherYear(site.prevConference(), 'c-Banner--prev')

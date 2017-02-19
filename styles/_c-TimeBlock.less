@@ -17,42 +17,49 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-05-18
+// 2017-02-19
 
 // HACK fallbacks
 // TODO remove these vars once css custom properties supported
-@p-font_size_mod: (14/16); // taken from `Program.less` // TODO remove comment in that file once done
-@l-vru: @p-font_size_mod * @g-vru; // module vru
+@p-font_size_mod: (14/16);
+@l-vru: @p-font_size_mod * @g-vru; // module vru // HACK fallback
 
 .c-TimeBlock {
-  padding: @l-vru @g-boxpadd_kilo_h 0; // HACK fallback
-  padding: var(--vru) @g-boxpadd_kilo_h 0;
+  .font-size-mod(14/16);
 }
 
 .c-TimeBlock__Item {
 }
 .c-TimeBlock__Times,
 .c-TimeBlock__Desc {
-  padding: 0 @g-boxpadd_kilo_h (2*@l-vru); // HACK fallback
-  padding: 0 @g-boxpadd_kilo_h calc(~'2 * var(--vru)');
+  padding-bottom: (2*@l-vru); // HACK fallback
+  padding-bottom: calc(~'2 * var(--vru)');
+  @media not all and (min-width: 30em) {
+    padding-left: @g-boxpadd_norm_h;
+  }
   @media screen and (min-width: 30em) {
     .flex(50%);
     max-width: 50%;
   }
 }
 .c-TimeBlock__Times {
-  @media screen and (max-width: 29.999em) {
+  @media not all and (min-width: 30em) {
+    padding-bottom: 0; // override padding-bottom above
     font-weight: 300;
-    padding-bottom: 0;
   }
   @media screen and (min-width: 30em) {
     text-align: right;
+    padding-right: @g-boxpadd_kilo_h;
   }
 }
 .c-TimeBlock__Desc {
-  @media screen and (max-width: 29.999em) {
+  @media not all and (min-width: 30em) {
+    // same as .c-DateBlock__Desc
     .font-size-el(1.25);
     font-weight: 600;
+  }
+  @media screen and (min-width: 30em) {
+    padding-left: @g-boxpadd_kilo_h;
   }
 }
 
@@ -77,10 +84,10 @@
     @_width: calc(~'var(--vru) / var(--line-height)');
     @_side : calc(~'-0.5 * var(--vru) / var(--line-height)');
     @_top  : calc(~'-0.5 * var(--vru) / var(--line-height) + 0.5 * var(--vru)');
-    left: (-0.5 * @width); // HACK fallback
+    left: (-0.5 * @width);           // HACK fallback
     top: (-0.5*@width + 0.5*@l-vru); // HACK fallback
-    width: @width; // HACK fallback
-    height: @width; // HACK fallback
+    width: @width;                   // HACK fallback
+    height: @width;                  // HACK fallback
     left: @_side;
     top: @_top;
     width: @_width;

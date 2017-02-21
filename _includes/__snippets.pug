@@ -45,10 +45,10 @@ mixin highlightButtons(links, more_classes)
           = item.text
 
 mixin promoLoc(location)
-  if loc.title
-    abbr(title=loc.title)= loc.text
+  if location.title
+    abbr(title=location.title)= location.text
   else
-    = loc.text
+    = location.text
 
 mixin highlight(classes)
   aside.o-Runner.o-Runner--highlight(class=classes)

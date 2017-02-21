@@ -19,7 +19,7 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-07-21
+// 2017-02-19
 .c-DateBlock {
   width: 75%;
   margin-left:  auto;
@@ -48,26 +48,27 @@
   border-style: solid;
 }
 
-.c-DateBlock__Date,
-.c-DateBlock__Desc {
-  .c-DateBlock > & {
-    border-width: 0 @p-rw;
-    border-style: solid;
-  }
-}
-
 .c-DateBlock__Date {
   font-weight: 300;
-  .c-DateBlock > & {
-    .border-vert(top; @p-rw);
-    padding-bottom: 0;
-  }
 }
 
 .c-DateBlock__Desc {
   .font-size-el(1.25);
   font-weight: 600;
-  .c-DateBlock > & {
+}
+
+// if using __Date & __Desc as direct children
+.c-DateBlock {
+  & > .c-DateBlock__Date,
+  & > .c-DateBlock__Desc {
+    border-width: 0 @p-rw;
+    border-style: solid;
+  }
+  & > .c-DateBlock__Date {
+    .border-vert(top; @p-rw);
+    padding-bottom: 0;
+  }
+  & > .c-DateBlock__Desc {
     .border-vert(bottom; @p-rw);
     padding-top: 0;
     margin-bottom: @g-vru; // HACK fallback

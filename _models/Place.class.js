@@ -1,14 +1,12 @@
 var Util = require('./Util.class.js')
 
-/**
- * A place.
- * Mostly used for hotel & venue locations.
- * @type {Place}
- */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
+   * A place.
+   * Mostly used for hotel & venue locations.
    * Constructs a Place object.
+   * @constructor
    * @param {string} name the name of the place
    * @param {Object} $placeinfo an object containing the following:
    * @param {string} $placeinfo.street_address the street and number, eg: '1801 Alexander Bell Drive'

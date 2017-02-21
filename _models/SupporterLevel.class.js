@@ -1,11 +1,8 @@
-/**
- * A group of supporters with a similar level of support or donation.
- * Assigned at the site level, not at an individual conference.
- * @type {SupporterLevel}
- */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
+   * A group of supporters with a similar level of support or donation.
+   * Assigned at the site level, not at an individual conference.
    * Construct a SupporterLevel object, given an (immutable) name.
    * @constructor
    * @param {string} name the name of the level (e.g. 'Gold')

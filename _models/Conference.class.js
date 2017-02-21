@@ -1,12 +1,9 @@
-/**
- * A conference event.
- * It may have a name, theme, dates, (promoted) location, passes, sessions, venues, speakers,
- * important dates, chairs, and other properties.
- * @type {Conference}
- */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
+   * A conference event.
+   * It may have a name, theme, dates, (promoted) location, passes, sessions, venues, speakers,
+   * important dates, chairs, and other properties.
    * Construct a Conference object.
    * The name, url, theme, start date, end date, and promoted location
    * are immutable and must be provided during construction.

@@ -1,17 +1,14 @@
 var Page = require('sitepage').Page
 var Util = require('./Util.class.js')
 
-/**
- * Any page or subpage within a ConfSite.
- * @see ConfSite
- * @type {ConfPage}
- * @extends Page
- */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
+   * Any page or subpage within a ConfSite.
    * Construct a ConfPage object, given a name and url.
+   * @see ConfSite
    * @constructor
+   * @extends Page
    * @param {string} name name of this page
    * @param {string} url  url of this page
    */

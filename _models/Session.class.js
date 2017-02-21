@@ -1,13 +1,11 @@
-/**
- * A program event.
- * @type {Session}
- */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
+   * A program event.
    * Construct a Session object.
    * The name, start date, and end date
    * are immutable and must be provided during construction.
+   * @constructor
    * @param {Object} $eventinfo an object with the following immutable properties:
    * @param {string} $eventinfo.name the name of the session
    * @param {Date} $eventinfo.start_date the start date of the session
@@ -37,7 +35,7 @@ module.exports = (function () {
    * @return {Date} the start date of this session
    */
   Session.prototype.startDate = function startDate() {
-    return this._START
+    return this._START || new Date()
   }
 
   /**
@@ -45,7 +43,7 @@ module.exports = (function () {
    * @return {Date} the end date of this session
    */
   Session.prototype.endDate = function endDate() {
-    return this._END
+    return this._END || new Date()
   }
 
   /**

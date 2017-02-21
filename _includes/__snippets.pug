@@ -26,7 +26,7 @@ mixin sitetoc(args, inner)
               i.material-icons.c-MenuMobile__Icon.-d-n-sM(role="none")= $confPage.getIcon()
             span= $confPage.name()
             if icons && icons.sub && $confPage.findAll().length && depth > 0
-              i.material-icons.c-MenuBar__Icon.-d-n-nsM(role="none") expand_more
+              i.material-icons.c-MenuBar__Icon.-d-n-nM(role="none") expand_more
           if $confPage.findAll().length && depth > 0
             +sitetoc({pages: $confPage.findAll(), classes: (classes.sub || {}), depth: depth-1, icons: false}, true)
 
@@ -43,6 +43,12 @@ mixin highlightButtons(links, more_classes)
       li.o-List__Item.o-ListAction__Item
         a.c-Btn.c-Btn--hilite(class=(more_classes || '') href=item.href)&attributes(item.attr || {})
           = item.text
+
+mixin promoLoc(location)
+  if location.title
+    abbr(title=location.title)= location.text
+  else
+    = location.text
 
 mixin highlight(classes)
   aside.o-Runner.o-Runner--highlight(class=classes)

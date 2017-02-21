@@ -1,9 +1,9 @@
-/**
- * A set of static values and functions used site-wide.
- * @type {Util}
- */
 module.exports = (function () {
   // CONSTRUCTOR
+  /**
+   * A set of static values and functions used site-wide.
+   * @constructor
+   */
   function Util() {}
 
   // STATIC MEMBERS

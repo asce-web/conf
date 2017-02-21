@@ -1,14 +1,12 @@
 var Util = require('./Util.class.js')
 
-/**
- * A person.
- * Can be used for any role on the suite.
- * @type {Person}
- */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
+   * A person.
+   * Can be used for any role on the suite.
    * Constructs a Person object.
+   * @constructor
    * @param {string} id a unique identifier of the person
    * @param {Object} $name an object containing the following:
    * @param {string} $name.honorific_prefix a prefix, if any (e.g. 'Mr.', 'Ms.', 'Dr.')

@@ -9,11 +9,7 @@ block mainHeader
     meta(content=site.currentConference().url() itemprop="url")
     p.o-Flex.c-ConfHed__Detail
       span.o-Flex__Item.c-ConfHed__Place.h-Block(itemprop="location")
-        - var loc = site.currentConference().promoLoc()
-        if loc.title && loc.text
-          abbr(title=loc.title)= loc.text
-        else
-          = loc.text || loc
+        +promoLoc(site.currentConference().promoLoc())
       span.o-Flex__Item.c-ConfHed__Dates.h-Block
         time(datetime=site.currentConference().startDate() itemprop="startDate")
           = Util.monthDay(site.currentConference().startDate())

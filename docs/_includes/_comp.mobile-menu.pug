@@ -1,7 +1,7 @@
 figure.docs-figure
-  include /_views/_main-menu.view.pug
-  +mainMenu({
+  +sitetoc({
     icons: { page: true }
+  , depth: 1
   , pages: [
       new ConfPage('Home', '#0').setIcon('insert_drive_file')
     , new ConfPage('Registration', '#0').setIcon('insert_drive_file')
@@ -13,8 +13,8 @@ figure.docs-figure
     , new ConfPage('Speakers', '#0').setIcon('insert_drive_file')
     ]
   , classes: {
-      listclasses: 'c-MenuMobile'
-    , itemclasses: 'c-MenuMobile__Item'
+      listclasses: 'o-Flex c-MenuMobile'
+    , itemclasses: 'o-Flex__Item c-MenuMobile__Item'
     , linkclasses: 'c-MenuMobile__Link h-Block'
     , sub: {
         listclasses: 'c-MenuMobile__Sub'

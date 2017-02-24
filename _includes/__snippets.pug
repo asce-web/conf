@@ -53,8 +53,8 @@ mixin promoLoc(location)
   else
     = location.text
 
-mixin highlight(classes)
-  aside.o-Runner.o-Runner--highlight(class=classes)&attributes(attributes)
+mixin highlight()
+  aside.o-Runner.o-Runner--highlight&attributes(attributes)
     div.o-Constrain
       //- NOTE: the topmost-level heading insde this `block` shall have the frag id for the aside
       block

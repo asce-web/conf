@@ -70,7 +70,7 @@ html(lang="en")
               by rank)
             +highlightButtons([{text:'All Sponsors', href:'sponsor.html'}])
         block additionalSupporters
-          +highlight('c-Banner c-Banner--orgs')
+          +highlight().c-Banner.c-Banner--orgs
             h1.h-Hidden#additional-supporters Additional Supporters
             include /_views/_c-SupporterBlock.view.pug
             each $supporterLevel,index in site.getSupporterLevelList('Orgs')

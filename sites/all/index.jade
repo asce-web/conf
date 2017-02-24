@@ -4,6 +4,6 @@ block append vars
   - var page = site.find('index.html')
 
 block mainHeader
-  include /_views/_c-ConfHed.view.pug
-  +confHed(site.currentConference())
+  include /_views/_Conference.view.pug
+  +hero(site.currentConference())
     block actionButtons

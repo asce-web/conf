@@ -1,4 +1,4 @@
-mixin confHed($conference)
+mixin hero($conference)
   header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--hero.c-ConfHed: div.o-Constrain
     h1.c-PageTitle.c-ConfHed__Name(itemprop="name")= $conference.name()
     meta(content=$conference.url() itemprop="url")
@@ -14,4 +14,13 @@ mixin confHed($conference)
     p.c-ConfHed__Theme.h-Hidden-nsM(itemprop="description")
       = $conference.theme() || '\xa0'
       //- \xa0 == &nbsp;
+    block
+
+mixin otherYear($conference)
+  +highlight().c-Banner.c-ConfHed(itemscope="" itemtype="http://schema.org/Event")&attributes(attributes)
+    h1.c-ConfHed__Name(itemprop="name")= $conference.name()
+    meta(content=$conference.startDate() itemprop="startDate")
+    p.c-ConfHed__Detail.-fz-el-kilo(itemprop="location")
+      +promoLoc($conference.promoLoc())
+    p.h-Hidden-nsM._text-plain= $conference.otherYearBlurb()
     block

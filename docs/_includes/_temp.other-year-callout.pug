@@ -16,12 +16,13 @@ ul.-fs-t
   li: +internalLink(ConfDocs.DOCS.find('obj.html#action-list'))
   li: +internalLink(ConfDocs.DOCS.find('comp.html#buttons'))
 figure.docs-figure
-  header.o-Runner.o-Runner--pageHeader.c-Banner.c-ConfHed: div.o-Constrain
-    h1.c-ConfHed__Name(itemprop="name") Geo-Risk 2020
-    meta(content="2020-06-04" itemprop="startDate")
-    p.c-ConfHed__Detail(itemprop="location")
-      abbr(title="Denver, Colorado") Denver, CO
-    p.h-Hidden-nsM Plan ahead to attend Geo-Risk next year!
+  include /_views/_Conference.view.pug
+  +otherYear(new Conference({
+    name      : 'Geo-Risk 2020'
+  , url       : 'http://2017.georiskconference.org/'
+  , start_date: new Date('2020-06-04')
+  , promo_loc : { text: 'Denver, CO', title: 'Denver, Colorado'}
+  }).otherYearBlurb('Plan ahead to attend Geo-Risk next year!'))
     +highlightButtons([
       { text: 'Event Details' , href:'#0', attr: {itemprop:'url'} }
     ], 'c-Btn--ghost c-Btn--ghost--dark')

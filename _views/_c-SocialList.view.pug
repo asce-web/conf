@@ -1,5 +1,5 @@
 mixin socialList($social_obj)
-  ul.o-List.o-Flex.c-SocialList(class=attributes.class)
+  ul.o-List.o-Flex.c-SocialList&attributes(attributes)
     block
     each $val,key in $social_obj
       li.o-List__Item.o-Flex__Item.c-SocialList__Item

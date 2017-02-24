@@ -9,8 +9,11 @@
 
 mixin sitetoc(args, inner)
   //- WHERE +sitetoc() is used:
-  //- - _main-menu.view.pug, nested inside of +mainMenu()
-  //- - _c-Sitemap.view.pug
+  //- - /sites/all/_sites.tpl.jade
+  //- - /views/_c-Sitemap.view.pug
+  //- - /docs/_includes/_comp.mobile-menu.pug
+  //- - /docs/_includes/_comp.menu-bar.pug
+  //- - /docs/_includes/_temp.site-header.pug
   //- NOTE parameter validation
   -
     var pages   = args.pages   || []

@@ -65,7 +65,7 @@ module.exports = (function () {
    * @return {string} the theme of this conference
    */
   Conference.prototype.theme = function theme() {
-    return this._THEME
+    return this._THEME || ''
   }
 
   /**

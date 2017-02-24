@@ -14,17 +14,15 @@ ul.-fs-t
   li: +internalLink(ConfDocs.DOCS.find('obj.html#action-list'))
   li: +internalLink(ConfDocs.DOCS.find('comp.html#buttons'))
 figure.docs-figure
-  header.o-Runner.o-Runner--pageHeader.c-Banner.c-Banner--hero.c-ConfHed: div.o-Constrain
-    h1.c-PageTitle.c-ConfHed__Name(itemprop="name") Geo-Risk 2017
-    meta(content="http://2017.georiskconference.org/" itemprop="url")
-    p.o-Flex.c-ConfHed__Detail
-      span.o-Flex__Item.c-ConfHed__Place.h-Block(itemprop="location")
-        abbr(title="Denver, Colorado") Denver, CO
-      span.o-Flex__Item.c-ConfHed__Dates.h-Block
-        time(datetime="2017-06-04" itemprop="startDate") Jun 4
-        | &ndash;
-        time(datetime="2017-06-07" itemprop="endDate") Jun 7
-    p.c-ConfHed__Theme.h-Hidden-nsM(itemprop="description") Geotechincal risk from theory to practice.
+  include /_views/_c-ConfHed.view.pug
+  +confHed(new Conference({
+    name      : 'Geo-Risk 2017'
+  , url       : 'http://2017.georiskconference.org/'
+  , theme     : 'Geotechincal risk from theory to practice.'
+  , start_date: new Date('2017-06-04')
+  , end_date  : new Date('2017-06-07')
+  , promo_loc : { text: 'Denver, CO', title: 'Denver, Colorado'}
+  }))
     +highlightButtons([
       { text: 'Register'      , href:'#0' }
     , { text: 'Sponsor'       , href:'#0' }

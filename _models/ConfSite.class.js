@@ -38,7 +38,7 @@ module.exports = (function () {
    * Overwrite superclass description() method.
    * This method only gets the description, it does not set it.
    * @override
-   * @param  {unknown} arg any argument
+   * @param  {*} arg any argument
    * @return {string} the description of this site
    */
   ConfSite.prototype.description = function description(arg) {
@@ -51,7 +51,7 @@ module.exports = (function () {
    * @return {string} the tagline of this site
    */
   ConfSite.prototype.tagline = function tagline() {
-    return this.description()
+    return this.description() || ''
   }
 
   /**

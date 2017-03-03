@@ -1,3 +1,9 @@
+mixin passList($conference, starred)
+  ul.o-List.o-ListStacked
+    each $pass in $conference.getPassesAll().filter(function ($p) { return (starred) ? $p.isStarred() : true })
+      li.o-List__Item.o-ListStacked__Item
+        +pass($pass, $conference)
+
 mixin pass($pass, $conference)
   - var current_period = $conference.currentRegistrationPeriod()
   article.c-Pass

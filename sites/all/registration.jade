@@ -10,6 +10,7 @@ block mainHeader
 block mainReference
   section.o-Runner.o-Runner--highlight.c-Banner#full-registration: div.o-Constrain
     h1.h-Hidden Full Registration
+    include /_views/_Pass.view.pug
     +passList(site.currentConference(), false)
     ul.o-List.o-ListAction.c-Callout._regLegend
       each $registrationPeriod in site.currentConference().getRegistrationPeriodsAll()

@@ -8,7 +8,7 @@ p.
 p.-fs-t This Template uses no other established patterns.
 figure.docs-figure
   figcaption This is a person&rsquo;s #[em.-fw-b full name]: first, middle (if applicable), and last.
-  include /_views/_person.view.pug
+  include /_views/_Person.view.pug
   +personFullName(new Person('drew-caracciolo', {
       given_name      : 'Drew'
     , additional_name : 'P.'
@@ -23,7 +23,7 @@ figure.docs-figure
       &lt;/span&gt;
 figure.docs-figure
   figcaption This is a person&rsquo;s #[em.-fw-b entire name]: full name along with any honorific prefices or suffices.
-  include /_views/_person.view.pug
+  include /_views/_Person.view.pug
   +personEntireName(new Person('drew-caracciolo', {
       given_name      : 'Drew'
     , additional_name : 'P.'
@@ -42,7 +42,7 @@ figure.docs-figure
       &lt;span#[mark.docs-c-Togglable__Text  itemprop="honorificSuffix"]&gt;Ph.D., M.ASCE&lt;/span&gt;
 figure.docs-figure
   figcaption This is a person with #[em.-fw-b affiliation]: entire name along with any affiliation.
-  include /_views/_person.view.pug
+  include /_views/_Person.view.pug
   +personAffiliation(new Person('drew-caracciolo', {
       given_name      : 'Drew'
     , additional_name : 'P.'
@@ -64,7 +64,7 @@ figure.docs-figure
       &lt;/span&gt;
 figure.docs-figure
   figcaption This is a person with #[em.-fw-b contact information]: full name along with email (linked) and phone number.
-  include /_views/_person.view.pug
+  include /_views/_Person.view.pug
   +personContact(new Person('drew-caracciolo', {
       given_name      : 'Drew'
     , additional_name : 'P.'

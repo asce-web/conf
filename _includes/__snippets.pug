@@ -58,10 +58,3 @@ mixin highlight()
     div.o-Constrain
       //- NOTE: the topmost-level heading insde this `block` shall have the frag id for the aside
       block
-
-mixin speakerList(speakers)
-  ul.o-List.o-ListStacked
-    include /_views/_c-Speaker.view.pug
-    each $person in speakers
-      li.o-List__Item.o-ListStacked__Item
-        +speaker($person)

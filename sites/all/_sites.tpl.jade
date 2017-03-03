@@ -23,7 +23,7 @@ html(lang="en")
   body(style=site.colors())
     a.h-Hidden(href="#main") skip to main content
     header.o-Runner.c-Mast.c-Mast--head: div.o-Constrain
-      include /_views/_c-SiteTitle.view.pug
+      include /_views/_ConfSite.view.pug
       +siteTitle(site)
     header.o-Runner.c-Mast.c-Mast--menu: div.o-Constrain
       label.c-Toggle(aria-label="toggle main menu")
@@ -72,7 +72,7 @@ html(lang="en")
         block additionalSupporters
           +highlight().c-Banner.c-Banner--orgs
             h1.h-Hidden#additional-supporters Additional Supporters
-            include /_views/_c-SupporterBlock.view.pug
+            include /_views/_SupporterLevel.view.pug
             each $supporterLevel,index in site.getSupporterLevelList('Orgs')
               +supporterBlock($supporterLevel, site, { 'c-SupporterBlock--separate': index < site.getSupporterLevelList('Orgs').length-1 })
     footer.o-Runner.c-Mast.c-Mast--sitemap#site-map: nav.o-Constrain

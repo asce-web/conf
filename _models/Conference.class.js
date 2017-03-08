@@ -36,7 +36,6 @@ module.exports = (function () {
     self._important_dates = []
     self._organizers      = []
     self._social          = {}
-    self._other_year_blurb = ''
     self._regpd_curr_index = NaN
     self._venue_conf_key   = ''
   }
@@ -391,19 +390,6 @@ module.exports = (function () {
   Conference.prototype.getSocialAll = function getSocialAll() {
     //- NOTE returns shallow clone (like arr.slice())
     return Object.assign({}, this._social) // shallow clone this.social into {}
-  }
-
-  /**
-   * Set or get the other year blurb of this conference.
-   * This blurb is used if this conference occurs in another year (previous or next year).
-   * @param  {string=} text the other year blurb of this conference
-   * @return {(Conference|string)} this conference || the other year blurb of this conference
-   */
-  Conference.prototype.otherYearBlurb = function otherYearBlurb(text) {
-    if (arguments.length) {
-      this._other_year_blurb = text
-      return this
-    } else return this._other_year_blurb
   }
 
   // METHODS

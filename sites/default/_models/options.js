@@ -56,8 +56,6 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
         , title: 'New York, New York'
         }
       })
-        .otherYearBlurb('Access the 2015 program to see which sessions qualify for \
-          PDHs and other documentation.')
         .addVenue('Conference Venue', new Place('New York Marriott Marquis', {
           street_address  : '1535 Broadway'
         , address_locality: 'New York'
@@ -77,8 +75,6 @@ module.exports = Object.assign(require('../../all/_models/options.js'), {
         , title: 'New Orleans, Louisiana'
         }
       })
-        .otherYearBlurb('Plan ahead to attend, sponsor, or exhibit at the annual convention \
-          for civil engineering professionals.')
         .addVenue('Conference Venue', new Place('New Orleans Mariott', {
           street_address  : '555 Canal Street'
         , address_locality: 'New Orleans'

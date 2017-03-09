@@ -9,12 +9,14 @@
 
 
 var Color      = require('csscolor').Color
-var ConfSite   = require('../../../_models/ConfSite.class.js')
-var ConfPage   = require('../../../_models/ConfPage.class.js')
-var Conference = require('../../../_models/Conference.class.js')
+var ConfSite   = require('neo').ConfSite
+var ConfPage   = require('neo').ConfPage
+var Conference = require('neo').Conference
 
-module.exports = Object.assign(require('../../../_models/options.js'), {
-  site: new ConfSite()
+module.exports = {
+  basedir : './'
+, Util: require('neo').Util
+, site: new ConfSite()
     .colors(Color.fromString('#660000'), Color.fromString('#ff6600')) // default Hokie colors
     .init()
     .addConference('sample', new Conference({
@@ -25,4 +27,4 @@ module.exports = Object.assign(require('../../../_models/options.js'), {
     .prevConference('sample')
     .nextConference('sample')
 , page: new ConfPage()
-})
+}

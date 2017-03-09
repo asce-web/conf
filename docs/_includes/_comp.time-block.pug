@@ -1,15 +1,12 @@
-p.
-  #[strong Note:] the markup below is invalid, as there ae #[code.docs-code li] elements directly
-  within a #[code.docs-code dl]. However, this is the only way to structure the microdata properly.
 figure.docs-figure
-  include /_views/_c-TimeBlock.view.pug
+  include /_views/_Session.view.pug
   +timeBlock([
-    new ProgramEvent({start_date:'2016-09-28 10:00', end_date:'2016-09-28 19:00', name:'Registration'             })
-  , new ProgramEvent({start_date:'2016-09-28 10:30', end_date:'2016-09-28 16:30', name:'Technical Tours'          }).url('#0')
-  , new ProgramEvent({start_date:'2016-09-28 13:00', end_date:'2016-09-28 17:00', name:'Short Courses'            }).url('#0')
-  , new ProgramEvent({start_date:'2016-09-28 12:00', end_date:'2016-09-28 17:00', name:'Optional Tours'           }).url('#0')
-  , new ProgramEvent({start_date:'2016-09-28 17:30', end_date:'2016-09-28 19:30', name:'Opening Welcome Reception'})
-  , new ProgramEvent({start_date:'2016-09-28 13:00', end_date:'2016-09-28 17:00', name:'Community Service Project'})
+    new Session({start_date:new Date('2016-09-28 10:00'), end_date:new Date('2016-09-28 19:00'), name:'Registration'             })
+  , new Session({start_date:new Date('2016-09-28 10:30'), end_date:new Date('2016-09-28 16:30'), name:'Technical Tours'          }).url('#0')
+  , new Session({start_date:new Date('2016-09-28 13:00'), end_date:new Date('2016-09-28 17:00'), name:'Short Courses'            }).url('#0')
+  , new Session({start_date:new Date('2016-09-28 12:00'), end_date:new Date('2016-09-28 17:00'), name:'Optional Tours'           }).url('#0')
+  , new Session({start_date:new Date('2016-09-28 17:30'), end_date:new Date('2016-09-28 19:30'), name:'Opening Welcome Reception'})
+  , new Session({start_date:new Date('2016-09-28 13:00'), end_date:new Date('2016-09-28 17:00'), name:'Community Service Project'})
   ])
   pre.docs-pre.
     &lt;dl class="o-List  #[u c-TimeBlock]"&gt;

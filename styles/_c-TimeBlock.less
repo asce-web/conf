@@ -2,11 +2,11 @@
 /*################################*\
     conf  |  _c-TimeBlock.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__fallback.flexbox.less');
-@import (reference) url('../node_modules/xmeter/src/__tool.fontsize.less');
+@import (reference) url('../node_modules/xmeter/styles/__fallback.flexbox.less');
+@import (reference) url('../node_modules/xmeter/styles/__tool.fontsize.less');
 
 
-// A list of program events for a single day.
+// A list of sessions for a single day.
 //
 // ^subcomponents
 // __Times - contains start and end times
@@ -17,54 +17,71 @@
 // ^author
 // Chris Harvey
 // ^updated
-// 2016-05-18
-
-// HACK fallbacks
-// TODO remove these vars once css custom properties supported
-@p-font_size_mod: (14/16); // taken from `Program.less` // TODO remove comment in that file once done
-@l-vru: @p-font_size_mod * @g-vru; // module vru
-
+// 2017-02-19
 .c-TimeBlock {
-  padding: @l-vru @g-boxpadd_kilo_h 0; // HACK fallback
-  padding: var(--vru) @g-boxpadd_kilo_h 0;
+  .font-size-mod(14/16);
 }
 
 .c-TimeBlock__Item {
 }
+
 .c-TimeBlock__Times,
 .c-TimeBlock__Desc {
-  padding: 0 @g-boxpadd_kilo_h (2*@l-vru); // HACK fallback
-  padding: 0 @g-boxpadd_kilo_h calc(~'2 * var(--vru)');
+  padding-bottom: (2*@g-vru); // HACK fallback
+  padding-bottom: calc(~'2 * var(--vru)');
+  @media not all and (min-width: 30em) {
+    padding-left: @g-boxpadd_norm_h;
+  }
   @media screen and (min-width: 30em) {
     .flex(50%);
     max-width: 50%;
   }
 }
+
 .c-TimeBlock__Times {
-  @media screen and (max-width: 29.999em) {
+  @media not all and (min-width: 30em) {
+    padding-bottom: 0; // override padding-bottom above
     font-weight: 300;
-    padding-bottom: 0;
   }
   @media screen and (min-width: 30em) {
     text-align: right;
+    padding-right: @g-boxpadd_kilo_h;
   }
 }
+
 .c-TimeBlock__Desc {
-  @media screen and (max-width: 29.999em) {
+  @media not all and (min-width: 30em) {
+    // same as .c-DateBlock__Desc
     .font-size-el(1.25);
     font-weight: 600;
+  }
+  @media screen and (min-width: 30em) {
+    padding-left: @g-boxpadd_kilo_h;
   }
 }
 
 // Timeline Visualization
 @media screen {
+  // @supports (color: var(--color-primary)) {
+  //   // HACK `@supports` not supported in harp@0.23.0; commenting out for now
+  //   // checking support for css custom properties (for positioning & sizing of viz)
+  //   .c-TimeBlock__Times::before,
+  //   .c-TimeBlock__Desc:not(.c-TimeBlock__Desc--last)::before {
+  //     content: '';
+  //   }
+  // }
   .c-TimeBlock__Times,
   .c-TimeBlock__Desc {
     position: relative; // for psuedo-elements in viz
   }
   .c-TimeBlock__Times::before,
   .c-TimeBlock__Desc:not(.c-TimeBlock__Desc--last)::before {
-    content: '';
+    // HACK : lack of `@supports` support (see above)
+    --variablessupported: '';
+    content: var(--variablessupported);
+  }
+  .c-TimeBlock__Times::before,
+  .c-TimeBlock__Desc::before {
     display: block;
     position: absolute;
     box-shadow: 0 0 0 1em currentColor inset, 0 0 1em 0 currentColor;
@@ -73,14 +90,9 @@
   }
   .c-TimeBlock__Times::before {
     // This is the disc on the viz
-    @width: @p-font_size_mod * 1rem; // module em (like root em if the module were the root)
-    @_width: calc(~'var(--vru) / var(--line-height)');
+    @_width: calc(~'var(--vru) / var(--line-height)'); // module em (like root em if the module were the root)
     @_side : calc(~'-0.5 * var(--vru) / var(--line-height)');
     @_top  : calc(~'-0.5 * var(--vru) / var(--line-height) + 0.5 * var(--vru)');
-    left: (-0.5 * @width); // HACK fallback
-    top: (-0.5*@width + 0.5*@l-vru); // HACK fallback
-    width: @width; // HACK fallback
-    height: @width; // HACK fallback
     left: @_side;
     top: @_top;
     width: @_width;
@@ -88,20 +100,16 @@
     border-radius: 100%;
     @media (min-width: 30em) {
       left: auto;
-      right: (-0.5 * @width); // HACK fallback
       right: @_side;
     }
   }
-  .c-TimeBlock__Desc:not(.c-TimeBlock__Desc--last)::before {
+  .c-TimeBlock__Desc::before {
     // This is the line on the viz
     left: 0;
-    top   : (-0.5 * @l-vru); // HACK fallback
-    bottom: (-0.5 * @l-vru); // HACK fallback
-    top   : calc(~'-0.5 * var(--vru)');
+    top:    calc(~'-0.5 * var(--vru)');
     bottom: calc(~'-0.5 * var(--vru)');
     border-left: 1px solid;
     @media (min-width: 30em) {
-      top: (0.5 * @l-vru); // HACK fallback
       top: calc(~'0.5 * var(--vru)');
     }
   }

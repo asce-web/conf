@@ -2,19 +2,16 @@ var Page = require('sitepage').Page
 var Color = require('csscolor').Color
 var ConfPage = require('./ConfPage.class.js')
 
-/**
- * A conference site.
- * A site hosting a series of conferences,
- * with a name, url, taglinne,
- * logo, supporter levels and supporters, exhibitors, and contact information.
- * @type {ConfSite}
- * @extends Page
- */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
+   * A conference site.
+   * A site hosting a series of conferences,
+   * with a name, url, taglinne,
+   * logo, supporter levels and supporters, exhibitors, and contact information.
    * Construct a ConfSite object, given a name and url.
    * @constructor
+   * @extends Page
    * @param {string} name name of this site
    * @param {string} url url of the landing page for this site
    * @param {string} tagline the tagline, or slogan, of this site
@@ -29,6 +26,7 @@ module.exports = (function () {
     self._supporter_levels = []
     self._supporter_lists  = {}
     self._supporters       = []
+    self._exhibitors       = []
     self._conf_curr_key   = null
     self._conf_prev_key   = null
     self._conf_next_key   = null
@@ -41,7 +39,7 @@ module.exports = (function () {
    * Overwrite superclass description() method.
    * This method only gets the description, it does not set it.
    * @override
-   * @param  {unknown} arg any argument
+   * @param  {*} arg any argument
    * @return {string} the description of this site
    */
   ConfSite.prototype.description = function description(arg) {
@@ -54,7 +52,7 @@ module.exports = (function () {
    * @return {string} the tagline of this site
    */
   ConfSite.prototype.tagline = function tagline() {
-    return this.description()
+    return this.description() || ''
   }
 
   /**
@@ -85,7 +83,7 @@ module.exports = (function () {
 
   /**
    * Add a conference to this site.
-   * @param {string} conf_label key for accessing the conference
+   * @param {string} conf_label key for accessing the conference, usually a year
    * @param {Conference} $conference the conference to add
    * @return {ConfSite} this site
    */
@@ -95,7 +93,7 @@ module.exports = (function () {
   }
   /**
    * Retrieve a conference of this site.
-   * @param  {string} conf_label key for accessing the conference
+   * @param  {string} conf_label key for accessing the conference, usually a year
    * @return {Conference} the specified conference
    */
   ConfSite.prototype.getConference = function getConference(conf_label) {
@@ -103,11 +101,11 @@ module.exports = (function () {
   }
   /**
    * This method does nothing.
-   * @param  {string} conf_label any string
+   * @param  {string} conf_label key for accessing the conference, usually a year
    * @return {ConfSite} this site
    */
   ConfSite.prototype.removeConference = function removeConference(conf_label) {
-    console.log('Sorry, you do not have this ability.\
+    console.error('Sorry, you do not have this ability.\
     Instead, add a new conference overwriting the one you wish to delete.')
     return this
   }
@@ -206,7 +204,7 @@ module.exports = (function () {
    * @param {Array<string>} supporter_level_names an array of pre-existing SupporterLevel names
    * @return {ConfSite} this site
    */
-  ConfSite.prototype.addSupporterList = function addSupporterList(type, supporter_level_names) {
+  ConfSite.prototype.addSupporterLevelList = function addSupporterLevelList(type, supporter_level_names) {
     this._supporter_lists[type] = supporter_level_names
     return this
   }
@@ -215,7 +213,7 @@ module.exports = (function () {
    * @param  {string} type the name of the subarray
    * @return {Array<SupporterLevel>} the array of SupporterLevel objects belonging to the type
    */
-  ConfSite.prototype.getSupporterList = function getSupporterList(type) {
+  ConfSite.prototype.getSupporterLevelList = function getSupporterLevelList(type) {
     var self = this
     return (self._supporter_lists[type] || []).map(function (el) { return self.getSupporterLevel(el) })
   }
@@ -254,6 +252,40 @@ module.exports = (function () {
     return this._supporters.slice()
   }
 
+  /**
+   * Add an exhibitor to this site.
+   * @param {Exhibitor} $exhibitor the exhibitor to add
+   * @return {ConfSite} this site
+   */
+  ConfSite.prototype.addExhibitor = function addExhibitor($exhibitor) {
+    this._exhibitors.push($exhibitor)
+    return this
+  }
+  /**
+   * Retrieve an exhibitor of this site.
+   * @param  {string} name the name of the exhibitor
+   * @return {?Exhibitor} the specified exhibitor
+   */
+  ConfSite.prototype.getExhibitor = function getExhibitor(name) {
+    return this._exhibitors.find(function ($exhibitor) { return $exhibitor.name() === name }) || null
+  }
+  /**
+   * Remove an exhibitor of this site.
+   * @param  {string} name the name of the exhibitor
+   * @return {ConfSite} this site
+   */
+  ConfSite.prototype.removeExhibitor = function removeExhibitor(name) {
+    Util.spliceFromArray(this._exhibitors, this.getSupporter(name))
+    return this
+  }
+  /**
+   * Retrieve all exhibitors of this site.
+   * @return {Array<Exhibitor>} a shallow array of all exhibitors of this site
+   */
+  ConfSite.prototype.getExhibitorsAll = function getExhibitorsAll() {
+    return this._exhibitors.slice()
+  }
+
   // METHODS
   /**
    * Initialize this site: add the proper pages.
@@ -272,42 +304,42 @@ module.exports = (function () {
       )
       .add(new ConfPage('Registration', 'registration.html')
         .title(pageTitle)
-        .description('Register for ' + self.name() + ' here.')
+        .description(`Register for ${self.name()} here.`)
         .setIcon('shopping_cart')
       )
       .add(new ConfPage('Program', 'program.html')
         .title(pageTitle)
-        .description('Program and agenda of ' + self.name() + '.')
+        .description(`Program and agenda of ${self.name()}.`)
         .setIcon('event')
       )
       .add(new ConfPage('Location', 'location.html')
         .title(pageTitle)
-        .description('Location and where to stay for ' + self.name() + '.')
+        .description(`Location and where to stay for ${self.name()}.`)
         .setIcon('flight')
       )
       .add(new ConfPage('Speakers', 'speakers.html')
         .title(pageTitle)
-        .description('Current and prospective speakers at ' + self.name() + '.')
+        .description(`Current and prospective speakers at ${self.name()}.`)
         .setIcon('account_box')
       )
       .add(new ConfPage('Sponsor', 'sponsor.html')
         .title(pageTitle)
-        .description('Sponsors of ' + self.name() + '.')
+        .description(`Sponsors of ${self.name()}.`)
         .setIcon('people')
       )
       .add(new ConfPage('Exhibit', 'exhibit.html')
         .title(pageTitle)
-        .description('Exhibitors at ' + self.name() + '.')
+        .description(`Exhibitors at ${self.name()}.`)
         .setIcon('work')
       )
       .add(new ConfPage('About', 'about.html')
         .title(pageTitle)
-        .description('About ' + self.name() + '.')
+        .description(`About ${self.name()}.`)
         .setIcon('info_outline')
       )
       .add(new ConfPage('Contact', 'contact.html')
         .title(pageTitle)
-        .description('Contact us for questions and comments about ' + self.name() + '.')
+        .description(`Contact us for questions and comments about ${self.name()}.`)
         .setIcon('email')
       )
   }

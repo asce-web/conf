@@ -16,14 +16,13 @@ ul.-fs-t
 figure.docs-figure
   div.-ps-r.-mb-1vru
     header.o-Runner.c-Mast.c-Mast--head: div.o-Constrain
-      include /_views/_c-SiteTitle.view.pug
+      include /_views/_ConfSite.view.pug
       +siteTitle(new ConfSite('CI Summit', '#0', 'Innovations In Construction')
         .logo('http://cisummit.org/sites/cisummit.org/files/ci-shield-logo.png')
       )
     header.o-Runner.c-Mast.c-Mast--menu: div.o-Constrain
-      label.c-Toggle(title="toggle main menu")
-        input.c-Toggle__Check(type="checkbox" value="open main menu")
-        span.-d-n toggle main menu
+      label.c-Toggle(aria-label="toggle main menu")
+        input.c-Toggle__Check.h-Hidden(type="checkbox" value="main menu is open" role="switch")
         svg.c-Toggle__Viz(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36")
           path(d="M0,0 H24 V24 H0 z" fill="transparent")
           g(transform="translate(3,11)")
@@ -31,26 +30,31 @@ figure.docs-figure
               rect.c-Toggle__Viz__Bar(width="18" height="2")
         noscript: p Oops! Looks like you need to enable Javascript for the main menu.
       nav.o-Drawer
-        h1.-d-n#main-menu Main Menu
-        +sitetoc({pages: [
-          new ConfPage('Home', '#0').setIcon('insert_drive_file')
-        , new ConfPage('Registration', '#0').setIcon('insert_drive_file')
-            .add(new ConfPage('Why Attend', '#0'))
-        , new ConfPage('Program', '#0').setIcon('insert_drive_file')
-            .add(new ConfPage('Short Courses', '#0'))
-            .add(new ConfPage('Technical Tours', '#0'))
-        , new ConfPage('Location', '#0').setIcon('insert_drive_file')
-        , new ConfPage('Speakers', '#0').setIcon('insert_drive_file')
-        ], classes: {
-          listclasses: 'o-List o-Flex c-MenuMobile-nsM c-MenuBar-sM'
-        , itemclasses: 'o-List__Item o-Flex__Item c-MenuMobile__Item-nsM c-MenuBar__Item-sM'
-        , linkclasses: 'c-MenuMobile__Link-nsM c-MenuBar__Link-sM h-Block'
-        , sub: {
-            listclasses: 'o-List c-MenuMobile__Sub-nsM c-MenuBar__Sub-sM'
-          , itemclasses: 'o-List__Item c-MenuMobile__Sub__Item-nsM c-MenuBar__Sub__Item-sM'
-          , linkclasses: 'c-MenuMobile__Link-nsM c-MenuMobile_Sub_Link-nsM c-MenuBar__Link-sM c-MenuBar__Sub__Link-sM h-Block'
+        h1.h-Hidden#main-menu Main Menu
+        +sitetoc({
+          icons: { page: true, sub: true }
+        , depth: 1
+        , pages: [
+            new ConfPage('Home', '#0').setIcon('insert_drive_file')
+          , new ConfPage('Registration', '#0').setIcon('insert_drive_file')
+              .add(new ConfPage('Why Attend', '#0'))
+          , new ConfPage('Program', '#0').setIcon('insert_drive_file')
+              .add(new ConfPage('Short Courses', '#0'))
+              .add(new ConfPage('Technical Tours', '#0'))
+          , new ConfPage('Location', '#0').setIcon('insert_drive_file')
+          , new ConfPage('Speakers', '#0').setIcon('insert_drive_file')
+          ]
+        , classes: {
+            listclasses: 'o-Flex c-MenuMobile-nsM c-MenuBar-sM'
+          , itemclasses: 'o-Flex__Item c-MenuMobile__Item-nsM c-MenuBar__Item-sM'
+          , linkclasses: 'c-MenuMobile__Link-nsM c-MenuBar__Link-sM h-Block'
+          , sub: {
+              listclasses: 'c-MenuMobile__Sub-nsM c-MenuBar__Sub-sM'
+            , itemclasses: 'c-MenuMobile__Sub__Item-nsM c-MenuBar__Sub__Item-sM'
+            , linkclasses: 'c-MenuMobile__Link-nsM c-MenuMobile__Sub__Link-nsM c-MenuBar__Link-sM c-MenuBar__Sub__Link-sM h-Block'
+            }
           }
-        }, depth: 1, icons: true})
+        })
   pre.docs-pre.
     &lt;header class="o-Runner  c-Mast  c-Mast--head"&gt;
       &lt;div class="o-Constrain"&gt;
@@ -63,9 +67,8 @@ figure.docs-figure
     &lt;header&gt;
     &lt;header class="o-Runner  c-Mast  c-Mast--head"&gt;
       &lt;div class="o-Constrain"&gt;
-        &lt;label class="c-Toggle" title="toggle main menu"&gt;
-          &lt;input class="c-Toggle__Check" type="checkbox" value="open main menu"/&gt;
-          &lt;span.-d-n&gt;toggle main menu&lt;/span&gt;
+        &lt;label class="c-Toggle"#[mark  aria-label="toggle main menu"]&gt;
+          &lt;input class="c-Toggle__Check  h-Hidden" type="checkbox" value="main menu is open"#[mark  role="switch"]/&gt;
           &lt;svg class="c-Toggle__Viz" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"&gt;
             &lt;path d="M0,0 H24 V24 H0 z" fill="transparent"&gt;&lt;/path&gt;
             &lt;g transform="translate(3,11)"&gt;
@@ -77,12 +80,13 @@ figure.docs-figure
           &lt;noscript&gt;&lt;p&gt;Oops! Looks like you need to enable Javascript for the main menu.&lt;/p&gt;&lt;/noscript&gt;
         &lt;/label&gt;
         &lt;nav class="o-Drawer"&gt;
-          &lt;h1 class="-d-n" id="main-menu"&gt;Main Menu&lt;/h1&gt;
-          &lt;ul class="o-List  o-Flex  c-MenuMobile-nsM  c-MenuBar-sM"&gt;
+          &lt;h1 class="h-Hidden" id="main-menu"&gt;Main Menu&lt;/h1&gt;
+          &lt;ul class="o-List  o-Flex  c-MenuMobile-nsM  c-MenuBar-sM"#[mark  role="directory"]&gt;
             &lt;li class="o-List__Item  o-Flex__Item  c-MenuMobile__Item-nsM  c-MenuBar__Item-sM"&gt;
               &lt;a class="c-MenuMobile__Link-nsM  c-MenuBar__Link-sM  h-Block"&gt;
-                &lt;i class="material-icons"&gt;...&lt;/i&gt;
+                &lt;i class="material-icons  c-MenuMobile__Icon  -d-n-sM"#[mark  role="none"]&gt;#[var.docs-var page_icon]&lt;/i&gt;
                 &lt;span&gt;Registration&lt;/span&gt;
+                &lt;i class="material-icons  c-MenuBar__Icon  -d-n-nM"#[mark  role="none"]&gt;expand_more&lt;/i&gt;
               &lt;/a&gt;
               &lt;ul class="o-List  c-MenuBar__Sub-sM"&gt;
                 &lt;li class="o-List__Item  c-MenuBar__Sub__Item-sM"&gt;

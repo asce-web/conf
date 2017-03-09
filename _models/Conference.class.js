@@ -1,12 +1,9 @@
-/**
- * A conference event.
- * It may have a name, theme, dates, (promoted) location, passes, events, venues, speakers,
- * important dates, chairs, and other properties.
- * @type {Conference}
- */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
+   * A conference event.
+   * It may have a name, theme, dates, (promoted) location, passes, sessions, venues, speakers,
+   * important dates, chairs, and other properties.
    * Construct a Conference object.
    * The name, url, theme, start date, end date, and promoted location
    * are immutable and must be provided during construction.
@@ -15,10 +12,10 @@ module.exports = (function () {
    * @param {string} $confinfo.name the name of this conference
    * @param {string} $confinfo.url the url of this conference
    * @param {string} $confinfo.theme the theme, or slogan, of this conference
-   * @param {string} $confinfo.start_date the starting date of this conference
-   * @param {string} $confinfo.end_date the ending date of this conference
-   * @param {(Object|string)} $confinfo.promo_loc the promoted location of this conference
-   * @param {string=} $confinfo.promo_loc.text the promoted location displayed/abbreviated text (eg, "Portland, OR")
+   * @param {Date} $confinfo.start_date the starting date of this conference
+   * @param {Date} $confinfo.end_date the ending date of this conference
+   * @param {Object} $confinfo.promo_loc the promoted location of this conference
+   * @param {string} $confinfo.promo_loc.text the promoted location displayed/abbreviated text (eg, "Portland, OR")
    * @param {string=} $confinfo.promo_loc.title the elongated version of the location (eg, "Portland, Oregon")
    * @param {string=} $confinfo.promo_loc.blurb small paragraph about location. escaped plain-text (no HTML)
    */
@@ -33,13 +30,12 @@ module.exports = (function () {
     self._PROMO_LOC = $confinfo.promo_loc
     self._reg_periods     = []
     self._passes          = []
-    self._program_events  = []
+    self._sessions        = []
     self._venues          = {}
     self._speakers        = []
     self._important_dates = []
     self._organizers      = []
     self._social          = {}
-    self._other_year_blurb = ''
     self._regpd_curr_index = NaN
     self._venue_conf_key   = ''
   }
@@ -68,23 +64,23 @@ module.exports = (function () {
    * @return {string} the theme of this conference
    */
   Conference.prototype.theme = function theme() {
-    return this._THEME
+    return this._THEME || ''
   }
 
   /**
-   * Get the name of this conference.
-   * @return {string} the name of this conference
+   * Get the start date of this conference.
+   * @return {Date} the start date of this conference
    */
   Conference.prototype.startDate = function startDate() {
-    return this._START
+    return this._START || new Date()
   }
 
   /**
-   * Get the name of this conference.
-   * @return {string} the name of this conference
+   * Get the end date of this conference.
+   * @return {Date} the end date of this conference
    */
   Conference.prototype.endDate = function endDate() {
-    return this._END
+    return this._END || new Date()
   }
 
   /**
@@ -171,49 +167,43 @@ module.exports = (function () {
   }
   /**
    * Retrieve all passes of this conference.
-   * @param  {boolean=} starred if true, only retrieve passes that are starred
    * @return {Array<Pass>} a shallow array of all passes of this conference
    */
-  Conference.prototype.getPassesAll = function getPassesAll(starred) {
-    // NOTE method overloading convention is redundant for boolean parameters
-    // if (arguments.length) {
-    //   ;
-    // } else return this.getPassesAll(false)
-    return this._passes.filter(function ($pass) { return (starred) ? $pass.isStarred() : true })
+  Conference.prototype.getPassesAll = function getPassesAll() {
+    return this._passes.slice()
   }
 
   /**
-   * Add a program event to this conference.
-   * @param {ProgramEvent} $programEvent the program event to add
+   * Add a session to this conference.
+   * @param {Session} $session the session to add
    */
-  Conference.prototype.addProgramEvent = function addProgramEvent($programEvent) {
-    this._program_events.push($programEvent)
+  Conference.prototype.addSession = function addSession($session) {
+    this._sessions.push($session)
     return this
   }
   /**
-   * Retrieve a program event of this conference.
-   * @param  {string} name the name of the program event
-   * @return {?ProgramEvent} the specified program event
+   * Retrieve a session of this conference.
+   * @param  {string} name the name of the session
+   * @return {?Session} the specified session
    */
-  Conference.prototype.getProgramEvent = function getProgramEvent(name) {
-    return this._program_events.find(function ($programEvent) { return $programEvent.name() === name }) || null
+  Conference.prototype.getSession = function getSession(name) {
+    return this._sessions.find(function ($session) { return $session.name() === name }) || null
   }
   /**
-   * Remove a program event of this conference.
-   * @param  {string} name the name of the program event
+   * Remove a session of this conference.
+   * @param  {string} name the name of the session
    * @return {Conference} this conference
    */
-  Conference.prototype.removeProgramEvent = function removeProgramEvent(name) {
-    Util.spliceFromArray(this._program_events, this.getProgramEvent(name))
+  Conference.prototype.removeSession = function removeSession(name) {
+    Util.spliceFromArray(this._sessions, this.getSession(name))
     return this
   }
   /**
-   * Retrieve all program events of this conference.
-   * @param  {boolean=} starred if true, only retrieve program events that are starred
-   * @return {Array<ProgramEvent>} a shallow array of all program events of this conference
+   * Retrieve all sessions of this conference.
+   * @return {Array<Session>} a shallow array of all sessions of this conference
    */
-  Conference.prototype.getProgramEventsAll = function getProgramEventsAll(starred) {
-    return this._program_events.filter(function ($programEvent) { return (starred) ? $programEvent.isStarred() : true })
+  Conference.prototype.getSessionsAll = function getSessionsAll() {
+    return this._sessions.slice()
   }
 
   /**
@@ -324,11 +314,10 @@ module.exports = (function () {
   }
   /**
    * Retrieve all important dates of this conference.
-   * @param  {boolean=} starred if true, only retrieve important dates that are starred
    * @return {Array<ImportantDate>} a shallow array of all important dates of this conference
    */
-  Conference.prototype.getImportantDatesAll = function getImportantDatesAll(starred) {
-    return this._important_dates.filter(function ($importantDate) { return (starred) ? $importantDate.isStarred() : true })
+  Conference.prototype.getImportantDatesAll = function getImportantDatesAll() {
+    return this._important_dates.slice()
   }
 
   /**
@@ -403,19 +392,6 @@ module.exports = (function () {
     return Object.assign({}, this._social) // shallow clone this.social into {}
   }
 
-  /**
-   * Set or get the other year blurb of this conference.
-   * This blurb is used if this conference occurs in another year (previous or next year).
-   * @param  {string=} text the other year blurb of this conference
-   * @return {(Conference|string)} this conference || the other year blurb of this conference
-   */
-  Conference.prototype.otherYearBlurb = function otherYearBlurb(text) {
-    if (arguments.length) {
-      this._other_year_blurb = text
-      return this
-    } else return this._other_year_blurb
-  }
-
   // METHODS
   Conference.prototype.setPrice = function setPrice(reg_period, pass, membership, price) {
     //- reg_period = reg_period.name || reg_period
@@ -426,37 +402,43 @@ module.exports = (function () {
     return this
   }
   /**
-   * A group of program events, all of which share the same date (excluding time of day).
+   * NOTE: TYPE DEFINITION
+   * A group of sessions, all of which share the same date (excluding time of day).
    * Contains two properties:
-   * - `date` is the date by which the events are grouped, and
-   * - `events` is an array of those events.
-   * @typedef {Object} ProgramEventGrouping
-   * @property {string} date - the date of all the events in the group
-   * @property {Array<ProgramEvent>} events - an array whose members all have the same date
+   * - `datestr` - a string representing the date by which the sessions are grouped
+   * - `sessions` - an array of those sessions
+   * @typedef {Object} SessionGroup
+   * @property {string} datestr - string in 'YYYY-MM-DD' format of all the sessions in the group
+   * @property {Array<Session>} sessions - an array whose members all have the same date
    */
   /**
-   * Categorize all the program events of this conference by date and return the grouping.
-   * Program events with the same date (excluding time of day) are grouped together.
-   * @see ProgramEvent
-   * @param  {boolean=} starred if true, only consider program events that are starred
-   * @return {ProgramEventGrouping} an object grouping program events together
+   * Categorize all the sessions of this conference by date and return the grouping.
+   * Sessions with the same date (excluding time of day) are grouped together.
+   * @see Session
+   * @param  {boolean=} starred if true, only consider sessions that are starred
+   * @return {Array<SessionGroup>} an array grouping the sessions together
    */
-  Conference.prototype.groupProgramEvents = function groupProgramEvents(starred) {
-    var all_events = this.getProgramEventsAll(starred)
-    return (function ($groupings) {
-      for ($programEvent of all_events) {
-        function dateOf($programEvent1) { return $programEvent1.startDate().slice(0,10) }
-        if (!$groupings.find(function ($obj) { return $obj.date === dateOf($programEvent) })) {
-          $groupings.push({
-            date  : dateOf($programEvent)
-          , events: all_events.filter(function ($programEvent1) {
-              return dateOf($programEvent1) === dateOf($programEvent)
-            })
+  Conference.prototype.groupSessions = function groupSessions(starred) {
+    var all_sessions = this.getSessionsAll().filter(function ($session) {
+      return (starred) ? $session.isStarred() : true
+    })
+    var $groupings = []
+    function equalDays(date1, date2) {
+      return date1.toISOString().slice(0,10) === date2.toISOString().slice(0,10)
+    }
+    for (var $session of all_sessions) {
+      if (!$groupings.find(function ($sessionGroup) {
+        return equalDays($sessionGroup.dateday, $session.startDate())
+      })) {
+        $groupings.push({
+          dateday : $session.startDate()
+        , sessions: all_sessions.filter(function (_event) {
+            return equalDays(_event.startDate(), $session.startDate())
           })
-        }
+        })
       }
-      return $groupings
-    })([])
+    }
+    return $groupings
   }
 
   return Conference

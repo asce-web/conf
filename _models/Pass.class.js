@@ -1,11 +1,9 @@
-/**
- * A set of prices for registration.
- * @type {Pass}
- */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
+   * A set of prices for registration.
    * Constructs a Pass object.
+   * @constructor
    * @param {string} name the name or type of the pass
    */
   function Pass(name) {
@@ -102,13 +100,13 @@ module.exports = (function () {
 
   // STATIC MEMBERS
   /**
+   * REVIEW may not need this class
    * An Attendee Type ("Member", "Non-Member", etc) of a pass.
-  // REVIEW may not need this class
    * @inner
-   * @type {Pass.AttendeeType}
    */
   Pass.AttendeeType = (function () {
     /**
+     * An Attendee Type ("Member", "Non-Member", etc) of a pass.
      * Construct an AttendeeType object, given a name and
      * a boolean specifying whether the object is featured.
      * Both name and “featured” are immutable.

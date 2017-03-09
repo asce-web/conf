@@ -16,29 +16,30 @@ ul.-fs-t
   li: +internalLink(ConfDocs.DOCS.find('obj.html#action-list'))
   li: +internalLink(ConfDocs.DOCS.find('comp.html#buttons'))
 figure.docs-figure
-  header.o-Runner.o-Runner--pageHeader.c-Banner.c-ConfHed: div.o-Constrain
-    h1.c-ConfHed__Name(itemprop="name") Geo-Risk 2020
-    meta(content="2020-06-04" itemprop="startDate")
-    p.c-ConfHed__Detail(itemprop="location")
-      abbr(title="Denver, Colorado") Denver, CO
-    p.-d-n-nsM Plan ahead to attend Geo-Risk next year!
+  include /_views/_Conference.view.pug
+  +otherYear(new Conference({
+    name      : 'Geo-Risk 2020'
+  , url       : 'http://2017.georiskconference.org/'
+  , start_date: new Date('2020-06-04')
+  , promo_loc : { text: 'Denver, CO', title: 'Denver, Colorado'}
+  }), 'Plan ahead to attend Geo-Risk next year!')
     +highlightButtons([
       { text: 'Event Details' , href:'#0', attr: {itemprop:'url'} }
     ], 'c-Btn--ghost c-Btn--ghost--dark')
   +microdataCheckbox('otheryear')
     pre.docs-pre.
-      &lt;header class="o-Runner  o-Runner--pageHeader  c-Banner  c-Banner--next  c-ConfHed"&gt;
+      &lt;aside class="o-Runner  o-Runner--highlight  c-Banner  c-Banner--#[var.docs-var prev|next]  c-ConfHed"&gt;
         &lt;div class="o-Constrain"&gt;
           &lt;h1 class="c-ConfHed__Name"#[mark.docs-c-Togglable__Text  itemprop="name"]&gt;Geo-Risk 2020&lt;/h1&gt;
           #[mark.docs-c-Togglable__Text!= '&lt;meta content="2020-06-04" itemprop="startDate"/&gt;']
           &lt;p class="c-ConfHed__Detail"#[mark.docs-c-Togglable__Text  itemprop="location"]&gt;
             #[mark.docs-c-Togglable__Text &lt;abbr title="Denver, Colorado"&gt;]Denver, CO#[mark.docs-c-Togglable__Text!= '&lt;/abbr&gt;']
           &lt;/p&gt;
-          &lt;p class="-d-n-nsM"&gt;Plan ahead ...&lt;/p&gt;
+          &lt;p class="h-Hidden-nsM"&gt;Plan ahead ...&lt;/p&gt;
           &lt;ul class="o-List  o-ListAction"&gt;
             &lt;li class="o-List__Item  o-ListAction__Item"&gt;
               &lt;a class="c-Btn  c-Btn--hilite  c-Btn--ghost  c-Btn--ghost--dark" href="#0"#[mark.docs-c-Togglable__Text  itemprop="url"]&gt;Event Details&lt;/a&gt;
             &lt;/li&gt;
           &lt;/ul&gt;
         &lt;/div&gt;
-      &lt;/header&gt;
+      &lt;/aside&gt;

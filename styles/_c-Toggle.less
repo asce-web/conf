@@ -2,9 +2,9 @@
 /*################################*\
     conf  |  _c-Toggle.less
 \*################################*/
-@import (reference) url('../node_modules/xmeter/src/__fallback.transform.less');
-@import (reference) url('../node_modules/xmeter/src/__fallback.transform-origin.less');
-@import (reference) url('../node_modules/xmeter/src/__fallback.transition.less');
+@import (reference) url('../node_modules/xmeter/styles/__fallback.transform.less');
+@import (reference) url('../node_modules/xmeter/styles/__fallback.transform-origin.less');
+@import (reference) url('../node_modules/xmeter/styles/__fallback.transition.less');
 @import (reference) url('__settings.less');
 
 
@@ -24,12 +24,20 @@
   @media screen and (min-width: 45em) {
     display: none;
   }
+  noscript a {
+    position: absolute;
+    top: ((75px - 48px)/2); // half height of the mast head // FIXME
+    right: 0.5rem;
+    line-height: @g-line_height; // HACK fallback
+    line-height: var(--line-height); // override `label`
+  }
 }
 
 .c-Toggle__Check {
-  // can’t use `display:none` due to keyboard selection
-  position: absolute;
-  opacity: 0;
+  // using `.h-Hidden`
+  &:focus {
+    position: absolute; // override h-Hidden:focus
+  }
 }
 
 
@@ -43,19 +51,13 @@
 // 2016-07-03
 .c-Toggle__Viz {
   position: absolute;
-  top: ((75px - 48px)/2); // half height of the mast head
+  top: ((75px - 48px)/2); // half height of the mast head // FIXME
   right: 0;
   z-index: 3; // over `.o-Drawer`
   margin: @g-boxpadd_mill;
   border-radius: 0.25rem;
-  noscript &::before {
-    content: 'menu';
-  }
   .c-Toggle__Check:checked ~ & {
     position: fixed;
-    noscript &::before {
-      content: 'close';
-    }
   }
 }
 

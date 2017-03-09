@@ -1,21 +1,19 @@
 var Util = require('./Util.class.js')
 
-/**
- * An interval of dates in which registration prices are set.
- * Assigned at the conference level.
- * @type {RegistrationPeriod}
- */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
+   * REVIEW may not need this class
+   * An interval of dates in which registration prices are set.
+   * Assigned at the conference level.
    * Construct a RegistrationPeriod object.
    * The name, start date, and end date
    * are immutable and must be provided during construction.
    * @constructor
    * @param {Object} $periodinfo an object with the following immutable properties:
    * @param {string} $periodinfo.name the name of the registration period (e.g., 'Early Bird')
-   * @param {string} $periodinfo.start_date the date on which this registration period starts
-   * @param {string} $periodinfo.end_date the date on which this registration period ends
+   * @param {Date} $periodinfo.start_date the date on which this registration period starts
+   * @param {Date} $periodinfo.end_date the date on which this registration period ends
    */
   function RegistrationPeriod($periodinfo) {
     var self = this
@@ -37,18 +35,18 @@ module.exports = (function () {
 
   /**
    * Get the start date of this registration period.
-   * @return {string} the start date of this registration period
+   * @return {Date} the start date of this registration period
    */
   RegistrationPeriod.prototype.startDate = function startDate() {
-    return this._START
+    return this._START || new Date()
   }
 
   /**
    * Get the end date of this registration period.
-   * @return {string} the end date of this registration period
+   * @return {Date} the end date of this registration period
    */
   RegistrationPeriod.prototype.endDate = function endDate() {
-    return this._END
+    return this._END || new Date()
   }
 
   /**

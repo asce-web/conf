@@ -1,6 +1,14 @@
 /*################################*\
     conf  |  default  |  site.less
 \*################################*/
+.c-Banner {
+  --img-hero: url('../img/cable-car.jpg');
+  --img-location: url('../img/portland.jpg');
+  --img-prev: url('http://2015.asceconvention.org/uploadedImages/__Settings/Conference_Microsite_Settings/hero(2).jpg');
+  --img-next: url('http://2017.asceconvention.org/sites/2017.asceconvention.org/files/theme/images/convention-2017-hero.jpg');
+  --img-hero: url('http://2016.asceconvention.org/sites/asceconvention.org/files/portland-skyline-sidebar.jpg');
+  --img-location: url('http://2016.asceconvention.org/sites/asceconvention.org/files/theme/images/portland-mt-hood-asce-2017-banner_0.jpg');
+}
 .c-Banner--hero {
   background-image: url('../img/cable-car.jpg');
 }
@@ -8,7 +16,7 @@
   background-image: url('../img/portland.jpg');
 }
 .c-Banner--prev::before {
-  background-image: url('../img/new-york-city.jpg');
+  background-image: url('http://2015.asceconvention.org/uploadedImages/__Settings/Conference_Microsite_Settings/hero(2).jpg');
 }
 .c-Banner--next::before {
   background-image: url('http://2017.asceconvention.org/sites/2017.asceconvention.org/files/theme/images/convention-2017-hero.jpg');

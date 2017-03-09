@@ -10,7 +10,7 @@ $('input.js-picker').change(function () {
   }
   $('#docs-colors code').each(function () {
     $(this).text(Color.fromString(styleobj[
-      $(this).parents('figure').find('svg').attr('data-prop')
+      $(this).parents('figure').find('[data-prop]').attr('data-prop')
     ]).toString('hex'))
   })
 })

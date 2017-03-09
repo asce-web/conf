@@ -1,14 +1,12 @@
 var Util = require('./Util.class.js')
 
-/**
- * A person.
- * Can be used for any role on the suite.
- * @type {Person}
- */
 module.exports = (function () {
   // CONSTRUCTOR
   /**
+   * A person.
+   * Can be used for any role on the suite.
    * Constructs a Person object.
+   * @constructor
    * @param {string} id a unique identifier of the person
    * @param {Object} $name an object containing the following:
    * @param {string} $name.honorific_prefix a prefix, if any (e.g. 'Mr.', 'Ms.', 'Dr.')
@@ -36,6 +34,7 @@ module.exports = (function () {
     self._url         = ''
     self._social      = {}
     self._bio         = ''
+    self._is_starred  = false
   }
 
   // ACCESSOR FUNCTIONS
@@ -168,6 +167,7 @@ module.exports = (function () {
   /**
    * Set a short, html-friendly biography (“bio”) for this person.
    * @param {string} html html-friendly content
+   * @return {Person} this person
    */
   Person.prototype.setBio = function setBio(html) {
     this._bio = html
@@ -180,6 +180,23 @@ module.exports = (function () {
    */
   Person.prototype.getBio = function getBio(unescaped) {
     return ((unescaped) ? '<!-- warning: unescaped code -->' : '') + this._bio
+  }
+
+  /**
+   * Mark this person as starred.
+   * @param  {boolean=true} bool if true, mark as starred
+   * @return {Person} this person
+   */
+  Person.prototype.star = function star(bool) {
+    this._is_starred = (arguments.length) ? bool : true
+    return this
+  }
+  /**
+   * Get the starred status of this person.
+   * @return {boolean} whether this person is starred
+   */
+  Person.prototype.isStarred = function isStarred() {
+    return this._is_starred
   }
 
   // METHODS

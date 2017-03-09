@@ -18,7 +18,7 @@ module.exports = Object.assign(require('../../_models/options.js'), {
 , Place             : require('../../_models/Place.class.js')
 , RegistrationPeriod: require('../../_models/RegistrationPeriod.class.js')
 , Pass              : require('../../_models/Pass.class.js')
-, ProgramEvent      : require('../../_models/ProgramEvent.class.js')
+, Session           : require('../../_models/Session.class.js')
 , ImportantDate     : require('../../_models/ImportantDate.class.js')
 , ConfDocs          : require('./ConfDocs.class.js')
 })

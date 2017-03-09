@@ -1,4 +1,4 @@
-mixin siteColorList(primary_str, secondary_str, attr_table)
+mixin siteColorList(primary_str, secondary_str)
   - var site_colors = ConfSite.colorStyles(Color.fromString(primary_str), Color.fromString(secondary_str))
   mixin cell(item, index)
     mixin fig($pairing)
@@ -18,7 +18,7 @@ mixin siteColorList(primary_str, secondary_str, attr_table)
     else
       td.o-List__Item.docs-o-ColorList__Item
         +fig(item)
-  table.docs-o-ColorList(style=site_colors)&attributes(attr_table || {})
+  table.docs-o-ColorList(style=site_colors)&attributes(attributes)
     thead: tr
       th(title="Shade 2")
       th(title="Shade 1")
@@ -34,7 +34,7 @@ h4 Docs
 p (this style guide)
 include /_includes/_colorpickers.pug
 +colorPickers('#660000', '#ff6600')
-+siteColorList('#660000', '#ff6600', {id: 'docs-colors'})
++siteColorList('#660000', '#ff6600')#docs-colors
 h4 ASCE 2016
 +siteColorList('#3fae2a', '#00a1e1')
 h4 ASCE 2017

@@ -26,6 +26,7 @@ module.exports = (function () {
     self._supporter_levels = []
     self._supporter_lists  = {}
     self._supporters       = []
+    self._exhibitors       = []
     self._conf_curr_key   = null
     self._conf_prev_key   = null
     self._conf_next_key   = null
@@ -249,6 +250,40 @@ module.exports = (function () {
    */
   ConfSite.prototype.getSupportersAll = function getSupportersAll() {
     return this._supporters.slice()
+  }
+
+  /**
+   * Add an exhibitor to this site.
+   * @param {Exhibitor} $exhibitor the exhibitor to add
+   * @return {ConfSite} this site
+   */
+  ConfSite.prototype.addExhibitor = function addExhibitor($exhibitor) {
+    this._exhibitors.push($exhibitor)
+    return this
+  }
+  /**
+   * Retrieve an exhibitor of this site.
+   * @param  {string} name the name of the exhibitor
+   * @return {?Exhibitor} the specified exhibitor
+   */
+  ConfSite.prototype.getExhibitor = function getExhibitor(name) {
+    return this._exhibitors.find(function ($exhibitor) { return $exhibitor.name() === name }) || null
+  }
+  /**
+   * Remove an exhibitor of this site.
+   * @param  {string} name the name of the exhibitor
+   * @return {ConfSite} this site
+   */
+  ConfSite.prototype.removeExhibitor = function removeExhibitor(name) {
+    Util.spliceFromArray(this._exhibitors, this.getSupporter(name))
+    return this
+  }
+  /**
+   * Retrieve all exhibitors of this site.
+   * @return {Array<Exhibitor>} a shallow array of all exhibitors of this site
+   */
+  ConfSite.prototype.getExhibitorsAll = function getExhibitorsAll() {
+    return this._exhibitors.slice()
   }
 
   // METHODS

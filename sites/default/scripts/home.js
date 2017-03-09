@@ -1,5 +1,5 @@
 var Color = require('csscolor').Color
-var ConfSite = require('../../../_models/ConfSite.class.js')
+var ConfSite = require('neo').ConfSite
 
 $('input.js-picker').change(function () {
   var primary = Color.fromString($('input.js-picker-primary').val())

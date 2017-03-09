@@ -82,7 +82,7 @@ module.exports = (function () {
 
   /**
    * Add a conference to this site.
-   * @param {string} conf_label key for accessing the conference
+   * @param {string} conf_label key for accessing the conference, usually a year
    * @param {Conference} $conference the conference to add
    * @return {ConfSite} this site
    */
@@ -92,7 +92,7 @@ module.exports = (function () {
   }
   /**
    * Retrieve a conference of this site.
-   * @param  {string} conf_label key for accessing the conference
+   * @param  {string} conf_label key for accessing the conference, usually a year
    * @return {Conference} the specified conference
    */
   ConfSite.prototype.getConference = function getConference(conf_label) {
@@ -100,11 +100,11 @@ module.exports = (function () {
   }
   /**
    * This method does nothing.
-   * @param  {string} conf_label any string
+   * @param  {string} conf_label key for accessing the conference, usually a year
    * @return {ConfSite} this site
    */
   ConfSite.prototype.removeConference = function removeConference(conf_label) {
-    console.log('Sorry, you do not have this ability.\
+    console.error('Sorry, you do not have this ability.\
     Instead, add a new conference overwriting the one you wish to delete.')
     return this
   }

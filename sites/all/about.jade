@@ -4,7 +4,7 @@ block append vars
   - var page = site.find('about.html')
 
 block mainReference
-  include /_views/_Conference.view.pug
+  include /node_modules/neo/_views/_Conference.view.pug
   +otherYear(site.prevConference(), 'Access the 2015 program to see which sessions qualify for PDHs and other documentation.').c-Banner--prev
     +highlightButtons([{text:'Event Details', href:site.prevConference().url(), attr:{itemprop:'url'}}], 'c-Btn--ghost c-Btn--ghost--dark')
   +otherYear(site.nextConference(), 'Plan ahead to attend, sponsor, or exhibit at the annual convention for civil engineering professionals.').c-Banner--next

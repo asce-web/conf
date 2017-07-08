@@ -35,7 +35,6 @@
     "gulp-less": "^3.3.2",
     "gulp-pug": "^3.3.0",
     "gulp-sourcemaps": "^2.6.0",
-    "less": "^2.6.0",
     "neo": "git://github.com/asce-web/neo.git#v0.1.0"
   },
   "dependencies": {}

@@ -25,7 +25,7 @@ var ImportantDate      = require('neo').ImportantDate
 
 module.exports = Object.assign(require('../../all/_models/options.js'), {
   site: (function () {
-    var site = new ConfSite('An ASCE Event', '/sites/default/', 'Optional Brand Tagline')
+    var site = new ConfSite('An ASCE Event', '/sites/asce-event.org/', 'Optional Brand Tagline')
       .keywords(['ASCE', 'civil engineering', 'convention'])
       .logo('img/site-logo-white.png')
       .colors(Color.fromString('#3fae2a'), Color.fromString('#00a1e1'))

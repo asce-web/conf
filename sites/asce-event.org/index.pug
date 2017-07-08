@@ -1,4 +1,4 @@
-extends /sites/all/index.jade
+extends ../default/index.pug
 
 block actionButtons
   +highlightButtons([
@@ -17,25 +17,25 @@ block mainMinimal
 
 block callouts
   +highlight().c-Banner
-    include /sites/all/_includes/highlights/_important-dates.pug
+    include ../default/_includes/highlights/_important-dates.pug
   +highlight()
-    include /sites/all/_includes/highlights/_registration.pug
+    include ../default/_includes/highlights/_registration.pug
   +highlight().c-Banner
-    include /sites/all/_includes/highlights/_program.pug
+    include ../default/_includes/highlights/_program.pug
   +highlight().c-Banner.c-Banner--loc.-ta-c
-    include /sites/all/_includes/highlights/_location.pug
+    include ../default/_includes/highlights/_location.pug
   +highlight()
-    include /sites/all/_includes/highlights/_speakers.pug
+    include ../default/_includes/highlights/_speakers.pug
   +highlight().c-Banner
     include _includes/highlights/_co-chairs.pug
   +highlight()
-    include /sites/all/_includes/highlights/_social.pug
+    include ../default/_includes/highlights/_social.pug
   +highlight().c-Banner
     include _includes/highlights/_volunteer.pug
   +highlight()
-    include /sites/all/_includes/highlights/_mobile.pug
+    include ../default/_includes/highlights/_mobile.pug
   +highlight().c-Banner
-    include /sites/all/_includes/highlights/_contact.pug
+    include ../default/_includes/highlights/_contact.pug
 
 block append scripts
   script(src="scripts/home.b.js")

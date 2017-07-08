@@ -28,13 +28,13 @@ gulp.task('pug:default', function () {
         site: new ConfSite()
           .colors(Color.fromString('#660000'), Color.fromString('#ff6600')) // default Hokie colors
           .init()
-          .addConference('sample', new Conference({
+          .addConference('default', new Conference({
             start_date: new Date(),
             end_date  : new Date(),
           }))
-          .currentConference('sample')
-          .prevConference('sample')
-          .nextConference('sample'),
+          .currentConference('default')
+          .prevConference('default')
+          .nextConference('default'),
         page: new ConfPage(),
       },
     }))

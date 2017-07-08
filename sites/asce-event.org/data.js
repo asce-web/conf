@@ -85,7 +85,8 @@ var ImportantDate      = require('neo').ImportantDate
       .prevConference('2015')
       .nextConference('2017')
 
-    site
+    // REVIEW TODO move below Speakers
+    site.currentConference()
       .addSupporterLevel(new SupporterLevel('Platinum' ).size('lrg'))
       .addSupporterLevel(new SupporterLevel('Corporate').size('med'))
       .addSupporterLevel(new SupporterLevel('Silver'   ).size('med'))
@@ -94,11 +95,11 @@ var ImportantDate      = require('neo').ImportantDate
       .addSupporterLevel(new SupporterLevel('Charter Members').size('lrg'))
       .addSupporterLevel(new SupporterLevel('Cooperating Organizations').size('lrg'))
 
-    site
+    site.currentConference()
       .addSupporterLevelList('Sponsors', ['Platinum', 'Corporate', 'Silver', 'Bronze', 'Copper'])
       .addSupporterLevelList('Orgs', ['Charter Members', 'Cooperating Organizations'])
 
-    site
+    site.currentConference()
       .addSupporter(new Supporter('ASCE Foundation')
         .url('http://www.ascefoundation.org/')
         .img('http://www.asceconvention.org/sites/asceconvention.org/files/sponsors/asce-foundation-logo.png')
@@ -215,7 +216,7 @@ var ImportantDate      = require('neo').ImportantDate
         .level('Cooperating Organizations')
       )
 
-    site
+    site.currentConference()
       .addExhibitor(new Exhibitor('AISC')
         .url('https://www.aisc.org/')
         .img('https://www.aisc.org/globalassets/aisc/images/logos/aisc_logo-180.png')

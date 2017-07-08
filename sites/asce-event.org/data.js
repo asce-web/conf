@@ -1,5 +1,3 @@
-// Options and locals for compiling Pug pages.
-
 //- ///////////////////////////////////////////////////////////////////////////////
 //- //
 //- // This file holds 'local' data for the default site instance.
@@ -23,8 +21,6 @@ var Pass               = require('neo').Pass
 var Session            = require('neo').Session
 var ImportantDate      = require('neo').ImportantDate
 
-module.exports = Object.assign(require('../../default/_models/options.js'), {
-  site: (function () {
     var site = new ConfSite('An ASCE Event', '/sites/asce-event.org/', 'Optional Brand Tagline')
       .keywords(['ASCE', 'civil engineering', 'convention'])
       .logo('img/site-logo-white.png')
@@ -780,6 +776,4 @@ module.exports = Object.assign(require('../../default/_models/options.js'), {
         .description(`Listing of all Exhibitors at ${site.currentConference().name()}.`)
       )
 
-    return site
-  })()
-})
+module.exports = site

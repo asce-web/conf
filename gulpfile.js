@@ -1,5 +1,10 @@
 var gulp = require('gulp')
 var pug = require('gulp-pug')
+var less = require('gulp-less')
+var autoprefixer = require('gulp-autoprefixer')
+var clean_css = require('gulp-clean-css')
+var sourcemaps = require('gulp-sourcemaps')
+
 var Color = require('csscolor').Color
 var Util       = require('neo').Util
 var ConfSite   = require('neo').ConfSite
@@ -49,3 +54,23 @@ gulp.task('pug:sample', function () {
 })
 
 gulp.task('pug:all', ['pug:index', 'pug:default', 'pug:sample'])
+
+gulp.task('lessc:sample', function () {
+  return gulp.src('sites/asce-event.org/styles/site.less')
+    .pipe(less())
+    .pipe(autoprefixer({
+      grid: true,
+      cascade: false,
+    }))
+    .pipe(gulp.dest('./sites/asce-event.org/styles/'))
+})
+
+gulp.task('minify:sample', ['lessc:sample'], function () {
+  return gulp.src('sites/asce-event.org/styles/site.css')
+    .pipe(sourcemaps.init())
+    .pipe(clean_css())
+    .pipe(sourcemaps.write('./')) // write to an external .map file
+    .pipe(gulp.dest('./sites/asce-event.org/styles/'))
+})
+
+gulp.task('build', ['pug:all', 'minify:sample'])

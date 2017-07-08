@@ -6,17 +6,15 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lessc:sample": "lessc sites/asce-event.org/styles/site.less sites/asce-event.org/styles/site.css",
-    "lessc:all": "npm run lessc:sample",
     "browserify:home": "browserify sites/asce-event.org/scripts/home.js > sites/asce-event.org/scripts/home.b.js",
     "browserify:all": "npm run browserify:home",
     "unbuild:root": "rm index.html",
     "unbuild:default": "rm sites/default/{index,registration,program,location,speakers,sponsor,exhibit,about,contact}.html",
     "unbuild:sample": "rm sites/asce-event.org/{index,registration,program,location,speakers,sponsor,exhibit,about,contact}.html",
-    "unbuild:css": "rm sites/asce-event.org/styles/site.css",
+    "unbuild:css": "rm sites/asce-event.org/styles/{site.css,site.css.map}",
     "unbuild:js": "rm sites/asce-event.org/scripts/home.b.js",
     "unbuild": "npm run unbuild:root  &&  npm run unbuild:default  &&  npm run unbuild:sample  &&  npm run unbuild:css  &&  npm run unbuild:js",
-    "build": "npm run lessc:all  &&  npm run browserify:all"
+    "build": "npm run browserify:all"
   },
   "repository": {
     "type": "git",
@@ -32,7 +30,11 @@
     "browserify": "^13.1.0",
     "csscolor": "^1.3.1",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.5.0",
+    "gulp-less": "^3.3.2",
     "gulp-pug": "^3.3.0",
+    "gulp-sourcemaps": "^2.6.0",
     "less": "^2.6.0",
     "neo": "git://github.com/asce-web/neo.git#v0.1.0",
     "xmeter": "^5.4.0"

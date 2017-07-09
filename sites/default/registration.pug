@@ -18,14 +18,17 @@ block mainReference
           i.material-icons(role="none")= $registrationPeriod.getIcon()
           small
             -
-              let start = $registrationPeriod.startDate
-              let end   = $registrationPeriod.endDate
+              let start_date = $registrationPeriod.startDate
+              let end_date   = $registrationPeriod.endDate
+              // because the above getters return `new Date()` if none is set
+              let has_start = $registrationPeriod.startDate.toISOString() !== new Date().toISOString()
+              let has_end   = $registrationPeriod.endDate.toISOString()   !== new Date().toISOString()
             b= $registrationPeriod.name
-            = (start && end) ? ': ' : (start) ? ' begins ' : (end) ? ' ends ' : ''
-            if start
-              time(datetime=start)= Util.monthDay(start)
-            if start && end
+            = (has_start && has_end) ? ': ' : (has_start) ? ' begins ' : (has_end) ? ' ends ' : ''
+            if has_start
+              time(datetime=start_date)= Util.monthDay(start_date)
+            if has_stare && has_end
               | &ndash;
-            if end
-              time(datetime=end)= Util.monthDay(end)
+            if has_end
+              time(datetime=end_date)= Util.monthDay(end_date)
     +highlightButtons([{text:'Register Today!', href:'#0'}], 'c-Btn--secondary')

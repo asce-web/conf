@@ -18,9 +18,9 @@ block mainReference
           i.material-icons(role="none")= $registrationPeriod.getIcon()
           small
             -
-              var start = $registrationPeriod.startDate()
-              var end   = $registrationPeriod.endDate()
-            b= $registrationPeriod.name()
+              let start = $registrationPeriod.startDate
+              let end   = $registrationPeriod.endDate
+            b= $registrationPeriod.name
             = (start && end) ? ': ' : (start) ? ' begins ' : (end) ? ' ends ' : ''
             if start
               time(datetime=start)= Util.monthDay(start)

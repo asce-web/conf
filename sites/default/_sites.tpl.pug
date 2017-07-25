@@ -82,8 +82,8 @@ html(lang="en")
           +highlight().c-Banner.c-Banner--orgs
             h1.h-Hidden#additional-supporters Additional Supporters
             include /node_modules/neo/_views/_SupporterLevel.view.pug
-            each $supporterLevel,index in site.currentConference().getSupporterLevelList('Orgs')
-              +supporterBlock($supporterLevel, site.currentConference())(class={ 'c-SupporterBlock--separate': index < site.currentConference().getSupporterLevelList('Orgs').length-1 })
+            each $supporterLevel,index in site.currentConference().getSupporterLevelQueue('Orgs')
+              +supporterBlock($supporterLevel, site.currentConference())(class={ 'c-SupporterBlock--separate': index < site.currentConference().getSupporterLevelQueue('Orgs').length-1 })
     footer.o-Runner.c-Mast.c-Mast--sitemap#site-map: nav.o-Constrain
       h1.h-Hidden Site Map
       include /node_modules/neo/_views/_c-Sitemap.view.pug

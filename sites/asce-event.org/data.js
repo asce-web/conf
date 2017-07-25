@@ -93,8 +93,8 @@ var ImportantDate      = require('neo').ImportantDate
       .addSupporterLevel(new SupporterLevel('Cooperating Organizations').size('lrg'))
 
     site.currentConference()
-      .addSupporterLevelList('Sponsors', ['Platinum', 'Corporate', 'Silver', 'Bronze', 'Copper'])
-      .addSupporterLevelList('Orgs', ['Charter Members', 'Cooperating Organizations'])
+      .addSupporterLevelQueue('Sponsors', ['Platinum', 'Corporate', 'Silver', 'Bronze', 'Copper'])
+      .addSupporterLevelQueue('Orgs', ['Charter Members', 'Cooperating Organizations'])
 
     site.currentConference()
       .addSupporter(new Supporter('ASCE Foundation')

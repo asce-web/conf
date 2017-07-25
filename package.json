@@ -14,7 +14,7 @@
     "unbuild:css": "rm sites/asce-event.org/styles/{site.css,site.css.map}",
     "unbuild:js": "rm sites/asce-event.org/scripts/home.b.js",
     "unbuild": "npm run unbuild:root  &&  npm run unbuild:default  &&  npm run unbuild:sample  &&  npm run unbuild:css  &&  npm run unbuild:js",
-    "build": "npm run browserify:all"
+    "build": "gulp build  &&  npm run browserify:all"
   },
   "repository": {
     "type": "git",
@@ -35,7 +35,7 @@
     "gulp-less": "^3.3.2",
     "gulp-pug": "^3.3.0",
     "gulp-sourcemaps": "^2.6.0",
-    "neo": "git://github.com/asce-web/neo.git#v0.1.0"
+    "neo": "git://github.com/asce-web/neo.git#v0.4.0"
   },
   "dependencies": {}
 }

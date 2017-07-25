@@ -47,6 +47,7 @@ gulp.task('pug:sample', function () {
       basedir: './',
       locals: {
         Util: Util,
+        Person: require('neo').Person,
         site: require('./sites/asce-event.org/data.js'),
       },
     }))

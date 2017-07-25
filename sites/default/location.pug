@@ -14,5 +14,5 @@ block mainReference
       each $place,key in site.currentConference().getVenuesAll()
         li.o-List__Item.o-ListAction__Item.c-Alert__Item: section
           h1.-fz-el-mega= key
-          p(itemscope="" itemtype="http://schema.org/Place")&attributes(($place===site.currentConference().conferenceVenue()) ? {itemprop:'location'} : {})
+          p(itemscope="" itemtype="http://schema.org/Place")&attributes(($place===site.currentConference().officialVenue()) ? {itemprop:'location'} : {})
             != $place.html()

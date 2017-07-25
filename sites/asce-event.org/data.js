@@ -380,7 +380,7 @@ var ImportantDate      = require('neo').ImportantDate
       }))
 
     site.currentConference()
-      .conferenceVenue('Conference Venue')
+      .officialVenue('Conference Venue')
 
     site.currentConference()
       .addSpeaker(new Person('donna-fulman', {

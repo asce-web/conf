@@ -398,12 +398,12 @@ var ImportantDate      = require('neo').ImportantDate
         .addSocial('facebook', '#0', 'Donna’s Facebook Profile')
         .addSocial('google'  , '#0', 'Donna’s Google+ Profile')
         .addSocial('youtube' , '#0', 'Donna’s YouTube Channel')
-        .setBio('<p>Donna Fulman is an award-winning, German designer raised in Austria\
-          and currently living in New York City.</p>\
-          <p>Former Lead Product Designer and Art Director at Spotify, she recently founded\
-          Semplice and at the same time serves on the\
-          <abbr title="American Institute of Graphic Arts">AIGA</abbr>\
-          Board of Directors in New York.</p>')
+        // .setBio(`<p>Donna Fulman is an award-winning, German designer raised in Austria
+        //   and currently living in New York City.</p>
+        //   <p>Former Lead Product Designer and Art Director at Spotify, she recently founded
+        //   Semplice and at the same time serves on the
+        //   <abbr title="American Institute of Graphic Arts">AIGA</abbr>
+        //   Board of Directors in New York.</p>`)
         .star()
       )
       .addSpeaker(new Person('rachel-falsetti', {
@@ -421,13 +421,13 @@ var ImportantDate      = require('neo').ImportantDate
         .addSocial('facebook', '#0', 'Donna’s Facebook Profile')
         .addSocial('google'  , '#0', 'Donna’s Google+ Profile')
         .addSocial('youtube' , '#0', 'Donna’s YouTube Channel')
-        .setBio('<p>Susan R. Rowghani is the Director of Water Engineering and\
-          Technical Services (WETS) at the Los Angeles Department of Water and Power (LADWP),\
-          the largest municipally owned utility in the US. In this role, she is responsible\
-          for the planning, design and construction of all of the LADWP Water System’s\
-          major capital construction projects. The Los Angeles Water System capital\
-          program is approximately $1 billion annually; about 50% of that amount\
-          is managed under WETS.</p>')
+        // .setBio(`<p>Susan R. Rowghani is the Director of Water Engineering and
+        //   Technical Services (WETS) at the Los Angeles Department of Water and Power (LADWP),
+        //   the largest municipally owned utility in the US. In this role, she is responsible
+        //   for the planning, design and construction of all of the LADWP Water System’s
+        //   major capital construction projects. The Los Angeles Water System capital
+        //   program is approximately $1 billion annually; about 50% of that amount
+        //   is managed under WETS.</p>`)
       )
       .addSpeaker(new Person('diego-alvarez', {
           given_name      : 'Diego'
@@ -443,20 +443,20 @@ var ImportantDate      = require('neo').ImportantDate
         .addSocial('facebook', '#0', 'Donna’s Facebook Profile')
         .addSocial('google'  , '#0', 'Donna’s Google+ Profile')
         .addSocial('youtube' , '#0', 'Donna’s YouTube Channel')
-        .setBio('<p>Diego currently serves Los Angeles World Airports (LAWA)\
-          in the Planning & Development Group (PDG) as the Director of Modernization\
-          and Development. In this charge, Diego works on major elements of Los Angeles\
-          International (LAX) Airport’s Capital Improvement Program (CIP), which has\
-          a projected value of over $14 billion.  Diego has also served as the lead\
-          planner the Landside Access Modernization Program (LAMP), a $5+ billion\
-          effort to reconfigure, redevelop, and modernize access and egress to LAX,\
-          bringing it in line with other global gateways around the world. The Program\
-          includes major capital elements, including an Automated People Mover (APM) System,\
-          a Consolidated Rent-A-Car (CONRAC) center, new multi-modal facilities, and a\
-          comprehensive set of roadway improvements. Prior to that effort, Diego led\
-          efforts to update the LAX Master Plan, assessing and entitling critical new\
-          and modified airfield, terminal, and ground access facilities at LAX,\
-          the busiest origin and destination airport in the world.</p>')
+        // .setBio(`<p>Diego currently serves Los Angeles World Airports (LAWA)
+        //   in the Planning & Development Group (PDG) as the Director of Modernization
+        //   and Development. In this charge, Diego works on major elements of Los Angeles
+        //   International (LAX) Airport’s Capital Improvement Program (CIP), which has
+        //   a projected value of over $14 billion.  Diego has also served as the lead
+        //   planner the Landside Access Modernization Program (LAMP), a $5+ billion
+        //   effort to reconfigure, redevelop, and modernize access and egress to LAX,
+        //   bringing it in line with other global gateways around the world. The Program
+        //   includes major capital elements, including an Automated People Mover (APM) System,
+        //   a Consolidated Rent-A-Car (CONRAC) center, new multi-modal facilities, and a
+        //   comprehensive set of roadway improvements. Prior to that effort, Diego led
+        //   efforts to update the LAX Master Plan, assessing and entitling critical new
+        //   and modified airfield, terminal, and ground access facilities at LAX,
+        //   the busiest origin and destination airport in the world.</p>`)
         .star()
       )
       .addSpeaker(new Person('jeremy-boak', {
@@ -473,17 +473,17 @@ var ImportantDate      = require('neo').ImportantDate
         .addSocial('facebook', '#0', 'Donna’s Facebook Profile')
         .addSocial('google'  , '#0', 'Donna’s Google+ Profile')
         .addSocial('youtube' , '#0', 'Donna’s YouTube Channel')
-        .setBio('<p>Jeremy Boak started as Director of the Oklahoma Geological Survey\
-          in July 2015. He was Director of the Center for Oil Shale Technology and Research\
-          at the Colorado School of Mines from 2008-2015. Before that, he was a project\
-          manager at Los Alamos National Laboratory, and manager for performance assessment\
-          of Yucca Mountain at the U. S. Department of Energy.</p>\
-          <p>Dr. Boak was an exploration geologist at ARCO Oil and Gas, Inc.,\
-          in Anchorage, Denver, and Bakersfield. He received BA and MS degrees,\
-          and his doctorate in Geological Sciences from Harvard University.\
-          He also received an MS degree from the University of Washington in Geological Sciences.\
-          Dr. Boak is married to Anna Stafford, a petroleum geologist and oil finder,\
-          and has a stepson Chris.</p>')
+        // .setBio(`<p>Jeremy Boak started as Director of the Oklahoma Geological Survey
+        //   in July 2015. He was Director of the Center for Oil Shale Technology and Research
+        //   at the Colorado School of Mines from 2008-2015. Before that, he was a project
+        //   manager at Los Alamos National Laboratory, and manager for performance assessment
+        //   of Yucca Mountain at the U. S. Department of Energy.</p>
+        //   <p>Dr. Boak was an exploration geologist at ARCO Oil and Gas, Inc.,
+        //   in Anchorage, Denver, and Bakersfield. He received BA and MS degrees,
+        //   and his doctorate in Geological Sciences from Harvard University.
+        //   He also received an MS degree from the University of Washington in Geological Sciences.
+        //   Dr. Boak is married to Anna Stafford, a petroleum geologist and oil finder,
+        //   and has a stepson Chris.</p>`)
       )
       .addSpeaker(new Person('muralee-muraleetharan', {
           given_name      : 'Muralee'
@@ -499,22 +499,22 @@ var ImportantDate      = require('neo').ImportantDate
         .addSocial('facebook', '#0', 'Donna’s Facebook Profile')
         .addSocial('google'  , '#0', 'Donna’s Google+ Profile')
         .addSocial('youtube' , '#0', 'Donna’s YouTube Channel')
-        .setBio('<p>Prof. K.K. “Muralee” Muraleetharan is an Associate Director of OU’s\
-          National Institute for Risk and Resilience. He joined OU in 1994 after working\
-          as a consulting engineer in California for 6 years. He is a registered\
-          Professional Engineer (P.E.) and registered Geotechnical Engineer (G.E.)\
-          in California. In California, he worked on several major projects such as\
-          the earthquake engineering design of Port of Los Angeles’ Pier 400 and geotechnical\
-          and environmental investigations for the Los Angles Metro Rail subway tunnels.\
-          At OU he has been a Principal Investigator (PI) or Co-PI on research grants\
-          totaling over $10 million. He was elected as a Fellow of the\
-          American Society of Civil Engineers (ASCE) in 2006.</p></p>Prof. Muraleetharan\
-          is interested in large-scale computer simulations of infrastructure\
-          (bridges, roads, levees, port facilities, etc.) subjected to extreme events\
-          (earthquakes, hurricanes, blasts, etc.), validations of these simulations\
-          using small-scale (e.g. centrifuge models) and full-scale testing, and\
-          resilience of infrastructure following extreme events. His computer simulation\
-          research involves scalable, parallel computing using finite element frameworks.</p>')
+        // .setBio(`<p>Prof. K.K. “Muralee” Muraleetharan is an Associate Director of OU’s
+        //   National Institute for Risk and Resilience. He joined OU in 1994 after working
+        //   as a consulting engineer in California for 6 years. He is a registered
+        //   Professional Engineer (P.E.) and registered Geotechnical Engineer (G.E.)
+        //   in California. In California, he worked on several major projects such as
+        //   the earthquake engineering design of Port of Los Angeles’ Pier 400 and geotechnical
+        //   and environmental investigations for the Los Angles Metro Rail subway tunnels.
+        //   At OU he has been a Principal Investigator (PI) or Co-PI on research grants
+        //   totaling over $10 million. He was elected as a Fellow of the
+        //   American Society of Civil Engineers (ASCE) in 2006.</p></p>Prof. Muraleetharan
+        //   is interested in large-scale computer simulations of infrastructure
+        //   (bridges, roads, levees, port facilities, etc.) subjected to extreme events
+        //   (earthquakes, hurricanes, blasts, etc.), validations of these simulations
+        //   using small-scale (e.g. centrifuge models) and full-scale testing, and
+        //   resilience of infrastructure following extreme events. His computer simulation
+        //   research involves scalable, parallel computing using finite element frameworks.</p>`)
         .star()
       )
 

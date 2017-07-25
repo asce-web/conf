@@ -36,10 +36,7 @@ var ImportantDate      = require('neo').ImportantDate
       , url       : 'http://2016.asceconvention.org/'
       , promo_loc : {
           text : 'Portland, OR'
-        , title: 'Portland, Oregon'
-        , blurb: 'With sweeping views of the surrounding mountains and a bustling \
-            downtown full of shopping, locally sourced dining, and entertainment, \
-            Portland is a wonderful destination for business and leisure.'
+        , alt  : 'Portland, Oregon'
         }
       }))
       .addConference('2015', new Conference({
@@ -50,7 +47,7 @@ var ImportantDate      = require('neo').ImportantDate
       , url       : 'http://2015.asceconvention.org/'
       , promo_loc : {
           text : 'New York, NY'
-        , title: 'New York, New York'
+        , alt  : 'New York, New York'
         }
       })
         .addVenue('Conference Venue', new Place('New York Marriott Marquis', {
@@ -69,7 +66,7 @@ var ImportantDate      = require('neo').ImportantDate
       , url       : 'http://2017.asceconvention.org/'
       , promo_loc : {
           text : 'New Orleans, LA'
-        , title: 'New Orleans, Louisiana'
+        , alt  : 'New Orleans, Louisiana'
         }
       })
         .addVenue('Conference Venue', new Place('New Orleans Mariott', {

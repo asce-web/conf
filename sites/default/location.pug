@@ -11,9 +11,8 @@ block mainReference
   section.o-Runner.o-Runner--highlight.-ta-c#important-locations: div.o-Constrain
     h1.h-Hidden Important Locations
     ul.o-List.o-ListAction.c-Callout
-      include /node_modules/neo/_views/_place.view.pug
       each $place,key in site.currentConference().getVenuesAll()
         li.o-List__Item.o-ListAction__Item.c-Callout__Item: section
           h1.-fz-el-mega= key
           p(itemscope="" itemtype="http://schema.org/Place")&attributes(($place===site.currentConference().conferenceVenue()) ? {itemprop:'location'} : {})
-            +place($place)
+            != $place.html()

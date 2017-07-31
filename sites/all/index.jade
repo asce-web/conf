@@ -1,9 +1,0 @@
-extends _sites.tpl.jade
-
-block append vars
-  - var page = site.find('index.html')
-
-block mainHeader
-  include /_views/_Conference.view.pug
-  +hero(site.currentConference())
-    block actionButtons
